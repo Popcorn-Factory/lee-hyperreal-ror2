@@ -1,0 +1,210 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: e3superliriflemd040011
+  m_Shader: {fileID: 4800000, guid: 2060acf31ffc1b246b74bc690859787a, type: 2}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    QUEUE: Geometry
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: 9a477dc5363bbb548ae16565afecaa37, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _CubeMap:
+        m_Texture: {fileID: 8900000, guid: 78537eff42b4c7d4288a236f3631d7df, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionFlowMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FaceMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlowControlMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlowTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 43ea40c2a6d4c2a41868fcbdc8fa733d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MaskTex:
+        m_Texture: {fileID: 2800000, guid: f7fa5938f218a054391e625c85cc7d1b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MatCapTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _PBRMask:
+        m_Texture: {fileID: 2800000, guid: e666716a508259040a036b68da147698, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ReflectionCube:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ReflectionMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SkinRamp:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _XLightmap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - IF_CUBEMAP_ROTATION: 0
+    - IF_DISABLE_DISTANCE_RIM: 0
+    - IF_GI_SKIN: 0
+    - IF_INVERT_SPECULAR: 0
+    - IF_MAIN_ALPHA_FOR_SHADOWMASK: 0
+    - IF_RIM: 1
+    - IF_SHADOW_OBJECT_SPACE_NORMAL_MAP_Y: 0
+    - IF_SKIN: 0
+    - IF_SMOOTH_SHADOW: 0
+    - IF_SPECULAR_SHADOW_INTENSITY: 1
+    - IF_USE_MATCAP_ALPHA: 0
+    - IF_XSPECULAR_BLOOM: 0
+    - _AOScale: 1
+    - _AlbedoColorIntensity: 1
+    - _Alpha: 1
+    - _BlendMode: 0
+    - _BloomFactor: 0.04
+    - _BloomModIntensity: 1
+    - _BumpScale: 1
+    - _ColorMask: 15
+    - _CubemapIntensity: 1
+    - _Cull: 0
+    - _Cutoff: 0.655
+    - _DepthPassColorMask: 15
+    - _DstBlend: 0
+    - _EffectRimFading: 0
+    - _EffectRimIntensity: 0
+    - _EffectRimTransparency: 0
+    - _Effect_Ratio: 1
+    - _EmissionBloomFactor: 2.12
+    - _EmissionIntensity: 0.42
+    - _EmissionMode: 0
+    - _EmmisionFogIntensity: 1
+    - _FaceMark: 0
+    - _FaceShadowSmoothFactor: 0
+    - _FirstShadow: 0.51
+    - _FlowAnimateValue: 0
+    - _FlowCutMaskThreshold: 0.01
+    - _FlowIntensity: 0.5
+    - _FlowThreshold: 1
+    - _GrayIntensity: 0
+    - _IndirectLightIntensity: 1
+    - _IsMirror: 0
+    - _Lerp_SpecularIntensity: 1
+    - _MatCapYScale: 0.2
+    - _MatcapMask: 1
+    - _Metallic: 1
+    - _MetallicMapScale: 1
+    - _Mirror_BloomModify: 1
+    - _Mirror_Reflection: 0.5
+    - _Mode: 0
+    - _PBRMode: 2
+    - _PBRRate: 1
+    - _PBRSpecularIntensity: 1
+    - _ReflectionFresnel: 5
+    - _ReflectionIntensity: 0.5
+    - _ReflectionMin: 0.3
+    - _RimDistanceMax: 20
+    - _RimDistanceMin: 20
+    - _RimIntensity: 0.2
+    - _RimMax: 0.94
+    - _RimMin: 0.9
+    - _RimThreshold: 1
+    - _Roughness: 1
+    - _RoughnessMapScale: 1
+    - _SecondShadow: 0.51
+    - _SkinIntensity: 1
+    - _SkinRate: 1
+    - _SmoothFactor: 0.0001
+    - _SpecularBloomIntensity: 0
+    - _SpecularBloomThreshold: 1
+    - _SpecularIntensity: 5
+    - _SpecularShadowIntensity: 0.036
+    - _SpecularShiness: 10
+    - _SpecularSmoothFactor: 0.0001
+    - _SrcBlend: 1
+    - _StencilCompareRef: 8
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
+    - _StencilWriteRef: 6
+    - _UseCustomRenderQueue: 0
+    - _ZTest: 4
+    - _ZWrite: 1
+    m_Colors:
+    - _AfterImage_BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _AfterImage_RimColor: {r: 1, g: 1, b: 1, a: 1}
+    - _AfterImage_RimRange: {r: 1, g: 1, b: 1, a: 1}
+    - _AlbedoColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BloomModColor: {r: 1, g: 1, b: 1, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _CubemapColor: {r: 1, g: 1, b: 1, a: 1}
+    - _DirectLightColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EffectRimColor: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissionColor: {r: 1, g: 0.7971698, b: 0.7971698, a: 1}
+    - _FirstShadowColor: {r: 0.8207547, g: 0.792981, b: 0.76268244, a: 0}
+    - _FirstShadowColor1: {r: 1, g: 1, b: 1, a: 0}
+    - _FirstShadowColor2: {r: 1, g: 1, b: 1, a: 0}
+    - _FirstShadowColor3: {r: 1, g: 1, b: 1, a: 0}
+    - _FlowEndColor: {r: 0, g: 0, b: 0, a: 0}
+    - _FlowSpeed: {r: 0.1, g: 0.1, b: -0.1, a: 0.1}
+    - _FlowStartColor: {r: 0, g: 0, b: 0, a: 0}
+    - _GlobalTint: {r: 1, g: 1, b: 1, a: 1}
+    - _IndirectLightColor: {r: 1, g: 1, b: 1, a: 1}
+    - _LightDirRotation: {r: 0.2, g: 0.2, b: 0, a: 0}
+    - _MutliSkinIntensity: {r: 1, g: 1, b: 1, a: 1}
+    - _MutliSkinRate: {r: 1, g: 1, b: 1, a: 1}
+    - _NoShadowColor: {r: 1, g: 1, b: 1, a: 0}
+    - _NoShadowColor1: {r: 1, g: 1, b: 1, a: 0}
+    - _NoShadowColor2: {r: 1, g: 1, b: 1, a: 0}
+    - _NoShadowColor3: {r: 1, g: 1, b: 1, a: 0}
+    - _PBRSpecularColor: {r: 1, g: 1, b: 1, a: 1}
+    - _RimColor: {r: 0.73333335, g: 0.90196085, b: 0.95294124, a: 1}
+    - _SecondShadowColor: {r: 0.8196079, g: 0.79215693, b: 0.7607844, a: 0}
+    - _SecondShadowColor1: {r: 1, g: 1, b: 1, a: 0}
+    - _SecondShadowColor2: {r: 1, g: 1, b: 1, a: 0}
+    - _SecondShadowColor3: {r: 1, g: 1, b: 1, a: 0}
+    - _SkinColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SkinColor1: {r: 1, g: 1, b: 1, a: 1}
+    - _SkinColor2: {r: 1, g: 1, b: 1, a: 1}
+    - _SkinColor3: {r: 1, g: 1, b: 1, a: 1}
+    - _SkinColor4: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecularColor: {r: 0.7924528, g: 0.7924528, b: 0.7924528, a: 1}
+    - _SpeedDir: {r: 0, g: 0, b: 0, a: 0}
