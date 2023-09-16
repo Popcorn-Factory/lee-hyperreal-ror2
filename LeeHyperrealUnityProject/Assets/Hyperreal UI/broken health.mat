@@ -10,10 +10,10 @@ Material:
   m_Name: broken health
   m_Shader: {fileID: 4800000, guid: 95da47fe2c8e7f140a2dc8b1e1246df6, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3001
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -77,6 +77,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
+    - _ChromaticPower: 0
+    - _Chromaticdispersion: 0
     - _ColorMask: 28.7
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1

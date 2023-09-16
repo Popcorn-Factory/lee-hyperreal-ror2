@@ -5,7 +5,6 @@ Shader "UI Hyperreal health"
 	Properties
 	{
 		_TextureSample1("Texture Sample 1", 2D) = "white" {}
-		_Cutoff( "Mask Clip Value", Float ) = 0.5
 		_TextureSample2("Texture Sample 2", 2D) = "white" {}
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1
@@ -30,7 +29,6 @@ Shader "UI Hyperreal health"
 
 		uniform sampler2D _TextureSample2;
 		uniform sampler2D _TextureSample1;
-		uniform float _Cutoff = 0.5;
 
 		void surf( Input i , inout SurfaceOutputStandard o )
 		{
@@ -44,10 +42,9 @@ Shader "UI Hyperreal health"
 			float temp_output_11_0_g9 = distance( temp_output_1_0_g9 , temp_output_2_0_g9 );
 			float4 lerpResult21_g9 = lerp( color111 , temp_output_1_0_g9 , saturate( ( ( temp_output_11_0_g9 - 1.0 ) / max( 0.18 , 1E-05 ) ) ));
 			o.Emission = lerpResult21_g9.rgb;
-			o.Alpha = 1;
-			float2 uv_TexCoord26 = i.uv_texcoord * float2( 7,1.5 );
+			float2 uv_TexCoord26 = i.uv_texcoord * float2( 5,1 );
 			float2 panner23 = ( _Time.w * float2( -0.2,-0.1 ) + uv_TexCoord26);
-			clip( ( tex2D( _TextureSample1, panner23 ).a * tex2DNode94.a ) - _Cutoff );
+			o.Alpha = ( tex2D( _TextureSample1, panner23 ).a * tex2DNode94.a );
 		}
 
 		ENDCG
@@ -75,6 +72,7 @@ Shader "UI Hyperreal health"
 			#include "UnityCG.cginc"
 			#include "Lighting.cginc"
 			#include "UnityPBSLighting.cginc"
+			sampler3D _DitherMaskLOD;
 			struct v2f
 			{
 				V2F_SHADOW_CASTER;
@@ -117,6 +115,8 @@ Shader "UI Hyperreal health"
 				#if defined( CAN_SKIP_VPOS )
 				float2 vpos = IN.pos;
 				#endif
+				half alphaRef = tex3D( _DitherMaskLOD, float3( vpos.xy * 0.25, o.Alpha * 0.9375 ) ).a;
+				clip( alphaRef - 0.01 );
 				SHADOW_CASTER_FRAGMENT( IN )
 			}
 			ENDCG
@@ -144,9 +144,9 @@ Node;AmplifyShaderEditor.RangedFloatNode;114;454.8367,83.65735;Inherit;False;Con
 Node;AmplifyShaderEditor.RangedFloatNode;115;318.8367,376.6573;Inherit;False;Constant;_Float4;Float 4;3;0;Create;True;0;0;0;False;0;False;0.18;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.FunctionNode;112;61.04285,-277.8064;Inherit;False;Replace Color;-1;;9;896dccb3016c847439def376a728b869;1,12,0;5;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;3;COLOR;0,0,0,0;False;4;FLOAT;0;False;5;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;110;87.37634,-516.4681;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
-Node;AmplifyShaderEditor.StandardSurfaceOutputNode;65;335.9698,-437.7402;Float;False;True;-1;6;ASEMaterialInspector;0;0;Standard;UI Hyperreal health;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;False;False;False;False;False;False;Back;0;False;;0;False;;False;0;False;;0;False;;False;0;Custom;0.5;True;True;0;True;Overlay;;Overlay;ForwardOnly;12;all;True;True;True;True;0;False;;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;0;32;10;25;True;1;True;2;5;False;;10;False;;0;0;False;;0;False;;0;False;;0;False;;0;False;2;1,0,0,0;VertexOffset;False;False;Cylindrical;False;True;Relative;0;;1;-1;-1;-1;0;True;0;0;False;;-1;0;False;;0;0;0;False;0.1;False;;0;False;;False;16;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
 Node;AmplifyShaderEditor.SamplerNode;58;-282.468,-610.2484;Inherit;True;Property;_TextureSample1;Texture Sample 1;0;0;Create;True;0;0;0;False;0;False;-1;None;1d227b4ae90d026498f580708d48d522;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.Vector2Node;92;-1192.767,-345.6172;Inherit;False;Constant;_Vector1;Vector 1;3;0;Create;True;0;0;0;False;0;False;7,1.5;0,0;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
+Node;AmplifyShaderEditor.StandardSurfaceOutputNode;65;335.9698,-437.7402;Float;False;True;-1;6;ASEMaterialInspector;0;0;Standard;UI Hyperreal health;False;False;False;False;False;False;False;False;False;False;False;False;False;False;True;False;False;False;False;False;False;Back;0;False;;0;False;;False;0;False;;0;False;;False;0;Custom;0.5;True;True;0;True;Overlay;;Overlay;ForwardOnly;12;all;True;True;True;True;0;False;;False;0;False;;255;False;;255;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;False;0;32;10;25;True;1;True;2;5;False;;10;False;;0;0;False;;0;False;;0;False;;0;False;;0;False;2;1,0,0,0;VertexOffset;False;False;Cylindrical;False;True;Relative;0;;1;-1;-1;-1;0;True;0;0;False;;-1;0;False;;0;0;0;False;0.1;False;;0;False;;False;16;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT3;0,0,0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT3;0,0,0;False;7;FLOAT3;0,0,0;False;8;FLOAT;0;False;9;FLOAT;0;False;10;FLOAT;0;False;13;FLOAT3;0,0,0;False;11;FLOAT3;0,0,0;False;12;FLOAT3;0,0,0;False;14;FLOAT4;0,0,0,0;False;15;FLOAT3;0,0,0;False;0
+Node;AmplifyShaderEditor.Vector2Node;92;-1192.767,-345.6172;Inherit;False;Constant;_Vector1;Vector 1;3;0;Create;True;0;0;0;False;0;False;5,1;0,0;0;3;FLOAT2;0;FLOAT;1;FLOAT;2
 WireConnection;26;0;92;0
 WireConnection;23;0;26;0
 WireConnection;23;2;91;0
@@ -163,8 +163,8 @@ WireConnection;112;4;114;0
 WireConnection;112;5;115;0
 WireConnection;110;0;58;4
 WireConnection;110;1;94;4
-WireConnection;65;2;112;0
-WireConnection;65;10;110;0
 WireConnection;58;1;23;0
+WireConnection;65;2;112;0
+WireConnection;65;9;110;0
 ASEEND*/
-//CHKSM=6F3A8C80DA6E5A83211EF191CCDD821DBF10D545
+//CHKSM=FE6F9E6500F7E146B3D0098B5D9C10958E3BFA77
