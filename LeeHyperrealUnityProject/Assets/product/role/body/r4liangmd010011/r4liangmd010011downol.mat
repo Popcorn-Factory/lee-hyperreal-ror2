@@ -8,33 +8,87 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: r4liangmd010011downol
-  m_Shader: {fileID: 4800000, guid: 1136a34d22b1fcd44ba1254c6fe3cc6a, type: 2}
+  m_Shader: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _MULTI_OUTLINE_COLOR _OUTLINE_VERTEX_COLOR _USER_OUTLINE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2001
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
-    m_TexEnvs: []
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Alpha: 1
+    - _BumpScale: 1
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DstBlend: 0
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _Mode: 0
+    - _OcclusionStrength: 1
     - _OutlineBloom: 0.1
     - _OutlineStencilCompare: 8
+    - _Parallax: 0.02
+    - _SmoothnessTextureChannel: 0
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
     - _StencilWriteRef: 6
+    - _UVSec: 0
     - _XCharOutlineWidth: 2
     - _XOutlineBrightness: 1
     - _XOutlineDitanceScale: 0.015
     - _XOutlineZMaxOffset: 0
     - _XOutlineZOffset: 0
     - _ZTest: 4
+    - _ZWrite: 1
     m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _OutlineColor: {r: 0.05, g: 0.05, b: 0.05, a: 0.3}
     - _OutlineColor2: {r: 0.050980397, g: 0.050980397, b: 0.050980397, a: 0.3}
     - _OutlineColor3: {r: 0.15, g: 0.15, b: 0.15, a: 0.3}
     - _OutlineColor4: {r: 0.2735849, g: 0.21232942, b: 0.15873086, a: 0.3}
     - _OutlineColor5: {r: 0.050980397, g: 0.050980397, b: 0.050980397, a: 0.3}
+    - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
