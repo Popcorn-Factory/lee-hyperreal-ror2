@@ -12,9 +12,9 @@ namespace LeeHyperrealMod.Modules.Survivors
     {
         //used when building your character using the prefabs you set up in unity
         //don't upload to thunderstore without changing this
-        public override string prefabBodyName => "Lee Hyperreal";
+        public override string prefabBodyName => "Lee: Hyperreal";
 
-        public const string PLUGIN_PREFIX = LeeHyperrealPlugin.DEVELOPER_PREFIX + "_HENRY_BODY_";
+        public const string PLUGIN_PREFIX = LeeHyperrealPlugin.DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_";
 
         //used when registering your survivor's language tokens
         public override string survivorTokenPrefix => PLUGIN_PREFIX;
