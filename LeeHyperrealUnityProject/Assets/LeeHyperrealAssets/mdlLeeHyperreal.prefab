@@ -10333,7 +10333,6 @@ SkinnedMeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f549d2d73eebe074398d482fa092f29f, type: 2}
-  - {fileID: 2100000, guid: b12a40df82541984ba3b17c2791a2c0c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12010,7 +12009,6 @@ GameObject:
   - component: {fileID: 8315140139193319990}
   - component: {fileID: 8315140139200490998}
   - component: {fileID: 8315140139193097815}
-  - component: {fileID: 1209521308}
   - component: {fileID: 7238953315125949139}
   m_Layer: 0
   m_Name: mdlLeeHyperreal
@@ -12057,8 +12055,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8315140139193097814}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 3f55d8352b2212743b809db2974cdd5e, type: 3}
-  m_Controller: {fileID: 9100000, guid: f1a82152954bc974895f8ff9f035f84f, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 13648122d4e842f48b3f154bb1461d52, type: 2}
+  m_Controller: {fileID: 9100000, guid: de25672ebc5866646bfe92beb5531e46, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -12080,128 +12078,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transformPairs:
-  - name: Root
-    transform: {fileID: 0}
-  - name: Base
-    transform: {fileID: 0}
-  - name: Head
-    transform: {fileID: 0}
-  - name: HeadCenter
-    transform: {fileID: 0}
-  - name: Chest
-    transform: {fileID: 0}
-  - name: HandL
-    transform: {fileID: 0}
-  - name: HandR
-    transform: {fileID: 0}
-  - name: FootL
-    transform: {fileID: 0}
-  - name: FootR
-    transform: {fileID: 0}
-  - name: Muzzle
-    transform: {fileID: 0}
   - name: SwingCenter
     transform: {fileID: 6458978905384375279}
   - name: SwordHitbox
     transform: {fileID: 8315140139175220320}
   - name: MainHurtbox
     transform: {fileID: 8801724157396953430}
-  - name: Sword
-    transform: {fileID: 0}
-  - name: Model
-    transform: {fileID: 0}
-  - name: SwordModel
-    transform: {fileID: 0}
-  - name: GunModel
-    transform: {fileID: 0}
-  - name: Gun
-    transform: {fileID: 0}
-  - name: Pelvis
-    transform: {fileID: 0}
-  - name: UpperArmL
-    transform: {fileID: 0}
-  - name: LowerArmL
-    transform: {fileID: 0}
-  - name: UpperArmR
-    transform: {fileID: 0}
-  - name: LowerArmR
-    transform: {fileID: 0}
-  - name: ThighL
-    transform: {fileID: 0}
-  - name: CalfL
-    transform: {fileID: 0}
-  - name: ThighR
-    transform: {fileID: 0}
-  - name: CalfR
-    transform: {fileID: 0}
   - name: SwingLeft
     transform: {fileID: 1588917076}
   - name: SwingRight
     transform: {fileID: 304081779}
---- !u!114 &1209521308
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8315140139193097814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a68da65c907acb4eb4dbcd042f172e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Root: {fileID: 0}
-  m_UpdateRate: 240
-  m_UpdateMode: 1
-  m_Damping: 0.1
-  m_DampingDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_Elasticity: 0.005
-  m_ElasticityDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_Stiffness: 0.2
-  m_StiffnessDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_Inert: 0
-  m_InertDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_Radius: 0.01
-  m_RadiusDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_EndLength: 0
-  m_EndOffset: {x: 0, y: 0, z: 0}
-  m_Gravity: {x: 0, y: 0, z: 0}
-  m_Force: {x: 0, y: 0, z: 0}
-  m_Colliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  m_Exclusions:
-  - {fileID: 0}
-  - {fileID: 0}
-  m_FreezeAxis: 0
-  m_DistantDisable: 1
-  m_ReferenceObject: {fileID: 0}
-  m_DistanceToObject: 60
+  - name: ArmModel
+    transform: {fileID: 7574741938248569195}
+  - name: TorsoModel
+    transform: {fileID: 9155489825614303244}
+  - name: FaceModel
+    transform: {fileID: 5540281767526547348}
+  - name: HairModel
+    transform: {fileID: 2780348423315893854}
+  - name: ArmourPlateModel
+    transform: {fileID: 2397581986202561148}
+  - name: EyeModel
+    transform: {fileID: 7529277427261348012}
+  - name: LegModel
+    transform: {fileID: 5070886366722131209}
+  - name: GunCaseModel
+    transform: {fileID: 1157274956648152458}
+  - name: SubMachineGunModel
+    transform: {fileID: 6655561132761301338}
+  - name: LegModel
+    transform: {fileID: 5070886366722131209}
+  - name: LegModel
+    transform: {fileID: 5070886366722131209}
+  - name: LegModel
+    transform: {fileID: 5070886366722131209}
 --- !u!114 &7238953315125949139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12214,23 +12124,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 751bd37d2e55f5f448dbb0d97812d9ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bones:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  componentsToDisableOnRagdoll:
-  - {fileID: 1209521308}
-  - {fileID: 0}
+  bones: []
+  componentsToDisableOnRagdoll: []
 --- !u!1 &8361889574957583540
 GameObject:
   m_ObjectHideFlags: 0
