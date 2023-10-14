@@ -27,18 +27,12 @@ namespace LeeHyperrealMod.Modules
         internal static AssetBundle mainAssetBundle;
 
         // CHANGE THIS
-        private const string assetbundleName = "myassetbundle";
+        private const string assetbundleName = "leehyperrealassets";
         //change this to your project's name if/when you've renamed it
         private const string csProjName = "LeeHyperrealMod";
         
         internal static void Initialize()
         {
-            if (assetbundleName == "myassetbundle")
-            {
-                Log.Error("AssetBundle name hasn't been changed. not loading any assets to avoid conflicts");
-                return;
-            }
-
             LoadAssetBundle();
             LoadSoundbank();
             PopulateAssets();
