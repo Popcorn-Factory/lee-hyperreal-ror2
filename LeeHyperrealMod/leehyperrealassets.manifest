@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2641379088
+CRC: 2096427210
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 910208bdcac83c24e6487a3a15baf7ab
+    Hash: 1f7c147e5b7a4fd0c5a64c7dee178c91
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 3194ed8b24c3fe6a0d68ca8c45e49e14
+    Hash: 5df456c1eb5ccf4480b610194c29a53c
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -17,9 +17,13 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 23
   Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
 - Class: 33
   Script: {instanceID: 0}
 - Class: 43
+  Script: {instanceID: 0}
+- Class: 48
   Script: {instanceID: 0}
 - Class: 74
   Script: {instanceID: 0}
@@ -41,33 +45,80 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/LeeHyperrealAssets/Material/leeBoxGunMat.mat
 - Assets/LeeHyperrealAssets/Mesh/leeSuperRifleMesh.mesh
+- Assets/LeeHyperrealAssets/Animation/BoxGunAnimation/changestart01.anim
 - Assets/LeeHyperrealAssets/Mesh/leeTorsoClothMesh.mesh
 - Assets/LeeHyperrealAssets/Mesh/leeGunCaseMesh.mesh
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/runstart.anim
+- Assets/LeeHyperrealAssets/Texture/Albedo/leeLegTex.png
+- Assets/LeeHyperrealAssets/Animation/otherGunAvatar.asset
+- Assets/LeeHyperrealAssets/Texture/Albedo/leeBoxGunTex.png
+- Assets/LeeHyperrealAssets/Texture/Albedo/leeHairTex.png
 - Assets/LeeHyperrealAssets/Mesh/leeFaceMesh.mesh
+- Assets/LeeHyperrealAssets/Texture/Albedo/leePistolTex.png
+- Assets/LeeHyperrealAssets/Animation/leeAvatar.asset
+- Assets/LeeHyperrealAssets/Animation/uistand.controller
+- Assets/LeeHyperrealAssets/Texture/Albedo/leeEyeTex.png
+- Assets/LeeHyperrealAssets/Texture/Albedo/leeArmTex.png
+- Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/attack24.anim
+- Assets/LeeHyperrealAssets/Texture/Albedo/GunHudTex2.png
+- Assets/LeeHyperrealAssets/Animation/uistandAvatar.asset
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/runstartend01.anim
+- Assets/LeeHyperrealAssets/Material/leeSubmachineMat.mat
+- Assets/LeeHyperrealAssets/Texture/Normal/leeArmNormal.png
 - Assets/LeeHyperrealAssets/Mesh/leeSuperRilfeAlphaMesh.mesh
 - Assets/LeeHyperrealAssets/Mesh/leeChestLegPlateMesh.mesh
+- Assets/LeeHyperrealAssets/Texture/Normal/leeBoxGunNormal.png
+- Assets/LeeHyperrealAssets/Material/leeLegMat.mat
 - Assets/LeeHyperrealAssets/Mesh/leeArmMesh.mesh
+- Assets/LeeHyperrealAssets/Material/leeChestLegPlateMat.mat
 - Assets/LeeHyperrealAssets/Mesh/leeEyeMesh.mesh
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/runleanr.anim
 - Assets/LeeHyperrealAssets/Mesh/leeHairMesh.mesh
+- Assets/LeeHyperrealAssets/Animation/BoxGunAnimation/change01loop.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnims/stand1.anim
+- Assets/LeeHyperrealAssets/Material/leeHairMat.mat
 - Assets/LeeHyperrealAssets/mdlLeeHyperreal.prefab
+- Assets/LeeHyperrealAssets/Texture/Albedo/gunHudTex.png
 - Assets/LeeHyperrealAssets/Mesh/leeSubMachineGunMesh.mesh
+- Assets/LeeHyperrealAssets/Animation/BodyAnims/spawn3.anim
+- Assets/LeeHyperrealAssets/Texture/Albedo/leeTorsoTex.png
 - Assets/LeeHyperrealAssets/LeeHyperrealDisplay.prefab
+- Assets/LeeHyperrealAssets/Material/leeFaceMat.mat
+- Assets/LeeHyperrealAssets/Material/leeExtraGunBitMat.mat
+- Assets/LeeHyperrealAssets/Animation/BodyAnims/spawn2.anim
+- Assets/LeeHyperrealAssets/Texture/Normal/leeTorsoNormal.png
+- Assets/LeeHyperrealAssets/Animation/BodyAnims/spawn1.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnims/stand2.anim
+- Assets/LeeHyperrealAssets/Texture/Albedo/leeSubmachineTex.png
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/runleanl.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnims/spawn4.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/run.anim
+- Assets/LeeHyperrealAssets/Texture/Normal/leeChestLegPlateNormal.png
+- Assets/LeeHyperrealAssets/Animation/fightAvatar.asset
+- Assets/LeeHyperrealAssets/Material/leeArmMat.mat
+- Assets/LeeHyperrealAssets/Texture/Albedo/leeFaceTex.png
+- Assets/LeeHyperrealAssets/Texture/Normal/leePistolNormal.png
 - Assets/LeeHyperrealAssets/Mesh/leeLegsMesh.mesh
+- Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/attack25.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/runstartend02.anim
+- Assets/LeeHyperrealAssets/Material/leeTorsoClothMat.mat
+- Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/attack26.anim
+- Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/attack23.anim
+- Assets/LeeHyperrealAssets/Texture/Normal/leeLegNormal.png
 - Assets/LeeHyperrealAssets/Animation/animLeeHyperrealDisplay.controller
+- Assets/LeeHyperrealAssets/Material/leePistolMat.mat
 - Assets/LeeHyperrealAssets/Animation/animLeeHyperreal.controller
+- Assets/LeeHyperrealAssets/Material/leeSuperRifleMat.mat
+- Assets/LeeHyperrealAssets/Material/leeEyeMat.mat
+- Assets/LeeHyperrealAssets/Animation/BoxGunAnimation/change01.anim
 - Assets/LeeHyperrealAssets/Mesh/leePistolMesh.mesh
+- Assets/LeeHyperrealAssets/Texture/Albedo/leeChestLegPlateTex.png
 Dependencies:
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/animation/r4liangmdcommon/r4liangmdcommon/baselayer.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/dummyshader/xcharacter_character##8c57a49c51573d3d980a249b814f1a8a1a36f20b.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/body/r4liangmd010011.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/body/r4liangmd010011/vc.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/weaponanimation/superli/e3superlimd010011p01/uistand.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/weaponanimation/superli/superliriflecommon/fight.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/weaponres/superli/e3superliboxmd010011.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/scene/cubemaps/generatecubes.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/myassetbundle

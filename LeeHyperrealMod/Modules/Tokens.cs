@@ -7,8 +7,8 @@ namespace LeeHyperrealMod.Modules
     {
         internal static void AddTokens()
         {
-            #region Henry
-            string prefix = LeeHyperrealPlugin.DEVELOPER_PREFIX + "_HENRY_BODY_";
+            #region Lee: Hyperreal
+            string prefix = LeeHyperrealPlugin.DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_";
 
             string desc = "Henry is a skilled fighter who makes use of a wide arsenal of weaponry to take down his foes.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Sword is a good all-rounder while Boxing Gloves are better for laying a beatdown on more powerful foes." + Environment.NewLine + Environment.NewLine;
@@ -19,7 +19,7 @@ namespace LeeHyperrealMod.Modules
             string outro = "..and so he left, searching for a new identity.";
             string outroFailure = "..and so he vanished, forever a blank slate.";
 
-            LanguageAPI.Add(prefix + "NAME", "Henry");
+            LanguageAPI.Add(prefix + "NAME", "Lee: Hyperreal");
             LanguageAPI.Add(prefix + "DESCRIPTION", desc);
             LanguageAPI.Add(prefix + "SUBTITLE", "The Chosen One");
             LanguageAPI.Add(prefix + "LORE", "sample lore");
@@ -28,7 +28,6 @@ namespace LeeHyperrealMod.Modules
 
             #region Skins
             LanguageAPI.Add(prefix + "DEFAULT_SKIN_NAME", "Default");
-            LanguageAPI.Add(prefix + "MASTERY_SKIN_NAME", "Alternate");
             #endregion
 
             #region Passive

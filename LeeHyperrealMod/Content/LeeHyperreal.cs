@@ -40,18 +40,64 @@ namespace LeeHyperrealMod.Modules.Survivors
 
         public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[] 
         {
-                new CustomRendererInfo
-                {
-                    childName = "SwordModel",
-                    material = Materials.CreateHopooMaterial("matHenry"),
+                new CustomRendererInfo 
+                { 
+                    childName = "ArmModel",
+                    material = Materials.CreateHopooMaterial("leeArmMat")
                 },
                 new CustomRendererInfo
                 {
-                    childName = "GunModel",
+                    childName = "TorsoModel",
+                    material = Materials.CreateHopooMaterial("leeTorsoClothmat"),
                 },
                 new CustomRendererInfo
                 {
-                    childName = "Model",
+                    childName = "FaceModel",
+                    material = Materials.CreateHopooMaterial("leeFaceMat"),
+                },
+                new CustomRendererInfo
+                {
+                    childName = "HairModel",
+                    material = Materials.CreateHopooMaterial("leeHairMat"),
+                },
+                new CustomRendererInfo
+                {
+                    childName = "ArmourPlateModel",
+                    material = Materials.CreateHopooMaterial("leeChestLegPlateMat"),
+                },
+                new CustomRendererInfo
+                {
+                    childName = "EyeModel",
+                    material = Materials.CreateHopooMaterial("leeEyeMat"),
+                },
+                new CustomRendererInfo
+                {
+                    childName = "LegModel",
+                    material = Materials.CreateHopooMaterial("leeLegMat"),
+                },
+                new CustomRendererInfo
+                {
+                    childName = "GunCaseModel",
+                    material = Materials.CreateHopooMaterial("leeBoxGunMat"),
+                },
+                new CustomRendererInfo
+                {
+                    childName = "SubMachineGunModel",
+                    material = Materials.CreateHopooMaterial("leeSubmachineMat"),
+                },
+                new CustomRendererInfo
+                {
+                    childName = "SuperRifleModel",
+                    material = Materials.CreateHopooMaterial("leeSuperRifleMat"),
+                },
+                new CustomRendererInfo
+                {
+                    childName = "SuperRifleModelAlphaBit",
+                },
+                new CustomRendererInfo
+                {
+                    childName = "PistolModel",
+                    material = Materials.CreateHopooMaterial("leePistolMat"),
                 }
         };
 

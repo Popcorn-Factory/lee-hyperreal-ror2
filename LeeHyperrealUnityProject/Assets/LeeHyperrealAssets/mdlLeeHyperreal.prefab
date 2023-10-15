@@ -4510,7 +4510,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3510999196391336094}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 8ca79d18b51c2b84e8ec7388cd26016a, type: 2}
+  m_Avatar: {fileID: 9000000, guid: d4d51421f81ae0e4dab4bb664b677a33, type: 2}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -7864,8 +7864,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5868005028346887584}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: f24622b35494d1f42b2b6269883dd65a, type: 2}
-  m_Controller: {fileID: 9100000, guid: 40a87fd583e0b5f468586d489e107311, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 54ca18cafeb72ac4ba0966a569e85a02, type: 2}
+  m_Controller: {fileID: 9100000, guid: e72999b7dc79e1245be2a67d2887891f, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -8373,7 +8373,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: aa0334dffc2eb7741b03915e1f49c983, type: 2}
+  - {fileID: 2100000, guid: d44028de2d2371746a19f86683de3a95, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8822,8 +8822,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6359404308765994811}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: f7fecc4f97e87dd4bbb98152b8a73da8, type: 2}
-  m_Controller: {fileID: 9100000, guid: 94ebe592096b69a4fa1e38a87c84b5b0, type: 2}
+  m_Avatar: {fileID: 9000000, guid: b24fedd3813abe04f8498f9beb5b3e22, type: 2}
+  m_Controller: {fileID: 9100000, guid: 00190862e7c2da1469e8e66c5d185782, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -9261,7 +9261,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 36e5db2dd26ba454e87390f77d0a33b6, type: 2}
+  - {fileID: 2100000, guid: 5ab4e244ff6a011409380b50b304b88b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10086,7 +10086,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 56e404504b7183544885df56a3acda35, type: 2}
+  - {fileID: 2100000, guid: 0f04eb10e5fd0f048aaa4391ae0e9aff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10332,7 +10332,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f549d2d73eebe074398d482fa092f29f, type: 2}
+  - {fileID: 2100000, guid: 7ef193d8ceff7ce45aefcfa96f7d977a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12026,7 +12026,7 @@ Transform:
   m_GameObject: {fileID: 8315140139193097814}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.4354291, y: -0.003, z: 1.6866627}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 8315140139175220320}
   - {fileID: 6458978905384375279}
@@ -12106,12 +12106,12 @@ MonoBehaviour:
     transform: {fileID: 1157274956648152458}
   - name: SubMachineGunModel
     transform: {fileID: 6655561132761301338}
-  - name: LegModel
-    transform: {fileID: 5070886366722131209}
-  - name: LegModel
-    transform: {fileID: 5070886366722131209}
-  - name: LegModel
-    transform: {fileID: 5070886366722131209}
+  - name: SuperRifleModel
+    transform: {fileID: 368362664893183772}
+  - name: SuperRifleModelAlphaBit
+    transform: {fileID: 142039440190672437}
+  - name: PistolModel
+    transform: {fileID: 7045953487428807579}
 --- !u!114 &7238953315125949139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12730,7 +12730,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5733ef12c2101f2478f6796de6a7839e, type: 2}
+  - {fileID: 2100000, guid: 0aee0a1eee6d509488d5d4b203b8e90c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
