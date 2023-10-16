@@ -143,7 +143,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "_HENRY_BODY_PRIMARY_SLASH_NAME",
                                                                                       prefix + "_HENRY_BODY_PRIMARY_SLASH_DESCRIPTION",
                                                                                       Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
-                                                                                      new EntityStates.SerializableEntityStateType(typeof(SkillStates.SlashCombo)),
+                                                                                      new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Primary.Primary1)),
                                                                                       "Weapon",
                                                                                       true));
 
