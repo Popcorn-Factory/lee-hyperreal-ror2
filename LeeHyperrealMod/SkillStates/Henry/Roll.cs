@@ -32,9 +32,6 @@ namespace LeeHyperrealMod.SkillStates
             Vector3 rhs = base.characterDirection ? base.characterDirection.forward : this.forwardDirection;
             Vector3 rhs2 = Vector3.Cross(Vector3.up, rhs);
 
-            float num = Vector3.Dot(this.forwardDirection, rhs);
-            float num2 = Vector3.Dot(this.forwardDirection, rhs2);
-
             this.RecalculateRollSpeed();
 
             if (base.characterMotor && base.characterDirection)

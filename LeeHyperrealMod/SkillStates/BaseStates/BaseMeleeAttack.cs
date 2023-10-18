@@ -49,8 +49,8 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         public override void OnEnter()
         {
             base.OnEnter();
-            this.duration = this.baseDuration / this.attackSpeedStat;
-            this.earlyExitTime = this.baseEarlyExitTime / this.attackSpeedStat;
+            this.duration = this.baseDuration / 1f; //this.attackSpeedStat;
+            this.earlyExitTime = this.baseEarlyExitTime / 1f; //this.attackSpeedStat;
             this.hasFired = false;
             this.animator = base.GetModelAnimator();
             base.StartAimMode(0.5f + this.duration, false);
@@ -187,7 +187,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                 this.FireAttack();
             }
 
-            if (this.stopwatch >= (this.duration - this.earlyExitTime) && base.isAuthority)
+            if (this.stopwatch >= (this.duration * this.earlyExitTime) && base.isAuthority)
             {
                 if (base.inputBank.skill1.down)
                 {

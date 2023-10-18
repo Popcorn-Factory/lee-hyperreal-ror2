@@ -144,7 +144,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                                                                                       prefix + "_HENRY_BODY_PRIMARY_SLASH_DESCRIPTION",
                                                                                       Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimaryIcon"),
                                                                                       new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Primary.Primary1)),
-                                                                                      "Weapon",
+                                                                                      "Body",
                                                                                       true));
 
 
