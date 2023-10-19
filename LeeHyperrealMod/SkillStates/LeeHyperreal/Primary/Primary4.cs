@@ -13,7 +13,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         private Vector3 forwardDirection;
         private Vector3 previousPosition;
 
-        public static float initialSpeedCoefficient = 3f;
+        public static float initialSpeedCoefficient = 2.5f;
         public static float finalSpeedCoefficient = 0f;
 
         public static float moveStartFrac = 0f;

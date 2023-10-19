@@ -12,7 +12,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         private Animator animator;
         private Vector3 previousPosition;
 
-        public static float initialSpeedCoefficient = 4f;
+        public static float initialSpeedCoefficient = 3f;
         public static float finalSpeedCoefficient = 0f;
 
         public static float moveStartFrac = 0f;

@@ -187,6 +187,16 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                 this.FireAttack();
             }
 
+            if (this.stopwatch >= this.duration && base.isAuthority)
+            {
+                this.outer.SetNextStateToMain();
+                return;
+            }
+        }
+
+        public override void Update()
+        {
+            base.Update();
             if (this.stopwatch >= (this.duration * this.earlyExitTime) && base.isAuthority)
             {
                 if (base.inputBank.skill1.down)
@@ -195,12 +205,6 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                     this.SetNextState();
                     return;
                 }
-            }
-
-            if (this.stopwatch >= this.duration && base.isAuthority)
-            {
-                this.outer.SetNextStateToMain();
-                return;
             }
         }
 
