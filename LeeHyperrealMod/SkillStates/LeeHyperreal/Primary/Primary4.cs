@@ -77,7 +77,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             if (base.characterMotor && base.characterDirection)
             {
+                float yCharacterMotorVelocity = base.characterMotor.velocity.y;
                 base.characterMotor.velocity = this.forwardDirection * this.rollSpeed;
+                base.characterMotor.velocity.y = yCharacterMotorVelocity;
             }
 
             Vector3 b = base.characterMotor ? base.characterMotor.velocity : Vector3.zero;
@@ -105,11 +107,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             Vector3 normalized = (base.transform.position - this.previousPosition).normalized;
             if (base.characterMotor && base.characterDirection && normalized != Vector3.zero)
             {
+                float yCharacterMotorVelocity = base.characterMotor.velocity.y;
                 Vector3 vector = normalized * this.rollSpeed;
                 float d = Mathf.Max(Vector3.Dot(vector, this.forwardDirection), 0f);
                 vector = this.forwardDirection * d;
 
                 base.characterMotor.velocity = vector;
+                base.characterMotor.velocity.y = yCharacterMotorVelocity;
             }
             this.previousPosition = base.transform.position;
 
