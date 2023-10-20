@@ -22,7 +22,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override void OnEnter()
         {
-            this.hitboxName = "Sword";
+            this.hitboxName = "ShortMelee";
 
             this.damageType = DamageType.Generic;
             this.damageCoefficient = Modules.StaticValues.swordDamageCoefficient;
@@ -30,8 +30,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.pushForce = 300f;
             this.bonusForce = Vector3.zero;
             this.baseDuration = 2f;
-            this.attackStartTime = 0.2f;
-            this.attackEndTime = 0.4f;
+            this.attackStartTime = 0.04f;
+            this.attackEndTime = 0.07f;
             this.baseEarlyExitTime = 0.25f;
             this.hitStopDuration = 0.012f;
             this.attackRecoil = 0.5f;
@@ -123,7 +123,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.Frozen;
+            return InterruptPriority.PrioritySkill;
         }
     }
 }

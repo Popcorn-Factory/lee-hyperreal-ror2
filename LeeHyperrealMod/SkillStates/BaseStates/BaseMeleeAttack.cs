@@ -19,7 +19,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         protected float pushForce = 300f;
         protected Vector3 bonusForce = Vector3.zero;
         protected float baseDuration = 1f;
-        protected float attackStartTime = 0.2f;
+        protected float attackStartTime = 0.02f;
         protected float attackEndTime = 0.4f;
         protected float baseEarlyExitTime = 0.4f;
         protected float hitStopDuration = 0.012f;

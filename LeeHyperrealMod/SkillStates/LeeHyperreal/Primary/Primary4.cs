@@ -7,25 +7,44 @@ using UnityEngine;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 {
-    internal class Primary4 : BaseMeleeAttack
+    internal class Primary4 : BaseSkillState
     {
         private float rollSpeed;
         private Vector3 forwardDirection;
         private Vector3 previousPosition;
 
-        public static float initialSpeedCoefficient = 2.5f;
+        public static float initialSpeedCoefficient = 2.2f;
         public static float finalSpeedCoefficient = 0f;
 
         public static float moveStartFrac = 0f;
         public static float moveEndFrac = 0.18f;
+        public static float shootRadius = 35f;
+        public static float basePulseRate = 0.2f;
+        public static float damageCoefficient = 0.5f;
+        public float pulseRate;
         private Ray aimRay;
 
         private static List<Tuple<float, float>> timings;
         private Tuple<float, float> currentTiming;
         private int currentIndex;
 
+
+        private float earlyExitTime;
+        public float duration;
+        private bool hasFired;
+        private float hitPauseTimer;
+        private BlastAttack attack;
+        protected bool inHitPause;
+        private bool hasHopped;
+        internal float stopwatch;
+
         public override void OnEnter()
         {
+            base.OnEnter();
+            duration = 2f;
+            pulseRate = basePulseRate / this.attackSpeedStat;
+            earlyExitTime = 0.4f;
+            hasFired = false;
             timings = new List<Tuple<float, float>>
             {
                 new Tuple<float, float>(0f, 0.04f),
@@ -38,30 +57,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             };
             currentIndex = 0;
             currentTiming = timings[currentIndex];
-
-            this.hitboxName = "Sword";
-
-            this.damageType = DamageType.Generic;
-            this.damageCoefficient = Modules.StaticValues.swordDamageCoefficient;
-            this.procCoefficient = 1f;
-            this.pushForce = 300f;
-            this.bonusForce = Vector3.zero;
-            this.baseDuration = 2f;
-            this.attackStartTime = 0.2f;
-            this.attackEndTime = 0.4f;
-            this.baseEarlyExitTime = 0.4f;
-            this.hitStopDuration = 0.012f;
-            this.attackRecoil = 0.5f;
-            this.hitHopVelocity = 4f;
-
-            this.swingSoundString = "HenrySwordSwing";
-            this.hitSoundString = "";
-            this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
-            this.swingEffectPrefab = Modules.Assets.swordSwingEffect;
-            this.hitEffectPrefab = Modules.Assets.swordHitImpactEffect;
-
-            this.impactSound = Modules.Assets.swordHitSoundEvent.index;
-            base.OnEnter();
 
             aimRay = base.GetAimRay();
 
@@ -84,14 +79,41 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             Vector3 b = base.characterMotor ? base.characterMotor.velocity : Vector3.zero;
             this.previousPosition = base.transform.position - b;
+
+            PlayAttackAnimation();
+
+            // Setup Blastattack
+            attack = new BlastAttack
+            {
+                attacker = base.gameObject,
+                inflictor = null,
+                teamIndex = TeamIndex.Player,
+                position = base.gameObject.transform.position,
+                radius = shootRadius,
+                falloffModel = BlastAttack.FalloffModel.Linear,
+                baseDamage = this.damageStat * damageCoefficient,
+                baseForce = 0f,
+                bonusForce = Vector3.zero,
+                crit = this.RollCrit(),
+                damageType = DamageType.Generic,
+                losType = BlastAttack.LoSType.NearestHit,
+                canRejectForce = false,
+                procChainMask = new ProcChainMask(),
+                procCoefficient = 0.15f
+            };
+
+            stopwatch = 0f;
         }
 
         public override void Update()
         {
             base.Update();
-            if (stopwatch > duration * currentTiming.Item2) 
+
+            stopwatch += Time.deltaTime;
+
+            if (base.fixedAge > duration * currentTiming.Item2)
             {
-                if (currentIndex < timings.Count) 
+                if (currentIndex < timings.Count - 1)
                 {
                     currentIndex++;
                 }
@@ -117,14 +139,51 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             }
             this.previousPosition = base.transform.position;
 
+            if (stopwatch >= pulseRate) 
+            {
+                stopwatch = 0f;
+
+                if (base.isAuthority) 
+                {
+                    FireAttack();
+                }
+            }
+
+            if (this.age >= (this.duration * this.earlyExitTime) && base.isAuthority)
+            {
+                if (base.inputBank.skill1.down)
+                {
+                    this.SetNextState();
+                    return;
+                }
+            }
+
+            if (this.age >= this.duration && base.isAuthority)
+            {
+                this.outer.SetNextStateToMain();
+                return;
+            }
+
         }
 
 
         private void RecalculateRollSpeed()
         {
-            this.rollSpeed = this.moveSpeedStat * Mathf.Lerp(initialSpeedCoefficient, finalSpeedCoefficient, (base.stopwatch - currentTiming.Item1) / duration * currentTiming.Item2);
+            this.rollSpeed = this.moveSpeedStat * Mathf.Lerp(initialSpeedCoefficient, finalSpeedCoefficient, (base.age - currentTiming.Item1) / duration * currentTiming.Item2);
         }
 
+
+        // Client sided function. Don't call on server.
+        internal void FireAttack() 
+        {
+            attack.position = this.gameObject.transform.position;
+            BlastAttack.Result result = attack.Fire();
+            Util.PlayAttackSpeedSound("HenrySwordSwing", base.gameObject, this.attackSpeedStat);
+            if (result.hitCount > 0) 
+            {
+                // I dunno do something with this.
+            }
+        }
 
         public override void FixedUpdate()
         {
@@ -136,12 +195,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             base.OnExit();
         }
 
-        protected override void PlayAttackAnimation()
+        protected void PlayAttackAnimation()
         {
             base.PlayAnimation("FullBody, Override", "primary4", "attack.playbackRate", duration);
         }
 
-        protected override void SetNextState()
+        protected void SetNextState()
         {
             // Move to Primary5
 
@@ -150,7 +209,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.Frozen;
+            return InterruptPriority.PrioritySkill;
         }
     }
 }

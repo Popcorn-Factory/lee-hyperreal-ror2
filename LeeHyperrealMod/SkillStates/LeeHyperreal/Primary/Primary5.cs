@@ -12,7 +12,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         private Animator animator;
         private Vector3 previousPosition;
 
-        public static float initialSpeedCoefficient = 3f;
+        public static float initialSpeedCoefficient = 2.6f;
         public static float finalSpeedCoefficient = 0f;
 
         public static float moveStartFrac = 0f;
@@ -22,7 +22,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override void OnEnter()
         {
-            this.hitboxName = "Sword";
+            this.hitboxName = "LongMelee";
 
             this.damageType = DamageType.Generic;
             this.damageCoefficient = Modules.StaticValues.swordDamageCoefficient;
@@ -30,7 +30,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.pushForce = 300f;
             this.bonusForce = Vector3.zero;
             this.baseDuration = 2f;
-            this.attackStartTime = 0.2f;
+            this.attackStartTime = 0.28f;
             this.attackEndTime = 0.4f;
             this.baseEarlyExitTime = 0.7f;
             this.hitStopDuration = 0.012f;
@@ -124,7 +124,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.Frozen;
+            return InterruptPriority.PrioritySkill;
         }
     }
 }
