@@ -46,6 +46,9 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         private BaseState.HitStopCachedState hitStopCachedState;
         private Vector3 storedVelocity;
 
+        private float attackAmount;
+        private HitBoxGroup hitBoxGroup;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -57,7 +60,13 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             base.characterBody.outOfCombatStopwatch = 0f;
             this.animator.SetBool("attacking", true);
 
-            HitBoxGroup hitBoxGroup = null;
+            attackAmount = (int)this.attackSpeedStat;
+            if (attackAmount < 1) 
+            {
+                attackAmount = 1;
+            }
+
+            hitBoxGroup = null;
             Transform modelTransform = base.GetModelTransform();
 
             if (modelTransform)
@@ -66,20 +75,6 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             }
 
             this.PlayAttackAnimation();
-
-            this.attack = new OverlapAttack();
-            this.attack.damageType = this.damageType;
-            this.attack.attacker = base.gameObject;
-            this.attack.inflictor = base.gameObject;
-            this.attack.teamIndex = base.GetTeam();
-            this.attack.damage = this.damageCoefficient * this.damageStat;
-            this.attack.procCoefficient = this.procCoefficient;
-            this.attack.hitEffectPrefab = this.hitEffectPrefab;
-            this.attack.forceVector = this.bonusForce;
-            this.attack.pushAwayForce = this.pushForce;
-            this.attack.hitBoxGroup = hitBoxGroup;
-            this.attack.isCrit = base.RollCrit();
-            this.attack.impactSound = this.impactSound;
         }
 
         protected virtual void PlayAttackAnimation()
@@ -136,13 +131,30 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                     this.PlaySwingEffect();
                     base.AddRecoil(-1f * this.attackRecoil, -2f * this.attackRecoil, -0.5f * this.attackRecoil, 0.5f * this.attackRecoil);
                 }
-            }
 
-            if (base.isAuthority)
-            {
-                if (this.attack.Fire())
+                if (base.isAuthority)
                 {
-                    this.OnHitEnemyAuthority();
+                    for (int i = 0; i < attackAmount; i++)
+                    {
+                        // Create Attack, fire it, do the on hit enemy authority.
+                        this.attack = new OverlapAttack();
+                        this.attack.damageType = this.damageType;
+                        this.attack.attacker = base.gameObject;
+                        this.attack.inflictor = base.gameObject;
+                        this.attack.teamIndex = base.GetTeam();
+                        this.attack.damage = this.damageCoefficient * this.damageStat;
+                        this.attack.procCoefficient = this.procCoefficient;
+                        this.attack.hitEffectPrefab = this.hitEffectPrefab;
+                        this.attack.forceVector = this.bonusForce;
+                        this.attack.pushAwayForce = this.pushForce;
+                        this.attack.hitBoxGroup = hitBoxGroup;
+                        this.attack.isCrit = base.RollCrit();
+                        this.attack.impactSound = this.impactSound;
+                        if (this.attack.Fire())
+                        {
+                            this.OnHitEnemyAuthority();
+                        }
+                    }
                 }
             }
         }
@@ -193,6 +205,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                 return;
             }
         }
+
 
         public override void Update()
         {
