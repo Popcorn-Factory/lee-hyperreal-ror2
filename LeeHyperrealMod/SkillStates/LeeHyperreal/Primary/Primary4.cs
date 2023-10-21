@@ -41,7 +41,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void OnEnter()
         {
             base.OnEnter();
-            duration = 2f;
+            duration = 2.5f;
             pulseRate = basePulseRate / this.attackSpeedStat;
             earlyExitTime = 0.4f;
             hasFired = false;
