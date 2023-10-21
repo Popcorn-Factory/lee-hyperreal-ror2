@@ -46,7 +46,8 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         private BaseState.HitStopCachedState hitStopCachedState;
         private Vector3 storedVelocity;
 
-        private float attackAmount;
+        private int attackAmount;
+        private float partialAttack;
         private HitBoxGroup hitBoxGroup;
 
         public override void OnEnter()
@@ -65,6 +66,8 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             {
                 attackAmount = 1;
             }
+            partialAttack = (float)(this.attackSpeedStat - (float)attackAmount);
+
 
             hitBoxGroup = null;
             Transform modelTransform = base.GetModelTransform();
@@ -143,6 +146,27 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                         this.attack.inflictor = base.gameObject;
                         this.attack.teamIndex = base.GetTeam();
                         this.attack.damage = this.damageCoefficient * this.damageStat;
+                        this.attack.procCoefficient = this.procCoefficient;
+                        this.attack.hitEffectPrefab = this.hitEffectPrefab;
+                        this.attack.forceVector = this.bonusForce;
+                        this.attack.pushAwayForce = this.pushForce;
+                        this.attack.hitBoxGroup = hitBoxGroup;
+                        this.attack.isCrit = base.RollCrit();
+                        this.attack.impactSound = this.impactSound;
+                        if (this.attack.Fire())
+                        {
+                            this.OnHitEnemyAuthority();
+                        }
+                    }
+                    if (partialAttack > 0.0f) 
+                    {
+                        // Create Attack, fire it, do the on hit enemy authority, partaial damage on final 
+                        this.attack = new OverlapAttack();
+                        this.attack.damageType = this.damageType;
+                        this.attack.attacker = base.gameObject;
+                        this.attack.inflictor = base.gameObject;
+                        this.attack.teamIndex = base.GetTeam();
+                        this.attack.damage = this.damageCoefficient * this.damageStat * partialAttack;
                         this.attack.procCoefficient = this.procCoefficient;
                         this.attack.hitEffectPrefab = this.hitEffectPrefab;
                         this.attack.forceVector = this.bonusForce;
