@@ -126,6 +126,7 @@ namespace LeeHyperrealMod.Modules {
 
             SetupCameraTargetParams(newBodyPrefab, bodyInfo);
             SetupModelLocator(newBodyPrefab, modelBaseTransform, model.transform);
+            SetupModelRootMotionAccumulator(model);
             //SetupRigidbody(newPrefab);
             SetupCapsuleCollider(newBodyPrefab);
             SetupMainHurtbox(newBodyPrefab, model);
@@ -261,9 +262,9 @@ namespace LeeHyperrealMod.Modules {
             CharacterDirection characterDirection = prefab.GetComponent<CharacterDirection>();
             characterDirection.targetTransform = modelBaseTransform;
             characterDirection.overrideAnimatorForwardTransform = null;
-            characterDirection.rootMotionAccumulator = null;
+            characterDirection.rootMotionAccumulator = modelTransform.GetComponent<RootMotionAccumulator>();
             characterDirection.modelAnimator = modelTransform.GetComponent<Animator>();
-            characterDirection.driveFromRootRotation = false;
+            characterDirection.driveFromRootRotation = true;
             characterDirection.turnSpeed = 720f;
         }
 
@@ -280,6 +281,11 @@ namespace LeeHyperrealMod.Modules {
             ModelLocator modelLocator = prefab.GetComponent<ModelLocator>();
             modelLocator.modelTransform = modelTransform;
             modelLocator.modelBaseTransform = modelBaseTransform;
+        }
+
+        private static void SetupModelRootMotionAccumulator(GameObject prefab) 
+        {
+            RootMotionAccumulator rma = prefab.AddComponent<RootMotionAccumulator>();
         }
 
         //private static void SetupRigidbody(GameObject prefab)

@@ -19,6 +19,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public static float moveStartFrac = 0f;
         public static float moveEndFrac = 0.03f;
         private Ray aimRay;
+        public RootMotionAccumulator rma;
 
         public override void OnEnter()
         {
@@ -45,59 +46,44 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
             base.OnEnter();
-
-            aimRay = base.GetAimRay();
-
-            if (base.isAuthority && base.inputBank && base.characterDirection)
-            {
-                this.forwardDirection = aimRay.direction;
-            }
-
-            Vector3 rhs = base.characterDirection ? base.characterDirection.forward : this.forwardDirection;
-            Vector3 rhs2 = Vector3.Cross(Vector3.up, rhs);
-
-            this.RecalculateRollSpeed();
-
-            if (base.characterMotor && base.characterDirection)
-            {
-                float yCharacterMotorVelocity = base.characterMotor.velocity.y;
-                base.characterMotor.velocity = this.forwardDirection * this.rollSpeed;
-                base.characterMotor.velocity.y = yCharacterMotorVelocity;
-            }
-
-            Vector3 b = base.characterMotor ? base.characterMotor.velocity : Vector3.zero;
-            this.previousPosition = base.transform.position - b;
+            InitMeleeRootMotion();
         }
 
-        private void RecalculateRollSpeed()
+        public RootMotionAccumulator InitMeleeRootMotion()
         {
-            this.rollSpeed = this.moveSpeedStat * Mathf.Lerp(initialSpeedCoefficient, finalSpeedCoefficient, base.fixedAge / duration * moveEndFrac);
+            rma = base.GetModelRootMotionAccumulator();
+            if (rma)
+            {
+                rma.ExtractRootMotion();
+            }
+            if (base.characterDirection)
+            {
+                base.characterDirection.forward = base.inputBank.aimDirection;
+            }
+            if (base.characterMotor)
+            {
+                base.characterMotor.moveDirection = Vector3.zero;
+            }
+            return rma;
+        }
+
+        // Token: 0x060003CA RID: 970 RVA: 0x0000F924 File Offset: 0x0000DB24
+        public void UpdateMeleeRootMotion(float scale)
+        {
+            if (rma)
+            {
+                Vector3 a = rma.ExtractRootMotion();
+                if (base.characterMotor)
+                {
+                    base.characterMotor.rootMotion = a * scale;
+                }
+            }
         }
 
         public override void Update()
         {
             base.Update();
-
-            if (this.stopwatch <= duration * moveEndFrac) 
-            {
-                // Movement only for 5% of the move. 
-                this.RecalculateRollSpeed();
-
-                if (base.characterDirection) base.characterDirection.forward = this.forwardDirection;
-
-                Vector3 normalized = (base.transform.position - this.previousPosition).normalized;
-                if (base.characterMotor && base.characterDirection && normalized != Vector3.zero)
-                {
-                    float yCharacterMotorVelocity = base.characterMotor.velocity.y;
-                    Vector3 vector = normalized * this.rollSpeed;
-                    float d = Mathf.Max(Vector3.Dot(vector, this.forwardDirection), 0f);
-                    vector = this.forwardDirection * d;
-
-                    base.characterMotor.velocity = vector;
-                    base.characterMotor.velocity.y = yCharacterMotorVelocity;
-                }
-                this.previousPosition = base.transform.position;
-            }
+            UpdateMeleeRootMotion(2f);
         }
 
         public override void FixedUpdate()

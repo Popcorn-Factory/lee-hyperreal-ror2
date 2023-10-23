@@ -38,6 +38,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         private bool hasHopped;
         internal float stopwatch;
 
+        public RootMotionAccumulator rma;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -45,40 +47,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             pulseRate = basePulseRate / this.attackSpeedStat;
             earlyExitTime = 0.4f;
             hasFired = false;
-            timings = new List<Tuple<float, float>>
-            {
-                new Tuple<float, float>(0f, 0.04f),
-                new Tuple<float, float>(0.08f, 0.11f),
-                new Tuple<float, float>(0.15f, 0.17f),
-                new Tuple<float, float>(0.22f, 0.24f),
-                new Tuple<float, float>(0.29f, 0.31f),
-                new Tuple<float, float>(0.36f, 0.38f),
-                new Tuple<float, float>(0.42f, 0.44f),
-            };
-            currentIndex = 0;
-            currentTiming = timings[currentIndex];
-
             aimRay = base.GetAimRay();
-
-            if (base.isAuthority && base.inputBank && base.characterDirection)
-            {
-                this.forwardDirection = aimRay.direction;
-            }
-
-            Vector3 rhs = base.characterDirection ? base.characterDirection.forward : this.forwardDirection;
-            Vector3 rhs2 = Vector3.Cross(Vector3.up, rhs);
-
-            this.RecalculateRollSpeed();
-
-            if (base.characterMotor && base.characterDirection)
-            {
-                float yCharacterMotorVelocity = base.characterMotor.velocity.y;
-                base.characterMotor.velocity = this.forwardDirection * this.rollSpeed;
-                base.characterMotor.velocity.y = yCharacterMotorVelocity;
-            }
-
-            Vector3 b = base.characterMotor ? base.characterMotor.velocity : Vector3.zero;
-            this.previousPosition = base.transform.position - b;
 
             PlayAttackAnimation();
 
@@ -103,41 +72,45 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             };
 
             stopwatch = 0f;
+            InitMeleeRootMotion();
+        }
+
+        public RootMotionAccumulator InitMeleeRootMotion()
+        {
+            rma = base.GetModelRootMotionAccumulator();
+            if (rma)
+            {
+                rma.ExtractRootMotion();
+            }
+            if (base.characterDirection)
+            {
+                base.characterDirection.forward = base.inputBank.aimDirection;
+            }
+            if (base.characterMotor)
+            {
+                base.characterMotor.moveDirection = Vector3.zero;
+            }
+            return rma;
+        }
+
+        // Token: 0x060003CA RID: 970 RVA: 0x0000F924 File Offset: 0x0000DB24
+        public void UpdateMeleeRootMotion(float scale)
+        {
+            if (rma)
+            {
+                Vector3 a = rma.ExtractRootMotion();
+                if (base.characterMotor)
+                {
+                    base.characterMotor.rootMotion = a * scale;
+                }
+            }
         }
 
         public override void Update()
         {
             base.Update();
-
+            UpdateMeleeRootMotion(2f);
             stopwatch += Time.deltaTime;
-
-            if (base.fixedAge > duration * currentTiming.Item2)
-            {
-                if (currentIndex < timings.Count - 1)
-                {
-                    currentIndex++;
-                }
-
-                currentTiming = timings[currentIndex];
-            }
-
-
-            this.RecalculateRollSpeed();
-
-            if (base.characterDirection) base.characterDirection.forward = this.forwardDirection;
-
-            Vector3 normalized = (base.transform.position - this.previousPosition).normalized;
-            if (base.characterMotor && base.characterDirection && normalized != Vector3.zero)
-            {
-                float yCharacterMotorVelocity = base.characterMotor.velocity.y;
-                Vector3 vector = normalized * this.rollSpeed;
-                float d = Mathf.Max(Vector3.Dot(vector, this.forwardDirection), 0f);
-                vector = this.forwardDirection * d;
-
-                base.characterMotor.velocity = vector;
-                base.characterMotor.velocity.y = yCharacterMotorVelocity;
-            }
-            this.previousPosition = base.transform.position;
 
             if (stopwatch >= pulseRate) 
             {
@@ -164,12 +137,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 return;
             }
 
-        }
-
-
-        private void RecalculateRollSpeed()
-        {
-            this.rollSpeed = this.moveSpeedStat * Mathf.Lerp(initialSpeedCoefficient, finalSpeedCoefficient, (base.age - currentTiming.Item1) / duration * currentTiming.Item2);
         }
 
 
