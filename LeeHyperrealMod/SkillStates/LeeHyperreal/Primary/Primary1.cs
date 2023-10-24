@@ -83,7 +83,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void Update()
         {
             base.Update();
-            UpdateMeleeRootMotion(2f);
+            UpdateMeleeRootMotion(3f);
         }
 
         public override void FixedUpdate()

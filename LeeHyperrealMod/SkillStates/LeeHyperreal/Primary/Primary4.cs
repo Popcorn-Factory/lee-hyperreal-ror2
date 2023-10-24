@@ -16,8 +16,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public static float initialSpeedCoefficient = 2.2f;
         public static float finalSpeedCoefficient = 0f;
 
-        public static float moveStartFrac = 0f;
-        public static float moveEndFrac = 0.18f;
+        public static float moveStartFrac = 0.05f;
+        public static float moveEndFrac = 0.47f;
         public static float shootRadius = 35f;
         public static float basePulseRate = 0.2f;
         public static float damageCoefficient = 0.5f;
@@ -109,16 +109,19 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void Update()
         {
             base.Update();
-            UpdateMeleeRootMotion(2f);
+            UpdateMeleeRootMotion(3f);
             stopwatch += Time.deltaTime;
 
-            if (stopwatch >= pulseRate) 
+            if (this.age >= (this.duration * moveStartFrac) && this.age <= (this.duration * moveEndFrac)) 
             {
-                stopwatch = 0f;
-
-                if (base.isAuthority) 
+                if (stopwatch >= pulseRate)
                 {
-                    FireAttack();
+                    stopwatch = 0f;
+
+                    if (base.isAuthority)
+                    {
+                        FireAttack();
+                    }
                 }
             }
 

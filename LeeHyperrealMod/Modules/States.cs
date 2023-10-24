@@ -3,6 +3,7 @@ using LeeHyperrealMod.SkillStates.BaseStates;
 using System.Collections.Generic;
 using System;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.Primary;
+using LeeHyperrealMod.SkillStates.LeeHyperreal;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -16,6 +17,8 @@ namespace LeeHyperrealMod.Modules
             Modules.Content.AddEntityState(typeof(Primary3));
             Modules.Content.AddEntityState(typeof(Primary4));
             Modules.Content.AddEntityState(typeof(Primary5));
+
+            Modules.Content.AddEntityState(typeof(Evade));
             
             Modules.Content.AddEntityState(typeof(SlashCombo));
 

@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 2633673488
+CRC: 2885720588
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -67,8 +67,7 @@ AssetBundleManifest:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd010011.ab
     Info_16:
       Name: assets/product/role/weaponanimation/superli/superliriflecommon/fight.ab
-      Dependencies:
-        Dependency_0: leehyperrealassets
+      Dependencies: {}
     Info_17:
       Name: assets/product/scene/cubemaps/generatecubes.ab
       Dependencies: {}
@@ -198,6 +197,5 @@ AssetBundleManifest:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd010011.ab
         Dependency_1: assets/product/role/body/r4liangmd010011.ab
         Dependency_2: myassetbundle
-        Dependency_3: assets/product/role/weaponanimation/superli/superliriflecommon/fight.ab
-        Dependency_4: assets/product/scene/cubemaps/generatecubes.ab
-        Dependency_5: assets/product/dummyshader/xcharacter_character##8c57a49c51573d3d980a249b814f1a8a1a36f20b.ab
+        Dependency_3: assets/product/scene/cubemaps/generatecubes.ab
+        Dependency_4: assets/product/dummyshader/xcharacter_character##8c57a49c51573d3d980a249b814f1a8a1a36f20b.ab

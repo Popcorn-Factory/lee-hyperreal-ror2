@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 589018680
+CRC: 2811916480
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a8b637b580101312a8d69166768fe2c9
+    Hash: 9522499f18d7b519891049781241a54c
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5df456c1eb5ccf4480b610194c29a53c
@@ -83,6 +83,7 @@ Assets:
 - Assets/LeeHyperrealAssets/Material/leeHairMat.mat
 - Assets/LeeHyperrealAssets/mdlLeeHyperreal.prefab
 - Assets/LeeHyperrealAssets/Texture/Albedo/gunHudTex.png
+- Assets/LeeHyperrealAssets/Animation/fight.controller
 - Assets/LeeHyperrealAssets/Mesh/leeSubMachineGunMesh.mesh
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/spawn3.anim
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeTorsoTex.png
@@ -113,8 +114,10 @@ Assets:
 - Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/attack26.anim
 - Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/attack23.anim
 - Assets/LeeHyperrealAssets/Texture/Normal/leeLegNormal.png
+- Assets/LeeHyperrealAssets/Animation/BodyAnims/evadeBack.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/primary3.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/primary1.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnims/evadeForward.anim
 - Assets/LeeHyperrealAssets/Animation/animLeeHyperrealDisplay.controller
 - Assets/LeeHyperrealAssets/Material/leePistolMat.mat
 - Assets/LeeHyperrealAssets/Animation/animLeeHyperreal.controller
@@ -126,7 +129,6 @@ Assets:
 Dependencies:
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/dummyshader/xcharacter_character##8c57a49c51573d3d980a249b814f1a8a1a36f20b.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/body/r4liangmd010011.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/weaponanimation/superli/superliriflecommon/fight.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/weaponres/superli/e3superliboxmd010011.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/scene/cubemaps/generatecubes.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/myassetbundle
