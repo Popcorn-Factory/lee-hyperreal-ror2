@@ -85,7 +85,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void Update()
         {
             base.Update();
-            UpdateMeleeRootMotion(3f);
+            UpdateMeleeRootMotion(2f);
         }
 
         public override void FixedUpdate()
@@ -112,7 +112,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.PrioritySkill;
+            return InterruptPriority.Skill;
         }
     }
 }

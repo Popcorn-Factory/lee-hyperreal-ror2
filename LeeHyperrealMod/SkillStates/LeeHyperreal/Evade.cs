@@ -6,12 +6,13 @@ using UnityEngine;
 using EntityStates;
 using RoR2;
 using System.Security.Cryptography;
+using ExtraSkillSlots;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 {
     internal class Evade : BaseSkillState
     {
-        public static float duration = 0.5f;
+        public static float duration = 0.75f;
 
         public static string dodgeSoundString = "HenryRoll";
         public static float dodgeFOV = EntityStates.Commando.DodgeState.dodgeFOV;
@@ -23,25 +24,29 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         private float start = 0.3f;
         private float end = 0.6f;
-
+        private Vector3 forwardDirection;
+        private ExtraInputBankTest extraInput;
+        private ExtraSkillLocator extraSkillLocator;
 
         public override void OnEnter()
         {
             base.OnEnter();
             this.animator = base.GetModelAnimator();
             InitMeleeRootMotion();
+            extraSkillLocator = base.gameObject.GetComponent<ExtraSkillLocator>();
+            extraInput = base.gameObject.GetComponent<ExtraInputBankTest>();
 
-            Vector3 forwardDirection = base.GetAimRay().direction;
+            forwardDirection = base.GetAimRay().direction;
             Vector3 backwardsDirection = forwardDirection * -1f;
 
-            if (base.characterDirection.moveVector == Vector3.zero)
+            if (base.inputBank.moveVector == Vector3.zero)
             {
                 isForwardRoll = true;
                 PlayAnimation();
                 return;
             }
 
-            if (Vector3.Dot(backwardsDirection, base.GetAimRay().direction) <= -0.833f) 
+            if (Vector3.Dot(backwardsDirection, base.inputBank.moveVector) >= 0.833f) 
             {
                 isForwardRoll = false;
                 PlayAnimation();
@@ -56,11 +61,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            UpdateMeleeRootMotion(3f);
+            float y = base.characterMotor.velocity.y;
+            base.characterMotor.velocity = Vector3.zero;
+            base.characterMotor.velocity.y = y;
+            base.characterDirection.moveVector = forwardDirection;
+            UpdateMeleeRootMotion(2f);
 
             if (base.fixedAge >= duration * start && base.fixedAge <= duration * end) 
             {
-                
+                Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, extraSkillLocator, isAuthority, base.inputBank, extraInput);
             }
 
             if (base.fixedAge >= duration && base.isAuthority) 

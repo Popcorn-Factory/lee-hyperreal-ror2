@@ -109,7 +109,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void Update()
         {
             base.Update();
-            UpdateMeleeRootMotion(3f);
+            UpdateMeleeRootMotion(2.4f);
             stopwatch += Time.deltaTime;
 
             if (this.age >= (this.duration * moveStartFrac) && this.age <= (this.duration * moveEndFrac)) 
@@ -179,7 +179,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.PrioritySkill;
+            return InterruptPriority.Skill;
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using EntityStates;
+using ExtraSkillSlots;
 using RoR2;
 using RoR2.Audio;
 using System;
@@ -49,6 +50,8 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         private int attackAmount;
         private float partialAttack;
         private HitBoxGroup hitBoxGroup;
+        private ExtraInputBankTest extraInput;
+        private ExtraSkillLocator extraSkillLocator;
 
         public override void OnEnter()
         {
@@ -60,6 +63,8 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             base.StartAimMode(0.5f + this.duration, false);
             base.characterBody.outOfCombatStopwatch = 0f;
             this.animator.SetBool("attacking", true);
+            extraSkillLocator = base.gameObject.GetComponent<ExtraSkillLocator>();
+            extraInput = base.gameObject.GetComponent<ExtraInputBankTest>();
 
             attackAmount = (int)this.attackSpeedStat;
             if (attackAmount < 1) 
@@ -236,14 +241,18 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             base.Update();
             if (this.stopwatch >= (this.duration * this.earlyExitTime) && base.isAuthority)
             {
+                //Check this first.
                 if (base.inputBank.skill1.down)
                 {
                     if (!this.hasFired) this.FireAttack();
                     this.SetNextState();
                     return;
                 }
+
+                Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, extraSkillLocator, isAuthority, base.inputBank, extraInput);
             }
         }
+
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {

@@ -197,7 +197,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 canceledFromSprinting = false,
                 forceSprintDuringState = true,
                 fullRestockOnAssign = true,
-                interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
+                interruptPriority = EntityStates.InterruptPriority.Pain,
                 resetCooldownTimerOnUse = false,
                 isCombatSkill = false,
                 mustKeyPress = false,
