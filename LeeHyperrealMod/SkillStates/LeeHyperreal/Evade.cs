@@ -27,6 +27,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         private Vector3 forwardDirection;
         private ExtraInputBankTest extraInput;
         private ExtraSkillLocator extraSkillLocator;
+        private Vector3 moveVector;
 
         public override void OnEnter()
         {
@@ -38,10 +39,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
             forwardDirection = base.GetAimRay().direction;
             Vector3 backwardsDirection = forwardDirection * -1f;
+            moveVector = base.inputBank.moveVector;
 
             if (base.inputBank.moveVector == Vector3.zero)
             {
-                isForwardRoll = true;
+                isForwardRoll = false;
                 PlayAnimation();
                 return;
             }
@@ -61,18 +63,40 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+
+        }
+
+        public override void Update()
+        {
+            base.Update();
             float y = base.characterMotor.velocity.y;
             base.characterMotor.velocity = Vector3.zero;
             base.characterMotor.velocity.y = y;
-            base.characterDirection.moveVector = forwardDirection;
-            UpdateMeleeRootMotion(2f);
-
-            if (base.fixedAge >= duration * start && base.fixedAge <= duration * end) 
+            if (isForwardRoll)
             {
+                base.characterDirection.moveVector = moveVector;
+            }
+            else 
+            {
+                base.characterDirection.moveVector = forwardDirection;
+            }
+            UpdateMeleeRootMotion(1.6f);
+
+            if (base.fixedAge >= duration * start && base.fixedAge <= duration * end)
+            {
+                if (base.isAuthority && !isForwardRoll)
+                {
+                    if (inputBank.skill1.down)
+                    {
+                        //Go to Primary 3.
+                        this.outer.SetState(new Primary.Primary3 { });
+                        return;
+                    }
+                }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, extraSkillLocator, isAuthority, base.inputBank, extraInput);
             }
 
-            if (base.fixedAge >= duration && base.isAuthority) 
+            if (base.fixedAge >= duration && base.isAuthority)
             {
                 base.outer.SetNextStateToMain();
             }
