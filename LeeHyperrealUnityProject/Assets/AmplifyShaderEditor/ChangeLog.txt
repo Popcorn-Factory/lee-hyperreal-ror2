@@ -1,3 +1,20 @@
+v1.9.2.1
+
+   Templates
+      * Added initial support for URP/HDRP 17
+      * Updated all URP/HDRP templates
+      * Force AlphaToMask Off on URP ScenePicking/SceneSelection passes
+      * Fixed URP 14x 15x 16x Decal not working properly on Mac (#217)
+      * Fixed HDRP 12x 14x 15x 16x Unlit errors on Shadow Matte option (#218)
+
+   Nodes
+      * Fixed World Normal node sometimes generating errors on iOS platform (#225)
+      * Fixed dither node not updating subtitle when switching pattern (#229)
+      * Fixed errors in Light Color Node (#227)
+
+   Editor
+      * Proper fix for guistyle typo warning
+
 v1.9.2
 
    Highlights

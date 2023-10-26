@@ -11,7 +11,7 @@ namespace AmplifyShaderEditor
 		public const byte Major = 1;
 		public const byte Minor = 9;
 		public const byte Release = 2;
-		public static byte Revision = 0;
+		public static byte Revision = 1;
 
 		public static string StaticToString()
 		{

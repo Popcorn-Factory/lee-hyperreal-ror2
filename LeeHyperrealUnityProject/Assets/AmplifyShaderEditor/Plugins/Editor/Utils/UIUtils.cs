@@ -1221,14 +1221,18 @@ namespace AmplifyShaderEditor
 			MinusStyle.imagePosition = ImagePosition.ImageOnly;
 			MinusStyle.overflow = new RectOffset( -2 , 0 , -4 , 0 );
 
-		#if UNITY_2021_3_OR_NEWER
-			ToolbarSearchTextfield = new GUIStyle((GUIStyle)"ToolbarSearchTextField");
-			ToolbarSearchCancelButton = new GUIStyle((GUIStyle)"ToolbarSearchCancelButton");
-		#else
-			ToolbarSearchTextfield = new GUIStyle( ( GUIStyle )"ToolbarSeachTextField" );
-			ToolbarSearchCancelButton = new GUIStyle( ( GUIStyle )"ToolbarSeachCancelButton" );
-		#endif
-
+			if ( GUI.skin.FindStyle( "ToolbarSearchTextField" ) != null )
+			{
+				// @diogo: new, fixed
+				ToolbarSearchTextfield = new GUIStyle( ( GUIStyle )"ToolbarSearchTextField" );
+				ToolbarSearchCancelButton = new GUIStyle( ( GUIStyle )"ToolbarSearchCancelButton" );
+			}
+			else
+			{
+				// @diogo: old, typo
+				ToolbarSearchTextfield = new GUIStyle( ( GUIStyle )"ToolbarSeachTextField" );
+				ToolbarSearchCancelButton = new GUIStyle( ( GUIStyle )"ToolbarSeachCancelButton" );
+			}
 		}
 
 		public static void UpdateMainSkin( DrawInfo drawInfo )

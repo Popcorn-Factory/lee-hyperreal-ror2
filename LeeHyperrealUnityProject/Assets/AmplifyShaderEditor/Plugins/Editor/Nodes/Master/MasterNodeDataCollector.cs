@@ -1775,7 +1775,13 @@ namespace AmplifyShaderEditor
 			get
 			{
 				if( m_dirtyPerVertexData )
+				{
 					return Constants.CustomAppDataFullBody + m_customAppDataItems + "\t\t};\n";
+				}
+				else if ( m_dirtyAppData )
+				{
+					return Constants.CustomAppDataFullBody + "\t\t};\n";
+				}
 
 				return string.Empty;
 			}
