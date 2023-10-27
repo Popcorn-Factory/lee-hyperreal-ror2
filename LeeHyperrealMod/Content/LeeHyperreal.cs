@@ -1,4 +1,5 @@
 ﻿using BepInEx.Configuration;
+using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.Modules.Characters;
 using RoR2;
 using RoR2.Skills;
@@ -115,6 +116,7 @@ namespace LeeHyperrealMod.Modules.Survivors
         public override void InitializeCharacter()
         {
             base.InitializeCharacter();
+            bodyPrefab.AddComponent<OrbController>();
         }
 
         public override void InitializeUnlockables()

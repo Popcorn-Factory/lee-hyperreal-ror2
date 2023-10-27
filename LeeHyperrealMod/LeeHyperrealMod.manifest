@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 2885720588
+CRC: 2953030691
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -12,186 +12,182 @@ AssetBundleManifest:
       Name: assets/product/role/body/r4liangmd010011/vc.ab
       Dependencies: {}
     Info_2:
-      Name: assets/product/role/animation/r4liangmdcommon/r4liangmdcommon/baselayer.ab
-      Dependencies: {}
-    Info_3:
       Name: assets/product/role/body/r4liangmd010011.ab
       Dependencies:
         Dependency_0: assets/product/scene/cubemaps/generatecubes.ab
-    Info_4:
+    Info_3:
       Name: myassetbundle
       Dependencies: {}
-    Info_5:
+    Info_4:
       Name: assets/product/role/animation/r4liangmdcommon/r4liangmdcommondisplay.ab
       Dependencies: {}
-    Info_6:
+    Info_5:
       Name: assets/product/role/weaponprefab/e3superlimd010011p02.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd010011.ab
         Dependency_1: assets/product/role/weaponanimation/superli/e3superlimd010011p02/uistand.ab
-    Info_7:
+    Info_6:
       Name: assets/product/role/weaponprefab/e3superliboxmd010011p03.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd010011.ab
-    Info_8:
+    Info_7:
       Name: assets/product/role/weaponanimation/superli/e3superlimd010011p04/uistand.ab
       Dependencies: {}
-    Info_9:
+    Info_8:
       Name: assets/product/shader.ab
       Dependencies: {}
-    Info_10:
+    Info_9:
       Name: assets/product/role/weaponres/superli/e3superliboxmd040011.ab
       Dependencies:
         Dependency_0: assets/product/shader.ab
         Dependency_1: assets/product/scene/cubemaps/generatecubes.ab
-    Info_11:
+    Info_10:
       Name: assets/product/role/weaponres/superli/e3superliboxmd030011.ab
       Dependencies:
         Dependency_0: assets/product/shader.ab
         Dependency_1: assets/product/scene/cubemaps/generatecubes.ab
-    Info_12:
+    Info_11:
       Name: assets/product/effect/material.ab
       Dependencies:
         Dependency_0: assets/product/shader.ab
         Dependency_1: assets/product/effect/texture.ab
-    Info_13:
+    Info_12:
       Name: assets/product/dummyshader/xcharacter_character##3484236dbabb8b01531cb19e092882200fc0f83f.ab
       Dependencies: {}
-    Info_14:
+    Info_13:
       Name: assets/product/role/weaponprefab/e3superliriflemd040011.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd040011.ab
-    Info_15:
+    Info_14:
       Name: assets/product/role/weaponprefab/e3superligunmd010011p04.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd010011.ab
-    Info_16:
+    Info_15:
       Name: assets/product/role/weaponanimation/superli/superliriflecommon/fight.ab
       Dependencies: {}
-    Info_17:
+    Info_16:
       Name: assets/product/scene/cubemaps/generatecubes.ab
       Dependencies: {}
-    Info_18:
+    Info_17:
       Name: assets/product/role/weaponanimation/superli/e3superlimd010011p02/uistand.ab
       Dependencies: {}
-    Info_19:
+    Info_18:
       Name: assets/product/role/charaterprefab/r4liangmd010011.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/body/r4liangmd010011/vc.ab
         Dependency_1: assets/product/role/body/r4liangmd010011.ab
-    Info_20:
+    Info_19:
       Name: assets/product/role/weaponprefab/e3superlimd030011.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd030011.ab
-    Info_21:
+    Info_20:
       Name: assets/product/role/weaponprefab/e3superliboxmd040011.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd040011.ab
-    Info_22:
+    Info_21:
       Name: assets/product/role/weaponanimation/superli/e3superlimd010011p03/uistand.ab
       Dependencies: {}
-    Info_23:
+    Info_22:
       Name: assets/product/role/weaponanimation/superli/e3superlimd010011p01/uistand.ab
       Dependencies: {}
-    Info_24:
+    Info_23:
       Name: assets/product/role/animation/r4liangmd010011/r4liangmd010011.ab
       Dependencies:
-        Dependency_0: assets/product/role/animation/r4liangmdcommon/r4liangmdcommon/baselayer.ab
-        Dependency_1: assets/product/role/animation/r4liangmdcommon/r4liangmdcommon/levelcombine1/level1.ab
-    Info_25:
+        Dependency_0: assets/product/role/animation/r4liangmdcommon/r4liangmdcommon/levelcombine1/level1.ab
+    Info_24:
       Name: assets/product/role/weaponprefab/e3superlimd010011p01.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd010011.ab
         Dependency_1: assets/product/role/weaponanimation/superli/e3superlimd010011p01/uistand.ab
-    Info_26:
+    Info_25:
       Name: assets/product/role/weaponprefab/e3superliboxmd010011p02.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd010011.ab
-    Info_27:
+    Info_26:
       Name: assets/product/role/weaponprefab/e3superliriflemd030011.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd030011.ab
-    Info_28:
+    Info_27:
       Name: assets/product/role/weaponprefab/e3superligunmd010011p03.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd010011.ab
-    Info_29:
+    Info_28:
       Name: assets/product/effect/mesh.ab
       Dependencies: {}
-    Info_30:
+    Info_29:
       Name: assets/product/dummyshader/xcharacter_character##da39a3ee5e6b4b0d3255bfef95601890afd80709.ab
       Dependencies: {}
-    Info_31:
+    Info_30:
       Name: assets/product/role/weaponprefab/e3superlimd010011p04.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd010011.ab
         Dependency_1: assets/product/role/weaponanimation/superli/e3superlimd010011p04/uistand.ab
         Dependency_2: assets/product/effect/material.ab
         Dependency_3: assets/product/effect/mesh.ab
-    Info_32:
+    Info_31:
       Name: assets/product/role/weaponprefab/e3superliboxmd030011.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd030011.ab
-    Info_33:
+    Info_32:
       Name: assets/product/dummyshader/xcharacter_character##85bfa04e1e37969435d6429534e4652dce2330d1.ab
       Dependencies: {}
-    Info_34:
+    Info_33:
       Name: assets/product/role/animation/r4liangmdcommon/r4liangmdcommon/levelcombine1/level1.ab
       Dependencies: {}
-    Info_35:
+    Info_34:
       Name: assets/product/role/weaponprefab/e3superligunmd040011.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd040011.ab
-    Info_36:
+    Info_35:
       Name: assets/product/role/weaponprefab/e3superliboxmd010011p01.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd010011.ab
-    Info_37:
+    Info_36:
       Name: assets/product/role/weaponprefab/e3superliriflemd010011.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd010011.ab
         Dependency_1: assets/product/role/weaponanimation/superli/superliriflecommon/fight.ab
-    Info_38:
+    Info_37:
       Name: assets/product/role/weaponprefab/e3superligunmd010011p02.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd010011.ab
-    Info_39:
+    Info_38:
       Name: assets/product/role/animation/r4liangmd010011/r4liangmd010011display.ab
       Dependencies:
         Dependency_0: assets/product/role/animation/r4liangmdcommon/r4liangmdcommondisplay.ab
-    Info_40:
+    Info_39:
       Name: assets/product/role/weaponprefab/e3superlimd010011p03.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd010011.ab
         Dependency_1: assets/product/effect/material.ab
         Dependency_2: assets/product/role/weaponanimation/superli/e3superlimd010011p03/uistand.ab
         Dependency_3: assets/product/effect/mesh.ab
-    Info_41:
+    Info_40:
       Name: assets/product/role/weaponprefab/e3superliboxmd010011p04.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd010011.ab
-    Info_42:
+    Info_41:
       Name: assets/product/role/weaponprefab/e3superligunmd030011.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd030011.ab
-    Info_43:
+    Info_42:
       Name: assets/product/effect/texture.ab
       Dependencies: {}
-    Info_44:
+    Info_43:
       Name: assets/product/dummyshader/xcharacter_character##e1b23e1944c337fbdeca7102648dd40cf251a211.ab
       Dependencies: {}
-    Info_45:
+    Info_44:
       Name: assets/product/role/weaponprefab/e3superlimd040011.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd040011.ab
-    Info_46:
+    Info_45:
       Name: assets/product/role/weaponprefab/e3superligunmd010011p01.prefab.ab
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd010011.ab
-    Info_47:
+    Info_46:
       Name: assets/product/dummyshader/xcharacter_character##8c57a49c51573d3d980a249b814f1a8a1a36f20b.ab
       Dependencies: {}
-    Info_48:
+    Info_47:
       Name: leehyperrealassets
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd010011.ab
