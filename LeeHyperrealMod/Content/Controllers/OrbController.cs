@@ -54,15 +54,83 @@ namespace LeeHyperrealMod.Content.Controllers
 
         }
 
-        public void CheckMoveValidity() 
-        {
-            // Checks if the move can be run by reading the list and checking the first 8 for combinations of red/yellow/blue.
 
+        // Checks if move is valid determined by an int. 
+        // If value is greater than 0, an orb was found. 
+        // Values returned will be the index in the list it was found at. 
+        // If specified orb was not found, 0, 0, 0 will be returned. 
+        // If there are no orbs, 0, 0 ,0 will be returned.
+        public int[] CheckMoveValidity(OrbType type)
+        {
+
+            int objLimit = orbList.Count >= 8 ? 8 : orbList.Count;
+
+            int[] result = { -1, -1, -1};
+            int indexPtr = 0;
+
+            // No Orbs to spend!
+            if (objLimit == 0)
+            {
+                return result;
+            }
+
+            bool found = false;
+
+            //Only check the first 8.
+            for (int i = 0; i < objLimit; i++) 
+            {
+                if (orbList[i] == type)
+                {
+                    found = true;
+                    result[indexPtr] = i;
+                    indexPtr++;
+                }
+
+                // Previously found, but new one doesn't match the current one. end of sequence.
+                if (found && orbList[i] != type) 
+                {
+                    return result;
+                }
+
+                if (indexPtr == 3) 
+                {
+                    return result;
+                }
+            }
+
+
+
+            return result;
         }
 
-        public void ConsumeOrbs(OrbType type) 
+        //
+        public int ConsumeOrbs(OrbType type) 
         {
             // Uses the CheckMoveValidity() and attempts to remove.     
+
+            int[] moveValidity = CheckMoveValidity(type);
+            int[] failedCheck = { -1, -1, -1 };
+
+            if (failedCheck[0] == moveValidity[0] && failedCheck[1] == moveValidity[1] && failedCheck[2] == moveValidity[2]) 
+            {
+                // Disallowed from running.
+                return 0;
+            }
+
+            int strength = 0;
+            foreach (int index in moveValidity) 
+            {
+                if (index != -1) 
+                {
+                    //SHIT THIS IS GARBAGE.
+                    orbList.RemoveAt(index);
+                    strength++;
+                }
+            }
+
+
+            //Success.
+            return strength;
         }
 
 
@@ -79,11 +147,31 @@ namespace LeeHyperrealMod.Content.Controllers
                     GrantOrb();
                 }
             }
+
+            string output = "";
+
+            foreach (OrbType type in orbList)
+            {
+                switch (type)
+                {
+                    case OrbType.BLUE:
+                        output += "B";
+                        break;
+                    case OrbType.RED:
+                        output += "R";
+                        break;
+                    case OrbType.YELLOW:
+                        output += "Y";
+                        break;
+                }
+            }
+
+            Chat.AddMessage(output);
         }
 
         public void GrantOrb()
         {
-            int chosen = UnityEngine.Random.Range(1, 3);
+            int chosen = UnityEngine.Random.Range(1, 4);
 
             OrbType chosenOrbType = (OrbType)chosen;
 

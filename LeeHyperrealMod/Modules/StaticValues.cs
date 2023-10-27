@@ -16,7 +16,7 @@ namespace LeeHyperrealMod.Modules
 
         internal const float bombDamageCoefficient = 16f;
 
-        internal const float flatIncreaseOrbIncrementor = 0.05f;
+        internal const float flatIncreaseOrbIncrementor = 0.5f;
         internal const float LimitToGrantOrb = 1f;
     }
 }

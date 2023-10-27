@@ -1,5 +1,6 @@
 ﻿using EntityStates;
 using ExtraSkillSlots;
+using LeeHyperrealMod.Content.Controllers;
 using RoR2;
 using RoR2.Audio;
 using System;
@@ -47,15 +48,17 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         private BaseState.HitStopCachedState hitStopCachedState;
         private Vector3 storedVelocity;
 
-        private int attackAmount;
+        internal int attackAmount;
         private float partialAttack;
         private HitBoxGroup hitBoxGroup;
         private ExtraInputBankTest extraInput;
         private ExtraSkillLocator extraSkillLocator;
+        internal OrbController orbController;
 
         public override void OnEnter()
         {
             base.OnEnter();
+            orbController = base.gameObject.GetComponent<OrbController>();
             this.duration = this.baseDuration / 1f; //this.attackSpeedStat;
             this.earlyExitTime = this.baseEarlyExitTime / 1f; //this.attackSpeedStat;
             this.hasFired = false;
@@ -153,8 +156,8 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                         this.attack.damage = this.damageCoefficient * this.damageStat;
                         this.attack.procCoefficient = this.procCoefficient;
                         this.attack.hitEffectPrefab = this.hitEffectPrefab;
-                        this.attack.forceVector = this.bonusForce;
-                        this.attack.pushAwayForce = this.pushForce;
+                        this.attack.forceVector = this.bonusForce / attackAmount;
+                        this.attack.pushAwayForce = this.pushForce / attackAmount;
                         this.attack.hitBoxGroup = hitBoxGroup;
                         this.attack.isCrit = base.RollCrit();
                         this.attack.impactSound = this.impactSound;
@@ -174,8 +177,8 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                         this.attack.damage = this.damageCoefficient * this.damageStat * partialAttack;
                         this.attack.procCoefficient = this.procCoefficient * partialAttack;
                         this.attack.hitEffectPrefab = this.hitEffectPrefab;
-                        this.attack.forceVector = this.bonusForce * partialAttack;
-                        this.attack.pushAwayForce = this.pushForce * partialAttack;
+                        this.attack.forceVector = this.bonusForce * partialAttack / attackAmount;
+                        this.attack.pushAwayForce = this.pushForce * partialAttack / attackAmount;
                         this.attack.hitBoxGroup = hitBoxGroup;
                         this.attack.isCrit = base.RollCrit();
                         this.attack.impactSound = this.impactSound;

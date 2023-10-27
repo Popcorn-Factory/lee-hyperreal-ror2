@@ -101,7 +101,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         {
             base.PlayAnimation("FullBody, Override", "primary2", "attack.playbackRate", duration);
         }
+        protected override void OnHitEnemyAuthority()
+        {
+            base.OnHitEnemyAuthority();
+            //Increment the orb incrementor
 
+            if (orbController)
+            {
+                orbController.AddToIncrementor(0.2f / ((attackAmount <= 0) ? 1 : attackAmount));
+            }
+        }
         protected override void SetNextState()
         {
             // Move to Primary3

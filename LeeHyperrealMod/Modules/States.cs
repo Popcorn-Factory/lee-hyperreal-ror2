@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.Primary;
 using LeeHyperrealMod.SkillStates.LeeHyperreal;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -17,6 +19,12 @@ namespace LeeHyperrealMod.Modules
             Modules.Content.AddEntityState(typeof(Primary3));
             Modules.Content.AddEntityState(typeof(Primary4));
             Modules.Content.AddEntityState(typeof(Primary5));
+
+            Modules.Content.AddEntityState(typeof(RedOrbEntry));
+            Modules.Content.AddEntityState(typeof(YellowOrbEntry));
+            Modules.Content.AddEntityState(typeof(BlueOrb));
+
+            
 
             Modules.Content.AddEntityState(typeof(Evade));
             

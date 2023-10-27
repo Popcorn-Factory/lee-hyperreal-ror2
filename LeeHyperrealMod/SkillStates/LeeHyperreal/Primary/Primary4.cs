@@ -1,4 +1,5 @@
 ﻿using EntityStates;
+using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using RoR2;
 using System;
@@ -39,10 +40,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         internal float stopwatch;
 
         public RootMotionAccumulator rma;
+        public OrbController orbController;
 
         public override void OnEnter()
         {
             base.OnEnter();
+            orbController = base.gameObject.GetComponent<OrbController>();
             duration = 2.5f;
             pulseRate = basePulseRate / this.attackSpeedStat;
             earlyExitTime = 0.4f;
@@ -151,7 +154,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             Util.PlayAttackSpeedSound("HenrySwordSwing", base.gameObject, this.attackSpeedStat);
             if (result.hitCount > 0) 
             {
-                // I dunno do something with this.
+
+
+                if (orbController)
+                {
+                    orbController.AddToIncrementor(0.015f);
+                }
+
             }
         }
 
@@ -164,6 +173,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         {
             base.OnExit();
         }
+
 
         protected void PlayAttackAnimation()
         {

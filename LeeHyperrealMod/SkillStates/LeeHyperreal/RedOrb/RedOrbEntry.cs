@@ -1,30 +1,27 @@
 ﻿using EntityStates;
-using RoR2;
 using LeeHyperrealMod.Content.Controllers;
+using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace LeeHyperrealMod.SkillStates.LeeHyperreal
+namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 {
-    internal class BlueOrb : BaseSkillState
+    internal class RedOrbEntry : BaseSkillState
     {
         OrbController orbController;
-        
+
         public override void OnEnter()
         {
             base.OnEnter();
-
             orbController = base.gameObject.GetComponent<OrbController>();
-            int strength = orbController.ConsumeOrbs(OrbController.OrbType.BLUE);
 
-            if ( strength >= 0) 
+            if (orbController.ConsumeOrbs(OrbController.OrbType.RED) >= 0)
             {
                 Chat.AddMessage("Nice!");
-
                 this.outer.SetNextStateToMain();
             }
-            else 
+            else
             {
                 this.outer.SetNextStateToMain();
             }
@@ -42,7 +39,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.PrioritySkill;
+            return InterruptPriority.Frozen;
         }
     }
 }
