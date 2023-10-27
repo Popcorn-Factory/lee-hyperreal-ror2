@@ -1352,8 +1352,11 @@ namespace AmplifyShaderEditor
 
 			m_currentDataCollector.TesselationActive = m_tessOpHelper.EnableTesselation;
 			#if UNITY_IOS
-			// On iOS custom app data must be used since fixed4 color from appdata_full generates an error on it when tessellation is active
-			m_currentDataCollector.ForceCustomAppDataUsage();
+			if ( m_currentDataCollector.TesselationActive )
+			{
+				// On iOS custom app data must be used since fixed4 color from appdata_full generates an error on it when tessellation is active
+				m_currentDataCollector.ForceCustomAppDataUsage();
+			}
 			#endif
 			m_currentDataCollector.CurrentRenderPath = m_renderPath;
 
