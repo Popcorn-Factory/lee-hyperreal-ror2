@@ -362,95 +362,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 15.493001, y: 164.164, z: 0}
---- !u!1001 &1165579082
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6279823444004641820, guid: da74aa0ccc4a52243a56a796a483f8a3,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279823444004641820, guid: da74aa0ccc4a52243a56a796a483f8a3,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279823444004641820, guid: da74aa0ccc4a52243a56a796a483f8a3,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279823444004641820, guid: da74aa0ccc4a52243a56a796a483f8a3,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279823444004641820, guid: da74aa0ccc4a52243a56a796a483f8a3,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.803
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279823444004641820, guid: da74aa0ccc4a52243a56a796a483f8a3,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.963
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279823444004641820, guid: da74aa0ccc4a52243a56a796a483f8a3,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279823444004641820, guid: da74aa0ccc4a52243a56a796a483f8a3,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9419716
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279823444004641820, guid: da74aa0ccc4a52243a56a796a483f8a3,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279823444004641820, guid: da74aa0ccc4a52243a56a796a483f8a3,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.33569267
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279823444004641820, guid: da74aa0ccc4a52243a56a796a483f8a3,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279823444004641820, guid: da74aa0ccc4a52243a56a796a483f8a3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279823444004641820, guid: da74aa0ccc4a52243a56a796a483f8a3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -39.229
-      objectReference: {fileID: 0}
-    - target: {fileID: 6279823444004641820, guid: da74aa0ccc4a52243a56a796a483f8a3,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6660184526265861798, guid: da74aa0ccc4a52243a56a796a483f8a3,
-        type: 3}
-      propertyPath: m_Name
-      value: noctisSword
-      objectReference: {fileID: 0}
-    - target: {fileID: 7769609285062636145, guid: da74aa0ccc4a52243a56a796a483f8a3,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: c2c9f134fb1b18a49973b74257e3dbb2, type: 2}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: da74aa0ccc4a52243a56a796a483f8a3, type: 3}
 --- !u!1 &1445988066
 GameObject:
   m_ObjectHideFlags: 0
@@ -5312,7 +5223,7 @@ PrefabInstance:
     - target: {fileID: 8315140139193319990, guid: 1e68b8875507ad549b2f524200f756e0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8315140139193319990, guid: 1e68b8875507ad549b2f524200f756e0,
         type: 3}

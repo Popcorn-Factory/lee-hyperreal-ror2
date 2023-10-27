@@ -12,7 +12,7 @@ namespace LeeHyperrealMod.Content.Controllers
         // On fire or not
         // Orb Types
 
-        enum OrbType : ushort
+        internal enum OrbType : ushort
 
         {
             BLUE = 1,
@@ -52,6 +52,17 @@ namespace LeeHyperrealMod.Content.Controllers
         public void Update()
         {
 
+        }
+
+        public void CheckMoveValidity() 
+        {
+            // Checks if the move can be run by reading the list and checking the first 8 for combinations of red/yellow/blue.
+
+        }
+
+        public void ConsumeOrbs(OrbType type) 
+        {
+            // Uses the CheckMoveValidity() and attempts to remove.     
         }
 
 
