@@ -46,6 +46,11 @@ namespace AmplifyShaderEditor
 		{
 			AmplifyShaderEditorWindow.CreateConfirmationTemplateShader( "32139be9c1eb75640a847f011acf3bcf" );
 		}
+		[MenuItem( "Assets/Create/Amplify Shader/Legacy/Samples/DoublePassUnlit", false, 85 )]
+		public static void ApplyTemplateLegacySamplesDoublePassUnlit()
+		{
+			AmplifyShaderEditorWindow.CreateConfirmationTemplateShader( "003dfa9c16768d048b74f75c088119d8" );
+		}
 		[MenuItem( "Assets/Create/Amplify Shader/Legacy/Unlit", false, 85 )]
 		public static void ApplyTemplateLegacyUnlit()
 		{
@@ -60,6 +65,11 @@ namespace AmplifyShaderEditor
 		public static void ApplyTemplateUIDefault()
 		{
 			AmplifyShaderEditorWindow.CreateConfirmationTemplateShader( "5056123faa0c79b47ab6ad7e8bf059a4" );
+		}
+		[MenuItem( "Assets/Create/Amplify Shader/WikiExamples/Simple Multi Pass Outline", false, 85 )]
+		public static void ApplyTemplateWikiExamplesSimpleMultiPassOutline()
+		{
+			AmplifyShaderEditorWindow.CreateConfirmationTemplateShader( "9b40451630acaf14b889da47dc46be0f" );
 		}
 	}
 }
