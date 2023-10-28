@@ -123,7 +123,6 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 if (moveValidity[i] != -1) 
                 {
-                    //SHIT THIS IS GARBAGE.
                     orbList.RemoveAt(moveValidity[i]);
                     strength++;
                 }
