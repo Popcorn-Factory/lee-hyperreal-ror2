@@ -22,7 +22,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         bool onFire = false;
         List<OrbType> orbList;
-        int OrbLimit;
+        int OrbLimit = 16;
         float orbIncrementor = 0f;
         const bool autoIncrementOrbIncrementor = true;
 
@@ -117,13 +117,14 @@ namespace LeeHyperrealMod.Content.Controllers
                 return 0;
             }
 
+            // Inverse the array since we remove from the end of the list first.
             int strength = 0;
-            foreach (int index in moveValidity) 
+            for( int i = moveValidity.Length - 1; i > -1; i-- )
             {
-                if (index != -1) 
+                if (moveValidity[i] != -1) 
                 {
                     //SHIT THIS IS GARBAGE.
-                    orbList.RemoveAt(index);
+                    orbList.RemoveAt(moveValidity[i]);
                     strength++;
                 }
             }
@@ -166,11 +167,17 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
             }
 
-            Chat.AddMessage(output);
+            Chat.AddMessage($"{orbIncrementor}");
+            Chat.AddMessage($"{output}");
         }
 
         public void GrantOrb()
         {
+            if (orbList.Count >= 16) 
+            {
+                return;
+            }
+
             int chosen = UnityEngine.Random.Range(1, 4);
 
             OrbType chosenOrbType = (OrbType)chosen;
