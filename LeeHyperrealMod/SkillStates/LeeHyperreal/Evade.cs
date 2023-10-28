@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using UnityEngine.Networking;
+﻿using UnityEngine.Networking;
 using UnityEngine;
 using EntityStates;
 using RoR2;
-using System.Security.Cryptography;
 using ExtraSkillSlots;
+using LeeHyperrealMod.SkillStates.BaseStates;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 {
-    internal class Evade : BaseSkillState
+    internal class Evade : BaseRootMotionMoverState
     {
         public static float duration = 1f;
 
@@ -19,7 +16,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         private Animator animator;
 
-        private RootMotionAccumulator rma;
         private bool isForwardRoll;
 
         private float start = 0.3f;
@@ -29,18 +25,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         private ExtraSkillLocator extraSkillLocator;
         private Vector3 moveVector;
 
+        private float movementMultiplier = 1.6f;
+
         public override void OnEnter()
         {
             base.OnEnter();
             this.animator = base.GetModelAnimator();
-            InitMeleeRootMotion();
             extraSkillLocator = base.gameObject.GetComponent<ExtraSkillLocator>();
             extraInput = base.gameObject.GetComponent<ExtraInputBankTest>();
-
             forwardDirection = base.GetAimRay().direction;
             Vector3 backwardsDirection = forwardDirection * -1f;
             moveVector = base.inputBank.moveVector;
-
+            rmaMultiplier = movementMultiplier;
             if (base.inputBank.moveVector == Vector3.zero)
             {
                 isForwardRoll = false;
@@ -80,7 +76,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             {
                 base.characterDirection.moveVector = forwardDirection;
             }
-            UpdateMeleeRootMotion(1.6f);
 
             if (base.fixedAge >= duration * start && base.fixedAge <= duration * end)
             {
@@ -130,38 +125,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             }
             base.PlayAnimation("FullBody, Override", "evadeBackTrimmed", "attack.playbackRate", duration);
         }
-
-        public RootMotionAccumulator InitMeleeRootMotion()
-        {
-            rma = base.GetModelRootMotionAccumulator();
-            if (rma)
-            {
-                rma.ExtractRootMotion();
-            }
-            if (base.characterDirection)
-            {
-                base.characterDirection.forward = base.inputBank.aimDirection;
-            }
-            if (base.characterMotor)
-            {
-                base.characterMotor.moveDirection = Vector3.zero;
-            }
-            return rma;
-        }
-
-        // Token: 0x060003CA RID: 970 RVA: 0x0000F924 File Offset: 0x0000DB24
-        public void UpdateMeleeRootMotion(float scale)
-        {
-            if (rma)
-            {
-                Vector3 a = rma.ExtractRootMotion();
-                if (base.characterMotor)
-                {
-                    base.characterMotor.rootMotion = a * scale;
-                }
-            }
-        }
-
 
         public override void OnSerialize(NetworkWriter writer)
         {

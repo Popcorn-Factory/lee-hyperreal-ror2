@@ -13,21 +13,38 @@ namespace LeeHyperrealMod.Modules
     {
         internal static void RegisterStates()
         {
-            Modules.Content.AddEntityState(typeof(BaseMeleeAttack));
+
+            #region Primary
             Modules.Content.AddEntityState(typeof(Primary1));
             Modules.Content.AddEntityState(typeof(Primary2));
             Modules.Content.AddEntityState(typeof(Primary3));
             Modules.Content.AddEntityState(typeof(Primary4));
             Modules.Content.AddEntityState(typeof(Primary5));
+            #endregion
 
-            Modules.Content.AddEntityState(typeof(RedOrbEntry));
-            Modules.Content.AddEntityState(typeof(YellowOrbEntry));
+            #region Blue Orb
             Modules.Content.AddEntityState(typeof(BlueOrb));
+            #endregion
 
-            
+            #region Yellow Orb
+            Modules.Content.AddEntityState(typeof(YellowOrbEntry));
+            Modules.Content.AddEntityState(typeof(YellowOrbFinisher));
+            Modules.Content.AddEntityState(typeof(YellowOrb));
+            #endregion
 
+            #region Red Orb
+            Modules.Content.AddEntityState(typeof(RedOrbEntry));
+            #endregion
+
+            #region Base States
+            Modules.Content.AddEntityState(typeof(BaseRootMotionMoverState));
+            Modules.Content.AddEntityState(typeof(BaseMeleeAttack));
+            #endregion
+
+            #region Evade
             Modules.Content.AddEntityState(typeof(Evade));
-            
+            #endregion
+
             Modules.Content.AddEntityState(typeof(SlashCombo));
 
             Modules.Content.AddEntityState(typeof(Shoot));

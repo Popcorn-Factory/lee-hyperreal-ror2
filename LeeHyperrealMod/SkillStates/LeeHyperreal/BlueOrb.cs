@@ -7,13 +7,13 @@ using System.Text;
 using System.Security.Cryptography;
 using UnityEngine;
 using ExtraSkillSlots;
+using LeeHyperrealMod.SkillStates.BaseStates;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 {
-    internal class BlueOrb : BaseSkillState
+    internal class BlueOrb : BaseRootMotionMoverState
     {
         OrbController orbController;
-        RootMotionAccumulator rma;
 
         public float start = 0;
         public float earlyEnd = 0.49f;
@@ -29,18 +29,19 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         internal ExtraSkillLocator extraSkillLocator;
         internal ExtraInputBankTest extraInput;
 
-        
+        private float movementMultiplier = 1.5f;
+
         public override void OnEnter()
         {
             base.OnEnter();
-            rma = InitMeleeRootMotion();
             orbController = base.gameObject.GetComponent<OrbController>();
             moveStrength = orbController.ConsumeOrbs(OrbController.OrbType.BLUE);
             extraSkillLocator = base.gameObject.GetComponent<ExtraSkillLocator>();
             extraInput = base.gameObject.GetComponent<ExtraInputBankTest>();
-
+            rmaMultiplier = movementMultiplier;
             if (moveStrength == 0) 
             {
+                base.PlayAnimation("FullBody, Override", "BufferEmpty");
                 this.outer.SetNextStateToMain();
                 return;
             }
@@ -80,37 +81,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             base.PlayAnimation("FullBody, Override", "blueOrb", "attack.playbackRate", duration);
         }
 
-        public RootMotionAccumulator InitMeleeRootMotion()
-        {
-            rma = base.GetModelRootMotionAccumulator();
-            if (rma)
-            {
-                rma.ExtractRootMotion();
-            }
-            if (base.characterDirection)
-            {
-                base.characterDirection.forward = base.inputBank.aimDirection;
-            }
-            if (base.characterMotor)
-            {
-                base.characterMotor.moveDirection = Vector3.zero;
-            }
-            return rma;
-        }
-
-        // Token: 0x060003CA RID: 970 RVA: 0x0000F924 File Offset: 0x0000DB24
-        public void UpdateMeleeRootMotion(float scale)
-        {
-            if (rma)
-            {
-                Vector3 a = rma.ExtractRootMotion();
-                if (base.characterMotor)
-                {
-                    base.characterMotor.rootMotion = a * scale;
-                }
-            }
-        }
-
         public override void OnExit()
         {
             base.OnExit();
@@ -119,8 +89,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         public override void Update()
         {
             base.Update();
-            UpdateMeleeRootMotion(1.5f);
-            if (base.fixedAge >= duration * earlyEnd)
+            if (base.fixedAge >= duration * earlyEnd && base.isAuthority)
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, extraSkillLocator, isAuthority, base.inputBank, extraInput);
             }
