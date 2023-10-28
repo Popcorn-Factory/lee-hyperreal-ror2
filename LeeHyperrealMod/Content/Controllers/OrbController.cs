@@ -172,7 +172,8 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void GrantOrb()
         {
-            if (orbList.Count >= 16) 
+            //Disallow more than the limit specified.
+            if (orbList.Count >= OrbLimit) 
             {
                 return;
             }

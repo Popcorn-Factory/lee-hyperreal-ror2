@@ -240,7 +240,7 @@ namespace LeeHyperrealMod.Modules
             this.activationState = activationState;
             this.activationStateMachineName = activationStateMachineName;
 
-            this.interruptPriority = InterruptPriority.Any;
+            this.interruptPriority = InterruptPriority.Skill;
             this.isCombatSkill = true;
             this.baseRechargeInterval = 0;
 

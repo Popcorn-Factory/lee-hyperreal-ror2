@@ -12,7 +12,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 {
     internal class Evade : BaseSkillState
     {
-        public static float duration = 0.75f;
+        public static float duration = 1f;
 
         public static string dodgeSoundString = "HenryRoll";
         public static float dodgeFOV = EntityStates.Commando.DodgeState.dodgeFOV;
@@ -23,7 +23,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         private bool isForwardRoll;
 
         private float start = 0.3f;
-        private float end = 0.6f;
+        private float end = 0.8f;
         private Vector3 forwardDirection;
         private ExtraInputBankTest extraInput;
         private ExtraSkillLocator extraSkillLocator;
@@ -96,6 +96,20 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, extraSkillLocator, isAuthority, base.inputBank, extraInput);
             }
 
+            if (base.fixedAge >= duration * end && base.isAuthority) 
+            {
+                if (base.isAuthority && !isForwardRoll)
+                {
+                    if (inputBank.skill1.down)
+                    {
+                        //Go to Primary 3.
+                        this.outer.SetState(new Primary.Primary3 { });
+                        return;
+                    }
+                }
+                Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, extraSkillLocator, isAuthority, base.inputBank, extraInput);
+            }
+
             if (base.fixedAge >= duration && base.isAuthority)
             {
                 base.outer.SetNextStateToMain();
@@ -111,10 +125,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         {
             if (isForwardRoll) 
             {
-                base.PlayAnimation("FullBody, Override", "evadeForward", "attack.playbackRate", duration);
+                base.PlayAnimation("FullBody, Override", "evadeForwardTrimmed", "attack.playbackRate", duration);
                 return;
             }
-            base.PlayAnimation("FullBody, Override", "evadeBack", "attack.playbackRate", duration);
+            base.PlayAnimation("FullBody, Override", "evadeBackTrimmed", "attack.playbackRate", duration);
         }
 
         public RootMotionAccumulator InitMeleeRootMotion()

@@ -66,10 +66,5 @@ namespace AmplifyShaderEditor
 		{
 			AmplifyShaderEditorWindow.CreateConfirmationTemplateShader( "5056123faa0c79b47ab6ad7e8bf059a4" );
 		}
-		[MenuItem( "Assets/Create/Amplify Shader/WikiExamples/Simple Multi Pass Outline", false, 85 )]
-		public static void ApplyTemplateWikiExamplesSimpleMultiPassOutline()
-		{
-			AmplifyShaderEditorWindow.CreateConfirmationTemplateShader( "9b40451630acaf14b889da47dc46be0f" );
-		}
 	}
 }

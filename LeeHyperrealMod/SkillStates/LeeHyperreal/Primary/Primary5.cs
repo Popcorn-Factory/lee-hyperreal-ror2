@@ -29,10 +29,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.procCoefficient = 1f;
             this.pushForce = 300f;
             this.bonusForce = Vector3.zero;
-            this.baseDuration = 2f;
+            this.baseDuration = 2.5f;
             this.attackStartTime = 0.28f;
             this.attackEndTime = 0.4f;
-            this.baseEarlyExitTime = 0.7f;
+            this.baseEarlyExitTime = 0.57f;
             this.hitStopDuration = 0.012f;
             this.attackRecoil = 0.5f;
             this.hitHopVelocity = 4f;
@@ -85,11 +85,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             UpdateMeleeRootMotion(1.8f);
         }
 
-
-        private void RecalculateRollSpeed()
-        {
-            this.rollSpeed = this.moveSpeedStat * Mathf.Lerp(initialSpeedCoefficient, finalSpeedCoefficient, base.fixedAge / duration * moveEndFrac);
-        }
 
         public override void FixedUpdate()
         {
