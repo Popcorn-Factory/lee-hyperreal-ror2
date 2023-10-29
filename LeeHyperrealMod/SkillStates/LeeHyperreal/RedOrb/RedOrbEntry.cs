@@ -15,15 +15,21 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         {
             base.OnEnter();
             orbController = base.gameObject.GetComponent<OrbController>();
+            int moveStrength = orbController.ConsumeOrbs(OrbController.OrbType.RED);
 
-            if (orbController.ConsumeOrbs(OrbController.OrbType.RED) >= 0)
+            if (base.isAuthority) 
             {
-                Chat.AddMessage("Nice!");
-                this.outer.SetNextStateToMain();
-            }
-            else
-            {
-                this.outer.SetNextStateToMain();
+                if (moveStrength > 0)
+                {
+                    this.outer.SetState(new RedOrb { moveStrength = moveStrength });
+                    return;
+                }
+                else
+                {
+                    base.PlayAnimation("FullBody, Override", "BufferEmpty");
+                    this.outer.SetNextStateToMain();
+                    return;
+                }
             }
         }
 

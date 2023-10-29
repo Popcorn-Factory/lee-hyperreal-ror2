@@ -34,6 +34,8 @@ namespace LeeHyperrealMod.Modules
 
             #region Red Orb
             Modules.Content.AddEntityState(typeof(RedOrbEntry));
+            Modules.Content.AddEntityState(typeof(RedOrb));
+            Modules.Content.AddEntityState(typeof(RedOrbFinisher));
             #endregion
 
             #region Base States

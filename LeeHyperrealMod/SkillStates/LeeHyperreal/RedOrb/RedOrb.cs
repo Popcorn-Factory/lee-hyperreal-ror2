@@ -1,24 +1,19 @@
 ﻿using EntityStates;
 using RoR2;
-using LeeHyperrealMod.Content.Controllers;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Security.Cryptography;
 using UnityEngine;
 using ExtraSkillSlots;
 using UnityEngine.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
 
-namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
+namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 {
-    internal class YellowOrb : BaseRootMotionMoverState
+    internal class RedOrb : BaseRootMotionMoverState
     {
 
         public float start = 0;
-        public float earlyEnd = 0.32f;
+        public float earlyEnd = 0.35f;
         public float fireFrac = 0.22f;
-        public float duration = 3.83f;
+        public float duration = 2.2f;
         public int moveStrength; //1-3
         public bool hasFired;
 
@@ -77,7 +72,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
         protected void PlayAttackAnimation()
         {
-            PlayAnimation("FullBody, Override", "yellowOrb", "attack.playbackRate", duration);
+            PlayAnimation("FullBody, Override", "redOrb", "attack.playbackRate", duration);
         }
 
         public override void OnExit()
@@ -93,7 +88,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 if (isStrong) 
                 {
                     //Exit earlier to the Strong ender.
-                    this.outer.SetState(new YellowOrbFinisher { });
+                    this.outer.SetState(new RedOrbFinisher { });
                     return;
                 }
 

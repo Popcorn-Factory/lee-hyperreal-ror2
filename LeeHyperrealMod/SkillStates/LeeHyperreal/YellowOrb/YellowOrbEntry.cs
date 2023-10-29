@@ -19,7 +19,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             if (base.isAuthority) 
             {
-                if (moveStrength >= 0)
+                if (moveStrength > 0)
                 {
                     this.outer.SetState(new YellowOrb { moveStrength = moveStrength });
                     return;
