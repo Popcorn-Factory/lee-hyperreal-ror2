@@ -33,5 +33,12 @@ namespace LeeHyperrealMod.Modules
         internal const int yellowOrbBaseHitAmount = 3;
         internal const float yellowOrbProcCoefficient = 1f;
         #endregion
+
+
+        #region Red Orb
+        internal const float redOrbDamageCoefficient = 2f;
+        internal const int redOrbBaseHitAmount = 3;
+        internal const float redOrbProcCoefficient = 1f;
+        #endregion
     }
 }

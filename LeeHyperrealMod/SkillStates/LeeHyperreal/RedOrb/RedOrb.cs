@@ -4,6 +4,7 @@ using UnityEngine;
 using ExtraSkillSlots;
 using UnityEngine.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
+using System;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 {
@@ -18,14 +19,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public bool hasFired;
 
         internal BlastAttack blastAttack;
+        internal BulletAttack bulletAttack;
         internal int attackAmount;
         internal float partialAttack;
 
         internal ExtraSkillLocator extraSkillLocator;
         internal ExtraInputBankTest extraInput;
         internal bool isStrong;
+        internal float procCoefficient = Modules.StaticValues.redOrbProcCoefficient;
 
-
+        internal string muzzleString = "SubmachineGunMuzzle";
         private float movementMultiplier = 1.5f;
 
         public override void OnEnter()
@@ -47,24 +50,39 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             }
             partialAttack = attackSpeedStat - attackAmount;
 
+            Ray aimRay = base.GetAimRay();
 
-            blastAttack = new BlastAttack
+
+            bulletAttack = new BulletAttack
             {
-                attacker = gameObject,
-                inflictor = null,
-                teamIndex = TeamIndex.Player,
-                position = gameObject.transform.position + GetAimRay().direction * 2.5f,
-                radius = (moveStrength == 3 ? 1 : Modules.StaticValues.blueOrbTripleMultiplier) * Modules.StaticValues.blueOrbBlastRadius,
-                falloffModel = BlastAttack.FalloffModel.Linear,
-                baseDamage = damageStat * Modules.StaticValues.blueOrbBlastRadius * (moveStrength == 3 ? 1 : Modules.StaticValues.blueOrbTripleMultiplier),
-                baseForce = 0f,
-                bonusForce = Vector3.zero,
-                crit = RollCrit(),
+                bulletCount = 1,
+                aimVector = aimRay.direction,
+                origin = aimRay.origin,
+                damage = Shoot.damageCoefficient * this.damageStat,
+                damageColorIndex = DamageColorIndex.Default,
                 damageType = DamageType.Generic,
-                losType = BlastAttack.LoSType.None,
-                canRejectForce = false,
-                procChainMask = new ProcChainMask(),
-                procCoefficient = 1f,
+                falloffModel = BulletAttack.FalloffModel.DefaultBullet,
+                maxDistance = Shoot.range,
+                force = Shoot.force,
+                hitMask = LayerIndex.CommonMasks.bullet,
+                minSpread = 0f,
+                maxSpread = 0f,
+                isCrit = base.RollCrit(),
+                owner = base.gameObject,
+                muzzleName = muzzleString,
+                smartCollision = false,
+                procChainMask = default(ProcChainMask),
+                procCoefficient = procCoefficient,
+                radius = 0.75f,
+                sniper = false,
+                stopperMask = LayerIndex.CommonMasks.bullet,
+                weapon = null,
+                tracerEffectPrefab = Shoot.tracerEffectPrefab,
+                spreadPitchScale = 0f,
+                spreadYawScale = 0f,
+                queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
+                hitEffectPrefab = EntityStates.Commando.CommandoWeapon.FirePistol2.hitEffectPrefab,
+                hitCallback = BulletAttack.defaultHitCallback,
             };
 
             PlayAttackAnimation();
@@ -127,27 +145,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             {
                 for (int j = 0; j < attackAmount; j++)
                 {
-                    BlastAttack.Result result = blastAttack.Fire();
+                    base.GetAimRay();
 
-                    if (result.hitCount > 0)
-                    {
-                        OnHitEnemyAuthority();
-                    }
+                    bulletAttack.Fire();
                 }
 
                 if (partialAttack > 0f)
                 {
-                    blastAttack.baseDamage = blastAttack.baseDamage * partialAttack;
-                    blastAttack.procCoefficient = blastAttack.procCoefficient * partialAttack;
-                    blastAttack.radius = blastAttack.radius * partialAttack;
-                    blastAttack.baseForce = blastAttack.baseForce * partialAttack;
 
-                    BlastAttack.Result result = blastAttack.Fire();
-
-                    if (result.hitCount > 0)
-                    {
-                        OnHitEnemyAuthority();
-                    }
+                    bulletAttack.Fire();
                 }
             }            
         }
