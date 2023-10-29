@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UI Blue Orbl
+  m_Name: UI Blue Orb
   m_Shader: {fileID: 4800000, guid: ba486b747af5426419dea905ea06743f, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
@@ -107,8 +107,11 @@ Material:
     - __dirty: 0
     - _burnstrength: 1.02
     - _emissionstrength: 1
+    - _noisescale: 11.3
     m_Colors:
     - _ASEOutlineColor: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _burncolor: {r: 0, g: 0.15451717, b: 1, a: 1}
+    - _firespeed: {r: 0, g: -0.5, b: 0, a: 0}
+    - _firespeedXYonly: {r: 0.25, g: -0.5, b: 0, a: 0}
