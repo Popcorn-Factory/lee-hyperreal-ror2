@@ -8,6 +8,8 @@ using System.Security;
 using System.Security.Permissions;
 using UnityEngine;
 using EmotesAPI;
+using System;
+using LeeHyperrealMod.Content.Controllers;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -69,10 +71,24 @@ namespace LeeHyperrealMod
         {
             // run hooks here, disabling one is as simple as commenting out the line
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
+            On.RoR2.CharacterModel.Start += CharacterModel_Start;
 
             if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
             {
                 On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
+            }
+        }
+
+        private void CharacterModel_Start(On.RoR2.CharacterModel.orig_Start orig, CharacterModel self)
+        {
+            orig(self);
+            if (self.gameObject.name.Contains("LeeHyperrealDisplay"))
+            {
+                LeeHyperrealDisplayController displayHandler = self.gameObject.GetComponent<LeeHyperrealDisplayController>();
+                if (!displayHandler)
+                {
+                    displayHandler = self.gameObject.AddComponent<LeeHyperrealDisplayController>();
+                }
             }
         }
 
