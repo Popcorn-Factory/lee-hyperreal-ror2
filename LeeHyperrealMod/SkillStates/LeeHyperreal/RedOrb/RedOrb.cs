@@ -13,10 +13,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
         public float start = 0;
         public float earlyEnd = 0.35f;
-        public float fireFrac = 0.22f;
+        public float fireFrac = 0.20f;
+        public float endFireFrac = 0.3f;
+        public int baseFireAmount = 3;
+        public int fireAmount;
         public float duration = 2.2f;
         public int moveStrength; //1-3
         public bool hasFired;
+        public float firingStopwatch;
 
         internal BlastAttack blastAttack;
         internal BulletAttack bulletAttack;
@@ -38,12 +42,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             extraSkillLocator = gameObject.GetComponent<ExtraSkillLocator>();
             extraInput = gameObject.GetComponent<ExtraInputBankTest>();
             rmaMultiplier = movementMultiplier;
+
+            firingStopwatch = endFireFrac - fireFrac;
             if (moveStrength >= 3) 
             {
                 isStrong = true;
             }
 
-            attackAmount = (int)attackSpeedStat;
+            fireAmount = baseFireAmount * (int)(attackSpeedStat > 1f ? attackSpeedStat : 1);
+
+            attackAmount = (int)attackSpeedStat + baseFireAmount;
             if (attackAmount < 1)
             {
                 attackAmount = 1;
@@ -85,6 +93,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 hitCallback = BulletAttack.defaultHitCallback,
             };
 
+
+            base.characterDirection.forward = inputBank.aimDirection;
+
             PlayAttackAnimation();
         }
 
@@ -121,12 +132,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             //Able to be cancelled after this.
 
 
-            if (fixedAge >= duration * fireFrac && isAuthority)
+            if (fixedAge >= duration * fireFrac && fixedAge <= duration * endFireFrac && isAuthority)
             {
-                if (!hasFired)
+                firingStopwatch += Time.fixedDeltaTime;
+                if (firingStopwatch >= (endFireFrac - fireFrac) / fireAmount) 
                 {
-                    hasFired = true;
-                    FireAttack();
+                    Util.PlaySound("HenryShootPistol", base.gameObject);
+                    firingStopwatch = 0f;
+                    bulletAttack.aimVector = base.GetAimRay().direction;
+                    bulletAttack.origin = base.GetAimRay().origin;
+                    bulletAttack.Fire();
                 }
             }
 
@@ -137,25 +152,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 outer.SetNextStateToMain();
                 return;
             }
-        }
-
-        public void FireAttack()
-        {
-            for (int i = 0; i < Modules.StaticValues.yellowOrbBaseHitAmount; i++) 
-            {
-                for (int j = 0; j < attackAmount; j++)
-                {
-                    base.GetAimRay();
-
-                    bulletAttack.Fire();
-                }
-
-                if (partialAttack > 0f)
-                {
-
-                    bulletAttack.Fire();
-                }
-            }            
         }
 
         public void OnHitEnemyAuthority()

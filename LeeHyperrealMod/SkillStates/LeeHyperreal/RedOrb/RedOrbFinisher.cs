@@ -11,88 +11,78 @@ using UnityEngine;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 {
-    internal class RedOrbFinisher : BaseMeleeAttack
+    internal class RedOrbFinisher : BaseRootMotionMoverState
     {
-        internal OverlapAttack attack;
 
-        internal HitBoxGroup hitBoxGroup;
+        public float duration = 2.03f;
+        public int baseFireAmount = 3;
+        public int fireAmount;
+        public bool hasFired;
+        public float firingStopwatch;
 
         internal int attackAmount;
         internal float partialAttack;
 
-        internal float attackStart = 0.154f;
-        internal float attackEnd = 0.24f;
-        internal float exitEarlyFrac = 0.35f;
+        internal float attackStart = 0.174f;
+        internal float attackEnd = 0.25f;
+        internal float attackFinalShot = 0.32f;
+        internal float exitEarlyFrac = 0.40f;
+        internal Ray aimRay;
+
+        internal BulletAttack bulletAttack;
+        internal string muzzleString = "SubmachineGunMuzzle";
 
         internal ExtraSkillLocator extraSkillLocator;
         internal ExtraInputBankTest extraInput;
-        internal RootMotionAccumulator rma;
 
         public override void OnEnter()
         {
             base.OnEnter();
-            this.hitboxName = "ShortMelee";
-            duration = 2.03f;
+            rmaMultiplier = 1f;
+            fireAmount = baseFireAmount * (int)(attackSpeedStat > 1f ? attackSpeedStat : 1);
 
-            this.damageType = DamageType.Generic;
-            this.damageCoefficient = Modules.StaticValues.swordDamageCoefficient;
-            this.procCoefficient = 1f;
-            this.pushForce = 300f;
-            this.bonusForce = Vector3.zero;
-            this.baseDuration = 2.06f;
-            this.attackStartTime = attackStart;
-            this.attackEndTime = attackEnd;
-            this.baseEarlyExitTime = exitEarlyFrac;
-            this.hitStopDuration = 0.05f;
-            this.attackRecoil = 0.5f;
-            this.hitHopVelocity = 4f;
+            firingStopwatch = attackEnd - attackStart;
 
-            this.swingSoundString = "HenrySwordSwing";
-            this.hitSoundString = "";
-            this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
-            this.swingEffectPrefab = Modules.Assets.swordSwingEffect;
-            this.hitEffectPrefab = Modules.Assets.swordHitImpactEffect;
+            aimRay = base.GetAimRay();
 
-            this.impactSound = Modules.Assets.swordHitSoundEvent.index;
-            base.OnEnter();
+            bulletAttack = new BulletAttack
+            {
+                bulletCount = 1,
+                aimVector = aimRay.direction,
+                origin = aimRay.origin,
+                damage = Shoot.damageCoefficient * this.damageStat,
+                damageColorIndex = DamageColorIndex.Default,
+                damageType = DamageType.Generic,
+                falloffModel = BulletAttack.FalloffModel.DefaultBullet,
+                maxDistance = Shoot.range,
+                force = Shoot.force,
+                hitMask = LayerIndex.CommonMasks.bullet,
+                minSpread = 0f,
+                maxSpread = 0f,
+                isCrit = base.RollCrit(),
+                owner = base.gameObject,
+                muzzleName = muzzleString,
+                smartCollision = false,
+                procChainMask = default(ProcChainMask),
+                procCoefficient = Modules.StaticValues.redOrbProcCoefficient,
+                radius = 0.75f,
+                sniper = false,
+                stopperMask = LayerIndex.CommonMasks.bullet,
+                weapon = null,
+                tracerEffectPrefab = Shoot.tracerEffectPrefab,
+                spreadPitchScale = 0f,
+                spreadYawScale = 0f,
+                queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
+                hitEffectPrefab = EntityStates.Commando.CommandoWeapon.FirePistol2.hitEffectPrefab,
+                hitCallback = BulletAttack.defaultHitCallback,
+            };
 
-            InitMeleeRootMotion();
+            PlayAttackAnimation();
         }
         
-        protected override void PlayAttackAnimation()
+        protected void PlayAttackAnimation()
         {
             PlayAnimation("FullBody, Override", "redOrb2", "attack.playbackRate", duration);
-        }
-
-        public RootMotionAccumulator InitMeleeRootMotion()
-        {
-            rma = base.GetModelRootMotionAccumulator();
-            if (rma)
-            {
-                rma.ExtractRootMotion();
-            }
-            if (base.characterDirection)
-            {
-                base.characterDirection.forward = base.inputBank.aimDirection;
-            }
-            if (base.characterMotor)
-            {
-                base.characterMotor.moveDirection = Vector3.zero;
-            }
-            return rma;
-        }
-
-        // Token: 0x060003CA RID: 970 RVA: 0x0000F924 File Offset: 0x0000DB24
-        public void UpdateMeleeRootMotion(float scale)
-        {
-            if (rma)
-            {
-                Vector3 a = rma.ExtractRootMotion();
-                if (base.characterMotor)
-                {
-                    base.characterMotor.rootMotion = a * scale;
-                }
-            }
         }
 
         public override void OnExit()
@@ -104,8 +94,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         {
             base.Update();
 
-            UpdateMeleeRootMotion(1.6f);
-
             if (base.age >= duration * exitEarlyFrac && base.isAuthority) 
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, extraSkillLocator, isAuthority, base.inputBank, extraInput);
@@ -115,8 +103,37 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-        }
 
+            if (fixedAge >= duration * attackStart && fixedAge <= duration * attackEnd && isAuthority)
+            {
+                firingStopwatch += Time.fixedDeltaTime;
+                if (firingStopwatch >= (attackStart - attackEnd) / fireAmount)
+                {
+                    Util.PlaySound("HenryShootPistol", base.gameObject);
+                    firingStopwatch = 0f;
+                    bulletAttack.aimVector = base.GetAimRay().direction;
+                    bulletAttack.origin = base.GetAimRay().origin;
+                    bulletAttack.Fire();
+                }
+            }
+
+            if (fixedAge >= duration * attackFinalShot && isAuthority) 
+            {
+                if (!hasFired) 
+                {
+                    hasFired = true;
+                    bulletAttack.aimVector = base.GetAimRay().direction;
+                    bulletAttack.origin = base.GetAimRay().origin;
+                    bulletAttack.Fire();
+                }
+            }
+
+            if (fixedAge >= duration && base.isAuthority) 
+            {
+                base.outer.SetNextStateToMain();
+                return;
+            }
+        }
 
 
         public void OnHitEnemyAuthority()

@@ -16,9 +16,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
     {
 
         public float start = 0;
-        public float earlyEnd = 0.32f;
+        public float earlyEnd = 0.38f;
         public float fireFrac = 0.22f;
-        public float duration = 3.83f;
+        public float duration = 2f;
         public int moveStrength; //1-3
         public bool hasFired;
 
@@ -40,6 +40,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             extraSkillLocator = gameObject.GetComponent<ExtraSkillLocator>();
             extraInput = gameObject.GetComponent<ExtraInputBankTest>();
             rmaMultiplier = movementMultiplier;
+
             if (moveStrength >= 3) 
             {
                 isStrong = true;
@@ -71,6 +72,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 procChainMask = new ProcChainMask(),
                 procCoefficient = 1f,
             };
+
+
+            base.characterDirection.forward = inputBank.aimDirection;
 
             PlayAttackAnimation();
         }

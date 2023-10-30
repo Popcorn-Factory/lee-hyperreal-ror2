@@ -32,7 +32,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         {
             base.OnEnter();
             this.hitboxName = "ShortMelee";
-            duration = 1.16f;
+            duration = 1.13f;
 
             this.damageType = DamageType.Generic;
             this.damageCoefficient = Modules.StaticValues.swordDamageCoefficient;

@@ -73,6 +73,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 procCoefficient = 1f,
             };
 
+            base.characterDirection.forward = inputBank.aimDirection;
+
             PlayAttackAnimation();
         }
 

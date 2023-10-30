@@ -19,7 +19,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         private bool isForwardRoll;
 
         private float start = 0.3f;
-        private float end = 0.8f;
+        private float end = 0.65f;
         private Vector3 forwardDirection;
         private ExtraInputBankTest extraInput;
         private ExtraSkillLocator extraSkillLocator;

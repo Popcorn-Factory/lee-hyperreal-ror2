@@ -16,7 +16,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             base.OnEnter();
             orbController = base.gameObject.GetComponent<OrbController>();
             int moveStrength = orbController.ConsumeOrbs(OrbController.OrbType.YELLOW);
-
             if (base.isAuthority) 
             {
                 if (moveStrength > 0)
