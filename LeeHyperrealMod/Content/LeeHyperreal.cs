@@ -119,6 +119,7 @@ namespace LeeHyperrealMod.Modules.Survivors
         {
             base.InitializeCharacter();
             bodyPrefab.AddComponent<OrbController>();
+            bodyPrefab.AddComponent<LeeHyperrealUIController>();
         }
 
         public override void InitializeUnlockables()

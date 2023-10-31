@@ -26,6 +26,8 @@ namespace LeeHyperrealMod.Content.Controllers
         float orbIncrementor = 0f;
         const bool autoIncrementOrbIncrementor = true;
 
+        LeeHyperrealUIController uiController;
+
         CharacterBody charBody;
 
         public void Awake()
@@ -37,6 +39,7 @@ namespace LeeHyperrealMod.Content.Controllers
         public void Start()
         {
             charBody = gameObject.GetComponent<CharacterBody>();
+            uiController = gameObject.GetComponent<LeeHyperrealUIController>();
         }
 
         public void Hook()
@@ -125,9 +128,18 @@ namespace LeeHyperrealMod.Content.Controllers
                 {
                     orbList.RemoveAt(moveValidity[i]);
                     strength++;
+                    if (uiController) 
+                    {
+                        uiController.PingSpecificOrb(moveValidity[i]); 
+                    }
                 }
             }
 
+
+            if (uiController) 
+            {
+                uiController.UpdateOrbList(orbList);
+            }
 
             //Success.
             return strength;
@@ -183,6 +195,12 @@ namespace LeeHyperrealMod.Content.Controllers
             OrbType chosenOrbType = (OrbType)chosen;
 
             orbList.Add(chosenOrbType);
+
+
+            if (uiController)
+            {
+                uiController.UpdateOrbList(orbList);
+            }
         }
 
         public void AddToIncrementor(float amount) 

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 533093217
+CRC: 315355999
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 15ef30bb3356dd6bc592fa9a3525cb87
+    Hash: 7a53fedd6abf1fc55d99c500143b35cc
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 5df456c1eb5ccf4480b610194c29a53c
+    Hash: 2a1f4e72e35b513774370c68fd050c99
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -34,14 +34,34 @@ ClassTypes:
 - Class: 95
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 261c50d8a80898e4ebf2e8e415ea6766, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 751bd37d2e55f5f448dbb0d97812d9ba, type: 3}
 - Class: 115
   Script: {instanceID: 0}
+- Class: 128
+  Script: {instanceID: 0}
 - Class: 136
   Script: {instanceID: 0}
 - Class: 137
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 222
+  Script: {instanceID: 0}
+- Class: 223
+  Script: {instanceID: 0}
+- Class: 224
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
@@ -131,6 +151,7 @@ Assets:
 - Assets/LeeHyperrealAssets/Material/leeSuperRifleMat.mat
 - Assets/LeeHyperrealAssets/Material/leeEyeMat.mat
 - Assets/LeeHyperrealAssets/Animation/BoxGunAnimation/change01.anim
+- Assets/LeeHyperrealAssets/LeeHyperrealUI.prefab
 - Assets/LeeHyperrealAssets/Mesh/leePistolMesh.mesh
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeChestLegPlateTex.png
 Dependencies:

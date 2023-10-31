@@ -19,6 +19,11 @@ namespace LeeHyperrealMod.Modules
 
         internal static GameObject bombExplosionEffect;
 
+        internal static GameObject uiObject;
+        internal static Material blueOrbMat;
+        internal static Material yellowOrbMat;
+        internal static Material redOrbMat;
+
         // networked hit sounds
         internal static NetworkSoundEventDef swordHitSoundEvent;
         #endregion
@@ -100,6 +105,11 @@ namespace LeeHyperrealMod.Modules
 
             swordSwingEffect = Assets.LoadEffect("HenrySwordSwingEffect", true);
             swordHitImpactEffect = Assets.LoadEffect("ImpactHenrySlash");
+
+            uiObject = mainAssetBundle.LoadAsset<GameObject>("LeeHyperrealUI");
+            blueOrbMat = mainAssetBundle.LoadAsset<Material>("UI Blue Orb");
+            yellowOrbMat = mainAssetBundle.LoadAsset<Material>("UI Yellow Orb");
+            redOrbMat = mainAssetBundle.LoadAsset<Material>("UI Red Orb");
         }
 
         private static GameObject CreateTracer(string originalTracerName, string newTracerName)
