@@ -55,6 +55,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture0:
+        m_Texture: {fileID: 2800000, guid: 18ec126324966fc48a0852ac168e3a52, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _TextureSample0:
         m_Texture: {fileID: 2800000, guid: bf43e88be8c510748a7ce4306714b0b2, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -63,16 +67,26 @@ Material:
         m_Texture: {fileID: 2800000, guid: 65cb3e533a728e446bf24e500fbde44f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TextureSample2:
+        m_Texture: {fileID: 2800000, guid: eb0a47a04ffda0f4db0964b86adf4c81, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample3:
+        m_Texture: {fileID: 2800000, guid: 0dad9e7949ffefd48954a1359652102c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _texcoord:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
+    - _CurvFix: 1
     - _Cutoff: 0.36
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _Float0: -0.2
+    - _Float12: 0
     - _Float2: 2
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -80,6 +94,8 @@ Material:
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
+    - _Paralax: 0.3
+    - _Paralaxoffsetscale: 0.5
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -94,10 +110,16 @@ Material:
     - _ZWrite: 1
     - __dirty: 0
     - _emissionstrength: 2
+    - _heightdistance: 1
     - _maximumemission: 2
     - _minimumemission: 0.6
+    - _paralaxmappingscale: 0.2
     - _pushpull: 1
-    - _speedportal: -0.2
+    - _speedparalax: 0.3
+    - _speedportal: -0.3
+    - _speedportal1: 0.02
     m_Colors:
+    - _CURVATURE: {r: 17.3, g: 6.45, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Tiling: {r: 0, g: 0, b: 0, a: 0}
