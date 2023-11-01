@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 315355999
+CRC: 3531306858
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 7a53fedd6abf1fc55d99c500143b35cc
+    Hash: 9658ba45b310fe7cb7513690cf980999
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 2a1f4e72e35b513774370c68fd050c99
+    Hash: 9500beca97d22d0fc26a832a0b20c698
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -34,13 +34,13 @@ ClassTypes:
 - Class: 95
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 261c50d8a80898e4ebf2e8e415ea6766, type: 3}
 - Class: 114
@@ -82,6 +82,7 @@ Assets:
 - Assets/LeeHyperrealAssets/Animation/uistand.controller
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/evadeBackTrimmed.anim
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeEyeTex.png
+- Assets/LeeHyperrealAssets/Material/UI Red Orb.mat
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeArmTex.png
 - Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/attack24.anim
 - Assets/LeeHyperrealAssets/Texture/Albedo/GunHudTex2.png
@@ -101,6 +102,7 @@ Assets:
 - Assets/LeeHyperrealAssets/Mesh/leeHairMesh.mesh
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/primary5.anim
 - Assets/LeeHyperrealAssets/Animation/BoxGunAnimation/change01loop.anim
+- Assets/LeeHyperrealAssets/Material/UI Blue Orb.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/stand1.anim
 - Assets/LeeHyperrealAssets/Material/leeHairMat.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/yellowOrb.anim
@@ -135,6 +137,7 @@ Assets:
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/blueOrb.anim
 - Assets/LeeHyperrealAssets/Animation/humanoidAvatar.asset
 - Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/attack25.anim
+- Assets/LeeHyperrealAssets/Material/UI Yellow Orb.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/runstartend02.anim
 - Assets/LeeHyperrealAssets/Material/leeTorsoClothMat.mat
 - Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/attack26.anim
