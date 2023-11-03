@@ -6,8 +6,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Security.Cryptography;
 using UnityEngine;
-using ExtraSkillSlots;
 using LeeHyperrealMod.SkillStates.BaseStates;
+using UnityEngine.Networking;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 {
@@ -26,18 +26,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         internal int attackAmount;
         internal float partialAttack;
 
-        internal ExtraSkillLocator extraSkillLocator;
-        internal ExtraInputBankTest extraInput;
-
         private float movementMultiplier = 1.5f;
 
         public override void OnEnter()
         {
             base.OnEnter();
             orbController = base.gameObject.GetComponent<OrbController>();
-            moveStrength = orbController.ConsumeOrbs(OrbController.OrbType.BLUE);
-            extraSkillLocator = base.gameObject.GetComponent<ExtraSkillLocator>();
-            extraInput = base.gameObject.GetComponent<ExtraInputBankTest>();
             rmaMultiplier = movementMultiplier;
             if (moveStrength == 0) 
             {
@@ -93,7 +87,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             base.Update();
             if (base.fixedAge >= duration * earlyEnd && base.isAuthority)
             {
-                Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, extraSkillLocator, isAuthority, base.inputBank, extraInput);
+                Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);
             }
         }
 
@@ -158,6 +152,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         public override InterruptPriority GetMinimumInterruptPriority()
         {
             return InterruptPriority.Skill;
+        }
+
+        public override void OnSerialize(NetworkWriter writer)
+        {
+            base.OnSerialize(writer);
+            writer.Write(this.moveStrength);
+        }
+
+        public override void OnDeserialize(NetworkReader reader)
+        {
+            base.OnDeserialize(reader);
+            this.moveStrength = reader.ReadInt32();
         }
     }
 }

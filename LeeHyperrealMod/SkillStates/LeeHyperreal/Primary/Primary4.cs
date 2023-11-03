@@ -1,5 +1,4 @@
 ﻿using EntityStates;
-using ExtraSkillSlots;
 using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using RoR2;
@@ -42,8 +41,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public RootMotionAccumulator rma;
         public OrbController orbController;
-        private ExtraInputBankTest extraInput;
-        private ExtraSkillLocator extraSkillLocator;
 
         public override void OnEnter()
         {
@@ -56,8 +53,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             aimRay = base.GetAimRay();
 
             PlayAttackAnimation();
-            extraSkillLocator = base.gameObject.GetComponent<ExtraSkillLocator>();
-            extraInput = base.gameObject.GetComponent<ExtraInputBankTest>();
 
             // Setup Blastattack
             attack = new BlastAttack
@@ -143,7 +138,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                     return;
                 }
 
-                Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, extraSkillLocator, isAuthority, base.inputBank, extraInput);
+                Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);
             }
 
             if (this.age >= this.duration && base.isAuthority)

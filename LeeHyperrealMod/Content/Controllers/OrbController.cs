@@ -1,4 +1,7 @@
-﻿using RoR2;
+﻿using LeeHyperrealMod.SkillStates.LeeHyperreal;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb;
+using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,7 +24,7 @@ namespace LeeHyperrealMod.Content.Controllers
         }
 
         bool onFire = false;
-        List<OrbType> orbList;
+        public List<OrbType> orbList;
         int OrbLimit = 16;
         float orbIncrementor = 0f;
         const bool autoIncrementOrbIncrementor = true;
@@ -29,6 +32,8 @@ namespace LeeHyperrealMod.Content.Controllers
         LeeHyperrealUIController uiController;
 
         CharacterBody charBody;
+
+        EntityStateMachine[] stateMachines;
 
         public void Awake()
         {
@@ -40,6 +45,9 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             charBody = gameObject.GetComponent<CharacterBody>();
             uiController = gameObject.GetComponent<LeeHyperrealUIController>();
+
+            stateMachines = charBody.gameObject.GetComponents<EntityStateMachine>();
+
         }
 
         public void Hook()
@@ -54,7 +62,55 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void Update()
         {
+            //Check input
 
+
+            if (Modules.Config.isSimple.Value) 
+            {
+                if (Modules.Config.blueOrbTrigger.Value.IsPressed()) 
+                {
+                    ConsumeOrbsSimple(OrbType.BLUE);
+                }
+                else if (Modules.Config.redOrbTrigger.Value.IsPressed())
+                {
+                    ConsumeOrbsSimple(OrbType.RED);
+                }
+                else if (Modules.Config.yellowOrbTrigger.Value.IsPressed())
+                {
+                    ConsumeOrbsSimple(OrbType.YELLOW);
+                }
+            }
+            else 
+            {
+                int SelectedIndex = -1;
+                bool isAltPressed = Modules.Config.orbAltTrigger.Value.IsDown();
+                if (Modules.Config.orb1Trigger.Value.IsPressed())
+                {
+                    SelectedIndex = 1;
+                }
+                else if (Modules.Config.orb2Trigger.Value.IsPressed())
+                {
+                    SelectedIndex = 2;
+                }
+                else if(Modules.Config.orb3Trigger.Value.IsPressed())
+                {
+                    SelectedIndex = 3;
+                }
+                else if(Modules.Config.orb4Trigger.Value.IsPressed())
+                {
+                    SelectedIndex = 4;
+                }
+
+                if (isAltPressed && SelectedIndex != -1) 
+                {
+                    SelectedIndex += 4;
+                }
+
+                if (SelectedIndex != -1) 
+                {
+                    ConsumeOrbsFromSlot(SelectedIndex);
+                }
+            }
         }
 
 
@@ -107,7 +163,7 @@ namespace LeeHyperrealMod.Content.Controllers
         }
 
         //
-        public int ConsumeOrbs(OrbType type) 
+        public int ConsumeOrbsSimple(OrbType type) 
         {
             // Uses the CheckMoveValidity() and attempts to remove.     
 
@@ -143,6 +199,120 @@ namespace LeeHyperrealMod.Content.Controllers
 
             //Success.
             return strength;
+        }
+
+        public void ConsumeOrbsFromSlot(int slotToConsumeFrom) 
+        {
+            //Check the first 8 orbs
+            //Group into colours
+            //check against the index (it'll be from 1 - 8)
+            // match against the group that the index matches.
+            // count strength
+            // Trigger state associated with that.
+
+            List<Tuple<OrbType, Nullable<int>>> typeList = new List<Tuple<OrbType, Nullable<int>>>();
+            for (int i = 0; i < orbList.Count; i++) 
+            {
+                if (i == 0)
+                {
+                    typeList.Add(new Tuple<OrbType, Nullable<int>>(orbList[i], 1));
+                }
+                else 
+                {
+                    //Type if matches
+                    if (typeList[typeList.Count - 1].Item1 == orbList[i])
+                    {
+                        // BRUGH LMAOOO
+                        typeList[typeList.Count - 1] = new Tuple<OrbType, Nullable<int>>(typeList[typeList.Count - 1].Item1, typeList[typeList.Count - 1].Item2 + 1);
+                    } 
+                    else 
+                    {
+                        // Type if not matched.
+                        typeList.Add(new Tuple<OrbType, Nullable<int>>(orbList[i], 1));
+                    }
+                }
+            }
+
+            Nullable<int> slotPos = 0;
+            bool found = false;
+            for (int i = 0; i < typeList.Count; i++) 
+            {
+                slotPos += typeList[i].Item2;
+
+                if (slotPos >= slotToConsumeFrom && !found)
+                {
+                    //Found the state we need to trigger off.   
+                    found = true;
+
+                    int startingIndex = 0;
+                    int[] indexes = new int[3];
+                    //Finding the damn indexes to remove.
+                    for (int j = 0; j < typeList.Count; j++) 
+                    {
+                        if (j == i) 
+                        {
+                            //Indexing BRUHSIAUHSD I HATE ALL OF THIS LOGIC>
+                            indexes[0] = startingIndex - 1;
+                            indexes[1] = typeList[i].Item2 >= 2 ? startingIndex : -1;
+                            indexes[2] = typeList[i].Item2 >= 3 ? startingIndex + 1 : -1;
+
+                            //End 
+                            j = typeList.Count;
+                        }
+
+                        startingIndex += (int)typeList[j].Item2;
+                    }
+
+                    ClearSuggestedOrbs(indexes);
+                    TriggerOrbState((int)typeList[i].Item2, typeList[i].Item1);
+                }
+            }
+        }
+
+        private void ClearSuggestedOrbs(int[] indexes)
+        {
+            for (int i = indexes.Length - 1; i > -1; i--)
+            {
+                if (indexes[i] != -1)
+                {
+                    orbList.RemoveAt(indexes[i]);
+                    if (uiController)
+                    {
+                        uiController.PingSpecificOrb(indexes[i]);
+                    }
+                }
+            }
+        }
+
+        public void TriggerOrbState(int strength, OrbType orbType) 
+        {
+            EntityStateMachine bodyMachine = null;
+            
+            foreach (EntityStateMachine esm in stateMachines) 
+            {
+                if (esm.customName == "Body") 
+                {
+                    bodyMachine = esm;
+                }
+            }
+
+            if (bodyMachine) 
+            {
+                switch (orbType)
+                {
+                    case OrbType.BLUE:
+                        bodyMachine.SetState(new BlueOrb { moveStrength = strength});
+                        break;
+                    case OrbType.YELLOW:
+                        bodyMachine.SetState(new YellowOrbEntry { moveStrength = strength });
+                        break;
+                    case OrbType.RED:
+                        bodyMachine.SetState(new RedOrbEntry { moveStrength = strength });
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
 
 

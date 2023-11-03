@@ -13,14 +13,15 @@ namespace LeeHyperrealMod.Content.Controllers
         private CharacterBody characterBody;
         private CharacterMaster characterMaster;
         private GameObject canvasObject;
+        private OrbController orbController;
         public bool baseAIPresent;
         public bool enabledUI;
 
 
         #region Orb Variables
         private int maxShownOrbs = 8;
-        private int startIndex = 4;
-        private int endIndex = 11;
+        private int startIndex = 3;
+        private int endIndex = 10;
         List<Animator> orbAnimators;
         List<Image> orbImages;
         #endregion
@@ -40,6 +41,7 @@ namespace LeeHyperrealMod.Content.Controllers
         public void Start()
         {
             characterBody = GetComponent<CharacterBody>();
+            orbController = GetComponent<OrbController>();
             characterMaster = characterBody.master;
             BaseAI baseAI = characterMaster.GetComponent<BaseAI>();
             baseAIPresent = baseAI;
@@ -61,6 +63,10 @@ namespace LeeHyperrealMod.Content.Controllers
 
             //Now we need to initialize everything inside the canvas to variables we can control.
             InitializeOrbAnimatorArray();
+            if (orbController) 
+            {
+                UpdateOrbList(orbController.orbList);
+            }
         }
 
         public void Update()
@@ -119,21 +125,18 @@ namespace LeeHyperrealMod.Content.Controllers
             // Go through the list
             // Determine what orbs should show using material setting.
 
-            if (orbsList.Count != 0) 
-            {
-                int maxOrbCount = Mathf.Min(maxShownOrbs, orbsList.Count);
+            int maxOrbCount = Mathf.Min(maxShownOrbs, orbsList.Count);
 
-                for (int i = 0; i < maxShownOrbs; i++) 
+            for (int i = 0; i < maxShownOrbs; i++)
+            {
+                if (i < maxOrbCount)
                 {
-                    if (i < maxOrbCount)
-                    {
-                        orbImages[i].material = SelectOrbMaterial(orbsList[i]);
-                        orbAnimators[i].SetTrigger("Spawn Orb");
-                    }
-                    else 
-                    {
-                        orbAnimators[i].SetTrigger("Pinged");
-                    }
+                    orbImages[i].material = SelectOrbMaterial(orbsList[i]);
+                    orbAnimators[i].SetTrigger("Spawn Orb");
+                }
+                else
+                {
+                    orbAnimators[i].SetTrigger("Pinged");
                 }
             }
         }
@@ -148,6 +151,8 @@ namespace LeeHyperrealMod.Content.Controllers
                     return Modules.Assets.yellowOrbMat;
                 case OrbController.OrbType.BLUE:
                     return Modules.Assets.blueOrbMat;
+                default:
+                    return null;
             }
 
             //Actually impossible unless we REALLY fuck up.

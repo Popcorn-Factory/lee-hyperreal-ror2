@@ -1,12 +1,6 @@
 ﻿using EntityStates;
 using RoR2;
-using LeeHyperrealMod.Content.Controllers;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Security.Cryptography;
 using UnityEngine;
-using ExtraSkillSlots;
 using UnityEngine.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
 
@@ -26,8 +20,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         internal int attackAmount;
         internal float partialAttack;
 
-        internal ExtraSkillLocator extraSkillLocator;
-        internal ExtraInputBankTest extraInput;
         internal bool isStrong;
 
 
@@ -37,8 +29,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         {
             base.OnEnter();
             rma = InitMeleeRootMotion();
-            extraSkillLocator = gameObject.GetComponent<ExtraSkillLocator>();
-            extraInput = gameObject.GetComponent<ExtraInputBankTest>();
             rmaMultiplier = movementMultiplier;
 
             if (moveStrength >= 3) 
@@ -101,7 +91,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                     return;
                 }
 
-                Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, extraSkillLocator, isAuthority, inputBank, extraInput);
+                Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
         }
 

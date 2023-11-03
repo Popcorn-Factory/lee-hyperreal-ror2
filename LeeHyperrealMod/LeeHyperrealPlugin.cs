@@ -18,8 +18,8 @@ using LeeHyperrealMod.Content.Controllers;
 namespace LeeHyperrealMod
 {
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
-    [BepInDependency("com.KingEnderBrine.ExtraSkillSlots", BepInDependency.DependencyFlags.HardDependency)]
 
+    [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
@@ -52,6 +52,12 @@ namespace LeeHyperrealMod
             Log.Init(Logger);
             Modules.Assets.Initialize(); // load assets and read config
             Modules.Config.ReadConfig();
+
+            if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions"))
+            {
+                Modules.Config.SetupRiskOfOptions();
+            }
+
             Modules.States.RegisterStates(); // register states for networking
             Modules.Buffs.RegisterBuffs(); // add and register custom buffs/debuffs
             Modules.Projectiles.RegisterProjectiles(); // add and register custom projectiles

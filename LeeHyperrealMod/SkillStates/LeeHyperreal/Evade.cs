@@ -2,7 +2,6 @@
 using UnityEngine;
 using EntityStates;
 using RoR2;
-using ExtraSkillSlots;
 using LeeHyperrealMod.SkillStates.BaseStates;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal
@@ -21,8 +20,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         private float start = 0.3f;
         private float end = 0.65f;
         private Vector3 forwardDirection;
-        private ExtraInputBankTest extraInput;
-        private ExtraSkillLocator extraSkillLocator;
         private Vector3 moveVector;
 
         private float movementMultiplier = 1.6f;
@@ -31,8 +28,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         {
             base.OnEnter();
             this.animator = base.GetModelAnimator();
-            extraSkillLocator = base.gameObject.GetComponent<ExtraSkillLocator>();
-            extraInput = base.gameObject.GetComponent<ExtraInputBankTest>();
             forwardDirection = base.GetAimRay().direction;
             Vector3 backwardsDirection = forwardDirection * -1f;
             moveVector = base.inputBank.moveVector;
@@ -88,7 +83,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                         return;
                     }
                 }
-                Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, extraSkillLocator, isAuthority, base.inputBank, extraInput);
+                Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);
             }
 
             if (base.fixedAge >= duration * end && base.isAuthority) 
@@ -102,7 +97,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                         return;
                     }
                 }
-                Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, extraSkillLocator, isAuthority, base.inputBank, extraInput);
+                Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);
             }
 
             if (base.fixedAge >= duration && base.isAuthority)

@@ -1,7 +1,6 @@
 ﻿using EntityStates;
 using RoR2;
 using UnityEngine;
-using ExtraSkillSlots;
 using UnityEngine.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using System;
@@ -27,8 +26,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         internal int attackAmount;
         internal float partialAttack;
 
-        internal ExtraSkillLocator extraSkillLocator;
-        internal ExtraInputBankTest extraInput;
         internal bool isStrong;
         internal float procCoefficient = Modules.StaticValues.redOrbProcCoefficient;
 
@@ -39,8 +36,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         {
             base.OnEnter();
             rma = InitMeleeRootMotion();
-            extraSkillLocator = gameObject.GetComponent<ExtraSkillLocator>();
-            extraInput = gameObject.GetComponent<ExtraInputBankTest>();
             rmaMultiplier = movementMultiplier;
 
             firingStopwatch = endFireFrac - fireFrac;
@@ -121,7 +116,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                     return;
                 }
 
-                Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, extraSkillLocator, isAuthority, inputBank, extraInput);
+                Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
         }
 

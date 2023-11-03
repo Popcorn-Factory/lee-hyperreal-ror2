@@ -1,12 +1,5 @@
-﻿using EntityStates;
-using ExtraSkillSlots;
-using LeeHyperrealMod.SkillStates.BaseStates;
+﻿using LeeHyperrealMod.SkillStates.BaseStates;
 using RoR2;
-using RoR2.Audio;
-using System;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Text;
 using UnityEngine;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
@@ -24,8 +17,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         internal float attackEnd = 0.24f;
         internal float exitEarlyFrac = 0.35f;
 
-        internal ExtraSkillLocator extraSkillLocator;
-        internal ExtraInputBankTest extraInput;
         internal RootMotionAccumulator rma;
 
         public override void OnEnter()
@@ -108,7 +99,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             if (base.age >= duration * exitEarlyFrac && base.isAuthority) 
             {
-                Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, extraSkillLocator, isAuthority, base.inputBank, extraInput);
+                Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);
             }
         }
 

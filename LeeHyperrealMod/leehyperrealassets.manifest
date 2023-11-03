@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3531306858
+CRC: 733867181
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 9658ba45b310fe7cb7513690cf980999
+    Hash: 587dddbb516c19c18f71b60ff1a6c840
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 9500beca97d22d0fc26a832a0b20c698
+    Hash: 2a1f4e72e35b513774370c68fd050c99
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -34,13 +34,13 @@ ClassTypes:
 - Class: 95
   Script: {instanceID: 0}
 - Class: 114
+  Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 261c50d8a80898e4ebf2e8e415ea6766, type: 3}
 - Class: 114
@@ -71,6 +71,7 @@ Assets:
 - Assets/LeeHyperrealAssets/Mesh/leeTorsoClothMesh.mesh
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/primary4.anim
 - Assets/LeeHyperrealAssets/Mesh/leeGunCaseMesh.mesh
+- Assets/LeeHyperrealAssets/Animation/Custom Animations/Attack24_Aim down.anim
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeLegTex.png
 - Assets/LeeHyperrealAssets/Animation/otherGunAvatar.asset
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeBoxGunTex.png
@@ -91,6 +92,7 @@ Assets:
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/runstartend01.anim
 - Assets/LeeHyperrealAssets/Material/leeSubmachineMat.mat
 - Assets/LeeHyperrealAssets/Texture/Normal/leeArmNormal.png
+- Assets/LeeHyperrealAssets/Animation/Custom Animations/Attack24_Aim up.anim
 - Assets/LeeHyperrealAssets/Mesh/leeSuperRilfeAlphaMesh.mesh
 - Assets/LeeHyperrealAssets/Mesh/leeChestLegPlateMesh.mesh
 - Assets/LeeHyperrealAssets/Texture/Normal/leeBoxGunNormal.png
@@ -109,9 +111,11 @@ Assets:
 - Assets/LeeHyperrealAssets/mdlLeeHyperreal.prefab
 - Assets/LeeHyperrealAssets/Texture/Albedo/gunHudTex.png
 - Assets/LeeHyperrealAssets/Animation/fight.controller
+- Assets/LeeHyperrealAssets/Animation/Custom Animations/Attack25_Aim down.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/redOrb2.anim
 - Assets/LeeHyperrealAssets/Mesh/leeSubMachineGunMesh.mesh
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/spawn3.anim
+- Assets/LeeHyperrealAssets/Animation/Custom Animations/Attack25_aim up.anim
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeTorsoTex.png
 - Assets/LeeHyperrealAssets/LeeHyperrealDisplay.prefab
 - Assets/LeeHyperrealAssets/Material/leeFaceMat.mat
