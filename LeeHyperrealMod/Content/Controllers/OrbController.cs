@@ -35,6 +35,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         EntityStateMachine[] stateMachines;
 
+
         public void Awake()
         {
             orbIncrementor = 0f;
@@ -67,15 +68,15 @@ namespace LeeHyperrealMod.Content.Controllers
 
             if (Modules.Config.isSimple.Value) 
             {
-                if (Modules.Config.blueOrbTrigger.Value.IsPressed()) 
+                if (Modules.Config.blueOrbTrigger.Value.IsDown()) 
                 {
                     ConsumeOrbsSimple(OrbType.BLUE);
                 }
-                else if (Modules.Config.redOrbTrigger.Value.IsPressed())
-                {
+                else if (Modules.Config.redOrbTrigger.Value.IsDown())
+                { 
                     ConsumeOrbsSimple(OrbType.RED);
                 }
-                else if (Modules.Config.yellowOrbTrigger.Value.IsPressed())
+                else if (Modules.Config.yellowOrbTrigger.Value.IsDown())
                 {
                     ConsumeOrbsSimple(OrbType.YELLOW);
                 }
@@ -84,19 +85,19 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 int SelectedIndex = -1;
                 bool isAltPressed = Modules.Config.orbAltTrigger.Value.IsDown();
-                if (Modules.Config.orb1Trigger.Value.IsPressed())
+                if (Modules.Config.orb1Trigger.Value.IsDown())
                 {
                     SelectedIndex = 1;
                 }
-                else if (Modules.Config.orb2Trigger.Value.IsPressed())
+                else if (Modules.Config.orb2Trigger.Value.IsDown())
                 {
                     SelectedIndex = 2;
                 }
-                else if(Modules.Config.orb3Trigger.Value.IsPressed())
+                else if(Modules.Config.orb3Trigger.Value.IsDown())
                 {
                     SelectedIndex = 3;
                 }
-                else if(Modules.Config.orb4Trigger.Value.IsPressed())
+                else if(Modules.Config.orb4Trigger.Value.IsDown())
                 {
                     SelectedIndex = 4;
                 }
@@ -188,6 +189,8 @@ namespace LeeHyperrealMod.Content.Controllers
                     {
                         uiController.PingSpecificOrb(moveValidity[i]); 
                     }
+
+
                 }
             }
 
@@ -197,6 +200,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 uiController.UpdateOrbList(orbList);
             }
 
+            TriggerOrbState(strength, type);
             //Success.
             return strength;
         }
