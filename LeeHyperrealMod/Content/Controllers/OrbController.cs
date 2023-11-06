@@ -261,7 +261,7 @@ namespace LeeHyperrealMod.Content.Controllers
                             indexes[2] = typeList[i].Item2 >= 3 ? startingIndex + 1 : -1;
 
                             //End 
-                            j = typeList.Count;
+                            j = typeList.Count - 1;
                         }
 
                         startingIndex += (int)typeList[j].Item2;
