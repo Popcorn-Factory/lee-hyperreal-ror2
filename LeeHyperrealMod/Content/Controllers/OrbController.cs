@@ -68,15 +68,15 @@ namespace LeeHyperrealMod.Content.Controllers
 
             if (Modules.Config.isSimple.Value) 
             {
-                if (Modules.Config.blueOrbTrigger.Value.IsDown()) 
+                if (UnityEngine.Input.GetKeyDown(Modules.Config.blueOrbTrigger.Value.MainKey)) 
                 {
                     ConsumeOrbsSimple(OrbType.BLUE);
                 }
-                else if (Modules.Config.redOrbTrigger.Value.IsDown())
+                else if (UnityEngine.Input.GetKeyDown(Modules.Config.redOrbTrigger.Value.MainKey))
                 { 
                     ConsumeOrbsSimple(OrbType.RED);
                 }
-                else if (Modules.Config.yellowOrbTrigger.Value.IsDown())
+                else if (UnityEngine.Input.GetKeyDown(Modules.Config.yellowOrbTrigger.Value.MainKey))
                 {
                     ConsumeOrbsSimple(OrbType.YELLOW);
                 }
@@ -84,20 +84,20 @@ namespace LeeHyperrealMod.Content.Controllers
             else 
             {
                 int SelectedIndex = -1;
-                bool isAltPressed = Modules.Config.orbAltTrigger.Value.IsDown();
-                if (Modules.Config.orb1Trigger.Value.IsDown())
+                bool isAltPressed = UnityEngine.Input.GetKey(Modules.Config.orbAltTrigger.Value.MainKey);
+                if (UnityEngine.Input.GetKeyDown(Modules.Config.orb1Trigger.Value.MainKey))
                 {
                     SelectedIndex = 1;
                 }
-                else if (Modules.Config.orb2Trigger.Value.IsDown())
+                else if (UnityEngine.Input.GetKeyDown(Modules.Config.orb2Trigger.Value.MainKey))
                 {
                     SelectedIndex = 2;
                 }
-                else if(Modules.Config.orb3Trigger.Value.IsDown())
+                else if(UnityEngine.Input.GetKeyDown(Modules.Config.orb3Trigger.Value.MainKey))
                 {
                     SelectedIndex = 3;
                 }
-                else if(Modules.Config.orb4Trigger.Value.IsDown())
+                else if(UnityEngine.Input.GetKeyDown(Modules.Config.orb4Trigger.Value.MainKey))
                 {
                     SelectedIndex = 4;
                 }
