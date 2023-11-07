@@ -256,9 +256,9 @@ namespace LeeHyperrealMod.Content.Controllers
                         if (j == i) 
                         {
                             //Indexing BRUHSIAUHSD I HATE ALL OF THIS LOGIC>
-                            indexes[0] = startingIndex - 1;
-                            indexes[1] = typeList[i].Item2 >= 2 ? startingIndex : -1;
-                            indexes[2] = typeList[i].Item2 >= 3 ? startingIndex + 1 : -1;
+                            indexes[0] = startingIndex;
+                            indexes[1] = typeList[i].Item2 >= 2 ? startingIndex + 1 : -1;
+                            indexes[2] = typeList[i].Item2 >= 3 ? startingIndex + 2 : -1;
 
                             //End 
                             j = typeList.Count - 1;
