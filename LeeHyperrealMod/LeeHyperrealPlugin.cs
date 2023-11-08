@@ -10,6 +10,8 @@ using UnityEngine;
 using EmotesAPI;
 using System;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
+using R2API.Networking;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -66,6 +68,10 @@ namespace LeeHyperrealMod
 
             // survivor initialization
             new LeeHyperreal().Initialize();
+
+            //networking
+            NetworkingAPI.RegisterMessageType<PerformForceNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<SetFreezeOnBodyRequest>();
 
             // now make a content pack and add it- this part will change with the next update
             new Modules.ContentPacks().Initialize();

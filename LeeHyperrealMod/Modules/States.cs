@@ -6,6 +6,7 @@ using LeeHyperrealMod.SkillStates.LeeHyperreal.Primary;
 using LeeHyperrealMod.SkillStates.LeeHyperreal;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -30,12 +31,23 @@ namespace LeeHyperrealMod.Modules
             Modules.Content.AddEntityState(typeof(YellowOrbEntry));
             Modules.Content.AddEntityState(typeof(YellowOrbFinisher));
             Modules.Content.AddEntityState(typeof(YellowOrb));
+
+            Modules.Content.AddEntityState(typeof(YellowOrbDomain));
             #endregion
 
             #region Red Orb
             Modules.Content.AddEntityState(typeof(RedOrbEntry));
             Modules.Content.AddEntityState(typeof(RedOrb));
             Modules.Content.AddEntityState(typeof(RedOrbFinisher));
+
+            Modules.Content.AddEntityState(typeof(RedOrbDomain));
+            #endregion
+
+            #region Ultimate
+            Modules.Content.AddEntityState(typeof(Ultimate));
+            Modules.Content.AddEntityState(typeof(UltimateDomain));
+            Modules.Content.AddEntityState(typeof(UltimateController));
+            Modules.Content.AddEntityState(typeof(Freeze));
             #endregion
 
             #region Base States
