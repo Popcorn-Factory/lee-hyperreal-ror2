@@ -20,8 +20,8 @@ namespace LeeHyperrealMod.Content.Controllers
 
         #region Orb Variables
         private int maxShownOrbs = 8;
-        private int startIndex = 3;
-        private int endIndex = 10;
+        private int startIndex = 4;
+        private int endIndex = 111;
         List<Animator> orbAnimators;
         List<Image> orbImages;
         #endregion

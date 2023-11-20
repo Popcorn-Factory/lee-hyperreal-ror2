@@ -82,6 +82,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void Update()
         {
             base.Update();
+
+            base.characterMotor.Motor.ForceUnground();
             UpdateMeleeRootMotion(1.8f);
         }
 
@@ -89,6 +91,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+            base.characterMotor.Motor.ForceUnground();
         }
 
         public override void OnExit()

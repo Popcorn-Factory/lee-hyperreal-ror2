@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 733867181
+CRC: 2600813308
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 587dddbb516c19c18f71b60ff1a6c840
+    Hash: 4642bad80c4e1e66dd8ab3cb5e28744f
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 2a1f4e72e35b513774370c68fd050c99
+    Hash: 39c78e2589c7c0787273366d65ee03c4
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -34,13 +34,13 @@ ClassTypes:
 - Class: 95
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 261c50d8a80898e4ebf2e8e415ea6766, type: 3}
 - Class: 114
@@ -63,103 +63,240 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 224
   Script: {instanceID: 0}
+- Class: 1773428102
+  Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/DomainUlt.anim
 - Assets/LeeHyperrealAssets/Material/leeBoxGunMat.mat
+- Assets/LeeHyperrealAssets/Mesh/leeEyeMeshBlend.mesh
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SnipeEvadeLeft.anim
 - Assets/LeeHyperrealAssets/Mesh/leeSuperRifleMesh.mesh
 - Assets/LeeHyperrealAssets/Animation/BoxGunAnimation/changestart01.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack36_Base
+  Layer.anim
+- Assets/LeeHyperrealAssets/Texture/Albedo/FxE3SuperlicannonMd010011.png
 - Assets/LeeHyperrealAssets/Mesh/leeTorsoClothMesh.mesh
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/primary4.anim
 - Assets/LeeHyperrealAssets/Mesh/leeGunCaseMesh.mesh
 - Assets/LeeHyperrealAssets/Animation/Custom Animations/Attack24_Aim down.anim
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeLegTex.png
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Hitdown_Base
+  Layer.anim
 - Assets/LeeHyperrealAssets/Animation/otherGunAvatar.asset
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack99_Base
+  Layer.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack97_Base
+  Layer.anim
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeBoxGunTex.png
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeHairTex.png
 - Assets/LeeHyperrealAssets/Mesh/leeFaceMesh.mesh
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Save_Base
+  Layer.anim
 - Assets/LeeHyperrealAssets/Texture/Albedo/leePistolTex.png
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/yellowOrb2.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SnipeEvade180.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/primary3.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/redOrb.anim
 - Assets/LeeHyperrealAssets/Animation/leeAvatar.asset
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/evadeBack.anim
+- Assets/LeeHyperrealAssets/Animation/lee emotesAvatar.asset
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/primary1.anim
+- Assets/LeeHyperrealAssets/Texture/Normal/E3SuperlicannonMd010011PBR.png
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Idle.anim
+- Assets/LeeHyperrealAssets/Texture/Normal/E3SuperlicannonMd010011NM.png
 - Assets/LeeHyperrealAssets/Animation/uistand.controller
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/evadeForward.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack71_Base
+  Layer.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/evadeBackTrimmed.anim
+- Assets/LeeHyperrealAssets/Mesh/leeChestLegPlateMeshBlend.mesh
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeEyeTex.png
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack70_Base
+  Layer.anim
 - Assets/LeeHyperrealAssets/Material/UI Red Orb.mat
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeArmTex.png
 - Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/attack24.anim
 - Assets/LeeHyperrealAssets/Texture/Albedo/GunHudTex2.png
+- Assets/LeeHyperrealAssets/mdlLeeHyperreal.prefab
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/primary5.anim
+- Assets/LeeHyperrealAssets/Mesh/leeSubMachineGunMeshBlend.mesh
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack95_Base
+  Layer.anim
 - Assets/LeeHyperrealAssets/Animation/uistandAvatar.asset
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/yellowOrb.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/runstart.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/runstartend01.anim
+- Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/Rifle_Attack24.anim
 - Assets/LeeHyperrealAssets/Material/leeSubmachineMat.mat
 - Assets/LeeHyperrealAssets/Texture/Normal/leeArmNormal.png
+- Assets/LeeHyperrealAssets/Mesh/leeGunCaseMeshBlend.mesh
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SnipeExit.anim
 - Assets/LeeHyperrealAssets/Animation/Custom Animations/Attack24_Aim up.anim
 - Assets/LeeHyperrealAssets/Mesh/leeSuperRilfeAlphaMesh.mesh
+- Assets/LeeHyperrealAssets/Texture/Albedo/E3SuperlicannonMd010011AO.png
 - Assets/LeeHyperrealAssets/Mesh/leeChestLegPlateMesh.mesh
 - Assets/LeeHyperrealAssets/Texture/Normal/leeBoxGunNormal.png
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/IdleEmptyHand.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Hoverhit_Base
+  Layer.anim
 - Assets/LeeHyperrealAssets/Material/leeLegMat.mat
 - Assets/LeeHyperrealAssets/Mesh/leeArmMesh.mesh
 - Assets/LeeHyperrealAssets/Material/leeChestLegPlateMat.mat
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/WalkEnd.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/WalkEnd2.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SprintStart.anim
 - Assets/LeeHyperrealAssets/Mesh/leeEyeMesh.mesh
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/runleanr.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack90_Base
+  Layer.anim
+- Assets/LeeHyperrealAssets/E3SuperlicannonMd010011.mesh
 - Assets/LeeHyperrealAssets/Mesh/leeHairMesh.mesh
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack75_Base
+  Layer.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/primary5.anim
 - Assets/LeeHyperrealAssets/Animation/BoxGunAnimation/change01loop.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack89_Base
+  Layer.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Behitfly_Base
+  Layer.anim
 - Assets/LeeHyperrealAssets/Material/UI Blue Orb.mat
+- Assets/LeeHyperrealAssets/Mesh/leeLegsMeshBlend.mesh
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/stand1.anim
 - Assets/LeeHyperrealAssets/Material/leeHairMat.mat
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SitDown.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/yellowOrb.anim
-- Assets/LeeHyperrealAssets/mdlLeeHyperreal.prefab
+- Assets/LeeHyperrealAssets/oldprefabs/mdlLeeHyperreal.prefab
 - Assets/LeeHyperrealAssets/Texture/Albedo/gunHudTex.png
+- Assets/LeeHyperrealAssets/Mesh/leeFaceMeshBlend.mesh
+- Assets/LeeHyperrealAssets/Cannon Ultimate.anim
 - Assets/LeeHyperrealAssets/Animation/fight.controller
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack92_Base
+  Layer.anim
 - Assets/LeeHyperrealAssets/Animation/Custom Animations/Attack25_Aim down.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/RunLeanRight.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/redOrb2.anim
 - Assets/LeeHyperrealAssets/Mesh/leeSubMachineGunMesh.mesh
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/spawn3.anim
 - Assets/LeeHyperrealAssets/Animation/Custom Animations/Attack25_aim up.anim
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeTorsoTex.png
 - Assets/LeeHyperrealAssets/LeeHyperrealDisplay.prefab
+- Assets/LeeHyperrealAssets/oldprefabs/LeeHyperrealDisplay.prefab
+- Assets/LeeHyperrealAssets/cannon.controller
+- Assets/LeeHyperrealAssets/Mesh/leeArmsMeshBlend.mesh
+- Assets/LeeHyperrealAssets/Mesh/leeSuperRifleMeshBlend.mesh
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Spawn1.anim
 - Assets/LeeHyperrealAssets/Material/leeFaceMat.mat
 - Assets/LeeHyperrealAssets/FadeIn.shader
+- Assets/LeeHyperrealAssets/Material/Cannon.mat
 - Assets/LeeHyperrealAssets/Material/leeExtraGunBitMat.mat
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Ultimate.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/blueOrb.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/spawn2.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SnipeEntry.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Hit1_Base
+  Layer.anim
+- Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/Rifle_Attack23.anim
 - Assets/LeeHyperrealAssets/Texture/Normal/leeTorsoNormal.png
-- Assets/LeeHyperrealAssets/Animation/BodyAnims/spawn1.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/spawn1.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/primary2.anim
-- Assets/LeeHyperrealAssets/humanoidLeeHyperreal.prefab
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack72_Base
+  Layer.anim
+- Assets/LeeHyperrealAssets/oldprefabs/humanoidLeeHyperreal.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/stand2.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/primary4.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Sprint.anim
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeSubmachineTex.png
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/runleanl.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/spawn4.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/EnterDomainSnipe.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/evadeForwardTrimmed.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Win_Base
+  Layer.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/YellowOrbDomain.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/run.anim
+- Assets/LeeHyperrealAssets/Mesh/leeTorsoClothMeshBlend.mesh
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Spawn4.anim
 - Assets/LeeHyperrealAssets/Texture/Normal/leeChestLegPlateNormal.png
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Death.anim
 - Assets/LeeHyperrealAssets/Animation/fightAvatar.asset
 - Assets/LeeHyperrealAssets/Material/leeArmMat.mat
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Stun_Base
+  Layer.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SitStandUp.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SprintStop.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SnipeShot.anim
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeFaceTex.png
 - Assets/LeeHyperrealAssets/Texture/Normal/leePistolNormal.png
 - Assets/LeeHyperrealAssets/Mesh/leeLegsMesh.mesh
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Spawn3.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/blueOrb.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Spawn2.anim
 - Assets/LeeHyperrealAssets/Animation/humanoidAvatar.asset
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Lieonfloor_Base
+  Layer.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack91_Base
+  Layer.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack98_Base
+  Layer.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SnipeEvadeRight.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Walk.anim
+- Assets/LeeHyperrealAssets/Mesh/leePistolMeshBlend.mesh
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/IdleChange.anim
 - Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/attack25.anim
 - Assets/LeeHyperrealAssets/Material/UI Yellow Orb.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/runstartend02.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/redOrb2.anim
 - Assets/LeeHyperrealAssets/Material/leeTorsoClothMat.mat
+- Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/Rifle_Attack26.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack77_Base
+  Layer.anim
 - Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/attack26.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/redOrb.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SnipeAim.anim
 - Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/attack23.anim
 - Assets/LeeHyperrealAssets/Texture/Normal/leeLegNormal.png
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/RedOrbDomain.anim
+- Assets/LeeHyperrealAssets/Mesh/leeSuperRilfeAlphaMeshBlend.mesh
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Hit4_Base
+  Layer.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/evadeBack.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Hit3_Base
+  Layer.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/primary3.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/primary1.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack76_Base
+  Layer.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/evadeForward.anim
 - Assets/LeeHyperrealAssets/Animation/animLeeHyperrealDisplay.controller
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack73_Base
+  Layer.anim
 - Assets/LeeHyperrealAssets/Material/leePistolMat.mat
 - Assets/LeeHyperrealAssets/Animation/animLeeHyperreal.controller
+- Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/Rifle_Attack25.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack96_Base
+  Layer.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Falldown_Base
+  Layer.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Hit2_Base
+  Layer.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack74_Base
+  Layer.anim
 - Assets/LeeHyperrealAssets/Material/leeSuperRifleMat.mat
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/primary2.anim
 - Assets/LeeHyperrealAssets/Material/leeEyeMat.mat
+- Assets/LeeHyperrealAssets/Mesh/leeHairMeshBlend.mesh
 - Assets/LeeHyperrealAssets/Animation/BoxGunAnimation/change01.anim
 - Assets/LeeHyperrealAssets/LeeHyperrealUI.prefab
+- Assets/LeeHyperrealAssets/humanoidLeeHyperreal.prefab
 - Assets/LeeHyperrealAssets/Mesh/leePistolMesh.mesh
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack93_Base
+  Layer.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/yellowOrb2.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack33_Base
+  Layer.anim
+- Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/RunLeanLeft.anim
+- Assets/LeeHyperrealAssets/Animation/leeAvatarBlend.asset
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeChestLegPlateTex.png
 Dependencies:
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/dummyshader/xcharacter_character##8c57a49c51573d3d980a249b814f1a8a1a36f20b.ab
