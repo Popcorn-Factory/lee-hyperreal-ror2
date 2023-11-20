@@ -32,6 +32,10 @@ namespace LeeHyperrealMod.Modules
         internal const float yellowOrbDamageCoefficient = 2f;
         internal const int yellowOrbBaseHitAmount = 3;
         internal const float yellowOrbProcCoefficient = 1f;
+
+        internal const float yellowOrbDomainDamageCoefficient = 1f;
+        internal const float yellowOrbDomainBlastRadius = 20f;
+        internal const int yellowOrbDomainFireCount = 6;
         #endregion
 
 
@@ -39,6 +43,22 @@ namespace LeeHyperrealMod.Modules
         internal const float redOrbDamageCoefficient = 2f;
         internal const int redOrbBaseHitAmount = 3;
         internal const float redOrbProcCoefficient = 1f;
+
+        internal const float redOrbDomainDamageCoefficient = 2f;
+        internal const float redOrbDomainBlastRadius = 20f;
+        internal const int redOrbDomainFireCount = 3;
+        #endregion
+
+        #region Ultimate
+        internal const float ultimateDamageCoefficient = 44f;
+        internal const float ultimateProcCoefficient = 1f;
+        internal const float ultimateBlastRadius = 20f;
+
+        internal const float ultimateDomainMiniDamageCoefficient = 1f;
+        internal const float ultimateDomainDamageCoefficient = 4f;
+        internal const float ultimateDomainBlastRadius = 20f;
+        internal const int ultimateDomainFireCount = 3;
+        internal const float ultimateDomainDuration = 2f;
         #endregion
     }
 }
