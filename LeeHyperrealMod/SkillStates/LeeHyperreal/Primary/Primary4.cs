@@ -46,7 +46,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         {
             base.OnEnter();
             orbController = base.gameObject.GetComponent<OrbController>();
-            duration = 2.566f;
+            duration = 3f;
             pulseRate = basePulseRate / this.attackSpeedStat;
             earlyExitTime = 0.48f;
             hasFired = false;

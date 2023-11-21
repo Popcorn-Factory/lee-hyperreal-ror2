@@ -32,7 +32,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.procCoefficient = 1f;
             this.pushForce = 300f;
             this.bonusForce = Vector3.zero;
-            this.baseDuration = 2.9f;
+            this.baseDuration = 3.3f;
             this.attackStartTime = 0.15f;
             this.attackEndTime = 0.22f;
             this.baseEarlyExitTime = 0.21f;

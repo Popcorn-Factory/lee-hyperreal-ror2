@@ -1580,9 +1580,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.25, y: 1.25, z: 1.25}
   m_Children:
+  - {fileID: 414308322753330963}
   - {fileID: 414308322381845805}
   - {fileID: 414308322340451097}
-  - {fileID: 414308322753330963}
   - {fileID: 414308322773496786}
   - {fileID: 414308322269025560}
   - {fileID: 414308322760729290}
@@ -1659,7 +1659,7 @@ MonoBehaviour:
   - name: TorsoModel
     transform: {fileID: 414308321344281962}
   - name: FaceModel
-    transform: {fileID: 0}
+    transform: {fileID: 414308322101883580}
   - name: HairModel
     transform: {fileID: 414308321093546319}
   - name: ArmourPlateModel
@@ -13505,7 +13505,7 @@ SkinnedMeshRenderer:
   - 0
   m_RootBone: {fileID: 414308322614560938}
   m_AABB:
-    m_Center: {x: -1.6399463, y: 0, z: -0.0011794195}
+    m_Center: {x: -1.63, y: 0, z: 0}
     m_Extent: {x: 0.08924234, y: 0.075065196, z: 0.0648764}
   m_DirtyAABB: 0
 --- !u!1 &414308322107390301
@@ -15753,7 +15753,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 414308320962201779}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 9.307, y: -26.720001, z: 17.811}
 --- !u!1 &414308322348981168
 GameObject:
@@ -15997,7 +15997,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 414308320962201779}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 18.555, y: 50.139004, z: -194.87999}
 --- !u!1 &414308322398526234
 GameObject:
@@ -19215,12 +19215,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414308322753330962}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.164, z: 0}
+  m_LocalRotation: {x: 0.000000029802322, y: 0.0000000026341596, z: -0.00000008692786,
+    w: 1}
+  m_LocalPosition: {x: 0, y: 1.1639998, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 414308320962201779}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &414308322753330972
 CapsuleCollider:
@@ -20289,7 +20290,7 @@ SkinnedMeshRenderer:
   - 0
   m_RootBone: {fileID: 414308322614560938}
   m_AABB:
-    m_Center: {x: -1.635898, y: -0.0000001527369, z: -0.01819158}
+    m_Center: {x: -1.63, y: 0, z: -0.03}
     m_Extent: {x: 0.015889049, y: 0.045526724, z: 0.022568755}
   m_DirtyAABB: 0
 --- !u!1 &414308322820860191
