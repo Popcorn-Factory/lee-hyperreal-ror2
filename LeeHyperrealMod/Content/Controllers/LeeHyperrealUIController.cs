@@ -21,9 +21,18 @@ namespace LeeHyperrealMod.Content.Controllers
         #region Orb Variables
         private int maxShownOrbs = 8;
         private int startIndex = 4;
-        private int endIndex = 111;
+        private int endIndex = 11;
         List<Animator> orbAnimators;
         List<Image> orbImages;
+        #endregion
+
+        #region Power Meter
+        private int meterindex = 15;
+        private Animator meterAnimator;
+        private bool isLerpingBetweenValues;
+        private const float lerpSpeed = 10f;
+        private float targetMeterAmount;
+        private float currentMeterAmount;
         #endregion
 
 
@@ -63,15 +72,25 @@ namespace LeeHyperrealMod.Content.Controllers
 
             //Now we need to initialize everything inside the canvas to variables we can control.
             InitializeOrbAnimatorArray();
-            if (orbController) 
+            if (orbController)
             {
                 UpdateOrbList(orbController.orbList);
             }
+
+            InitializePowerMeter();
+
         }
 
         public void Update()
         {
-
+            if (characterBody.hasEffectiveAuthority)
+            {
+                if (enabledUI)
+                {
+                    UpdateMeterLevel();
+                    SetAnimatorMeterValue();
+                }
+            }
         }
 
         public void FixedUpdate()
@@ -91,6 +110,64 @@ namespace LeeHyperrealMod.Content.Controllers
             Destroy(canvasObject);
             Unhook();
         }
+        #endregion
+
+        #region Power Meter Functinos
+        private void InitializePowerMeter()
+        {
+            meterAnimator = canvasObject.transform.GetChild(meterindex).GetComponent<Animator>();
+        }
+
+        public void SetMeterLevel(float percentageFill)
+        {
+            isLerpingBetweenValues = true;
+         
+            if (percentageFill >= 1f)
+            {
+                targetMeterAmount = 0.99f;
+                return;
+            }
+
+            if (percentageFill < 0f)
+            {
+                targetMeterAmount = 0f;
+                return;
+            }
+
+            targetMeterAmount = percentageFill;
+
+        }
+
+        public void UpdateMeterLevel()
+        {
+            if (isLerpingBetweenValues)
+            {
+                if (currentMeterAmount <= targetMeterAmount)
+                {
+                    currentMeterAmount += Time.deltaTime * lerpSpeed;
+                    if (currentMeterAmount >= targetMeterAmount)
+                    {
+                        currentMeterAmount = targetMeterAmount;
+                        isLerpingBetweenValues = false;
+                    }
+                }
+                if (currentMeterAmount >= targetMeterAmount)
+                {
+                    currentMeterAmount -= Time.deltaTime * lerpSpeed;
+                    if (currentMeterAmount <= targetMeterAmount)
+                    {
+                        currentMeterAmount = targetMeterAmount;
+                        isLerpingBetweenValues = false;
+                    }
+                }
+            }
+        }
+
+        private void SetAnimatorMeterValue() 
+        {
+            meterAnimator.SetFloat("bar fill", currentMeterAmount);
+        }
+        
         #endregion
 
         #region Orb Functions

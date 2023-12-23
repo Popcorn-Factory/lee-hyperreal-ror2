@@ -352,8 +352,8 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
             }
 
-            Chat.AddMessage($"{orbIncrementor}");
-            Chat.AddMessage($"{output}");
+            //Chat.AddMessage($"{orbIncrementor}");
+            //Chat.AddMessage($"{output}");
         }
 
         public void GrantOrb()
