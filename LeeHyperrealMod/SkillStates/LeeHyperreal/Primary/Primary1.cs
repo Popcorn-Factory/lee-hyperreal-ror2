@@ -1,6 +1,7 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.SkillStates.BaseStates;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift;
 using RoR2;
 using UnityEngine;
 
@@ -21,6 +22,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public static float moveEndFrac = 0.03f;
         private Ray aimRay;
         public RootMotionAccumulator rma;
+
+        public static float heldButtonThreshold = 0.15f;
+        public static bool ifButtonLifted = false;
 
         public override void OnEnter()
         {
@@ -83,8 +87,20 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override void Update()
         {
+            if (!base.inputBank.skill1.down) 
+            {
+                ifButtonLifted = true;
+            }
+
+            if (!ifButtonLifted && base.isAuthority && base.stopwatch >= duration * heldButtonThreshold) 
+            {
+                //Cancel out into Domain shift skill state
+                base.outer.SetState(new DomainEnterState { });
+            }
+
             base.Update();
             UpdateMeleeRootMotion(1.5f);
+
         }
 
         public override void FixedUpdate()

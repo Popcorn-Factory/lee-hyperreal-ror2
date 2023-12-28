@@ -50,7 +50,6 @@ namespace LeeHyperrealMod.Content.Controllers
                 {
                     SpendEnergy(Time.deltaTime * consumptionSpeed);
                 }
-                Chat.AddMessage($"{energy}");
                 UpdateUIController();
             }
         }
