@@ -24,10 +24,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public RootMotionAccumulator rma;
 
         public static float heldButtonThreshold = 0.15f;
-        public static bool ifButtonLifted = false;
+        public bool ifButtonLifted = false;
+
+        private LeeHyperrealDomainController domainController;
 
         public override void OnEnter()
         {
+            domainController = this.GetComponent<LeeHyperrealDomainController>();
+
             this.hitboxName = "ShortMelee";
 
             this.damageType = DamageType.Generic;
@@ -92,7 +96,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 ifButtonLifted = true;
             }
 
-            if (!ifButtonLifted && base.isAuthority && base.stopwatch >= duration * heldButtonThreshold) 
+            if (!ifButtonLifted && base.isAuthority && base.stopwatch >= duration * heldButtonThreshold && domainController.DomainEntryAllowed()) 
             {
                 //Cancel out into Domain shift skill state
                 base.outer.SetState(new DomainEnterState { });

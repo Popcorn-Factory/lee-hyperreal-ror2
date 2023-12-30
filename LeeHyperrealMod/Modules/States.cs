@@ -7,6 +7,7 @@ using LeeHyperrealMod.SkillStates.LeeHyperreal;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -57,6 +58,10 @@ namespace LeeHyperrealMod.Modules
 
             #region Evade
             Modules.Content.AddEntityState(typeof(Evade));
+            #endregion
+
+            #region 
+            Modules.Content.AddEntityState(typeof(DomainEnterState));
             #endregion
 
             Modules.Content.AddEntityState(typeof(SlashCombo));

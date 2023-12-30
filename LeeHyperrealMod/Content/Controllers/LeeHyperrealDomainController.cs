@@ -11,11 +11,10 @@ namespace LeeHyperrealMod.Content.Controllers
         //Domain Control
         bool isInDomain;
         bool energyRegenAllowed;
-        bool energyConsuming;
         float energy;
         const float maxEnergy = 100f;
-        float powerRechargeSpeed = 1f;
-        float consumptionSpeed = 1f;
+        float powerRechargeSpeed = 50f;
+        float consumptionSpeed = 15f;
         
 
         //UI Controller
@@ -30,14 +29,12 @@ namespace LeeHyperrealMod.Content.Controllers
             charBody = GetComponent<CharacterBody>();
             energy = 0f;
             energyRegenAllowed = true;
-            energyConsuming = false;
         }
 
         public void Update()
         {
             if (charBody.hasEffectiveAuthority) 
             {
-
                 // Normal stuff.
                 if (!isInDomain)
                 {
@@ -69,7 +66,7 @@ namespace LeeHyperrealMod.Content.Controllers
             if (this.energy < 0f) 
             {
                 this.energy = 0f;
-                isInDomain = true;
+                DisableDomain();
             }
         }
 
@@ -83,6 +80,29 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 uiController = GetComponent<LeeHyperrealUIController>();
             }
+        }
+
+        public void DisableDomain() 
+        {
+            isInDomain = false;
+
+            //DisableEffect?
+        }
+
+        public void EnableDomain() 
+        {
+            isInDomain = true;
+
+            //EnableEffect?
+        }
+
+        public bool DomainEntryAllowed() 
+        {
+            if (isInDomain) 
+            {
+                return false;
+            }
+            return energy >= maxEnergy;
         }
     }
 }
