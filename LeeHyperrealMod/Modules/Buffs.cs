@@ -6,20 +6,18 @@ namespace LeeHyperrealMod.Modules
 {
     public static class Buffs
     {
-        // armor buff gained during roll
-        internal static BuffDef armorBuff;
-
         internal static BuffDef intuitionBuff;
+        internal static BuffDef invincibilityBuff;
 
         internal static void RegisterBuffs()
         {
-            armorBuff = AddNewBuff("HenryArmorBuff",
-                LegacyResourcesAPI.Load<BuffDef>("BuffDefs/HiddenInvincibility").iconSprite, 
-                Color.white, 
-                false, 
-                false);
 
             intuitionBuff = AddNewBuff("Anschauung Buff", LegacyResourcesAPI.Load<BuffDef>("BuffDefs/HiddenInvincibility").iconSprite, Color.red, true, false);
+            invincibilityBuff = AddNewBuff("Invincibility Buff",
+                LegacyResourcesAPI.Load<BuffDef>("BuffDefs/HiddenInvincibility").iconSprite,
+                Color.blue,
+                false,
+                false);
         }
 
         // simple helper method

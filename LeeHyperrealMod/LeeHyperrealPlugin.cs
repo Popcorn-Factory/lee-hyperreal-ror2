@@ -84,11 +84,30 @@ namespace LeeHyperrealMod
             // run hooks here, disabling one is as simple as commenting out the line
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
             On.RoR2.CharacterModel.Start += CharacterModel_Start;
+            On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
 
             if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
             {
                 On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
             }
+        }
+
+        private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
+        {
+
+            if (self)
+            {
+                if (self.body)
+                {
+                    if (self.body.HasBuff(Modules.Buffs.invincibilityBuff)) 
+                    {
+                        damageInfo.rejected = true;
+                        damageInfo.damage = 0f;
+                    }
+                }
+            }
+
+            orig(self, damageInfo);
         }
 
         private void CharacterModel_Start(On.RoR2.CharacterModel.orig_Start orig, CharacterModel self)
@@ -123,10 +142,7 @@ namespace LeeHyperrealMod
             // a simple stat hook, adds armor after stats are recalculated
             if (self)
             {
-                if (self.HasBuff(Modules.Buffs.armorBuff))
-                {
-                    self.armor += 300f;
-                }
+            
             }
         }
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using System;
+using R2API.Networking;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 {
@@ -31,6 +32,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
         internal string muzzleString = "SubmachineGunMuzzle";
         private float movementMultiplier = 1.5f;
+
+        private float invincibilityStartFrac = 0.16f;
+        private float invincibilityEndFrac = 0.4f;
+        private bool invincibilitySet = false;
 
         public override void OnEnter()
         {
@@ -140,6 +145,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 }
             }
 
+            if (fixedAge >= duration * invincibilityStartFrac && fixedAge <= duration * invincibilityEndFrac && isAuthority && !invincibilitySet) 
+            {
+                invincibilitySet = true;
+                base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, (duration * invincibilityEndFrac) - (duration * invincibilityStartFrac));
+            }
+
+            if (fixedAge >= duration * invincibilityEndFrac && isAuthority) 
+            {
+                base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 0, -1);
+            }
 
 
             if (fixedAge >= duration)
