@@ -3,6 +3,7 @@ using UnityEngine;
 using EntityStates;
 using RoR2;
 using LeeHyperrealMod.SkillStates.BaseStates;
+using LeeHyperrealMod.Content.Controllers;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 {
@@ -12,6 +13,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         public static string dodgeSoundString = "HenryRoll";
         public static float dodgeFOV = EntityStates.Commando.DodgeState.dodgeFOV;
+        private LeeHyperrealDomainController domainController;
 
         private Animator animator;
 
@@ -48,6 +50,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
             isForwardRoll = true;
             PlayAnimation();
+
+            domainController = base.GetComponent<LeeHyperrealDomainController>();
+            domainController.GrantInuitionStack(1);
+
         }
 
 

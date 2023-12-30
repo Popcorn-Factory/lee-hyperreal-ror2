@@ -9,6 +9,8 @@ namespace LeeHyperrealMod.Modules
         // armor buff gained during roll
         internal static BuffDef armorBuff;
 
+        internal static BuffDef intuitionBuff;
+
         internal static void RegisterBuffs()
         {
             armorBuff = AddNewBuff("HenryArmorBuff",
@@ -16,6 +18,8 @@ namespace LeeHyperrealMod.Modules
                 Color.white, 
                 false, 
                 false);
+
+            intuitionBuff = AddNewBuff("Anschauung Buff", LegacyResourcesAPI.Load<BuffDef>("BuffDefs/HiddenInvincibility").iconSprite, Color.red, true, false);
         }
 
         // simple helper method

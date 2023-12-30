@@ -1,4 +1,5 @@
-﻿using RoR2;
+﻿using R2API.Networking;
+using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,6 +16,9 @@ namespace LeeHyperrealMod.Content.Controllers
         const float maxEnergy = 100f;
         float powerRechargeSpeed = 50f;
         float consumptionSpeed = 15f;
+        int intuitionStacks = 0;
+
+        int maxIntuitionStack = 4;
         
 
         //UI Controller
@@ -38,6 +42,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 // Normal stuff.
                 if (!isInDomain)
                 {
+                    ResetIntutionStacksOnBodyt();
                     if (energyRegenAllowed) 
                     {
                         EnergyRegen();
@@ -45,10 +50,24 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
                 else 
                 {
+                    ApplyIntutionBuffsToBody();
                     SpendEnergy(Time.deltaTime * consumptionSpeed);
                 }
                 UpdateUIController();
             }
+        }
+
+        private void ApplyIntutionBuffsToBody() 
+        {
+            charBody.ApplyBuff(Modules.Buffs.intuitionBuff.buffIndex, intuitionStacks, -1);
+        }
+
+        private void ResetIntutionStacksOnBodyt() 
+        {
+            charBody.ApplyBuff(Modules.Buffs.intuitionBuff.buffIndex, 0, -1);
+
+            // Also Set intution stacks to 0
+            intuitionStacks = 0;
         }
 
         public void EnergyRegen() 
@@ -103,6 +122,27 @@ namespace LeeHyperrealMod.Content.Controllers
                 return false;
             }
             return energy >= maxEnergy;
+        }
+
+        public bool ConsumeIntuitionStacks(int amount) 
+        {
+            if (amount > intuitionStacks) 
+            {
+                return false;
+            }
+
+            intuitionStacks -= amount;
+            return true;
+        }
+
+        public void GrantInuitionStack(int amount) 
+        {
+            intuitionStacks += amount;
+
+            if(intuitionStacks > maxIntuitionStack) 
+            {
+                intuitionStacks = maxIntuitionStack;
+            }            
         }
     }
 }
