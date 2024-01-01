@@ -33,7 +33,11 @@
 					</PropertyList>
 					<ConversionPluginInfoList>
 						<ConversionPluginInfo Platform="Windows">
-							<ConversionPlugin Name="" ID="{11C6E76D-8718-490C-B35D-AF3A7FF3AEBD}" PluginName="PCM" CompanyID="0" PluginID="1"/>
+							<ConversionPlugin Name="" ID="{32A42647-4E63-4CCB-BA1F-FFDDAD79CBF5}" PluginName="Opus" CompanyID="0" PluginID="19">
+								<PropertyList>
+									<Property Name="Quality" Type="int32" Value="100"/>
+								</PropertyList>
+							</ConversionPlugin>
 						</ConversionPluginInfo>
 					</ConversionPluginInfoList>
 				</Conversion>
