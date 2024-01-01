@@ -10,24 +10,51 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 {
     internal class YellowOrbEntry : BaseSkillState
     {
+        LeeHyperrealDomainController domainController;
         OrbController orbController;
         public int moveStrength;
         public override void OnEnter()
         {
             base.OnEnter();
             orbController = base.gameObject.GetComponent<OrbController>();
+            domainController = base.gameObject.GetComponent<LeeHyperrealDomainController>();
+
             if (base.isAuthority) 
             {
-                if (moveStrength > 0)
+                //Domain state
+                if (domainController.GetDomainState()) 
                 {
-                    this.outer.SetState(new YellowOrb { moveStrength = moveStrength });
-                    return;
+                    if (moveStrength > 0)
+                    {
+                        //Set state accordingly.
+
+                        //Grant stack if hitting the right amount
+                        if (moveStrength == 3)
+                        {
+                            domainController.GrantIntuitionStack(1);
+                        }
+                        //this.outer.SetState(new YellowOrb { moveStrength = moveStrength });
+                    }
+                    else
+                    {
+                        base.PlayAnimation("FullBody, Override", "BufferEmpty");
+                        this.outer.SetNextStateToMain();
+                        return;
+                    }
                 }
                 else
                 {
-                    base.PlayAnimation("FullBody, Override", "BufferEmpty");
-                    this.outer.SetNextStateToMain();
-                    return;
+                    if (moveStrength > 0)
+                    {
+                        this.outer.SetState(new YellowOrb { moveStrength = moveStrength });
+                        return;
+                    }
+                    else
+                    {
+                        base.PlayAnimation("FullBody, Override", "BufferEmpty");
+                        this.outer.SetNextStateToMain();
+                        return;
+                    }
                 }
             }
         }

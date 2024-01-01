@@ -85,10 +85,31 @@ namespace LeeHyperrealMod
             On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
             On.RoR2.CharacterModel.Start += CharacterModel_Start;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
+            On.RoR2.CharacterBody.Update += CharacterBody_Update;
 
             if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
             {
                 On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
+            }
+        }
+
+        private void CharacterBody_Update(On.RoR2.CharacterBody.orig_Update orig, CharacterBody self)
+        {
+            orig(self);
+
+            //Setting shit on the UI element of the Lee model.
+
+            if (self) 
+            {
+                if (self.baseNameToken == DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_NAME") 
+                {
+                    LeeHyperrealUIController uiController = self.gameObject.GetComponent<LeeHyperrealUIController>();
+
+                    if (uiController) 
+                    {
+                        uiController.SetActiveHealthUIObject(self.HasBuff(Modules.Buffs.invincibilityBuff) || self.HasBuff(RoR2Content.Buffs.HiddenInvincibility));
+                    }
+                }
             }
         }
 

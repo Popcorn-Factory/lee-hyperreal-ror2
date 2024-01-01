@@ -1,5 +1,7 @@
 ﻿using EntityStates;
+using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.SkillStates.BaseStates;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift;
 using RoR2;
 using UnityEngine;
 
@@ -20,8 +22,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         private Ray aimRay;
 
         public RootMotionAccumulator rma;
+
+
+        public static float heldButtonThreshold = 0.46f;
+        public bool ifButtonLifted = false;
+
+        private LeeHyperrealDomainController domainController;
+
         public override void OnEnter()
         {
+            domainController = this.GetComponent<LeeHyperrealDomainController>();
             this.hitboxName = "LongMelee";
 
             this.damageType = DamageType.Generic;
@@ -81,6 +91,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override void Update()
         {
+            if (!base.inputBank.skill1.down)
+            {
+                ifButtonLifted = true;
+            }
+
+            if (!ifButtonLifted && base.isAuthority && base.stopwatch >= duration * heldButtonThreshold && domainController.DomainEntryAllowed())
+            {
+                //Cancel out into Domain shift skill state
+                base.outer.SetState(new DomainEnterState { });
+            }
+
             base.Update();
 
             base.characterMotor.Motor.ForceUnground();

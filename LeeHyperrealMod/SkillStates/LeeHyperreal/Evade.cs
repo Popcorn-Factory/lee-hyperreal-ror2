@@ -52,8 +52,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             PlayAnimation();
 
             domainController = base.GetComponent<LeeHyperrealDomainController>();
-            domainController.GrantInuitionStack(1);
-
         }
 
 

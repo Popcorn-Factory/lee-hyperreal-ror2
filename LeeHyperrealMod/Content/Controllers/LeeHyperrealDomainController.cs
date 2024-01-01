@@ -124,6 +124,11 @@ namespace LeeHyperrealMod.Content.Controllers
             return energy >= maxEnergy;
         }
 
+        public bool GetDomainState() 
+        {
+            return isInDomain;
+        }
+
         public bool ConsumeIntuitionStacks(int amount) 
         {
             if (amount > intuitionStacks) 
@@ -135,7 +140,7 @@ namespace LeeHyperrealMod.Content.Controllers
             return true;
         }
 
-        public void GrantInuitionStack(int amount) 
+        public void GrantIntuitionStack(int amount) 
         {
             intuitionStacks += amount;
 

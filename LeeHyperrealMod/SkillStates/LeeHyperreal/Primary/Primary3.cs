@@ -1,5 +1,7 @@
 ﻿using EntityStates;
+using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.SkillStates.BaseStates;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift;
 using RoR2;
 using System.Security.Cryptography;
 using UnityEngine;
@@ -23,8 +25,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public RootMotionAccumulator rma;
 
+
+        public static float heldButtonThreshold = 0.21f;
+        public bool ifButtonLifted = false;
+
+        private LeeHyperrealDomainController domainController;
+
         public override void OnEnter()
         {
+            domainController = this.GetComponent<LeeHyperrealDomainController>();
             this.hitboxName = "AOEMelee";
 
             this.damageType = DamageType.Generic;
@@ -35,7 +44,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.baseDuration = 3f;
             this.attackStartTime = 0.15f;
             this.attackEndTime = 0.22f;
-            this.baseEarlyExitTime = 0.21f;
+            this.baseEarlyExitTime = 0.225f;
             this.hitStopDuration = 0.012f;
             this.attackRecoil = 0.5f;
             this.hitHopVelocity = 4f;
@@ -84,6 +93,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         }
         public override void Update()
         {
+            if (!base.inputBank.skill1.down)
+            {
+                ifButtonLifted = true;
+            }
+
+            if (!ifButtonLifted && base.isAuthority && base.stopwatch >= duration * heldButtonThreshold && domainController.DomainEntryAllowed())
+            {
+                //Cancel out into Domain shift skill state
+                base.outer.SetState(new DomainEnterState { });
+            }
+
             base.Update();
             base.characterMotor.Motor.ForceUnground();
             UpdateMeleeRootMotion(1.6f);

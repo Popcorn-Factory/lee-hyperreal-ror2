@@ -35,6 +35,11 @@ namespace LeeHyperrealMod.Content.Controllers
         private float currentMeterAmount;
         #endregion
 
+        #region Invincibility Layer
+        private GameObject layerInvincibilityHealthObject;
+        private int healthIndex = 2;
+        #endregion
+
 
         #region Unity MonoBehvaiour Functions
         public void Awake()
@@ -78,7 +83,7 @@ namespace LeeHyperrealMod.Content.Controllers
             }
 
             InitializePowerMeter();
-
+            InitializeHealthLayer();
         }
 
         public void Update()
@@ -109,6 +114,18 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             Destroy(canvasObject);
             Unhook();
+        }
+        #endregion
+
+        #region Invincible Health layer
+        public void InitializeHealthLayer() 
+        {
+            layerInvincibilityHealthObject = canvasObject.transform.GetChild(healthIndex).gameObject;
+        }
+
+        public void SetActiveHealthUIObject(bool state) 
+        {
+            layerInvincibilityHealthObject.SetActive(state);
         }
         #endregion
 

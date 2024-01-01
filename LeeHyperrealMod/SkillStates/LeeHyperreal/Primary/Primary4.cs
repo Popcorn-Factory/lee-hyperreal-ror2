@@ -1,6 +1,7 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.SkillStates.BaseStates;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -42,10 +43,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public RootMotionAccumulator rma;
         public OrbController orbController;
 
+
+        public static float heldButtonThreshold = 0.46f;
+        public bool ifButtonLifted = false;
+
+        private LeeHyperrealDomainController domainController;
+
         public override void OnEnter()
         {
             base.OnEnter();
             orbController = base.gameObject.GetComponent<OrbController>();
+            domainController = this.GetComponent<LeeHyperrealDomainController>();
             duration = 3f;
             pulseRate = basePulseRate / this.attackSpeedStat;
             earlyExitTime = 0.48f;
@@ -111,6 +119,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override void Update()
         {
+            if (!base.inputBank.skill1.down)
+            {
+                ifButtonLifted = true;
+            }
+
+            if (!ifButtonLifted && base.isAuthority && base.age >= duration * heldButtonThreshold && domainController.DomainEntryAllowed())
+            {
+                //Cancel out into Domain shift skill state
+                base.outer.SetState(new DomainEnterState { });
+            }
+
             base.Update();
             UpdateMeleeRootMotion(2.4f);
             stopwatch += Time.deltaTime;

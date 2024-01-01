@@ -3,6 +3,7 @@ using RoR2;
 using UnityEngine;
 using UnityEngine.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
+using R2API.Networking;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 {
@@ -24,6 +25,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
 
         private float movementMultiplier = 1.5f;
+
+        private float invincibilityStartFrac = 0.10f;
+        private float invincibilityEndFrac = 0.4f;
+        private bool invincibilitySet = false;
 
         public override void OnEnter()
         {
@@ -112,6 +117,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             }
 
 
+            if (fixedAge >= duration * invincibilityStartFrac && fixedAge <= duration * invincibilityEndFrac && isAuthority && !invincibilitySet)
+            {
+                invincibilitySet = true;
+                base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, (duration * invincibilityEndFrac) - (duration * invincibilityStartFrac));
+            }
+
+            if (fixedAge >= duration * invincibilityEndFrac && isAuthority)
+            {
+                base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 0, -1);
+            }
 
             if (fixedAge >= duration)
             {

@@ -10,6 +10,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 {
     internal class RedOrbEntry : BaseSkillState
     {
+        LeeHyperrealDomainController domainController;
         OrbController orbController;
         public int moveStrength;
 
@@ -17,19 +18,43 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         {
             base.OnEnter();
             orbController = base.gameObject.GetComponent<OrbController>();
+            domainController = base.gameObject.GetComponent<LeeHyperrealDomainController>();
 
             if (base.isAuthority) 
             {
-                if (moveStrength > 0)
+                if (domainController.GetDomainState())
                 {
-                    this.outer.SetState(new RedOrb { moveStrength = moveStrength });
-                    return;
+                    if (moveStrength > 0)
+                    {
+                        //Set state accordingly.
+
+                        //Grant stack if hitting the right amount
+                        if (moveStrength == 3)
+                        {
+                            domainController.GrantIntuitionStack(1);
+                        }
+                        //this.outer.SetState(new YellowOrb { moveStrength = moveStrength });
+                    }
+                    else
+                    {
+                        base.PlayAnimation("FullBody, Override", "BufferEmpty");
+                        this.outer.SetNextStateToMain();
+                        return;
+                    }
                 }
-                else
+                else 
                 {
-                    base.PlayAnimation("FullBody, Override", "BufferEmpty");
-                    this.outer.SetNextStateToMain();
-                    return;
+                    if (moveStrength > 0)
+                    {
+                        this.outer.SetState(new RedOrb { moveStrength = moveStrength });
+                        return;
+                    }
+                    else
+                    {
+                        base.PlayAnimation("FullBody, Override", "BufferEmpty");
+                        this.outer.SetNextStateToMain();
+                        return;
+                    }
                 }
             }
         }

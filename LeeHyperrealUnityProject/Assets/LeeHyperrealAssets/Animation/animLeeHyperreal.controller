@@ -3337,7 +3337,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Idle
+  m_Name: IdleIn
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -4066,7 +4066,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 1102282721161364612}
-    m_Position: {x: 1140, y: 280, z: 0}
+    m_Position: {x: 1070, y: 100, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1102117556514851194}
     m_Position: {x: 490, y: -220, z: 0}
@@ -4091,7 +4091,7 @@ AnimatorStateMachine:
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -420, y: 90, z: 0}
-  m_EntryPosition: {x: 550, y: 410, z: 0}
+  m_EntryPosition: {x: 1080, y: 420, z: 0}
   m_ExitPosition: {x: 1212, y: 504, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 1102282721161364612}
@@ -4127,6 +4127,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 2
     m_ConditionEvent: isMoving
+    m_EventTreshold: 0
+  - m_ConditionMode: 2
+    m_ConditionEvent: isSprinting
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102282721161364612}
