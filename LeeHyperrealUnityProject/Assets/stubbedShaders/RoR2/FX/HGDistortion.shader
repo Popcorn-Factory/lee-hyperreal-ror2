@@ -30,4 +30,5 @@ Shader "StubbedRoR2/Base/Shaders/HGDistortion" {
 		}
 		ENDCG
 	}
+	Fallback "Transparent/VertexLit"
 }
