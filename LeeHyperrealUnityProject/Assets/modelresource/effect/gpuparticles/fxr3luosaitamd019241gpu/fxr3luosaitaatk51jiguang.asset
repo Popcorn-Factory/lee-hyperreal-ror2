@@ -1,0 +1,320 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6e70bb247a8cd74aad98f5aca67911d, type: 3}
+  m_Name: fxr3luosaitaatk51jiguang
+  m_EditorClassIdentifier: 
+  _ColorIntensity: 1
+  _VelocityScale: 0.1
+  _AspectRatio: 1
+  StartFrame: 0
+  EndFrame: 56
+  AllParticleInfos:
+  - UseCompressedData: 0
+    StartFrame: 0
+    EndFrame: 5
+    boundsCenter: {x: 0.005973734, y: -0.026410535, z: 0.03176117}
+    boundsSize: {x: 0.1630655, y: 0.15719545, z: 7.8447723}
+    Vertex: []
+    Normal: []
+    Tangent: []
+    Uv1: []
+    Uv2: []
+    Uv3: []
+    Color: []
+    Index: 
+    PreBuildMesh: {fileID: 4300000, guid: 61e9026fd0529c0439fe49ef89312429, type: 2}
+    Name: xgpu_mesh_0
+    CVertex: []
+    CNormal: []
+    CTangent: []
+    CUV1: []
+    CUV2: []
+    CUV3: []
+    CNewUV3Time: []
+    CNewUV3Mark: 
+    CColor: []
+    CIndex: 
+  - UseCompressedData: 0
+    StartFrame: 5
+    EndFrame: 10
+    boundsCenter: {x: 0.0014517605, y: -0.10014543, z: 0.06229353}
+    boundsSize: {x: 0.4248619, y: 0.4264779, z: 7.8624754}
+    Vertex: []
+    Normal: []
+    Tangent: []
+    Uv1: []
+    Uv2: []
+    Uv3: []
+    Color: []
+    Index: 
+    PreBuildMesh: {fileID: 4300000, guid: f3d8b6306586fc4459b1e03fc297bf9c, type: 2}
+    Name: xgpu_mesh_1
+    CVertex: []
+    CNormal: []
+    CTangent: []
+    CUV1: []
+    CUV2: []
+    CUV3: []
+    CNewUV3Time: []
+    CNewUV3Mark: 
+    CColor: []
+    CIndex: 
+  - UseCompressedData: 0
+    StartFrame: 10
+    EndFrame: 15
+    boundsCenter: {x: -0.017558545, y: -0.15800771, z: 0.08700609}
+    boundsSize: {x: 0.82700014, y: 0.81302994, z: 7.8856583}
+    Vertex: []
+    Normal: []
+    Tangent: []
+    Uv1: []
+    Uv2: []
+    Uv3: []
+    Color: []
+    Index: 
+    PreBuildMesh: {fileID: 4300000, guid: 684fb9da95516c144aaded540f6f9784, type: 2}
+    Name: xgpu_mesh_2
+    CVertex: []
+    CNormal: []
+    CTangent: []
+    CUV1: []
+    CUV2: []
+    CUV3: []
+    CNewUV3Time: []
+    CNewUV3Mark: 
+    CColor: []
+    CIndex: 
+  - UseCompressedData: 0
+    StartFrame: 15
+    EndFrame: 20
+    boundsCenter: {x: -0.0020487905, y: -0.20055014, z: 0.10752416}
+    boundsSize: {x: 1.4073179, y: 1.1909094, z: 7.9072886}
+    Vertex: []
+    Normal: []
+    Tangent: []
+    Uv1: []
+    Uv2: []
+    Uv3: []
+    Color: []
+    Index: 
+    PreBuildMesh: {fileID: 4300000, guid: e7d483fec1547aa40b2e54213e305720, type: 2}
+    Name: xgpu_mesh_3
+    CVertex: []
+    CNormal: []
+    CTangent: []
+    CUV1: []
+    CUV2: []
+    CUV3: []
+    CNewUV3Time: []
+    CNewUV3Mark: 
+    CColor: []
+    CIndex: 
+  - UseCompressedData: 0
+    StartFrame: 20
+    EndFrame: 25
+    boundsCenter: {x: 0.018578053, y: -0.22327077, z: 0.12198663}
+    boundsSize: {x: 2.0771418, y: 1.5382226, z: 7.9292493}
+    Vertex: []
+    Normal: []
+    Tangent: []
+    Uv1: []
+    Uv2: []
+    Uv3: []
+    Color: []
+    Index: 
+    PreBuildMesh: {fileID: 4300000, guid: 04ca18197aceb3844b97ceb7ee6281a3, type: 2}
+    Name: xgpu_mesh_4
+    CVertex: []
+    CNormal: []
+    CTangent: []
+    CUV1: []
+    CUV2: []
+    CUV3: []
+    CNewUV3Time: []
+    CNewUV3Mark: 
+    CColor: []
+    CIndex: 
+  - UseCompressedData: 0
+    StartFrame: 25
+    EndFrame: 30
+    boundsCenter: {x: 0.047603607, y: -0.27271557, z: 0.12672973}
+    boundsSize: {x: 2.7931194, y: 1.9266882, z: 7.95448}
+    Vertex: []
+    Normal: []
+    Tangent: []
+    Uv1: []
+    Uv2: []
+    Uv3: []
+    Color: []
+    Index: 
+    PreBuildMesh: {fileID: 4300000, guid: 71cd825efd7aede4eaad800526a7372f, type: 2}
+    Name: xgpu_mesh_5
+    CVertex: []
+    CNormal: []
+    CTangent: []
+    CUV1: []
+    CUV2: []
+    CUV3: []
+    CNewUV3Time: []
+    CNewUV3Mark: 
+    CColor: []
+    CIndex: 
+  - UseCompressedData: 0
+    StartFrame: 30
+    EndFrame: 35
+    boundsCenter: {x: 0.08867264, y: -0.39335823, z: 0.12718415}
+    boundsSize: {x: 3.5013084, y: 2.2190394, z: 7.9812436}
+    Vertex: []
+    Normal: []
+    Tangent: []
+    Uv1: []
+    Uv2: []
+    Uv3: []
+    Color: []
+    Index: 
+    PreBuildMesh: {fileID: 4300000, guid: bc6b0204f92c715449d94141994d5b41, type: 2}
+    Name: xgpu_mesh_6
+    CVertex: []
+    CNormal: []
+    CTangent: []
+    CUV1: []
+    CUV2: []
+    CUV3: []
+    CNewUV3Time: []
+    CNewUV3Mark: 
+    CColor: []
+    CIndex: 
+  - UseCompressedData: 0
+    StartFrame: 35
+    EndFrame: 40
+    boundsCenter: {x: 0.14686835, y: -0.5392544, z: 0.1184721}
+    boundsSize: {x: 4.141811, y: 2.43807, z: 8.012911}
+    Vertex: []
+    Normal: []
+    Tangent: []
+    Uv1: []
+    Uv2: []
+    Uv3: []
+    Color: []
+    Index: 
+    PreBuildMesh: {fileID: 4300000, guid: f1435584eb96ace438c875621549a01a, type: 2}
+    Name: xgpu_mesh_7
+    CVertex: []
+    CNormal: []
+    CTangent: []
+    CUV1: []
+    CUV2: []
+    CUV3: []
+    CNewUV3Time: []
+    CNewUV3Mark: 
+    CColor: []
+    CIndex: 
+  - UseCompressedData: 0
+    StartFrame: 40
+    EndFrame: 45
+    boundsCenter: {x: 0.2219615, y: -0.6594969, z: 0.03808403}
+    boundsSize: {x: 4.653493, y: 2.7372215, z: 8.103132}
+    Vertex: []
+    Normal: []
+    Tangent: []
+    Uv1: []
+    Uv2: []
+    Uv3: []
+    Color: []
+    Index: 
+    PreBuildMesh: {fileID: 4300000, guid: a2c9da79860618f40b73dca9160c67e3, type: 2}
+    Name: xgpu_mesh_8
+    CVertex: []
+    CNormal: []
+    CTangent: []
+    CUV1: []
+    CUV2: []
+    CUV3: []
+    CNewUV3Time: []
+    CNewUV3Mark: 
+    CColor: []
+    CIndex: 
+  - UseCompressedData: 0
+    StartFrame: 45
+    EndFrame: 50
+    boundsCenter: {x: 0.3557725, y: -0.78971374, z: -0.07123709}
+    boundsSize: {x: 4.921115, y: 3.0000036, z: 8.129228}
+    Vertex: []
+    Normal: []
+    Tangent: []
+    Uv1: []
+    Uv2: []
+    Uv3: []
+    Color: []
+    Index: 
+    PreBuildMesh: {fileID: 4300000, guid: c7866faf35cdd5f4eb808e95a6971480, type: 2}
+    Name: xgpu_mesh_9
+    CVertex: []
+    CNormal: []
+    CTangent: []
+    CUV1: []
+    CUV2: []
+    CUV3: []
+    CNewUV3Time: []
+    CNewUV3Mark: 
+    CColor: []
+    CIndex: 
+  - UseCompressedData: 0
+    StartFrame: 50
+    EndFrame: 55
+    boundsCenter: {x: 0.60084414, y: -1.1263905, z: -0.17289972}
+    boundsSize: {x: 4.8470106, y: 2.7717333, z: 8.195447}
+    Vertex: []
+    Normal: []
+    Tangent: []
+    Uv1: []
+    Uv2: []
+    Uv3: []
+    Color: []
+    Index: 
+    PreBuildMesh: {fileID: 4300000, guid: 16bfbf830107a124390008dc8d54b5cb, type: 2}
+    Name: xgpu_mesh_10
+    CVertex: []
+    CNormal: []
+    CTangent: []
+    CUV1: []
+    CUV2: []
+    CUV3: []
+    CNewUV3Time: []
+    CNewUV3Mark: 
+    CColor: []
+    CIndex: 
+  - UseCompressedData: 0
+    StartFrame: 55
+    EndFrame: 56
+    boundsCenter: {x: 0.6136557, y: -1.1540973, z: -0.20527935}
+    boundsSize: {x: 4.8973536, y: 2.8040242, z: 8.181335}
+    Vertex: []
+    Normal: []
+    Tangent: []
+    Uv1: []
+    Uv2: []
+    Uv3: []
+    Color: []
+    Index: 
+    PreBuildMesh: {fileID: 4300000, guid: b56044c3945ddf540b8cc5b8e2cf6dcf, type: 2}
+    Name: xgpu_mesh_11
+    CVertex: []
+    CNormal: []
+    CTangent: []
+    CUV1: []
+    CUV2: []
+    CUV3: []
+    CNewUV3Time: []
+    CNewUV3Mark: 
+    CColor: []
+    CIndex: 
