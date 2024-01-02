@@ -11,142 +11,610 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="505873666" Language="SFX" Hash="301675232">
+		<SoundBank Id="505873666" Language="SFX" Hash="1617709368">
 			<ObjectPath>\SoundBanks\Default Work Unit\Lee_Hyperreal</ObjectPath>
 			<ShortName>Lee_Hyperreal</ShortName>
 			<Path>Lee_Hyperreal.bnk</Path>
 			<IncludedEvents>
-				<Event Id="4256551862" Name="Play_Blue_Orb_Hit" ObjectPath="\Events\Default Work Unit\Lee\Play_Blue_Orb_Hit">
+				<Event Id="1336279353" Name="Play_c_liRk4_act_born" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_act_born">
 					<IncludedMemoryFiles>
-						<File Id="874183512" Language="SFX">
-							<ShortName>Blue Orb Hit.wav</ShortName>
-							<Path>SFX\Blue Orb Hit_E686EB18.wem</Path>
+						<File Id="975369106" Language="SFX">
+							<ShortName>c_liRk4_act_born.wav</ShortName>
+							<Path>SFX\c_liRk4_act_born_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="2005950187" Name="Play_Blue_Orb_Load" ObjectPath="\Events\Default Work Unit\Lee\Play_Blue_Orb_Load">
+				<Event Id="355832146" Name="Play_c_liRk4_act_flash_1" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_act_flash_1">
 					<IncludedMemoryFiles>
-						<File Id="110895178" Language="SFX">
-							<ShortName>Blue Orb Load.wav</ShortName>
-							<Path>SFX\Blue Orb Load_E686EB18.wem</Path>
+						<File Id="755865838" Language="SFX">
+							<ShortName>c_liRk4_act_flash_1.wav</ShortName>
+							<Path>SFX\c_liRk4_act_flash_1_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="3538574031" Name="Play_Blue_Orb_Shot" ObjectPath="\Events\Default Work Unit\Lee\Play_Blue_Orb_Shot">
+				<Event Id="355832145" Name="Play_c_liRk4_act_flash_2" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_act_flash_2">
 					<IncludedMemoryFiles>
-						<File Id="998173351" Language="SFX">
-							<ShortName>Blue Orb Shot.wav</ShortName>
-							<Path>SFX\Blue Orb Shot_E686EB18.wem</Path>
+						<File Id="506608001" Language="SFX">
+							<ShortName>c_liRk4_act_flash_2.wav</ShortName>
+							<Path>SFX\c_liRk4_act_flash_2_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="727941751" Name="Play_Bullet_Casings" ObjectPath="\Events\Default Work Unit\Lee\Play_Bullet_Casings">
+				<Event Id="355832144" Name="Play_c_liRk4_act_flash_3" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_act_flash_3">
 					<IncludedMemoryFiles>
-						<File Id="196002225" Language="SFX">
-							<ShortName>Yellow Orb Bullet Casings 3.wav</ShortName>
-							<Path>SFX\Yellow Orb Bullet Casings 3_E686EB18.wem</Path>
+						<File Id="34671558" Language="SFX">
+							<ShortName>c_liRk4_act_flash_3.wav</ShortName>
+							<Path>SFX\c_liRk4_act_flash_3_E686EB18.wem</Path>
 						</File>
-						<File Id="506232421" Language="SFX">
-							<ShortName>Yellow Orb Bullet Casings.wav</ShortName>
-							<Path>SFX\Yellow Orb Bullet Casings_E686EB18.wem</Path>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="537015926" Name="Play_c_liRk4_act_win" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_act_win">
+					<IncludedMemoryFiles>
+						<File Id="55420370" Language="SFX">
+							<ShortName>c_liRk4_act_win.wav</ShortName>
+							<Path>SFX\c_liRk4_act_win_E686EB18.wem</Path>
 						</File>
-						<File Id="852871559" Language="SFX">
-							<ShortName>Yellow Orb Bullet Casings 2.wav</ShortName>
-							<Path>SFX\Yellow Orb Bullet Casings 2_E686EB18.wem</Path>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="818545753" Name="Play_c_liRk4_atk_ex_1" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_ex_1">
+					<IncludedMemoryFiles>
+						<File Id="871673217" Language="SFX">
+							<ShortName>c_liRk4_atk_ex_1.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_ex_1_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1641104144" Name="Play_c_liRk4_atk_ex_1_bullet_1" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_ex_1_bullet_1">
+					<IncludedMemoryFiles>
+						<File Id="296343842" Language="SFX">
+							<ShortName>c_liRk4_atk_ex_1_bullet_1.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_ex_1_bullet_1_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1641104147" Name="Play_c_liRk4_atk_ex_1_bullet_2" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_ex_1_bullet_2">
+					<IncludedMemoryFiles>
+						<File Id="710881964" Language="SFX">
+							<ShortName>c_liRk4_atk_ex_1_bullet_2.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_ex_1_bullet_2_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1641104146" Name="Play_c_liRk4_atk_ex_1_bullet_3" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_ex_1_bullet_3">
+					<IncludedMemoryFiles>
+						<File Id="139035548" Language="SFX">
+							<ShortName>c_liRk4_atk_ex_1_bullet_3.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_ex_1_bullet_3_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="818545754" Name="Play_c_liRk4_atk_ex_2" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_ex_2">
+					<IncludedMemoryFiles>
+						<File Id="946628785" Language="SFX">
+							<ShortName>c_liRk4_atk_ex_2.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_ex_2_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="627989872" Name="Play_c_liRk4_atk_ex_2_end" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_ex_2_end">
+					<IncludedMemoryFiles>
+						<File Id="380294237" Language="SFX">
+							<ShortName>c_liRk4_atk_ex_2_end.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_ex_2_end_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1672899902" Name="Play_c_liRk4_atk_ex_2_exp_1" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_ex_2_exp_1">
+					<IncludedMemoryFiles>
+						<File Id="281418111" Language="SFX">
+							<ShortName>c_liRk4_atk_ex_2_exp_1.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_ex_2_exp_1_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1672899901" Name="Play_c_liRk4_atk_ex_2_exp_2" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_ex_2_exp_2">
+					<IncludedMemoryFiles>
+						<File Id="924024604" Language="SFX">
+							<ShortName>c_liRk4_atk_ex_2_exp_2.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_ex_2_exp_2_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1436277817" Name="Play_c_liRk4_atk_ex_2_xuli" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_ex_2_xuli">
+					<IncludedMemoryFiles>
+						<File Id="59519468" Language="SFX">
+							<ShortName>c_liRk4_atk_ex_2_xuli.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_ex_2_xuli_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="818545755" Name="Play_c_liRk4_atk_ex_3" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_ex_3">
+					<IncludedMemoryFiles>
+						<File Id="302064712" Language="SFX">
+							<ShortName>c_liRk4_atk_ex_3.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_ex_3_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2447070427" Name="Play_c_liRk4_atk_ex_3_break" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_ex_3_break">
+					<IncludedMemoryFiles>
+						<File Id="284328041" Language="SFX">
+							<ShortName>c_liRk4_atk_ex_3_break\c_liRk4_atk_ex_3_break.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_ex_3_break\c_liRk4_atk_ex_3_break_E686EB18.wem</Path>
+						</File>
+						<File Id="321158048" Language="SFX">
+							<ShortName>c_liRk4_atk_ex_3_break\c_liRk4_atk_ex_3_break_2.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_ex_3_break\c_liRk4_atk_ex_3_break_2_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2800018725" Name="Play_c_liRk4_atk_ex_3_reload" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_ex_3_reload">
+					<IncludedMemoryFiles>
+						<File Id="188305038" Language="SFX">
+							<ShortName>c_liRk4_atk_ex_3_reload\c_liRk4_atk_ex_3_reload (1).wav</ShortName>
+							<Path>SFX\c_liRk4_atk_ex_3_reload\c_liRk4_atk_ex_3_reload (1)_E686EB18.wem</Path>
+						</File>
+						<File Id="214333572" Language="SFX">
+							<ShortName>c_liRk4_atk_ex_3_reload\c_liRk4_atk_ex_3_reload.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_ex_3_reload\c_liRk4_atk_ex_3_reload_E686EB18.wem</Path>
+						</File>
+						<File Id="798538570" Language="SFX">
+							<ShortName>c_liRk4_atk_ex_3_reload\c_liRk4_atk_ex_3_reload (2).wav</ShortName>
+							<Path>SFX\c_liRk4_atk_ex_3_reload\c_liRk4_atk_ex_3_reload (2)_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="885930934" Name="Play_c_liRk4_atk_ex_3_xuli" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_ex_3_xuli">
+					<IncludedMemoryFiles>
+						<File Id="901070402" Language="SFX">
+							<ShortName>c_liRk4_atk_ex_3_xuli.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_ex_3_xuli_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3431692223" Name="Play_c_liRk4_atk_nml_1" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_nml_1">
+					<IncludedMemoryFiles>
+						<File Id="246019913" Language="SFX">
+							<ShortName>c_liRk4_atk_nml_1.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_nml_1_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3431692220" Name="Play_c_liRk4_atk_nml_2" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_nml_2">
+					<IncludedMemoryFiles>
+						<File Id="1059560566" Language="SFX">
+							<ShortName>c_liRk4_atk_nml_2.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_nml_2_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2003162041" Name="Play_c_liRk4_atk_nml_3_dilie_1" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_nml_3_dilie_1">
+					<IncludedMemoryFiles>
+						<File Id="989273389" Language="SFX">
+							<ShortName>c_liRk4_atk_nml_3_dilie_1.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_nml_3_dilie_1_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2003162042" Name="Play_c_liRk4_atk_nml_3_dilie_2" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_nml_3_dilie_2">
+					<IncludedMemoryFiles>
+						<File Id="931955726" Language="SFX">
+							<ShortName>c_liRk4_atk_nml_3_dilie_2.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_nml_3_dilie_2_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3825924800" Name="Play_c_liRk4_atk_nml_3_xuli" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_nml_3_xuli">
+					<IncludedMemoryFiles>
+						<File Id="501065259" Language="SFX">
+							<ShortName>c_liRk4_atk_nml_3_xuli.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_nml_3_xuli_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3431692218" Name="Play_c_liRk4_atk_nml_4" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_nml_4">
+					<IncludedMemoryFiles>
+						<File Id="202418353" Language="SFX">
+							<ShortName>c_liRk4_atk_nml_4.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_nml_4_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="724521351" Name="Play_c_liRk4_atk_nml_5_dilie" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_nml_5_dilie">
 					<IncludedMemoryFiles>
-						<File Id="46393955" Language="SFX">
+						<File Id="1036429009" Language="SFX">
 							<ShortName>c_liRk4_atk_nml_5_dilie.wav</ShortName>
 							<Path>SFX\c_liRk4_atk_nml_5_dilie_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="2507619046" Name="Play_c_liRk4_atk_nml_5_jump" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_nml_5_jump">
+					<IncludedMemoryFiles>
+						<File Id="757405617" Language="SFX">
+							<ShortName>c_liRk4_atk_nml_5_jump.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_nml_5_jump_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2115276758" Name="Play_c_liRk4_atk_nml_5_xuli" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_atk_nml_5_xuli">
+					<IncludedMemoryFiles>
+						<File Id="855613689" Language="SFX">
+							<ShortName>c_liRk4_atk_nml_5_xuli.wav</ShortName>
+							<Path>SFX\c_liRk4_atk_nml_5_xuli_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3451204142" Name="Play_c_liRk4_imp_blue" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_imp_blue">
 					<IncludedMemoryFiles>
-						<File Id="1012508989" Language="SFX">
-							<ShortName>c_liRk4_imp_blue.wav</ShortName>
-							<Path>SFX\c_liRk4_imp_blue_E686EB18.wem</Path>
+						<File Id="161444163" Language="SFX">
+							<ShortName>c_liRk4_imp_blue\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_blue\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)_E686EB18.wem</Path>
+						</File>
+						<File Id="682933615" Language="SFX">
+							<ShortName>c_liRk4_imp_blue\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_blue\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)_E686EB18.wem</Path>
+						</File>
+						<File Id="1030020862" Language="SFX">
+							<ShortName>c_liRk4_imp_blue\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_blue\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="3788601937" Name="Play_c_liRk4_imp_ex_1" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_imp_ex_1">
 					<IncludedMemoryFiles>
-						<File Id="730485691" Language="SFX">
-							<ShortName>c_liRk4_imp_ex_1.wav</ShortName>
-							<Path>SFX\c_liRk4_imp_ex_1_E686EB18.wem</Path>
+						<File Id="129245162" Language="SFX">
+							<ShortName>c_liRk4_imp_ex_1\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_ex_1\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4_E686EB18.wem</Path>
+						</File>
+						<File Id="170013626" Language="SFX">
+							<ShortName>c_liRk4_imp_ex_1\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (1).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_ex_1\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (1)_E686EB18.wem</Path>
+						</File>
+						<File Id="995027618" Language="SFX">
+							<ShortName>c_liRk4_imp_ex_1\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (2).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_ex_1\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (2)_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="3336212442" Name="Play_c_liRk4_imp_ex_2_1" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_imp_ex_2_1">
 					<IncludedMemoryFiles>
-						<File Id="368082373" Language="SFX">
-							<ShortName>c_liRk4_imp_ex_2_1.wav</ShortName>
-							<Path>SFX\c_liRk4_imp_ex_2_1_E686EB18.wem</Path>
+						<File Id="378777401" Language="SFX">
+							<ShortName>c_liRk4_imp_ex_2_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_ex_2_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)_E686EB18.wem</Path>
+						</File>
+						<File Id="890307725" Language="SFX">
+							<ShortName>c_liRk4_imp_ex_2_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_ex_2_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)_E686EB18.wem</Path>
+						</File>
+						<File Id="948319211" Language="SFX">
+							<ShortName>c_liRk4_imp_ex_2_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_ex_2_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="3336212441" Name="Play_c_liRk4_imp_ex_2_2" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_imp_ex_2_2">
 					<IncludedMemoryFiles>
-						<File Id="396543264" Language="SFX">
-							<ShortName>c_liRk4_imp_ex_2_2.wav</ShortName>
-							<Path>SFX\c_liRk4_imp_ex_2_2_E686EB18.wem</Path>
+						<File Id="1396545" Language="SFX">
+							<ShortName>c_liRk4_imp_ex_2_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_ex_2_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2_E686EB18.wem</Path>
+						</File>
+						<File Id="817573197" Language="SFX">
+							<ShortName>c_liRk4_imp_ex_2_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_ex_2_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)_E686EB18.wem</Path>
+						</File>
+						<File Id="944148654" Language="SFX">
+							<ShortName>c_liRk4_imp_ex_2_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_ex_2_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="115159923" Name="Play_c_liRk4_imp_ex_3_1" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_imp_ex_3_1">
 					<IncludedMemoryFiles>
-						<File Id="158139186" Language="SFX">
-							<ShortName>c_liRk4_imp_ex_3_1.wav</ShortName>
-							<Path>SFX\c_liRk4_imp_ex_3_1_E686EB18.wem</Path>
+						<File Id="326180979" Language="SFX">
+							<ShortName>c_liRk4_imp_ex_3_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_ex_3_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)_E686EB18.wem</Path>
+						</File>
+						<File Id="674149620" Language="SFX">
+							<ShortName>c_liRk4_imp_ex_3_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_ex_3_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2_E686EB18.wem</Path>
+						</File>
+						<File Id="996844285" Language="SFX">
+							<ShortName>c_liRk4_imp_ex_3_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_ex_3_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="115159920" Name="Play_c_liRk4_imp_ex_3_2" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_imp_ex_3_2">
 					<IncludedMemoryFiles>
-						<File Id="895671664" Language="SFX">
-							<ShortName>c_liRk4_imp_ex_3_2.wav</ShortName>
-							<Path>SFX\c_liRk4_imp_ex_3_2_E686EB18.wem</Path>
+						<File Id="166158650" Language="SFX">
+							<ShortName>c_liRk4_imp_ex_3_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_ex_3_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)_E686EB18.wem</Path>
+						</File>
+						<File Id="390164007" Language="SFX">
+							<ShortName>c_liRk4_imp_ex_3_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_ex_3_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)_E686EB18.wem</Path>
+						</File>
+						<File Id="762680264" Language="SFX">
+							<ShortName>c_liRk4_imp_ex_3_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_ex_3_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="2421508711" Name="Play_c_liRk4_imp_nml_1" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_imp_nml_1">
 					<IncludedMemoryFiles>
-						<File Id="275625326" Language="SFX">
-							<ShortName>c_liRk4_imp_nml_1.wav</ShortName>
-							<Path>SFX\c_liRk4_imp_nml_1_E686EB18.wem</Path>
+						<File Id="193571582" Language="SFX">
+							<ShortName>c_liRk4_imp_nml_1\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_nml_1\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2_E686EB18.wem</Path>
 						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="204919160" Name="Play_c_liRk4_imp_nml_2_1" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_imp_nml_2_1">
-					<IncludedMemoryFiles>
-						<File Id="175930570" Language="SFX">
-							<ShortName>c_liRk4_imp_nml_2_1.wav</ShortName>
-							<Path>SFX\c_liRk4_imp_nml_2_1_E686EB18.wem</Path>
+						<File Id="666297213" Language="SFX">
+							<ShortName>c_liRk4_imp_nml_1\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_nml_1\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2)_E686EB18.wem</Path>
+						</File>
+						<File Id="786620844" Language="SFX">
+							<ShortName>c_liRk4_imp_nml_1\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_nml_1\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="204919163" Name="Play_c_liRk4_imp_nml_2_2" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_imp_nml_2_2">
 					<IncludedMemoryFiles>
-						<File Id="626658454" Language="SFX">
-							<ShortName>c_liRk4_imp_nml_2_2.wav</ShortName>
-							<Path>SFX\c_liRk4_imp_nml_2_2_E686EB18.wem</Path>
+						<File Id="262097937" Language="SFX">
+							<ShortName>c_liRk4_imp_nml_2_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_nml_2_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2)_E686EB18.wem</Path>
+						</File>
+						<File Id="477325665" Language="SFX">
+							<ShortName>c_liRk4_imp_nml_2_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_nml_2_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2_E686EB18.wem</Path>
+						</File>
+						<File Id="866897723" Language="SFX">
+							<ShortName>c_liRk4_imp_nml_2_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_nml_2_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="205066193" Name="Play_c_liRk4_imp_nml_3_1" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_imp_nml_3_1">
 					<IncludedMemoryFiles>
-						<File Id="39917741" Language="SFX">
-							<ShortName>c_liRk4_imp_nml_3_1.wav</ShortName>
-							<Path>SFX\c_liRk4_imp_nml_3_1_E686EB18.wem</Path>
+						<File Id="87757044" Language="SFX">
+							<ShortName>c_liRk4_imp_nml_3_1\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_nml_3_1\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2)_E686EB18.wem</Path>
+						</File>
+						<File Id="137388048" Language="SFX">
+							<ShortName>c_liRk4_imp_nml_3_1\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_nml_3_1\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2_E686EB18.wem</Path>
+						</File>
+						<File Id="261054111" Language="SFX">
+							<ShortName>c_liRk4_imp_nml_3_1\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_nml_3_1\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="205066194" Name="Play_c_liRk4_imp_nml_3_2" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_imp_nml_3_2">
+					<IncludedMemoryFiles>
+						<File Id="104895574" Language="SFX">
+							<ShortName>c_liRk4_imp_nml_3_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_nml_3_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2)_E686EB18.wem</Path>
+						</File>
+						<File Id="387445783" Language="SFX">
+							<ShortName>c_liRk4_imp_nml_3_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_nml_3_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2_E686EB18.wem</Path>
+						</File>
+						<File Id="1063561195" Language="SFX">
+							<ShortName>c_liRk4_imp_nml_3_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_nml_3_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2421508706" Name="Play_c_liRk4_imp_nml_4" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_imp_nml_4">
+					<IncludedMemoryFiles>
+						<File Id="435832049" Language="SFX">
+							<ShortName>c_liRk4_imp_nml_4\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (1).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_nml_4\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (1)_E686EB18.wem</Path>
+						</File>
+						<File Id="441886937" Language="SFX">
+							<ShortName>c_liRk4_imp_nml_4\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (2).wav</ShortName>
+							<Path>SFX\c_liRk4_imp_nml_4\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (2)_E686EB18.wem</Path>
+						</File>
+						<File Id="575534491" Language="SFX">
+							<ShortName>c_liRk4_imp_nml_4\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_nml_4\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3937168531" Name="Play_c_liRk4_imp_red_1" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_imp_red_1">
+					<IncludedMemoryFiles>
+						<File Id="320681491" Language="SFX">
+							<ShortName>c_liRk4_imp_red_1\c_liRk4_imp_red_1_1.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_red_1\c_liRk4_imp_red_1_1_E686EB18.wem</Path>
+						</File>
+						<File Id="758116972" Language="SFX">
+							<ShortName>c_liRk4_imp_red_1\c_liRk4_imp_red_1_3.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_red_1\c_liRk4_imp_red_1_3_E686EB18.wem</Path>
+						</File>
+						<File Id="855479919" Language="SFX">
+							<ShortName>c_liRk4_imp_red_1\c_liRk4_imp_red_1_2.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_red_1\c_liRk4_imp_red_1_2_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3937168528" Name="Play_c_liRk4_imp_red_2" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_imp_red_2">
+					<IncludedMemoryFiles>
+						<File Id="461658121" Language="SFX">
+							<ShortName>c_liRk4_imp_red_2\c_liRk4_imp_red_2_2.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_red_2\c_liRk4_imp_red_2_2_E686EB18.wem</Path>
+						</File>
+						<File Id="737136991" Language="SFX">
+							<ShortName>c_liRk4_imp_red_2\c_liRk4_imp_red_2_3.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_red_2\c_liRk4_imp_red_2_3_E686EB18.wem</Path>
+						</File>
+						<File Id="809281621" Language="SFX">
+							<ShortName>c_liRk4_imp_red_2\c_liRk4_imp_red_2_1.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_red_2\c_liRk4_imp_red_2_1_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3503832302" Name="Play_c_liRk4_imp_yellow_1" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_imp_yellow_1">
+					<IncludedMemoryFiles>
+						<File Id="207881368" Language="SFX">
+							<ShortName>c_liRk4_imp_yellow_1\c_liRk4_imp_yellow_1.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_yellow_1\c_liRk4_imp_yellow_1_E686EB18.wem</Path>
+						</File>
+						<File Id="704611551" Language="SFX">
+							<ShortName>c_liRk4_imp_yellow_1\c_liRk4_imp_yellow_1_1.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_yellow_1\c_liRk4_imp_yellow_1_1_E686EB18.wem</Path>
+						</File>
+						<File Id="788771435" Language="SFX">
+							<ShortName>c_liRk4_imp_yellow_1\c_liRk4_imp_yellow_1_2.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_yellow_1\c_liRk4_imp_yellow_1_2_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3503832301" Name="Play_c_liRk4_imp_yellow_2" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_imp_yellow_2">
+					<IncludedMemoryFiles>
+						<File Id="256789244" Language="SFX">
+							<ShortName>c_liRk4_imp_yellow_2\c_liRk4_imp_yellow_2_2.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_yellow_2\c_liRk4_imp_yellow_2_2_E686EB18.wem</Path>
+						</File>
+						<File Id="943555381" Language="SFX">
+							<ShortName>c_liRk4_imp_yellow_2\c_liRk4_imp_yellow_2.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_yellow_2\c_liRk4_imp_yellow_2_E686EB18.wem</Path>
+						</File>
+						<File Id="1044607273" Language="SFX">
+							<ShortName>c_liRk4_imp_yellow_2\c_liRk4_imp_yellow_2_1.wav</ShortName>
+							<Path>SFX\c_liRk4_imp_yellow_2\c_liRk4_imp_yellow_2_1_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2335635877" Name="Play_c_liRk4_skill_blue" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_blue">
+					<IncludedMemoryFiles>
+						<File Id="416830284" Language="SFX">
+							<ShortName>c_liRk4_skill_blue.wav</ShortName>
+							<Path>SFX\c_liRk4_skill_blue_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2433822437" Name="Play_c_liRk4_skill_blue_dilie" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_blue_dilie">
+					<IncludedMemoryFiles>
+						<File Id="643156080" Language="SFX">
+							<ShortName>c_liRk4_skill_blue_dilie.wav</ShortName>
+							<Path>SFX\c_liRk4_skill_blue_dilie_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3638781701" Name="Play_c_liRk4_skill_blue_shine" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_blue_shine">
+					<IncludedMemoryFiles>
+						<File Id="80743712" Language="SFX">
+							<ShortName>c_liRk4_skill_blue_shine.wav</ShortName>
+							<Path>SFX\c_liRk4_skill_blue_shine_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3471199598" Name="Play_c_liRk4_skill_ex_timestop" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_ex_timestop">
+					<IncludedMemoryFiles>
+						<File Id="772691935" Language="SFX">
+							<ShortName>c_liRk4_skill_ex_timestop.wav</ShortName>
+							<Path>SFX\c_liRk4_skill_ex_timestop_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3706570326" Name="Play_c_liRk4_skill_ex_timestop_break" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_ex_timestop_break">
+					<IncludedMemoryFiles>
+						<File Id="305233683" Language="SFX">
+							<ShortName>c_liRk4_skill_ex_timestop_break.wav</ShortName>
+							<Path>SFX\c_liRk4_skill_ex_timestop_break_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="454687060" Name="Play_c_liRk4_skill_ex_timestop_end" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_ex_timestop_end">
+					<IncludedMemoryFiles>
+						<File Id="987461456" Language="SFX">
+							<ShortName>c_liRk4_skill_ex_timestop_end.wav</ShortName>
+							<Path>SFX\c_liRk4_skill_ex_timestop_end_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4004505031" Name="Play_c_liRk4_skill_ex_timestop_loop" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_ex_timestop_loop">
+					<IncludedMemoryFiles>
+						<File Id="393490892" Language="SFX">
+							<ShortName>c_liRk4_skill_ex_timestop_loop.wav</ShortName>
+							<Path>SFX\c_liRk4_skill_ex_timestop_loop_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="435488756" Name="Play_c_liRk4_skill_ex_ultimate" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_ex_ultimate">
+					<IncludedMemoryFiles>
+						<File Id="6098750" Language="SFX">
+							<ShortName>c_liRk4_skill_ex_ultimate.wav</ShortName>
+							<Path>SFX\c_liRk4_skill_ex_ultimate_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3162046478" Name="Play_c_liRk4_skill_red" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_red">
+					<IncludedMemoryFiles>
+						<File Id="899528540" Language="SFX">
+							<ShortName>c_liRk4_skill_red.wav</ShortName>
+							<Path>SFX\c_liRk4_skill_red_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1003377245" Name="Play_c_liRk4_skill_red_bullet" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_red_bullet">
+					<IncludedMemoryFiles>
+						<File Id="900217835" Language="SFX">
+							<ShortName>c_liRk4_skill_red_bullet.wav</ShortName>
+							<Path>SFX\c_liRk4_skill_red_bullet_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="557212474" Name="Play_c_liRk4_skill_red_dilie" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_red_dilie">
+					<IncludedMemoryFiles>
+						<File Id="289054489" Language="SFX">
+							<ShortName>c_liRk4_skill_red_dilie.wav</ShortName>
+							<Path>SFX\c_liRk4_skill_red_dilie_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="975961716" Name="Play_c_liRk4_skill_ultimate" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_ultimate">
+					<IncludedMemoryFiles>
+						<File Id="946466880" Language="SFX">
+							<ShortName>c_liRk4_skill_ultimate.wav</ShortName>
+							<Path>SFX\c_liRk4_skill_ultimate_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1047932885" Name="Play_c_liRk4_skill_yellow" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_yellow">
+					<IncludedMemoryFiles>
+						<File Id="1053120446" Language="SFX">
+							<ShortName>c_liRk4_skill_yellow.wav</ShortName>
+							<Path>SFX\c_liRk4_skill_yellow_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2225883040" Name="Play_c_liRk4_skill_yellow_bullet" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_yellow_bullet">
+					<IncludedMemoryFiles>
+						<File Id="62858627" Language="SFX">
+							<ShortName>c_liRk4_skill_yellow_bullet\c_liRk4_skill_yellow_bullet (1).wav</ShortName>
+							<Path>SFX\c_liRk4_skill_yellow_bullet\c_liRk4_skill_yellow_bullet (1)_E686EB18.wem</Path>
+						</File>
+						<File Id="166687003" Language="SFX">
+							<ShortName>c_liRk4_skill_yellow_bullet\c_liRk4_skill_yellow_bullet.wav</ShortName>
+							<Path>SFX\c_liRk4_skill_yellow_bullet\c_liRk4_skill_yellow_bullet_E686EB18.wem</Path>
+						</File>
+						<File Id="326545286" Language="SFX">
+							<ShortName>c_liRk4_skill_yellow_bullet\c_liRk4_skill_yellow_bullet (2).wav</ShortName>
+							<Path>SFX\c_liRk4_skill_yellow_bullet\c_liRk4_skill_yellow_bullet (2)_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="754794421" Name="Play_c_liRk4_skill_yellow_dilie" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_yellow_dilie">
+					<IncludedMemoryFiles>
+						<File Id="319272980" Language="SFX">
+							<ShortName>c_liRk4_skill_yellow_dilie.wav</ShortName>
+							<Path>SFX\c_liRk4_skill_yellow_dilie_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1338030204" Name="Play_c_liRk4_skill_yellow_fire" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_yellow_fire">
 					<IncludedMemoryFiles>
-						<File Id="461695452" Language="SFX">
+						<File Id="862434096" Language="SFX">
 							<ShortName>c_liRk4_skill_yellow_fire.wav</ShortName>
 							<Path>SFX\c_liRk4_skill_yellow_fire_E686EB18.wem</Path>
 						</File>
@@ -154,7 +622,7 @@
 				</Event>
 				<Event Id="2413532266" Name="Play_c_liRk4_skill_yellow_kick" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_yellow_kick">
 					<IncludedMemoryFiles>
-						<File Id="93759989" Language="SFX">
+						<File Id="34461911" Language="SFX">
 							<ShortName>c_liRk4_skill_yellow_kick.wav</ShortName>
 							<Path>SFX\c_liRk4_skill_yellow_kick_E686EB18.wem</Path>
 						</File>
@@ -162,333 +630,9 @@
 				</Event>
 				<Event Id="1806327753" Name="Play_c_liRk4_skill_yellow_tuijin" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_yellow_tuijin">
 					<IncludedMemoryFiles>
-						<File Id="938317289" Language="SFX">
+						<File Id="224120806" Language="SFX">
 							<ShortName>c_liRk4_skill_yellow_tuijin.wav</ShortName>
 							<Path>SFX\c_liRk4_skill_yellow_tuijin_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="61073835" Name="Play_Dodge_1" ObjectPath="\Events\Default Work Unit\Lee\Play_Dodge_1">
-					<IncludedMemoryFiles>
-						<File Id="995019022" Language="SFX">
-							<ShortName>Dodge 1.wav</ShortName>
-							<Path>SFX\Dodge 1_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="61073832" Name="Play_Dodge_2" ObjectPath="\Events\Default Work Unit\Lee\Play_Dodge_2">
-					<IncludedMemoryFiles>
-						<File Id="674528105" Language="SFX">
-							<ShortName>Dodge 2.wav</ShortName>
-							<Path>SFX\Dodge 2_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="61073833" Name="Play_Dodge_3" ObjectPath="\Events\Default Work Unit\Lee\Play_Dodge_3">
-					<IncludedMemoryFiles>
-						<File Id="577397605" Language="SFX">
-							<ShortName>Dodge 3.wav</ShortName>
-							<Path>SFX\Dodge 3_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2760487390" Name="Play_Domain_Red_Orb_End" ObjectPath="\Events\Default Work Unit\Lee\Play_Domain_Red_Orb_End">
-					<IncludedMemoryFiles>
-						<File Id="224320617" Language="SFX">
-							<ShortName>Domain Red Orb End.wav</ShortName>
-							<Path>SFX\Domain Red Orb End_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="3999101808" Name="Play_Domain_Red_Orb_Explosion" ObjectPath="\Events\Default Work Unit\Lee\Play_Domain_Red_Orb_Explosion">
-					<IncludedMemoryFiles>
-						<File Id="626753528" Language="SFX">
-							<ShortName>Domain Red Orb Explosion.wav</ShortName>
-							<Path>SFX\Domain Red Orb Explosion_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="3266828968" Name="Play_Domain_Red_Orb_Extra1" ObjectPath="\Events\Default Work Unit\Lee\Play_Domain_Red_Orb_Extra1">
-					<IncludedMemoryFiles>
-						<File Id="36154512" Language="SFX">
-							<ShortName>Domain Red Orb Extra1.wav</ShortName>
-							<Path>SFX\Domain Red Orb Extra1_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="3266828971" Name="Play_Domain_Red_Orb_Extra2" ObjectPath="\Events\Default Work Unit\Lee\Play_Domain_Red_Orb_Extra2">
-					<IncludedMemoryFiles>
-						<File Id="79600759" Language="SFX">
-							<ShortName>Domain Red Orb Extra2.wav</ShortName>
-							<Path>SFX\Domain Red Orb Extra2_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="3266828970" Name="Play_Domain_Red_Orb_Extra3" ObjectPath="\Events\Default Work Unit\Lee\Play_Domain_Red_Orb_Extra3">
-					<IncludedMemoryFiles>
-						<File Id="926546026" Language="SFX">
-							<ShortName>Domain Red Orb Extra3.wav</ShortName>
-							<Path>SFX\Domain Red Orb Extra3_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="3251484275" Name="Play_Domain_Yellow_Orb" ObjectPath="\Events\Default Work Unit\Lee\Play_Domain_Yellow_Orb">
-					<IncludedMemoryFiles>
-						<File Id="3686385" Language="SFX">
-							<ShortName>Domain Yellow Orb.wav</ShortName>
-							<Path>SFX\Domain Yellow Orb_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2856066479" Name="Play_Domain_Yellow_Orb_Bullet1" ObjectPath="\Events\Default Work Unit\Lee\Play_Domain_Yellow_Orb_Bullet1">
-					<IncludedMemoryFiles>
-						<File Id="2838455" Language="SFX">
-							<ShortName>Domain Yellow Orb Bullet1.wav</ShortName>
-							<Path>SFX\Domain Yellow Orb Bullet1_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2856066476" Name="Play_Domain_Yellow_Orb_Bullet2" ObjectPath="\Events\Default Work Unit\Lee\Play_Domain_Yellow_Orb_Bullet2">
-					<IncludedMemoryFiles>
-						<File Id="207881099" Language="SFX">
-							<ShortName>Domain Yellow Orb Bullet2.wav</ShortName>
-							<Path>SFX\Domain Yellow Orb Bullet2_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2856066477" Name="Play_Domain_Yellow_Orb_Bullet3" ObjectPath="\Events\Default Work Unit\Lee\Play_Domain_Yellow_Orb_Bullet3">
-					<IncludedMemoryFiles>
-						<File Id="712336316" Language="SFX">
-							<ShortName>Domain Yellow Orb Bullet3.wav</ShortName>
-							<Path>SFX\Domain Yellow Orb Bullet3_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="4018461456" Name="Play_Imp_Red_1" ObjectPath="\Events\Default Work Unit\Lee\Play_Imp_Red_1">
-					<IncludedMemoryFiles>
-						<File Id="174869702" Language="SFX">
-							<ShortName>Imp Red 1.wav</ShortName>
-							<Path>SFX\Imp Red 1_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="4018461459" Name="Play_Imp_Red_2" ObjectPath="\Events\Default Work Unit\Lee\Play_Imp_Red_2">
-					<IncludedMemoryFiles>
-						<File Id="538064700" Language="SFX">
-							<ShortName>Imp Red 2.wav</ShortName>
-							<Path>SFX\Imp Red 2_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="3781563371" Name="Play_Imp_Yellow_1" ObjectPath="\Events\Default Work Unit\Lee\Play_Imp_Yellow_1">
-					<IncludedMemoryFiles>
-						<File Id="864465395" Language="SFX">
-							<ShortName>Imp Yellow 1.wav</ShortName>
-							<Path>SFX\Imp Yellow 1_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="3781563368" Name="Play_Imp_Yellow_2" ObjectPath="\Events\Default Work Unit\Lee\Play_Imp_Yellow_2">
-					<IncludedMemoryFiles>
-						<File Id="859087871" Language="SFX">
-							<ShortName>Imp Yellow 2.wav</ShortName>
-							<Path>SFX\Imp Yellow 2_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="1038729721" Name="Play_Primary1" ObjectPath="\Events\Default Work Unit\Lee\Play_Primary1">
-					<IncludedMemoryFiles>
-						<File Id="585029944" Language="SFX">
-							<ShortName>Primary1.wav</ShortName>
-							<Path>SFX\Primary1_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="1038729722" Name="Play_Primary2" ObjectPath="\Events\Default Work Unit\Lee\Play_Primary2">
-					<IncludedMemoryFiles>
-						<File Id="952415817" Language="SFX">
-							<ShortName>Primary2.wav</ShortName>
-							<Path>SFX\Primary2_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="1874582038" Name="Play_Primary3_Case_Drop" ObjectPath="\Events\Default Work Unit\Lee\Play_Primary3_Case_Drop">
-					<IncludedMemoryFiles>
-						<File Id="374878749" Language="SFX">
-							<ShortName>Primary3 Case Drop.wav</ShortName>
-							<Path>SFX\Primary3 Case Drop_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="851449475" Name="Play_Primary3_Case_Kick" ObjectPath="\Events\Default Work Unit\Lee\Play_Primary3_Case_Kick">
-					<IncludedMemoryFiles>
-						<File Id="526185185" Language="SFX">
-							<ShortName>Primary3 Case Kick.wav</ShortName>
-							<Path>SFX\Primary3 Case Kick_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="1038729724" Name="Play_Primary4" ObjectPath="\Events\Default Work Unit\Lee\Play_Primary4">
-					<IncludedMemoryFiles>
-						<File Id="767782285" Language="SFX">
-							<ShortName>Primary4.wav</ShortName>
-							<Path>SFX\Primary4_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="909411938" Name="Play_Primary5_Case_Hit" ObjectPath="\Events\Default Work Unit\Lee\Play_Primary5_Case_Hit">
-					<IncludedMemoryFiles>
-						<File Id="61026892" Language="SFX">
-							<ShortName>Primary5 Case Hit.wav</ShortName>
-							<Path>SFX\Primary5 Case Hit_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="1286404505" Name="Play_Red_Orb" ObjectPath="\Events\Default Work Unit\Lee\Play_Red_Orb">
-					<IncludedMemoryFiles>
-						<File Id="209223290" Language="SFX">
-							<ShortName>Red Orb.wav</ShortName>
-							<Path>SFX\Red Orb_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="3877500107" Name="Play_Red_Orb_3Ping" ObjectPath="\Events\Default Work Unit\Lee\Play_Red_Orb_3Ping">
-					<IncludedMemoryFiles>
-						<File Id="268866881" Language="SFX">
-							<ShortName>Red Orb 3Ping.wav</ShortName>
-							<Path>SFX\Red Orb 3Ping_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="1473861260" Name="Play_Red_Orb_Bullet" ObjectPath="\Events\Default Work Unit\Lee\Play_Red_Orb_Bullet">
-					<IncludedMemoryFiles>
-						<File Id="939101358" Language="SFX">
-							<ShortName>Red Orb Bullet.wav</ShortName>
-							<Path>SFX\Red Orb Bullet_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2435533942" Name="Play_Reload_Rifle" ObjectPath="\Events\Default Work Unit\Lee\Play_Reload_Rifle">
-					<IncludedMemoryFiles>
-						<File Id="150259856" Language="SFX">
-							<ShortName>Reload Rifle 2.wav</ShortName>
-							<Path>SFX\Reload Rifle 2_E686EB18.wem</Path>
-						</File>
-						<File Id="519627221" Language="SFX">
-							<ShortName>Reload Rifle.wav</ShortName>
-							<Path>SFX\Reload Rifle_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="3311039949" Name="Play_Snipe_Hit" ObjectPath="\Events\Default Work Unit\Lee\Play_Snipe_Hit">
-					<IncludedMemoryFiles>
-						<File Id="821452388" Language="SFX">
-							<ShortName>Snipe Hit.wav</ShortName>
-							<Path>SFX\Snipe Hit_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="4212331057" Name="Play_Snipe_Shatter" ObjectPath="\Events\Default Work Unit\Lee\Play_Snipe_Shatter">
-					<IncludedMemoryFiles>
-						<File Id="65584405" Language="SFX">
-							<ShortName>Snipe Shatter.wav</ShortName>
-							<Path>SFX\Snipe Shatter_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="1888788153" Name="Play_Snipe_Stance_Enter" ObjectPath="\Events\Default Work Unit\Lee\Play_Snipe_Stance_Enter">
-					<IncludedMemoryFiles>
-						<File Id="285653219" Language="SFX">
-							<ShortName>Snipe Stance Enter.wav</ShortName>
-							<Path>SFX\Snipe Stance Enter_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2839986534" Name="Play_Sniper_Shatter_2" ObjectPath="\Events\Default Work Unit\Lee\Play_Sniper_Shatter_2">
-					<IncludedMemoryFiles>
-						<File Id="396615345" Language="SFX">
-							<ShortName>Sniper Shatter 2.wav</ShortName>
-							<Path>SFX\Sniper Shatter 2_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="1012143543" Name="Play_Spawn" ObjectPath="\Events\Default Work Unit\Lee\Play_Spawn">
-					<IncludedMemoryFiles>
-						<File Id="32542969" Language="SFX">
-							<ShortName>Spawn.wav</ShortName>
-							<Path>SFX\Spawn_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="3740334701" Name="Play_Timestop_Break" ObjectPath="\Events\Default Work Unit\Lee\Play_Timestop_Break">
-					<IncludedMemoryFiles>
-						<File Id="209104184" Language="SFX">
-							<ShortName>Timestop Break.wav</ShortName>
-							<Path>SFX\Timestop Break_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2649959215" Name="Play_Timestop_End" ObjectPath="\Events\Default Work Unit\Lee\Play_Timestop_End">
-					<IncludedMemoryFiles>
-						<File Id="70670285" Language="SFX">
-							<ShortName>Timestop End.wav</ShortName>
-							<Path>SFX\Timestop End_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="4099418914" Name="Play_Timestop_Loop" ObjectPath="\Events\Default Work Unit\Lee\Play_Timestop_Loop">
-					<IncludedMemoryFiles>
-						<File Id="874841574" Language="SFX">
-							<ShortName>Timestop Loop.wav</ShortName>
-							<Path>SFX\Timestop Loop_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="1064865164" Name="Play_Timestop_Start" ObjectPath="\Events\Default Work Unit\Lee\Play_Timestop_Start">
-					<IncludedMemoryFiles>
-						<File Id="681015378" Language="SFX">
-							<ShortName>Timestop Start.wav</ShortName>
-							<Path>SFX\Timestop Start_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="1546419413" Name="Play_Timestop_Ultimate" ObjectPath="\Events\Default Work Unit\Lee\Play_Timestop_Ultimate">
-					<IncludedMemoryFiles>
-						<File Id="100397081" Language="SFX">
-							<ShortName>Timestop Ultimate.wav</ShortName>
-							<Path>SFX\Timestop Ultimate_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="857545343" Name="Play_Ultimate" ObjectPath="\Events\Default Work Unit\Lee\Play_Ultimate">
-					<IncludedMemoryFiles>
-						<File Id="854317483" Language="SFX">
-							<ShortName>Ultimate.wav</ShortName>
-							<Path>SFX\Ultimate_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="330300279" Name="Play_Win_Animation" ObjectPath="\Events\Default Work Unit\Lee\Play_Win_Animation">
-					<IncludedMemoryFiles>
-						<File Id="849358585" Language="SFX">
-							<ShortName>Win Animation.wav</ShortName>
-							<Path>SFX\Win Animation_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="2494118608" Name="Play_Yellow_Orb" ObjectPath="\Events\Default Work Unit\Lee\Play_Yellow_Orb">
-					<IncludedMemoryFiles>
-						<File Id="701419507" Language="SFX">
-							<ShortName>Yellow Orb.wav</ShortName>
-							<Path>SFX\Yellow Orb_E686EB18.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
-				</Event>
-				<Event Id="926910749" Name="Play_Yellow_Orb_Kick" ObjectPath="\Events\Default Work Unit\Lee\Play_Yellow_Orb_Kick">
-					<IncludedMemoryFiles>
-						<File Id="969102384" Language="SFX">
-							<ShortName>Yellow Orb Kick.wav</ShortName>
-							<Path>SFX\Yellow Orb Kick_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

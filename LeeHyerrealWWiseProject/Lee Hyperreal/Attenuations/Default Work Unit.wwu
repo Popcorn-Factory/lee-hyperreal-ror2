@@ -5,7 +5,7 @@
 			<ChildrenList>
 				<Attenuation Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" ShortID="703033828">
 					<PropertyList>
-						<Property Name="RadiusMax" Type="Real64" Value="150"/>
+						<Property Name="RadiusMax" Type="Real64" Value="200"/>
 					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
@@ -21,12 +21,12 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>14.38679</XPos>
+											<XPos>19.1823866666667</XPos>
 											<YPos>-0.3</YPos>
 											<Flags>0</Flags>
 										</Point>
 										<Point>
-											<XPos>150</XPos>
+											<XPos>200</XPos>
 											<YPos>-200</YPos>
 											<Flags>37</Flags>
 										</Point>
@@ -153,7 +153,7 @@
 				</Attenuation>
 				<Attenuation Name="Snipe" ID="{9E9A6EB5-D4A0-447F-AF07-38CAE041295A}" ShortID="539287436">
 					<PropertyList>
-						<Property Name="RadiusMax" Type="Real64" Value="500"/>
+						<Property Name="RadiusMax" Type="Real64" Value="350"/>
 					</PropertyList>
 					<CurveUsageInfoList>
 						<VolumeDryUsage>
@@ -169,12 +169,12 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>347.48428</XPos>
+											<XPos>243.238996</XPos>
 											<YPos>-8.75939</YPos>
 											<Flags>0</Flags>
 										</Point>
 										<Point>
-											<XPos>500</XPos>
+											<XPos>350</XPos>
 											<YPos>-200</YPos>
 											<Flags>37</Flags>
 										</Point>
@@ -201,12 +201,12 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>47.95597</XPos>
+											<XPos>33.569179</XPos>
 											<YPos>0</YPos>
 											<Flags>0</Flags>
 										</Point>
 										<Point>
-											<XPos>500</XPos>
+											<XPos>350</XPos>
 											<YPos>25</YPos>
 											<Flags>37</Flags>
 										</Point>
@@ -227,12 +227,12 @@
 											<Flags>5</Flags>
 										</Point>
 										<Point>
-											<XPos>47.95597</XPos>
+											<XPos>33.569179</XPos>
 											<YPos>0</YPos>
 											<Flags>0</Flags>
 										</Point>
 										<Point>
-											<XPos>500</XPos>
+											<XPos>350</XPos>
 											<YPos>45</YPos>
 											<Flags>37</Flags>
 										</Point>
