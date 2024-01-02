@@ -76,7 +76,7 @@ public class DirectLink : LinkBase
     {
         if(Positions == null ||Positions.Length<ControlCount+2)
             Positions = new Vector3[ControlCount+2];
-        if (LineRenderer.alignment == LineAlignment.Local)
+        if (LineRenderer.alignment == LineAlignment.TransformZ)
         {
             Vector3 temp = end - start;
             Vector3 cross = Vector3.Cross(transform.forward, temp);
