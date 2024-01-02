@@ -10,10 +10,11 @@ public abstract class UVScrollerBase : MonoBehaviour
     public List<XScroller> Scrollers;
     private bool Started;
     private float TimeScale;
+    private bool initialized;
     protected bool Initialized
     {
-        get { return Initialized; }
-        private set { Initialized = value; }
+        get { return initialized; }
+        private set { initialized = value; }
     }
     [Serializable]
     public class XScroller

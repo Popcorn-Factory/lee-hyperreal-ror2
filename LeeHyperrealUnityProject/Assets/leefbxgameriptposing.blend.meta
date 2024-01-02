@@ -12,6 +12,9 @@ ModelImporter:
   - first:
       74: 6808316930569691346
     second: R4LiangMd010011Cloth|test anim.001
+  - first:
+      74: -623603649343465320
+    second: Scene
   externalObjects: {}
   materials:
     materialImportMode: 1
@@ -25,19 +28,12 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Avatar Rig Configuration mis-match. Inbetween bone rotation
-      in configuration does not match rotation in animation file:\n\t'Bip001Neck'
-      : rotation error = 17.838297 deg\n\t'hairBone00' : rotation error = 0.063205
-      deg\n"
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
+      does not match position in animation file:\n\t'Bip001Spine' : position error
+      = 3.739620 mm\n\t'Bip001LClavicle' : position error = 11.909095 mm\n\t'Bip001RClavicle'
+      : position error = 12.502654 mm\n"
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Armature|test anim' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Bip001Spine' has translation animation
-      that will be discarded.\n\t'Bip001Neck' is inbetween humanoid transforms and
-      has rotation animation that will be discarded.\n\t'hairBone00' is inbetween
-      humanoid transforms and has rotation animation that will be discarded.\n\t'Bip001LClavicle'
-      has translation animation that will be discarded.\n\t'Bip001RClavicle' has
-      translation animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0

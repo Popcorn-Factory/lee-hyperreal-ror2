@@ -7,15 +7,16 @@ public class UVScroller : UVScrollerBase
 {
     MaterialPropertyBlock Block;
     Renderer Renderer;
+    private Material material;
     public Material Material
     {
         get
         {
-            return Material;
+            return material;
         }
         private set
         {
-            Material = value;
+            material = value;
         }
     }
     void SetMaterial()
