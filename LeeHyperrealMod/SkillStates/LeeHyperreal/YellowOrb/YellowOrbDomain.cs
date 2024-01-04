@@ -44,10 +44,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             PlayAttackAnimation();
 
             //check for move strength whether to get Anschauung stack
-            if (moveStrength >= 3)
-            {
-                //add anschauung stack
-            }
+            // Added in entry.
+            //if (moveStrength >= 3)
+            //{
+            //    //add anschauung stack
+            //}
 
             blastAttack = new BlastAttack
             {
@@ -72,7 +73,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
         protected void PlayAttackAnimation()
         {
-            PlayAnimation("FullBody, Override", "yellowOrbDomain", "attack.playbackRate", duration);
+            PlayAnimation("FullBody, Override", "YellowOrbDomain", "attack.playbackRate", duration);
         }
 
         public override void OnExit()

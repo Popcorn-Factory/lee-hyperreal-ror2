@@ -33,7 +33,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                         {
                             domainController.GrantIntuitionStack(1);
                         }
-                        //this.outer.SetState(new YellowOrb { moveStrength = moveStrength });
+                        this.outer.SetState(new YellowOrbDomain { moveStrength = moveStrength });
+                        return;
                     }
                     else
                     {

@@ -72,7 +72,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
         protected void PlayAttackAnimation()
         {
-            PlayAnimation("FullBody, Override", "redOrbDomain", "attack.playbackRate", duration);
+            PlayAnimation("FullBody, Override", "RedOrbDomain", "attack.playbackRate", duration);
         }
 
         public override void OnExit()
