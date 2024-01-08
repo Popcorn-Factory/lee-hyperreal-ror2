@@ -268,5 +268,10 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             base.OnDeserialize(reader);
             this.swingIndex = reader.ReadInt32();
         }
+
+        //Plan
+        // Just fucking copy the goddamn code from enforcer to clone prefabs to fire back at enemies etc.
+        // Grant buff in specified window and any hits received in this buff window should trigger the "pause"
+        // the pause is just gonna be a fucking hitstop cache and negate damage.
     }
 }
