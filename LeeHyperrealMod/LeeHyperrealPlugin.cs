@@ -12,6 +12,7 @@ using System;
 using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.Modules.Networking;
 using R2API.Networking;
+using R2API.Networking.Interfaces;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -72,6 +73,7 @@ namespace LeeHyperrealMod
             //networking
             NetworkingAPI.RegisterMessageType<PerformForceNetworkRequest>();
             NetworkingAPI.RegisterMessageType<SetFreezeOnBodyRequest>();
+            NetworkingAPI.RegisterMessageType<SetPauseTriggerNetworkRequest>();
 
             // now make a content pack and add it- this part will change with the next update
             new Modules.ContentPacks().Initialize();
@@ -124,6 +126,18 @@ namespace LeeHyperrealMod
                     {
                         damageInfo.rejected = true;
                         damageInfo.damage = 0f;
+                    }
+
+                    if (self.body.baseNameToken == DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_NAME") 
+                    {
+                        if (self.body.HasBuff(Modules.Buffs.parryBuff)) 
+                        {
+                            //Reject damage, return to ~~monke~~ pause in state.
+                            damageInfo.rejected = true;
+                            damageInfo.damage = 0f;
+
+                            new SetPauseTriggerNetworkRequest(self.body.master.netId, true).Send(NetworkDestination.Clients);
+                        }
                     }
                 }
             }

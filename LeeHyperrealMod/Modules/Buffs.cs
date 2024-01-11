@@ -8,6 +8,7 @@ namespace LeeHyperrealMod.Modules
     {
         internal static BuffDef intuitionBuff;
         internal static BuffDef invincibilityBuff;
+        internal static BuffDef parryBuff;
 
         internal static void RegisterBuffs()
         {
@@ -18,6 +19,7 @@ namespace LeeHyperrealMod.Modules
                 Color.blue,
                 false,
                 false);
+            parryBuff = AddNewBuff("Parry Buff", LegacyResourcesAPI.Load<BuffDef>("BuffDefs/HiddenInvincibility").iconSprite, Color.magenta, false, false);
         }
 
         // simple helper method
