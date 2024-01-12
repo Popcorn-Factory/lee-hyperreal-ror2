@@ -1,5 +1,6 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
+using R2API.Networking;
 using RoR2;
 using RoR2.Audio;
 using System;
@@ -52,9 +53,17 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         private HitBoxGroup hitBoxGroup;
         internal OrbController orbController;
 
+        internal bool enableParry;
+        internal float parryLength;
+        internal float parryTiming;
+        internal bool parryTriggered;
+        internal float parryPauseLength = 0.75f;
+        internal ParryMonitor parryMonitor;
+
         public override void OnEnter()
         {
             base.OnEnter();
+            parryMonitor = base.gameObject.GetComponent<ParryMonitor>();
             orbController = base.gameObject.GetComponent<OrbController>();
             this.duration = this.baseDuration / 1f; //this.attackSpeedStat;
             this.earlyExitTime = this.baseEarlyExitTime / 1f; //this.attackSpeedStat;
@@ -92,6 +101,9 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         {
             if (!this.hasFired && !this.cancelled) this.FireAttack();
 
+            base.characterBody.ApplyBuff(Modules.Buffs.parryBuff.buffIndex, 0);
+            parryMonitor.SetPauseTrigger(false);
+
             base.OnExit();
 
             this.animator.SetBool("attacking", false);
@@ -121,6 +133,17 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                 this.storedVelocity = base.characterMotor.velocity;
                 this.hitStopCachedState = base.CreateHitStopCachedState(base.characterMotor, this.animator, "Slash.playbackRate");
                 this.hitPauseTimer = this.hitStopDuration / this.attackSpeedStat;
+                this.inHitPause = true;
+            }
+        }
+
+        internal virtual void TriggerHitPause(float duration) 
+        {
+            if (!this.inHitPause && this.hitStopDuration > 0f)
+            {
+                this.storedVelocity = base.characterMotor.velocity;
+                this.hitStopCachedState = base.CreateHitStopCachedState(base.characterMotor, this.animator, "Slash.playbackRate");
+                this.hitPauseTimer = duration;
                 this.inHitPause = true;
             }
         }
@@ -203,6 +226,25 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             base.FixedUpdate();
 
             this.hitPauseTimer -= Time.fixedDeltaTime;
+
+            if (enableParry) 
+            {
+                if (this.stopwatch >= this.duration * parryTiming && base.isAuthority && !parryTriggered) 
+                {
+                    parryTriggered = true;
+                    base.characterBody.ApplyBuff(Modules.Buffs.parryBuff.buffIndex, 1, parryLength);
+                }
+
+                if (base.isAuthority && parryMonitor.GetPauseTrigger()) 
+                {
+                    //Check the parry monitor, if at any time it's enabled trigger the pause.
+                    //Consume value.
+                    parryMonitor.SetPauseTrigger(false);
+                    //Trigger the hitpause.
+                    TriggerHitPause(parryPauseLength);
+                    Chat.AddMessage("PARRY");
+                }
+            }
 
             if (this.hitPauseTimer <= 0f && this.inHitPause)
             {

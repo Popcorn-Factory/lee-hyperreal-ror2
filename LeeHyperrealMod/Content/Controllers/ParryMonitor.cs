@@ -13,5 +13,10 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             PauseTrigger = val;
         }
+
+        public bool GetPauseTrigger() 
+        {
+            return PauseTrigger;
+        }
     }
 }

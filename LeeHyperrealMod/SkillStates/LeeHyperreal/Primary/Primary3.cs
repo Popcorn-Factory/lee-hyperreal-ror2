@@ -56,6 +56,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.hitEffectPrefab = Modules.Assets.swordHitImpactEffect;
 
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
+
+            enableParry = true;
+            parryLength = 0.5f;
+            parryTiming = 0.05f;
+
             base.OnEnter();
             InitMeleeRootMotion();
 
