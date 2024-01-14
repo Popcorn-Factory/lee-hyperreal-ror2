@@ -137,6 +137,24 @@ namespace LeeHyperrealMod
                             damageInfo.damage = 0f;
 
                             new SetPauseTriggerNetworkRequest(self.body.master.netId, true).Send(NetworkDestination.Clients);
+
+                            //Stun the attacker
+                            if (damageInfo.attacker) 
+                            {
+                                HealthComponent attackerHealthComp = damageInfo.attacker.GetComponent<HealthComponent>();
+                                if (attackerHealthComp) 
+                                {
+                                    DamageInfo stunInfo = new DamageInfo
+                                    {
+                                        damage = damageInfo.damage / 2f,
+                                        attacker = self.body.gameObject,
+                                        crit = self.body.RollCrit(),
+                                        damageType = DamageType.Stun1s,
+                                        damageColorIndex = DamageColorIndex.Default
+                                    };
+                                    attackerHealthComp.TakeDamage(stunInfo);
+                                }
+                            }
                         }
                     }
                 }

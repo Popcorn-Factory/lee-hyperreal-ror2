@@ -8,6 +8,7 @@ namespace LeeHyperrealMod.Content.Controllers
     internal class ParryMonitor : MonoBehaviour
     {
         private bool PauseTrigger = false;
+        public bool ShouldDoBigParry = false;
 
         public void SetPauseTrigger(bool val) 
         {

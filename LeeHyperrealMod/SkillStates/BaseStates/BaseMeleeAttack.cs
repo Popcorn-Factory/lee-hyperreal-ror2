@@ -1,4 +1,5 @@
 ﻿using EntityStates;
+using RoR2.CharacterAI;
 using LeeHyperrealMod.Content.Controllers;
 using R2API.Networking;
 using RoR2;
@@ -59,6 +60,8 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         internal bool parryTriggered;
         internal float parryPauseLength = 0.75f;
         internal ParryMonitor parryMonitor;
+        internal bool parryFreeze;
+        internal Collider[] targetList;
 
         public override void OnEnter()
         {
@@ -147,6 +150,89 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                 this.hitPauseTimer = duration;
                 this.inHitPause = true;
             }
+        }
+
+        internal virtual void TriggerBigFreeze() 
+        {
+            //Shamelessly based off JavAngle's Myst
+            if (!parryFreeze) 
+            {
+                //set the parryFreeze so we don't need to freeze/unfreeze everything every frame.
+                parryFreeze = true;
+                //Freeze only on server
+                if (NetworkServer.active) 
+                {
+                    FreezeUnfreeze(true);
+                }
+            }
+        }
+
+        internal virtual void FreezeUnfreeze(bool freeze)
+        {
+            // get targets to freeze in a sphere around the player
+            // Store targets in array
+            // On each target, to disable movement, disable the following
+            // master
+            // BaseAI
+            // Character Motor
+            // Animator
+
+            // New Target list on freeze.
+            if (freeze) 
+            {
+                targetList = Physics.OverlapSphere(base.characterBody.transform.position, Modules.StaticValues.bigParryFreezeRadius, LayerIndex.entityPrecise.mask);
+            }
+
+            foreach (Collider target in targetList) 
+            {
+                //Get HealthComponent
+                if (target) 
+                {
+                    HurtBox hurtBox = target.GetComponent<HurtBox>();
+                    if (hurtBox) 
+                    {
+                        HealthComponent targetHC = hurtBox.healthComponent;
+
+                        if (targetHC) 
+                        {
+                            bool shouldProceed = FriendlyFireManager.ShouldSplashHitProceed(healthComponent, base.GetTeam()) 
+                                && targetHC
+                                && targetHC.body 
+                                && targetHC.body.modelLocator 
+                                && targetHC.body.modelLocator.modelTransform;
+
+                            if (shouldProceed) 
+                            {
+                                //Disable master, baseai, character motor, animator
+                                BaseAI[] aiComponents = targetHC.body.master.aiComponents;
+
+                                foreach (BaseAI aiComponent in aiComponents) 
+                                {
+                                    aiComponent.enabled = !freeze;
+                                }
+
+                                if (targetHC.body.master) 
+                                {
+                                    targetHC.body.master.enabled = !freeze;
+                                }
+
+                                if (targetHC.body.characterMotor) 
+                                {
+                                    targetHC.body.characterMotor.enabled = !freeze;
+                                }
+
+                                Animator targetAnimator = targetHC.body.modelLocator.modelTransform.GetComponent<Animator>();
+                                if (targetAnimator) 
+                                {
+                                    targetAnimator.enabled = !freeze;
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
+            
         }
 
         private void FireAttack()

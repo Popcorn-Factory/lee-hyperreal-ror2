@@ -16,6 +16,8 @@ namespace LeeHyperrealMod.Modules
 
         internal const float bombDamageCoefficient = 16f;
 
+        internal const float bigParryFreezeRadius = 20f;
+
         #region Orb Controller Values
         internal const float flatIncreaseOrbIncrementor = 0.5f;
         internal const float LimitToGrantOrb = 1f;

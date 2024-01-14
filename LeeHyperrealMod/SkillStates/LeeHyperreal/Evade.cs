@@ -9,7 +9,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 {
     internal class Evade : BaseRootMotionMoverState
     {
-        public static float duration = 1f;
+        public static float duration = 1.5f;
 
         public static string dodgeSoundString = "HenryRoll";
         public static float dodgeFOV = EntityStates.Commando.DodgeState.dodgeFOV;
