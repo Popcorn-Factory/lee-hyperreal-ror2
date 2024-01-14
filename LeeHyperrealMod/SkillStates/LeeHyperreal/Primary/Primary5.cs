@@ -28,6 +28,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public bool ifButtonLifted = false;
 
         private LeeHyperrealDomainController domainController;
+        CharacterGravityParameters gravParams;
+        CharacterGravityParameters oldGravParams;
+        float turnOffGravityFrac = 0.23f;
 
         public override void OnEnter()
         {
@@ -56,6 +59,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
             base.OnEnter();
             InitMeleeRootMotion();
+
+            oldGravParams = base.characterMotor.gravityParameters;
+            gravParams = new CharacterGravityParameters();
+            gravParams.environmentalAntiGravityGranterCount = 1;
+            gravParams.channeledAntiGravityGranterCount = 1;
+
+            characterMotor.gravityParameters = gravParams;
         }
 
         public RootMotionAccumulator InitMeleeRootMotion()
@@ -102,6 +112,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 base.outer.SetState(new DomainEnterState { });
             }
 
+            if (base.stopwatch >= duration * turnOffGravityFrac)
+            {
+                base.characterMotor.gravityParameters = oldGravParams;
+            }
+
+
             base.Update();
 
             base.characterMotor.Motor.ForceUnground();
@@ -117,6 +133,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override void OnExit()
         {
+            base.characterMotor.gravityParameters = oldGravParams;
             base.OnExit();
         }
 

@@ -72,6 +72,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             base.StartAimMode(0.5f + this.duration, false);
             base.characterBody.outOfCombatStopwatch = 0f;
             this.animator.SetBool("attacking", true);
+            this.animator.SetFloat("attack.playbackRate", 1f);
 
             attackAmount = (int)this.attackSpeedStat;
             if (attackAmount < 1) 
@@ -94,7 +95,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
 
         protected virtual void PlayAttackAnimation()
         {
-            base.PlayCrossfade("Gesture, Override", "Slash" + (1 + swingIndex), "Slash.playbackRate", this.duration, 0.05f);
+            base.PlayCrossfade("Gesture, Override", "Slash" + (1 + swingIndex), "attack.playbackRate", this.duration, 0.05f);
         }
 
         public override void OnExit()
@@ -131,7 +132,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             if (!this.inHitPause && this.hitStopDuration > 0f)
             {
                 this.storedVelocity = base.characterMotor.velocity;
-                this.hitStopCachedState = base.CreateHitStopCachedState(base.characterMotor, this.animator, "Slash.playbackRate");
+                this.hitStopCachedState = base.CreateHitStopCachedState(base.characterMotor, this.animator, "attack.playbackRate");
                 this.hitPauseTimer = this.hitStopDuration / this.attackSpeedStat;
                 this.inHitPause = true;
             }
@@ -142,7 +143,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             if (!this.inHitPause && this.hitStopDuration > 0f)
             {
                 this.storedVelocity = base.characterMotor.velocity;
-                this.hitStopCachedState = base.CreateHitStopCachedState(base.characterMotor, this.animator, "Slash.playbackRate");
+                this.hitStopCachedState = base.CreateHitStopCachedState(base.characterMotor, this.animator, "attack.playbackRate");
                 this.hitPauseTimer = duration;
                 this.inHitPause = true;
             }
@@ -260,7 +261,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             else
             {
                 if (base.characterMotor) base.characterMotor.velocity = Vector3.zero;
-                if (this.animator) this.animator.SetFloat("Swing.playbackRate", 0f);
+                if (this.animator) this.animator.SetFloat("attack.playbackRate", 0f);
             }
 
             if (this.stopwatch >= (this.duration * this.attackStartTime) && this.stopwatch <= (this.duration * this.attackEndTime))

@@ -28,6 +28,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         private float movementMultiplier = 1.5f;
 
+        CharacterGravityParameters gravParams;
+        CharacterGravityParameters oldGravParams;
+        float turnOffGravityFrac = 0.298f;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -70,6 +74,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             base.characterDirection.forward = inputBank.aimDirection;
 
             PlayAttackAnimation();
+
+            oldGravParams = base.characterMotor.gravityParameters;
+            gravParams = new CharacterGravityParameters();
+            gravParams.environmentalAntiGravityGranterCount = 1;
+            gravParams.channeledAntiGravityGranterCount = 1;
+
+            characterMotor.gravityParameters = gravParams;
         }
 
         protected void PlayAttackAnimation()
@@ -79,15 +90,22 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         public override void OnExit()
         {
+            base.characterMotor.gravityParameters = oldGravParams;
             base.OnExit();
         }
 
         public override void Update()
         {
             base.Update();
-            if (base.fixedAge >= duration * earlyEnd && base.isAuthority)
+            if (base.age >= duration * earlyEnd && base.isAuthority)
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);
+            }
+
+
+            if (base.age >= duration * turnOffGravityFrac)
+            {
+                base.characterMotor.gravityParameters = oldGravParams;
             }
         }
 

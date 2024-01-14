@@ -31,6 +31,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         private LeeHyperrealDomainController domainController;
 
+        CharacterGravityParameters gravParams;
+        CharacterGravityParameters oldGravParams;
+        float turnOffGravityFrac = 0.13f; 
+
         public override void OnEnter()
         {
             domainController = this.GetComponent<LeeHyperrealDomainController>();
@@ -60,10 +64,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             enableParry = true;
             parryLength = 0.5f;
             parryTiming = 0.05f;
+            parryPauseLength = 0.3f;
 
             base.OnEnter();
             InitMeleeRootMotion();
 
+            oldGravParams = base.characterMotor.gravityParameters;
+            gravParams = new CharacterGravityParameters();
+            gravParams.environmentalAntiGravityGranterCount = 1;
+            gravParams.channeledAntiGravityGranterCount = 1;
+
+            characterMotor.gravityParameters = gravParams;
         }
 
         public RootMotionAccumulator InitMeleeRootMotion()
@@ -109,6 +120,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 base.outer.SetState(new DomainEnterState { });
             }
 
+            if (base.stopwatch >= duration * turnOffGravityFrac) 
+            {
+                base.characterMotor.gravityParameters = oldGravParams;
+            }
+
             base.Update();
             base.characterMotor.Motor.ForceUnground();
             UpdateMeleeRootMotion(1.6f);
@@ -122,6 +138,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override void OnExit()
         {
+
+            base.characterMotor.gravityParameters = oldGravParams;
             base.OnExit();
         }
 

@@ -32,6 +32,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             this.animator = base.GetModelAnimator();
             forwardDirection = base.GetAimRay().direction;
             Vector3 backwardsDirection = forwardDirection * -1f;
+
+            this.animator.SetFloat("attack.playbackRate", 1f);
             moveVector = base.inputBank.moveVector;
             rmaMultiplier = movementMultiplier;
             if (base.inputBank.moveVector == Vector3.zero)
