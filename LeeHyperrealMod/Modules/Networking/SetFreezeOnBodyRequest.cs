@@ -9,25 +9,29 @@ namespace LeeHyperrealMod.Modules.Networking
     internal class SetFreezeOnBodyRequest : INetMessage
     {
         NetworkInstanceId netID;
+        float duration;
 
         public SetFreezeOnBodyRequest()
         {
 
         }
 
-        public SetFreezeOnBodyRequest(NetworkInstanceId netID)
+        public SetFreezeOnBodyRequest(NetworkInstanceId netID, float duration)
         {
             this.netID = netID;
+            this.duration = duration;
         }
 
         public void Deserialize(NetworkReader reader)
         {
             netID = reader.ReadNetworkId();
+            duration = reader.ReadSingle();
         }
 
         public void Serialize(NetworkWriter writer)
         {
             writer.Write(netID);
+            writer.Write(duration);
         }
 
         public void OnReceived()
@@ -71,7 +75,7 @@ namespace LeeHyperrealMod.Modules.Networking
             {
                 //if (stateMachine.customName == "Body")
                 //{
-                    stateMachine.SetState(new Freeze());
+                    stateMachine.SetState(new Freeze { duration = this.duration});
                     return;
                 //}
             }

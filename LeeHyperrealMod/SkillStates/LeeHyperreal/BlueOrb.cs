@@ -85,7 +85,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         protected void PlayAttackAnimation()
         {
-            base.PlayAnimation("FullBody, Override", "blueOrb", "attack.playbackRate", duration);
+            base.PlayAnimation("FullBody, Override", "Blue Orb 1", "attack.playbackRate", duration);
         }
 
         public override void OnExit()

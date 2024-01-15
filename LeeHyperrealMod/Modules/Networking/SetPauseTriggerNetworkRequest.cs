@@ -13,28 +13,32 @@ namespace LeeHyperrealMod.Modules.Networking
     {
         internal NetworkInstanceId netID;
         internal bool pauseVal;
+        internal bool isBigPause;
 
         public SetPauseTriggerNetworkRequest() 
         {
             
         }
 
-        public SetPauseTriggerNetworkRequest(NetworkInstanceId netID, bool pauseVal)
+        public SetPauseTriggerNetworkRequest(NetworkInstanceId netID, bool pauseVal, bool isBigPause)
         {
             this.netID = netID;
             this.pauseVal = pauseVal;
+            this.isBigPause = isBigPause;
         }
 
         public void Deserialize(NetworkReader reader)
         {
             netID = reader.ReadNetworkId();
             pauseVal = reader.ReadBoolean();
+            isBigPause = reader.ReadBoolean();
         }
 
         public void Serialize(NetworkWriter writer)
         {
             writer.Write(netID);
             writer.Write(pauseVal);
+            writer.Write(isBigPause);
         }
 
         public void OnReceived()
@@ -64,6 +68,7 @@ namespace LeeHyperrealMod.Modules.Networking
             if (body.hasEffectiveAuthority) 
             {
                 parryMonitor.SetPauseTrigger(pauseVal);
+                parryMonitor.ShouldDoBigParry = isBigPause;
                 return;
             }
         }

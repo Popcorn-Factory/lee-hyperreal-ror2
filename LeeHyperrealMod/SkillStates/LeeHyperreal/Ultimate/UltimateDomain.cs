@@ -97,7 +97,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                     //stop time for all enemies within this radius
 
                     //Chat.AddMessage("freeze enemy");
-                    new SetFreezeOnBodyRequest(singularTarget.healthComponent.body.masterObjectId).Send(NetworkDestination.Clients);
+                    new SetFreezeOnBodyRequest(singularTarget.healthComponent.body.masterObjectId, StaticValues.ultimateDomainDuration).Send(NetworkDestination.Clients);
 
 
                 }

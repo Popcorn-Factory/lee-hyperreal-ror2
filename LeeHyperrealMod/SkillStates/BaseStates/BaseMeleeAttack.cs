@@ -7,6 +7,11 @@ using RoR2.Audio;
 using System;
 using UnityEngine;
 using UnityEngine.Networking;
+using LeeHyperrealMod.Modules.Networking;
+using LeeHyperrealMod.Modules;
+using R2API.Networking.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LeeHyperrealMod.SkillStates.BaseStates
 {
@@ -152,87 +157,43 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             }
         }
 
-        internal virtual void TriggerBigFreeze() 
+        public void TriggerEnemyFreeze()
         {
-            //Shamelessly based off JavAngle's Myst
-            if (!parryFreeze) 
+            if (!parryFreeze)
             {
                 //set the parryFreeze so we don't need to freeze/unfreeze everything every frame.
                 parryFreeze = true;
-                //Freeze only on server
-                if (NetworkServer.active) 
+
+                Chat.AddMessage("big freeze");
+
+                BullseyeSearch search = new BullseyeSearch
                 {
-                    FreezeUnfreeze(true);
-                }
-            }
-        }
+                    teamMaskFilter = TeamMask.GetEnemyTeams(characterBody.teamComponent.teamIndex),
+                    filterByLoS = false,
+                    searchOrigin = characterBody.corePosition,
+                    searchDirection = UnityEngine.Random.onUnitSphere,
+                    sortMode = BullseyeSearch.SortMode.Distance,
+                    maxDistanceFilter = 100f,
+                    maxAngleFilter = 360f
+                };
 
-        internal virtual void FreezeUnfreeze(bool freeze)
-        {
-            // get targets to freeze in a sphere around the player
-            // Store targets in array
-            // On each target, to disable movement, disable the following
-            // master
-            // BaseAI
-            // Character Motor
-            // Animator
+                search.RefreshCandidates();
+                search.FilterOutGameObject(characterBody.gameObject);
 
-            // New Target list on freeze.
-            if (freeze) 
-            {
-                targetList = Physics.OverlapSphere(base.characterBody.transform.position, Modules.StaticValues.bigParryFreezeRadius, LayerIndex.entityPrecise.mask);
-            }
-
-            foreach (Collider target in targetList) 
-            {
-                //Get HealthComponent
-                if (target) 
+                List<HurtBox> target = search.GetResults().ToList<HurtBox>();
+                foreach (HurtBox singularTarget in target)
                 {
-                    HurtBox hurtBox = target.GetComponent<HurtBox>();
-                    if (hurtBox) 
+                    if (singularTarget.healthComponent && singularTarget.healthComponent.body)
                     {
-                        HealthComponent targetHC = hurtBox.healthComponent;
+                        //stop time for all enemies within this radius
 
-                        if (targetHC) 
-                        {
-                            bool shouldProceed = FriendlyFireManager.ShouldSplashHitProceed(healthComponent, base.GetTeam()) 
-                                && targetHC
-                                && targetHC.body 
-                                && targetHC.body.modelLocator 
-                                && targetHC.body.modelLocator.modelTransform;
+                        new SetFreezeOnBodyRequest(singularTarget.healthComponent.body.masterObjectId, StaticValues.bigParryFreezeDuration).Send(NetworkDestination.Clients);
 
-                            if (shouldProceed) 
-                            {
-                                //Disable master, baseai, character motor, animator
-                                BaseAI[] aiComponents = targetHC.body.master.aiComponents;
 
-                                foreach (BaseAI aiComponent in aiComponents) 
-                                {
-                                    aiComponent.enabled = !freeze;
-                                }
-
-                                if (targetHC.body.master) 
-                                {
-                                    targetHC.body.master.enabled = !freeze;
-                                }
-
-                                if (targetHC.body.characterMotor) 
-                                {
-                                    targetHC.body.characterMotor.enabled = !freeze;
-                                }
-
-                                Animator targetAnimator = targetHC.body.modelLocator.modelTransform.GetComponent<Animator>();
-                                if (targetAnimator) 
-                                {
-                                    targetAnimator.enabled = !freeze;
-                                }
-
-                            }
-                        }
                     }
                 }
             }
-            
+
         }
 
         private void FireAttack()
@@ -328,7 +289,19 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                     //Consume value.
                     parryMonitor.SetPauseTrigger(false);
                     //Trigger the hitpause.
-                    TriggerHitPause(parryPauseLength);
+
+                    if (parryMonitor.ShouldDoBigParry)
+                    {
+                        parryMonitor.ShouldDoBigParry = false;
+                        //Determine if it's big pause or not.
+                        TriggerHitPause(1.2f);
+                        TriggerEnemyFreeze();
+                    }
+                    else 
+                    {
+                        TriggerHitPause(parryPauseLength);
+                    }
+
                     Chat.AddMessage("PARRY");
                 }
             }

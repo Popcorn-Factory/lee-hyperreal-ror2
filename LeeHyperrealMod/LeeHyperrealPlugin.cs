@@ -132,11 +132,17 @@ namespace LeeHyperrealMod
                     {
                         if (self.body.HasBuff(Modules.Buffs.parryBuff)) 
                         {
+                            bool doBigParry = false;
+                            if (damageInfo.damage > self.fullHealth * Modules.StaticValues.bigParryHealthFrac) 
+                            {
+                                doBigParry = true;
+                            }
+
                             //Reject damage, return to ~~monke~~ pause in state.
                             damageInfo.rejected = true;
                             damageInfo.damage = 0f;
 
-                            new SetPauseTriggerNetworkRequest(self.body.master.netId, true).Send(NetworkDestination.Clients);
+                            new SetPauseTriggerNetworkRequest(self.body.master.netId, true, doBigParry).Send(NetworkDestination.Clients);
 
                             //Stun the attacker
                             if (damageInfo.attacker) 

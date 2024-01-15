@@ -1,24 +1,31 @@
 ﻿using EntityStates;
+using RoR2.CharacterAI;
 using LeeHyperrealMod.Modules;
 using RoR2;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace LeeHyperrealMod.SkillStates
 {
     public class Freeze : BaseSkillState
     {
         Animator animator;
-        private float duration = StaticValues.ultimateDomainDuration;
+        internal float duration;
+        BaseAI[] aiComponents;
+        internal float previousAttackSpeedStat;
 
         public override void OnEnter()
         {
             base.OnEnter();
 
+            //Disable master, baseai, character motor, animator
+
             animator = base.GetModelAnimator();
             if (animator)
             {
-                animator.enabled= false;
+                animator.enabled = false;
             }
+            previousAttackSpeedStat = base.attackSpeedStat;
             attackSpeedStat = 0f;
 
             if (base.characterDirection)
@@ -29,6 +36,7 @@ namespace LeeHyperrealMod.SkillStates
             {
                 base.characterMotor.velocity = Vector3.zero;
                 base.characterMotor.rootMotion = Vector3.zero;
+                base.characterMotor.enabled = false;
             }
             else if (!base.characterMotor)
             {
@@ -37,9 +45,20 @@ namespace LeeHyperrealMod.SkillStates
                 rigidBodyMotor.rootMotion = Vector3.zero;
 
                 base.rigidbody.velocity = Vector3.zero;
-
+                rigidBodyMotor.enabled = false;
+            }
+            if (characterBody.master) 
+            {
+                characterBody.master.enabled = false;
             }
 
+            aiComponents = characterBody.master.aiComponents;
+            foreach (BaseAI aiComponent in aiComponents)
+            {
+                aiComponent.enabled = false;
+            }
+
+            Chat.AddMessage("PAUSE");
 
         }
         public override void OnExit()
@@ -49,7 +68,23 @@ namespace LeeHyperrealMod.SkillStates
             {
                 animator.enabled = true;
             }
-            attackSpeedStat = 1f;
+            aiComponents = characterBody.master.aiComponents;
+            foreach (BaseAI aiComponent in aiComponents)
+            {
+                aiComponent.enabled = true;
+            }
+            attackSpeedStat = previousAttackSpeedStat;
+
+            if (base.characterMotor) 
+            {
+                base.characterMotor.enabled = true;
+            }
+
+            RigidbodyMotor rigidBodyMotor = base.gameObject.GetComponent<RigidbodyMotor>();
+            if (rigidBodyMotor) 
+            {
+                rigidBodyMotor.enabled = true;
+            }
         }
 
         public override void FixedUpdate()
@@ -78,8 +113,9 @@ namespace LeeHyperrealMod.SkillStates
 
             }
 
-            if (base.fixedAge > duration)
+            if (base.fixedAge > duration && base.isAuthority)
             {
+                Chat.AddMessage("EXIT");
                 this.outer.SetNextStateToMain();
                 return;
             }
@@ -90,5 +126,16 @@ namespace LeeHyperrealMod.SkillStates
             return InterruptPriority.Death;
         }
 
+        public override void OnSerialize(NetworkWriter writer)
+        {
+            base.OnSerialize(writer);
+            writer.Write(duration);
+        }
+
+        public override void OnDeserialize(NetworkReader reader)
+        {
+            base.OnDeserialize(reader);
+            duration = reader.ReadSingle();
+        }
     }
 }
