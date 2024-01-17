@@ -4,12 +4,13 @@ using EntityStates;
 using RoR2;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using LeeHyperrealMod.Content.Controllers;
+using R2API.Networking;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 {
     internal class Evade : BaseRootMotionMoverState
     {
-        public static float duration = 0.9f;
+        public static float duration = 2.0f;
 
         public static string dodgeSoundString = "HenryRoll";
         public static float dodgeFOV = EntityStates.Commando.DodgeState.dodgeFOV;
@@ -25,6 +26,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         private Vector3 moveVector;
 
         private float movementMultiplier = 1.6f;
+
+        private float disableInvincibility = 0.15f;
 
         public override void OnEnter()
         {
@@ -54,6 +57,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             PlayAnimation();
 
             domainController = base.GetComponent<LeeHyperrealDomainController>();
+
+            if (base.isAuthority)
+            {
+                base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, duration * disableInvincibility);
+            }
         }
 
 

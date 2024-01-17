@@ -8,6 +8,7 @@ using System.Security.Cryptography;
 using UnityEngine;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using UnityEngine.Networking;
+using R2API.Networking;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 {
@@ -31,6 +32,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         CharacterGravityParameters gravParams;
         CharacterGravityParameters oldGravParams;
         float turnOffGravityFrac = 0.298f;
+
+        float movespeedScalingCap = 15f;
+
+        float disableInvincibility = 0.43f;
 
         public override void OnEnter()
         {
@@ -81,6 +86,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             gravParams.channeledAntiGravityGranterCount = 1;
 
             characterMotor.gravityParameters = gravParams;
+
+            rmaMultiplier = base.moveSpeedStat < movespeedScalingCap ? moveSpeedStat / 10f : movespeedScalingCap / 10f;
+
+            if (rmaMultiplier < movementMultiplier) 
+            {
+                rmaMultiplier = movementMultiplier;
+            }
+
+            if (base.isAuthority) 
+            {
+                base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, duration * disableInvincibility);
+            }
         }
 
         protected void PlayAttackAnimation()
@@ -91,6 +108,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         public override void OnExit()
         {
             base.characterMotor.gravityParameters = oldGravParams;
+            if (base.isAuthority)
+            {
+                //Remove the invincibility just in case.
+                base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 0);
+            }
             base.OnExit();
         }
 

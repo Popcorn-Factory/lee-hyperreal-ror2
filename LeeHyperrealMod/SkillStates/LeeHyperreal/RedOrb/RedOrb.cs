@@ -37,6 +37,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         private float invincibilityEndFrac = 0.4f;
         private bool invincibilitySet = false;
 
+        float movespeedScalingCap = 25f;
+
+        float disableInvincibility = 0.42f;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -96,7 +100,19 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
             base.characterDirection.forward = inputBank.aimDirection;
 
+            rmaMultiplier = base.moveSpeedStat < movespeedScalingCap ? moveSpeedStat / 10f : movespeedScalingCap / 10f;
+
+            if (rmaMultiplier < movementMultiplier)
+            {
+                rmaMultiplier = movementMultiplier;
+            }
+
             PlayAttackAnimation();
+
+            if (base.isAuthority)
+            {
+                base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, duration * disableInvincibility);
+            }
         }
 
         protected void PlayAttackAnimation()
@@ -107,6 +123,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public override void OnExit()
         {
             base.OnExit();
+            if (base.isAuthority)
+            {
+                base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 0);
+            }
         }
 
         public override void Update()
