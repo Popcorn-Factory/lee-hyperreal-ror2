@@ -141,7 +141,7 @@ namespace LeeHyperrealMod.Content.Controllers
          
             if (percentageFill >= 1f)
             {
-                targetMeterAmount = 0.99f;
+                targetMeterAmount = 0.999f;
                 return;
             }
 
@@ -197,6 +197,8 @@ namespace LeeHyperrealMod.Content.Controllers
                 orbAnimators.Add(canvasObject.transform.GetChild(i).GetComponent<Animator>());
                 orbImages.Add(canvasObject.transform.GetChild(i).GetChild(0).GetComponent<Image>());
             }
+
+            UpdateOrbList(new List<OrbController.OrbType>());// Update with empty list.
         }
 
         //Index is 0 indexed.
@@ -214,8 +216,18 @@ namespace LeeHyperrealMod.Content.Controllers
             }
         }
 
-        public void UpdateOrbList(List<OrbController.OrbType> orbsList) 
+        public void UpdateOrbList(List<OrbController.OrbType> orbsList)
         {
+            if (orbsList.Count == 0) 
+            {
+                //Clear everything
+                for (int i = 0; i < orbAnimators.Count; i++) 
+                {
+                    orbAnimators[i].SetTrigger("Silent Clear");
+                }
+                return;
+            }
+
             // Go through the list
             // Determine what orbs should show using material setting.
 
@@ -230,7 +242,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
                 else
                 {
-                    orbAnimators[i].SetTrigger("Pinged");
+                    orbAnimators[i].SetTrigger("Silent Clear");
                 }
             }
         }

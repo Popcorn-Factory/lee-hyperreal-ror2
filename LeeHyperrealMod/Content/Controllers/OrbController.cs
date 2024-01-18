@@ -112,6 +112,13 @@ namespace LeeHyperrealMod.Content.Controllers
                     ConsumeOrbsFromSlot(SelectedIndex);
                 }
             }
+
+
+
+            if (uiController)
+            {
+                uiController.UpdateOrbList(orbList);
+            }
         }
 
 
@@ -369,12 +376,6 @@ namespace LeeHyperrealMod.Content.Controllers
             OrbType chosenOrbType = (OrbType)chosen;
 
             orbList.Add(chosenOrbType);
-
-
-            if (uiController)
-            {
-                uiController.UpdateOrbList(orbList);
-            }
         }
 
         public void AddToIncrementor(float amount) 
