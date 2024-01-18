@@ -29,6 +29,9 @@ namespace LeeHyperrealMod.Content.Controllers
         float orbIncrementor = 0f;
         const bool autoIncrementOrbIncrementor = true;
 
+        float orbUIStopwatch = 0f;
+        float updateRate = 0.25f;
+
         LeeHyperrealUIController uiController;
 
         CharacterBody charBody;
@@ -114,10 +117,13 @@ namespace LeeHyperrealMod.Content.Controllers
             }
 
 
-
             if (uiController)
             {
-                uiController.UpdateOrbList(orbList);
+                orbUIStopwatch += Time.deltaTime;
+                if (orbUIStopwatch >= updateRate) 
+                {
+                    uiController.UpdateOrbList(orbList);
+                }
             }
         }
 
@@ -217,7 +223,7 @@ namespace LeeHyperrealMod.Content.Controllers
             //Check the first 8 orbs
             //Group into colours
             //check against the index (it'll be from 1 - 8)
-            // match against the group that the index matches.
+            // match against the group that the index matches.  
             // count strength
             // Trigger state associated with that.
 
@@ -376,6 +382,11 @@ namespace LeeHyperrealMod.Content.Controllers
             OrbType chosenOrbType = (OrbType)chosen;
 
             orbList.Add(chosenOrbType);
+
+            if (uiController)
+            {
+                uiController.UpdateOrbList(orbList);
+            }
         }
 
         public void AddToIncrementor(float amount) 
