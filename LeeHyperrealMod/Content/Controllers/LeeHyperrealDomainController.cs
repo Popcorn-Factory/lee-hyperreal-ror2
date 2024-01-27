@@ -15,7 +15,7 @@ namespace LeeHyperrealMod.Content.Controllers
         float energy;
         const float maxEnergy = 100f;
         float powerRechargeSpeed = 50f;
-        float consumptionSpeed = 15f;
+        float consumptionSpeed = 1f;
         int intuitionStacks = 0;
 
         int maxIntuitionStack = 4;
@@ -42,7 +42,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 // Normal stuff.
                 if (!isInDomain)
                 {
-                    ResetIntutionStacksOnBodyt();
+                    ResetIntutionStacksOnBody();
                     if (energyRegenAllowed) 
                     {
                         EnergyRegen();
@@ -62,7 +62,7 @@ namespace LeeHyperrealMod.Content.Controllers
             charBody.ApplyBuff(Modules.Buffs.intuitionBuff.buffIndex, intuitionStacks, -1);
         }
 
-        private void ResetIntutionStacksOnBodyt() 
+        private void ResetIntutionStacksOnBody() 
         {
             charBody.ApplyBuff(Modules.Buffs.intuitionBuff.buffIndex, 0, -1);
 
@@ -104,7 +104,7 @@ namespace LeeHyperrealMod.Content.Controllers
         public void DisableDomain() 
         {
             isInDomain = false;
-
+            this.energy = 0f;
             //DisableEffect?
         }
 
@@ -148,6 +148,11 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 intuitionStacks = maxIntuitionStack;
             }            
+        }
+
+        public int GetIntuitionStacks()
+        {
+            return intuitionStacks;
         }
     }
 }

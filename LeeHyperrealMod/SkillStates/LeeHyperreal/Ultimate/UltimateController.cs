@@ -19,7 +19,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         public float numberOfHits = 10;
         public float currentNumber;
         public float timer;
-        public float interval;
+        public float interval = 0.2f;
         private BlastAttack blastAttack;
 
         public void Start()
@@ -43,7 +43,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                         currentNumber += 1;
                         timer -= interval;
 
-                        new PerformForceNetworkRequest(enemycharbody.masterObjectId, enemycharbody.corePosition, Vector3.up, StaticValues.ultimateBlastRadius, 0f, 1f, 360f).Send(NetworkDestination.Clients);
+                        new PerformForceNetworkRequest(charbody.masterObjectId, enemycharbody.corePosition, Vector3.up, StaticValues.ultimateBlastRadius, 0f, 1f, 360f).Send(NetworkDestination.Clients);
                     }
                     else if (currentNumber == numberOfHits)
                     {

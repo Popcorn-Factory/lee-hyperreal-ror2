@@ -12,10 +12,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
     {
 
         public float start = 0;
-        public float earlyEnd = 0.6f;
-        public float fireTime = 0.3f;
-        public float fireInterval = 0.05f;
-        public float duration = 2.2f;
+        public float earlyEnd = 0.35f;
+        public float fireTime = 0.01f;
+        public float fireEndTime = 0.25f;
+        public float baseFireInterval = 0.07f;
+        public float fireInterval;
+        public float duration = 5f;
         public int moveStrength; //1-3
 
         public float fireStopwatch;
@@ -35,6 +37,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             rma = InitMeleeRootMotion();
             rmaMultiplier = movementMultiplier;
 
+            fireInterval = baseFireInterval / attackSpeedStat;
 
             Ray aimRay = base.GetAimRay();
 
@@ -97,7 +100,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             base.FixedUpdate();
 
             //Able to be cancelled after this.
-            if (fixedAge >= duration * fireTime)
+            if (fixedAge >= duration * fireTime && fixedAge <= duration * fireEndTime)
             {
                 if (fireStopwatch <= 0f && fireCount < StaticValues.yellowOrbDomainFireCount)
                 {

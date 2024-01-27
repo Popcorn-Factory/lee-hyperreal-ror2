@@ -8,6 +8,8 @@ using LeeHyperrealMod.Modules;
 using R2API.Networking;
 using LeeHyperrealMod.Modules.Networking;
 using R2API.Networking.Interfaces;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 {
@@ -15,17 +17,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
     {
 
         public float start = 0;
-        public float earlyEnd = 0.35f;
-        public float fireTime = 0.35f;
-        public float duration = 2.2f;
+        public float earlyEnd = 0.9f;
+        public float fireTime = 0.42f;
+        public float duration = 8.2f;
         public bool hasFired;
         public int moveStrength; //1-3
 
         internal BlastAttack blastAttack;
         private BulletAttack bulletAttack;
 
-        internal float procCoefficient = Modules.StaticValues.redOrbProcCoefficient;
-        internal float damageCoefficient = Modules.StaticValues.redOrbDomainDamageCoefficient;
         internal string muzzleString = "SubmachineGunMuzzle"; //need to change to the sniper one
 
         private float movementMultiplier = 1.5f;
@@ -44,7 +44,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
             PlayAttackAnimation();
 
-
+            TriggerEnemyFreeze();
 
         }
 
@@ -74,7 +74,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
         protected void PlayAttackAnimation()
         {
-            PlayAnimation("FullBody, Override", "ultimate", "attack.playbackRate", duration);
+            PlayAnimation("FullBody, Override", "Ultimate", "attack.playbackRate", duration);
         }
 
         public override void OnExit()
@@ -90,6 +90,40 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
+
+        }
+
+        public void TriggerEnemyFreeze()
+        {
+
+            BullseyeSearch search = new BullseyeSearch
+            {
+                teamMaskFilter = TeamMask.GetEnemyTeams(characterBody.teamComponent.teamIndex),
+                filterByLoS = false,
+                searchOrigin = characterBody.corePosition,
+                searchDirection = UnityEngine.Random.onUnitSphere,
+                sortMode = BullseyeSearch.SortMode.Distance,
+                maxDistanceFilter = 100f,
+                maxAngleFilter = 360f
+            };
+
+            search.RefreshCandidates();
+            search.FilterOutGameObject(characterBody.gameObject);
+
+            List<HurtBox> target = search.GetResults().ToList<HurtBox>();
+            foreach (HurtBox singularTarget in target)
+            {
+                if (singularTarget.healthComponent && singularTarget.healthComponent.body)
+                {
+                    //stop time for all enemies within this radius
+
+                    new SetFreezeOnBodyRequest(singularTarget.healthComponent.body.masterObjectId, StaticValues.ultimateFreezeDuration).Send(NetworkDestination.Clients);
+
+
+                }
+            }
+            
+
         }
 
         public override void FixedUpdate()
@@ -123,7 +157,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                     bulletAttack.muzzleName = muzzleString;
                     bulletAttack.smartCollision = false;
                     bulletAttack.procChainMask = default(ProcChainMask);
-                    bulletAttack.procCoefficient = procCoefficient;
+                    bulletAttack.procCoefficient = 0.1f;
                     bulletAttack.radius = 2f;
                     bulletAttack.sniper = true;
                     bulletAttack.stopperMask = LayerIndex.noCollision.mask;

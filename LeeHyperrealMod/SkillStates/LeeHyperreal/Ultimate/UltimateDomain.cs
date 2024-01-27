@@ -10,17 +10,20 @@ using R2API.Networking;
 using System.Collections.Generic;
 using System.Linq;
 using R2API.Networking.Interfaces;
+using LeeHyperrealMod.Content.Controllers;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 {
     internal class UltimateDomain : BaseRootMotionMoverState
     {
+        public LeeHyperrealDomainController docon;
 
         public float start = 0;
-        public float earlyEnd = 0.8f;
-        public float fireTime = 0.35f;
+        public float earlyEnd = 0.5f;
+        public float fireTime = 0.01f;
+        public float fireEndTime = 0.35f;
         public float fireInterval = 0.1f;
-        public float finalInterval = 0.5f;
+        public float finalInterval = 0.2f;
         public float duration = StaticValues.ultimateDomainDuration;
         public float fireStopwatch;
         public float finalStopwatch;
@@ -32,15 +35,19 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         internal float damageCoefficient = Modules.StaticValues.redOrbDomainDamageCoefficient;
 
         private float movementMultiplier = 1.5f;
-        private float annshacungMultiplier;
         private int fireCount;
+        private int sightStacks; //annschauung
 
         public override void OnEnter()
         {
             base.OnEnter();
+            docon = gameObject.GetComponent<LeeHyperrealDomainController>();
+            sightStacks = docon.GetIntuitionStacks();
+            docon.DisableDomain();
+
+
             rma = InitMeleeRootMotion();
             rmaMultiplier = movementMultiplier;
-            annshacungMultiplier = 1f; //multiply by number of stacks
 
             Ray aimRay = base.GetAimRay();
 
@@ -50,16 +57,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             Freeze();
             PlayAttackAnimation();
 
-            //add random 3 ping
+            //add random 3 ping - later
             blastAttack = new BlastAttack
             {
                 attacker = gameObject,
                 inflictor = null,
                 teamIndex = TeamIndex.Player,
                 position = gameObject.transform.position + GetAimRay().direction * 2.5f,
-                radius = Modules.StaticValues.redOrbDomainBlastRadius,
+                radius = Modules.StaticValues.ultimateDomainBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.Linear,
-                baseDamage = damageStat * Modules.StaticValues.ultimateDomainMiniDamageCoefficient * annshacungMultiplier, //multiply by anschauung stacks
+                baseDamage = damageStat * Modules.StaticValues.ultimateDomainMiniDamageCoefficient * sightStacks, //multiply by anschauung stacks
                 baseForce = 0f,
                 bonusForce = Vector3.zero,
                 crit = RollCrit(),
@@ -105,7 +112,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         }
         protected void PlayAttackAnimation()
         {
-            PlayAnimation("FullBody, Override", "ultimateDomain", "attack.playbackRate", duration);
+            PlayAnimation("FullBody, Override", "UltimateDomain", "attack.playbackRate", duration);
         }
 
         public override void OnExit()
@@ -150,7 +157,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                     if(finalStopwatch > finalInterval)
                     {
                         //final hit
-                        blastAttack.baseDamage = damageStat * Modules.StaticValues.ultimateDomainDamageCoefficient * annshacungMultiplier; //multiple by anschauung stacks
+                        blastAttack.baseDamage = damageStat * Modules.StaticValues.ultimateDomainDamageCoefficient * sightStacks; //multiple by anschauung stacks
                         blastAttack.Fire();
 
                     }

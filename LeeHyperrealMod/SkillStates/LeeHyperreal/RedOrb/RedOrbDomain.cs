@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using System;
 using LeeHyperrealMod.Modules;
+using UnityEngine.UIElements.UIR;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 {
@@ -12,10 +13,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
     {
 
         public float start = 0;
-        public float earlyEnd = 0.6f;
-        public float fireTime = 0.3f;
-        public float fireInterval = 0.1f;
-        public float duration = 2.2f;
+        public float earlyEnd = 0.45f;
+        public float fireTime = 0.35f;
+        public float baseFireInterval = 0.07f;
+        public float fireInterval;
+        public float duration = 4f;
         public int moveStrength; //1-3
 
         public float fireStopwatch;
@@ -27,6 +29,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         internal float procCoefficient = Modules.StaticValues.redOrbProcCoefficient;
         internal float damageCoefficient = Modules.StaticValues.redOrbDomainDamageCoefficient;
 
+
+        CharacterGravityParameters gravParams;
+        CharacterGravityParameters oldGravParams;
+        float turnOffGravityFrac = 0.298f;
+        float gravOffTimer = 0.18f;
+
         private float movementMultiplier = 1.5f;
 
         public override void OnEnter()
@@ -34,27 +42,28 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             base.OnEnter();
             rma = InitMeleeRootMotion();
             rmaMultiplier = movementMultiplier;
+            fireInterval = baseFireInterval / attackSpeedStat;
 
+            oldGravParams = base.characterMotor.gravityParameters;
+            gravParams = new CharacterGravityParameters();
+            gravParams.environmentalAntiGravityGranterCount = 1;
+            gravParams.channeledAntiGravityGranterCount = 1;
+
+            characterMotor.gravityParameters = gravParams;
 
             Ray aimRay = base.GetAimRay();
 
 
-            base.characterDirection.forward = inputBank.aimDirection;
 
             PlayAttackAnimation();
 
-            //check for move strength whether to get Anschauung stack
-            if (moveStrength >= 3)
-            {
-                //add anschauung stack
-            }
 
             blastAttack = new BlastAttack
             {
                 attacker = gameObject,
                 inflictor = null,
                 teamIndex = TeamIndex.Player,
-                position = gameObject.transform.position + GetAimRay().direction * 2.5f,
+                position = gameObject.transform.position + characterDirection.forward * 2.5f,
                 radius = Modules.StaticValues.redOrbDomainBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.Linear,
                 baseDamage = damageStat * Modules.StaticValues.redOrbDomainDamageCoefficient,
@@ -84,10 +93,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         {
             base.Update();
 
+            //Able to be cancelled after this.
             if (age >= duration * earlyEnd && base.isAuthority)
             {
-
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
+            }
+
+            if(age >= duration * gravOffTimer && base.isAuthority)
+            {
+                base.characterMotor.gravityParameters = oldGravParams;
             }
         }
 
@@ -95,7 +109,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         {
             base.FixedUpdate();
 
-            //Able to be cancelled after this.
             if (fixedAge >= duration * fireTime)
             {
                 if(fireStopwatch <= 0f && fireCount < StaticValues.redOrbDomainFireCount)
