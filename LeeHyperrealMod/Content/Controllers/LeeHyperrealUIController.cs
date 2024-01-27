@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEngine.AddressableAssets.ResourceLocators.ContentCatalogData;
 
 namespace LeeHyperrealMod.Content.Controllers
 {
@@ -38,6 +39,39 @@ namespace LeeHyperrealMod.Content.Controllers
         #region Invincibility Layer
         private GameObject layerInvincibilityHealthObject;
         private int healthIndex = 2;
+        #endregion
+
+        #region Ammo Management
+        private int bulletIndex = 1; //Starts at 1 in the power meter section
+        private int endBulletIndex = 5;
+        private int parryPoweredIndex = 6; // Starts at 6 in the power meter section
+        private int endParryPoweredIndex = 10; // Starts at 6 in the power meter section
+        private int incomingParryBulletIndex = 11;
+        private int extraParryPoweredIndex = 12; // Starts at 12 in the power meter section
+        private int endExtraParryPoweredIndex = 26; // Starts at 12 in the power meter section
+        private int incomingExtraParryPoweredIndex = 27; // Starts at 27 in the power meter section
+        List<GameObject> bulletObjects;
+        List<GameObject> parryBullets;
+        List<GameObject> extraParryBullets;
+        GameObject IncomingParryBullet;
+        GameObject IncomingExtraParryBullet;
+        private bool advanceBullet;
+        public struct BulletState 
+        {
+            public List<BulletController.BulletType> bulletTypes;
+            public int parryBulletCount;
+            public float bulletAnimationSpeed;
+            public bool isColouredBulletMoving;
+
+            public BulletState(int parryCount, List<BulletController.BulletType> types, float bulletAnimationSpeed, bool isColouredBulletMoving) 
+            {
+                bulletTypes = types;
+                parryBulletCount = parryCount;
+                this.bulletAnimationSpeed = bulletAnimationSpeed;
+                this.isColouredBulletMoving = isColouredBulletMoving; 
+            }
+        }
+        private BulletState targetBulletState;
         #endregion
 
 
@@ -84,6 +118,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
             InitializePowerMeter();
             InitializeHealthLayer();
+            InitializeBulletUI();
         }
 
         public void Update()
@@ -94,6 +129,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 {
                     UpdateMeterLevel();
                     SetAnimatorMeterValue();
+                    HandleBulletUIChange();
                 }
             }
         }
@@ -118,12 +154,12 @@ namespace LeeHyperrealMod.Content.Controllers
         #endregion
 
         #region Invincible Health layer
-        public void InitializeHealthLayer() 
+        public void InitializeHealthLayer()
         {
             layerInvincibilityHealthObject = canvasObject.transform.GetChild(healthIndex).gameObject;
         }
 
-        public void SetActiveHealthUIObject(bool state) 
+        public void SetActiveHealthUIObject(bool state)
         {
             layerInvincibilityHealthObject.SetActive(state);
         }
@@ -138,7 +174,7 @@ namespace LeeHyperrealMod.Content.Controllers
         public void SetMeterLevel(float percentageFill)
         {
             isLerpingBetweenValues = true;
-         
+
             if (percentageFill >= 1f)
             {
                 targetMeterAmount = 0.999f;
@@ -180,11 +216,11 @@ namespace LeeHyperrealMod.Content.Controllers
             }
         }
 
-        private void SetAnimatorMeterValue() 
+        private void SetAnimatorMeterValue()
         {
             meterAnimator.SetFloat("bar fill", currentMeterAmount);
         }
-        
+
         #endregion
 
         #region Orb Functions
@@ -202,13 +238,13 @@ namespace LeeHyperrealMod.Content.Controllers
         }
 
         //Index is 0 indexed.
-        public void PingSpecificOrb(int index) 
+        public void PingSpecificOrb(int index)
         {
             try
             {
                 orbAnimators[index].SetTrigger("Pinged");
             }
-            catch (IndexOutOfRangeException e) 
+            catch (IndexOutOfRangeException e)
             {
                 //do nothing really.
                 //Mask the error.
@@ -218,10 +254,10 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void UpdateOrbList(List<OrbController.OrbType> orbsList)
         {
-            if (orbsList.Count == 0) 
+            if (orbsList.Count == 0)
             {
                 //Clear everything
-                for (int i = 0; i < orbAnimators.Count; i++) 
+                for (int i = 0; i < orbAnimators.Count; i++)
                 {
                     orbAnimators[i].SetTrigger("Silent Clear");
                 }
@@ -247,7 +283,7 @@ namespace LeeHyperrealMod.Content.Controllers
             }
         }
 
-        public Material SelectOrbMaterial(OrbController.OrbType orb) 
+        public Material SelectOrbMaterial(OrbController.OrbType orb)
         {
             switch (orb)
             {
@@ -263,6 +299,189 @@ namespace LeeHyperrealMod.Content.Controllers
 
             //Actually impossible unless we REALLY fuck up.
             return null;
+        }
+
+        #endregion
+
+        #region Bullet UI Functions
+        private void HandleBulletUIChange()
+        {
+            if (advanceBullet)
+            {
+                //Keep checking the bullet animation state
+
+                bool ShouldUpdateUI = false;
+                if (targetBulletState.isColouredBulletMoving)
+                {
+                    ShouldUpdateUI = !meterAnimator.GetCurrentAnimatorStateInfo(1).IsName("Fire Bullet");
+                }
+                else 
+                {
+                    ShouldUpdateUI = !meterAnimator.GetCurrentAnimatorStateInfo(2).IsName("Fire Enhanced Ammo");
+                }
+
+                //Play the trigger, check the animation state and then quickly update the UI.
+
+                if (ShouldUpdateUI) 
+                {
+                    SetBulletStates(targetBulletState.bulletTypes);
+                    SetEnhancedBulletState(targetBulletState.parryBulletCount);
+                }
+            }
+        }
+
+        internal void AdvanceBulletState(BulletState state) 
+        {
+            advanceBullet = true;
+            targetBulletState = state;
+
+            SetFiringSpeed(state.bulletAnimationSpeed);
+            if (state.isColouredBulletMoving)
+            {
+                TriggerBulletFire();
+            }
+            else 
+            {
+                TriggerParryBulletReload();
+            }
+        }
+
+        public void InitializeBulletUI()
+        {
+            Transform powerMeter = canvasObject.transform.GetChild(meterindex);
+
+            //Initialize Bullet objects first
+            bulletObjects = new List<GameObject>();
+            for (int i = bulletIndex; i <= endBulletIndex; i++) 
+            {
+                bulletObjects.Add(powerMeter.GetChild(i).gameObject);
+            }
+
+            parryBullets = new List<GameObject>();
+            for (int i = parryPoweredIndex; i <= endParryPoweredIndex; i++) 
+            {
+                parryBullets.Add(powerMeter.GetChild(i).gameObject);
+            }
+
+            extraParryBullets = new List<GameObject>();
+            for (int i = extraParryPoweredIndex; i <= endExtraParryPoweredIndex; i++) 
+            {
+                extraParryBullets.Add(powerMeter.GetChild(i).gameObject);
+            }
+
+            IncomingExtraParryBullet = powerMeter.GetChild(incomingExtraParryPoweredIndex).gameObject;
+            IncomingParryBullet = powerMeter.GetChild(incomingParryBulletIndex).gameObject;
+
+            //Disable all UI elements as there are no bullets.
+            foreach (GameObject bullet in bulletObjects) 
+            {
+                bullet.SetActive(false);
+            }
+            foreach (GameObject bullet in parryBullets)
+            {
+                bullet.SetActive(false);
+            }
+            foreach (GameObject bullet in extraParryBullets)
+            {
+                bullet.SetActive(false);
+            }
+            IncomingExtraParryBullet.SetActive(false);
+            IncomingParryBullet.SetActive(false);
+        }
+
+        public void TriggerBulletFire() 
+        {
+            //Triggers the event on the animator.
+            if (meterAnimator) 
+            {
+                meterAnimator.SetTrigger("Fire Bullet");
+            }
+        }
+
+        public void TriggerParryBulletReload() 
+        {
+            if (meterAnimator)
+            {
+                meterAnimator.SetTrigger("Fire Enhance Bullet");
+            }
+        }
+
+        public void SetFiringSpeed(float firingSpeed) 
+        {
+            if (meterAnimator)
+            {
+                meterAnimator.SetFloat("firing speed", firingSpeed);
+            }
+        }
+
+        public void SetBulletStates(List<BulletController.BulletType> bulletTypes) 
+        {
+            //Set Bullet count based on bullet input.
+            for (int i = 0; i < bulletTypes.Count; i++) 
+            {
+                SetBulletType(bulletObjects[i], bulletTypes[i]);
+            }
+
+            //Disable the bullets that should not be seen.
+            for (int i = 0; i < bulletObjects.Count; i++) 
+            {
+                bulletObjects[i].SetActive(i < bulletTypes.Count);
+            }
+        }
+
+        public void SetBulletType(GameObject bullet, BulletController.BulletType type) 
+        {
+            //Order of children is red blue yellow
+            switch (type) 
+            {
+                case BulletController.BulletType.RED:
+                    bullet.SetActive(true);
+                    bullet.transform.GetChild(0).gameObject.SetActive(true);
+                    bullet.transform.GetChild(1).gameObject.SetActive(false);
+                    bullet.transform.GetChild(2).gameObject.SetActive(false);
+                    break;
+                case BulletController.BulletType.BLUE:
+                    bullet.SetActive(true);
+                    bullet.transform.GetChild(0).gameObject.SetActive(false);
+                    bullet.transform.GetChild(1).gameObject.SetActive(true);
+                    bullet.transform.GetChild(2).gameObject.SetActive(false);
+                    break;
+                case BulletController.BulletType.YELLOW:
+                    bullet.SetActive(true);
+                    bullet.transform.GetChild(0).gameObject.SetActive(false);
+                    bullet.transform.GetChild(1).gameObject.SetActive(false);
+                    bullet.transform.GetChild(2).gameObject.SetActive(true);
+                    break;
+            }
+        }
+
+        public void SetEnhancedBulletState(int bulletCount)
+        {
+            if (bulletCount < 6) 
+            {
+                //Only enable the first 5 bullets.
+                foreach (GameObject extraParryObject in extraParryBullets) 
+                {
+                    extraParryObject.SetActive(false);
+                }
+
+                for (int i = 0; i < parryBullets.Count; i++) 
+                {
+                    parryBullets[i].SetActive( i < bulletCount );
+                }
+                return;
+            }
+
+            //Set the bullets up with the extended stuff.
+            foreach (GameObject parryBullet in parryBullets) 
+            {
+                parryBullet.SetActive(true);
+            }
+
+            for (int i = 0; i < extraParryBullets.Count; i++) 
+            {
+                extraParryBullets[i].SetActive(i < (bulletCount - 5) );
+            }
         }
 
         #endregion

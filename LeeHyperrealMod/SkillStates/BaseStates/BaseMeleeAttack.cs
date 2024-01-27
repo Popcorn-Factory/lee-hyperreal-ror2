@@ -68,11 +68,14 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         internal bool parryFreeze;
         internal Collider[] targetList;
 
+        internal BulletController bulletController;
+
         public override void OnEnter()
         {
             base.OnEnter();
             parryMonitor = base.gameObject.GetComponent<ParryMonitor>();
             orbController = base.gameObject.GetComponent<OrbController>();
+            bulletController = base.gameObject.GetComponent<BulletController>();
             this.duration = this.baseDuration / 1f; //this.attackSpeedStat;
             this.earlyExitTime = this.baseEarlyExitTime / 1f; //this.attackSpeedStat;
             this.hasFired = false;
@@ -301,6 +304,8 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                     {
                         TriggerHitPause(parryPauseLength);
                     }
+
+                    bulletController.GrantEnhancedBullet(1);
 
                     Chat.AddMessage("PARRY");
                 }

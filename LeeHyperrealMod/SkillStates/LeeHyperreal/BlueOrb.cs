@@ -15,6 +15,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
     internal class BlueOrb : BaseRootMotionMoverState
     {
         OrbController orbController;
+        BulletController bulletController;
 
         public float start = 0;
         public float earlyEnd = 0.49f;
@@ -41,12 +42,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         {
             base.OnEnter();
             orbController = base.gameObject.GetComponent<OrbController>();
+            bulletController = base.gameObject.GetComponent<BulletController>();
             rmaMultiplier = movementMultiplier;
-            if (moveStrength == 0) 
+
+            if(moveStrength == 3)
             {
-                base.PlayAnimation("FullBody, Override", "BufferEmpty");
-                this.outer.SetNextStateToMain();
-                return;
+                bulletController.GrantColouredBullet(BulletController.BulletType.BLUE);
             }
 
             attackAmount = (int)this.attackSpeedStat;

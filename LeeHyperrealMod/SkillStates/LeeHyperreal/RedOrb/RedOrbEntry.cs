@@ -12,6 +12,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
     {
         LeeHyperrealDomainController domainController;
         OrbController orbController;
+        BulletController bulletController;
         public int moveStrength;
 
         public override void OnEnter()
@@ -19,6 +20,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             base.OnEnter();
             orbController = base.gameObject.GetComponent<OrbController>();
             domainController = base.gameObject.GetComponent<LeeHyperrealDomainController>();
+            bulletController = base.gameObject.GetComponent<BulletController>();
 
             if (base.isAuthority) 
             {
@@ -32,6 +34,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                         if (moveStrength == 3)
                         {
                             domainController.GrantIntuitionStack(1);
+                            bulletController.GrantColouredBullet(BulletController.BulletType.RED);
                         }
                         this.outer.SetState(new RedOrbDomain { moveStrength = moveStrength });
                         return;
@@ -48,6 +51,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                     if (moveStrength > 0)
                     {
                         this.outer.SetState(new RedOrb { moveStrength = moveStrength });
+
+                        if (moveStrength == 3) 
+                        {
+                            bulletController.GrantColouredBullet(BulletController.BulletType.RED);
+                        }
                         return;
                     }
                     else
