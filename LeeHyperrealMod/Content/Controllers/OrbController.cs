@@ -123,6 +123,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 if (orbUIStopwatch >= updateRate) 
                 {
                     uiController.UpdateOrbList(orbList);
+                    uiController.UpdateOrbAmount(orbList.Count, OrbLimit);
                 }
             }
         }

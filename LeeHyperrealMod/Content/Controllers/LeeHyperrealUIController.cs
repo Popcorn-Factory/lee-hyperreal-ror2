@@ -1,8 +1,10 @@
 ﻿using RoR2;
 using RoR2.CharacterAI;
+using RoR2.UI;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using static UnityEngine.AddressableAssets.ResourceLocators.ContentCatalogData;
@@ -23,6 +25,8 @@ namespace LeeHyperrealMod.Content.Controllers
         private int maxShownOrbs = 8;
         private int startIndex = 4;
         private int endIndex = 11;
+        private int orbAmountIndex = 1;
+        HGTextMeshProUGUI orbAmountLabel;        
         List<Animator> orbAnimators;
         List<Image> orbImages;
         #endregion
@@ -74,6 +78,26 @@ namespace LeeHyperrealMod.Content.Controllers
         private BulletState targetBulletState;
         #endregion
 
+        private HGTextMeshProUGUI CreateLabel(Transform parent, string name, string text, Vector2 position, float textScale)
+        {
+            GameObject gameObject = new GameObject(name);
+            gameObject.transform.parent = parent;
+            gameObject.AddComponent<CanvasRenderer>();
+            RectTransform rectTransform = gameObject.AddComponent<RectTransform>();
+            HGTextMeshProUGUI hgtextMeshProUGUI = gameObject.AddComponent<HGTextMeshProUGUI>();
+            hgtextMeshProUGUI.text = text;
+            hgtextMeshProUGUI.fontSize = textScale;
+            hgtextMeshProUGUI.color = Color.white;
+            hgtextMeshProUGUI.alignment = TextAlignmentOptions.Center;
+            hgtextMeshProUGUI.enableWordWrapping = false;
+            rectTransform.localPosition = Vector2.zero;
+            rectTransform.anchorMin = Vector2.zero;
+            rectTransform.anchorMax = Vector2.one;
+            rectTransform.localScale = Vector3.one;
+            rectTransform.sizeDelta = Vector2.zero;
+            rectTransform.anchoredPosition = position;
+            return hgtextMeshProUGUI;
+        }
 
         #region Unity MonoBehvaiour Functions
         public void Awake()
@@ -115,6 +139,8 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 UpdateOrbList(orbController.orbList);
             }
+
+            InitializeOrbAmountLabel();
 
             InitializePowerMeter();
             InitializeHealthLayer();
@@ -224,6 +250,18 @@ namespace LeeHyperrealMod.Content.Controllers
         #endregion
 
         #region Orb Functions
+
+        private void InitializeOrbAmountLabel()
+        {
+            Transform labeltransform = canvasObject.transform.GetChild(orbAmountIndex);
+            Destroy(labeltransform.gameObject.GetComponent<Text>());
+            orbAmountLabel = CreateLabel(labeltransform, "Orb Amount", "0 / 16", Vector2.zero, 24f);
+        }
+
+        public void UpdateOrbAmount(int amount, int max) 
+        {
+            orbAmountLabel.SetText($"{amount} / {max}");
+        }
 
         private void InitializeOrbAnimatorArray()
         {

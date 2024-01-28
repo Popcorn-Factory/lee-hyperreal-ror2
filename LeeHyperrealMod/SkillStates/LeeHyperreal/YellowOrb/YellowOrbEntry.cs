@@ -51,11 +51,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                     if (moveStrength > 0)
                     {
                         this.outer.SetState(new YellowOrb { moveStrength = moveStrength });
-                        if (moveStrength == 3) 
-                        {
-                        
+                        if (moveStrength == 3)
+                        { 
+                            bulletController.GrantColouredBullet(BulletController.BulletType.YELLOW);
                         }
-                        bulletController.GrantColouredBullet(BulletController.BulletType.YELLOW);
                         return;
                     }
                     else
