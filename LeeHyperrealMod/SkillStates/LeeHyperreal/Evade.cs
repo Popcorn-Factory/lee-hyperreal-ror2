@@ -20,6 +20,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         private bool isForwardRoll;
 
+        private float earlyExitFrac = 0.39f;
         private float start = 0.3f;
         private float end = 0.65f;
         private Vector3 forwardDirection;
@@ -28,6 +29,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         private float movementMultiplier = 1.6f;
 
         private float disableInvincibility = 0.15f;
+
+        public bool snipeDodge;
 
         public override void OnEnter()
         {
@@ -86,7 +89,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 base.characterDirection.moveVector = forwardDirection;
             }
 
-            if (base.fixedAge >= duration * start && base.fixedAge <= duration * end)
+            if (base.age >= duration * start && base.age <= duration * end)
             {
                 if (base.isAuthority && !isForwardRoll)
                 {
@@ -100,7 +103,20 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);
             }
 
-            if (base.fixedAge >= duration * end && base.isAuthority) 
+            if (base.age >= duration * end && base.isAuthority) 
+            {
+                if (base.isAuthority && !isForwardRoll)
+                {
+                    if (inputBank.skill1.down)
+                    {
+                        //Go to Primary 3.
+                        this.outer.SetState(new Primary.Primary3 { });
+                        return;
+                    }
+                }
+            }
+
+            if(base.age >= duration * earlyExitFrac && base.isAuthority) 
             {
                 if (base.isAuthority && !isForwardRoll)
                 {
@@ -114,7 +130,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);
             }
 
-            if (base.fixedAge >= duration && base.isAuthority)
+            if (base.age >= duration && base.isAuthority)
             {
                 base.outer.SetNextStateToMain();
             }
@@ -148,7 +164,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            if (base.age >= duration * end)
+            if (base.age >= duration * earlyExitFrac)
             {
                 return InterruptPriority.Skill;
             }

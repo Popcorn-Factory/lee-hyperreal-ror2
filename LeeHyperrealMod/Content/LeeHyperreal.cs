@@ -1,8 +1,6 @@
 ﻿using BepInEx.Configuration;
 using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.Modules.Characters;
-using LeeHyperrealMod.SkillStates.LeeHyperreal;
-using LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb;
 using RoR2;
 using RoR2.Skills;
 using System;
@@ -21,6 +19,10 @@ namespace LeeHyperrealMod.Modules.Survivors
 
         //used when registering your survivor's language tokens
         public override string survivorTokenPrefix => PLUGIN_PREFIX;
+
+        public static SkillDef SnipeSkill;
+        public static SkillDef ExitSnipeSkill;
+        public static SkillDef EnterSnipeSkill;
 
         public override BodyInfo bodyInfo { get; set; } = new BodyInfo
         {
@@ -146,7 +148,7 @@ namespace LeeHyperrealMod.Modules.Survivors
         public override void InitializeSkills()
         {
             Modules.Skills.CreateSkillFamilies(bodyPrefab, true);
-            string prefix = LeeHyperrealPlugin.DEVELOPER_PREFIX;
+            string prefix = LeeHyperrealPlugin.DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_";
 
             #region Primary
             //Creates a skilldef for a typical primary 
@@ -162,13 +164,13 @@ namespace LeeHyperrealMod.Modules.Survivors
             #endregion
 
             #region Secondary
-            SkillDef shootSkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            SnipeSkill = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
-                skillName = prefix + "_HENRY_BODY_SECONDARY_GUN_NAME",
-                skillNameToken = prefix + "_HENRY_BODY_SECONDARY_GUN_NAME",
-                skillDescriptionToken = prefix + "_HENRY_BODY_SECONDARY_GUN_DESCRIPTION",
+                skillName = prefix + "SECONDARY_SNIPE_NAME",
+                skillNameToken = prefix + "SECONDARY_SNIPE_NAME",
+                skillDescriptionToken = prefix + "SECONDARY_SNIPE_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.RedOrb.RedOrbDomain)),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Secondary.Snipe)),
                 activationStateMachineName = "Body",
                 baseMaxStock = 1,
                 baseRechargeInterval = 1f,
@@ -187,7 +189,57 @@ namespace LeeHyperrealMod.Modules.Survivors
                 keywordTokens = new string[] { "KEYWORD_AGILE" }
             });
 
-            Modules.Skills.AddSecondarySkills(bodyPrefab, shootSkillDef);
+            ExitSnipeSkill = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = prefix + "SECONDARY_SNIPE_EXIT_NAME",
+                skillNameToken = prefix + "SECONDARY_SNIPE_EXIT_NAME",
+                skillDescriptionToken = prefix + "SECONDARY_SNIPE_EXIT_DESCRIPTION",
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Secondary.ExitSnipe)),
+                activationStateMachineName = "Body",
+                baseMaxStock = 1,
+                baseRechargeInterval = 1f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = EntityStates.InterruptPriority.Skill,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = true,
+                mustKeyPress = false,
+                cancelSprintingOnActivation = false,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 1,
+                keywordTokens = new string[] { "KEYWORD_AGILE" }
+            });
+
+            EnterSnipeSkill = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = prefix + "_HENRY_BODY_SECONDARY_GUN_NAME",
+                skillNameToken = prefix + "_HENRY_BODY_SECONDARY_GUN_NAME",
+                skillDescriptionToken = prefix + "_HENRY_BODY_SECONDARY_GUN_DESCRIPTION",
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texSecondaryIcon"),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Secondary.EnterSnipe)),
+                activationStateMachineName = "Body",
+                baseMaxStock = 1,
+                baseRechargeInterval = 1f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = EntityStates.InterruptPriority.Skill,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = true,
+                mustKeyPress = false,
+                cancelSprintingOnActivation = false,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 1,
+                keywordTokens = new string[] { "KEYWORD_AGILE" }
+            });
+
+            Modules.Skills.AddSecondarySkills(bodyPrefab, EnterSnipeSkill);
             #endregion
 
             #region Utility

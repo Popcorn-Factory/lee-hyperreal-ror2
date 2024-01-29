@@ -21,8 +21,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
         public override void OnEnter()
         {
-            base.OnEnter();
+
             this.hitboxName = "ShortMelee";
+            base.OnEnter();
             duration = 1.13f;
 
             this.damageType = DamageType.Generic;

@@ -8,6 +8,7 @@ using LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -22,6 +23,13 @@ namespace LeeHyperrealMod.Modules
             Modules.Content.AddEntityState(typeof(Primary3));
             Modules.Content.AddEntityState(typeof(Primary4));
             Modules.Content.AddEntityState(typeof(Primary5));
+            #endregion
+
+            #region Secondary
+            Modules.Content.AddEntityState(typeof(EnterSnipe));
+            Modules.Content.AddEntityState(typeof(ExitSnipe));
+            Modules.Content.AddEntityState(typeof(IdleSnipe));
+            Modules.Content.AddEntityState(typeof(Snipe));
             #endregion
 
             #region Blue Orb
@@ -61,7 +69,7 @@ namespace LeeHyperrealMod.Modules
             Modules.Content.AddEntityState(typeof(Evade));
             #endregion
 
-            #region 
+            #region Domain Enter State
             Modules.Content.AddEntityState(typeof(DomainEnterState));
             #endregion
 
