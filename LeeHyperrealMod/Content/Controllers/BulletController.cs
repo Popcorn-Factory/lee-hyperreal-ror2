@@ -13,7 +13,8 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             BLUE,
             RED,
-            YELLOW
+            YELLOW,
+            NONE
         }
 
         public List<BulletType> ColouredBulletList;
@@ -40,10 +41,17 @@ namespace LeeHyperrealMod.Content.Controllers
         }
 
         //Consumes from the front of the list.
-        public void ConsumeColouredBullet() 
+        public BulletType ConsumeColouredBullet() 
         {
+            if (ColouredBulletList.Count == 0) 
+            {
+                return BulletType.NONE;
+            }
+
+            BulletType type = ColouredBulletList[0];
             ColouredBulletList.RemoveAt(0);
             uiController.AdvanceBulletState(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed > 10 ? 10 : body.attackSpeed, true));
+            return type;
         }
 
         public void GrantColouredBullet(BulletType bulletType) 
@@ -65,10 +73,16 @@ namespace LeeHyperrealMod.Content.Controllers
         }
 
         //Usually One bullet.
-        public void ConsumeEnhancedBullet(int amount) 
+        public bool ConsumeEnhancedBullet(int amount) 
         {
+            if (enhancedBulletAmount == 0) 
+            {
+                return false;
+            }
             enhancedBulletAmount -= amount;
             uiController.AdvanceBulletState(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed > 10 ? 10 : body.attackSpeed, false));
+
+            return true;
         }
     }
 }

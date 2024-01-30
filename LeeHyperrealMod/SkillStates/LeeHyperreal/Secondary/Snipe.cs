@@ -1,9 +1,11 @@
 ﻿using EntityStates;
+using LeeHyperrealMod.Content.Controllers;
 using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using static LeeHyperrealMod.Content.Controllers.BulletController;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 {
@@ -24,8 +26,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public static float range = 256f;
         public static GameObject tracerEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/Tracers/TracerGoldGat");
 
+        public OrbController orbController;
+        public BulletController bulletController;
+        public float empoweredBulletMultiplier = 1f;
+
         public override void OnEnter()
         {
+            bulletController = gameObject.GetComponent<BulletController>();
+            orbController = gameObject.GetComponent<OrbController>();
+
             base.OnEnter();
             //Enter the snipe stance, move to IdleSnipe
             animator = this.GetModelAnimator();
@@ -35,6 +44,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
             duration = baseDuration / base.attackSpeedStat;
 
+            if (bulletController.ConsumeEnhancedBullet(1)) 
+            {
+                empoweredBulletMultiplier = 2.0f;
+            }
+
+            BulletType type = bulletController.ConsumeColouredBullet();
+
+            if (type != BulletType.NONE) 
+            {
+                //Grant a 3 ping.
+                orbController.Grant3Ping(type);
+            }
         }
 
         public override void OnExit()
@@ -63,7 +84,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                         bulletCount = 1,
                         aimVector = aimRay.direction,
                         origin = aimRay.origin,
-                        damage = Shoot.damageCoefficient * this.damageStat,
+                        damage = Shoot.damageCoefficient * this.damageStat * empoweredBulletMultiplier,
                         damageColorIndex = DamageColorIndex.Default,
                         damageType = DamageType.Generic,
                         falloffModel = BulletAttack.FalloffModel.DefaultBullet,

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using static LeeHyperrealMod.Content.Controllers.BulletController;
 
 namespace LeeHyperrealMod.Content.Controllers
 {
@@ -387,6 +388,28 @@ namespace LeeHyperrealMod.Content.Controllers
             if (uiController)
             {
                 uiController.UpdateOrbList(orbList);
+            }
+        }
+
+        public void Grant3Ping(BulletType type) 
+        {
+            switch (type) 
+            {
+                case BulletType.BLUE:
+                    orbList.Add(OrbType.BLUE);
+                    orbList.Add(OrbType.BLUE);
+                    orbList.Add(OrbType.BLUE);
+                    break;
+                case BulletType.RED:
+                    orbList.Add(OrbType.RED);
+                    orbList.Add(OrbType.RED);
+                    orbList.Add(OrbType.RED);
+                    break;
+                case BulletType.YELLOW:
+                    orbList.Add(OrbType.YELLOW);
+                    orbList.Add(OrbType.YELLOW);
+                    orbList.Add(OrbType.YELLOW);
+                    break;
             }
         }
 
