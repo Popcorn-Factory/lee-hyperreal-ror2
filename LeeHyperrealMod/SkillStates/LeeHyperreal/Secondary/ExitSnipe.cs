@@ -37,7 +37,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             if (age >= duration * earlyExitFrac && base.isAuthority)
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
-                return;
             }
             if (age >= duration && base.isAuthority)
             {

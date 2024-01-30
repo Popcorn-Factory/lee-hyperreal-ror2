@@ -144,6 +144,19 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         public void PlayAnimation() 
         {
+            if (snipeDodge) 
+            {
+                Vector3 moveVector = base.inputBank.moveVector;
+
+                //If Move Vector multiplied by forward is 0, we can add 90 degrees to determine if it's right of left by observing the final result.
+                // If it's backwards, that will be returning a value near -1.
+
+                base.PlayAnimation("FullBody, Override", "evadeForward", "attack.playbackRate", duration);
+
+
+
+                return;
+            }
             if (isForwardRoll) 
             {
                 base.PlayAnimation("FullBody, Override", "evadeForward", "attack.playbackRate", duration);
