@@ -66,13 +66,15 @@ namespace LeeHyperrealMod.Content.Controllers
             public int parryBulletCount;
             public float bulletAnimationSpeed;
             public bool isColouredBulletMoving;
+            public bool isEnhancedBulletMoving;
 
-            public BulletState(int parryCount, List<BulletController.BulletType> types, float bulletAnimationSpeed, bool isColouredBulletMoving) 
+            public BulletState(int parryCount, List<BulletController.BulletType> types, float bulletAnimationSpeed, bool isColouredBulletMoving, bool isEnhancedBulletMoving) 
             {
                 bulletTypes = types;
                 parryBulletCount = parryCount;
                 this.bulletAnimationSpeed = bulletAnimationSpeed;
-                this.isColouredBulletMoving = isColouredBulletMoving; 
+                this.isColouredBulletMoving = isColouredBulletMoving;
+                this.isEnhancedBulletMoving = isEnhancedBulletMoving;
             }
         }
         private BulletState targetBulletState;
@@ -344,41 +346,73 @@ namespace LeeHyperrealMod.Content.Controllers
         #region Bullet UI Functions
         private void HandleBulletUIChange()
         {
+            bool updateColoured = true;
+            bool updateEnhanced = true;
             if (advanceBullet)
             {
                 //Keep checking the bullet animation state
 
-                bool ShouldUpdateUI = false;
                 if (targetBulletState.isColouredBulletMoving)
                 {
-                    ShouldUpdateUI = !meterAnimator.GetCurrentAnimatorStateInfo(1).IsName("Fire Bullet");
+                    updateColoured = !meterAnimator.GetCurrentAnimatorStateInfo(1).IsName("Fire Bullet");
                 }
                 else 
                 {
-                    ShouldUpdateUI = !meterAnimator.GetCurrentAnimatorStateInfo(2).IsName("Fire Enhanced Ammo");
+                    targetBulletState.isColouredBulletMoving = false;
                 }
-
-                //Play the trigger, check the animation state and then quickly update the UI.
-
-                if (ShouldUpdateUI) 
+                if (targetBulletState.isEnhancedBulletMoving)
                 {
-                    SetBulletStates(targetBulletState.bulletTypes);
-                    SetEnhancedBulletState(targetBulletState.parryBulletCount);
+                    updateEnhanced = !meterAnimator.GetCurrentAnimatorStateInfo(2).IsName("Fire Enhanced Ammo");
+                }
+                else 
+                {
+                    targetBulletState.isEnhancedBulletMoving = false;
                 }
             }
+
+
+            //Play the trigger, check the animation state and then quickly update the UI.
+
+            if (updateColoured)
+            {
+                SetBulletStates(targetBulletState.bulletTypes);
+            }
+
+            if (updateEnhanced) 
+            {
+                SetEnhancedBulletState(targetBulletState.parryBulletCount);
+            }
+        }
+
+        internal void UpdateBulletStateTarget(BulletState state) 
+        {
+            targetBulletState = state;
+
+            SetFiringSpeed(state.bulletAnimationSpeed);
         }
 
         internal void AdvanceBulletState(BulletState state) 
         {
             advanceBullet = true;
+            //Additive to current state 
+            bool previousColouredState = targetBulletState.isColouredBulletMoving;
+            bool previousEnhancedState = targetBulletState.isEnhancedBulletMoving;
             targetBulletState = state;
+            if (!targetBulletState.isColouredBulletMoving && previousColouredState) 
+            {
+                targetBulletState.isColouredBulletMoving = true;
+            }
+            if (!targetBulletState.isEnhancedBulletMoving && previousEnhancedState) 
+            {
+                targetBulletState.isEnhancedBulletMoving = true;
+            }
 
             SetFiringSpeed(state.bulletAnimationSpeed);
             if (state.isColouredBulletMoving)
             {
                 TriggerBulletFire();
             }
-            else 
+            if (state.isEnhancedBulletMoving) 
             {
                 TriggerParryBulletReload();
             }

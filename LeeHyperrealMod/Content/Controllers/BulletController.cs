@@ -50,7 +50,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
             BulletType type = ColouredBulletList[0];
             ColouredBulletList.RemoveAt(0);
-            uiController.AdvanceBulletState(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed > 10 ? 10 : body.attackSpeed, true));
+            uiController.AdvanceBulletState(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed > 10 ? 10 : body.attackSpeed, true, false));
             return type;
         }
 
@@ -62,6 +62,7 @@ namespace LeeHyperrealMod.Content.Controllers
             }
             //Update the UI.
             uiController.SetBulletStates(ColouredBulletList);
+            uiController.UpdateBulletStateTarget(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed > 10 ? 10 : body.attackSpeed, false, false));
         }
 
         public void GrantEnhancedBullet(int amount)
@@ -70,6 +71,7 @@ namespace LeeHyperrealMod.Content.Controllers
             enhancedBulletAmount += amount;
             //Update the UI.
             uiController.SetEnhancedBulletState(enhancedBulletAmount);
+            uiController.UpdateBulletStateTarget(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed > 10 ? 10 : body.attackSpeed, false, false));
         }
 
         //Usually One bullet.
@@ -80,7 +82,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 return false;
             }
             enhancedBulletAmount -= amount;
-            uiController.AdvanceBulletState(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed > 10 ? 10 : body.attackSpeed, false));
+            uiController.AdvanceBulletState(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed > 10 ? 10 : body.attackSpeed, false, true));
 
             return true;
         }
