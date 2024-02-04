@@ -58,7 +58,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public override void Update() 
         {
             base.Update();
-            Chat.AddMessage($"{base.characterDirection.forward}");
             base.characterDirection.forward = base.inputBank.aimDirection;
             if (age >= duration * earlyExitFrac && base.isAuthority) 
             {
