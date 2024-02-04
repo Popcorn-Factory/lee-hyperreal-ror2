@@ -32,6 +32,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             base.OnExit();
         }
 
+        public void CheckDirection() 
+        {
+            Vector3 outputVector = new Vector3();
+            if (base.inputBank.moveVector == Vector3.zero)
+            {
+                outputVector = new Vector3(0, 0, 1);
+            }
+        }
+
         public override void Update()
         {
             base.Update();
@@ -57,7 +66,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                 //Check for dodging. Otherwise ignore.
                 if (base.inputBank.skill3.down) 
                 {
-                    base.outer.SetState(new Evade { snipeDodge = true });
+                    base.outer.SetState(new Evade());
                     return;
                 }
 

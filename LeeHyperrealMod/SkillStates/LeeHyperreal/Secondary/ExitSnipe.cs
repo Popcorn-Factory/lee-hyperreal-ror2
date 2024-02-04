@@ -1,9 +1,11 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Modules;
+using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UIElements.UIR;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 {
@@ -12,6 +14,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         Animator animator;
         public float duration = 1.74f;
         public float earlyExitFrac = 0.36f;
+
+        CharacterGravityParameters gravParams;
+        CharacterGravityParameters oldGravParams;
 
         public override void OnEnter()
         {
@@ -23,6 +28,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
             base.skillLocator.primary.UnsetSkillOverride(base.skillLocator.primary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.SnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
             base.skillLocator.secondary.UnsetSkillOverride(base.skillLocator.secondary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.ExitSnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
+
+            oldGravParams = base.characterMotor.gravityParameters;
+            gravParams = new CharacterGravityParameters();
+            gravParams.environmentalAntiGravityGranterCount = 0;
+            gravParams.channeledAntiGravityGranterCount = 0;
+            base.characterMotor.gravityParameters = gravParams;
         }
 
         public override void OnExit()

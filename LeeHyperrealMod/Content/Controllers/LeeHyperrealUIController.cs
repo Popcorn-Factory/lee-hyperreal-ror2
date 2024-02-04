@@ -59,6 +59,7 @@ namespace LeeHyperrealMod.Content.Controllers
         List<GameObject> extraParryBullets;
         GameObject IncomingParryBullet;
         GameObject IncomingExtraParryBullet;
+        BulletTriggerComponent trigger;
         private int UIparryBulletCount;
         private List<BulletController.BulletType> UIBulletTypes;
 
@@ -346,15 +347,13 @@ namespace LeeHyperrealMod.Content.Controllers
         #endregion
 
         #region Bullet UI Functions
+
         private void HandleBulletUIChange()
         {
             //The UI constantly checks if we should transition to the next state.
             //The issue lies in the fact that there is no gap between transitions, so now we have a situation where the bullet is consumed but never
             // triggers an update.
             // We need a way to trigger the update by checking the previous state of the UI. If the UI is outdated, force an update on the UI to show what it should actually look like.
-
-            bool updateColoured = true;
-            bool updateEnhanced = true;
 
             if (targetBulletState.parryBulletCount > 19)
             {
@@ -372,60 +371,6 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 IncomingParryBullet.SetActive(false);
             }
-
-            if (targetBulletState.isColouredBulletMoving)
-            {
-                updateColoured = false;
-                //Consume the state
-                if (meterAnimator.GetCurrentAnimatorStateInfo(1).IsName("Fire Bullet"))
-                {
-                    targetBulletState.isColouredBulletMoving = false;
-                }
-            }
-
-            if (targetBulletState.isEnhancedBulletMoving) 
-            {
-                updateEnhanced = false;
-                //Consume the state
-                if (meterAnimator.GetCurrentAnimatorStateInfo(2).IsName("Fire Enhanced Ammo")) 
-                {
-                    targetBulletState.isEnhancedBulletMoving = false;
-                }
-            }
-
-            //Keep checking the bullet animation state
-            updateColoured = !meterAnimator.GetCurrentAnimatorStateInfo(1).IsName("Fire Bullet");
-            updateEnhanced = !meterAnimator.GetCurrentAnimatorStateInfo(2).IsName("Fire Enhanced Ammo");
-
-
-            //Play the trigger, check the animation state and then quickly update the UI.
-            if (targetBulletState.bulletTypes == null) 
-            {
-                updateColoured = false;
-            }
-
-
-
-            if (updateColoured)
-            {
-                SetBulletStates(targetBulletState.bulletTypes);
-            }
-            else 
-            {
-                ////Show a UI version while reloading
-                SetBulletStates(UIBulletTypes);
-            }
-
-            if (updateEnhanced)
-            {
-                SetEnhancedBulletState(targetBulletState.parryBulletCount);
-            }
-            else
-            {
-                //Show a UI version while reloading
-                SetEnhancedBulletState(targetBulletState.parryBulletCount + 1);
-            }
-
         }
 
         internal void UpdateBulletStateTarget(BulletState state) 
@@ -437,18 +382,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         internal void AdvanceBulletState(BulletState state) 
         {
-            //Additive to current state 
-            bool previousColouredState = targetBulletState.isColouredBulletMoving;
-            bool previousEnhancedState = targetBulletState.isEnhancedBulletMoving;
             targetBulletState = state;
-            if (!targetBulletState.isColouredBulletMoving && previousColouredState) 
-            {
-                targetBulletState.isColouredBulletMoving = true;
-            }
-            if (!targetBulletState.isEnhancedBulletMoving && previousEnhancedState) 
-            {
-                targetBulletState.isEnhancedBulletMoving = true;
-            }
 
             //Check if the state is mid animation.
 
@@ -467,6 +401,11 @@ namespace LeeHyperrealMod.Content.Controllers
         public void InitializeBulletUI()
         {
             Transform powerMeter = canvasObject.transform.GetChild(meterindex);
+
+            //Add the Script to the animator part of the thing we want to monitor.
+            trigger = powerMeter.gameObject.AddComponent<BulletTriggerComponent>();
+            trigger.body = this.characterBody;
+            trigger.uiController = this;
 
             //Initialize Bullet objects first
             bulletObjects = new List<GameObject>();
@@ -611,6 +550,16 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 extraParryBullets[i].SetActive(i < (bulletCount - 5) );
             }
+        }
+
+        public void TriggerUpdateOnEnhanced() 
+        {
+            SetEnhancedBulletState(targetBulletState.parryBulletCount);
+        }
+
+        public void TriggerUpdateOnColour()
+        {
+            SetBulletStates(targetBulletState.bulletTypes);
         }
 
         #endregion
