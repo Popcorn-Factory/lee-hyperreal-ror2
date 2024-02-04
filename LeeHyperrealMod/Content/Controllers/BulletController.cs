@@ -50,7 +50,8 @@ namespace LeeHyperrealMod.Content.Controllers
 
             BulletType type = ColouredBulletList[0];
             ColouredBulletList.RemoveAt(0);
-            uiController.AdvanceBulletState(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed > 10 ? 10 : body.attackSpeed, true, false));
+            //uiController.SetBulletStates(ColouredBulletList);
+            uiController.AdvanceBulletState(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed * 1.5f, true, false));
             return type;
         }
 
@@ -61,8 +62,8 @@ namespace LeeHyperrealMod.Content.Controllers
                 ColouredBulletList.Add(bulletType);
             }
             //Update the UI.
-            uiController.SetBulletStates(ColouredBulletList);
-            uiController.UpdateBulletStateTarget(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed > 10 ? 10 : body.attackSpeed, false, false));
+            //uiController.SetBulletStates(ColouredBulletList);
+            uiController.UpdateBulletStateTarget(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed * 1.5f, false, false));
         }
 
         public void GrantEnhancedBullet(int amount)
@@ -70,8 +71,8 @@ namespace LeeHyperrealMod.Content.Controllers
             //No limit to enhanced bullet 
             enhancedBulletAmount += amount;
             //Update the UI.
-            uiController.SetEnhancedBulletState(enhancedBulletAmount);
-            uiController.UpdateBulletStateTarget(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed > 10 ? 10 : body.attackSpeed, false, false));
+            //uiController.SetEnhancedBulletState(enhancedBulletAmount);
+            uiController.UpdateBulletStateTarget(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed * 1.5f, false, false));
         }
 
         //Usually One bullet.
@@ -82,7 +83,8 @@ namespace LeeHyperrealMod.Content.Controllers
                 return false;
             }
             enhancedBulletAmount -= amount;
-            uiController.AdvanceBulletState(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed > 10 ? 10 : body.attackSpeed, false, true));
+            //uiController.SetEnhancedBulletState(enhancedBulletAmount);
+            uiController.AdvanceBulletState(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed * 1.5f, false, true));
 
             return true;
         }

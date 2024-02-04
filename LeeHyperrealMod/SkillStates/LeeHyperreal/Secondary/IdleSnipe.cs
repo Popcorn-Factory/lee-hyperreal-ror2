@@ -20,6 +20,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             animator = this.GetModelAnimator();
             animator.SetFloat("attack.playbackRate", 1f);
 
+            base.characterBody.SetAimTimer(2.1333f);
+
+            Ray aimRay = base.GetAimRay();
+            base.characterDirection.forward = aimRay.direction;
             PlayAttackAnimation();
         }
 
@@ -31,7 +35,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public override void Update()
         {
             base.Update();
-
+            
+            Ray aimRay = base.GetAimRay();
+            base.characterDirection.forward = aimRay.direction;
             if (base.isAuthority) 
             {
                 //Check for dodging. Otherwise ignore.

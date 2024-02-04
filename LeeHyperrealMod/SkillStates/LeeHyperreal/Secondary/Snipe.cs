@@ -28,12 +28,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
         public OrbController orbController;
         public BulletController bulletController;
+        public LeeHyperrealDomainController domainController;
         public float empoweredBulletMultiplier = 1f;
 
         public override void OnEnter()
         {
             bulletController = gameObject.GetComponent<BulletController>();
             orbController = gameObject.GetComponent<OrbController>();
+            domainController = gameObject.GetComponent<LeeHyperrealDomainController>();
 
             base.OnEnter();
             //Enter the snipe stance, move to IdleSnipe
@@ -49,13 +51,21 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                 empoweredBulletMultiplier = 2.0f;
             }
 
-            BulletType type = bulletController.ConsumeColouredBullet();
-
-            if (type != BulletType.NONE) 
+            if (domainController.GetDomainState()) 
             {
-                //Grant a 3 ping.
-                orbController.Grant3Ping(type);
+                BulletType type = bulletController.ConsumeColouredBullet();
+
+                if (type != BulletType.NONE)
+                {
+                    //Grant a 3 ping.
+                    orbController.Grant3Ping(type);
+                }
             }
+
+            base.characterBody.SetAimTimer(duration);
+
+            Ray aimRay = base.GetAimRay();
+            base.characterDirection.forward = aimRay.direction;
         }
 
         public override void OnExit()
@@ -66,6 +76,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public override void Update()
         {
             base.Update();
+
+            Ray aimRay = base.GetAimRay();
+            base.characterDirection.forward = aimRay.direction;
             if (age >= duration * firingFrac && base.isAuthority && !hasFired) 
             {
                 this.hasFired = true;
@@ -76,7 +89,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
                 if (base.isAuthority)
                 {
-                    Ray aimRay = base.GetAimRay();
                     base.AddRecoil(-1f * Shoot.recoil, -2f * Shoot.recoil, -0.5f * Shoot.recoil, 0.5f * Shoot.recoil);
 
                     new BulletAttack

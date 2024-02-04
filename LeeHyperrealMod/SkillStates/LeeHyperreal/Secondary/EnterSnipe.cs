@@ -20,7 +20,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             animator = this.GetModelAnimator();
             animator.SetFloat("attack.playbackRate", base.attackSpeedStat);
             PlayAttackAnimation();
+            base.characterBody.SetAimTimer(2f);
 
+            Ray aimRay = base.GetAimRay();
+            base.characterDirection.forward = aimRay.direction;
             //Override the M1 skill with snipe.
 
             base.skillLocator.primary.SetSkillOverride(base.skillLocator.primary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.SnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
@@ -40,6 +43,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public override void Update() 
         {
             base.Update();
+
+            Ray aimRay = base.GetAimRay();
+            base.characterDirection.forward = aimRay.direction;
             if (age >= duration * earlyExitFrac && base.isAuthority) 
             {
                 if (base.inputBank.skill1.down) 

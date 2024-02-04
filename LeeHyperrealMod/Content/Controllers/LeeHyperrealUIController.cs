@@ -59,7 +59,9 @@ namespace LeeHyperrealMod.Content.Controllers
         List<GameObject> extraParryBullets;
         GameObject IncomingParryBullet;
         GameObject IncomingExtraParryBullet;
-        private bool advanceBullet;
+        private int UIparryBulletCount;
+        private List<BulletController.BulletType> UIBulletTypes;
+
         public struct BulletState 
         {
             public List<BulletController.BulletType> bulletTypes;
@@ -346,42 +348,84 @@ namespace LeeHyperrealMod.Content.Controllers
         #region Bullet UI Functions
         private void HandleBulletUIChange()
         {
+            //The UI constantly checks if we should transition to the next state.
+            //The issue lies in the fact that there is no gap between transitions, so now we have a situation where the bullet is consumed but never
+            // triggers an update.
+            // We need a way to trigger the update by checking the previous state of the UI. If the UI is outdated, force an update on the UI to show what it should actually look like.
+
             bool updateColoured = true;
             bool updateEnhanced = true;
-            if (advanceBullet)
-            {
-                //Keep checking the bullet animation state
 
-                if (targetBulletState.isColouredBulletMoving)
-                {
-                    updateColoured = !meterAnimator.GetCurrentAnimatorStateInfo(1).IsName("Fire Bullet");
-                }
-                else 
+            if (targetBulletState.parryBulletCount > 19)
+            {
+                IncomingExtraParryBullet.SetActive(true);
+            }
+            else 
+            {
+                IncomingExtraParryBullet.SetActive(false);
+            }
+            if (targetBulletState.parryBulletCount > 4)
+            {
+                IncomingParryBullet.SetActive(true);
+            }
+            else
+            {
+                IncomingParryBullet.SetActive(false);
+            }
+
+            if (targetBulletState.isColouredBulletMoving)
+            {
+                updateColoured = false;
+                //Consume the state
+                if (meterAnimator.GetCurrentAnimatorStateInfo(1).IsName("Fire Bullet"))
                 {
                     targetBulletState.isColouredBulletMoving = false;
                 }
-                if (targetBulletState.isEnhancedBulletMoving)
-                {
-                    updateEnhanced = !meterAnimator.GetCurrentAnimatorStateInfo(2).IsName("Fire Enhanced Ammo");
-                }
-                else 
+            }
+
+            if (targetBulletState.isEnhancedBulletMoving) 
+            {
+                updateEnhanced = false;
+                //Consume the state
+                if (meterAnimator.GetCurrentAnimatorStateInfo(2).IsName("Fire Enhanced Ammo")) 
                 {
                     targetBulletState.isEnhancedBulletMoving = false;
                 }
             }
 
+            //Keep checking the bullet animation state
+            updateColoured = !meterAnimator.GetCurrentAnimatorStateInfo(1).IsName("Fire Bullet");
+            updateEnhanced = !meterAnimator.GetCurrentAnimatorStateInfo(2).IsName("Fire Enhanced Ammo");
+
 
             //Play the trigger, check the animation state and then quickly update the UI.
+            if (targetBulletState.bulletTypes == null) 
+            {
+                updateColoured = false;
+            }
+
+
 
             if (updateColoured)
             {
                 SetBulletStates(targetBulletState.bulletTypes);
             }
+            else 
+            {
+                ////Show a UI version while reloading
+                SetBulletStates(UIBulletTypes);
+            }
 
-            if (updateEnhanced) 
+            if (updateEnhanced)
             {
                 SetEnhancedBulletState(targetBulletState.parryBulletCount);
             }
+            else
+            {
+                //Show a UI version while reloading
+                SetEnhancedBulletState(targetBulletState.parryBulletCount + 1);
+            }
+
         }
 
         internal void UpdateBulletStateTarget(BulletState state) 
@@ -393,7 +437,6 @@ namespace LeeHyperrealMod.Content.Controllers
 
         internal void AdvanceBulletState(BulletState state) 
         {
-            advanceBullet = true;
             //Additive to current state 
             bool previousColouredState = targetBulletState.isColouredBulletMoving;
             bool previousEnhancedState = targetBulletState.isEnhancedBulletMoving;
@@ -406,6 +449,9 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 targetBulletState.isEnhancedBulletMoving = true;
             }
+
+            //Check if the state is mid animation.
+
 
             SetFiringSpeed(state.bulletAnimationSpeed);
             if (state.isColouredBulletMoving)
@@ -488,6 +534,12 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void SetBulletStates(List<BulletController.BulletType> bulletTypes) 
         {
+            UIBulletTypes = bulletTypes;
+
+            if (meterAnimator.GetCurrentAnimatorStateInfo(1).IsName("Fire Bullet"))
+            {
+                return;
+            }
             //Set Bullet count based on bullet input.
             for (int i = 0; i < bulletTypes.Count; i++) 
             {
@@ -529,6 +581,11 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void SetEnhancedBulletState(int bulletCount)
         {
+            //if (meterAnimator.GetCurrentAnimatorStateInfo(2).IsName("Fire Enhanced Ammo"))
+            //{
+            //    Chat.AddMessage("Bruh");
+            //    return;
+            //}
             if (bulletCount < 6) 
             {
                 //Only enable the first 5 bullets.

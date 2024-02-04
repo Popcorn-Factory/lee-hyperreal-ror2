@@ -87,6 +87,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public override void OnExit()
         {
             base.OnExit();
+            characterMotor.gravityParameters = oldGravParams;
         }
 
         public override void Update()
