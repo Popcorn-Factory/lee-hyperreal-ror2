@@ -21,10 +21,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public override void OnEnter()
         {
             base.OnEnter();
+            base.characterBody.isSprinting = false;
             //Enter the snipe stance, move to IdleSnipe
             animator = this.GetModelAnimator();
             animator.SetFloat("attack.playbackRate", base.attackSpeedStat);
             PlayAttackAnimation();
+
+            base.characterDirection.forward = base.inputBank.aimDirection;
 
             base.skillLocator.primary.UnsetSkillOverride(base.skillLocator.primary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.SnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
             base.skillLocator.secondary.UnsetSkillOverride(base.skillLocator.secondary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.ExitSnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
@@ -45,6 +48,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public override void Update()
         {
             base.Update();
+            base.characterDirection.forward = base.inputBank.aimDirection;
             if (age >= duration * earlyExitFrac && base.isAuthority)
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);

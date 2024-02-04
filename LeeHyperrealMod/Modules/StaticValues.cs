@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -71,6 +72,42 @@ namespace LeeHyperrealMod.Modules
         internal const float ultimateDomainBlastRadius = 40f;
         internal const int ultimateDomainFireCount = 3;
         internal const float ultimateDomainDuration = 4f;
+        #endregion
+
+        #region Static functions
+
+        public static Vector3 CheckDirection(Vector3 moveVector, Ray aimRay)
+        {
+            Vector3 outputVector = new Vector3();
+            if (moveVector == Vector3.zero)
+            {
+                outputVector = new Vector3(0, 0, 0); // Dodge backwards.
+
+                return outputVector;
+            }
+
+            Vector3 direction = new Vector3(aimRay.direction.x, 0, aimRay.direction.z);
+            Vector3 rotatedVector = Quaternion.AngleAxis(90, Vector3.up) * direction;
+
+            if (Vector3.Dot(direction, moveVector) <= -0.833f)
+            {
+                outputVector = new Vector3(0, 0, 0);
+                return outputVector;
+            }
+
+            //Should be rotated 90 degrees
+            if (Vector3.Dot(rotatedVector, moveVector) >= 0.833f)
+            {
+                // It's in the right direction
+                outputVector = new Vector3(1, 0, 0);
+            }
+            else
+            {
+                outputVector = new Vector3(-1, 0, 0);
+            }
+
+            return outputVector;
+        }
         #endregion
     }
 }

@@ -9,6 +9,7 @@ using LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.Evade;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -67,6 +68,8 @@ namespace LeeHyperrealMod.Modules
 
             #region Evade
             Modules.Content.AddEntityState(typeof(Evade));
+            Modules.Content.AddEntityState(typeof(EvadeSide));
+            Modules.Content.AddEntityState(typeof(EvadeBack180));
             #endregion
 
             #region Domain Enter State

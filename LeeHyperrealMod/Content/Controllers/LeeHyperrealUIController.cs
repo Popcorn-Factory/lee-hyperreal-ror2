@@ -60,8 +60,6 @@ namespace LeeHyperrealMod.Content.Controllers
         GameObject IncomingParryBullet;
         GameObject IncomingExtraParryBullet;
         BulletTriggerComponent trigger;
-        private int UIparryBulletCount;
-        private List<BulletController.BulletType> UIBulletTypes;
 
         public struct BulletState 
         {
@@ -473,8 +471,6 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void SetBulletStates(List<BulletController.BulletType> bulletTypes) 
         {
-            UIBulletTypes = bulletTypes;
-
             if (meterAnimator.GetCurrentAnimatorStateInfo(1).IsName("Fire Bullet"))
             {
                 return;

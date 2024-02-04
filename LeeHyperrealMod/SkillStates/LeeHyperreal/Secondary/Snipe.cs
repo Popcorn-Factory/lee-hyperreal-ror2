@@ -36,7 +36,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             bulletController = gameObject.GetComponent<BulletController>();
             orbController = gameObject.GetComponent<OrbController>();
             domainController = gameObject.GetComponent<LeeHyperrealDomainController>();
-
+            base.characterBody.isSprinting = false;
             base.OnEnter();
             //Enter the snipe stance, move to IdleSnipe
             animator = this.GetModelAnimator();
@@ -62,10 +62,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                 }
             }
 
-            base.characterBody.SetAimTimer(duration);
-
-            Ray aimRay = base.GetAimRay();
-            base.characterDirection.forward = aimRay.direction;
+            base.characterDirection.forward = base.inputBank.aimDirection;
         }
 
         public override void OnExit()
@@ -76,9 +73,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public override void Update()
         {
             base.Update();
-
             Ray aimRay = base.GetAimRay();
-            base.characterDirection.forward = aimRay.direction;
+            base.characterDirection.forward = base.inputBank.aimDirection;
             if (age >= duration * firingFrac && base.isAuthority && !hasFired) 
             {
                 this.hasFired = true;

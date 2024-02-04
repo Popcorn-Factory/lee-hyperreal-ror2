@@ -1,10 +1,7 @@
 ﻿using EntityStates;
-using RoR2;
-using LeeHyperrealMod.Modules;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using UnityEngine;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.Evade;
+using RoR2;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 {
@@ -16,14 +13,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public override void OnEnter()
         {
             base.OnEnter();
+            base.characterBody.isSprinting = false;
             //Enter the snipe stance, move to IdleSnipe
             animator = this.GetModelAnimator();
             animator.SetFloat("attack.playbackRate", 1f);
 
-            base.characterBody.SetAimTimer(2.1333f);
-
-            Ray aimRay = base.GetAimRay();
-            base.characterDirection.forward = aimRay.direction;
+            base.characterDirection.forward = base.inputBank.aimDirection;
             PlayAttackAnimation();
         }
 
@@ -32,21 +27,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             base.OnExit();
         }
 
-        public void CheckDirection() 
-        {
-            Vector3 outputVector = new Vector3();
-            if (base.inputBank.moveVector == Vector3.zero)
-            {
-                outputVector = new Vector3(0, 0, 1);
-            }
-        }
 
         public override void Update()
         {
             base.Update();
-            
-            Ray aimRay = base.GetAimRay();
-            base.characterDirection.forward = aimRay.direction;
+            base.characterDirection.forward = base.inputBank.aimDirection;
             if (base.isAuthority) 
             {
                 //Check for dodging. Otherwise ignore.
@@ -66,12 +51,26 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                 //Check for dodging. Otherwise ignore.
                 if (base.inputBank.skill3.down) 
                 {
-                    base.outer.SetState(new Evade());
+                    Vector3 result = Modules.StaticValues.CheckDirection(inputBank.moveVector, GetAimRay());
+
+                    if (result == new Vector3(0, 0, 0))
+                    {
+                        base.outer.SetState(new EvadeBack180 { });
+                        return;
+                    }
+                    if (result == new Vector3(1, 0, 0)) 
+                    {
+                        base.outer.SetState(new EvadeSide { isLeftRoll = false });
+                        return;
+                    }
+                    if (result == new Vector3(-1, 0, 0))
+                    {
+                        base.outer.SetState(new EvadeSide { isLeftRoll = true });
+                        return;
+                    }
+
                     return;
                 }
-
-                //Should allow other skills to run. since M1 should be overriden with snipe and M2 should be exit snipe.
-                BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
 
 

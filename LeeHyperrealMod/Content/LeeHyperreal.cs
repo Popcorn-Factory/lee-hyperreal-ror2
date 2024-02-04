@@ -1,6 +1,7 @@
 ﻿using BepInEx.Configuration;
 using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.Modules.Characters;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.Evade;
 using RoR2;
 using RoR2.Skills;
 using System;
@@ -249,7 +250,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 skillNameToken = prefix + "_HENRY_BODY_UTILITY_ROLL_NAME",
                 skillDescriptionToken = prefix + "_HENRY_BODY_UTILITY_ROLL_DESCRIPTION",
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUtilityIcon"),
-                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Evade)),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(Evade)),
                 activationStateMachineName = "Body",
                 baseMaxStock = 1,
                 baseRechargeInterval = 1f,

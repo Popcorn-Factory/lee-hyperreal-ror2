@@ -1,5 +1,6 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Modules.Survivors;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.Evade;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -19,14 +20,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public override void OnEnter()
         {
             base.OnEnter();
+            base.characterBody.isSprinting = false;
+            base.characterMotor.velocity = new Vector3(0, 0, 0);
+            base.characterDirection.moveVector = new Vector3(0, 0, 0);
+            
+            
             //Enter the snipe stance, move to IdleSnipe
             animator = this.GetModelAnimator();
             animator.SetFloat("attack.playbackRate", base.attackSpeedStat);
             PlayAttackAnimation();
-            base.characterBody.SetAimTimer(2f);
 
-            Ray aimRay = base.GetAimRay();
-            base.characterDirection.forward = aimRay.direction;
+            base.characterDirection.forward = base.inputBank.aimDirection;
             //Override the M1 skill with snipe.
 
             base.skillLocator.primary.SetSkillOverride(base.skillLocator.primary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.SnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
@@ -54,14 +58,42 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public override void Update() 
         {
             base.Update();
-
-            Ray aimRay = base.GetAimRay();
-            base.characterDirection.forward = aimRay.direction;
+            Chat.AddMessage($"{base.characterDirection.forward}");
+            base.characterDirection.forward = base.inputBank.aimDirection;
             if (age >= duration * earlyExitFrac && base.isAuthority) 
             {
                 if (base.inputBank.skill1.down) 
                 {
                     base.outer.SetNextState(new Snipe { });
+                    return;
+                }
+                if (base.inputBank.skill2.down)
+                {
+                    //Exit snipe
+                    base.outer.SetState(new ExitSnipe { });
+                    return;
+                }
+
+                if (base.inputBank.skill3.down)
+                {
+                    Vector3 result = Modules.StaticValues.CheckDirection(inputBank.moveVector, GetAimRay());
+
+                    if (result == new Vector3(0, 0, 0)) 
+                    {
+                        base.outer.SetState(new EvadeBack180 { });
+                        return;
+                    }
+                    if (result == new Vector3(1, 0, 0))
+                    {
+                        base.outer.SetState(new EvadeSide { isLeftRoll = false });
+                        return;
+                    }
+                    if (result == new Vector3(-1, 0, 0))
+                    {
+                        base.outer.SetState(new EvadeSide { isLeftRoll = true });
+                        return;
+                    }
+
                     return;
                 }
             }

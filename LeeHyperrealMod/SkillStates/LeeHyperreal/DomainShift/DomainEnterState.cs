@@ -87,6 +87,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
                     domainController.EnableDomain();
                 }
 
+            }
+
+            if (base.age >= duration * 0.41f && base.isAuthority) 
+            {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);
             }
 
