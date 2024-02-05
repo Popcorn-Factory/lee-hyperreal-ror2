@@ -1,4 +1,5 @@
 ﻿using EntityStates;
+using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.Modules.Survivors;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.Evade;
 using RoR2;
@@ -11,6 +12,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 {
     internal class EnterSnipe : BaseSkillState
     {
+        LeeHyperrealUIController uiController;
         Animator animator;
         public float duration = 2.133f;
         public float earlyExitFrac = 0.28f;
@@ -20,6 +22,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public override void OnEnter()
         {
             base.OnEnter();
+            uiController = gameObject.GetComponent<LeeHyperrealUIController>();
             base.characterBody.isSprinting = false;
             base.characterMotor.velocity = new Vector3(0, 0, 0);
             base.characterDirection.moveVector = new Vector3(0, 0, 0);
@@ -43,6 +46,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
             base.characterMotor.gravityParameters = gravParams;
             base.characterMotor.velocity = new Vector3();
+
+            CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
+            cameraParamsData.maxPitch = 30;
+            cameraParamsData.minPitch = -30;
+
+            CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
+            {
+                cameraParamsData = cameraParamsData,
+                priority = 0,
+            };
+            uiController.handle = cameraTargetParams.AddParamsOverride(request, 0.5f);
         }
 
         public override void OnExit()

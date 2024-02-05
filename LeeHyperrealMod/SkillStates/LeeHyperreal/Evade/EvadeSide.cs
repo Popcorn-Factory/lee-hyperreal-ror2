@@ -32,9 +32,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         CharacterGravityParameters gravParams;
         private float disableGrav = 0.3f;
 
+        LeeHyperrealUIController uiController;
+
         public override void OnEnter()
         {
             base.OnEnter();
+            uiController = gameObject.GetComponent<LeeHyperrealUIController>();
             animator = GetModelAnimator();
             animator.SetFloat("attack.playbackRate", 1f);
             rmaMultiplier = movementMultiplier;
@@ -57,6 +60,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             Ray aimRay = base.GetAimRay();
             base.characterDirection.forward = aimRay.direction;
             PlayDodgeAnimation();
+
+
+            cameraTargetParams.RemoveParamsOverride(uiController.handle);
         }
 
         public override void OnExit()

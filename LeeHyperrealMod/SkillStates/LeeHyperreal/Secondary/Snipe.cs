@@ -4,6 +4,7 @@ using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Unity.Audio;
 using UnityEngine;
 using static LeeHyperrealMod.Content.Controllers.BulletController;
 
@@ -61,6 +62,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     orbController.Grant3Ping(type);
                 }
             }
+
+
 
             base.characterDirection.forward = base.inputBank.aimDirection;
         }
