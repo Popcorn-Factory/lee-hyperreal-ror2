@@ -99,6 +99,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
 
             base.characterDirection.forward = inputBank.aimDirection;
+            base.characterDirection.moveVector = inputBank.aimDirection;
 
             rmaMultiplier = base.moveSpeedStat < movespeedScalingCap ? moveSpeedStat / 10f : movespeedScalingCap / 10f;
 
@@ -123,6 +124,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public override void OnExit()
         {
             base.OnExit();
+            PlayAnimation("FullBody, Override", "BufferEmpty");
             if (base.isAuthority)
             {
                 base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 0);
@@ -138,6 +140,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 {
                     //Exit earlier to the Strong ender.
                     this.outer.SetState(new RedOrbFinisher { });
+                    return;
+                }
+
+                if (inputBank.moveVector != Vector3.zero) 
+                {
+                    this.outer.SetNextStateToMain();
                     return;
                 }
 

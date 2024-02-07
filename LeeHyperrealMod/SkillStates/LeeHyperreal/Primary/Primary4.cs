@@ -39,7 +39,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         protected bool inHitPause;
         private bool hasHopped;
         internal float stopwatch;
-
+        internal float moveCancelEndTime = 0.7f;
         public RootMotionAccumulator rma;
         public OrbController orbController;
 
@@ -59,7 +59,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             earlyExitTime = 0.48f;
             hasFired = false;
             aimRay = base.GetAimRay();
-
             PlayAttackAnimation();
 
             // Setup Blastattack
@@ -119,6 +118,20 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override void Update()
         {
+            if (base.isAuthority && this.age <= duration * earlyExitTime) 
+            {
+                if (inputBank.moveVector != new Vector3())
+                {
+                    this.characterDirection.moveVector = base.inputBank.moveVector;
+                    this.characterDirection.forward = base.inputBank.moveVector;
+                }
+                else 
+                {
+                    this.characterDirection.moveVector = base.inputBank.aimDirection;
+                    this.characterDirection.forward = base.inputBank.aimDirection;
+                }
+            }
+
             if (!base.inputBank.skill1.down)
             {
                 ifButtonLifted = true;
@@ -160,6 +173,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);
             }
 
+            if (this.age >= (this.duration * this.moveCancelEndTime) && base.isAuthority) 
+            {
+                if (inputBank.moveVector != new Vector3(0, 0, 0)) 
+                {
+                    this.outer.SetNextStateToMain();
+                    return;
+                }
+            }
+
             if (this.age >= this.duration && base.isAuthority)
             {
                 this.outer.SetNextStateToMain();
@@ -195,6 +217,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void OnExit()
         {
             base.OnExit();
+            this.characterBody.SetAimTimer(0);
+            base.PlayAnimation("FullBody, Override", "BufferEmpty");
         }
 
 

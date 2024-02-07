@@ -75,6 +75,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             Ray aimRay = base.GetAimRay();
             base.characterDirection.forward = aimRay.direction;
             PlayDodgeAnimation();
+
+            StartAimMode(duration, false);
         }
 
         public override void OnExit()
@@ -125,7 +127,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
             if (age >= duration * earlyExitFrac && isAuthority)
             {
-                if (base.inputBank.skill1.down) 
+                if (base.inputBank.skill1.down)
                 {
                     //Fire Snipe
                     base.outer.SetState(new Snipe { });
@@ -139,7 +141,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                     return;
                 }
 
-                if (base.inputBank.skill3.down) 
+                if (base.inputBank.skill3.down)
                 {
                     Vector3 result = Modules.StaticValues.CheckDirection(inputBank.moveVector, GetAimRay());
 

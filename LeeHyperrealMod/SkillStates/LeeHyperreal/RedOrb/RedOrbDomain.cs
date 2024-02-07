@@ -88,6 +88,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         {
             base.OnExit();
             characterMotor.gravityParameters = oldGravParams;
+            PlayAnimation("FullBody, Override", "BufferEmpty");
         }
 
         public override void Update()
@@ -97,6 +98,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             //Able to be cancelled after this.
             if (age >= duration * earlyEnd && base.isAuthority)
             {
+                if (inputBank.moveVector != Vector3.zero) 
+                {
+                    base.outer.SetNextStateToMain();
+                    return;
+                }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
 

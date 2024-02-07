@@ -11,7 +11,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
     {
 
         public float start = 0;
-        public float earlyEnd = 0.38f;
+        public float earlyEnd = 0.42f;
         public float fireFrac = 0.22f;
         public float duration = 2f;
         public int moveStrength; //1-3
@@ -70,6 +70,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
 
             base.characterDirection.forward = inputBank.aimDirection;
+            base.characterDirection.moveVector = inputBank.aimDirection;
 
             PlayAttackAnimation();
         }
@@ -82,6 +83,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void OnExit()
         {
             base.OnExit();
+
+            PlayAnimation("FullBody, Override", "BufferEmpty");
         }
 
         public override void Update()
@@ -93,6 +96,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 {
                     //Exit earlier to the Strong ender.
                     this.outer.SetState(new YellowOrbFinisher { });
+                    return;
+                }
+
+                if (base.inputBank.moveVector != Vector3.zero) 
+                {
+                    base.outer.SetNextStateToMain();
                     return;
                 }
 

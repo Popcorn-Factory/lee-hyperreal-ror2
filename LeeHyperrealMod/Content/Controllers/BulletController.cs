@@ -20,6 +20,10 @@ namespace LeeHyperrealMod.Content.Controllers
         public List<BulletType> ColouredBulletList;
         public const int maxBulletAmount = 5;
         public int enhancedBulletAmount;
+
+        public bool inSnipeStance = false;
+        public SkillLocator skillLocator;
+
         public CharacterBody body;
         public LeeHyperrealUIController uiController;
 
@@ -27,17 +31,38 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             ColouredBulletList = new List<BulletType>();
             body = gameObject.GetComponent<CharacterBody>();
+            skillLocator = gameObject.GetComponent<SkillLocator>();
         }
 
         public void Start() 
         {
-
+            inSnipeStance = false;
             uiController = gameObject.GetComponent<LeeHyperrealUIController>();
         }
 
         public void Update() 
         {
             
+        }
+
+        public void SetSnipeStance() 
+        {
+            if (body.hasEffectiveAuthority) 
+            {
+                inSnipeStance = true;
+                skillLocator.primary.SetSkillOverride(skillLocator.primary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.SnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
+                skillLocator.secondary.SetSkillOverride(skillLocator.secondary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.ExitSnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
+            }
+        }
+
+        public void UnsetSnipeStance() 
+        {
+            if (body.hasEffectiveAuthority) 
+            {
+                inSnipeStance = false;
+                skillLocator.primary.UnsetSkillOverride(skillLocator.primary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.SnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
+                skillLocator.secondary.UnsetSkillOverride(skillLocator.secondary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.ExitSnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
+            }
         }
 
         //Consumes from the front of the list.
@@ -62,8 +87,8 @@ namespace LeeHyperrealMod.Content.Controllers
                 ColouredBulletList.Add(bulletType);
             }
             //Update the UI.
-            //uiController.SetBulletStates(ColouredBulletList);
-            uiController.UpdateBulletStateTarget(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed * 1.5f, false, false));
+            uiController.SetBulletStates(ColouredBulletList);
+            //uiController.UpdateBulletStateTarget(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed * 1.5f, false, false));
         }
 
         public void GrantEnhancedBullet(int amount)
@@ -71,8 +96,8 @@ namespace LeeHyperrealMod.Content.Controllers
             //No limit to enhanced bullet 
             enhancedBulletAmount += amount;
             //Update the UI.
-            //uiController.SetEnhancedBulletState(enhancedBulletAmount);
-            uiController.UpdateBulletStateTarget(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed * 1.5f, false, false));
+            uiController.SetEnhancedBulletState(enhancedBulletAmount);
+            //uiController.UpdateBulletStateTarget(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed * 1.5f, false, false));
         }
 
         //Usually One bullet.

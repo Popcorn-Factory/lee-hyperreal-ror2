@@ -20,7 +20,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         internal float attackStart = 0.174f;
         internal float attackEnd = 0.25f;
         internal float attackFinalShot = 0.32f;
-        internal float exitEarlyFrac = 0.40f;
+        internal float exitEarlyFrac = 0.37f;
         internal Ray aimRay;
 
         internal BulletAttack bulletAttack;
@@ -79,6 +79,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
         public override void OnExit()
         {
+            PlayAnimation("FullBody, Override", "BufferEmpty");
             base.OnExit();
         }
 
@@ -88,6 +89,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
             if (base.age >= duration * exitEarlyFrac && base.isAuthority) 
             {
+                if (inputBank.moveVector != Vector3.zero) 
+                {
+                    this.outer.SetNextStateToMain();
+                    return;
+                }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);
             }
         }

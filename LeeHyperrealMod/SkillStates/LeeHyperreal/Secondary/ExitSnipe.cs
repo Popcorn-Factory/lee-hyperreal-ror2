@@ -15,6 +15,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
     {
         Animator animator;
         LeeHyperrealUIController uiController;
+        BulletController bulletController;
         public float duration = 1.74f;
         public float earlyExitFrac = 0.36f;
 
@@ -25,6 +26,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         {
             base.OnEnter();
             uiController = gameObject.GetComponent<LeeHyperrealUIController>();
+            bulletController = gameObject.GetComponent<BulletController>();
             base.characterBody.isSprinting = false;
             //Enter the snipe stance, move to IdleSnipe
             animator = this.GetModelAnimator();
@@ -33,9 +35,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
             base.characterDirection.forward = base.inputBank.aimDirection;
 
-            base.skillLocator.primary.UnsetSkillOverride(base.skillLocator.primary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.SnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
-            base.skillLocator.secondary.UnsetSkillOverride(base.skillLocator.secondary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.ExitSnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
+            //Override the M1 skill with snipe.
+            bulletController.UnsetSnipeStance();
 
+            //Disable grav for a bit
             oldGravParams = base.characterMotor.gravityParameters;
             gravParams = new CharacterGravityParameters();
             gravParams.environmentalAntiGravityGranterCount = 0;
@@ -57,6 +60,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             base.characterDirection.forward = base.inputBank.aimDirection;
             if (age >= duration * earlyExitFrac && base.isAuthority)
             {
+                if (base.inputBank.moveVector != Vector3.zero) 
+                {
+                    base.outer.SetNextStateToMain();
+                }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
             if (age >= duration && base.isAuthority)

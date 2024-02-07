@@ -116,7 +116,7 @@ namespace LeeHyperrealMod.Modules {
 
             bodyComponent.sprintingSpeedMultiplier = 1.45f;
 
-            bodyComponent.bodyFlags = CharacterBody.BodyFlags.ImmuneToExecutes | CharacterBody.BodyFlags.SprintAnyDirection ;
+            bodyComponent.bodyFlags = CharacterBody.BodyFlags.ImmuneToExecutes | CharacterBody.BodyFlags.SprintAnyDirection  ;
             bodyComponent.rootMotionInMainState = false;
 
             bodyComponent.hullClassification = HullClassification.Human;

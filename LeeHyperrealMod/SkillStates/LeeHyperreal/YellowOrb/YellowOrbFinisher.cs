@@ -15,7 +15,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
         internal float attackStart = 0.154f;
         internal float attackEnd = 0.24f;
-        internal float exitEarlyFrac = 0.35f;
+        internal float exitEarlyFrac = 0.48f;
 
         internal RootMotionAccumulator rma;
 
@@ -96,6 +96,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void OnExit()
         {
             base.OnExit();
+
+            PlayAnimation("FullBody, Override", "BufferEmpty");
         }
 
         public override void Update()
@@ -106,6 +108,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             if (base.age >= duration * exitEarlyFrac && base.isAuthority) 
             {
+                if (base.inputBank.moveVector != Vector3.zero) 
+                {
+                    base.outer.SetNextStateToMain();
+                    return;
+                }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);
             }
         }

@@ -18,7 +18,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         BulletController bulletController;
 
         public float start = 0;
-        public float earlyEnd = 0.49f;
+        public float earlyEnd = 0.38f;
         public float fireFrac = 0.22f;
         public float duration = 3.83f;
         public int moveStrength; //1-3
@@ -45,7 +45,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             bulletController = base.gameObject.GetComponent<BulletController>();
             rmaMultiplier = movementMultiplier;
 
-            if(moveStrength == 3)
+            if (bulletController.inSnipeStance && isAuthority) 
+            {
+                bulletController.UnsetSnipeStance();
+            }
+
+            if (moveStrength == 3)
             {
                 bulletController.GrantColouredBullet(BulletController.BulletType.BLUE);
             }
@@ -78,6 +83,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             };
 
             base.characterDirection.forward = inputBank.aimDirection;
+            base.characterDirection.moveVector = inputBank.aimDirection;
 
             PlayAttackAnimation();
 
@@ -103,7 +109,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         protected void PlayAttackAnimation()
         {
-            base.PlayAnimation("FullBody, Override", "Blue Orb 1", "attack.playbackRate", duration);
+            base.PlayAnimation("FullBody, Override", "blueOrb", "attack.playbackRate", duration);
         }
 
         public override void OnExit()
@@ -114,6 +120,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 //Remove the invincibility just in case.
                 base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 0);
             }
+            PlayAnimation("FullBody, Override", "BufferEmpty");
             base.OnExit();
         }
 
@@ -122,6 +129,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             base.Update();
             if (base.age >= duration * earlyEnd && base.isAuthority)
             {
+                if (inputBank.moveVector != new Vector3()) 
+                {
+                    //Cancel
+                    base.outer.SetNextStateToMain();
+                    return;
+                }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);
             }
 

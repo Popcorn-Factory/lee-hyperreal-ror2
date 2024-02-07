@@ -24,6 +24,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
             if (base.isAuthority) 
             {
+                if (bulletController.inSnipeStance)
+                {
+                    bulletController.UnsetSnipeStance();
+                }
+
                 if (domainController.GetDomainState())
                 {
                     if (moveStrength > 0)

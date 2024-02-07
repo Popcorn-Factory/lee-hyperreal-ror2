@@ -82,6 +82,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void OnExit()
         {
             base.OnExit();
+            PlayAnimation("FullBody, Override", "BufferEmpty");
         }
 
         public override void Update()
@@ -90,7 +91,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             if (age >= duration * earlyEnd && base.isAuthority)
             {
-
+                if (inputBank.moveVector != Vector3.zero)
+                {
+                    base.outer.SetNextStateToMain();
+                    return;
+                }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
         }

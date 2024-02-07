@@ -23,6 +23,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             if (base.isAuthority) 
             {
+                if (bulletController.inSnipeStance)
+                {
+                    bulletController.UnsetSnipeStance();
+                }
+
                 //Domain state
                 if (domainController.GetDomainState()) 
                 {

@@ -34,6 +34,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         protected float attackRecoil = 0.75f;
         protected float hitHopVelocity = 4f;
         protected bool cancelled = false;
+        protected float moveCancelEndTime = 0.41f;
 
         protected string swingSoundString = "";
         protected string hitSoundString = "";
@@ -80,7 +81,6 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             this.earlyExitTime = this.baseEarlyExitTime / 1f; //this.attackSpeedStat;
             this.hasFired = false;
             this.animator = base.GetModelAnimator();
-            base.StartAimMode(0.5f + this.duration, false);
             base.characterBody.outOfCombatStopwatch = 0f;
             this.animator.SetBool("attacking", true);
             this.animator.SetFloat("attack.playbackRate", 1f);
@@ -102,6 +102,11 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             }
 
             this.PlayAttackAnimation();
+
+            //base.StartAimMode(this.duration, true);
+            this.characterDirection.moveVector = base.inputBank.aimDirection;
+            this.characterDirection.forward = base.inputBank.aimDirection;
+
         }
 
         protected virtual void PlayAttackAnimation()
@@ -118,6 +123,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
 
             base.OnExit();
 
+            this.characterBody.SetAimTimer(0);
             this.animator.SetBool("attacking", false);
         }
 
@@ -344,6 +350,8 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         public override void Update()
         {
             base.Update();
+
+            
             if (this.stopwatch >= (this.duration * this.earlyExitTime) && base.isAuthority)
             {
                 //Check this first.
@@ -355,6 +363,16 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                 }
 
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);
+            }
+
+            if (this.stopwatch >= (this.duration * this.moveCancelEndTime) && base.isAuthority) 
+            {
+                if (base.inputBank.moveVector != new Vector3(0, 0, 0)) 
+                {
+                    if (!this.hasFired) this.FireAttack();
+                    this.outer.SetNextStateToMain();
+                    return;
+                }
             }
         }
 

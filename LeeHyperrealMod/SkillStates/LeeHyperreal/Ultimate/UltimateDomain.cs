@@ -118,6 +118,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public override void OnExit()
         {
             base.OnExit();
+            PlayAnimation("FullBody, Override", "BufferEmpty");
         }
 
         public override void Update()

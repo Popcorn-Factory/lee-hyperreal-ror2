@@ -13,6 +13,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
     internal class EnterSnipe : BaseSkillState
     {
         LeeHyperrealUIController uiController;
+        BulletController bulletController;
         Animator animator;
         public float duration = 2.133f;
         public float earlyExitFrac = 0.28f;
@@ -23,22 +24,23 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         {
             base.OnEnter();
             uiController = gameObject.GetComponent<LeeHyperrealUIController>();
+            bulletController = gameObject.GetComponent<BulletController>();
             base.characterBody.isSprinting = false;
             base.characterMotor.velocity = new Vector3(0, 0, 0);
             base.characterDirection.moveVector = new Vector3(0, 0, 0);
-            
-            
+
+            //Override the M1 skill with snipe.
+            bulletController.SetSnipeStance();
+
             //Enter the snipe stance, move to IdleSnipe
             animator = this.GetModelAnimator();
             animator.SetFloat("attack.playbackRate", base.attackSpeedStat);
             PlayAttackAnimation();
 
+            //Set direction
             base.characterDirection.forward = base.inputBank.aimDirection;
-            //Override the M1 skill with snipe.
-
-            base.skillLocator.primary.SetSkillOverride(base.skillLocator.primary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.SnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
-            base.skillLocator.secondary.SetSkillOverride(base.skillLocator.secondary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.ExitSnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
-
+    
+            //Disable grav for a bit
             oldGravParams = base.characterMotor.gravityParameters;
             gravParams = new CharacterGravityParameters();
             gravParams.environmentalAntiGravityGranterCount = 1;

@@ -45,7 +45,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.baseDuration = 2.4f;
             this.attackStartTime = 0.28f;
             this.attackEndTime = 0.4f;
-            this.baseEarlyExitTime = 0.57f;
+            this.baseEarlyExitTime = 0.46f;
+            this.moveCancelEndTime = 0.48f;
             this.hitStopDuration = 0.012f;
             this.attackRecoil = 0.5f;
             this.hitHopVelocity = 4f;
@@ -135,6 +136,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         {
             base.characterMotor.gravityParameters = oldGravParams;
             base.OnExit();
+
+            base.PlayAnimation("FullBody, Override", "BufferEmpty");
         }
 
         protected override void OnHitEnemyAuthority()

@@ -87,6 +87,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
             if (age >= duration * earlyExitFrac && isAuthority)
             {
+                if (base.inputBank.moveVector != new Vector3(0, 0, 0))
+                {
+                    base.outer.SetNextStateToMain();
+                    return;
+                }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
             if (age >= duration && isAuthority) 

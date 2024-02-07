@@ -42,7 +42,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.baseDuration = 2.366f;
             this.attackStartTime = 0.04f;
             this.attackEndTime = 0.07f;
-            this.baseEarlyExitTime = 0.28f;
+            this.moveCancelEndTime = 0.27f;
+            this.baseEarlyExitTime = 0.26f;
             this.hitStopDuration = 0.012f;
             this.attackRecoil = 0.5f;
             this.hitHopVelocity = 4f;
@@ -114,6 +115,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void OnExit()
         {
             base.OnExit();
+            base.PlayAnimation("FullBody, Override", "BufferEmpty");
         }
 
         protected override void PlayAttackAnimation()

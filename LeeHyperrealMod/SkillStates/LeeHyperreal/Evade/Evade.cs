@@ -19,7 +19,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
         private bool isForwardRoll;
 
-        private float earlyExitFrac = 0.39f;
+        private float earlyExitFrac = 0.32f;
         private float start = 0.3f;
         private float end = 0.65f;
         private Vector3 forwardDirection;
@@ -35,7 +35,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             animator = GetModelAnimator();
             forwardDirection = GetAimRay().direction;
             Vector3 backwardsDirection = forwardDirection * -1f;
-            base.characterBody.isSprinting = false;
             animator.SetFloat("attack.playbackRate", 1f);
             moveVector = inputBank.moveVector;
             rmaMultiplier = movementMultiplier;
@@ -46,12 +45,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                 return;
             }
 
-            if (Vector3.Dot(backwardsDirection, inputBank.moveVector) >= 0.833f)
-            {
-                isForwardRoll = false;
-                PlayAnimation();
-                return;
-            }
+            //if (Vector3.Dot(backwardsDirection, inputBank.moveVector) >= 0.833f)
+            //{
+            //    isForwardRoll = false;
+            //    PlayAnimation();
+            //    return;
+            //}
 
             isForwardRoll = true;
             PlayAnimation();
@@ -60,6 +59,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             {
                 characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, duration * disableInvincibility);
             }
+
+            this.characterDirection.forward = base.inputBank.moveVector;
+            this.characterDirection.moveVector = base.inputBank.moveVector;
         }
 
 
@@ -122,6 +124,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                         return;
                     }
                 }
+                if (inputBank.moveVector != new Vector3(0, 0, 0)) 
+                {
+                    outer.SetNextStateToMain();
+                    return;
+                }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
 
@@ -134,6 +141,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         public override void OnExit()
         {
             base.OnExit();
+            base.characterBody.SetAimTimer(0);
             base.PlayAnimation("FullBody, Override", "BufferEmpty");
         }
 
