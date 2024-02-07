@@ -115,12 +115,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void OnExit()
         {
             base.OnExit();
-            base.PlayAnimation("FullBody, Override", "BufferEmpty");
+            base.PlayAnimation("Body", "BufferEmpty");
         }
 
         protected override void PlayAttackAnimation()
         {
-            base.PlayAnimation("FullBody, Override", "primary2", "attack.playbackRate", duration);
+            base.PlayAnimation("Body", "primary2", "attack.playbackRate", duration);
         }
         protected override void OnHitEnemyAuthority()
         {

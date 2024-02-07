@@ -33,18 +33,19 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         private float disableGrav = 0.3f;
 
         LeeHyperrealUIController uiController;
+        BulletController bulletController;
 
         public override void OnEnter()
         {
             base.OnEnter();
             uiController = gameObject.GetComponent<LeeHyperrealUIController>();
+            bulletController = gameObject.GetComponent<BulletController>();
             animator = GetModelAnimator();
             animator.SetFloat("attack.playbackRate", 1f);
             rmaMultiplier = movementMultiplier;
             base.characterBody.isSprinting = false;
             //Unset from IdleSnipe.
-            base.skillLocator.primary.UnsetSkillOverride(base.skillLocator.primary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.SnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
-            base.skillLocator.secondary.UnsetSkillOverride(base.skillLocator.secondary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.ExitSnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
+            bulletController.UnsetSnipeStance();
 
             gravParams = new CharacterGravityParameters();
             gravParams.environmentalAntiGravityGranterCount = 1;
@@ -62,7 +63,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             PlayDodgeAnimation();
 
 
-            cameraTargetParams.RemoveParamsOverride(uiController.handle);
         }
 
         public override void OnExit()
@@ -104,11 +104,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         {
             if (isLeftRoll) 
             {
-                PlayAnimation("FullBody, Override", "SnipeEvadeLeft", "attack.playbackRate", duration);
+                PlayAnimation("Body", "SnipeEvadeLeft", "attack.playbackRate", duration);
                 return;
             }
 
-            PlayAnimation("FullBody, Override", "SnipeEvadeRight", "attack.playbackRate", duration);
+            PlayAnimation("Body", "SnipeEvadeRight", "attack.playbackRate", duration);
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

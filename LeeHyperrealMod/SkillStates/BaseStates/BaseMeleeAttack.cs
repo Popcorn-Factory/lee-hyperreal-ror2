@@ -118,7 +118,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         {
             if (!this.hasFired && !this.cancelled) this.FireAttack();
 
-            base.characterBody.ApplyBuff(Modules.Buffs.parryBuff.buffIndex, 0);
+            //base.characterBody.ApplyBuff(Modules.Buffs.parryBuff.buffIndex, 0);
             parryMonitor.SetPauseTrigger(false);
 
             base.OnExit();

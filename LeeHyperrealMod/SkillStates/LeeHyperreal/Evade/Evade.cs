@@ -142,17 +142,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         {
             base.OnExit();
             base.characterBody.SetAimTimer(0);
-            base.PlayAnimation("FullBody, Override", "BufferEmpty");
+            base.PlayAnimation("Body", "BufferEmpty");
         }
 
         public void PlayAnimation()
         {
             if (isForwardRoll)
             {
-                PlayAnimation("FullBody, Override", "evadeForward", "attack.playbackRate", duration);
+                PlayAnimation("Body", "evadeForward", "attack.playbackRate", duration);
                 return;
             }
-            PlayAnimation("FullBody, Override", "evadeBack", "attack.playbackRate", duration);
+            PlayAnimation("Body", "evadeBack", "attack.playbackRate", duration);
         }
 
         public override void OnSerialize(NetworkWriter writer)

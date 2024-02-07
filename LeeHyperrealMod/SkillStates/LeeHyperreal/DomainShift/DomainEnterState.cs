@@ -60,14 +60,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
 
         public void PlayAnimation() 
         {
-            base.PlayCrossfade("FullBody, Override", "EnterDomainSnipe", "attack.playbackRate", duration, 0.03f);
+            base.PlayCrossfade("Body", "EnterDomainSnipe", "attack.playbackRate", duration, 0.03f);
         }
 
         public override void OnExit()
         {
             base.OnExit();
 
-            base.PlayAnimation("FullBody, Override", "BufferEmpty");
+            base.PlayAnimation("Body", "BufferEmpty");
         }
 
         public override void FixedUpdate()

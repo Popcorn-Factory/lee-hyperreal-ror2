@@ -1,5 +1,6 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.Evade;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -130,6 +131,30 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     base.outer.SetState(new Snipe { });
                     return;
                 }
+
+                //Check for dodging. Otherwise ignore.
+                if (base.inputBank.skill3.down)
+                {
+                    Vector3 result = Modules.StaticValues.CheckDirection(inputBank.moveVector, GetAimRay());
+
+                    if (result == new Vector3(0, 0, 0))
+                    {
+                        base.outer.SetState(new EvadeBack180 { });
+                        return;
+                    }
+                    if (result == new Vector3(1, 0, 0))
+                    {
+                        base.outer.SetState(new EvadeSide { isLeftRoll = false });
+                        return;
+                    }
+                    if (result == new Vector3(-1, 0, 0))
+                    {
+                        base.outer.SetState(new EvadeSide { isLeftRoll = true });
+                        return;
+                    }
+
+                    return;
+                }
             }
 
             if (age >= duration && base.isAuthority) 
@@ -141,7 +166,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
         public void PlayAttackAnimation()
         {
-            PlayAnimation("FullBody, Override", "SnipeShot", "attack.playbackRate", duration);
+            PlayAnimation("Body", "SnipeShot", "attack.playbackRate", duration);
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

@@ -81,14 +81,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
         protected void PlayAttackAnimation()
         {
-            PlayAnimation("FullBody, Override", "RedOrbDomain", "attack.playbackRate", duration);
+            PlayAnimation("Body", "RedOrbDomain", "attack.playbackRate", duration);
         }
 
         public override void OnExit()
         {
             base.OnExit();
             characterMotor.gravityParameters = oldGravParams;
-            PlayAnimation("FullBody, Override", "BufferEmpty");
+            PlayAnimation("Body", "BufferEmpty");
         }
 
         public override void Update()

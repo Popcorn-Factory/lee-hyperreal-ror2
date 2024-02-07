@@ -32,6 +32,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         {
             base.Update();
             base.characterDirection.forward = base.inputBank.aimDirection;
+            base.characterDirection.moveVector = new Vector3(0, 0, 0);
             if (base.isAuthority) 
             {
                 //Check for dodging. Otherwise ignore.
@@ -83,7 +84,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
         public void PlayAttackAnimation()
         {
-            PlayAnimation("FullBody, Override", "SnipeAim", "attack.playbackRate", duration);
+            PlayAnimation("Body", "SnipeAim", "attack.playbackRate", duration);
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

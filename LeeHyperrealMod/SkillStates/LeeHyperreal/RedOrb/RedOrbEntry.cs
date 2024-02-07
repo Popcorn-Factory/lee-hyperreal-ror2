@@ -46,7 +46,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                     }
                     else
                     {
-                        base.PlayAnimation("FullBody, Override", "BufferEmpty");
+                        base.PlayAnimation("Body", "BufferEmpty");
                         this.outer.SetNextStateToMain();
                         return;
                     }
@@ -65,7 +65,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                     }
                     else
                     {
-                        base.PlayAnimation("FullBody, Override", "BufferEmpty");
+                        base.PlayAnimation("Body", "BufferEmpty");
                         this.outer.SetNextStateToMain();
                         return;
                     }

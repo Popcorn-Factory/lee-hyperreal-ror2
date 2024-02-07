@@ -118,13 +118,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
         protected void PlayAttackAnimation()
         {
-            PlayAnimation("FullBody, Override", "redOrb", "attack.playbackRate", duration);
+            PlayAnimation("Body", "redOrb", "attack.playbackRate", duration);
         }
 
         public override void OnExit()
         {
             base.OnExit();
-            PlayAnimation("FullBody, Override", "BufferEmpty");
+            PlayAnimation("Body", "BufferEmpty");
             if (base.isAuthority)
             {
                 base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 0);

@@ -59,7 +59,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         
         protected override void PlayAttackAnimation()
         {
-            PlayAnimation("FullBody, Override", "yellowOrb2", "attack.playbackRate", duration);
+            PlayAnimation("Body", "yellowOrb2", "attack.playbackRate", duration);
         }
 
         public RootMotionAccumulator InitMeleeRootMotion()
@@ -97,7 +97,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         {
             base.OnExit();
 
-            PlayAnimation("FullBody, Override", "BufferEmpty");
+            PlayAnimation("Body", "BufferEmpty");
         }
 
         public override void Update()

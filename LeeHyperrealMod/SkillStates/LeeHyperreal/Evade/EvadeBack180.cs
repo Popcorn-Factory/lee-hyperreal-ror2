@@ -168,7 +168,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
         public void PlayDodgeAnimation() 
         {
-            PlayAnimation("FullBody, Override", "SnipeEvade180", "attack.playbackRate", duration);
+            PlayAnimation("Body", "SnipeEvade180", "attack.playbackRate", duration);
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

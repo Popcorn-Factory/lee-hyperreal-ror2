@@ -109,7 +109,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         protected void PlayAttackAnimation()
         {
-            base.PlayAnimation("FullBody, Override", "blueOrb", "attack.playbackRate", duration);
+            base.PlayAnimation("Body", "blueOrb", "attack.playbackRate", duration);
         }
 
         public override void OnExit()
@@ -120,7 +120,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 //Remove the invincibility just in case.
                 base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 0);
             }
-            PlayAnimation("FullBody, Override", "BufferEmpty");
+            PlayAnimation("Body", "BufferEmpty");
             base.OnExit();
         }
 

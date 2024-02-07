@@ -74,12 +74,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         
         protected void PlayAttackAnimation()
         {
-            PlayAnimation("FullBody, Override", "redOrb2", "attack.playbackRate", duration);
+            PlayAnimation("Body", "redOrb2", "attack.playbackRate", duration);
         }
 
         public override void OnExit()
         {
-            PlayAnimation("FullBody, Override", "BufferEmpty");
+            PlayAnimation("Body", "BufferEmpty");
             base.OnExit();
         }
 

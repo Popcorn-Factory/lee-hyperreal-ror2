@@ -63,8 +63,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
 
             enableParry = true;
-            parryLength = 0.5f;
-            parryTiming = 0.05f;
+            parryLength = 0.3f;
+            parryTiming = 0.08f;
             parryPauseLength = 0.2f;
 
             base.OnEnter();
@@ -140,7 +140,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void OnExit()
         {
 
-            base.PlayAnimation("FullBody, Override", "BufferEmpty");
+            base.PlayAnimation("Body", "BufferEmpty");
             base.characterMotor.gravityParameters = oldGravParams;
             base.OnExit();
         }
@@ -157,7 +157,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         }
         protected override void PlayAttackAnimation()
         {
-            base.PlayAnimation("FullBody, Override", "primary3", "attack.playbackRate", duration);
+            base.PlayAnimation("Body", "primary3", "attack.playbackRate", duration);
         }
 
         protected override void SetNextState()

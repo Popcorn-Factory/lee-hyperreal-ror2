@@ -218,13 +218,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         {
             base.OnExit();
             this.characterBody.SetAimTimer(0);
-            base.PlayAnimation("FullBody, Override", "BufferEmpty");
+            base.PlayAnimation("Body", "BufferEmpty");
         }
 
 
         protected void PlayAttackAnimation()
         {
-            base.PlayAnimation("FullBody, Override", "primary4", "attack.playbackRate", duration);
+            base.PlayAnimation("Body", "primary4", "attack.playbackRate", duration);
         }
 
         protected void SetNextState()

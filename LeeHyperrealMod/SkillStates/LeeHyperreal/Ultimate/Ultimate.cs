@@ -74,13 +74,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
         protected void PlayAttackAnimation()
         {
-            PlayAnimation("FullBody, Override", "Ultimate", "attack.playbackRate", duration);
+            PlayAnimation("Body", "Ultimate", "attack.playbackRate", duration);
         }
 
         public override void OnExit()
         {
             base.OnExit();
-            PlayAnimation("FullBody, Override", "BufferEmpty");
+            PlayAnimation("Body", "BufferEmpty");
         }
 
         public override void Update()

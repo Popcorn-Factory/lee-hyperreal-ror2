@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using static RoR2.CameraTargetParams;
 
 namespace LeeHyperrealMod.Content.Controllers
 {
@@ -26,12 +27,23 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public CharacterBody body;
         public LeeHyperrealUIController uiController;
+        public CameraTargetParams cameraTargetParams;
+        public CameraParamsOverrideHandle handle;
+
+        //Debug
+        //public Animator animator;
+        //public ModelLocator modelLocator;
+        //public string[] strings = {"Idle", "StopRun", "Run", "Sprint", "Jump", "AscendDescend", "IdleIn", "BufferEmpty"};
 
         public void Awake() 
         {
             ColouredBulletList = new List<BulletType>();
             body = gameObject.GetComponent<CharacterBody>();
             skillLocator = gameObject.GetComponent<SkillLocator>();
+            cameraTargetParams = GetComponent<CameraTargetParams>();
+            //Debug
+            //modelLocator = gameObject.GetComponent<ModelLocator>();
+            //animator = modelLocator.modelTransform.gameObject.GetComponent<Animator>();
         }
 
         public void Start() 
@@ -42,7 +54,15 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void Update() 
         {
-            
+
+            //Debug
+            //foreach (string str in strings) 
+            //{
+            //    if (animator.GetCurrentAnimatorStateInfo(0).IsName(str)) 
+            //    {
+            //        Chat.AddMessage($"{str}: spr:{animator.GetBool("isSprinting")} mov:{animator.GetBool("isMoving")} gro:{animator.GetBool("isGrounded")}");
+            //    }
+            //}
         }
 
         public void SetSnipeStance() 
@@ -52,6 +72,23 @@ namespace LeeHyperrealMod.Content.Controllers
                 inSnipeStance = true;
                 skillLocator.primary.SetSkillOverride(skillLocator.primary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.SnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
                 skillLocator.secondary.SetSkillOverride(skillLocator.secondary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.ExitSnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
+
+                if (Modules.Config.changeCameraPos.Value) 
+                {
+                    CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
+                    cameraParamsData.maxPitch = 30;
+                    cameraParamsData.minPitch = -30;
+                    cameraParamsData.fov = Modules.Config.fovScoped.Value;
+                    cameraParamsData.idealLocalCameraPos = new Vector3(Modules.Config.horizontalCameraPosition.Value, Modules.Config.verticalCameraPosition.Value, -7f);
+
+                    CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
+                    {
+                        cameraParamsData = cameraParamsData,
+                        priority = 0,
+                    };
+
+                    handle = cameraTargetParams.AddParamsOverride(request, 1.2f);
+                }
             }
         }
 
@@ -62,6 +99,11 @@ namespace LeeHyperrealMod.Content.Controllers
                 inSnipeStance = false;
                 skillLocator.primary.UnsetSkillOverride(skillLocator.primary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.SnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
                 skillLocator.secondary.UnsetSkillOverride(skillLocator.secondary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.ExitSnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
+
+                if (Modules.Config.changeCameraPos.Value)
+                {
+                    cameraTargetParams.RemoveParamsOverride(handle);
+                }
             }
         }
 

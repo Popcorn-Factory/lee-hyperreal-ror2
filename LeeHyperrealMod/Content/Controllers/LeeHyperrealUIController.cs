@@ -80,10 +80,6 @@ namespace LeeHyperrealMod.Content.Controllers
         }
         private BulletState targetBulletState;
         #endregion
-        public CameraTargetParams.CameraParamsOverrideHandle handle;
-        #region CameraParam
-
-        #endregion
 
         private HGTextMeshProUGUI CreateLabel(Transform parent, string name, string text, Vector2 position, float textScale)
         {

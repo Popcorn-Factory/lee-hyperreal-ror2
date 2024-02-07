@@ -137,7 +137,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             base.characterMotor.gravityParameters = oldGravParams;
             base.OnExit();
 
-            base.PlayAnimation("FullBody, Override", "BufferEmpty");
+            base.PlayAnimation("Body", "BufferEmpty");
         }
 
         protected override void OnHitEnemyAuthority()
@@ -153,7 +153,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         protected override void PlayAttackAnimation()
         {
-            base.PlayAnimation("FullBody, Override", "primary5", "attack.playbackRate", duration);
+            base.PlayAnimation("Body", "primary5", "attack.playbackRate", duration);
         }
 
         protected override void SetNextState()

@@ -49,16 +49,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             base.characterMotor.gravityParameters = gravParams;
             base.characterMotor.velocity = new Vector3();
 
-            CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
-            cameraParamsData.maxPitch = 30;
-            cameraParamsData.minPitch = -30;
-
-            CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
-            {
-                cameraParamsData = cameraParamsData,
-                priority = 0,
-            };
-            uiController.handle = cameraTargetParams.AddParamsOverride(request, 0.5f);
         }
 
         public override void OnExit()
@@ -68,7 +58,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
         public void PlayAttackAnimation() 
         {
-            PlayAnimation("FullBody, Override", "SnipeEntry", "attack.playbackRate", duration);
+            PlayAnimation("Body", "SnipeEntry", "attack.playbackRate", duration);
         }
 
         public override void Update() 

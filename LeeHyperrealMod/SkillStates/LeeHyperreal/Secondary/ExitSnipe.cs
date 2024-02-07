@@ -45,13 +45,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             gravParams.channeledAntiGravityGranterCount = 0;
             base.characterMotor.gravityParameters = gravParams;
 
-            cameraTargetParams.RemoveParamsOverride(uiController.handle);
         }
 
         public override void OnExit()
         {
             base.OnExit();
-            PlayAnimation("FullBody, Override", "BufferEmpty");
+            PlayAnimation("Body", "BufferEmpty");
         }
 
         public override void Update()
@@ -75,7 +74,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
         public void PlayAttackAnimation()
         {
-            PlayAnimation("FullBody, Override", "SnipeExit", "attack.playbackRate", duration);
+            PlayAnimation("Body", "SnipeExit", "attack.playbackRate", duration);
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

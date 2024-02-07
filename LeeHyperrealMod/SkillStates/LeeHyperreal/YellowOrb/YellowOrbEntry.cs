@@ -46,7 +46,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                     }
                     else
                     {
-                        base.PlayAnimation("FullBody, Override", "BufferEmpty");
+                        base.PlayAnimation("Body", "BufferEmpty");
                         this.outer.SetNextStateToMain();
                         return;
                     }
@@ -64,7 +64,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                     }
                     else
                     {
-                        base.PlayAnimation("FullBody, Override", "BufferEmpty");
+                        base.PlayAnimation("Body", "BufferEmpty");
                         this.outer.SetNextStateToMain();
                         return;
                     }

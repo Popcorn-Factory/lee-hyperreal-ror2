@@ -76,13 +76,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
         protected void PlayAttackAnimation()
         {
-            PlayAnimation("FullBody, Override", "YellowOrbDomain", "attack.playbackRate", duration);
+            PlayAnimation("Body", "YellowOrbDomain", "attack.playbackRate", duration);
         }
 
         public override void OnExit()
         {
             base.OnExit();
-            PlayAnimation("FullBody, Override", "BufferEmpty");
+            PlayAnimation("Body", "BufferEmpty");
         }
 
         public override void Update()

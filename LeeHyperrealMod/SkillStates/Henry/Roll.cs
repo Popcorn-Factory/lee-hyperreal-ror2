@@ -43,7 +43,7 @@ namespace LeeHyperrealMod.SkillStates
             Vector3 b = base.characterMotor ? base.characterMotor.velocity : Vector3.zero;
             this.previousPosition = base.transform.position - b;
 
-            base.PlayAnimation("FullBody, Override", "Roll", "Roll.playbackRate", Roll.duration);
+            base.PlayAnimation("Body", "Roll", "Roll.playbackRate", Roll.duration);
             Util.PlaySound(Roll.dodgeSoundString, base.gameObject);
 
             if (NetworkServer.active)
