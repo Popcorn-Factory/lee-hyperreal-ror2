@@ -155,8 +155,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                         base.outer.SetState(new EvadeSide { isLeftRoll = true });
                         return;
                     }
-
-                    return;
                 }
             }
             if (age >= duration && isAuthority)

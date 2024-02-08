@@ -22,9 +22,9 @@ namespace LeeHyperrealMod.Modules
         public static ConfigEntry<bool> isSimple;
 
         public static ConfigEntry<bool> changeCameraPos;
-        public static ConfigEntry<float> fovScoped;
         public static ConfigEntry<float> horizontalCameraPosition;
         public static ConfigEntry<float> verticalCameraPosition;
+        public static ConfigEntry<float> depthCameraPosition;
 
 
         public static void ReadConfig()
@@ -93,22 +93,22 @@ namespace LeeHyperrealMod.Modules
                 new ConfigDescription("Enabling this moves the camera during Snipe stance.", null, System.Array.Empty<object>())
             );
 
-            fovScoped = LeeHyperrealPlugin.instance.Config.Bind<float>
+            depthCameraPosition = LeeHyperrealPlugin.instance.Config.Bind<float>
             (
-                new ConfigDefinition("03 - Snipe", "FOV when scoped"),
-                60f,
-                new ConfigDescription("Changes the FOV on snipe stance.")
+                new ConfigDefinition("03 - Snipe", "Depth when scoped"),
+                -4f,
+                new ConfigDescription("Changes the Depth (Z-position) on the camera in snipe stance.")
             );
             horizontalCameraPosition = LeeHyperrealPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("03 - Snipe", "Horizontal Camera Positioning when scoped"),
-                3f,
+                2.3f,
                 new ConfigDescription("Changes the the horizontal position of the camera when scoped. Positive values is right, Negative values are left.")
             );
             verticalCameraPosition = LeeHyperrealPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("03 - Snipe", "Vertical Camera Positioning when scoped"),
-                -2f,
+                -2.5f,
                 new ConfigDescription("Changes the the vertical position of the camera when scoped. Positive values is up, Negative values are down.")
             );
         }
@@ -116,7 +116,6 @@ namespace LeeHyperrealMod.Modules
         public static void SetupRiskOfOptions() 
         {
             ModSettingsManager.AddOption(new CheckBoxOption(isSimple));
-            ModSettingsManager.AddOption(new CheckBoxOption(changeCameraPos));
 
             ModSettingsManager.AddOption( new KeyBindOption(orb1Trigger) );
             ModSettingsManager.AddOption( new KeyBindOption(orb2Trigger) );
@@ -128,13 +127,14 @@ namespace LeeHyperrealMod.Modules
             ModSettingsManager.AddOption( new KeyBindOption(redOrbTrigger) );
             ModSettingsManager.AddOption( new KeyBindOption(yellowOrbTrigger) );
 
+            ModSettingsManager.AddOption(new CheckBoxOption(changeCameraPos));
             ModSettingsManager.AddOption(
                 new StepSliderOption(
-                    fovScoped, 
+                    depthCameraPosition, 
                     new StepSliderConfig 
                     { 
-                        min = 0, 
-                        max = 100f, 
+                        min = -10f, 
+                        max = 0f, 
                         increment = 0.1f
                     }
                 )

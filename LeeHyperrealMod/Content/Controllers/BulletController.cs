@@ -78,8 +78,7 @@ namespace LeeHyperrealMod.Content.Controllers
                     CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
                     cameraParamsData.maxPitch = 30;
                     cameraParamsData.minPitch = -30;
-                    cameraParamsData.fov = Modules.Config.fovScoped.Value;
-                    cameraParamsData.idealLocalCameraPos = new Vector3(Modules.Config.horizontalCameraPosition.Value, Modules.Config.verticalCameraPosition.Value, -7f);
+                    cameraParamsData.idealLocalCameraPos = new Vector3(Modules.Config.horizontalCameraPosition.Value, Modules.Config.verticalCameraPosition.Value, Modules.Config.depthCameraPosition.Value);
 
                     CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
                     {
@@ -87,7 +86,7 @@ namespace LeeHyperrealMod.Content.Controllers
                         priority = 0,
                     };
 
-                    handle = cameraTargetParams.AddParamsOverride(request, 1.2f);
+                    handle = cameraTargetParams.AddParamsOverride(request, 0.4f);
                 }
             }
         }
