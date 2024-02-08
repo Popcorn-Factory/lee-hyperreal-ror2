@@ -46,6 +46,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.attackStartTime = 0.28f;
             this.attackEndTime = 0.4f;
             this.baseEarlyExitTime = 0.46f;
+            this.bufferActiveTime = 0.36f;
             this.moveCancelEndTime = 0.48f;
             this.hitStopDuration = 0.012f;
             this.attackRecoil = 0.5f;

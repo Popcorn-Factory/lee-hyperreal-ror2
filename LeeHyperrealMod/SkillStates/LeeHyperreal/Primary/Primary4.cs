@@ -30,7 +30,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         private Tuple<float, float> currentTiming;
         private int currentIndex;
 
-
+        private bool bufferNextMove;
+        private float bufferActiveTime;
         private float earlyExitTime;
         public float duration;
         private bool hasFired;
@@ -57,6 +58,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             duration = 3f;
             pulseRate = basePulseRate / this.attackSpeedStat;
             earlyExitTime = 0.48f;
+
+            bufferActiveTime = 0.42f;
             hasFired = false;
             aimRay = base.GetAimRay();
             PlayAttackAnimation();
@@ -118,6 +121,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override void Update()
         {
+            if (base.isAuthority && this.age >= duration * bufferActiveTime) 
+            {
+                bufferNextMove = true;
+            }
+
             if (base.isAuthority && this.age <= duration * earlyExitTime) 
             {
                 if (inputBank.moveVector != new Vector3())
@@ -163,7 +171,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             if (this.age >= (this.duration * this.earlyExitTime) && base.isAuthority)
             {
                 //Check this first.
-                if (base.inputBank.skill1.down)
+                if (base.inputBank.skill1.down || bufferNextMove)
                 {
                     if (!this.hasFired) this.FireAttack();
                     this.SetNextState();

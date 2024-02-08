@@ -44,6 +44,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         protected NetworkSoundEventIndex impactSound;
 
         private float earlyExitTime;
+        public float bufferActiveTime;
         public float duration;
         private bool hasFired;
         private float hitPauseTimer;
@@ -70,6 +71,8 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         internal Collider[] targetList;
 
         internal BulletController bulletController;
+
+        internal bool bufferTriggerNextState;
 
         public override void OnEnter()
         {
@@ -351,11 +354,18 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         {
             base.Update();
 
+            if (this.stopwatch >= (this.duration * this.bufferActiveTime) && base.isAuthority) 
+            {
+                if (base.inputBank.skill1.down) 
+                {
+                    bufferTriggerNextState = true;
+                }
+            }
             
             if (this.stopwatch >= (this.duration * this.earlyExitTime) && base.isAuthority)
             {
                 //Check this first.
-                if (base.inputBank.skill1.down)
+                if (base.inputBank.skill1.down || bufferTriggerNextState)
                 {
                     if (!this.hasFired) this.FireAttack();
                     this.SetNextState();
