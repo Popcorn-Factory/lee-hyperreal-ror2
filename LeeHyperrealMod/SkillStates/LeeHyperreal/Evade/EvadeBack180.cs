@@ -26,7 +26,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
         private float earlyExitFrac = 0.803f;
 
-        private float movementMultiplier = 1.6f;
+        private float movementMultiplier = 2f;
 
         private float disableInvincibility = 0.45f;
 
