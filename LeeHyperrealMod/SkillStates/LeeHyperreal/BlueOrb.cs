@@ -45,6 +45,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             bulletController = base.gameObject.GetComponent<BulletController>();
             rmaMultiplier = movementMultiplier;
 
+            base.characterMotor.velocity = Vector3.zero;
+
             if (bulletController.inSnipeStance && isAuthority) 
             {
                 bulletController.UnsetSnipeStance();
