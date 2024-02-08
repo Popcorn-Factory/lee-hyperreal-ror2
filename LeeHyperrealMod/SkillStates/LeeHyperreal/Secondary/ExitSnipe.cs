@@ -22,6 +22,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         CharacterGravityParameters gravParams;
         CharacterGravityParameters oldGravParams;
 
+        Vector3 velocity;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -33,7 +35,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             animator.SetFloat("attack.playbackRate", base.attackSpeedStat);
             PlayAttackAnimation();
 
-            base.characterDirection.forward = base.inputBank.aimDirection;
+            base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
 
             //Override the M1 skill with snipe.
             bulletController.UnsetSnipeStance();
@@ -56,7 +58,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public override void Update()
         {
             base.Update();
-            base.characterDirection.forward = base.inputBank.aimDirection;
+            base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
             if (age >= duration * earlyExitFrac && base.isAuthority)
             {
                 if (base.inputBank.moveVector != Vector3.zero) 

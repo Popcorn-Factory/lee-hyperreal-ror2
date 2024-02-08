@@ -19,6 +19,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public float earlyExitFrac = 0.28f;
         CharacterGravityParameters gravParams;
         CharacterGravityParameters oldGravParams;
+        Vector3 velocity;
 
         public override void OnEnter()
         {
@@ -38,8 +39,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             PlayAttackAnimation();
 
             //Set direction
-            base.characterDirection.forward = base.inputBank.aimDirection;
-    
+            base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
+
             //Disable grav for a bit
             oldGravParams = base.characterMotor.gravityParameters;
             gravParams = new CharacterGravityParameters();
@@ -64,7 +65,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public override void Update() 
         {
             base.Update();
-            base.characterDirection.forward = base.inputBank.aimDirection;
+            base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
+            base.characterDirection.moveVector = Vector3.zero;
             if (age >= duration * earlyExitFrac && base.isAuthority) 
             {
                 if (base.inputBank.skill1.down) 

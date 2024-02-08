@@ -9,6 +9,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
     {
         Animator animator;
         public float duration = 2.133f;
+        Vector3 velocity = Vector3.zero;
 
         public override void OnEnter()
         {
@@ -18,7 +19,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             animator = this.GetModelAnimator();
             animator.SetFloat("attack.playbackRate", 1f);
 
-            base.characterDirection.forward = base.inputBank.aimDirection;
+            base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
             PlayAttackAnimation();
         }
 
@@ -31,7 +32,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public override void Update()
         {
             base.Update();
-            base.characterDirection.forward = base.inputBank.aimDirection;
+
+            base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
             base.characterDirection.moveVector = new Vector3(0, 0, 0);
             if (base.isAuthority) 
             {

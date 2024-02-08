@@ -33,6 +33,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public LeeHyperrealDomainController domainController;
         public float empoweredBulletMultiplier = 1f;
 
+        public Vector3 velocity;
+
         public override void OnEnter()
         {
             bulletController = gameObject.GetComponent<BulletController>();
@@ -66,7 +68,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
 
 
-            base.characterDirection.forward = base.inputBank.aimDirection;
+            base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
         }
 
         public override void OnExit()
@@ -78,7 +80,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         {
             base.Update();
             Ray aimRay = base.GetAimRay();
-            base.characterDirection.forward = base.inputBank.aimDirection;
+
+            base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
             if (age >= duration * firingFrac && base.isAuthority && !hasFired) 
             {
                 this.hasFired = true;
