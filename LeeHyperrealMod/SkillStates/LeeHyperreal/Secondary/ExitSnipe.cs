@@ -19,9 +19,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public float duration = 1.74f;
         public float earlyExitFrac = 0.36f;
 
-        CharacterGravityParameters gravParams;
-        CharacterGravityParameters oldGravParams;
-
         Vector3 velocity;
 
         public override void OnEnter()
@@ -39,14 +36,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
             //Override the M1 skill with snipe.
             bulletController.UnsetSnipeStance();
-
-            //Disable grav for a bit
-            oldGravParams = base.characterMotor.gravityParameters;
-            gravParams = new CharacterGravityParameters();
-            gravParams.environmentalAntiGravityGranterCount = 0;
-            gravParams.channeledAntiGravityGranterCount = 0;
-            base.characterMotor.gravityParameters = gravParams;
-
         }
 
         public override void OnExit()

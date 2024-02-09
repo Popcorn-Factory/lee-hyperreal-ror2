@@ -17,8 +17,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         Animator animator;
         public float duration = 2.133f;
         public float earlyExitFrac = 0.28f;
-        CharacterGravityParameters gravParams;
-        CharacterGravityParameters oldGravParams;
         Vector3 velocity;
 
         public override void OnEnter()
@@ -41,13 +39,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             //Set direction
             base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
 
-            //Disable grav for a bit
-            oldGravParams = base.characterMotor.gravityParameters;
-            gravParams = new CharacterGravityParameters();
-            gravParams.environmentalAntiGravityGranterCount = 1;
-            gravParams.channeledAntiGravityGranterCount = 1;
-
-            base.characterMotor.gravityParameters = gravParams;
             base.characterMotor.velocity = new Vector3();
 
         }

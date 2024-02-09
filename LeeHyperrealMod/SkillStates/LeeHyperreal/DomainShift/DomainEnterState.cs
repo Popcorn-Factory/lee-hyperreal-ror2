@@ -18,7 +18,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
         private float triggerBlastFrac = 0.16f;
         private bool hasFired;
         private float moveMagnitude = 10f;
-
+        private float moveCancelFrac = 0.37f;
         /*
         Domain shift
         Sets isDomain in domain controller
@@ -78,6 +78,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
         public override void Update()
         {
             base.Update();
+
+            if (base.age >= duration * moveCancelFrac && base.isAuthority) 
+            {
+                if (inputBank.moveVector != Vector3.zero) 
+                {
+                    base.outer.SetNextStateToMain();
+                    return;
+                }
+            }
+
             if (base.age >= duration * triggerBlastFrac && base.isAuthority) 
             {
                 if (!hasFired) 

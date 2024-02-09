@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UIElements.UIR;
 using static RoR2.CameraTargetParams;
 
 namespace LeeHyperrealMod.Content.Controllers
@@ -26,9 +27,11 @@ namespace LeeHyperrealMod.Content.Controllers
         public SkillLocator skillLocator;
 
         public CharacterBody body;
+        public CharacterMotor motor;
         public LeeHyperrealUIController uiController;
         public CameraTargetParams cameraTargetParams;
         public CameraParamsOverrideHandle handle;
+        CharacterGravityParameters gravParams;
 
         //Debug
         //public Animator animator;
@@ -39,6 +42,7 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             ColouredBulletList = new List<BulletType>();
             body = gameObject.GetComponent<CharacterBody>();
+            motor = gameObject.GetComponent<CharacterMotor>();
             skillLocator = gameObject.GetComponent<SkillLocator>();
             cameraTargetParams = GetComponent<CameraTargetParams>();
             //Debug
@@ -73,6 +77,11 @@ namespace LeeHyperrealMod.Content.Controllers
                 skillLocator.primary.SetSkillOverride(skillLocator.primary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.SnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
                 skillLocator.secondary.SetSkillOverride(skillLocator.secondary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.ExitSnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
 
+                gravParams = new CharacterGravityParameters();
+                gravParams.environmentalAntiGravityGranterCount = 1;
+                gravParams.channeledAntiGravityGranterCount = 1;
+                motor.gravityParameters = gravParams;
+
                 if (Modules.Config.changeCameraPos.Value) 
                 {
                     CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
@@ -98,6 +107,11 @@ namespace LeeHyperrealMod.Content.Controllers
                 inSnipeStance = false;
                 skillLocator.primary.UnsetSkillOverride(skillLocator.primary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.SnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
                 skillLocator.secondary.UnsetSkillOverride(skillLocator.secondary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.ExitSnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
+
+                gravParams = new CharacterGravityParameters();
+                gravParams.environmentalAntiGravityGranterCount = 0;
+                gravParams.channeledAntiGravityGranterCount = 0;
+                motor.gravityParameters = gravParams;
 
                 if (Modules.Config.changeCameraPos.Value)
                 {
