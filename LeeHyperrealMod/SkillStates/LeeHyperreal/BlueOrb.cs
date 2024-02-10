@@ -38,14 +38,22 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         float disableInvincibility = 0.43f;
 
+        float orbCancelFrac = 0.24f;
+
         public override void OnEnter()
         {
             base.OnEnter();
             orbController = base.gameObject.GetComponent<OrbController>();
             bulletController = base.gameObject.GetComponent<BulletController>();
+
+            if (orbController) 
+            {
+                orbController.isExecutingSkill = true;
+            }
+
             rmaMultiplier = movementMultiplier;
 
-            base.characterMotor.velocity = Vector3.zero;
+            base.characterMotor.velocity.y = 0f;
 
             if (bulletController.inSnipeStance && isAuthority) 
             {
@@ -116,6 +124,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         public override void OnExit()
         {
+            if (orbController)
+            {
+                orbController.isExecutingSkill = false;
+            }
             base.characterMotor.gravityParameters = oldGravParams;
             if (base.isAuthority)
             {
@@ -129,6 +141,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         public override void Update()
         {
             base.Update();
+            if (base.age >= duration * orbCancelFrac && base.isAuthority) 
+            {
+                if (orbController)
+                {
+                    orbController.isExecutingSkill = false;
+                }
+            }
             if (base.age >= duration * earlyEnd && base.isAuthority)
             {
                 if (inputBank.moveVector != new Vector3()) 

@@ -20,9 +20,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             orbController = base.gameObject.GetComponent<OrbController>();
             domainController = base.gameObject.GetComponent<LeeHyperrealDomainController>();
             bulletController = base.gameObject.GetComponent<BulletController>();
-
+            characterMotor.velocity.y = 0f;
             if (base.isAuthority) 
             {
+                if (orbController)
+                {
+                    orbController.isExecutingSkill = true;
+                }
                 if (bulletController.inSnipeStance)
                 {
                     bulletController.UnsetSnipeStance();

@@ -94,7 +94,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override void Update()
         {
-            if (!base.inputBank.skill1.down)
+            if (!base.inputBank.skill1.down && base.isAuthority)
             {
                 ifButtonLifted = true;
             }

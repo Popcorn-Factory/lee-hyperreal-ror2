@@ -121,9 +121,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override void Update()
         {
-            if (base.isAuthority && this.age >= duration * bufferActiveTime) 
+            if (base.isAuthority && this.age >= duration * bufferActiveTime && base.isAuthority) 
             {
-                bufferNextMove = true;
+                if (inputBank.skill1.down) 
+                {
+                    bufferNextMove = true;
+                }
             }
 
             if (base.isAuthority && this.age <= duration * earlyExitTime) 

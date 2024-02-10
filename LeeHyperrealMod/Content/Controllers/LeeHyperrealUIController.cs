@@ -476,9 +476,19 @@ namespace LeeHyperrealMod.Content.Controllers
                 return;
             }
             //Set Bullet count based on bullet input.
-            for (int i = 0; i < bulletTypes.Count; i++) 
+            if (bulletTypes.Count <= 5)
             {
-                SetBulletType(bulletObjects[i], bulletTypes[i]);
+                for (int i = 0; i < bulletTypes.Count; i++)
+                {
+                    SetBulletType(bulletObjects[i], bulletTypes[i]);
+                }
+            }
+            else 
+            {
+                for (int i = 0; i < 5; i++) 
+                {
+                    SetBulletType(bulletObjects[i], bulletTypes[i]);
+                }
             }
 
             //Disable the bullets that should not be seen.

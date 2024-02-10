@@ -137,7 +137,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void GrantColouredBullet(BulletType bulletType) 
         {
-            if (!(ColouredBulletList.Count > maxBulletAmount)) 
+            if (!(ColouredBulletList.Count >= maxBulletAmount)) 
             {
                 ColouredBulletList.Add(bulletType);
             }

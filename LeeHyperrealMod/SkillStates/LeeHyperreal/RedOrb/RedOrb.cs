@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using System;
 using R2API.Networking;
+using LeeHyperrealMod.Content.Controllers;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 {
@@ -40,13 +41,20 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         float movespeedScalingCap = 25f;
 
         float disableInvincibility = 0.42f;
+        public OrbController orbController;
 
         public override void OnEnter()
         {
             base.OnEnter();
+
+            orbController = gameObject.GetComponent<OrbController>();
+            if (orbController)
+            {
+                orbController.isExecutingSkill = true;
+            }
             rma = InitMeleeRootMotion();
             rmaMultiplier = movementMultiplier;
-
+            characterMotor.velocity.y = 0f;
             firingStopwatch = endFireFrac - fireFrac;
             if (moveStrength >= 3) 
             {
@@ -124,6 +132,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public override void OnExit()
         {
             base.OnExit();
+            if (orbController)
+            {
+                orbController.isExecutingSkill = false;
+            }
             PlayAnimation("Body", "BufferEmpty");
             if (base.isAuthority)
             {
@@ -136,6 +148,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             base.Update();
             if (age >= duration * earlyEnd && base.isAuthority)
             {
+                if (orbController)
+                {
+                    orbController.isExecutingSkill = false;
+                }
                 if (isStrong) 
                 {
                     //Exit earlier to the Strong ender.

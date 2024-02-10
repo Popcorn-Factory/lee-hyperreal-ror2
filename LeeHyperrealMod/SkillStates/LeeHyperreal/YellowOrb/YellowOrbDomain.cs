@@ -5,6 +5,7 @@ using UnityEngine.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using System;
 using LeeHyperrealMod.Modules;
+using LeeHyperrealMod.Content.Controllers;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 {
@@ -24,6 +25,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public int fireCount = 0;
 
         internal BlastAttack blastAttack;
+        internal OrbController orbController;
 
         internal bool isStrong;
         internal float procCoefficient = Modules.StaticValues.yellowOrbProcCoefficient;
@@ -34,6 +36,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void OnEnter()
         {
             base.OnEnter();
+            orbController = gameObject.GetComponent<OrbController>();
+            if (orbController)
+            {
+                orbController.isExecutingSkill = true;
+            }
+
             rma = InitMeleeRootMotion();
             rmaMultiplier = movementMultiplier;
 
@@ -82,6 +90,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void OnExit()
         {
             base.OnExit();
+            if (orbController)
+            {
+                orbController.isExecutingSkill = false;
+            }
             PlayAnimation("Body", "BufferEmpty");
         }
 
@@ -91,6 +103,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             if (age >= duration * earlyEnd && base.isAuthority)
             {
+                if (orbController)
+                {
+                    orbController.isExecutingSkill = false;
+                }
                 if (inputBank.moveVector != Vector3.zero)
                 {
                     base.outer.SetNextStateToMain();
@@ -105,7 +121,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             base.FixedUpdate();
 
             //Able to be cancelled after this.
-            if (fixedAge >= duration * fireTime && fixedAge <= duration * fireEndTime)
+            if (fixedAge >= duration * fireTime && fixedAge <= duration * fireEndTime && isAuthority)
             {
                 if (fireStopwatch <= 0f && fireCount < StaticValues.yellowOrbDomainFireCount)
                 {
@@ -122,7 +138,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
 
 
-            if (fixedAge >= duration)
+            if (fixedAge >= duration && isAuthority)
             {
                 outer.SetNextStateToMain();
                 return;

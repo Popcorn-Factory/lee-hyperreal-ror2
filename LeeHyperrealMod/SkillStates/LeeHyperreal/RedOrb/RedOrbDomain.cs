@@ -6,6 +6,7 @@ using LeeHyperrealMod.SkillStates.BaseStates;
 using System;
 using LeeHyperrealMod.Modules;
 using UnityEngine.UIElements.UIR;
+using LeeHyperrealMod.Content.Controllers;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 {
@@ -24,6 +25,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public int fireCount = 0;
 
         internal BlastAttack blastAttack;
+        internal OrbController orbController;
 
         internal bool isStrong;
         internal float procCoefficient = Modules.StaticValues.redOrbProcCoefficient;
@@ -40,6 +42,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public override void OnEnter()
         {
             base.OnEnter();
+            orbController = gameObject.GetComponent<OrbController>();
+            if (orbController)
+            {
+                orbController.isExecutingSkill = true;
+            }
             rma = InitMeleeRootMotion();
             rmaMultiplier = movementMultiplier;
             fireInterval = baseFireInterval / attackSpeedStat;
@@ -52,7 +59,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             characterMotor.gravityParameters = gravParams;
 
             Ray aimRay = base.GetAimRay();
-
+            characterMotor.velocity.y = 0f;
 
 
             PlayAttackAnimation();
@@ -89,6 +96,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             base.OnExit();
             characterMotor.gravityParameters = oldGravParams;
             PlayAnimation("Body", "BufferEmpty");
+            if (orbController)
+            {
+                orbController.isExecutingSkill = false;
+            }
         }
 
         public override void Update()
@@ -98,6 +109,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             //Able to be cancelled after this.
             if (age >= duration * earlyEnd && base.isAuthority)
             {
+                if (orbController)
+                {
+                    orbController.isExecutingSkill = false;
+                }
                 if (inputBank.moveVector != Vector3.zero) 
                 {
                     base.outer.SetNextStateToMain();

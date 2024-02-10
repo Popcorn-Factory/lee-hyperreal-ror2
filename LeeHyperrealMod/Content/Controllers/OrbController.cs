@@ -39,6 +39,8 @@ namespace LeeHyperrealMod.Content.Controllers
 
         EntityStateMachine[] stateMachines;
 
+        public bool isExecutingSkill = false;
+
 
         public void Awake()
         {
@@ -68,63 +70,67 @@ namespace LeeHyperrealMod.Content.Controllers
         public void Update()
         {
             //Check input
-
-
-            if (Modules.Config.isSimple.Value) 
+            if (charBody.hasEffectiveAuthority) 
             {
-                if (UnityEngine.Input.GetKeyDown(Modules.Config.blueOrbTrigger.Value.MainKey)) 
+                if (!isExecutingSkill)
                 {
-                    ConsumeOrbsSimple(OrbType.BLUE);
-                }
-                else if (UnityEngine.Input.GetKeyDown(Modules.Config.redOrbTrigger.Value.MainKey))
-                { 
-                    ConsumeOrbsSimple(OrbType.RED);
-                }
-                else if (UnityEngine.Input.GetKeyDown(Modules.Config.yellowOrbTrigger.Value.MainKey))
-                {
-                    ConsumeOrbsSimple(OrbType.YELLOW);
-                }
-            }
-            else 
-            {
-                int SelectedIndex = -1;
-                bool isAltPressed = UnityEngine.Input.GetKey(Modules.Config.orbAltTrigger.Value.MainKey);
-                if (UnityEngine.Input.GetKeyDown(Modules.Config.orb1Trigger.Value.MainKey))
-                {
-                    SelectedIndex = 1;
-                }
-                else if (UnityEngine.Input.GetKeyDown(Modules.Config.orb2Trigger.Value.MainKey))
-                {
-                    SelectedIndex = 2;
-                }
-                else if(UnityEngine.Input.GetKeyDown(Modules.Config.orb3Trigger.Value.MainKey))
-                {
-                    SelectedIndex = 3;
-                }
-                else if(UnityEngine.Input.GetKeyDown(Modules.Config.orb4Trigger.Value.MainKey))
-                {
-                    SelectedIndex = 4;
+                    if (Modules.Config.isSimple.Value)
+                    {
+                        if (UnityEngine.Input.GetKeyDown(Modules.Config.blueOrbTrigger.Value.MainKey))
+                        {
+                            ConsumeOrbsSimple(OrbType.BLUE);
+                        }
+                        else if (UnityEngine.Input.GetKeyDown(Modules.Config.redOrbTrigger.Value.MainKey))
+                        {
+                            ConsumeOrbsSimple(OrbType.RED);
+                        }
+                        else if (UnityEngine.Input.GetKeyDown(Modules.Config.yellowOrbTrigger.Value.MainKey))
+                        {
+                            ConsumeOrbsSimple(OrbType.YELLOW);
+                        }
+                    }
+                    else
+                    {
+                        int SelectedIndex = -1;
+                        bool isAltPressed = UnityEngine.Input.GetKey(Modules.Config.orbAltTrigger.Value.MainKey);
+                        if (UnityEngine.Input.GetKeyDown(Modules.Config.orb1Trigger.Value.MainKey))
+                        {
+                            SelectedIndex = 1;
+                        }
+                        else if (UnityEngine.Input.GetKeyDown(Modules.Config.orb2Trigger.Value.MainKey))
+                        {
+                            SelectedIndex = 2;
+                        }
+                        else if (UnityEngine.Input.GetKeyDown(Modules.Config.orb3Trigger.Value.MainKey))
+                        {
+                            SelectedIndex = 3;
+                        }
+                        else if (UnityEngine.Input.GetKeyDown(Modules.Config.orb4Trigger.Value.MainKey))
+                        {
+                            SelectedIndex = 4;
+                        }
+
+                        if (isAltPressed && SelectedIndex != -1)
+                        {
+                            SelectedIndex += 4;
+                        }
+
+                        if (SelectedIndex != -1)
+                        {
+                            ConsumeOrbsFromSlot(SelectedIndex);
+                        }
+                    }
                 }
 
-                if (isAltPressed && SelectedIndex != -1) 
-                {
-                    SelectedIndex += 4;
-                }
 
-                if (SelectedIndex != -1) 
+                if (uiController)
                 {
-                    ConsumeOrbsFromSlot(SelectedIndex);
-                }
-            }
-
-
-            if (uiController)
-            {
-                orbUIStopwatch += Time.deltaTime;
-                if (orbUIStopwatch >= updateRate) 
-                {
-                    uiController.UpdateOrbList(orbList);
-                    uiController.UpdateOrbAmount(orbList.Count, OrbLimit);
+                    orbUIStopwatch += Time.deltaTime;
+                    if (orbUIStopwatch >= updateRate)
+                    {
+                        uiController.UpdateOrbList(orbList);
+                        uiController.UpdateOrbAmount(orbList.Count, OrbLimit);
+                    }
                 }
             }
         }

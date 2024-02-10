@@ -1,4 +1,5 @@
 ﻿using EntityStates;
+using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using RoR2;
 using UnityEngine;
@@ -26,17 +27,22 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         internal BulletAttack bulletAttack;
         internal string muzzleString = "SubmachineGunMuzzle";
 
-
+        internal OrbController orbController;
         public override void OnEnter()
         {
             base.OnEnter();
+            orbController = gameObject.GetComponent<OrbController>();
+            if (orbController)
+            {
+                orbController.isExecutingSkill = true;
+            }
             rmaMultiplier = 1f;
             fireAmount = baseFireAmount * (int)(attackSpeedStat > 1f ? attackSpeedStat : 1);
 
             firingStopwatch = attackEnd - attackStart;
 
             aimRay = base.GetAimRay();
-
+            characterMotor.velocity.y = 0f;
             bulletAttack = new BulletAttack
             {
                 bulletCount = 1,
@@ -81,6 +87,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         {
             PlayAnimation("Body", "BufferEmpty");
             base.OnExit();
+            if (orbController)
+            {
+                orbController.isExecutingSkill = false;
+            }
         }
 
         public override void Update()
@@ -89,6 +99,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
             if (base.age >= duration * exitEarlyFrac && base.isAuthority) 
             {
+                if (orbController)
+                {
+                    orbController.isExecutingSkill = false;
+                }
                 if (inputBank.moveVector != Vector3.zero) 
                 {
                     this.outer.SetNextStateToMain();

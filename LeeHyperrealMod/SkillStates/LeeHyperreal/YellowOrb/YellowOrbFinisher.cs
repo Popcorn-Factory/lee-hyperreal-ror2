@@ -1,4 +1,5 @@
-﻿using LeeHyperrealMod.SkillStates.BaseStates;
+﻿using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.SkillStates.BaseStates;
 using RoR2;
 using UnityEngine;
 
@@ -15,9 +16,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
         internal float attackStart = 0.154f;
         internal float attackEnd = 0.24f;
-        internal float exitEarlyFrac = 0.48f;
+        internal float exitEarlyFrac = 0.26f;
 
         internal RootMotionAccumulator rma;
+        internal OrbController orbController;
 
         public override void OnEnter()
         {
@@ -55,6 +57,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             base.OnEnter();
 
             InitMeleeRootMotion();
+
+            orbController = gameObject.GetComponent<OrbController>();
+            if (orbController)
+            {
+                orbController.isExecutingSkill = true;
+            }
+            characterMotor.velocity.y = 0f;
         }
         
         protected override void PlayAttackAnimation()
@@ -96,7 +105,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void OnExit()
         {
             base.OnExit();
-
+            if (orbController)
+            {
+                orbController.isExecutingSkill = false;
+            }
             PlayAnimation("Body", "BufferEmpty");
         }
 
@@ -108,6 +120,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             if (base.age >= duration * exitEarlyFrac && base.isAuthority) 
             {
+                if (orbController)
+                {
+                    orbController.isExecutingSkill = false;
+                }
                 if (base.inputBank.moveVector != Vector3.zero) 
                 {
                     base.outer.SetNextStateToMain();
