@@ -38,6 +38,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             animator.SetFloat("attack.playbackRate", 1f);
             moveVector = inputBank.moveVector;
             rmaMultiplier = movementMultiplier;
+            if (isAuthority)
+            {
+                characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, duration * disableInvincibility);
+            }
+
             if (inputBank.moveVector == Vector3.zero)
             {
                 isForwardRoll = false;
@@ -54,11 +59,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
             isForwardRoll = true;
             PlayAnimation();
-
-            if (isAuthority)
-            {
-                characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, duration * disableInvincibility);
-            }
 
             this.characterDirection.forward = base.inputBank.moveVector;
             this.characterDirection.moveVector = base.inputBank.moveVector;
