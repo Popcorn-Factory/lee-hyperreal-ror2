@@ -31,6 +31,9 @@ namespace LeeHyperrealMod.Content.Controllers
         const bool autoIncrementOrbIncrementor = true;
 
         float orbUIStopwatch = 0f;
+        float baseOrbGrantRate = Modules.StaticValues.LimitToGrantOrb;
+        float orbGrantRate;
+
         float updateRate = 0.25f;
 
         LeeHyperrealUIController uiController;
@@ -54,7 +57,7 @@ namespace LeeHyperrealMod.Content.Controllers
             uiController = gameObject.GetComponent<LeeHyperrealUIController>();
 
             stateMachines = charBody.gameObject.GetComponents<EntityStateMachine>();
-
+            RecalcUpdateRate();
         }
 
         public void Hook()
@@ -65,6 +68,27 @@ namespace LeeHyperrealMod.Content.Controllers
         public void Unhook()
         {
 
+        }
+
+        public void RecalcUpdateRate() 
+        {
+            int alienHeadCount = charBody.inventory.GetItemCount(RoR2Content.Items.AlienHead);
+            int purityCount = charBody.inventory.GetItemCount(RoR2Content.Items.LunarBadLuck);
+            //Flat difference for purity, percentage taken for alien head.
+
+            float cooldownScale = 1f;
+            for (int i = 0; i < alienHeadCount; i++)
+            {
+                cooldownScale *= 0.75f;
+            }
+
+            float flatCooldownReduction = 0f;
+            if (purityCount > 0)
+            {
+                flatCooldownReduction += 2f + 1f * (float)(purityCount - 1);
+            }
+
+            orbGrantRate = Mathf.Min(this.baseOrbGrantRate, Mathf.Max(1f, this.baseOrbGrantRate * cooldownScale - flatCooldownReduction));
         }
 
         public void Update()
@@ -348,11 +372,13 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 orbIncrementor += Modules.StaticValues.flatIncreaseOrbIncrementor * Time.fixedDeltaTime;
 
-                if (orbIncrementor >= Modules.StaticValues.LimitToGrantOrb)
+                if (orbIncrementor >= orbGrantRate)
                 {
                     orbIncrementor = 0f;
                     GrantOrb();
                 }
+
+                RecalcUpdateRate();
             }
 
             string output = "";

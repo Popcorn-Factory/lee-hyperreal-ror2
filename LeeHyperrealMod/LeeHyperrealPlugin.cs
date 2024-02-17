@@ -41,7 +41,7 @@ namespace LeeHyperrealMod
         //   this shouldn't even have to be said
         public const string MODUID = "com.PopcornFactory.LeeHyperrealMod";
         public const string MODNAME = "LeeHyperrealMod";
-        public const string MODVERSION = "0.0.4";
+        public const string MODVERSION = "0.0.5";
 
         // a prefix for name tokens to prevent conflicts- please capitalize all name tokens for convention
         public const string DEVELOPER_PREFIX = "POPCORN";

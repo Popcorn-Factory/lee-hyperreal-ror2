@@ -28,7 +28,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         internal int attackAmount;
         internal float partialAttack;
 
-        private float movementMultiplier = 1.5f;
+        public float defaultMovementMultiplier = 1.5f;
+        public float backwardsMovementMultiplier = 0.75f;
+        public float forwardsMovementMultiplier = 2f;
+        private float movementMultiplier;
 
         CharacterGravityParameters gravParams;
         CharacterGravityParameters oldGravParams;
@@ -50,6 +53,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             {
                 orbController.isExecutingSkill = true;
             }
+
+
+
 
             rmaMultiplier = movementMultiplier;
 
@@ -140,7 +146,29 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         public override void Update()
         {
+            if (base.isAuthority)
+            {
+                Vector3 forwardDirection = GetAimRay().direction;
+                Vector3 backwardsDirection = forwardDirection * -1f;
+
+                if (inputBank.moveVector == Vector3.zero)
+                {
+                    movementMultiplier = defaultMovementMultiplier;
+                }
+                else if (Vector3.Dot(backwardsDirection, inputBank.moveVector) >= 0.833f)
+                {
+                    movementMultiplier = backwardsMovementMultiplier;
+                }
+                else if (Vector3.Dot(forwardDirection, inputBank.moveVector) >= 0.833f)
+                {
+                    movementMultiplier = forwardsMovementMultiplier;
+                }
+
+                rmaMultiplier = movementMultiplier;
+            }
+
             base.Update();
+
 
             if (base.inputBank.skill3.down && base.isAuthority)
             {
