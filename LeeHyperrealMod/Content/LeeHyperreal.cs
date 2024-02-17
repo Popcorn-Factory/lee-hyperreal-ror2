@@ -1,6 +1,7 @@
 ﻿using BepInEx.Configuration;
 using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.Modules.Characters;
+using LeeHyperrealMod.SkillStates;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.Evade;
 using RoR2;
 using RoR2.Skills;
@@ -109,7 +110,7 @@ namespace LeeHyperrealMod.Modules.Survivors
 
         public override UnlockableDef characterUnlockableDef => null;
 
-        public override Type characterMainState => typeof(EntityStates.GenericCharacterMain);
+        public override Type characterMainState => typeof(LeeHyperrealCharacterMain);
 
         public override ItemDisplaysBase itemDisplays => new LeeHyperrealItemDisplays();
 

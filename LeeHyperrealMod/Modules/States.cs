@@ -17,6 +17,7 @@ namespace LeeHyperrealMod.Modules
     {
         internal static void RegisterStates()
         {
+            Modules.Content.AddEntityState(typeof(LeeHyperrealCharacterMain));
 
             #region Primary
             Modules.Content.AddEntityState(typeof(Primary1));
