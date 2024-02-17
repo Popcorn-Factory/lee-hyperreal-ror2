@@ -146,6 +146,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public override void Update()
         {
             base.Update();
+            if (base.inputBank.skill3.down && base.isAuthority)
+            {
+                Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
+            }
             if (age >= duration * earlyEnd && base.isAuthority)
             {
                 if (orbController)

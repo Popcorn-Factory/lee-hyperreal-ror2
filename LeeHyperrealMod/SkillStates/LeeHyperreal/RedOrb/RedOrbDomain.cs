@@ -37,7 +37,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         float turnOffGravityFrac = 0.298f;
         float gravOffTimer = 0.18f;
 
-        private float movementMultiplier = 1.5f;
+        private float movementMultiplier = 1f;
 
         public override void OnEnter()
         {

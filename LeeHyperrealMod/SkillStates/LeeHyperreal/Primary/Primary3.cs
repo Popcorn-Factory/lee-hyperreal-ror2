@@ -33,7 +33,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         CharacterGravityParameters gravParams;
         CharacterGravityParameters oldGravParams;
-        float turnOffGravityFrac = 0.13f; 
+        float turnOffGravityFrac = 0.13f;
+
 
         public override void OnEnter()
         {
@@ -105,7 +106,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 Vector3 a = rma.ExtractRootMotion();
                 if (base.characterMotor)
                 {
-                    base.characterMotor.rootMotion = a * scale;
+                    base.characterMotor.rootMotion = new Vector3(a.x * xzMovementMultiplier, a.y, a.z * xzMovementMultiplier) * scale;
                 }
             }
         }
@@ -172,5 +173,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         {
             return InterruptPriority.Skill;
         }
+    
+    
     }
 }

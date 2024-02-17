@@ -74,6 +74,9 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
 
         internal bool bufferTriggerNextState;
 
+        public float xzMovementMultiplier = 1f;
+
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -354,6 +357,11 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         {
             base.Update();
 
+            if (base.inputBank.skill3.down && base.isAuthority)
+            {
+                Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
+            }
+
             if (this.stopwatch >= (this.duration * this.bufferActiveTime) && base.isAuthority) 
             {
                 if (base.inputBank.skill1.down) 
@@ -396,12 +404,14 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         {
             base.OnSerialize(writer);
             writer.Write(this.swingIndex);
+            writer.Write(this.xzMovementMultiplier);
         }
 
         public override void OnDeserialize(NetworkReader reader)
         {
             base.OnDeserialize(reader);
             this.swingIndex = reader.ReadInt32();
+            this.xzMovementMultiplier = reader.ReadSingle();
         }
 
         //Plan

@@ -50,6 +50,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         private LeeHyperrealDomainController domainController;
 
+        public float defaultMovementMultiplier = 1f;
+        public float inputMovementMultiplier = 2.5f;
+        public float movementMultiplier;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -86,6 +90,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             stopwatch = 0f;
             InitMeleeRootMotion();
+            movementMultiplier = defaultMovementMultiplier;
         }
 
         public RootMotionAccumulator InitMeleeRootMotion()
@@ -121,6 +126,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override void Update()
         {
+            if (base.inputBank.skill3.down && base.isAuthority)
+            {
+                Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
+            }
+
             if (base.isAuthority && this.age >= duration * bufferActiveTime && base.isAuthority) 
             {
                 if (inputBank.skill1.down) 
@@ -131,15 +141,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             if (base.isAuthority && this.age <= duration * earlyExitTime) 
             {
-                if (inputBank.moveVector != new Vector3())
+                if (inputBank.moveVector != Vector3.zero)
                 {
                     this.characterDirection.moveVector = base.inputBank.moveVector;
                     this.characterDirection.forward = base.inputBank.moveVector;
+                    movementMultiplier = inputMovementMultiplier;
                 }
                 else 
                 {
                     this.characterDirection.moveVector = base.inputBank.aimDirection;
                     this.characterDirection.forward = base.inputBank.aimDirection;
+                    movementMultiplier = defaultMovementMultiplier;
                 }
             }
 
@@ -155,7 +167,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             }
 
             base.Update();
-            UpdateMeleeRootMotion(2.4f);
+
+            UpdateMeleeRootMotion(movementMultiplier);
             stopwatch += Time.deltaTime;
 
             if (this.age >= (this.duration * moveStartFrac) && this.age <= (this.duration * moveEndFrac)) 
@@ -210,8 +223,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             Util.PlayAttackSpeedSound("HenrySwordSwing", base.gameObject, this.attackSpeedStat);
             if (result.hitCount > 0) 
             {
-
-
                 if (orbController)
                 {
                     orbController.AddToIncrementor(0.015f);

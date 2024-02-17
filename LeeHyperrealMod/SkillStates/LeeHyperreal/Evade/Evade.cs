@@ -29,6 +29,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
         private float disableInvincibility = 0.15f;
 
+        private float movementMultiplierPrimary3 = 1.6f;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -93,7 +95,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                     if (inputBank.skill1.down)
                     {
                         //Go to Primary 3.
-                        outer.SetState(new Primary.Primary3 { });
+                        outer.SetState(new Primary.Primary3 { xzMovementMultiplier = movementMultiplierPrimary3 });
                         return;
                     }
                 }
@@ -107,7 +109,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                     if (inputBank.skill1.down)
                     {
                         //Go to Primary 3.
-                        outer.SetState(new Primary.Primary3 { });
+                        outer.SetState(new Primary.Primary3 { xzMovementMultiplier = movementMultiplierPrimary3 });
                         return;
                     }
                 }
@@ -115,16 +117,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
             if (age >= duration * earlyExitFrac && isAuthority)
             {
-                if (isAuthority && !isForwardRoll)
+                if (!isForwardRoll)
                 {
                     if (inputBank.skill1.down)
                     {
                         //Go to Primary 3.
-                        outer.SetState(new Primary.Primary3 { });
+                        outer.SetState(new Primary.Primary3 { xzMovementMultiplier = movementMultiplierPrimary3 });
                         return;
                     }
                 }
-                if (inputBank.moveVector != new Vector3(0, 0, 0)) 
+                if (inputBank.moveVector != Vector3.zero) 
                 {
                     outer.SetNextStateToMain();
                     return;

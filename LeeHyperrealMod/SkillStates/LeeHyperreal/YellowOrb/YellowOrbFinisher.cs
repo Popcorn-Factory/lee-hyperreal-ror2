@@ -115,7 +115,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void Update()
         {
             base.Update();
-
+            if (base.inputBank.skill3.down && base.isAuthority)
+            {
+                Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
+            }
             UpdateMeleeRootMotion(1.6f);
 
             if (base.age >= duration * exitEarlyFrac && base.isAuthority) 

@@ -103,6 +103,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void Update()
         {
             base.Update();
+            if (base.inputBank.skill3.down && base.isAuthority)
+            {
+                Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
+            }
+
             if (age >= duration * earlyEnd && base.isAuthority)
             {
                 if (orbController)
@@ -121,8 +126,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                     base.outer.SetNextStateToMain();
                     return;
                 }
-
-                Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
         }
 
