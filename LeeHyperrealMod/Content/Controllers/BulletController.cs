@@ -30,6 +30,7 @@ namespace LeeHyperrealMod.Content.Controllers
         public CharacterMotor motor;
         public LeeHyperrealUIController uiController;
         public CameraTargetParams cameraTargetParams;
+        public WeaponModelHandler weaponModelHandler;
         public CameraParamsOverrideHandle handle;
         CharacterGravityParameters gravParams;
 
@@ -54,6 +55,7 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             inSnipeStance = false;
             uiController = gameObject.GetComponent<LeeHyperrealUIController>();
+            weaponModelHandler = gameObject.GetComponent<WeaponModelHandler>();
         }
 
         public void Update() 
@@ -97,6 +99,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
                     handle = cameraTargetParams.AddParamsOverride(request, 0.4f);
                 }
+                weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.RIFLE);
             }
         }
 
@@ -117,6 +120,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 {
                     cameraTargetParams.RemoveParamsOverride(handle);
                 }
+                weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
             }
         }
 

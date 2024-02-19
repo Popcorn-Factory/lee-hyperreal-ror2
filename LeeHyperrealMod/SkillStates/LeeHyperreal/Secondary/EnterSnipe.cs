@@ -76,6 +76,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                 {
                     Vector3 result = Modules.StaticValues.CheckDirection(inputBank.moveVector, GetAimRay());
 
+                    if (result == new Vector3(0, 0, 1)) 
+                    {
+                        base.outer.SetState(new Evade.Evade { unsetSnipe = true });
+                        return;
+                    }
                     if (result == new Vector3(0, 0, 0)) 
                     {
                         base.outer.SetState(new EvadeBack180 { });

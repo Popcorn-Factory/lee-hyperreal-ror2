@@ -16,6 +16,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
     {
         OrbController orbController;
         BulletController bulletController;
+        WeaponModelHandler weaponModelHandler;
 
         public float start = 0;
         public float earlyEnd = 0.38f;
@@ -48,14 +49,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             base.OnEnter();
             orbController = base.gameObject.GetComponent<OrbController>();
             bulletController = base.gameObject.GetComponent<BulletController>();
+            weaponModelHandler = base.gameObject.GetComponent<WeaponModelHandler>();
 
             if (orbController) 
             {
                 orbController.isExecutingSkill = true;
             }
-
-
-
 
             rmaMultiplier = movementMultiplier;
 
@@ -121,6 +120,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             {
                 base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, duration * disableInvincibility);
             }
+
+            weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.RIFLE);
         }
 
         protected void PlayAttackAnimation()
@@ -142,6 +143,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             }
             PlayAnimation("Body", "BufferEmpty");
             base.OnExit();
+
+            weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
         }
 
         public override void Update()

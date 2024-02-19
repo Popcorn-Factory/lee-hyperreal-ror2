@@ -11,6 +11,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
     internal class Evade : BaseRootMotionMoverState
     {
         public static float duration = 2.0f;
+        public BulletController bulletController;
 
         public static string dodgeSoundString = "HenryRoll";
         public static float dodgeFOV = EntityStates.Commando.DodgeState.dodgeFOV;
@@ -28,12 +29,20 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         private float movementMultiplier = 1.6f;
 
         private float disableInvincibility = 0.15f;
-
+        public bool unsetSnipe = false;
         private float movementMultiplierPrimary3 = 1.6f;
 
         public override void OnEnter()
         {
             base.OnEnter();
+
+            bulletController = gameObject.GetComponent<BulletController>();
+
+            if (bulletController && unsetSnipe) 
+            {
+                bulletController.UnsetSnipeStance();
+            }
+
             animator = GetModelAnimator();
             forwardDirection = GetAimRay().direction;
             Vector3 backwardsDirection = forwardDirection * -1f;

@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -89,9 +90,15 @@ namespace LeeHyperrealMod.Modules
             Vector3 direction = new Vector3(aimRay.direction.x, 0, aimRay.direction.z);
             Vector3 rotatedVector = Quaternion.AngleAxis(90, Vector3.up) * direction;
 
+            if (Vector3.Dot(moveVector, aimRay.direction) >= 0.833f) 
+            {
+                outputVector = new Vector3(0, 0, 1);
+                return outputVector;
+            }
+
             if (Vector3.Dot(direction, moveVector) <= -0.833f)
             {
-                outputVector = new Vector3(0, 0, 0);
+                outputVector = new Vector3(0, 0, 0); // dodge backwards
                 return outputVector;
             }
 

@@ -318,8 +318,6 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                     }
 
                     bulletController.GrantEnhancedBullet(1);
-
-                    Chat.AddMessage("PARRY");
                 }
             }
 

@@ -10,6 +10,7 @@ using LeeHyperrealMod.Modules.Networking;
 using R2API.Networking.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
+using LeeHyperrealMod.Content.Controllers;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 {
@@ -29,13 +30,23 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         internal string muzzleString = "SubmachineGunMuzzle"; //need to change to the sniper one
 
         private float movementMultiplier = 1.5f;
+        private BulletController bulletController;
+        private WeaponModelHandler weaponModelHandler;
 
         public override void OnEnter()
         {
             base.OnEnter();
             rma = InitMeleeRootMotion();
             rmaMultiplier = movementMultiplier;
+            bulletController = gameObject.GetComponent<BulletController>();
+            weaponModelHandler = gameObject.GetComponent<WeaponModelHandler>();
 
+            if (bulletController.inSnipeStance && isAuthority) 
+            {
+                bulletController.UnsetSnipeStance();
+            }
+
+            weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.CANNON);
 
             Ray aimRay = base.GetAimRay();
 
@@ -81,6 +92,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         {
             base.OnExit();
             PlayAnimation("Body", "BufferEmpty");
+            weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
         }
 
         public override void Update()
