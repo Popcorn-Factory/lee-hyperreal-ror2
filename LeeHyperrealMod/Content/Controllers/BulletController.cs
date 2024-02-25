@@ -27,7 +27,7 @@ namespace LeeHyperrealMod.Content.Controllers
         public SkillLocator skillLocator;
 
         public CharacterBody body;
-        public Animator anim;
+        public Animator animator;
         public CharacterMotor motor;
         public LeeHyperrealUIController uiController;
         public CameraTargetParams cameraTargetParams;
@@ -36,9 +36,8 @@ namespace LeeHyperrealMod.Content.Controllers
         CharacterGravityParameters gravParams;
 
         //Debug
-        //public Animator animator;
-        //public ModelLocator modelLocator;
-        //public string[] strings = {"Idle", "StopRun", "Run", "Sprint", "Jump", "AscendDescend", "IdleIn", "BufferEmpty"};
+        public ModelLocator modelLocator;
+        //public string[] strings = { "Idle", "StopRun", "Run", "Sprint", "Jump", "AscendDescend", "IdleIn", "BufferEmpty", "SnipePitchControl" };
 
         public void Awake() 
         {
@@ -47,12 +46,11 @@ namespace LeeHyperrealMod.Content.Controllers
             motor = gameObject.GetComponent<CharacterMotor>();
             skillLocator = gameObject.GetComponent<SkillLocator>();
             cameraTargetParams = GetComponent<CameraTargetParams>();
+            modelLocator = gameObject.GetComponent<ModelLocator>();
+            animator = modelLocator.modelTransform.gameObject.GetComponent<Animator>();
             //Debug
-            //modelLocator = gameObject.GetComponent<ModelLocator>();
-            //animator = modelLocator.modelTransform.gameObject.GetComponent<Animator>();
-
-            HurtBoxGroup hurtBoxGroup = body.hurtBoxGroup;
-            anim = hurtBoxGroup.gameObject.GetComponent<Animator>();
+            modelLocator = gameObject.GetComponent<ModelLocator>();
+            animator = modelLocator.modelTransform.gameObject.GetComponent<Animator>();
         }
 
         public void Start() 
@@ -66,9 +64,9 @@ namespace LeeHyperrealMod.Content.Controllers
         {
 
             //Debug
-            //foreach (string str in strings) 
+            //foreach (string str in strings)
             //{
-            //    if (animator.GetCurrentAnimatorStateInfo(0).IsName(str)) 
+            //    if (animator.GetCurrentAnimatorStateInfo(0).IsName(str))
             //    {
             //        Chat.AddMessage($"{str}: spr:{animator.GetBool("isSprinting")} mov:{animator.GetBool("isMoving")} gro:{animator.GetBool("isGrounded")}");
             //    }
@@ -105,9 +103,9 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
                 weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.RIFLE);
 
-                if (anim) 
+                if (animator) 
                 {
-                    anim.SetBool("isSniping", true);
+                    animator.SetBool("isSniping", true);
                 }
             }
         }
@@ -131,9 +129,9 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
                 weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
 
-                if (anim)
+                if (animator)
                 {
-                    anim.SetBool("isSniping", false);
+                    animator.SetBool("isSniping", false);
                 }
             }
         }

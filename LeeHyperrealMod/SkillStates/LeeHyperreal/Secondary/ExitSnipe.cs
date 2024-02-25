@@ -38,7 +38,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             bulletController.UnsetSnipeStance();
 
 
-            characterBody.SetAimTimer(0f);
+            //characterBody.SetAimTimer(0f);
         }
 
         public override void OnExit()

@@ -83,5 +83,21 @@ namespace LeeHyperrealMod.SkillStates
                 this.useRootMotion = ((base.characterBody && base.characterBody.rootMotionInMainState && base.isGrounded) || base.railMotor);
             }
         }
+
+        public override void OnExit()
+        {
+            base.OnExit();
+
+            //Re-enable the aim animator just because.
+            Transform modelTransform = base.GetModelTransform();
+            if (modelTransform)
+            {
+                AimAnimator component = modelTransform.GetComponent<AimAnimator>();
+                if (component)
+                {
+                    component.enabled = true;
+                }
+            }
+        }
     }
 }

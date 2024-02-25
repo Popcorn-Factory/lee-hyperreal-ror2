@@ -22,7 +22,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
             PlayAttackAnimation();
 
-            characterBody.SetAimTimer(duration + 1f);
+            //characterBody.SetAimTimer(duration + 1f);
         }
 
         public override void OnExit()

@@ -41,7 +41,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
             base.characterMotor.velocity = new Vector3();
 
-            characterBody.SetAimTimer(duration);
+            //characterBody.SetAimTimer(duration);
         }
 
         public override void OnExit()

@@ -378,6 +378,7 @@ namespace LeeHyperrealMod.Modules {
         {
             AimAnimator aimAnimator = model.AddComponent<AimAnimator>();
             aimAnimator.directionComponent = prefab.GetComponent<CharacterDirection>();
+            aimAnimator.UseTransformedAimVector = true;
             aimAnimator.pitchRangeMax = 60f;
             aimAnimator.pitchRangeMin = -60f;
             aimAnimator.yawRangeMin = -80f;
