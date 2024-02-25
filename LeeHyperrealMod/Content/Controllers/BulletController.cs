@@ -27,6 +27,7 @@ namespace LeeHyperrealMod.Content.Controllers
         public SkillLocator skillLocator;
 
         public CharacterBody body;
+        public Animator anim;
         public CharacterMotor motor;
         public LeeHyperrealUIController uiController;
         public CameraTargetParams cameraTargetParams;
@@ -49,6 +50,9 @@ namespace LeeHyperrealMod.Content.Controllers
             //Debug
             //modelLocator = gameObject.GetComponent<ModelLocator>();
             //animator = modelLocator.modelTransform.gameObject.GetComponent<Animator>();
+
+            HurtBoxGroup hurtBoxGroup = body.hurtBoxGroup;
+            anim = hurtBoxGroup.gameObject.GetComponent<Animator>();
         }
 
         public void Start() 
@@ -100,6 +104,11 @@ namespace LeeHyperrealMod.Content.Controllers
                     handle = cameraTargetParams.AddParamsOverride(request, 0.4f);
                 }
                 weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.RIFLE);
+
+                if (anim) 
+                {
+                    anim.SetBool("isSniping", true);
+                }
             }
         }
 
@@ -121,6 +130,11 @@ namespace LeeHyperrealMod.Content.Controllers
                     cameraTargetParams.RemoveParamsOverride(handle);
                 }
                 weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
+
+                if (anim)
+                {
+                    anim.SetBool("isSniping", false);
+                }
             }
         }
 

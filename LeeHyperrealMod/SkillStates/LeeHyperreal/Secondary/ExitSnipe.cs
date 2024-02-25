@@ -36,6 +36,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
             //Override the M1 skill with snipe.
             bulletController.UnsetSnipeStance();
+
+
+            characterBody.SetAimTimer(0f);
         }
 
         public override void OnExit()
