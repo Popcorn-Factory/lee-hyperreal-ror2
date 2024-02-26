@@ -127,7 +127,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 pitch = 0.99f;
             }
 
-            Chat.AddMessage($"pitch: {aimAngle.pitch} remapPitch: {pitch} aimDirection: {inputBank.aimDirection}");
+            //Chat.AddMessage($"pitch: {aimAngle.pitch} remapPitch: {pitch} aimDirection: {inputBank.aimDirection}");
             animator.SetFloat(AimAnimator.aimPitchCycleHash, pitch);
         }
 
