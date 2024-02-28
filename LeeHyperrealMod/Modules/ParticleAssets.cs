@@ -7,6 +7,7 @@ namespace LeeHyperrealMod.Modules
     internal class ParticleAssets
     {
 
+
         public static void Initialize() 
         {
             PopulateAssets();
