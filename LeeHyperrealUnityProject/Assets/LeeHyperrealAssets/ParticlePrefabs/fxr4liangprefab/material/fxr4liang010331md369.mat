@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: fxr4liang010331md369
+  m_Shader: {fileID: 4800000, guid: 9ad199a191cef8344a941e549d87ac59, type: 3}
+  m_ShaderKeywords: _ALPHABLEND_ON _DISSOLUTION _FLOWMAP _MASKUV0 _RIM_LERP_WITH_ALPHA
+    _SECOND_TEX _VERTEX_OFFSET
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    DisableBatching: true
+    QUEUE: Transparent
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _DissolutionTex:
+        m_Texture: {fileID: 2800000, guid: 198df0e5d4f0267489577f013e726713, type: 3}
+        m_Scale: {x: 1, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _FireNoise:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlowTex:
+        m_Texture: {fileID: 2800000, guid: 0852c1ae465c091448f4cc9de2d43511, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 3.12}
+    - _IceNoise:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _IceTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: a2d1141189493814ba50fb469507fdda, type: 3}
+        m_Scale: {x: 0.83, y: 0.77}
+        m_Offset: {x: 4.21, y: 8.12}
+    - _MaskTex:
+        m_Texture: {fileID: 2800000, guid: 0b94317682656bd4ca22ed44ded275c4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SecondTex:
+        m_Texture: {fileID: 2800000, guid: 18fa86d367054bc4ea9b98120f44f2e4, type: 3}
+        m_Scale: {x: 1.01, y: 2.24}
+        m_Offset: {x: 0.71, y: 2.31}
+    - _VAT_Tex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _VertexOffset_Tex:
+        m_Texture: {fileID: 2800000, guid: 0852c1ae465c091448f4cc9de2d43511, type: 3}
+        m_Scale: {x: 0.5, y: 1.3}
+        m_Offset: {x: 0, y: 1.07}
+    m_Floats:
+    - IF_DissolutionFlowMap: 1
+    - IF_MainTexFlowMap: 1
+    - IF_MaskFlowMapKeyword: 1
+    - _AlphaTest: 0
+    - _BlendMode: 3
+    - _ColorMask: 15
+    - _CullMode: 0
+    - _CustomAlpha: 1
+    - _DissolutionRotation: 0
+    - _DissolutionSoftness: 0.232
+    - _DissolutionThreshold: 0.0058021545
+    - _DstBlend: 10
+    - _EffectBrightness: 2
+    - _EffectBrightnessB: 1
+    - _EffectBrightnessG: 1
+    - _EffectBrightnessR: 1
+    - _FlowIntensity: 0.2
+    - _HideDistance: 2
+    - _MainRotation: 0
+    - _MaskCompareFunction: 8
+    - _MaskIndex: 0
+    - _MaskRotation: 0
+    - _ParallaxDissolutionUV: 0
+    - _ParallaxMaskUV: 0
+    - _ParallaxScale: 0.5
+    - _ParallaxZOffset: 0
+    - _RenderType: 3000
+    - _RimRange: 0.579
+    - _SecondRotation: 0
+    - _ShakeVertexNoiseFrequancy: 20
+    - _ShakeVertexNoiseIntensity: 0.2
+    - _ShakeVertexScrollSpeed: 3
+    - _ShowDistance: 20
+    - _SpecialEffectIntensity: 0
+    - _SrcBlend: 5
+    - _StencilReadMask: 255
+    - _VAT_Blend: 1
+    - _VAT_Frame: 0
+    - _VAT_FrameCount: 0
+    - _VAT_VertexSampleCount: 1
+    - _VAT_VertexSize: 0
+    - _VertexOffset_AlphaMask: 1
+    - _VertexOffset_Speed_G: -1
+    - _VertexOffset_Speed_R: 1
+    - _VertexOffset_Strength_G: -0.04
+    - _VertexOffset_Strength_R: -0.02
+    - _ZOffset: 0
+    - _ZTest: 2
+    - _ZWrite: 0
+    m_Colors:
+    - _DissolutionColor: {r: 0.8349056, g: 0.9137345, b: 1, a: 0}
+    - _DissolutionRotationParams: {r: 1, g: 0, b: 0, a: 1}
+    - _FlowSpeed: {r: -0.5, g: -0.59, b: -0.1, a: 0.5}
+    - _MainRotationParams: {r: 1, g: 0, b: 0, a: 1}
+    - _MainTexColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MaskRotationParams: {r: 1, g: 0, b: 0, a: 1}
+    - _RimColor: {r: 0.38216448, g: 0.504152, b: 0.7169812, a: 1}
+    - _SecondColor: {r: 0.5896226, g: 1, b: 0.8732556, a: 1}
+    - _SecondRotationParams: {r: 1, g: 0, b: 0, a: 1}
+    - _ShakeVertexData: {r: 1, g: 0, b: 0, a: 3}
+    - _TintColor: {r: 0.5411765, g: 0.78728586, b: 1, a: 0.99215686}
+    - _VAT_MaxBound: {r: 0, g: 0, b: 0, a: 1}
+    - _VAT_MinBound: {r: 0, g: 0, b: 0, a: 1}
