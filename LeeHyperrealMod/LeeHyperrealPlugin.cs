@@ -54,6 +54,7 @@ namespace LeeHyperrealMod
 
             Log.Init(Logger);
             Modules.Assets.Initialize(); // load assets and read config
+            Modules.ParticleAssets.Initialize();
             Modules.Config.ReadConfig();
 
             if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions"))
