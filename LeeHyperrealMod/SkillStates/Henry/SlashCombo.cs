@@ -32,6 +32,8 @@ namespace LeeHyperrealMod.SkillStates
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
 
             base.OnEnter();
+
+            //Play Effect.
         }
 
         protected override void PlayAttackAnimation()

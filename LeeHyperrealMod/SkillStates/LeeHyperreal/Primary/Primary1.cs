@@ -61,9 +61,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             this.swingSoundString = "HenrySwordSwing";
             this.hitSoundString = "";
-            this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
-            this.swingEffectPrefab = Modules.Assets.swordSwingEffect;
-            this.hitEffectPrefab = Modules.Assets.swordHitImpactEffect;
+            this.muzzleString = "Base";
+            this.swingEffectPrefab = Modules.ParticleAssets.primary1Swing;
+            this.hitEffectPrefab = Modules.ParticleAssets.primary1Hit;
 
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
             
@@ -74,6 +74,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             base.OnEnter();
             InitMeleeRootMotion();
+
+            //Play Effect
+            RoR2.EffectManager.SimpleEffect(
+                Modules.ParticleAssets.primary1Floor,
+                transform.position, 
+                Quaternion.identity,
+                true);
         }
 
         public RootMotionAccumulator InitMeleeRootMotion()
@@ -129,6 +136,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+        }
+
+        protected override void PlaySwingEffect() 
+        {
+            EffectManager.SimpleEffect(Modules.ParticleAssets.primary1Swing, transform.position, Quaternion.identity, true);
         }
 
         public override void OnExit()

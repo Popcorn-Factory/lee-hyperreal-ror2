@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 4275020756
+CRC: 3868810488
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5c52671d1f091ff945a87e8e45dc59d5
+    Hash: 1b7317f6f5fd56b17ed287b35b71bd43
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 31e4eb212739b7e8be5447a22796b177
+    Hash: afb71a77b9ccdbc86849d973e2b6f548
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -33,29 +33,55 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 95
   Script: {instanceID: 0}
+- Class: 108
+  Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: e5b98180a9589ea48b1638a294134ce5, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c6e70bb247a8cd74aad98f5aca67911d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a450f8e4c98b15b489b0d82ab5ce3882, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ea6c9f87926db604992841b90650a105, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: cbd142a799d3e6e439390f50fe56d487, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 261c50d8a80898e4ebf2e8e415ea6766, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 3e53e9e906dd547479c83895f7802277, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: a62e0fdb1790ab64eb8ddcdcf400b7f3, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 65a53bac7c70a0f47a37b16589fb17f8, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 751bd37d2e55f5f448dbb0d97812d9ba, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 582c85dd2153a8f4bac4229dfe0ac908, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 95d3029e332a3884f853899440d0365f, type: 3}
 - Class: 115
+  Script: {instanceID: 0}
+- Class: 120
   Script: {instanceID: 0}
 - Class: 128
   Script: {instanceID: 0}
 - Class: 136
   Script: {instanceID: 0}
 - Class: 137
+  Script: {instanceID: 0}
+- Class: 198
+  Script: {instanceID: 0}
+- Class: 199
   Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
@@ -70,57 +96,101 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/UltimateDomain.anim
+- Assets/modelresource/effect/material/smoke90006.mat
 - Assets/LeeHyperrealAssets/Material/leeBoxGunMat.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk05.prefab
 - Assets/LeeHyperrealAssets/Mesh/leeEyeMeshBlend.mesh
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SnipeEvadeLeft.anim
+- Assets/modelresource/effect/material/normal10202.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk35fenshen.prefab
 - Assets/LeeHyperrealAssets/Mesh/leeSuperRifleMesh.mesh
 - Assets/LeeHyperrealAssets/Animation/BoxGunAnimation/changestart01.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk42zhongjie02.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangshunyi.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack36_Base
   Layer.anim
+- Assets/modelresource/effect/material/chunse201124.mat
 - Assets/LeeHyperrealAssets/Texture/Albedo/FxE3SuperlicannonMd010011.png
 - Assets/LeeHyperrealAssets/Mesh/leeTorsoClothMesh.mesh
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk04canying.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk01dilie.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/primary4.anim
 - Assets/LeeHyperrealAssets/Mesh/leeGunCaseMesh.mesh
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk32.prefab
 - Assets/LeeHyperrealAssets/Animation/Custom Animations/Attack24_Aim down.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk24bao.prefab
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeLegTex.png
+- Assets/modelresource/effect/material/lizi003407.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangrifle.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Hitdown_Base
   Layer.anim
 - Assets/LeeHyperrealAssets/Animation/otherGunAvatar.asset
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk34bonelcalftwist1.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack99_Base
   Layer.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk41.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack97_Base
   Layer.anim
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeBoxGunTex.png
+- Assets/modelresource/effect/material/smoke01307.mat
+- Assets/modelresource/effect/material/daoguang20109.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk03dilie2.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk35zidan02.prefab
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeHairTex.png
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4lianguistandnew01.prefab
 - Assets/LeeHyperrealAssets/Mesh/leeFaceMesh.mesh
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Save_Base
   Layer.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangmove01bonercalftwist1.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangborn1.prefab
 - Assets/LeeHyperrealAssets/Texture/Albedo/leePistolTex.png
 - Assets/LeeHyperrealAssets/DummyIcons/texUltimate.png
 - Assets/LeeHyperrealAssets/Shaders/EffectNoBatching.shader
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/yellowOrb2.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk34dilie.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk42suipingblur.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk14end.prefab
+- Assets/modelresource/effect/material/xulielizi00501.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SnipeEvade180.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk42zhongjie03.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/primary3.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangbip001rforearm.prefab
 - Assets/LeeHyperrealAssets/Material/leeEffectPistolMat.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/redOrb.anim
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk02hit01.asset
 - Assets/LeeHyperrealAssets/Animation/leeAvatar.asset
+- Assets/modelresource/effect/material/mask804502.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/evadeBack.anim
 - Assets/LeeHyperrealAssets/Animation/lee emotesAvatar.asset
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/primary1.anim
 - Assets/LeeHyperrealAssets/Texture/Normal/E3SuperlicannonMd010011PBR.png
+- Assets/modelresource/effect/material/liuguang633.mat
+- Assets/modelresource/effect/material/mask039506.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangwin.prefab
 - Assets/LeeHyperrealAssets/AnimationCurves/Fxr4liangatk03hit02-lightSC.asset
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Idle.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk35hit.prefab
 - Assets/LeeHyperrealAssets/Texture/Normal/E3SuperlicannonMd010011NM.png
+- Assets/modelresource/effect/material/lizi003701.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk41sound.prefab
 - Assets/LeeHyperrealAssets/Animation/uistand.controller
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk35zidan.prefab
+- Assets/modelresource/effect/material/wenli117506.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/evadeForward.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack71_Base
   Layer.anim
+- Assets/modelresource/effect/material/chunse14.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/evadeBackTrimmed.anim
+- Assets/modelresource/effect/material/baodian024101.mat
+- Assets/modelresource/effect/material/lizi703701.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Snipe Additive up and down.anim
 - Assets/LeeHyperrealAssets/Material/leeEffectChestLegPlateMat.mat
+- Assets/modelresource/effect/material/dilie402501.mat
+- Assets/modelresource/effect/material/path056700.mat
 - Assets/LeeHyperrealAssets/Material/leeEffectArmMat.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk41pingmu.prefab
 - Assets/LeeHyperrealAssets/Mesh/leeChestLegPlateMeshBlend.mesh
+- Assets/modelresource/effect/material/daoguang20110.mat
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk02hit02-spjere.asset
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeEyeTex.png
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack70_Base
@@ -132,24 +202,34 @@ Assets:
 - Assets/LeeHyperrealAssets/mdlLeeHyperreal.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/primary5.anim
 - Assets/LeeHyperrealAssets/Mesh/leeSubMachineGunMeshBlend.mesh
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk51zha.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack95_Base
   Layer.anim
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk51zha.asset
 - Assets/LeeHyperrealAssets/Animation/uistandAvatar.asset
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4lianguipingmu.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/yellowOrb.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Blue Orb 1.anim
+- Assets/modelresource/effect/material/normal90902.mat
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk04.asset
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/runstart.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/runstartend01.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4lianghexinma.prefab
 - Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/Rifle_Attack24.anim
 - Assets/LeeHyperrealAssets/Material/leeSubmachineMat.mat
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk42fire-lightSC.asset
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk36ma.prefab
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk10hit01-spjere.asset
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk10hit02-lightSC.asset
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk20hit.prefab
 - Assets/LeeHyperrealAssets/Texture/Normal/leeArmNormal.png
+- Assets/modelresource/effect/material/normal10508a.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangbox.prefab
+- Assets/modelresource/effect/material/lizi00305x.mat
 - Assets/LeeHyperrealAssets/Mesh/leeGunCaseMeshBlend.mesh
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SnipeExit.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/ArmatureAttack25Aim Up.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk11.prefab
 - Assets/LeeHyperrealAssets/DummyIcons/texEnterSnipe.png
 - Assets/LeeHyperrealAssets/Animation/Custom Animations/Attack24_Aim up.anim
 - Assets/LeeHyperrealAssets/Mesh/leeSuperRilfeAlphaMesh.mesh
@@ -157,19 +237,29 @@ Assets:
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk14fshit01.asset
 - Assets/LeeHyperrealAssets/Mesh/leeChestLegPlateMesh.mesh
 - Assets/LeeHyperrealAssets/Material/leeEffectBoxGun3Mat.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk34weaponcase2.prefab
 - Assets/LeeHyperrealAssets/Texture/Normal/leeBoxGunNormal.png
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk02.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/IdleEmptyHand.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Hoverhit_Base
   Layer.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk24hit.prefab
 - Assets/LeeHyperrealAssets/Material/leeLegMat.mat
 - Assets/LeeHyperrealAssets/Mesh/leeArmMesh.mesh
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk10hit02.prefab
 - Assets/LeeHyperrealAssets/Material/leeChestLegPlateMat.mat
 - Assets/LeeHyperrealAssets/DummyIcons/texExitSnipe.png
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk11weaponcase2.prefab
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk05dilie.asset
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk20weaponcase1.prefab
+- Assets/modelresource/effect/material/wenli12807.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/WalkEnd.anim
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangwin-lightJS1.asset
+- Assets/modelresource/effect/material/liuguang106501.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk14fshit01.prefab
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk24-lightSC2.asset
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/WalkEnd2.anim
+- Assets/modelresource/effect/material/dilie11101.mat
 - Assets/LeeHyperrealAssets/AnimationCurves/Fxr4liangatk01hit.asset
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk20-spjere.asset
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk11dilie.asset
@@ -178,69 +268,108 @@ Assets:
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk20-lightSC.asset
 - Assets/LeeHyperrealAssets/Mesh/leeEyeMesh.mesh
 - Assets/LeeHyperrealAssets/Material/leeEffectHairMat.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4lianguistandp03.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/runleanr.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack90_Base
   Layer.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk51weaponcase.prefab
 - Assets/LeeHyperrealAssets/E3SuperlicannonMd010011.mesh
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk42zhongjie01.prefab
 - Assets/LeeHyperrealAssets/Mesh/leeHairMesh.mesh
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4lianguistandnew02.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack75_Base
   Layer.anim
 - Assets/LeeHyperrealAssets/DummyIcons/texDodge.png
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/primary5.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk35zidan03.prefab
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk10.asset
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk04hit-spjere.asset
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk03dilie2.asset
+- Assets/modelresource/effect/material/fxr2pulaozha01.mat
 - Assets/LeeHyperrealAssets/Animation/BoxGunAnimation/change01loop.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack89_Base
   Layer.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Behitfly_Base
   Layer.anim
 - Assets/LeeHyperrealAssets/Material/UI Blue Orb.mat
+- Assets/modelresource/effect/material/normal10505a.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk01.prefab
 - Assets/LeeHyperrealAssets/Mesh/leeLegsMeshBlend.mesh
 - Assets/LeeHyperrealAssets/Shaders/EmptyShader.shader
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk20hit-spjere.asset
+- Assets/modelresource/effect/material/lizi00305.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk41loop.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/stand1.anim
 - Assets/LeeHyperrealAssets/Material/leeHairMat.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk34flash.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SitDown.anim
 - Assets/LeeHyperrealAssets/DummyIcons/texSnipe.png
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/yellowOrb.anim
+- Assets/modelresource/effect/material/dilie01101.mat
 - Assets/LeeHyperrealAssets/oldprefabs/mdlLeeHyperreal.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk04.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangbornfsma.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk42zhongjieqiliu.prefab
 - Assets/LeeHyperrealAssets/Texture/Albedo/gunHudTex.png
 - Assets/LeeHyperrealAssets/Mesh/leeFaceMeshBlend.mesh
 - Assets/LeeHyperrealAssets/Cannon Ultimate.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk32hit.prefab
 - Assets/LeeHyperrealAssets/Animation/fight.controller
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack92_Base
   Layer.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk41bao.prefab
 - Assets/LeeHyperrealAssets/Animation/Custom Animations/Attack25_Aim down.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangcanyingma.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/RunLeanRight.anim
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangwin-LightSC.asset
+- Assets/modelresource/effect/material/path202.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/redOrb2.anim
+- Assets/modelresource/effect/material/lizi00306.mat
 - Assets/LeeHyperrealAssets/Mesh/leeSubMachineGunMesh.mesh
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4lianguistandp01.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/spawn3.anim
+- Assets/modelresource/effect/material/fxcaoliwqwhite1401.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk25weaponcase1.prefab
 - Assets/LeeHyperrealAssets/Animation/Custom Animations/Attack25_aim up.anim
+- Assets/modelresource/effect/material/wenli11710.mat
 - Assets/LeeHyperrealAssets/Material/leeEffectBoxGun2Mat.mat
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeTorsoTex.png
 - Assets/LeeHyperrealAssets/LeeHyperrealDisplay.prefab
 - Assets/LeeHyperrealAssets/oldprefabs/LeeHyperrealDisplay.prefab
 - Assets/LeeHyperrealAssets/cannon.controller
 - Assets/LeeHyperrealAssets/Mesh/leeArmsMeshBlend.mesh
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk35ma.prefab
 - Assets/LeeHyperrealAssets/Mesh/leeSuperRifleMeshBlend.mesh
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk02hit01.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk03hit02.prefab
+- Assets/modelresource/effect/material/wenli40502.mat
+- Assets/modelresource/effect/material/path011700.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Spawn1.anim
 - Assets/LeeHyperrealAssets/Material/leeEffectPistol3Mat.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk14fsweaponcase2.prefab
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk41hit.asset
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk35.asset
 - Assets/LeeHyperrealAssets/Material/leeFaceMat.mat
 - Assets/LeeHyperrealAssets/FadeIn.shader
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk42fire.prefab
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk34hit-spjere.asset
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk34hit-lightSC.asset
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk14fshit02.asset
 - Assets/LeeHyperrealAssets/Material/Cannon.mat
 - Assets/LeeHyperrealAssets/Material/leeExtraGunBitMat.mat
+- Assets/modelresource/effect/material/path70601.mat
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk14dilie.asset
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Ultimate.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangmove02.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk05weaponcase.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk14dilie.prefab
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk24bao.asset
+- Assets/modelresource/effect/material/maskscene102.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/spawn2.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk34hit.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk02hit02.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SnipeEntry.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangboardact0203.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Hit1_Base
   Layer.anim
 - Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/Rifle_Attack23.anim
@@ -251,49 +380,76 @@ Assets:
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack72_Base
   Layer.anim
 - Assets/LeeHyperrealAssets/oldprefabs/humanoidLeeHyperreal.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4lianguistandnew03.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/stand2.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/primary4.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Sprint.anim
+- Assets/modelresource/effect/material/lizi01203.mat
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeSubmachineTex.png
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/runleanl.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/spawn4.anim
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk11weaponcase2.asset
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk32dilie.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/EnterDomainSnipe.anim
 - Assets/LeeHyperrealAssets/DummyIcons/texPrimary.png
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/evadeForwardTrimmed.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Win_Base
   Layer.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk14xulibip001.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/YellowOrbDomain.anim
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk24hit-lightSC.asset
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk10hit02-spjere.asset
 - Assets/LeeHyperrealAssets/Material/leeEffectTorsoClothMat.mat
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk02hit02-lightSC.asset
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/run.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk10.prefab
 - Assets/LeeHyperrealAssets/AnimationCurves/Fxr4liangatk03hit01-lightSC.asset
 - Assets/LeeHyperrealAssets/Mesh/leeTorsoClothMeshBlend.mesh
+- Assets/modelresource/effect/material/r2luolan710.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Spawn4.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangborn.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk41out.prefab
 - Assets/LeeHyperrealAssets/Texture/Normal/leeChestLegPlateNormal.png
+- Assets/modelresource/effect/material/keji00706.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Snipe Aim Up Down Additive.anim
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk20hit-lightSC.asset
 - Assets/LeeHyperrealAssets/Material/leeEffectLegMat.mat
+- Assets/modelresource/effect/material/zha01106.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk51pingmu.prefab
+- Assets/modelresource/effect/material/chunse14x4.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Death.anim
 - Assets/LeeHyperrealAssets/Animation/fightAvatar.asset
 - Assets/LeeHyperrealAssets/Material/leeArmMat.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk42bao.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Stun_Base
   Layer.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SitStandUp.anim
+- Assets/modelresource/effect/material/chunse14x.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatkshiting.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SprintStop.anim
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk35hit-spjere.asset
+- Assets/modelresource/effect/material/baodian621.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SnipeShot.anim
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeFaceTex.png
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk01hit.prefab
+- Assets/modelresource/effect/material/smoke00503.mat
 - Assets/LeeHyperrealAssets/Texture/Normal/leePistolNormal.png
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk51weaponcase.asset
 - Assets/LeeHyperrealAssets/Mesh/leeLegsMesh.mesh
+- Assets/modelresource/effect/material/xuliewuti00301.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Spawn3.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk24.prefab
+- Assets/modelresource/effect/material/lizi10608.mat
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk34weaponcase2-lightJS.asset
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk35dandao.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/blueOrb.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Spawn2.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk04hit.prefab
+- Assets/modelresource/effect/material/wenli12808.mat
 - Assets/LeeHyperrealAssets/Animation/humanoidAvatar.asset
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk35.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk03hit01.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4lianguistandp02.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Lieonfloor_Base
   Layer.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack91_Base
@@ -301,34 +457,59 @@ Assets:
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack98_Base
   Layer.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SnipeEvadeRight.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk51sound.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Walk.anim
 - Assets/LeeHyperrealAssets/Mesh/leePistolMeshBlend.mesh
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/IdleChange.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk28.prefab
 - Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/attack25.anim
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk42bao.asset
 - Assets/LeeHyperrealAssets/Material/leeEffectPistol2Mat.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk51.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk34weaponcase2blur.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk35benti.prefab
 - Assets/LeeHyperrealAssets/Material/UI Yellow Orb.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/runstartend02.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangbornma.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/redOrb2.anim
+- Assets/modelresource/effect/material/normal10203.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk41hit.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk42suiping.prefab
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk32.asset
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk14fshit02.prefab
 - Assets/LeeHyperrealAssets/Material/leeTorsoClothMat.mat
+- Assets/modelresource/effect/material/zha01111.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk20bao.prefab
 - Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/Rifle_Attack26.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk23.prefab
+- Assets/modelresource/effect/material/smoke00515.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack77_Base
   Layer.anim
 - Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/attack26.anim
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk35hit-lightSC.asset
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk03hit01-spjere.asset
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/redOrb.anim
+- Assets/modelresource/effect/material/fxcaoliwqblue1401.mat
+- Assets/modelresource/effect/material/fxcaoliwqblue1402.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SnipeAim.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk11dilie.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk42weaponcase1.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangmove01.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk51xuli.prefab
 - Assets/LeeHyperrealAssets/Shaders/GPUParticle.shader
 - Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/attack23.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk25jujijing.prefab
+- Assets/modelresource/effect/material/chunse02.mat
 - Assets/LeeHyperrealAssets/AnimationCurves/Fxr4liangatk02.asset
+- Assets/modelresource/effect/material/yuan01201.mat
 - Assets/LeeHyperrealAssets/Texture/Normal/leeLegNormal.png
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk03xulibip001.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/RedOrbDomain.anim
 - Assets/LeeHyperrealAssets/Mesh/leeSuperRilfeAlphaMeshBlend.mesh
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Hit4_Base
   Layer.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/evadeBack.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk03weaponcase.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Hit3_Base
   Layer.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/primary3.anim
@@ -343,45 +524,120 @@ Assets:
 - Assets/LeeHyperrealAssets/Material/leePistolMat.mat
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk34weaponcase2-LightSC.asset
 - Assets/LeeHyperrealAssets/Animation/animLeeHyperreal.controller
+- Assets/modelresource/effect/material/lizi70009.mat
+- Assets/modelresource/effect/material/cirle602.mat
 - Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/Rifle_Attack25.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack96_Base
   Layer.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk10hit01.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk05dilie.prefab
+- Assets/modelresource/effect/material/baodian500503.mat
+- Assets/modelresource/effect/material/fxr4lifuliudong10.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/ArmatureAttack25Aim Down.anim
+- Assets/modelresource/effect/material/xnone.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Falldown_Base
   Layer.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Hit2_Base
   Layer.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk20.prefab
+- Assets/modelresource/effect/material/chunse05.mat
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk42fire-spjere.asset
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack74_Base
   Layer.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangborn2.prefab
 - Assets/LeeHyperrealAssets/Material/leeSuperRifleMat.mat
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangmove01bonelcalftwist1.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/primary2.anim
 - Assets/LeeHyperrealAssets/Material/leeEyeMat.mat
 - Assets/LeeHyperrealAssets/Mesh/leeHairMeshBlend.mesh
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk03dilie1.prefab
 - Assets/LeeHyperrealAssets/Animation/BoxGunAnimation/change01.anim
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk10hit01-lightSC.asset
+- Assets/modelresource/effect/material/normal10302.mat
 - Assets/LeeHyperrealAssets/LeeHyperrealUI.prefab
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk24-lightSC1.asset
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk24hit-spjere.asset
 - Assets/LeeHyperrealAssets/humanoidLeeHyperreal.prefab
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4lianghexinbonercalftwist1.prefab
+- Assets/modelresource/effect/material/lizi02202.mat
 - Assets/LeeHyperrealAssets/Mesh/leePistolMesh.mesh
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk04hit-lightSC.asset
+- Assets/modelresource/effect/material/liuguang02616.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack93_Base
   Layer.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/yellowOrb2.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack33_Base
   Layer.anim
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/RunLeanLeft.anim
+- Assets/LeeHyperrealAssets/ParticlePrefabs/fxr4liangprefab/common/fxr4liangatk42zjlingyu.prefab
 - Assets/LeeHyperrealAssets/Shaders/XEffect.shader
 - Assets/LeeHyperrealAssets/Animation/leeAvatarBlend.asset
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeChestLegPlateTex.png
 Dependencies:
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/dummyshader/xcharacter_character##8c57a49c51573d3d980a249b814f1a8a1a36f20b.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/animation/fxr4lianganimation.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/gpuparticles/fxr2nuoangpu.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/gpuparticles/fxr2nuoangpu/fxr2nuoanatk42dilie.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/gpuparticles/fxr3luosaitamd019241gpu.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/gpuparticles/fxr3luosaitamd019241gpu/fxr3luosaitaatk51jiguang.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/gpuparticles/fxr3ninesgpu.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/gpuparticles/fxr3ninesgpu/fxr3ninesatk0101.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/gpuparticles/fxr3weilagpu.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/gpuparticles/fxr3weilagpu/r3weilaatk1104diliegpu.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/gpuparticles/fxr4kalieninagpu.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/gpuparticles/fxr4kalieninagpu/fxr4kalieninaatk03dilie2gpu.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/gpuparticles/fxr4liangmd010011gpu.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/gpuparticles/fxr4liangmd010011gpu/fxr4liangatk25.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxdilie.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxjiaojingmesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxmb1baiyangnvmesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxmb1bengyueht01mesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxmb1lamiya01mesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxmb1punishdatamdmesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxmb1starknightmesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxmb1voodoomesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxme1skaterboymd010001mesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxmo1beiyamd01mesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxpet3yingmesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr2lifumd019191mesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr2luolanmesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr2nuoanmesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr2qumd019141mesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr2qumesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr2wanshimesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr3atwomesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr3bianka.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr3kuluomumesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr3kuluomumesh/fxr3kuluomumd019091mesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr3lunamesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr3sailinnamd019271mesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr3yongyechaomd019271mesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr4kalieninamesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr4liangmesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr4lifumesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr4sailinnamesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxscenesushemesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxuibabeltowermainnewmesh.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/normaltex/defaulttex.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/prefab/fxmo1tiaojiushimd000001/texture.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/prefab/fxr2nuoanprefab/materials.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/prefab/fxr3weilaprefab/materials.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/prefab/fxr4kalieninaprefab/material.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/prefab/fxr4liangprefab/material.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/prefab/fxr4sailinnaprefab/material.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/prefab/fxr4yongyechaobotprefab/material.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/texture.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/xgpumat.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/body/r4liangmd010011.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/body/r4liangmd010011/vc.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/body/r4liangmd010021/vc.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/body/r4liangmd010031/vc.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/body/r4liangmd019011.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/weaponres/superli/e2superliboxmd010011.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/weaponres/superli/e2superliboxmd020011.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/weaponres/superli/e3superliboxmd010011.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/weaponres/superli/e3superliboxmd030011.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/scene/cubemaps/generatecubes.ab
+- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/shader.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/myassetbundle
