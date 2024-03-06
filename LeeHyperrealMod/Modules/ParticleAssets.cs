@@ -9,6 +9,10 @@ namespace LeeHyperrealMod.Modules
 {
     internal class ParticleAssets
     {
+        #region Materials
+        internal static List<Material> materialStorage = new List<Material>();
+        #endregion
+
         #region Primary 1
         public static GameObject primary1Swing;
         public static GameObject primary1Hit;
@@ -22,6 +26,7 @@ namespace LeeHyperrealMod.Modules
         public static void Initialize() 
         {
             UpdateAllBundleMaterials();
+            CreateMaterialStorage(Modules.Assets.mainAssetBundle);
             PopulateAssets();
         }
 
@@ -33,6 +38,7 @@ namespace LeeHyperrealMod.Modules
             {
                 if (material.shader.name.StartsWith("StubbedRoR2"))
                 {
+                    Debug.Log($"{material.name}: {material.shader.name}");
                     string newName;
                     nameConversion.TryGetValue(material.shader.name, out newName);
                     material.shader = RoR2.LegacyShaderAPI.Find(newName);
@@ -55,11 +61,6 @@ namespace LeeHyperrealMod.Modules
             AddNewEffectDef(newEffect, soundName);
 
             return newEffect;
-        }
-
-        private static void AddNewEffectDef(GameObject effectPrefab)
-        {
-            AddNewEffectDef(effectPrefab, "");
         }
 
         private static void AddNewEffectDef(GameObject effectPrefab, string soundName)
@@ -101,6 +102,13 @@ namespace LeeHyperrealMod.Modules
 
             primary1Floor = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk01dilie");
             primary1Floor = ModifyEffect(primary1Floor, "", true);
+        }
+
+        private static void CreateMaterialStorage(AssetBundle inAssetBundle)
+        {
+            Material[] tempArray = inAssetBundle.LoadAllAssets<Material>();
+
+            materialStorage.AddRange(tempArray);
         }
 
 

@@ -79,7 +79,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             RoR2.EffectManager.SimpleEffect(
                 Modules.ParticleAssets.primary1Floor,
                 transform.position, 
-                Quaternion.identity,
+                transform.rotation,
                 true);
         }
 
@@ -140,7 +140,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         protected override void PlaySwingEffect() 
         {
-            EffectManager.SimpleEffect(Modules.ParticleAssets.primary1Swing, transform.position, Quaternion.identity, true);
+            EffectManager.SimpleEffect(Modules.ParticleAssets.primary1Swing, transform.position, gameObject.transform.rotation, true);
         }
 
         public override void OnExit()

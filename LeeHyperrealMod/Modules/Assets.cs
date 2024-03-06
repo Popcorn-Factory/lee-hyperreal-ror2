@@ -85,27 +85,6 @@ namespace LeeHyperrealMod.Modules
             
             swordHitSoundEvent = CreateNetworkSoundEventDef("HenrySwordHit");
 
-            bombExplosionEffect = LoadEffect("BombExplosionEffect", "HenryBombExplosion");
-
-            if (bombExplosionEffect)
-            {
-                ShakeEmitter shakeEmitter = bombExplosionEffect.AddComponent<ShakeEmitter>();
-                shakeEmitter.amplitudeTimeDecay = true;
-                shakeEmitter.duration = 0.5f;
-                shakeEmitter.radius = 200f;
-                shakeEmitter.scaleShakeRadiusWithLocalScale = false;
-
-                shakeEmitter.wave = new Wave
-                {
-                    amplitude = 1f,
-                    frequency = 40f,
-                    cycleOffset = 0f
-                };
-            }
-
-            swordSwingEffect = Assets.LoadEffect("HenrySwordSwingEffect", true);
-            swordHitImpactEffect = Assets.LoadEffect("ImpactHenrySlash");
-
             uiObject = mainAssetBundle.LoadAsset<GameObject>("LeeHyperrealUI");
             blueOrbMat = mainAssetBundle.LoadAsset<Material>("UI Blue Orb");
             yellowOrbMat = mainAssetBundle.LoadAsset<Material>("UI Yellow Orb");
