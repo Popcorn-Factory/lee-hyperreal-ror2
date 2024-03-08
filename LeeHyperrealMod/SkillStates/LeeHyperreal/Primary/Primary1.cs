@@ -140,7 +140,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         protected override void PlaySwingEffect() 
         {
-            EffectManager.SimpleEffect(Modules.ParticleAssets.primary1Swing, transform.position, gameObject.transform.rotation, true);
+            //Object.Instantiate(Modules.ParticleAssets.primary1Swing, gameObject.transform.position, Quaternion.LookRotation( inputBank.GetAimRay().direction, Vector3.up), transform);
+            EffectManager.SimpleEffect(Modules.ParticleAssets.primary1Swing, transform.position, Quaternion.LookRotation(inputBank.GetAimRay().direction, Vector3.up), true);
         }
 
         public override void OnExit()
