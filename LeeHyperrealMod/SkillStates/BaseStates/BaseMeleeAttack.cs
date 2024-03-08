@@ -222,10 +222,6 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                 {
                     this.PlaySwingEffect();
                     base.AddRecoil(-1f * this.attackRecoil, -2f * this.attackRecoil, -0.5f * this.attackRecoil, 0.5f * this.attackRecoil);
-                }
-
-                if (base.isAuthority)
-                {
                     for (int i = 0; i < attackAmount; i++)
                     {
                         // Create Attack, fire it, do the on hit enemy authority.

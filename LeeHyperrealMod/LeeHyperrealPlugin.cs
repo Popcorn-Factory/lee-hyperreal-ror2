@@ -13,6 +13,7 @@ using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.Modules.Networking;
 using R2API.Networking;
 using R2API.Networking.Interfaces;
+using ShaderSwapper;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -54,6 +55,7 @@ namespace LeeHyperrealMod
 
             Log.Init(Logger);
             Modules.Assets.Initialize(); // load assets and read config
+            base.StartCoroutine(Modules.Assets.mainAssetBundle.UpgradeStubbedShadersAsync());
             Modules.ParticleAssets.Initialize();
             Modules.Config.ReadConfig();
 

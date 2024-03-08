@@ -20,6 +20,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: 8d551613a98e5274eb8cdf6dfee485e2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _MaskTex:
         m_Texture: {fileID: 2800000, guid: 1bd4bd0cf571d96439ff518bc8675c7f, type: 3}
         m_Scale: {x: -1, y: 1}
@@ -33,10 +37,18 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _DistanceModulationMagnitude: 0.5
+    - _DistanceModulationOn: 0
     - _DistortionRate: 1
     - _DistortionX: 0.5
     - _DistortionY: 0.5
+    - _FarFadeOneDistance: 200000
+    - _FarFadeZeroDistance: 250000
     - _HeatForce: 1
+    - _InvFade: 0.1
+    - _Magnitude: 10
+    - _NearFadeOneDistance: 5
+    - _NearFadeZeroDistance: 0
     - _SelfDistortionIntensity: 0.1
     - _ZTest: 2
     m_Colors:

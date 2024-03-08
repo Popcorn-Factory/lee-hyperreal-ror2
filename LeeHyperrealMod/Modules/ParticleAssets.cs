@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
+using ShaderSwapper;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -25,7 +26,7 @@ namespace LeeHyperrealMod.Modules
 
         public static void Initialize() 
         {
-            UpdateAllBundleMaterials();
+            //UpdateAllBundleMaterials();
             CreateMaterialStorage(Modules.Assets.mainAssetBundle);
             PopulateAssets();
         }

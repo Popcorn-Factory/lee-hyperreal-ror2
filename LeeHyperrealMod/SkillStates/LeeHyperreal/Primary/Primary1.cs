@@ -27,7 +27,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public bool ifButtonLifted = false;
 
         private LeeHyperrealDomainController domainController;
-
+        Transform baseTransform;
         /*
          
         internal bool enableParry;
@@ -75,12 +75,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             base.OnEnter();
             InitMeleeRootMotion();
 
+            ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
+            baseTransform = childLocator.FindChild("BaseTransform");
+
             //Play Effect
-            RoR2.EffectManager.SimpleEffect(
-                Modules.ParticleAssets.primary1Floor,
-                transform.position, 
-                transform.rotation,
-                true);
+            if (base.isGrounded) 
+            {
+                RoR2.EffectManager.SimpleEffect(
+                    Modules.ParticleAssets.primary1Floor,
+                    baseTransform.position,
+                    Quaternion.LookRotation(new Vector3(GetAimRay().direction.x, 0f, GetAimRay().direction.z), Vector3.up),
+                    true);
+            }
         }
 
         public RootMotionAccumulator InitMeleeRootMotion()
@@ -141,7 +147,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         protected override void PlaySwingEffect() 
         {
             //Object.Instantiate(Modules.ParticleAssets.primary1Swing, gameObject.transform.position, Quaternion.LookRotation( inputBank.GetAimRay().direction, Vector3.up), transform);
-            EffectManager.SimpleEffect(Modules.ParticleAssets.primary1Swing, transform.position, Quaternion.LookRotation(inputBank.GetAimRay().direction, Vector3.up), true);
+            EffectManager.SimpleEffect(Modules.ParticleAssets.primary1Swing, baseTransform.position, Quaternion.LookRotation(new Vector3(GetAimRay().direction.x, 0f, GetAimRay().direction.z), Vector3.up), true);
         }
 
         public override void OnExit()
