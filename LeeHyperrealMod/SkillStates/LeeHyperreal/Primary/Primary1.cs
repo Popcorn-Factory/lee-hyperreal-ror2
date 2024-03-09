@@ -62,6 +62,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.swingSoundString = "HenrySwordSwing";
             this.hitSoundString = "";
             this.muzzleString = "BaseTransform";
+            this.swingScale = 1.25f;
             this.swingEffectPrefab = Modules.ParticleAssets.primary1Swing;
             this.hitEffectPrefab = Modules.ParticleAssets.primary1Hit;
 
