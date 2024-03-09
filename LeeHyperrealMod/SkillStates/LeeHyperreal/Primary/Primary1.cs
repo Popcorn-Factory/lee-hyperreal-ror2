@@ -61,7 +61,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             this.swingSoundString = "HenrySwordSwing";
             this.hitSoundString = "";
-            this.muzzleString = "Base";
+            this.muzzleString = "BaseTransform";
             this.swingEffectPrefab = Modules.ParticleAssets.primary1Swing;
             this.hitEffectPrefab = Modules.ParticleAssets.primary1Hit;
 
@@ -147,7 +147,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         protected override void PlaySwingEffect() 
         {
             //Object.Instantiate(Modules.ParticleAssets.primary1Swing, gameObject.transform.position, Quaternion.LookRotation( inputBank.GetAimRay().direction, Vector3.up), transform);
-            EffectManager.SimpleEffect(Modules.ParticleAssets.primary1Swing, baseTransform.position, Quaternion.LookRotation(new Vector3(GetAimRay().direction.x, 0f, GetAimRay().direction.z), Vector3.up), true);
+            EffectManager.SimpleMuzzleFlash(Modules.ParticleAssets.primary1Swing, gameObject, muzzleString, true);
         }
 
         public override void OnExit()
