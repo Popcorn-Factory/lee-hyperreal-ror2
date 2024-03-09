@@ -144,12 +144,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             base.FixedUpdate();
         }
 
-        protected override void PlaySwingEffect() 
-        {
-            //Object.Instantiate(Modules.ParticleAssets.primary1Swing, gameObject.transform.position, Quaternion.LookRotation( inputBank.GetAimRay().direction, Vector3.up), transform);
-            EffectManager.SimpleMuzzleFlash(Modules.ParticleAssets.primary1Swing, gameObject, muzzleString, true);
-        }
-
         public override void OnExit()
         {
             base.OnExit();

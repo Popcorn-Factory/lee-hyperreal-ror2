@@ -135,6 +135,25 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
 
         protected virtual void PlaySwingEffect()
         {
+            //ModelLocator component = gameObject.GetComponent<ModelLocator>();
+            //if (component && component.modelTransform)
+            //{
+            //    ChildLocator component2 = component.modelTransform.GetComponent<ChildLocator>();
+            //    if (component2)
+            //    {
+            //        int childIndex = component2.FindChildIndex(muzzleString);
+            //        Transform transform = component2.FindChild(childIndex);
+            //        if (transform)
+            //        {
+            //            EffectData effectData = new EffectData
+            //            {
+            //                origin = transform.position,
+            //            };
+            //            effectData.SetChildLocatorTransformReference(gameObject, childIndex);
+            //            EffectManager.SpawnEffect(swingEffectPrefab, effectData, true);
+            //        }
+            //    }
+            //}
             EffectManager.SimpleMuzzleFlash(this.swingEffectPrefab, base.gameObject, this.muzzleString, true);
         }
 

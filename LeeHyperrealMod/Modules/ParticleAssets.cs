@@ -21,7 +21,9 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Primary 2
-        
+        public static GameObject primary2Shot;
+        public static GameObject primary2hit1;
+        public static GameObject primary2hit2;
         #endregion
 
         public static void Initialize() 
@@ -78,11 +80,48 @@ namespace LeeHyperrealMod.Modules
         public static void PopulateAssets() 
         {
             PopulatePrimary1Assets();
+            PopulatePrimary2Assets();
         }
 
         public static void PopulatePrimary2Assets()
         {
+            primary2Shot = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk02");
+            AnimationCurveAsset primary2ShotCurve = Modules.Assets.mainAssetBundle.LoadAsset<AnimationCurveAsset>("Fxr4liangatk02");
+            LightIntensityCurve primary2ShotLight = primary2Shot.transform.GetChild(2).GetChild(0).gameObject.AddComponent<LightIntensityCurve>();
+            primary2ShotLight.timeMax = 0.15f;
+            primary2ShotLight.loop = false;
+            primary2ShotLight.randomStart = false;
+            primary2ShotLight.enableNegativeLights = false;
+            primary2ShotLight.curve = primary2ShotCurve.value;
+            primary2Shot = ModifyEffect(primary2Shot, "", true);
 
+            primary2hit1 = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk02hit01");
+            AnimationCurveAsset primary2hit1Curve = Modules.Assets.mainAssetBundle.LoadAsset<AnimationCurveAsset>("fxr4liangatk02hit01");
+            LightIntensityCurve primary2hit1Light = primary2hit1.transform.GetChild(1).gameObject.AddComponent<LightIntensityCurve>();
+            primary2hit1Light.timeMax = 0.18f;
+            primary2hit1Light.loop = false;
+            primary2hit1Light.randomStart = false;
+            primary2hit1Light.enableNegativeLights = false;
+            primary2hit1Light.curve = primary2hit1Curve.value;
+            primary2hit1 = ModifyEffect(primary2hit1, "", true);
+
+            primary2hit2 = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk02hit02");
+            AnimationCurveAsset primary2hit2Curvespjere = Modules.Assets.mainAssetBundle.LoadAsset<AnimationCurveAsset>("fxr4liangatk02hit02-spjere");
+            LightIntensityCurve primary2hitLightspjere = primary2hit2.transform.GetChild(1).gameObject.AddComponent<LightIntensityCurve>();
+            primary2hitLightspjere.timeMax = 0.18f;
+            primary2hitLightspjere.loop = false;
+            primary2hitLightspjere.randomStart = false;
+            primary2hitLightspjere.enableNegativeLights = false;
+            primary2hitLightspjere.curve = primary2hit2Curvespjere.value;
+
+            AnimationCurveAsset primary2hit2Curve2 = Modules.Assets.mainAssetBundle.LoadAsset<AnimationCurveAsset>("fxr4liangatk02hit02-lightSC");
+            LightIntensityCurve primary2hitLightsc = primary2hit2.transform.GetChild(0).GetChild(1).gameObject.AddComponent<LightIntensityCurve>();
+            primary2hitLightsc.timeMax = 0.12f;
+            primary2hitLightsc.loop = false;
+            primary2hitLightsc.randomStart = false;
+            primary2hitLightsc.enableNegativeLights = false;
+            primary2hitLightsc.curve = primary2hit2Curve2.value;
+            primary2hit2 = ModifyEffect(primary2hit2, "", true);
         }
 
         public static void PopulatePrimary1Assets() 

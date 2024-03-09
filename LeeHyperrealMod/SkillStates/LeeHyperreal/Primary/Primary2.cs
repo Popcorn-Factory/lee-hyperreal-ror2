@@ -52,9 +52,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             this.swingSoundString = "HenrySwordSwing";
             this.hitSoundString = "";
-            this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
-            this.swingEffectPrefab = Modules.Assets.swordSwingEffect;
-            this.hitEffectPrefab = Modules.Assets.swordHitImpactEffect;
+            this.muzzleString = "BaseTransform";
+            this.swingEffectPrefab = Modules.ParticleAssets.primary2Shot;
+            this.hitEffectPrefab = Modules.ParticleAssets.primary2hit1;
 
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
             base.OnEnter();
@@ -124,6 +124,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         {
             base.PlayAnimation("Body", "primary2", "attack.playbackRate", duration);
         }
+
         protected override void OnHitEnemyAuthority()
         {
             base.OnHitEnemyAuthority();
@@ -134,6 +135,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 orbController.AddToIncrementor(0.2f / ((attackAmount <= 0) ? 1 : attackAmount));
             }
         }
+
         protected override void SetNextState()
         {
             // Move to Primary3
