@@ -2,36 +2,39 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LightRadiusCurve : MonoBehaviour
+namespace LeeHyperrealMod.ParticleScripts 
 {
-    // Start is called before the first frame update
-    [SerializeField]
-    float time;
-    [SerializeField]
-    AnimationCurve curve;
-    float timer;
-    [Tooltip("Loop animation curve")]
-    public bool loop;
-    Light lightRef;
-
-    void Start()
+    public class LightRadiusCurve : MonoBehaviour
     {
-        lightRef = GetComponent<Light>();
+        // Start is called before the first frame update
+        [SerializeField]
+        float time;
+        [SerializeField]
+        AnimationCurve curve;
+        float timer;
+        [Tooltip("Loop animation curve")]
+        public bool loop;
+        Light lightRef;
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        timer += Time.deltaTime;
-        lightRef.range = curve.Evaluate(timer/time);
-        if(timer>=time&&loop)
+        void Start()
         {
-            timer = 0;
+            lightRef = GetComponent<Light>();
+
         }
-        else if(timer >= time&&!loop)
+
+        // Update is called once per frame
+        void Update()
         {
-            gameObject.SetActive(false);
+            timer += Time.deltaTime;
+            lightRef.range = curve.Evaluate(timer / time);
+            if (timer >= time && loop)
+            {
+                timer = 0;
+            }
+            else if (timer >= time && !loop)
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }

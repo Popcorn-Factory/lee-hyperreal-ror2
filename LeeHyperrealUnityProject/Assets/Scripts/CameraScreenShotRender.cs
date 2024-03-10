@@ -1,16 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[ExecuteInEditMode]
-public class CameraScreenShotRender : MonoBehaviour
+
+namespace LeeHyperrealMod.ParticleScripts
 {
-    
-    void OnRenderImage(RenderTexture source, RenderTexture dst)
+    public class CameraScreenShotRender : MonoBehaviour
     {
-        if (ScreenshotManager.isNeedScreenShot())
+
+        void OnRenderImage(RenderTexture source, RenderTexture dst)
         {
-            ScreenshotManager.BlitToScreenShot(source);
+            if (ScreenshotManager.isNeedScreenShot())
+            {
+                ScreenshotManager.BlitToScreenShot(source);
+            }
+            Graphics.Blit(source, dst);
         }
-        Graphics.Blit(source, dst);
     }
 }

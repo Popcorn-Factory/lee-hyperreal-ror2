@@ -60,6 +60,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             base.OnEnter();
 
             InitMeleeRootMotion();
+
+            this.swingScale = 1.25f;
         }
         public RootMotionAccumulator InitMeleeRootMotion()
         {

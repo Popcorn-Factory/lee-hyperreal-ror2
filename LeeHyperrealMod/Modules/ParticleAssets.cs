@@ -55,7 +55,7 @@ namespace LeeHyperrealMod.Modules
             newEffect.AddComponent<NetworkIdentity>();
             newEffect.AddComponent<VFXAttributes>().vfxPriority = VFXAttributes.VFXPriority.Always;
             EffectComponent effect = newEffect.AddComponent<EffectComponent>();
-            effect.applyScale = false;
+            effect.applyScale = true;
             effect.parentToReferencedTransform = parentToTransform;
             effect.positionAtReferencedTransform = true;
             effect.soundName = soundName;
