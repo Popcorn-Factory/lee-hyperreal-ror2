@@ -26,6 +26,12 @@ namespace LeeHyperrealMod.Modules
         public static GameObject primary2hit2;
         #endregion
 
+        #region Primary 3
+        public static GameObject primary3Swing1;
+        public static GameObject primary3Swing2;
+        public static GameObject primary3hit;
+        #endregion
+
         public static void Initialize() 
         {
             //UpdateAllBundleMaterials();
@@ -81,6 +87,34 @@ namespace LeeHyperrealMod.Modules
         {
             PopulatePrimary1Assets();
             PopulatePrimary2Assets();
+            PopulatePrimary3Assets();
+        }
+
+        public static void PopulatePrimary3Assets() 
+        {
+            primary3Swing1 = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk03dilie1");
+            primary3Swing1 = ModifyEffect(primary3Swing1, "", true);
+
+            primary3Swing2 = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk03dilie2");
+            primary3Swing2 = ModifyEffect(primary3Swing2, "", true);
+
+            primary3hit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk03hit01");
+            AnimationCurveAsset primary3CurvelightSC = Modules.Assets.mainAssetBundle.LoadAsset<AnimationCurveAsset>("Fxr4liangatk03hit01-lightSC");
+            LightIntensityCurve primary3lightSC = primary2hit2.transform.GetChild(0).GetChild(1).gameObject.AddComponent<LightIntensityCurve>();
+            primary3lightSC.timeMax = 0.12f;
+            primary3lightSC.loop = false;
+            primary3lightSC.randomStart = false;
+            primary3lightSC.enableNegativeLights = false;
+            primary3lightSC.curve = primary3CurvelightSC.value;
+
+            AnimationCurveAsset primary3hit2Curvespjere = Modules.Assets.mainAssetBundle.LoadAsset<AnimationCurveAsset>("fxr4liangatk03hit01-spjere");
+            LightIntensityCurve primary3hitspjere = primary2hit2.transform.GetChild(1).gameObject.AddComponent<LightIntensityCurve>();
+            primary3hitspjere.timeMax = 0.18f;
+            primary3hitspjere.loop = false;
+            primary3hitspjere.randomStart = false;
+            primary3hitspjere.enableNegativeLights = false;
+            primary3hitspjere.curve = primary3hit2Curvespjere.value;
+            primary3hit = ModifyEffect(primary3hit, "", true);
         }
 
         public static void PopulatePrimary2Assets()
