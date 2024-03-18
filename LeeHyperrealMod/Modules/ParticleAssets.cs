@@ -32,6 +32,17 @@ namespace LeeHyperrealMod.Modules
         public static GameObject primary3hit;
         #endregion
 
+        #region Primary 4
+        public static GameObject primary4Swing;
+        public static GameObject primary4AfterImage;
+        public static GameObject primary4Hit;
+        #endregion
+
+        #region Primary 5
+        public static GameObject primary5Swing;
+        public static GameObject primary5Floor;
+        #endregion
+
         public static void Initialize() 
         {
             //UpdateAllBundleMaterials();
@@ -85,9 +96,66 @@ namespace LeeHyperrealMod.Modules
 
         public static void PopulateAssets() 
         {
+            #region Primary
             PopulatePrimary1Assets();
             PopulatePrimary2Assets();
             PopulatePrimary3Assets();
+            PopulatePrimary4Assets();
+            PopulatePrimary5Assets();
+            #endregion
+
+
+        }
+
+        private static void PopulatePrimary5Assets()
+        {
+            primary5Swing = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk05");
+            primary5Swing = ModifyEffect(primary5Swing, "", true);
+
+            primary5Floor = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk05dilie");
+            AnimationCurveAsset primary5lightSCCurveAsset = Modules.Assets.mainAssetBundle.LoadAsset<AnimationCurveAsset>("fxr4liangatk05dilie");
+            LightIntensityCurve primary5lightSC = primary5Floor.transform.GetChild(0).gameObject.AddComponent<LightIntensityCurve>();
+            primary5lightSC.timeMax = 1f;
+            primary5lightSC.loop = false;
+            primary5lightSC.randomStart = false;
+            primary5lightSC.enableNegativeLights = false;
+            primary5lightSC.curve = primary5lightSCCurveAsset.value;
+            primary5Floor = ModifyEffect(primary5Floor, "", true);
+        }
+
+        private static void PopulatePrimary4Assets()
+        {
+            primary4Swing = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk04");
+            AnimationCurveAsset primary4SwingCurveAsset = Modules.Assets.mainAssetBundle.LoadAsset<AnimationCurveAsset>("fxr4liangatk04");
+            LightIntensityCurve primary4SwingLIC = primary4Swing.transform.GetChild(1).GetChild(0).gameObject.AddComponent<LightIntensityCurve>();
+            primary4SwingLIC.timeMax = 1f;
+            primary4SwingLIC.loop = false;
+            primary4SwingLIC.randomStart = false;
+            primary4SwingLIC.enableNegativeLights = false;
+            primary4SwingLIC.curve = primary4SwingCurveAsset.value;
+            primary4Swing = ModifyEffect(primary4Swing, "", true);
+
+            primary4AfterImage = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk04canying");
+            primary4AfterImage = ModifyEffect(primary4AfterImage, "", true);
+
+            primary4Hit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk04hit");
+            AnimationCurveAsset primary4HitLightspjereCurveAsset = Modules.Assets.mainAssetBundle.LoadAsset<AnimationCurveAsset>("fxr4liangatk04hit-spjere");
+            LightIntensityCurve primary4HitLightspjere = primary4Hit.transform.GetChild(1).gameObject.AddComponent<LightIntensityCurve>();
+            primary4HitLightspjere.timeMax = 0.18f;
+            primary4HitLightspjere.loop = false;
+            primary4HitLightspjere.randomStart = false;
+            primary4HitLightspjere.enableNegativeLights = false;
+            primary4HitLightspjere.curve = primary4HitLightspjereCurveAsset.value;
+
+            AnimationCurveAsset primary4HitLightSCCurveAsset = Modules.Assets.mainAssetBundle.LoadAsset<AnimationCurveAsset>("fxr4liangatk04hit-lightSC");
+            LightIntensityCurve primary4HitLightSC = primary4Hit.transform.GetChild(0).GetChild(1).gameObject.AddComponent<LightIntensityCurve>();
+            primary4HitLightSC.timeMax = 0.18f;
+            primary4HitLightSC.loop = false;
+            primary4HitLightSC.randomStart = false;
+            primary4HitLightSC.enableNegativeLights = false;
+            primary4HitLightSC.curve = primary4HitLightSCCurveAsset.value;
+
+            primary4Hit = ModifyEffect(primary4Hit, "", true);
         }
 
         public static void PopulatePrimary3Assets() 

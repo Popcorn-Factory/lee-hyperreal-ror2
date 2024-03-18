@@ -31,6 +31,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         CharacterGravityParameters gravParams;
         CharacterGravityParameters oldGravParams;
         float turnOffGravityFrac = 0.23f;
+        bool playedLandingEffect = false;
 
         public override void OnEnter()
         {
@@ -55,8 +56,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.swingSoundString = "HenrySwordSwing";
             this.hitSoundString = "";
             this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
-            this.swingEffectPrefab = Modules.Assets.swordSwingEffect;
-            this.hitEffectPrefab = Modules.Assets.swordHitImpactEffect;
+            this.swingEffectPrefab = Modules.ParticleAssets.primary5Swing;
+            this.hitEffectPrefab = Modules.ParticleAssets.primary4Hit;
 
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
             base.OnEnter();
@@ -117,6 +118,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             if (base.stopwatch >= duration * turnOffGravityFrac)
             {
                 base.characterMotor.gravityParameters = oldGravParams;
+                //Is falling, play effect
+
+                if (!playedLandingEffect) 
+                {
+                    playedLandingEffect = true;
+                    PlaySwing("BaseTransform", 1.25f, Modules.ParticleAssets.primary5Floor);
+                }
             }
 
 
@@ -125,7 +133,29 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             base.characterMotor.Motor.ForceUnground();
             UpdateMeleeRootMotion(1.8f);
         }
-
+        public void PlaySwing(string muzzleString, float swingScale, GameObject effectPrefab)
+        {
+            ModelLocator component = gameObject.GetComponent<ModelLocator>();
+            if (component && component.modelTransform)
+            {
+                ChildLocator component2 = component.modelTransform.GetComponent<ChildLocator>();
+                if (component2)
+                {
+                    int childIndex = component2.FindChildIndex(muzzleString);
+                    Transform transform = component2.FindChild(childIndex);
+                    if (transform)
+                    {
+                        EffectData effectData = new EffectData
+                        {
+                            origin = transform.position,
+                            scale = swingScale,
+                        };
+                        effectData.SetChildLocatorTransformReference(gameObject, childIndex);
+                        EffectManager.SpawnEffect(effectPrefab, effectData, true);
+                    }
+                }
+            }
+        }
 
         public override void FixedUpdate()
         {

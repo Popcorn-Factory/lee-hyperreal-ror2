@@ -2296,7 +2296,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 6ef298d70d47c18469389c668db5a96c, type: 2}
-  - {fileID: 2100000, guid: 6ef298d70d47c18469389c668db5a96c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4731,7 +4730,6 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8e23839a29f314a4dafcba8bcbff791d, type: 2}
   - {fileID: 2100000, guid: 8e23839a29f314a4dafcba8bcbff791d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -12094,7 +12092,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: c62026037b7c1ff4e86d2c138a1d26ff, type: 2}
-  - {fileID: 2100000, guid: c62026037b7c1ff4e86d2c138a1d26ff, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19402,7 +19399,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: f6b3637c027f74c4790e15e9a8728181, type: 2}
-  - {fileID: 2100000, guid: f6b3637c027f74c4790e15e9a8728181, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -19540,7 +19536,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data: {fileID: 11400000, guid: f95a2e955d2a4c04dbb54722ae1c2773, type: 2}
   randomOtherData: []
-  curData: {fileID: 0}
+  curData: {fileID: 11400000, guid: f95a2e955d2a4c04dbb54722ae1c2773, type: 2}
   mat: {fileID: 2100000, guid: 7bdc787e5571cab4cb76c2b4821ee590, type: 2}
   stopAtFinalFrame: 0
   autoUpdate: 1

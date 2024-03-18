@@ -53,6 +53,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public float defaultMovementMultiplier = 1f;
         public float inputMovementMultiplier = 2.5f;
         public float movementMultiplier;
+        public Transform baseTransform;
 
         public override void OnEnter()
         {
@@ -85,12 +86,40 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 losType = BlastAttack.LoSType.NearestHit,
                 canRejectForce = false,
                 procChainMask = new ProcChainMask(),
-                procCoefficient = 0.15f
+                procCoefficient = 0.15f,
+                impactEffect = EffectCatalog.FindEffectIndexFromPrefab(Modules.ParticleAssets.primary4Hit)
             };
 
             stopwatch = 0f;
             InitMeleeRootMotion();
             movementMultiplier = defaultMovementMultiplier;
+
+            PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.primary4AfterImage);
+            PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.primary4Swing);
+        }
+
+        public void PlaySwingEffect(string muzzleString, float swingScale, GameObject effectPrefab) 
+        {
+            ModelLocator component = gameObject.GetComponent<ModelLocator>();
+            if (component && component.modelTransform)
+            {
+                ChildLocator component2 = component.modelTransform.GetComponent<ChildLocator>();
+                if (component2)
+                {
+                    int childIndex = component2.FindChildIndex(muzzleString);
+                    Transform transform = component2.FindChild(childIndex);
+                    if (transform)
+                    {
+                        EffectData effectData = new EffectData
+                        {
+                            origin = transform.position,
+                            scale = swingScale,
+                        };
+                        effectData.SetChildLocatorTransformReference(gameObject, childIndex);
+                        EffectManager.SpawnEffect(effectPrefab, effectData, true);
+                    }
+                }
+            }
         }
 
         public RootMotionAccumulator InitMeleeRootMotion()
