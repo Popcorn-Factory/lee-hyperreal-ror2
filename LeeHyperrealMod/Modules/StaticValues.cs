@@ -26,7 +26,7 @@ namespace LeeHyperrealMod.Modules
 
         #region Orb Controller Values
         internal const float flatIncreaseOrbIncrementor = 0.5f;
-        internal const float LimitToGrantOrb = 10f;
+        internal const float LimitToGrantOrb = 1f; // Amount that determines when to give orb, smaller = faster.
         #endregion
 
         #region Blue Orb

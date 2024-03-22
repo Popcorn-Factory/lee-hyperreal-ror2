@@ -43,6 +43,13 @@ namespace LeeHyperrealMod.Modules
         public static GameObject primary5Floor;
         #endregion
 
+        #region Red Orb
+        public static GameObject redOrbSwing;
+        public static GameObject redOrbHit;
+        public static GameObject redOrbPingSwing;
+        public static GameObject redOrbPingGround; 
+        #endregion
+
         public static void Initialize() 
         {
             //UpdateAllBundleMaterials();
@@ -104,7 +111,53 @@ namespace LeeHyperrealMod.Modules
             PopulatePrimary5Assets();
             #endregion
 
+            #region RedOrb
+            PopulateRedOrbAssets();
+            #endregion
+        }
 
+        private static void PopulateRedOrbAssets()
+        {
+            redOrbSwing = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk10");
+            AnimationCurveAsset redOrblightSCCurveAsset = Modules.Assets.mainAssetBundle.LoadAsset<AnimationCurveAsset>("fxr4liangatk10");
+            LightIntensityCurve redOrblightSC = redOrbSwing.transform.GetChild(1).GetChild(0).gameObject.AddComponent<LightIntensityCurve>();
+            redOrblightSC.timeMax = 0.5f;
+            redOrblightSC.loop = false;
+            redOrblightSC.randomStart = false;
+            redOrblightSC.enableNegativeLights = false;
+            redOrblightSC.curve = redOrblightSCCurveAsset.value;
+            redOrbSwing = ModifyEffect(redOrbSwing, "", true);
+
+            redOrbHit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk10hit02");
+            AnimationCurveAsset redOrbHitSpjereAnimationAsset = Modules.Assets.mainAssetBundle.LoadAsset<AnimationCurveAsset>("fxr4liangatk10hit02-spjere");
+            LightIntensityCurve redOrbHitSpjereLightCurve = redOrbHit.transform.GetChild(1).gameObject.AddComponent<LightIntensityCurve>();
+            redOrbHitSpjereLightCurve.timeMax = 0.5f;
+            redOrbHitSpjereLightCurve.loop = false;
+            redOrbHitSpjereLightCurve.randomStart = false;
+            redOrbHitSpjereLightCurve.enableNegativeLights = false;
+            redOrbHitSpjereLightCurve.curve = redOrbHitSpjereAnimationAsset.value;
+
+            AnimationCurveAsset redOrbHitLightSCCurveAsset = Modules.Assets.mainAssetBundle.LoadAsset<AnimationCurveAsset>("fxr4liangatk10hit02-lightSC");
+            LightIntensityCurve redOrbHitSCCurveLightCurve = redOrbHit.transform.GetChild(0).GetChild(2).gameObject.AddComponent<LightIntensityCurve>();
+            redOrbHitSCCurveLightCurve.timeMax = 0.5f;
+            redOrbHitSCCurveLightCurve.loop = false;
+            redOrbHitSCCurveLightCurve.randomStart = false;
+            redOrbHitSCCurveLightCurve.enableNegativeLights = false;
+            redOrbHitSCCurveLightCurve.curve = redOrbHitLightSCCurveAsset.value;
+            redOrbHit = ModifyEffect(redOrbHit, "", false);
+
+            redOrbPingSwing = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk11");
+            redOrbPingSwing = ModifyEffect(redOrbPingSwing, "", false);
+
+            redOrbPingGround = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk11dilie");
+            AnimationCurveAsset redOrbPingGroundlightSCCurveAsset = Modules.Assets.mainAssetBundle.LoadAsset<AnimationCurveAsset>("fxr4liangatk11dilie");
+            LightIntensityCurve redOrbPinglightSC = redOrbPingGround.transform.GetChild(1).GetChild(0).gameObject.AddComponent<LightIntensityCurve>();
+            redOrbPinglightSC.timeMax = 0.5f;
+            redOrbPinglightSC.loop = false;
+            redOrbPinglightSC.randomStart = false;
+            redOrbPinglightSC.enableNegativeLights = false;
+            redOrbPinglightSC.curve = redOrbPingGroundlightSCCurveAsset.value;
+            redOrbPingGround = ModifyEffect(redOrbPingGround, "", false);
         }
 
         private static void PopulatePrimary5Assets()

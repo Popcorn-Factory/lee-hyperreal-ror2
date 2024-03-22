@@ -97,11 +97,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 sniper = false,
                 stopperMask = LayerIndex.CommonMasks.bullet,
                 weapon = null,
-                tracerEffectPrefab = Shoot.tracerEffectPrefab,
                 spreadPitchScale = 0f,
                 spreadYawScale = 0f,
                 queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
-                hitEffectPrefab = EntityStates.Commando.CommandoWeapon.FirePistol2.hitEffectPrefab,
+                hitEffectPrefab = Modules.ParticleAssets.redOrbHit,
                 hitCallback = BulletAttack.defaultHitCallback,
             };
 
@@ -122,6 +121,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             {
                 base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, duration * disableInvincibility);
             }
+
+            Modules.Helpers.PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.redOrbSwing, gameObject);
         }
 
         protected void PlayAttackAnimation()

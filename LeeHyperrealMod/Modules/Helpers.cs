@@ -1,5 +1,7 @@
-﻿using System;
+﻿using RoR2;
+using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -22,5 +24,29 @@ namespace LeeHyperrealMod.Modules
         }
 
         public static Func<T[], T[]> AppendDel<T>(List<T> list) => (r) => Append(ref r, list);
+
+        public static void PlaySwingEffect(string muzzleString, float swingScale, GameObject effectPrefab, GameObject gameObject)
+        {
+            ModelLocator component = gameObject.GetComponent<ModelLocator>();
+            if (component && component.modelTransform)
+            {
+                ChildLocator component2 = component.modelTransform.GetComponent<ChildLocator>();
+                if (component2)
+                {
+                    int childIndex = component2.FindChildIndex(muzzleString);
+                    Transform transform = component2.FindChild(childIndex);
+                    if (transform)
+                    {
+                        EffectData effectData = new EffectData
+                        {
+                            origin = transform.position,
+                            scale = swingScale,
+                        };
+                        effectData.SetChildLocatorTransformReference(gameObject, childIndex);
+                        EffectManager.SpawnEffect(effectPrefab, effectData, true);
+                    }
+                }
+            }
+        }
     }
 }
