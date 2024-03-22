@@ -55,6 +55,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public float movementMultiplier;
         public Transform baseTransform;
 
+        public float waitSwingTimer = 0.066f;
+        public bool playedSwing = false;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -95,7 +98,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             movementMultiplier = defaultMovementMultiplier;
 
             PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.primary4AfterImage);
-            PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.primary4Swing);
         }
 
         public void PlaySwingEffect(string muzzleString, float swingScale, GameObject effectPrefab) 
@@ -166,6 +168,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 {
                     bufferNextMove = true;
                 }
+            }
+
+            if (this.age >= waitSwingTimer * duration && !playedSwing) 
+            {
+                playedSwing = true;
+
+                PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.primary4Swing);
             }
 
             if (base.isAuthority && this.age <= duration * earlyExitTime) 
