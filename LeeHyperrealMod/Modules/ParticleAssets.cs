@@ -50,6 +50,12 @@ namespace LeeHyperrealMod.Modules
         public static GameObject redOrbPingGround;
         #endregion
 
+        #region Blue Orb
+        public static GameObject blueOrbShot;
+        public static GameObject blueOrbHit;
+        public static GameObject blueOrbGroundHit;
+        #endregion
+
         public struct LightIntensityProps 
         {
             public float timeMax;
@@ -133,6 +139,72 @@ namespace LeeHyperrealMod.Modules
             #region RedOrb
             PopulateRedOrbAssets();
             #endregion
+
+            #region Blue Orb
+            PopulateBlueOrbAssets();
+            #endregion
+
+            #region Yellow Orb
+            #endregion
+
+            #region Domain Shift
+            #endregion
+        }
+
+        private static void PopulateBlueOrbAssets()
+        {
+            blueOrbShot = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk20");
+            AddLightIntensityCurveWithCurve(
+                blueOrbShot.transform.GetChild(4).GetChild(1).gameObject,
+                new LightIntensityProps 
+                {
+                    timeMax = 0.15f,
+                    loop = false,
+                    randomStart = false,
+                    enableNegativeLights = false
+                },
+                "fxr4liangatk20-spjere"
+                );
+            AddLightIntensityCurveWithCurve(
+                blueOrbShot.transform.GetChild(4).GetChild(0).gameObject,
+                new LightIntensityProps 
+                {
+                    timeMax = 0.35f,
+                    loop = false,
+                    randomStart = false,
+                    enableNegativeLights = false
+                },
+                "fxr4liangatk20-lightSC"
+                );
+            blueOrbShot = ModifyEffect(blueOrbShot, "", true);
+
+            blueOrbHit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk20hit");
+            AddLightIntensityCurveWithCurve(
+                blueOrbHit.transform.GetChild(1).gameObject,
+                new LightIntensityProps 
+                {
+                    timeMax = 0.18f,
+                    loop = false,
+                    randomStart = false,
+                    enableNegativeLights = false
+                },
+                "fxr4liangatk20hit-spjere"
+                );
+            AddLightIntensityCurveWithCurve(
+                blueOrbHit.transform.GetChild(0).GetChild(1).gameObject,
+                new LightIntensityProps
+                {
+                    timeMax = 0.12f,
+                    loop = false,
+                    randomStart = false,
+                    enableNegativeLights = false
+                },
+                "fxr4liangatk20hit-lightSC"
+                );
+            blueOrbHit = ModifyEffect(blueOrbHit, "", true);
+
+            blueOrbGroundHit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk20bao");
+            blueOrbGroundHit = ModifyEffect(blueOrbGroundHit, "", true);
         }
 
         private static void PopulateRedOrbAssets()
