@@ -155,7 +155,7 @@ namespace LeeHyperrealMod.Modules
         {
             blueOrbShot = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk20");
             AddLightIntensityCurveWithCurve(
-                blueOrbShot.transform.GetChild(4).GetChild(1).gameObject,
+                blueOrbShot.transform.GetChild(0).GetChild(1).GetChild(1).gameObject,
                 new LightIntensityProps 
                 {
                     timeMax = 0.15f,
@@ -166,7 +166,7 @@ namespace LeeHyperrealMod.Modules
                 "fxr4liangatk20-spjere"
                 );
             AddLightIntensityCurveWithCurve(
-                blueOrbShot.transform.GetChild(4).GetChild(0).gameObject,
+                blueOrbShot.transform.GetChild(0).GetChild(1).GetChild(0).gameObject,
                 new LightIntensityProps 
                 {
                     timeMax = 0.35f,
@@ -253,7 +253,7 @@ namespace LeeHyperrealMod.Modules
 
             redOrbPingGround = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk11dilie");
             AddLightIntensityCurveWithCurve(
-                redOrbPingGround.transform.GetChild(1).GetChild(0).gameObject,
+                redOrbPingGround.transform.GetChild(0).gameObject,
                 new LightIntensityProps
                 {
                     timeMax = 0.5f,

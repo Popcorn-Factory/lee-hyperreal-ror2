@@ -31,8 +31,10 @@ namespace LeeHyperrealMod.Modules
 
         #region Blue Orb
         internal const float blueOrbCoefficient = 2f;
-        internal const float blueOrbBlastRadius = 10f;
+        internal const float blueOrbBlastRadius = 8f;
         internal const float blueOrbTripleMultiplier = 1.5f;
+        internal const float blueOrbShotCoefficient = 2f;
+        internal const float blueOrbProcCoefficient = 1f;
         #endregion
 
         #region Domain
