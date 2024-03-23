@@ -292,7 +292,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
             //Calculate position where the floor is from where we are.
             RaycastHit hit;
-            if (Physics.Raycast(transform.position, bulletAttack.aimVector, out hit, Mathf.Infinity, LayerIndex.world.mask))
+            if (Physics.Raycast(muzzlePos.position, bulletAttack.aimVector, out hit, Mathf.Infinity, LayerIndex.world.mask))
             {
                 EffectManager.SimpleEffect(Modules.ParticleAssets.blueOrbGroundHit, hit.point, Quaternion.identity, true);
             }
