@@ -82,6 +82,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 canRejectForce = false,
                 procChainMask = new ProcChainMask(),
                 procCoefficient = procCoefficient,
+                impactEffect = EffectCatalog.FindEffectIndexFromPrefab(Modules.ParticleAssets.redOrbDomainFloorImpact)
             };
 
         }
@@ -139,7 +140,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 if(fireStopwatch <= 0f && fireCount < StaticValues.redOrbDomainFireCount)
                 {
                     fireStopwatch = fireInterval;
-                    blastAttack.Fire();
+                    BlastAttack.Result result = blastAttack.Fire();
+                    if (result.hitCount > 0) 
+                    {
+                        OnHitEnemyAuthority(result.hitPoints);
+                    }
                     fireCount++;
                 }
                 else
@@ -158,9 +163,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             }
         }
 
-        public void OnHitEnemyAuthority()
+        public void OnHitEnemyAuthority(BlastAttack.HitPoint[] hitPoints)
         {
             //Do something on hit.
+            foreach (BlastAttack.HitPoint point in hitPoints) 
+            {
+                EffectManager.SimpleEffect(Modules.ParticleAssets.redOrbDomainHit, point.hitPosition, Quaternion.identity, true);
+            }
         }
 
 

@@ -48,12 +48,23 @@ namespace LeeHyperrealMod.Modules
         public static GameObject redOrbHit;
         public static GameObject redOrbPingSwing;
         public static GameObject redOrbPingGround;
+
+        public static GameObject redOrbDomainHit;
+        public static GameObject redOrbDomainFloorImpact;
         #endregion
 
         #region Blue Orb
         public static GameObject blueOrbShot;
         public static GameObject blueOrbHit;
         public static GameObject blueOrbGroundHit;
+        #endregion
+
+        #region Yellow Orb
+
+        #endregion
+
+        #region Snipe
+
         #endregion
 
         public struct LightIntensityProps 
@@ -264,6 +275,34 @@ namespace LeeHyperrealMod.Modules
                 "fxr4liangatk11dilie"
                 );
             redOrbPingGround = ModifyEffect(redOrbPingGround, "", false);
+
+            redOrbDomainFloorImpact = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk14dilie");
+            AddLightIntensityCurveWithCurve(
+                redOrbDomainFloorImpact.transform.GetChild(0).gameObject,
+                new LightIntensityProps 
+                {
+                    timeMax = 0.5f,
+                    loop = false,
+                    randomStart = false,
+                    enableNegativeLights = false,
+                },
+                "fxr4liangatk14dilie"
+                );
+            redOrbDomainFloorImpact = ModifyEffect(redOrbDomainFloorImpact, "", false);
+
+            redOrbDomainHit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk14fshit01");
+            AddLightIntensityCurveWithCurve(
+                redOrbDomainHit.transform.GetChild(0).GetChild(4).gameObject,
+                new LightIntensityProps
+                {
+                    timeMax = 0.5f,
+                    loop = false,
+                    randomStart = false,
+                    enableNegativeLights = false,
+                },
+                "fxr4liangatk14fshit01"
+                );
+            redOrbDomainHit = ModifyEffect(redOrbDomainHit, "", false);
         }
 
         private static void PopulatePrimary5Assets()
