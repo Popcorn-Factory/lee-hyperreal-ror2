@@ -82,7 +82,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 canRejectForce = false,
                 procChainMask = new ProcChainMask(),
                 procCoefficient = procCoefficient,
-                impactEffect = EffectCatalog.FindEffectIndexFromPrefab(Modules.ParticleAssets.redOrbDomainFloorImpact)
             };
 
         }
@@ -141,6 +140,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 {
                     fireStopwatch = fireInterval;
                     BlastAttack.Result result = blastAttack.Fire();
+                    EffectManager.SimpleEffect(Modules.ParticleAssets.redOrbDomainFloorImpact, blastAttack.position, Quaternion.identity, true);
                     if (result.hitCount > 0) 
                     {
                         OnHitEnemyAuthority(result.hitPoints);
