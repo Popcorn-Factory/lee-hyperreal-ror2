@@ -60,7 +60,7 @@ namespace LeeHyperrealMod.Modules
         internal const float redOrbProcCoefficient = 1f;
 
         internal const float redOrbDomainDamageCoefficient = 2f;
-        internal const float redOrbDomainBlastRadius = 20f;
+        internal const float redOrbDomainBlastRadius = 5f;
         internal const int redOrbDomainFireCount = 4;
         #endregion
 

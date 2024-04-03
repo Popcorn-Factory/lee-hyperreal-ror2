@@ -7,6 +7,7 @@ using System;
 using LeeHyperrealMod.Modules;
 using UnityEngine.UIElements.UIR;
 using LeeHyperrealMod.Content.Controllers;
+using System.ComponentModel;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 {
@@ -14,8 +15,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
     {
 
         public float start = 0;
-        public float earlyEnd = 0.45f;
-        public float fireTime = 0.35f;
+        public float earlyEnd = 0.35f;
+        public float fireTime = 0.17f;
         public float baseFireInterval = 0.07f;
         public float fireInterval;
         public float duration = 4f;
@@ -39,9 +40,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
         private float movementMultiplier = 1f;
 
+        internal Transform boxGunTransform;
+        internal bool effectPlayed;
+
         public override void OnEnter()
         {
             base.OnEnter();
+            effectPlayed = false;
             orbController = gameObject.GetComponent<OrbController>();
             if (orbController)
             {
@@ -61,6 +66,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             Ray aimRay = base.GetAimRay();
             characterMotor.velocity.y = 0f;
 
+            ChildLocator childLocator = base.GetModelTransform().GetComponent<ChildLocator>();
+
+            boxGunTransform = childLocator.FindChild("GunCasePos");
 
             PlayAttackAnimation();
 
@@ -70,7 +78,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 attacker = gameObject,
                 inflictor = null,
                 teamIndex = TeamIndex.Player,
-                position = gameObject.transform.position + characterDirection.forward * 2.5f,
+                position = boxGunTransform.position,
                 radius = Modules.StaticValues.redOrbDomainBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.Linear,
                 baseDamage = damageStat * Modules.StaticValues.redOrbDomainDamageCoefficient,
@@ -134,13 +142,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         {
             base.FixedUpdate();
 
-            if (fixedAge >= duration * fireTime)
+            if (fixedAge >= duration * fireTime && isAuthority)
             {
+                if (!effectPlayed) 
+                {
+                    effectPlayed = true;
+                    EffectManager.SimpleEffect(Modules.ParticleAssets.redOrbDomainFloorImpact, boxGunTransform.position, Quaternion.identity, true);
+                }
                 if(fireStopwatch <= 0f && fireCount < StaticValues.redOrbDomainFireCount)
                 {
                     fireStopwatch = fireInterval;
+                    blastAttack.position = boxGunTransform.position;
                     BlastAttack.Result result = blastAttack.Fire();
-                    EffectManager.SimpleEffect(Modules.ParticleAssets.redOrbDomainFloorImpact, blastAttack.position, Quaternion.identity, true);
                     if (result.hitCount > 0) 
                     {
                         OnHitEnemyAuthority(result.hitPoints);
@@ -156,7 +169,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
 
 
-            if (fixedAge >= duration)
+            if (fixedAge >= duration && isAuthority)
             {
                 outer.SetNextStateToMain();
                 return;

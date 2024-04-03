@@ -1,11 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1364658351
+CRC: 430966809
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
       Name: assets/product/role/weaponres/superli/e3superliboxmd010011.ab
       Dependencies:
         Dependency_0: assets/product/scene/cubemaps/generatecubes.ab
+        Dependency_1: leehyperrealassets
     Info_1:
       Name: assets/product/role/body/r4liangmd010011.ab
       Dependencies: {}
@@ -22,10 +23,12 @@ AssetBundleManifest:
       Name: assets/product/role/weaponres/superli/e3superliboxmd040011.ab
       Dependencies:
         Dependency_0: assets/product/scene/cubemaps/generatecubes.ab
+        Dependency_1: leehyperrealassets
     Info_6:
       Name: assets/product/role/weaponres/superli/e3superliboxmd030011.ab
       Dependencies:
         Dependency_0: assets/product/scene/cubemaps/generatecubes.ab
+        Dependency_1: leehyperrealassets
     Info_7:
       Name: assets/product/role/weaponanimation/superli/superliriflecommon/fight.ab
       Dependencies: {}
@@ -46,9 +49,6 @@ AssetBundleManifest:
       Dependencies:
         Dependency_0: assets/product/role/animation/r4liangmdcommon/r4liangmdcommondisplay.ab
     Info_13:
-      Name: assets/product/dummyshader/xcharacter_character##e1b23e1944c337fbdeca7102648dd40cf251a211.ab
-      Dependencies: {}
-    Info_14:
       Name: leehyperrealassets
       Dependencies:
         Dependency_0: assets/product/role/weaponres/superli/e3superliboxmd010011.ab
@@ -65,96 +65,92 @@ AssetBundleManifest:
         Dependency_11: assets/product/effect/animation/fxr4liangmd019011animation.ab
         Dependency_12: assets/product/effect/mesh/fxmo1beiyamd01mesh.ab
         Dependency_13: assets/product/effect/mesh/fxr3lunamesh.ab
-        Dependency_14: assets/product/effect/mesh/fxr2lifumd019191mesh.ab
-        Dependency_15: assets/product/scene/sceneres/common/scene013/textures.ab
-        Dependency_16: assets/product/effect/mesh/fxr3yongyechaomd019271mesh.ab
-        Dependency_17: assets/product/effect/mesh/fxmb1lamiya01mesh.ab
-        Dependency_18: assets/product/effect/gpuparticles/fxr3ninesgpu.ab
-        Dependency_19: assets/product/effect/mesh/fxme1skaterboymd010001mesh.ab
-        Dependency_20: assets/product/effect/mesh/fxr3kuluomumesh/fxr3kuluomumd019091mesh.ab
-        Dependency_21: assets/product/effect/gpuparticles/fxr3luosaitamd019241gpu.ab
-        Dependency_22: assets/product/effect/mesh/fxr4lifumesh.ab
-        Dependency_23: assets/product/effect/mesh/fxscenesushemesh.ab
-        Dependency_24: assets/product/effect/mesh/fxmb1bengyueht01mesh.ab
-        Dependency_25: assets/product/effect/mesh/fxr2nuoanmesh.ab
-        Dependency_26: assets/product/scene/sceneres/common/scene030/textures.ab
-        Dependency_27: assets/product/effect/mesh/fxmb1voodoomesh.ab
-        Dependency_28: assets/product/effect/mesh/fxjiaojingmesh.ab
-        Dependency_29: assets/product/effect/mesh/fxpet3yingmesh.ab
-    Info_15:
+        Dependency_14: assets/product/scene/sceneres/common/scene013/textures.ab
+        Dependency_15: assets/product/effect/mesh/fxr3yongyechaomd019271mesh.ab
+        Dependency_16: assets/product/effect/mesh/fxmb1lamiya01mesh.ab
+        Dependency_17: assets/product/effect/gpuparticles/fxr3ninesgpu.ab
+        Dependency_18: assets/product/effect/mesh/fxme1skaterboymd010001mesh.ab
+        Dependency_19: assets/product/effect/mesh/fxr3kuluomumesh/fxr3kuluomumd019091mesh.ab
+        Dependency_20: assets/product/effect/gpuparticles/fxr3luosaitamd019241gpu.ab
+        Dependency_21: assets/product/effect/mesh/fxr4lifumesh.ab
+        Dependency_22: assets/product/effect/mesh/fxscenesushemesh.ab
+        Dependency_23: assets/product/effect/mesh/fxmb1bengyueht01mesh.ab
+        Dependency_24: assets/product/effect/mesh/fxr2nuoanmesh.ab
+        Dependency_25: assets/product/scene/sceneres/common/scene030/textures.ab
+        Dependency_26: assets/product/effect/mesh/fxmb1voodoomesh.ab
+        Dependency_27: assets/product/effect/mesh/fxjiaojingmesh.ab
+        Dependency_28: assets/product/effect/mesh/fxpet3yingmesh.ab
+    Info_14:
       Name: assets/product/role/weaponres/superli/e2superliboxmd020011.ab
       Dependencies:
         Dependency_0: assets/product/scene/cubemaps/generatecubes.ab
-    Info_16:
+    Info_15:
       Name: assets/product/effect/mesh/fxr2luolanmesh.ab
       Dependencies: {}
-    Info_17:
+    Info_16:
       Name: assets/product/role/body/r4liangmd019011.ab
       Dependencies:
         Dependency_0: assets/product/scene/cubemaps/generatecubes.ab
-    Info_18:
+    Info_17:
       Name: assets/product/effect/mesh/fxmb1punishdatamdmesh.ab
       Dependencies: {}
-    Info_19:
+    Info_18:
       Name: assets/product/effect/gpuparticles/fxr4liangmd010011gpu.ab
       Dependencies: {}
-    Info_20:
+    Info_19:
       Name: assets/product/effect/mesh/fxr2qumesh.ab
       Dependencies: {}
-    Info_21:
+    Info_20:
       Name: assets/product/effect/animation/fxr4liangmd019011animation.ab
       Dependencies: {}
-    Info_22:
+    Info_21:
       Name: assets/product/effect/mesh/fxmo1beiyamd01mesh.ab
       Dependencies: {}
-    Info_23:
+    Info_22:
       Name: assets/product/effect/mesh/fxr3lunamesh.ab
       Dependencies: {}
-    Info_24:
-      Name: assets/product/effect/mesh/fxr2lifumd019191mesh.ab
-      Dependencies: {}
-    Info_25:
+    Info_23:
       Name: assets/product/scene/sceneres/common/scene013/textures.ab
       Dependencies: {}
-    Info_26:
+    Info_24:
       Name: assets/product/effect/mesh/fxr3yongyechaomd019271mesh.ab
       Dependencies: {}
-    Info_27:
+    Info_25:
       Name: assets/product/effect/mesh/fxmb1lamiya01mesh.ab
       Dependencies: {}
-    Info_28:
+    Info_26:
       Name: assets/product/effect/gpuparticles/fxr3ninesgpu.ab
       Dependencies: {}
-    Info_29:
+    Info_27:
       Name: assets/product/effect/mesh/fxme1skaterboymd010001mesh.ab
       Dependencies: {}
-    Info_30:
+    Info_28:
       Name: assets/product/effect/mesh/fxr3kuluomumesh/fxr3kuluomumd019091mesh.ab
       Dependencies: {}
-    Info_31:
+    Info_29:
       Name: assets/product/effect/gpuparticles/fxr3luosaitamd019241gpu.ab
       Dependencies: {}
-    Info_32:
+    Info_30:
       Name: assets/product/effect/mesh/fxr4lifumesh.ab
       Dependencies: {}
-    Info_33:
+    Info_31:
       Name: assets/product/effect/mesh/fxscenesushemesh.ab
       Dependencies: {}
-    Info_34:
+    Info_32:
       Name: assets/product/effect/mesh/fxmb1bengyueht01mesh.ab
       Dependencies: {}
-    Info_35:
+    Info_33:
       Name: assets/product/effect/mesh/fxr2nuoanmesh.ab
       Dependencies: {}
-    Info_36:
+    Info_34:
       Name: assets/product/scene/sceneres/common/scene030/textures.ab
       Dependencies: {}
-    Info_37:
+    Info_35:
       Name: assets/product/effect/mesh/fxmb1voodoomesh.ab
       Dependencies: {}
-    Info_38:
+    Info_36:
       Name: assets/product/effect/mesh/fxjiaojingmesh.ab
       Dependencies: {}
-    Info_39:
+    Info_37:
       Name: assets/product/effect/mesh/fxpet3yingmesh.ab
       Dependencies: {}

@@ -60,7 +60,7 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Yellow Orb
-
+        public static GameObject yellowOrbSwing;
         #endregion
 
         #region Snipe
@@ -98,9 +98,14 @@ namespace LeeHyperrealMod.Modules
             }
         }
 
-        private static GameObject ModifyEffect(GameObject newEffect, string soundName, bool parentToTransform)
+        private static GameObject ModifyEffect(GameObject newEffect, string soundName, bool parentToTransform) 
         {
-            newEffect.AddComponent<DestroyOnTimer>().duration = 12;
+            return ModifyEffect(newEffect, soundName, parentToTransform, 12f);
+        }
+
+        private static GameObject ModifyEffect(GameObject newEffect, string soundName, bool parentToTransform, float duration)
+        {
+            newEffect.AddComponent<DestroyOnTimer>().duration = duration;
             newEffect.AddComponent<NetworkIdentity>();
             newEffect.AddComponent<VFXAttributes>().vfxPriority = VFXAttributes.VFXPriority.Always;
             EffectComponent effect = newEffect.AddComponent<EffectComponent>();
@@ -308,7 +313,7 @@ namespace LeeHyperrealMod.Modules
         private static void PopulatePrimary5Assets()
         {
             primary5Swing = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk05");
-            primary5Swing = ModifyEffect(primary5Swing, "", true);
+            primary5Swing = ModifyEffect(primary5Swing, "", true, 1.5f);
 
             primary5Floor = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk05dilie");
             AddLightIntensityCurveWithCurve(
@@ -322,7 +327,7 @@ namespace LeeHyperrealMod.Modules
                 },
                 "fxr4liangatk05dilie"
                 );
-            primary5Floor = ModifyEffect(primary5Floor, "", true);
+            primary5Floor = ModifyEffect(primary5Floor, "", true, 1.5f);
         }
 
         private static void PopulatePrimary4Assets()
