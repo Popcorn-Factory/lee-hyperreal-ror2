@@ -61,6 +61,7 @@ namespace LeeHyperrealMod.Modules
 
         #region Yellow Orb
         public static GameObject yellowOrbSwing;
+        
         #endregion
 
         #region Snipe
