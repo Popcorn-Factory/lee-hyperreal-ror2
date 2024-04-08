@@ -1578,6 +1578,7 @@
 														<RandomSequenceContainer Name="c_liRk4_atk_ex_3_break" ID="{F9DE43C4-3028-43D7-9DAE-1627E0934D82}" ShortID="181047167">
 															<PropertyList>
 																<Property Name="3DSpatialization" Type="int16" Value="1"/>
+																<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
 															</PropertyList>
 															<ReferenceList>
 																<Reference Name="Attenuation">
@@ -2788,6 +2789,32 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<Sound Name="Normal parry" ID="{5C2B03C3-5B3C-4644-89C7-5BE0E7BD753C}" ShortID="927311547">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="17"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Normal parry" ID="{29A9FA34-8326-4D23-8578-24C3572EBB12}">
+											<Language>SFX</Language>
+											<AudioFile>Normal parry.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="408586629"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Normal parry" ID="{29A9FA34-8326-4D23-8578-24C3572EBB12}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>

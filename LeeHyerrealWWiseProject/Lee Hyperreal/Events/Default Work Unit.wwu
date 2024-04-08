@@ -665,6 +665,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Normal_parry" ID="{84DC700D-9341-40EE-BC24-A3E77D5C85B0}">
+							<ChildrenList>
+								<Action Name="" ID="{7E7122E7-E950-4CA4-8A96-DC5591F57451}" ShortID="730090458">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Normal parry" ID="{5C2B03C3-5B3C-4644-89C7-5BE0E7BD753C}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>
