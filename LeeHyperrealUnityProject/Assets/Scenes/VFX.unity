@@ -24529,7 +24529,7 @@ GameObject:
   - component: {fileID: 1513178670}
   - component: {fileID: 1513178669}
   m_Layer: 0
-  m_Name: Particle System (1)
+  m_Name: Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -24627,7 +24627,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -34154,7 +34154,7 @@ GameObject:
   - component: {fileID: 1883485554}
   - component: {fileID: 1883485553}
   m_Layer: 0
-  m_Name: Particle System (2)
+  m_Name: Narrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34251,7 +34251,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
@@ -39084,7 +39084,7 @@ GameObject:
   - component: {fileID: 2034868983}
   - component: {fileID: 2034868982}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: Wide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39181,7 +39181,7 @@ ParticleSystem:
   cullingMode: 0
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
-  looping: 1
+  looping: 0
   prewarm: 0
   playOnAwake: 1
   useUnscaledTime: 0
