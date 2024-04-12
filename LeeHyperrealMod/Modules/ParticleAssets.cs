@@ -61,11 +61,11 @@ namespace LeeHyperrealMod.Modules
 
         #region Yellow Orb
         public static GameObject yellowOrbSwing;
-        
+
         #endregion
 
         #region Snipe
-
+        public static GameObject Snipe;
         #endregion
 
         public struct LightIntensityProps 
@@ -162,6 +162,10 @@ namespace LeeHyperrealMod.Modules
             #endregion
 
             #region Yellow Orb
+            #endregion
+
+            #region Snipe
+
             #endregion
 
             #region Domain Shift
