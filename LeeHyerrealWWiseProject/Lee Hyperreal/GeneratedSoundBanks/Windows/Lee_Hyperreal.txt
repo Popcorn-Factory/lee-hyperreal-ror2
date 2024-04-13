@@ -24,6 +24,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1336279353	Play_c_liRk4_act_born			\Default Work Unit\Lee\Play_c_liRk4_act_born	
 	1338030204	Play_c_liRk4_skill_yellow_fire			\Default Work Unit\Lee\Play_c_liRk4_skill_yellow_fire	
 	1436277817	Play_c_liRk4_atk_ex_2_xuli			\Default Work Unit\Lee\Play_c_liRk4_atk_ex_2_xuli	
+	1499659704	Play_Normal_parry			\Default Work Unit\Lee\Play_Normal_parry	
 	1641104144	Play_c_liRk4_atk_ex_1_bullet_1			\Default Work Unit\Lee\Play_c_liRk4_atk_ex_1_bullet_1	
 	1641104146	Play_c_liRk4_atk_ex_1_bullet_3			\Default Work Unit\Lee\Play_c_liRk4_atk_ex_1_bullet_3	
 	1641104147	Play_c_liRk4_atk_ex_1_bullet_2			\Default Work Unit\Lee\Play_c_liRk4_atk_ex_1_bullet_2	
@@ -42,6 +43,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2447070427	Play_c_liRk4_atk_ex_3_break			\Default Work Unit\Lee\Play_c_liRk4_atk_ex_3_break	
 	2507619046	Play_c_liRk4_atk_nml_5_jump			\Default Work Unit\Lee\Play_c_liRk4_atk_nml_5_jump	
 	2800018725	Play_c_liRk4_atk_ex_3_reload			\Default Work Unit\Lee\Play_c_liRk4_atk_ex_3_reload	
+	2985300151	Play_Big_parry			\Default Work Unit\Lee\Play_Big_parry	
 	3162046478	Play_c_liRk4_skill_red			\Default Work Unit\Lee\Play_c_liRk4_skill_red	
 	3336212441	Play_c_liRk4_imp_ex_2_2			\Default Work Unit\Lee\Play_c_liRk4_imp_ex_2_2	
 	3336212442	Play_c_liRk4_imp_ex_2_1			\Default Work Unit\Lee\Play_c_liRk4_imp_ex_2_1	
@@ -107,6 +109,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	387445783	c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_imp_nml_3_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Primary\c_liRk4_imp_nml_3_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2		6200
 	390164007	c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_imp_ex_3_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Domain\c_liRk4_imp_ex_3_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)		6530
 	393490892	c_liRk4_skill_ex_timestop_loop	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_skill_ex_timestop_loop_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Domain\c_liRk4_skill_ex_timestop_loop		144179
+	408586629	Normal parry	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\Normal parry_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Normal parry		11440
 	416830284	c_liRk4_skill_blue	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_skill_blue_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Blue Orb\c_liRk4_skill_blue		33738
 	435832049	c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (1)	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_imp_nml_4\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (1)_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Primary\c_liRk4_imp_nml_4\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (1)		13864
 	441886937	c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (2)	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_imp_nml_4\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (2)_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Primary\c_liRk4_imp_nml_4\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (2)		11542
@@ -142,6 +145,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	900217835	c_liRk4_skill_red_bullet	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_skill_red_bullet_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Red Orb\c_liRk4_skill_red_bullet		17921
 	901070402	c_liRk4_atk_ex_3_xuli	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_atk_ex_3_xuli_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Primary\Snipe\Snipe mix\c_liRk4_atk_ex_3_xuli		22084
 	924024604	c_liRk4_atk_ex_2_exp_2	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_atk_ex_2_exp_2_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Red Orb\Domain\c_liRk4_atk_ex_2_exp_2		41884
+	928078392	Big parry	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\big parry_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Big parry		45799
 	931955726	c_liRk4_atk_nml_3_dilie_2	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_atk_nml_3_dilie_2_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Primary\c_liRk4_atk_nml_3_dilie_2		30560
 	943555381	c_liRk4_imp_yellow_2	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_imp_yellow_2\c_liRk4_imp_yellow_2_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Yellow Orb\c_liRk4_imp_yellow_2\c_liRk4_imp_yellow_2		5387
 	944148654	c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_imp_ex_2_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Red Orb\Domain\c_liRk4_imp_ex_2_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)		6530

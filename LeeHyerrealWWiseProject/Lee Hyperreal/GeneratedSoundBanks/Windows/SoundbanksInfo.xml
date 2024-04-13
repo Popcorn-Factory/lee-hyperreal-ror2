@@ -11,11 +11,19 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="505873666" Language="SFX" Hash="1617709368">
+		<SoundBank Id="505873666" Language="SFX" Hash="3715308880">
 			<ObjectPath>\SoundBanks\Default Work Unit\Lee_Hyperreal</ObjectPath>
 			<ShortName>Lee_Hyperreal</ShortName>
 			<Path>Lee_Hyperreal.bnk</Path>
 			<IncludedEvents>
+				<Event Id="2985300151" Name="Play_Big_parry" ObjectPath="\Events\Default Work Unit\Lee\Play_Big_parry">
+					<IncludedMemoryFiles>
+						<File Id="928078392" Language="SFX">
+							<ShortName>big parry.wav</ShortName>
+							<Path>SFX\big parry_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1336279353" Name="Play_c_liRk4_act_born" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_act_born">
 					<IncludedMemoryFiles>
 						<File Id="975369106" Language="SFX">
@@ -633,6 +641,14 @@
 						<File Id="224120806" Language="SFX">
 							<ShortName>c_liRk4_skill_yellow_tuijin.wav</ShortName>
 							<Path>SFX\c_liRk4_skill_yellow_tuijin_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1499659704" Name="Play_Normal_parry" ObjectPath="\Events\Default Work Unit\Lee\Play_Normal_parry">
+					<IncludedMemoryFiles>
+						<File Id="408586629" Language="SFX">
+							<ShortName>Normal parry.wav</ShortName>
+							<Path>SFX\Normal parry_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

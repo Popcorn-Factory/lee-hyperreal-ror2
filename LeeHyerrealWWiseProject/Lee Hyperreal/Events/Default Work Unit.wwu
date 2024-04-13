@@ -676,6 +676,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Big_parry" ID="{D4765A80-9D86-4DD7-A38C-A7A7ACFBFB6D}">
+							<ChildrenList>
+								<Action Name="" ID="{330927C0-398D-46B1-ABC9-A152A698A627}" ShortID="889058376">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Big parry" ID="{EA6EFF9B-71B7-4B35-8562-85BB45D74002}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>
