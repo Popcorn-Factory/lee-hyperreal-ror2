@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: leeSubmachineMat
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: _NORMALMAP
-  m_LightmapFlags: 4
+  m_ShaderKeywords: _EMISSION _NORMALMAP
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -49,7 +49,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: a2bce2b3e2d435f45a0e6cc64998e1dd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FaceMap:
@@ -211,7 +211,7 @@ Material:
     - _CubemapColor: {r: 1, g: 1, b: 1, a: 1}
     - _DirectLightColor: {r: 1, g: 1, b: 1, a: 1}
     - _EffectRimColor: {r: 0, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 0.8, g: 0.8, b: 1, a: 1}
+    - _EmissionColor: {r: 12.816752, g: 12.816752, b: 15.999998, a: 1}
     - _FirstShadowColor: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 0}
     - _FirstShadowColor1: {r: 1, g: 1, b: 1, a: 0}
     - _FirstShadowColor2: {r: 1, g: 1, b: 1, a: 0}
