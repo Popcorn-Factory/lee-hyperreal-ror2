@@ -66,6 +66,7 @@ namespace LeeHyperrealMod.Modules
 
         #region Snipe
         public static GameObject Snipe;
+        public static GameObject snipeHit;
         #endregion
 
         public struct LightIntensityProps 
@@ -165,11 +166,76 @@ namespace LeeHyperrealMod.Modules
             #endregion
 
             #region Snipe
-
+            PopulateSnipeAssets();
             #endregion
 
             #region Domain Shift
             #endregion
+        }
+
+        private static void PopulateSnipeAssets()
+        {
+            Snipe = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk24");
+            AddLightIntensityCurveWithCurve(
+                Snipe.transform.GetChild(0).GetChild(1).gameObject,
+                new LightIntensityProps 
+                {
+                    timeMax = 0.5f,
+                    loop = false,
+                    randomStart = false,
+                    enableNegativeLights = false,
+                },
+                "fxr4liangatk24-lightSC1"
+                );
+            AddLightIntensityCurveWithCurve(
+                Snipe.transform.GetChild(1).GetChild(1).gameObject,
+                new LightIntensityProps
+                {
+                    timeMax = 0.4f,
+                    loop = false,
+                    randomStart = false,
+                    enableNegativeLights = false,
+                },
+                "fxr4liangatk24-spjere"
+                );
+            AddLightIntensityCurveWithCurve(
+                Snipe.transform.GetChild(2).GetChild(11).gameObject,
+                new LightIntensityProps
+                {
+                    timeMax = 0.45f,
+                    loop = false,
+                    randomStart = false,
+                    enableNegativeLights = false,
+                },
+                "fxr4liangatk24-lightSC2"
+                );
+
+            Snipe = ModifyEffect(Snipe, "", true);
+
+            snipeHit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk24hit");
+            AddLightIntensityCurveWithCurve(
+                snipeHit.transform.GetChild(0).GetChild(1).gameObject,
+                new LightIntensityProps
+                {
+                    timeMax = 0.15f,
+                    loop = false,
+                    randomStart = false,
+                    enableNegativeLights = false,
+                },
+                "fxr4liangatk24hit-lightSC"
+                );
+            AddLightIntensityCurveWithCurve(
+                snipeHit.transform.GetChild(1).gameObject,
+                new LightIntensityProps
+                {
+                    timeMax = 0.18f,
+                    loop = false,
+                    randomStart = false,
+                    enableNegativeLights = false,
+                },
+                "fxr4liangatk24hit-spjere"
+                );
+            snipeHit = ModifyEffect(snipeHit, "", true);
         }
 
         private static void PopulateBlueOrbAssets()

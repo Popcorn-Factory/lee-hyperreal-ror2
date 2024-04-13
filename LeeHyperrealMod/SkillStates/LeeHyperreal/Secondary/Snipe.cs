@@ -18,7 +18,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public float firingFrac = 0.08f;
         public bool hasFired;
         public float duration = 1.3f;
-        public string muzzleString = "";
+        public string muzzleString = "BaseTransform";
 
         public static float damageCoefficient = Modules.StaticValues.gunDamageCoefficient;
         public static float procCoefficient = 1f;
@@ -79,6 +79,32 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             base.OnExit();
         }
 
+        protected virtual void PlaySwingEffect(float scale, GameObject effectPrefab)
+        {
+            ModelLocator component = gameObject.GetComponent<ModelLocator>();
+            if (component && component.modelTransform)
+            {
+                ChildLocator component2 = component.modelTransform.GetComponent<ChildLocator>();
+                if (component2)
+                {
+                    int childIndex = component2.FindChildIndex(muzzleString);
+                    Transform transform = component2.FindChild(childIndex);
+                    if (transform)
+                    {
+                        EffectData effectData = new EffectData
+                        {
+                            origin = gameObject.transform.position,
+                            scale = scale,
+                            rotation = Quaternion.LookRotation(GetAimRay().direction, Vector3.up),
+                        };
+                        effectData.SetChildLocatorTransformReference(gameObject, childIndex);
+                        EffectManager.SpawnEffect(effectPrefab, effectData, true);
+                    }
+                }
+            }
+            //EffectManager.SimpleMuzzleFlash(this.swingEffectPrefab, base.gameObject, this.muzzleString, true);
+        }
+
         public override void Update()
         {
             base.Update();
@@ -90,7 +116,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                 this.hasFired = true;
 
                 base.characterBody.AddSpreadBloom(1.5f);
-                EffectManager.SimpleMuzzleFlash(EntityStates.Commando.CommandoWeapon.FirePistol2.muzzleEffectPrefab, base.gameObject, this.muzzleString, false);
+                EffectData effectData = new EffectData
+                {
+                    origin = gameObject.transform.position,
+                    scale = 1.25f,
+                    rotation = Quaternion.LookRotation(GetAimRay().direction, Vector3.up),
+                };
+                EffectManager.SpawnEffect(Modules.ParticleAssets.Snipe, effectData, true);
+                //EffectManager.SimpleMuzzleFlash(Modules.ParticleAssets.Snipe, base.gameObject, this.muzzleString, false);
                 Util.PlaySound("HenryShootPistol", base.gameObject);
 
                 if (base.isAuthority)
@@ -121,11 +154,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                         sniper = false,
                         stopperMask = LayerIndex.CommonMasks.bullet,
                         weapon = null,
-                        tracerEffectPrefab = Shoot.tracerEffectPrefab,
                         spreadPitchScale = 0f,
                         spreadYawScale = 0f,
                         queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
-                        hitEffectPrefab = EntityStates.Commando.CommandoWeapon.FirePistol2.hitEffectPrefab,
+                        hitEffectPrefab = Modules.ParticleAssets.snipeHit,
                     }.Fire();
                 }
             }
