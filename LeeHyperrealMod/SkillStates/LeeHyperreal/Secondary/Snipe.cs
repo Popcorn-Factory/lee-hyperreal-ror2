@@ -79,7 +79,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             base.OnExit();
         }
 
-        protected virtual void PlaySwingEffect(float scale, GameObject effectPrefab)
+        protected virtual void PlaySwingEffect(float scale, GameObject effectPrefab, bool aimRot = true)
         {
             ModelLocator component = gameObject.GetComponent<ModelLocator>();
             if (component && component.modelTransform)
@@ -91,13 +91,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     Transform transform = component2.FindChild(childIndex);
                     if (transform)
                     {
-                        EffectData effectData = new EffectData
+                        Vector3 aimRotation = GetAimRay().direction;
+                        EffectData effectData = new EffectData 
                         {
-                            origin = gameObject.transform.position,
+                            origin = transform.position,
                             scale = scale,
-                            rotation = Quaternion.LookRotation(GetAimRay().direction, Vector3.up),
+                            rotation = Quaternion.LookRotation(new Vector3(aimRotation.x, 0f, aimRotation.z), Vector3.up),
                         };
-                        effectData.SetChildLocatorTransformReference(gameObject, childIndex);
+                        if (aimRot) 
+                        {
+                            effectData.rotation = Quaternion.LookRotation(GetAimRay().direction, Vector3.up);
+                        }
+                        //effectData.SetChildLocatorTransformReference(gameObject, childIndex);
                         EffectManager.SpawnEffect(effectPrefab, effectData, true);
                     }
                 }
@@ -122,7 +127,20 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     scale = 1.25f,
                     rotation = Quaternion.LookRotation(GetAimRay().direction, Vector3.up),
                 };
-                EffectManager.SpawnEffect(Modules.ParticleAssets.Snipe, effectData, true);
+                EffectData groundData = new EffectData
+                {
+                    origin = gameObject.transform.position,
+                    scale = 1.25f,
+
+                };
+                //EffectManager.SpawnEffect(Modules.ParticleAssets.Snipe, effectData, true);
+
+                if (isGrounded) 
+                {
+                    PlaySwingEffect(1.25f, Modules.ParticleAssets.snipeGround, false);
+                    //EffectManager.SpawnEffect(Modules.ParticleAssets.snipeGround, effectData, true);
+                }
+                PlaySwingEffect(1.25f, Modules.ParticleAssets.Snipe);
                 //EffectManager.SimpleMuzzleFlash(Modules.ParticleAssets.Snipe, base.gameObject, this.muzzleString, false);
                 Util.PlaySound("HenryShootPistol", base.gameObject);
 
