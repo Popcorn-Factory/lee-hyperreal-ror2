@@ -133,15 +133,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     scale = 1.25f,
 
                 };
-                //EffectManager.SpawnEffect(Modules.ParticleAssets.Snipe, effectData, true);
 
                 if (isGrounded) 
                 {
                     PlaySwingEffect(1.25f, Modules.ParticleAssets.snipeGround, false);
-                    //EffectManager.SpawnEffect(Modules.ParticleAssets.snipeGround, effectData, true);
                 }
                 PlaySwingEffect(1.25f, Modules.ParticleAssets.Snipe);
-                //EffectManager.SimpleMuzzleFlash(Modules.ParticleAssets.Snipe, base.gameObject, this.muzzleString, false);
                 Util.PlaySound("HenryShootPistol", base.gameObject);
 
                 if (base.isAuthority)

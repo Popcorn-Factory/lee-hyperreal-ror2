@@ -33,12 +33,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         private float firingFrac = 0.42f;
         private bool hasFired = false;
         public static float procCoefficient = 1f;
-        public string muzzleString = "";
+        public string muzzleString = "BaseTransform";
 
         public OrbController orbController;
         public BulletController bulletController;
         public LeeHyperrealDomainController domainController;
         public float empoweredBulletMultiplier = 1f;
+
 
         public override void OnEnter()
         {
@@ -79,6 +80,37 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             StartAimMode(duration, false);
         }
 
+        protected virtual void PlaySwingEffect(float scale, GameObject effectPrefab, bool aimRot = true)
+        {
+            ModelLocator component = gameObject.GetComponent<ModelLocator>();
+            if (component && component.modelTransform)
+            {
+                ChildLocator component2 = component.modelTransform.GetComponent<ChildLocator>();
+                if (component2)
+                {
+                    int childIndex = component2.FindChildIndex(muzzleString);
+                    Transform transform = component2.FindChild(childIndex);
+                    if (transform)
+                    {
+                        Vector3 aimRotation = GetAimRay().direction;
+                        EffectData effectData = new EffectData
+                        {
+                            origin = transform.position,
+                            scale = scale,
+                            rotation = Quaternion.LookRotation(new Vector3(aimRotation.x, 0f, aimRotation.z), Vector3.up),
+                        };
+                        if (aimRot)
+                        {
+                            effectData.rotation = Quaternion.LookRotation(GetAimRay().direction, Vector3.up);
+                        }
+                        //effectData.SetChildLocatorTransformReference(gameObject, childIndex);
+                        EffectManager.SpawnEffect(effectPrefab, effectData, true);
+                    }
+                }
+            }
+            //EffectManager.SimpleMuzzleFlash(this.swingEffectPrefab, base.gameObject, this.muzzleString, true);
+        }
+
         public override void OnExit()
         {
             base.OnExit();
@@ -92,6 +124,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                 hasFired = true;
                 Ray aimRay = base.GetAimRay();
                 base.AddRecoil(-1f * Shoot.recoil, -2f * Shoot.recoil, -0.5f * Shoot.recoil, 0.5f * Shoot.recoil);
+
+                if (isGrounded)
+                {
+                    PlaySwingEffect(1.25f, Modules.ParticleAssets.snipeGround, false);
+                }
+                PlaySwingEffect(1.25f, Modules.ParticleAssets.Snipe);
 
                 new BulletAttack
                 {
@@ -117,11 +155,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                     sniper = false,
                     stopperMask = LayerIndex.CommonMasks.bullet,
                     weapon = null,
-                    tracerEffectPrefab = Shoot.tracerEffectPrefab,
                     spreadPitchScale = 0f,
                     spreadYawScale = 0f,
                     queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
-                    hitEffectPrefab = EntityStates.Commando.CommandoWeapon.FirePistol2.hitEffectPrefab,
+                    hitEffectPrefab = Modules.ParticleAssets.snipeHit,
                 }.Fire();
             }
 

@@ -60,6 +60,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             }
             Ray aimRay = base.GetAimRay();
             base.characterDirection.forward = aimRay.direction;
+
+            EffectManager.SpawnEffect(Modules.ParticleAssets.snipeDodge, 
+                new EffectData 
+                { 
+                    origin = this.gameObject.transform.position, 
+                    scale = 1.25f 
+                }, 
+                true);
             PlayDodgeAnimation();
 
 

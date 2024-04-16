@@ -68,6 +68,7 @@ namespace LeeHyperrealMod.Modules
         public static GameObject Snipe;
         public static GameObject snipeHit;
         public static GameObject snipeGround;
+        public static GameObject snipeDodge;
         #endregion
 
         public struct LightIntensityProps 
@@ -240,6 +241,9 @@ namespace LeeHyperrealMod.Modules
 
             snipeGround = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk24ground");
             snipeGround = ModifyEffect(snipeGround, "", true);
+
+            snipeDodge = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk28");
+            snipeDodge = ModifyEffect(snipeDodge, "", true);
         }
 
         private static void PopulateBlueOrbAssets()
