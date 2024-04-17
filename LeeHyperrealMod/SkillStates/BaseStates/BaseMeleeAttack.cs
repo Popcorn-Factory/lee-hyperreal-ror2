@@ -329,10 +329,24 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                         //Determine if it's big pause or not.
                         TriggerHitPause(1.2f);
                         TriggerEnemyFreeze();
+                        EffectManager.SpawnEffect(Modules.ParticleAssets.bigParry, 
+                            new EffectData 
+                            { 
+                                origin = base.gameObject.transform.position + (characterDirection.forward + Vector3.up * 1f) * 2f, 
+                                scale = 2f 
+                            }, true);
                     }
                     else 
                     {
                         TriggerHitPause(parryPauseLength);
+                        EffectManager.SpawnEffect(Modules.ParticleAssets.normalParry, 
+                            new EffectData 
+                            { 
+                                origin = base.gameObject.transform.position + (characterDirection.forward + Vector3.up * 1f) * 2f, 
+                                scale = 2f, 
+                                rotation = Quaternion.LookRotation(GetAimRay().direction.normalized, Vector3.up) 
+                            }, 
+                            true);
                     }
 
                     bulletController.GrantEnhancedBullet(1);

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 1857671056
+CRC: 1922222295
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 1a0742e738ade11888e1086553d86aef
+    Hash: c89e58396615d18fe0ded9e88533c2c6
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 658c557f92d3b3cd6013d7e88c53735e
+    Hash: ccf83c106d1cdc77a68e7ad854e13c05
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -34,6 +34,8 @@ ClassTypes:
 - Class: 95
   Script: {instanceID: 0}
 - Class: 108
+  Script: {instanceID: 0}
+- Class: 111
   Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
@@ -373,6 +375,7 @@ Assets:
 - Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/attack24.anim
 - Assets/LeeHyperrealAssets/Texture/Albedo/GunHudTex2.png
 - Assets/modelresource/effect/prefab/fxr4liangprefab/material/fxr4liang010011md721.mat
+- Assets/LeeHyperrealAssets/Particles/Big Parry.prefab
 - Assets/modelresource/effect/texture/wenli233.png
 - Assets/modelresource/effect/texture/mask625.png
 - Assets/modelresource/effect/texture/cirle001.png
@@ -828,6 +831,7 @@ Assets:
 - Assets/LeeHyperrealAssets/FadeIn.shader
 - Assets/modelresource/effect/prefab/fxr4liangprefab/material/fxr4liang010331md330.mat
 - Assets/modelresource/effect/texture/keji111.png
+- Assets/LeeHyperrealAssets/Particles/Normal Parry.prefab
 - Assets/modelresource/effect/mesh/fxr4liangmesh/fxr4liangatk42bao_11.asset
 - Assets/modelresource/effect/texture/mask221.png
 - Assets/modelresource/effect/texture/mask507.png

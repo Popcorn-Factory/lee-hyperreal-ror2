@@ -71,6 +71,11 @@ namespace LeeHyperrealMod.Modules
         public static GameObject snipeDodge;
         #endregion
 
+        #region Parry
+        public static GameObject normalParry;
+        public static GameObject bigParry;
+        #endregion
+
         public struct LightIntensityProps 
         {
             public float timeMax;
@@ -172,7 +177,20 @@ namespace LeeHyperrealMod.Modules
             #endregion
 
             #region Domain Shift
+            PopulateParryAssets();
             #endregion
+
+            #region Domain Shift
+            #endregion
+        }
+
+        private static void PopulateParryAssets()
+        {
+            normalParry = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Normal Parry");
+            normalParry = ModifyEffect(normalParry, "", true);
+
+            bigParry = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Big Parry");
+            bigParry = ModifyEffect(bigParry, "", true);
         }
 
         private static void PopulateSnipeAssets()
