@@ -42,7 +42,10 @@ namespace LeeHyperrealMod.Content.Controllers
 
         #region Invincibility Layer
         private GameObject layerInvincibilityHealthObject;
+        private GameObject layerInvincibilityHazeObject;
+        private Image invincibilityBorder;
         private int healthIndex = 2;
+        private int hazeIndex = 3;
         #endregion
 
         #region Ammo Management
@@ -156,6 +159,7 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 if (enabledUI)
                 {
+                    UpdateHealthUIObject();
                     UpdateMeterLevel();
                     SetAnimatorMeterValue();
                     HandleBulletUIChange();
@@ -186,15 +190,29 @@ namespace LeeHyperrealMod.Content.Controllers
         public void InitializeHealthLayer()
         {
             layerInvincibilityHealthObject = canvasObject.transform.GetChild(healthIndex).gameObject;
+            layerInvincibilityHazeObject = canvasObject.transform.GetChild(hazeIndex).gameObject;
+            invincibilityBorder = layerInvincibilityHealthObject.transform.GetChild(0).gameObject.GetComponent<Image>();
         }
 
-        public void SetActiveHealthUIObject(bool state)
+        public void SetActiveHealthUIObject(bool state, Color color)
         {
             layerInvincibilityHealthObject.SetActive(state);
+            layerInvincibilityHazeObject.SetActive(state);
+            invincibilityBorder.color = color;
+        }
+
+        public void UpdateHealthUIObject() 
+        {
+            if (characterBody.HasBuff(Modules.Buffs.parryBuff.buffIndex)) 
+            {
+                SetActiveHealthUIObject(true, Modules.StaticValues.parryInvincibility);
+                return;
+            }
+            SetActiveHealthUIObject(characterBody.HasBuff(Modules.Buffs.invincibilityBuff) || characterBody.HasBuff(RoR2Content.Buffs.HiddenInvincibility), Modules.StaticValues.blueInvincibility);
         }
         #endregion
 
-        #region Power Meter Functinos
+        #region Power Meter Functions
         private void InitializePowerMeter()
         {
             meterAnimator = canvasObject.transform.GetChild(meterindex).GetComponent<Animator>();

@@ -15,7 +15,12 @@
   <ItemGroup>
     <None Remove="HenryBank.bnk" />
     <None Remove="leehyperrealassets" />
+    <None Remove="LeeHyperrealSoundBank.bnk" />
     <None Remove="Modules\Characters\Henry.cs~RF6221a098.TMP" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="LeeHyperrealSoundBank.bnk" />
   </ItemGroup>
 
 	<ItemGroup>

@@ -19,6 +19,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
         private bool hasFired;
         private float moveMagnitude = 10f;
         private float moveCancelFrac = 0.37f;
+        private bool startedGrounded = false;
+
+        private float groundedMovementFrac = 0.2f;
+        private float groundedMovementMagnitude = 5f;
+        private Vector3 groundedMovementDir;
+
         /*
         Domain shift
         Sets isDomain in domain controller
@@ -54,6 +60,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
                 procCoefficient = 1f,
             };
 
+            startedGrounded = isGrounded;
+
+            groundedMovementDir = base.characterDirection.forward * -1f;
+
+
             base.characterMotor.velocity = base.characterDirection.forward * -1f * moveMagnitude;
             PlayAnimation();
         }
@@ -78,6 +89,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
         public override void Update()
         {
             base.Update();
+
+            if (startedGrounded && base.isAuthority) 
+            {
+                if (base.age <= duration * groundedMovementFrac) 
+                {
+                    
+                }
+            }
 
             if (base.age >= duration * moveCancelFrac && base.isAuthority) 
             {

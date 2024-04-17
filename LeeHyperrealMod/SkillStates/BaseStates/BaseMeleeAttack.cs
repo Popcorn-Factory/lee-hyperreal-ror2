@@ -78,6 +78,8 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
 
         internal float swingScale = 1.25f;
 
+        public Transform ParryTransform = null;
+
 
         public override void OnEnter()
         {
@@ -200,8 +202,6 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             {
                 //set the parryFreeze so we don't need to freeze/unfreeze everything every frame.
                 parryFreeze = true;
-
-                Chat.AddMessage("big freeze");
 
                 BullseyeSearch search = new BullseyeSearch
                 {
@@ -329,20 +329,34 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                         //Determine if it's big pause or not.
                         TriggerHitPause(1.2f);
                         TriggerEnemyFreeze();
+                        Vector3 position = base.gameObject.transform.position + (characterDirection.forward + Vector3.up * 1f) * 2f;
+                        new PlaySoundNetworkRequest(characterBody.netId, 2985300151).Send(NetworkDestination.Clients);
+                        if (ParryTransform) 
+                        {
+                            position = ParryTransform.position;
+                        }
                         EffectManager.SpawnEffect(Modules.ParticleAssets.bigParry, 
                             new EffectData 
                             { 
-                                origin = base.gameObject.transform.position + (characterDirection.forward + Vector3.up * 1f) * 2f, 
+                                origin = position, 
                                 scale = 2f 
                             }, true);
                     }
                     else 
                     {
                         TriggerHitPause(parryPauseLength);
+
+                        new PlaySoundNetworkRequest(characterBody.netId, 1499659704).Send(NetworkDestination.Clients);
+                        Vector3 position = base.gameObject.transform.position + (characterDirection.forward + Vector3.up * 1f) * 2f;
+
+                        if (ParryTransform)
+                        {
+                            position = ParryTransform.position;
+                        }
                         EffectManager.SpawnEffect(Modules.ParticleAssets.normalParry, 
                             new EffectData 
                             { 
-                                origin = base.gameObject.transform.position + (characterDirection.forward + Vector3.up * 1f) * 2f, 
+                                origin = position, 
                                 scale = 2f, 
                                 rotation = Quaternion.LookRotation(GetAimRay().direction.normalized, Vector3.up) 
                             }, 

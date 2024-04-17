@@ -77,7 +77,17 @@ namespace LeeHyperrealMod.Modules
         internal const float ultimateDomainDuration = 4f;
         #endregion
 
+        #region Invincibility Health
+        internal static Color blueInvincibility = new Color(c(104), c(244), c(255), c(255));
+        internal static Color parryInvincibility = new Color(c(255), c(139), c(232), c(255));
+        #endregion
+
         #region Static functions
+
+        public static float c(int val) 
+        {
+            return (float)val / 255f;
+        }
 
         public static Vector3 CheckDirection(Vector3 moveVector, Ray aimRay)
         {

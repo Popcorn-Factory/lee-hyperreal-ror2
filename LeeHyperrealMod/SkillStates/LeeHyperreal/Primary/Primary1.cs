@@ -88,6 +88,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                     Quaternion.LookRotation(new Vector3(GetAimRay().direction.x, 0f, GetAimRay().direction.z), Vector3.up),
                     true);
             }
+
+            ParryTransform = childLocator.FindChild("FootL");
         }
 
         public RootMotionAccumulator InitMeleeRootMotion()

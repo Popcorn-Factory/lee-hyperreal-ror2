@@ -58,8 +58,6 @@ namespace LeeHyperrealMod.SkillStates
                 aiComponent.enabled = false;
             }
 
-            Chat.AddMessage("PAUSE");
-
         }
         public override void OnExit()
         {
@@ -115,7 +113,6 @@ namespace LeeHyperrealMod.SkillStates
 
             if (base.fixedAge > duration && base.isAuthority)
             {
-                Chat.AddMessage("EXIT");
                 this.outer.SetNextStateToMain();
                 return;
             }
