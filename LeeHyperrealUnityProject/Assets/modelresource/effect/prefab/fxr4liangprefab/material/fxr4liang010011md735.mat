@@ -76,9 +76,9 @@ Material:
     - _DissolutionThreshold: 1
     - _DstBlend: 10
     - _EffectBrightness: 1
-    - _EffectBrightnessB: 1
-    - _EffectBrightnessG: 1
-    - _EffectBrightnessR: 1
+    - _EffectBrightnessB: 8
+    - _EffectBrightnessG: 2
+    - _EffectBrightnessR: 2
     - _FlowIntensity: 10
     - _HideDistance: 2
     - _MainRotation: 0
@@ -107,7 +107,7 @@ Material:
     - _VertexOffset_AlphaMask: 0
     - _VertexOffset_Speed_G: 0
     - _VertexOffset_Speed_R: 0.002
-    - _VertexOffset_Strength_G: 0.17
+    - _VertexOffset_Strength_G: 0.299
     - _VertexOffset_Strength_R: -1
     - _ZOffset: 0
     - _ZTest: 8
