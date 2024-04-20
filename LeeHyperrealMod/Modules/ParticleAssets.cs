@@ -109,14 +109,14 @@ namespace LeeHyperrealMod.Modules
 
         private static GameObject ModifyEffect(GameObject newEffect, string soundName, bool parentToTransform) 
         {
-            return ModifyEffect(newEffect, soundName, parentToTransform, 12f);
+            return ModifyEffect(newEffect, soundName, parentToTransform, 1f);
         }
 
-        private static GameObject ModifyEffect(GameObject newEffect, string soundName, bool parentToTransform, float duration)
+        private static GameObject ModifyEffect(GameObject newEffect, string soundName, bool parentToTransform, float duration, VFXAttributes.VFXPriority priority = VFXAttributes.VFXPriority.Always)
         {
             newEffect.AddComponent<DestroyOnTimer>().duration = duration;
             newEffect.AddComponent<NetworkIdentity>();
-            newEffect.AddComponent<VFXAttributes>().vfxPriority = VFXAttributes.VFXPriority.Always;
+            newEffect.AddComponent<VFXAttributes>().vfxPriority = priority;
             EffectComponent effect = newEffect.AddComponent<EffectComponent>();
             effect.applyScale = true;
             effect.parentToReferencedTransform = parentToTransform;
@@ -230,7 +230,7 @@ namespace LeeHyperrealMod.Modules
                 "fxr4liangatk24-lightSC2"
                 );
 
-            Snipe = ModifyEffect(Snipe, "", true);
+            Snipe = ModifyEffect(Snipe, "", true, 0.75f, VFXAttributes.VFXPriority.Medium);
 
             snipeHit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk24hit");
             AddLightIntensityCurveWithCurve(
