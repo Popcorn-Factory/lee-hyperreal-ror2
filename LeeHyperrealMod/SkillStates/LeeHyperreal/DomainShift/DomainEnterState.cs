@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
 {
@@ -24,6 +25,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
         private float groundedMovementFrac = 0.2f;
         private float groundedMovementMagnitude = 5f;
         private Vector3 groundedMovementDir;
+
+        CharacterGravityParameters gravParams;
+        CharacterGravityParameters oldGravParams;
+        float turnOffGravityFrac = 0.22f;
+
+        public bool shouldForceUpwards;
 
         /*
         Domain shift
@@ -65,8 +72,28 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
             groundedMovementDir = base.characterDirection.forward * -1f;
 
 
-            base.characterMotor.velocity = base.characterDirection.forward * -1f * moveMagnitude;
+            //base.characterMotor.velocity = base.characterDirection.forward * -1f * moveMagnitude;
             PlayAnimation();
+
+            oldGravParams = base.characterMotor.gravityParameters;
+            gravParams = new CharacterGravityParameters();
+            gravParams.environmentalAntiGravityGranterCount = 1;
+            gravParams.channeledAntiGravityGranterCount = 1;
+
+            characterMotor.gravityParameters = gravParams;
+
+            if (shouldForceUpwards) 
+            {
+                // Move 5 units back, 3 units up
+                Vector3 newPosition = new Vector3(0,0,0);
+                Vector3 direction = (base.characterDirection.forward * -1f) + (Vector3.up * 0.6f);
+                float magnitude = Modules.StaticValues.forceUpwardsMagnitude;
+                direction = direction.normalized;
+
+                newPosition = base.gameObject.transform.position + (direction * magnitude);
+
+                base.characterMotor.Motor.MoveCharacter(newPosition);
+            }
         }
 
         public void PlayAnimation() 
@@ -78,6 +105,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
         {
             base.OnExit();
 
+            base.characterMotor.gravityParameters = oldGravParams;
             base.PlayAnimation("Body", "BufferEmpty");
         }
 
@@ -90,12 +118,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
         {
             base.Update();
 
-            if (startedGrounded && base.isAuthority) 
+            if (base.age >= duration * turnOffGravityFrac)
             {
-                if (base.age <= duration * groundedMovementFrac) 
-                {
-                    
-                }
+                base.characterMotor.gravityParameters = oldGravParams;
             }
 
             if (base.age >= duration * moveCancelFrac && base.isAuthority) 
@@ -141,6 +166,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
                 return InterruptPriority.Skill;
             }
             
+        }
+
+        public override void OnSerialize(NetworkWriter writer)
+        {
+            base.OnSerialize(writer);
+            writer.Write(shouldForceUpwards);
+        }
+
+        public override void OnDeserialize(NetworkReader reader)
+        {
+            base.OnDeserialize(reader);
+            this.shouldForceUpwards = reader.ReadBoolean();
         }
     }
 }

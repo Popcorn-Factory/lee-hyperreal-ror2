@@ -18,6 +18,10 @@ namespace LeeHyperrealMod.Modules
 
         internal const float bombDamageCoefficient = 16f;
 
+        #region Domain Shift
+        internal const float forceUpwardsMagnitude = 7f;
+        #endregion
+
         #region Parry Stuff
         internal const float bigParryFreezeRadius = 20f;
         internal const float bigParryFreezeDuration = 1.5f;
