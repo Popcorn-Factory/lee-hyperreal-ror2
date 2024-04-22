@@ -1,15 +1,10 @@
 ﻿using EntityStates;
 using RoR2;
 using LeeHyperrealMod.Content.Controllers;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Security.Cryptography;
 using UnityEngine;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using UnityEngine.Networking;
 using R2API.Networking;
-using static UnityEngine.UI.Image;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 {
@@ -18,6 +13,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         OrbController orbController;
         BulletController bulletController;
         WeaponModelHandler weaponModelHandler;
+        LeeHyperrealDomainController domainController;
 
         public float start = 0;
         public float earlyEnd = 0.38f;
@@ -46,6 +42,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         float orbCancelFrac = 0.24f;
 
+        float heldPrimaryDown = 0.1f;
+        float disallowTransition = 0.26f;
+        float heldDownTimer = 0f;
+        bool forceTransition = false;
+
         Vector3 OriginalPosition;
 
         public override void OnEnter()
@@ -54,6 +55,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             orbController = base.gameObject.GetComponent<OrbController>();
             bulletController = base.gameObject.GetComponent<BulletController>();
             weaponModelHandler = base.gameObject.GetComponent<WeaponModelHandler>();
+            domainController = base.gameObject.GetComponent<LeeHyperrealDomainController>();
 
             if (orbController) 
             {
@@ -208,6 +210,26 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             }
 
             base.Update();
+
+            if (base.inputBank.skill1.down && base.isAuthority && base.age <= duration * disallowTransition)
+            {
+                heldDownTimer += Time.deltaTime;
+                if (heldDownTimer > heldPrimaryDown && domainController.DomainEntryAllowed()) 
+                {
+                    //execute transition to domain... later.
+                    forceTransition = true;
+                }
+            }
+            else if (!base.inputBank.skill1.down && base.isAuthority) 
+            {
+                heldDownTimer = 0f;
+            }
+
+            if (base.age >= duration * disallowTransition && forceTransition && base.isAuthority) 
+            {
+                this.outer.SetNextState(new DomainShift.DomainEnterState { shouldForceUpwards = false });
+                return;// disallow other stuff from running lol.
+            }
 
 
             if (base.inputBank.skill3.down && base.isAuthority)

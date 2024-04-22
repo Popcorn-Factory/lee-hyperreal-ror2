@@ -21,6 +21,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         internal RootMotionAccumulator rma;
         internal OrbController orbController;
 
+        
+
         public override void OnEnter()
         {
 
