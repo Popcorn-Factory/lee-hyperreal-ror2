@@ -1,6 +1,9 @@
-﻿using System;
+﻿using RoR2.Projectile;
+using RoR2;
+using System;
 using UnityEngine;
 using UnityEngine.UIElements;
+using EntityStates;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -125,6 +128,104 @@ namespace LeeHyperrealMod.Modules
 
             return outputVector;
         }
+
+        //private void Deflect()
+        //{
+        //    if (this.usingBash) return;
+
+        //    Collider[] array = Physics.OverlapSphere(childLocator.FindChild(hitboxString).position, ShieldBash.deflectRadius, LayerIndex.projectile.mask);
+
+        //    for (int i = 0; i < array.Length; i++)
+        //    {
+        //        ProjectileController pc = array[i].GetComponentInParent<ProjectileController>();
+        //        if (pc)
+        //        {
+        //            if (pc.owner != gameObject)
+        //            {
+        //                Ray aimRay = base.GetAimRay();
+
+        //                Vector3 aimSpot = (aimRay.origin + 100 * aimRay.direction) - pc.gameObject.transform.position;
+
+        //                pc.owner = gameObject;
+
+        //                FireProjectileInfo info = new FireProjectileInfo()
+        //                {
+        //                    projectilePrefab = pc.gameObject,
+        //                    position = pc.gameObject.transform.position,
+        //                    rotation = base.characterBody.transform.rotation * Quaternion.FromToRotation(new Vector3(0, 0, 1), aimSpot),
+        //                    owner = base.characterBody.gameObject,
+        //                    damage = base.characterBody.damage * 10f,
+        //                    force = 200f,
+        //                    crit = base.RollCrit(),
+        //                    damageColorIndex = DamageColorIndex.Default,
+        //                    target = null,
+        //                    speedOverride = 120f,
+        //                    fuseOverride = -1f
+        //                };
+        //                ProjectileManager.instance.FireProjectile(info);
+
+        //                Util.PlayAttackSpeedSound(Sounds.BashDeflect, EnforcerPlugin.VRAPICompat.IsLocalVRPlayer(characterBody) ? EnforcerPlugin.VRAPICompat.GetShieldMuzzleObject() : gameObject, UnityEngine.Random.Range(0.9f, 1.1f));
+
+        //                Destroy(pc.gameObject);
+
+        //                if (!this.hasDeflected)
+        //                {
+        //                    this.hasDeflected = true;
+
+        //                    if (Config.sirenOnDeflect.Value) Util.PlaySound(Sounds.SirenDeflect, base.gameObject);
+
+        //                    base.characterBody.GetComponent<EnforcerLightController>().FlashLights(2);
+        //                    base.characterBody.GetComponent<EnforcerLightControllerAlt>().FlashLights(2);
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
+
+        //private void ParryLasers()
+        //{
+        //    if (this.usingBash)
+        //        return;
+
+        //    if (enforcerNet.parries <= 0)
+        //        return;
+
+        //    Util.PlayAttackSpeedSound(Sounds.BashDeflect, EnforcerPlugin.VRAPICompat.IsLocalVRPlayer(characterBody) ? EnforcerPlugin.VRAPICompat.GetShieldMuzzleObject() : gameObject, UnityEngine.Random.Range(0.9f, 1.1f));
+
+        //    for (int i = 0; i < enforcerNet.parries; i++)
+        //    {
+        //        //using drOctagonapus monobehaviour to start the coroutine, however any monobehaviour would work
+        //        this.shieldComponent.drOctagonapus.StartCoroutine(ShootParriedLaser(i * parryInterval));
+        //    }
+
+        //    enforcerNet.parries = 0;
+
+        //    if (!this.hasDeflected)
+        //    {
+        //        this.hasDeflected = true;
+
+        //        if (Config.sirenOnDeflect.Value)
+        //            Util.PlaySound(Sounds.SirenDeflect, base.gameObject);
+
+        //        base.characterBody.GetComponent<EnforcerLightController>().FlashLights(3);
+        //        base.characterBody.GetComponent<EnforcerLightControllerAlt>().FlashLights(3);
+        //    }
+        //}
+
+        //private IEnumerator ShootParriedLaser(float delay)
+        //{
+        //    yield return new WaitForSeconds(delay);
+
+        //    Ray aimRay = base.GetAimRay();
+
+        //    Vector3 point = aimRay.GetPoint(1000);
+        //    Vector3 laserDirection = point - transform.position;
+
+        //    GolemMonster.FireLaser fireLaser = new GolemMonster.FireLaser();
+        //    fireLaser.laserDirection = laserDirection;
+        //    this.shieldComponent.drOctagonapus.SetInterruptState(fireLaser, InterruptPriority.Skill);
+        //}
+
         #endregion
     }
 }
