@@ -226,6 +226,42 @@ namespace LeeHyperrealMod.Modules
         //    this.shieldComponent.drOctagonapus.SetInterruptState(fireLaser, InterruptPriority.Skill);
         //}
 
+        /*
+            private void FireLaser_OnEnter(On.EntityStates.GolemMonster.FireLaser.orig_OnEnter orig, EntityStates.GolemMonster.FireLaser self)
+        {
+            orig(self);
+
+            Ray ray = self.modifiedAimRay;
+
+            CheckEnforcerParry(ray);
+        }
+
+        private static void CheckEnforcerParry(Ray ray) {
+
+            RaycastHit raycastHit;
+
+            if (Physics.Raycast(ray, out raycastHit, 1000f, LayerIndex.world.mask | LayerIndex.defaultLayer.mask | LayerIndex.entityPrecise.mask)) {
+                                                                             //do I have this power?
+                GameObject gob = raycastHit.transform.GetComponent<HurtBox>()?.healthComponent.gameObject;
+
+                if (!gob) {
+                    gob = raycastHit.transform.GetComponent<HealthComponent>()?.gameObject;
+                }
+                                                //I believe I do. it makes the decompiled version look mad ugly tho
+                EnforcerComponent enforcer = gob?.GetComponent<EnforcerComponent>();
+
+                //Debug.LogWarning($"tran {raycastHit.transform}, " +
+                //    $"hurt {raycastHit.transform.GetComponent<HurtBox>()}, " +
+                //    $"health {raycastHit.transform.GetComponent<HurtBox>()?.healthComponent.gameObject}, " +
+                //    $"{gob?.GetComponent<EnforcerComponent>()}");
+
+                if (enforcer) {
+                    enforcer.invokeOnLaserHitEvent();
+                }
+            }
+        }
+         */
+
         #endregion
     }
 }
