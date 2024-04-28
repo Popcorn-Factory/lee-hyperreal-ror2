@@ -55,6 +55,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             parryLength = 0.5f;
             parryTiming = 0.05f;
             parryPauseLength = 0.2f;
+            parryProjectileTiming = 0.04f;
+            parryProjectileTimingEnd = 0.08f;
 
             base.OnEnter();
 

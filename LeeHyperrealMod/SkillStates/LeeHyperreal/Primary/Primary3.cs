@@ -68,6 +68,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             parryLength = 0.3f;
             parryTiming = 0.08f;
             parryPauseLength = 0.2f;
+            parryProjectileTiming = 0.05f;
+            parryProjectileTimingEnd = 0.1f;
 
             base.OnEnter();
             InitMeleeRootMotion();

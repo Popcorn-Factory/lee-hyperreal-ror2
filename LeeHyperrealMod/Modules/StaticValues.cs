@@ -23,6 +23,7 @@ namespace LeeHyperrealMod.Modules
         internal const float bigParryFreezeRadius = 20f;
         internal const float bigParryFreezeDuration = 1.5f;
         internal const float bigParryHealthFrac = 0.2f;
+        internal const float parryProjectileRadius = 10f;
         #endregion
 
         #region Orb Controller Values
@@ -128,59 +129,6 @@ namespace LeeHyperrealMod.Modules
 
             return outputVector;
         }
-
-        //private void Deflect()
-        //{
-        //    if (this.usingBash) return;
-
-        //    Collider[] array = Physics.OverlapSphere(childLocator.FindChild(hitboxString).position, ShieldBash.deflectRadius, LayerIndex.projectile.mask);
-
-        //    for (int i = 0; i < array.Length; i++)
-        //    {
-        //        ProjectileController pc = array[i].GetComponentInParent<ProjectileController>();
-        //        if (pc)
-        //        {
-        //            if (pc.owner != gameObject)
-        //            {
-        //                Ray aimRay = base.GetAimRay();
-
-        //                Vector3 aimSpot = (aimRay.origin + 100 * aimRay.direction) - pc.gameObject.transform.position;
-
-        //                pc.owner = gameObject;
-
-        //                FireProjectileInfo info = new FireProjectileInfo()
-        //                {
-        //                    projectilePrefab = pc.gameObject,
-        //                    position = pc.gameObject.transform.position,
-        //                    rotation = base.characterBody.transform.rotation * Quaternion.FromToRotation(new Vector3(0, 0, 1), aimSpot),
-        //                    owner = base.characterBody.gameObject,
-        //                    damage = base.characterBody.damage * 10f,
-        //                    force = 200f,
-        //                    crit = base.RollCrit(),
-        //                    damageColorIndex = DamageColorIndex.Default,
-        //                    target = null,
-        //                    speedOverride = 120f,
-        //                    fuseOverride = -1f
-        //                };
-        //                ProjectileManager.instance.FireProjectile(info);
-
-        //                Util.PlayAttackSpeedSound(Sounds.BashDeflect, EnforcerPlugin.VRAPICompat.IsLocalVRPlayer(characterBody) ? EnforcerPlugin.VRAPICompat.GetShieldMuzzleObject() : gameObject, UnityEngine.Random.Range(0.9f, 1.1f));
-
-        //                Destroy(pc.gameObject);
-
-        //                if (!this.hasDeflected)
-        //                {
-        //                    this.hasDeflected = true;
-
-        //                    if (Config.sirenOnDeflect.Value) Util.PlaySound(Sounds.SirenDeflect, base.gameObject);
-
-        //                    base.characterBody.GetComponent<EnforcerLightController>().FlashLights(2);
-        //                    base.characterBody.GetComponent<EnforcerLightControllerAlt>().FlashLights(2);
-        //                }
-        //            }
-        //        }
-        //    }
-        //}
 
         //private void ParryLasers()
         //{

@@ -12,6 +12,8 @@ using LeeHyperrealMod.Modules;
 using R2API.Networking.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
+using RoR2.Projectile;
+using UnityEngine.UIElements;
 
 namespace LeeHyperrealMod.SkillStates.BaseStates
 {
@@ -64,6 +66,8 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         internal bool enableParry;
         internal float parryLength;
         internal float parryTiming;
+        internal float parryProjectileTiming;
+        internal float parryProjectileTimingEnd;
         internal bool parryTriggered;
         internal float parryPauseLength = 0.75f;
         internal ParryMonitor parryMonitor;
@@ -122,6 +126,62 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         protected virtual void PlayAttackAnimation()
         {
             base.PlayCrossfade("Gesture, Override", "Slash" + (1 + swingIndex), "attack.playbackRate", this.duration, 0.05f);
+        }
+
+        private void Deflect()
+        {
+            Vector3 parryPosition = base.gameObject.transform.position + (characterDirection.forward + Vector3.up * 1f) * 2f;
+            if (ParryTransform) 
+            {
+                parryPosition = ParryTransform.position;
+            }
+            Collider[] array = Physics.OverlapSphere(parryPosition, Modules.StaticValues.parryProjectileRadius, LayerIndex.projectile.mask);
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                ProjectileController pc = array[i].GetComponentInParent<ProjectileController>();
+                if (pc)
+                {
+                    if (pc.owner != gameObject)
+                    {
+                        Ray aimRay = base.GetAimRay();
+
+                        Vector3 aimSpot = (aimRay.origin + 100 * aimRay.direction) - pc.gameObject.transform.position;
+
+                        pc.owner = gameObject;
+
+                        FireProjectileInfo info = new FireProjectileInfo()
+                        {
+                            projectilePrefab = pc.gameObject,
+                            position = pc.gameObject.transform.position,
+                            rotation = base.characterBody.transform.rotation * Quaternion.FromToRotation(new Vector3(0, 0, 1), aimSpot),
+                            owner = base.characterBody.gameObject,
+                            damage = base.characterBody.damage * 10f,
+                            force = 200f,
+                            crit = base.RollCrit(),
+                            damageColorIndex = DamageColorIndex.Default,
+                            target = null,
+                            speedOverride = 120f,
+                            fuseOverride = -1f
+                        };
+                        ProjectileManager.instance.FireProjectile(info);
+
+                        //Util.PlayAttackSpeedSound(Sounds.BashDeflect, EnforcerPlugin.VRAPICompat.IsLocalVRPlayer(characterBody) ? EnforcerPlugin.VRAPICompat.GetShieldMuzzleObject() : gameObject, UnityEngine.Random.Range(0.9f, 1.1f));
+
+                        new PlaySoundNetworkRequest(characterBody.netId, 1499659704).Send(NetworkDestination.Clients);
+                        EffectManager.SpawnEffect(Modules.ParticleAssets.normalParry,
+                            new EffectData
+                            {
+                                origin = parryPosition,
+                                scale = 2f,
+                                rotation = Quaternion.LookRotation(GetAimRay().direction.normalized, Vector3.up)
+                            },
+                            true);
+
+                        Destroy(pc.gameObject);
+                    }
+                }
+            }
         }
 
         public override void OnExit()
@@ -308,8 +368,12 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
 
             this.hitPauseTimer -= Time.fixedDeltaTime;
 
-            if (enableParry) 
+            if (enableParry)
             {
+                if (this.stopwatch >= duration * parryProjectileTiming && base.isAuthority && this.stopwatch <= this.duration * parryProjectileTimingEnd) 
+                {
+                    Deflect();
+                }
                 if (this.stopwatch >= this.duration * parryTiming && base.isAuthority && !parryTriggered) 
                 {
                     parryTriggered = true;
