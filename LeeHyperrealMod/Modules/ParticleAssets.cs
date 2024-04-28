@@ -76,6 +76,11 @@ namespace LeeHyperrealMod.Modules
         public static GameObject bigParry;
         #endregion
 
+        #region Dodge
+        public static GameObject dodgeForwards;
+        public static GameObject dodgeBackwards;
+        #endregion
+
         public struct LightIntensityProps 
         {
             public float timeMax;
@@ -176,12 +181,25 @@ namespace LeeHyperrealMod.Modules
             PopulateSnipeAssets();
             #endregion
 
-            #region Domain Shift
+            #region Parry
             PopulateParryAssets();
+            #endregion
+
+            #region Dodge
+            PopulateDodgeAssets();
             #endregion
 
             #region Domain Shift
             #endregion
+        }
+
+        private static void PopulateDodgeAssets()
+        {
+            dodgeForwards = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangmove01");
+            dodgeForwards = ModifyEffect(dodgeForwards, "", true);
+
+            dodgeBackwards = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangmove02");
+            dodgeBackwards = ModifyEffect(dodgeBackwards, "", true);
         }
 
         private static void PopulateParryAssets()

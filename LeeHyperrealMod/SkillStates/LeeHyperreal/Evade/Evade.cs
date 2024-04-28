@@ -32,6 +32,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         public bool unsetSnipe = false;
         private float movementMultiplierPrimary3 = 1.6f;
 
+        public Transform baseTransform;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -54,8 +56,20 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                 characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, duration * disableInvincibility);
             }
 
+            ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
+            baseTransform = childLocator.FindChild("BaseTransform");
+
             if (inputBank.moveVector == Vector3.zero)
             {
+                EffectManager.SpawnEffect(
+                    Modules.ParticleAssets.dodgeBackwards, 
+                    new EffectData 
+                    { 
+                        origin = baseTransform.position,
+                        scale = 1.25f,
+                        rotation = Quaternion.LookRotation(GetAimRay().direction * -1f)
+                    }, 
+                    true);
                 isForwardRoll = false;
                 PlayAnimation();
                 return;
@@ -68,6 +82,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             //    return;
             //}
 
+            EffectManager.SpawnEffect(
+                Modules.ParticleAssets.dodgeForwards,
+                new EffectData
+                {
+                    origin = baseTransform.position,
+                    scale = 1.25f,
+                    rotation = Quaternion.LookRotation(inputBank.moveVector.normalized)
+                },
+                true);
             isForwardRoll = true;
             PlayAnimation();
 
