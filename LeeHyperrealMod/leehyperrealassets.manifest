@@ -1,12 +1,20 @@
 ManifestFileVersion: 0
+<<<<<<< Updated upstream
 CRC: 1701427450
 Hashes:
   AssetFileHash:
     serializedVersion: 2
     Hash: 2583ed7998ff01983df4d5086ed2bc1b
+=======
+CRC: 3606682033
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 249b92ab6f09f92b74270a96fe63f383
+>>>>>>> Stashed changes
   TypeTreeHash:
     serializedVersion: 2
-    Hash: ccf83c106d1cdc77a68e7ad854e13c05
+    Hash: 8eb9f342bca9a909314d5fae8ac0e7dd
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -38,8 +46,6 @@ ClassTypes:
 - Class: 111
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: e5b98180a9589ea48b1638a294134ce5, type: 3}
@@ -49,6 +55,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c6e70bb247a8cd74aad98f5aca67911d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: a450f8e4c98b15b489b0d82ab5ce3882, type: 3}
 - Class: 114
@@ -1225,6 +1233,7 @@ Assets:
 - Assets/modelresource/effect/prefab/fxr4liangprefab/material/fxr4liang010331md372.mat
 - Assets/LeeHyperrealAssets/Animation/SuperRifleAnimations/Rifle_Attack26.anim
 - Assets/modelresource/effect/texture/path202.png
+- Assets/modelresource/effect/mesh/fxr2luolanmesh/r2luolandaoguang703.asset
 - Assets/modelresource/effect/prefab/fxr4liangprefab/material/fxr4liang010011mdchunse710.mat
 - Assets/modelresource/effect/material/smoke00515.mat
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Idle.anim
@@ -1500,6 +1509,7 @@ Assets:
 - Assets/modelresource/effect/prefab/fxr4liangprefab/common/fxr4liangatk34dilie.prefab
 - Assets/modelresource/effect/texture/noise107.png
 Dependencies:
+<<<<<<< Updated upstream
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/animation/fxr4liangmd019011animation.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/gpuparticles/fxr3luosaitamd019241gpu.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/gpuparticles/fxr3ninesgpu.ab
@@ -1526,3 +1536,31 @@ Dependencies:
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/scene/sceneres/common/scene013/textures.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/scene/sceneres/common/scene030/textures.ab
 - C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/myassetbundle
+=======
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/animation/fxr4liangmd019011animation.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/gpuparticles/fxr3luosaitamd019241gpu.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/gpuparticles/fxr3ninesgpu.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxjiaojingmesh.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxmb1bengyueht01mesh.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxmb1lamiya01mesh.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxmb1punishdatamdmesh.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxmb1voodoomesh.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxmo1beiyamd01mesh.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxpet3yingmesh.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr2nuoanmesh.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr2qumesh.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr3kuluomumesh/fxr3kuluomumd019091mesh.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr3lunamesh.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr3yongyechaomd019271mesh.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr4lifumesh.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxscenesushemesh.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/animation/r4liangmdcommon/r4liangmdcommondisplay.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/body/r4liangmd010011.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/weaponres/superli/e2superliboxmd020011.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/weaponres/superli/e3superliboxmd010011.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/weaponres/superli/e3superliboxmd030011.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/scene/cubemaps/generatecubes.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/scene/sceneres/common/scene013/textures.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/scene/sceneres/common/scene030/textures.ab
+- F:/Theodore 3/GameDev/Mods/lee-hyperreal-ror2/LeeHyperrealMod/myassetbundle
+>>>>>>> Stashed changes

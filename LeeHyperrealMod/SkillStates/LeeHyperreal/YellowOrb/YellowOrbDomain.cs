@@ -13,12 +13,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
     {
 
         public float start = 0;
-        public float earlyEnd = 0.35f;
+        public float earlyEnd = 0.7f;
         public float fireTime = 0.01f;
         public float fireEndTime = 0.25f;
         public float baseFireInterval = 0.07f;
         public float fireInterval;
-        public float duration = 5f;
+        public float duration = 2.8f;
         public int moveStrength; //1-3
 
         public float fireStopwatch;
@@ -31,7 +31,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         internal float procCoefficient = Modules.StaticValues.yellowOrbProcCoefficient;
         internal float damageCoefficient = Modules.StaticValues.yellowOrbDomainDamageCoefficient;
 
-        private float movementMultiplier = 1.5f;
+        private float movementMultiplier = 1f;
+        private Transform baseTransform;
+
+        CharacterGravityParameters gravParams;
+        CharacterGravityParameters oldGravParams;
+        float turnOffGravityFrac = 0.18f;
+        float turnOnGravityFrac = 0.3f;
 
         public override void OnEnter()
         {
@@ -67,9 +73,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 inflictor = null,
                 teamIndex = TeamIndex.Player,
                 position = gameObject.transform.position + GetAimRay().direction * 2.5f,
-                radius = Modules.StaticValues.redOrbDomainBlastRadius,
+                radius = Modules.StaticValues.yellowOrbDomainBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.Linear,
-                baseDamage = damageStat * Modules.StaticValues.redOrbDomainDamageCoefficient,
+                baseDamage = damageStat * Modules.StaticValues.yellowOrbDomainDamageCoefficient,
                 baseForce = 1000f,
                 bonusForce = Vector3.zero,
                 crit = RollCrit(),
@@ -79,6 +85,49 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 procChainMask = new ProcChainMask(),
                 procCoefficient = procCoefficient,
             };
+
+            BlastAttack.Result result1 =
+            new BlastAttack
+            { 
+                attacker = gameObject,
+                inflictor = null,
+                teamIndex = TeamIndex.Player,
+                position = gameObject.transform.position + GetAimRay().direction * 2.5f,
+                radius = Modules.StaticValues.yellowOrbDomainBlastRadius,
+                falloffModel = BlastAttack.FalloffModel.Linear,
+                baseDamage = 1f,
+                baseForce = 1000f,
+                bonusForce = Vector3.zero,
+                crit = RollCrit(),
+                damageType = DamageType.Generic,
+                losType = BlastAttack.LoSType.None,
+                canRejectForce = false,
+                procChainMask = new ProcChainMask(),
+                procCoefficient = procCoefficient,
+
+            }.Fire();
+
+            if (result1.hitCount > 0)
+            {
+                OnHitEnemyAuthority(result1);
+            }
+
+            ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
+            baseTransform = childLocator.FindChild("BaseTransform");
+            EffectData effectData = new EffectData
+            {
+                origin = baseTransform.position,
+                rotation = Quaternion.LookRotation(characterDirection.forward),
+            };
+            EffectManager.SpawnEffect(Modules.ParticleAssets.yellowOrbMultishot, effectData, true);
+
+
+            oldGravParams = base.characterMotor.gravityParameters;
+            gravParams = new CharacterGravityParameters();
+            gravParams.environmentalAntiGravityGranterCount = 1;
+            gravParams.channeledAntiGravityGranterCount = 1;
+
+            characterMotor.gravityParameters = gravParams;
 
         }
 
@@ -118,6 +167,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
+
+            if (age >= duration * turnOnGravityFrac)
+            {
+                characterMotor.gravityParameters = oldGravParams;
+            }
         }
 
         public override void FixedUpdate()
@@ -149,9 +203,19 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             }
         }
 
-        public void OnHitEnemyAuthority()
+        public void OnHitEnemyAuthority(BlastAttack.Result result)
         {
             //Do something on hit.
+            foreach (BlastAttack.HitPoint hitpoint in result.hitPoints)
+            {
+                EffectData effectData = new EffectData
+                {
+                    origin = hitpoint.hurtBox.healthComponent.body.corePosition,
+                    rotation = Quaternion.identity,
+                    scale = 5f,
+                };
+                EffectManager.SpawnEffect(Modules.ParticleAssets.yellowOrbMultishotHit, effectData, true);
+            }
         }
 
 

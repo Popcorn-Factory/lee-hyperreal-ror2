@@ -61,6 +61,10 @@ namespace LeeHyperrealMod.Modules
 
         #region Yellow Orb
         public static GameObject yellowOrbSwing;
+        public static GameObject yellowOrbSwingHit;
+        public static GameObject yellowOrbKick;
+        public static GameObject yellowOrbMultishot;
+        public static GameObject yellowOrbMultishotHit;
 
         #endregion
 
@@ -175,6 +179,7 @@ namespace LeeHyperrealMod.Modules
             #endregion
 
             #region Yellow Orb
+            PopulateYellowOrbAssets();
             #endregion
 
             #region Snipe
@@ -280,6 +285,93 @@ namespace LeeHyperrealMod.Modules
 
             snipeDodge = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk28");
             snipeDodge = ModifyEffect(snipeDodge, "", true);
+        }
+
+        private static void PopulateYellowOrbAssets()
+        {
+            yellowOrbSwing = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk34dilie");
+            yellowOrbSwing = ModifyEffect(yellowOrbSwing, "", true);
+
+            yellowOrbSwingHit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk34hit");
+            AddLightIntensityCurveWithCurve(
+                yellowOrbSwingHit.transform.GetChild(0).GetChild(1).gameObject,
+                new LightIntensityProps
+                {
+                    timeMax = 0.18f,
+                    loop = false,
+                    randomStart = false,
+                    enableNegativeLights = false
+
+                },
+                "fxr4liangatk34hit-spjere"
+                );
+            AddLightIntensityCurveWithCurve(
+                yellowOrbSwingHit.transform.GetChild(1).gameObject,
+                new LightIntensityProps
+                {
+                    timeMax = 0.12f,
+                    loop = false,
+                    randomStart = false,
+                    enableNegativeLights = false
+
+                },
+                "fxr4liangatk34hit-lightSC"
+                );
+            yellowOrbSwingHit = ModifyEffect(yellowOrbSwingHit, "", true);
+
+            yellowOrbKick = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk32");
+            AddLightIntensityCurveWithCurve(
+                yellowOrbKick.transform.GetChild(0).GetChild(6).gameObject,
+                new LightIntensityProps
+                {
+                    timeMax = 0.3f,
+                    loop = false,
+                    randomStart = false,
+                    enableNegativeLights = false
+
+                },
+                "fxr4liangatk32"
+                );
+            yellowOrbKick = ModifyEffect(yellowOrbKick, "", true);
+
+            yellowOrbMultishot = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk35");
+            AddLightIntensityCurveWithCurve(
+                yellowOrbMultishot.transform.GetChild(8).GetChild(3).gameObject,
+                new LightIntensityProps
+                {
+                    timeMax = 0.15f,
+                    loop = false,
+                    randomStart = false,
+                    enableNegativeLights = false
+                },
+                "fxr4liangatk35"
+                );
+            yellowOrbMultishot = ModifyEffect(yellowOrbMultishot, "", true);
+
+            yellowOrbMultishotHit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk35hit");
+            AddLightIntensityCurveWithCurve(
+                yellowOrbMultishotHit.transform.GetChild(0).GetChild(1).gameObject,
+                new LightIntensityProps
+                {
+                    timeMax = 1.6f,
+                    loop = false,
+                    randomStart = false,
+                    enableNegativeLights = false
+                },
+                "fxr4liangatk35hit-lightSC"
+                );
+            AddLightIntensityCurveWithCurve(
+                yellowOrbMultishotHit.transform.GetChild(1).gameObject,
+                new LightIntensityProps
+                {
+                    timeMax = 1.6f,
+                    loop = false,
+                    randomStart = false,
+                    enableNegativeLights = false
+                },
+                "fxr4liangatk35hit-spjere"
+                );
+            yellowOrbMultishotHit = ModifyEffect(yellowOrbMultishotHit, "", true);
         }
 
         private static void PopulateBlueOrbAssets()

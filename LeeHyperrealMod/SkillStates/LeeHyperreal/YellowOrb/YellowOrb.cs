@@ -5,6 +5,8 @@ using UnityEngine.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using R2API.Networking;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules;
+using static RoR2.BlastAttack;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 {
@@ -25,12 +27,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         internal bool isStrong;
 
 
-        private float movementMultiplier = 1.5f;
+        private float movementMultiplier = 1f;
 
         private float invincibilityStartFrac = 0.10f;
         private float invincibilityEndFrac = 0.4f;
         private bool invincibilitySet = false;
         private OrbController orbController;
+        private Transform baseTransform;
 
         public override void OnEnter()
         {
@@ -82,6 +85,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             base.characterDirection.moveVector = inputBank.aimDirection;
 
             PlayAttackAnimation();
+            ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
+            baseTransform = childLocator.FindChild("BaseTransform");
+            EffectData effectData = new EffectData
+            {
+                origin = baseTransform.position,
+                rotation = Quaternion.LookRotation(characterDirection.forward),
+                scale = 1.25f,
+            };
+            EffectManager.SpawnEffect(Modules.ParticleAssets.yellowOrbSwing, effectData, true);
         }
 
         protected void PlayAttackAnimation()
@@ -172,10 +184,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 {
                     BlastAttack.Result result = blastAttack.Fire();
 
-                    if (result.hitCount > 0)
-                    {
-                        OnHitEnemyAuthority();
-                    }
                 }
 
                 if (partialAttack > 0f)
@@ -187,17 +195,51 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
                     BlastAttack.Result result = blastAttack.Fire();
 
-                    if (result.hitCount > 0)
-                    {
-                        OnHitEnemyAuthority();
-                    }
                 }
-            }            
+            }
+
+            BlastAttack.Result result1 =
+            new BlastAttack
+            {
+                attacker = gameObject,
+                inflictor = null,
+                teamIndex = TeamIndex.Player,
+                position = gameObject.transform.position + GetAimRay().direction * 2.5f,
+                radius = (moveStrength == 3 ? 1 : Modules.StaticValues.blueOrbTripleMultiplier) * Modules.StaticValues.blueOrbBlastRadius,
+                falloffModel = BlastAttack.FalloffModel.Linear,
+                baseDamage = 1f,
+                baseForce = 0f,
+                bonusForce = Vector3.zero,
+                crit = RollCrit(),
+                damageType = DamageType.Generic,
+                losType = BlastAttack.LoSType.None,
+                canRejectForce = false,
+                procChainMask = new ProcChainMask(),
+                procCoefficient = 1f,
+
+            }.Fire();
+
+            if (result1.hitCount > 0)
+            {
+                OnHitEnemyAuthority(result1);
+            }
         }
 
-        public void OnHitEnemyAuthority()
+        public void OnHitEnemyAuthority(BlastAttack.Result result)
         {
             //Do something on hit.
+
+            foreach (BlastAttack.HitPoint hitpoint in result.hitPoints)
+            {
+                EffectData effectData = new EffectData
+                {
+                    origin = hitpoint.hurtBox.healthComponent.body.corePosition,
+                    rotation = Quaternion.identity,
+                    scale = 5f,
+                };
+                EffectManager.SpawnEffect(Modules.ParticleAssets.yellowOrbSwingHit, effectData, true);
+            }
+
         }
 
         public override void OnSerialize(NetworkWriter writer)

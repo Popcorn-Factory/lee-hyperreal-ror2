@@ -20,8 +20,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
         internal RootMotionAccumulator rma;
         internal OrbController orbController;
-
-        
+        private Transform baseTransform;
 
         public override void OnEnter()
         {
@@ -45,9 +44,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             this.swingSoundString = "HenrySwordSwing";
             this.hitSoundString = "";
-            this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
-            this.swingEffectPrefab = Modules.Assets.swordSwingEffect;
-            this.hitEffectPrefab = Modules.Assets.swordHitImpactEffect;
+            this.muzzleString = "BaseTransform";
+            this.swingEffectPrefab = Modules.ParticleAssets.yellowOrbKick;
+            this.hitEffectPrefab = Modules.ParticleAssets.yellowOrbSwingHit;
 
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
 
@@ -68,6 +67,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 orbController.isExecutingSkill = true;
             }
             characterMotor.velocity.y = 0f;
+
+            //ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
+            //baseTransform = childLocator.FindChild("BaseTransform");
+
+            ////Play Effect
+            //EffectData effectData = new EffectData
+            //{
+            //    origin = baseTransform.position,
+            //    rotation = Quaternion.LookRotation(characterDirection.forward),
+            //    scale = 1.25f,
+            //};
+            //EffectManager.SpawnEffect(Modules.ParticleAssets.yellowOrbKick, effectData, true);
         }
         
         protected override void PlayAttackAnimation()
@@ -123,7 +134,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
-            UpdateMeleeRootMotion(1.6f);
+            UpdateMeleeRootMotion(1f);
 
             if (base.age >= duration * exitEarlyFrac && base.isAuthority) 
             {
