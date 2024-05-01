@@ -85,6 +85,12 @@ namespace LeeHyperrealMod.Modules
         public static GameObject dodgeBackwards;
         #endregion
 
+        #region Ultimate non-domain
+        public static GameObject ultExplosion;
+        public static GameObject ultGunEffect;
+        public static GameObject ultPreExplosionProjectile;
+        #endregion
+
         public struct LightIntensityProps 
         {
             public float timeMax;
