@@ -85,7 +85,16 @@ namespace LeeHyperrealMod.Modules
         public static GameObject dodgeBackwards;
         #endregion
 
-        #region Ultimate non-domain
+        #region Ultimate Domain
+        //FXR 42
+        #endregion
+
+        #region Domain/Transition Effects
+        //FXR 41
+        #endregion
+
+        #region Ultimate non-domain 
+        //FXR 51
         public static GameObject ultExplosion;
         public static GameObject ultGunEffect;
         public static GameObject ultPreExplosionProjectile;
