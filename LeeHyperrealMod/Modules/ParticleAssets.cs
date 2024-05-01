@@ -91,6 +91,11 @@ namespace LeeHyperrealMod.Modules
 
         #region Domain/Transition Effects
         //FXR 41
+        public static GameObject transitionEffectLee;
+        public static GameObject transitionEffectHit;
+        public static GameObject domainFieldEffect;
+        public static GameObject domainFieldStartEffect;
+        public static GameObject domainFieldEndEffect;
         #endregion
 
         #region Ultimate non-domain 
