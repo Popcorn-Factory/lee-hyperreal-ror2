@@ -1,5 +1,6 @@
 ﻿using RoR2;
 using RoR2.CharacterAI;
+using RoR2.ConVar;
 using RoR2.UI;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,7 @@ namespace LeeHyperrealMod.Content.Controllers
         private OrbController orbController;
         public bool baseAIPresent;
         public bool enabledUI;
+        private float uiScale;
 
 
         #region Orb Variables
@@ -159,11 +161,21 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 if (enabledUI)
                 {
+                    UpdateUIScale();
                     UpdateHealthUIObject();
                     UpdateMeterLevel();
                     SetAnimatorMeterValue();
                     HandleBulletUIChange();
                 }
+            }
+        }
+
+        private void UpdateUIScale()
+        {
+            BaseConVar baseConVar = RoR2.Console.instance.FindConVar("hud_scale");
+            if (baseConVar != null && TextSerialization.TryParseInvariant(baseConVar.GetString(), out uiScale)) 
+            {
+                // Do something. Scale all the ui elements.
             }
         }
 
