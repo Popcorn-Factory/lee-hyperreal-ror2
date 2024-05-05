@@ -20,7 +20,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public float duration = 1.3f;
         public string muzzleString = "BaseTransform";
 
-        public static float damageCoefficient = Modules.StaticValues.gunDamageCoefficient;
+        public static float damageCoefficient = Modules.StaticValues.snipeDamageCoefficient;
         public static float procCoefficient = 1f;
         public static float baseDuration = 1.3f;
         public static float force = 800f;
@@ -150,12 +150,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                         bulletCount = 1,
                         aimVector = aimRay.direction,
                         origin = aimRay.origin,
-                        damage = Shoot.damageCoefficient * this.damageStat * empoweredBulletMultiplier,
+                        damage = damageCoefficient * this.damageStat * empoweredBulletMultiplier,
                         damageColorIndex = DamageColorIndex.Default,
                         damageType = DamageType.Generic,
                         falloffModel = BulletAttack.FalloffModel.DefaultBullet,
-                        maxDistance = Shoot.range,
-                        force = Shoot.force,
+                        maxDistance = Modules.StaticValues.snipeRange,
+                        force = Modules.StaticValues.snipeForce,
                         hitMask = LayerIndex.CommonMasks.bullet,
                         minSpread = 0f,
                         maxSpread = 0f,
@@ -164,7 +164,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                         muzzleName = muzzleString,
                         smartCollision = false,
                         procChainMask = default(ProcChainMask),
-                        procCoefficient = procCoefficient,
+                        procCoefficient = Modules.StaticValues.snipeProcCoefficient,
                         radius = 0.75f,
                         sniper = false,
                         stopperMask = LayerIndex.CommonMasks.bullet,

@@ -65,7 +65,6 @@ namespace LeeHyperrealMod.Modules
         public static GameObject yellowOrbKick;
         public static GameObject yellowOrbMultishot;
         public static GameObject yellowOrbMultishotHit;
-
         #endregion
 
         #region Snipe
@@ -93,6 +92,7 @@ namespace LeeHyperrealMod.Modules
         //FXR 41
         public static GameObject transitionEffectLee;
         public static GameObject transitionEffectHit;
+        public static GameObject transitionEffectGround;
         public static GameObject domainFieldEffect;
         public static GameObject domainFieldStartEffect;
         public static GameObject domainFieldEndEffect;
@@ -134,6 +134,11 @@ namespace LeeHyperrealMod.Modules
                     material.shader = RoR2.LegacyShaderAPI.Find(newName);
                 }
             }
+        }
+
+        private static GameObject GetGameObjectFromBundle(string objectName) 
+        {
+            return Modules.Assets.mainAssetBundle.LoadAsset<GameObject>(objectName);
         }
 
         private static GameObject ModifyEffect(GameObject newEffect, string soundName, bool parentToTransform) 
@@ -214,31 +219,58 @@ namespace LeeHyperrealMod.Modules
             PopulateDodgeAssets();
             #endregion
 
-            #region Domain Shift
+            #region Domain/Transition Effects
+            PopulateDomainTransitionAssets();
             #endregion
+        }
+
+        private static void PopulateDomainTransitionAssets()
+        {
+            transitionEffectLee = GetGameObjectFromBundle("fxr4liangatk41");
+            transitionEffectLee = ModifyEffect(transitionEffectLee, "", true);
+
+            transitionEffectGround = GetGameObjectFromBundle("fxr4liangatk41bao");
+            transitionEffectGround = ModifyEffect(transitionEffectGround, "", true);
+
+            transitionEffectHit = GetGameObjectFromBundle("fxr4liangatk41hit");
+            AddLightIntensityCurveWithCurve(
+                transitionEffectHit.transform.GetChild(1).gameObject,
+                new LightIntensityProps
+                {
+                    timeMax = 0.18f,
+                    loop = false,
+                    randomStart = false,
+                    enableNegativeLights = false,
+                },
+                "fxr4liangatk41hit"
+            );
+            transitionEffectHit = ModifyEffect(transitionEffectHit, "", true);
+            //public static GameObject domainFieldEffect;
+            //public static GameObject domainFieldStartEffect;
+            //public static GameObject domainFieldEndEffect;
         }
 
         private static void PopulateDodgeAssets()
         {
-            dodgeForwards = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangmove01");
+            dodgeForwards = GetGameObjectFromBundle("fxr4liangmove01");
             dodgeForwards = ModifyEffect(dodgeForwards, "", true);
 
-            dodgeBackwards = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangmove02");
+            dodgeBackwards = GetGameObjectFromBundle("fxr4liangmove02");
             dodgeBackwards = ModifyEffect(dodgeBackwards, "", true);
         }
 
         private static void PopulateParryAssets()
         {
-            normalParry = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Normal Parry");
+            normalParry = GetGameObjectFromBundle("Normal Parry");
             normalParry = ModifyEffect(normalParry, "", true);
 
-            bigParry = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("Big Parry");
+            bigParry = GetGameObjectFromBundle("Big Parry");
             bigParry = ModifyEffect(bigParry, "", true);
         }
 
         private static void PopulateSnipeAssets()
         {
-            Snipe = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk24");
+            Snipe = GetGameObjectFromBundle("fxr4liangatk24");
             AddLightIntensityCurveWithCurve(
                 Snipe.transform.GetChild(0).GetChild(1).gameObject,
                 new LightIntensityProps 
@@ -275,7 +307,7 @@ namespace LeeHyperrealMod.Modules
 
             Snipe = ModifyEffect(Snipe, "", true, 0.75f, VFXAttributes.VFXPriority.Medium);
 
-            snipeHit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk24hit");
+            snipeHit = GetGameObjectFromBundle("fxr4liangatk24hit");
             AddLightIntensityCurveWithCurve(
                 snipeHit.transform.GetChild(0).GetChild(1).gameObject,
                 new LightIntensityProps
@@ -300,19 +332,19 @@ namespace LeeHyperrealMod.Modules
                 );
             snipeHit = ModifyEffect(snipeHit, "", true);
 
-            snipeGround = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk24ground");
+            snipeGround = GetGameObjectFromBundle("fxr4liangatk24ground");
             snipeGround = ModifyEffect(snipeGround, "", true);
 
-            snipeDodge = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk28");
+            snipeDodge = GetGameObjectFromBundle("fxr4liangatk28");
             snipeDodge = ModifyEffect(snipeDodge, "", true);
         }
 
         private static void PopulateYellowOrbAssets()
         {
-            yellowOrbSwing = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk34dilie");
+            yellowOrbSwing = GetGameObjectFromBundle("fxr4liangatk34dilie");
             yellowOrbSwing = ModifyEffect(yellowOrbSwing, "", true);
 
-            yellowOrbSwingHit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk34hit");
+            yellowOrbSwingHit = GetGameObjectFromBundle("fxr4liangatk34hit");
             AddLightIntensityCurveWithCurve(
                 yellowOrbSwingHit.transform.GetChild(0).GetChild(1).gameObject,
                 new LightIntensityProps
@@ -339,7 +371,7 @@ namespace LeeHyperrealMod.Modules
                 );
             yellowOrbSwingHit = ModifyEffect(yellowOrbSwingHit, "", true);
 
-            yellowOrbKick = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk32");
+            yellowOrbKick = GetGameObjectFromBundle("fxr4liangatk32");
             AddLightIntensityCurveWithCurve(
                 yellowOrbKick.transform.GetChild(0).GetChild(6).gameObject,
                 new LightIntensityProps
@@ -354,7 +386,7 @@ namespace LeeHyperrealMod.Modules
                 );
             yellowOrbKick = ModifyEffect(yellowOrbKick, "", true);
 
-            yellowOrbMultishot = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk35");
+            yellowOrbMultishot = GetGameObjectFromBundle("fxr4liangatk35");
             AddLightIntensityCurveWithCurve(
                 yellowOrbMultishot.transform.GetChild(8).GetChild(3).gameObject,
                 new LightIntensityProps
@@ -368,7 +400,7 @@ namespace LeeHyperrealMod.Modules
                 );
             yellowOrbMultishot = ModifyEffect(yellowOrbMultishot, "", true);
 
-            yellowOrbMultishotHit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk35hit");
+            yellowOrbMultishotHit = GetGameObjectFromBundle("fxr4liangatk35hit");
             AddLightIntensityCurveWithCurve(
                 yellowOrbMultishotHit.transform.GetChild(0).GetChild(1).gameObject,
                 new LightIntensityProps
@@ -396,7 +428,7 @@ namespace LeeHyperrealMod.Modules
 
         private static void PopulateBlueOrbAssets()
         {
-            blueOrbShot = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk20");
+            blueOrbShot = GetGameObjectFromBundle("fxr4liangatk20");
             AddLightIntensityCurveWithCurve(
                 blueOrbShot.transform.GetChild(0).GetChild(1).GetChild(1).gameObject,
                 new LightIntensityProps 
@@ -421,7 +453,7 @@ namespace LeeHyperrealMod.Modules
                 );
             blueOrbShot = ModifyEffect(blueOrbShot, "", true);
 
-            blueOrbHit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk20hit");
+            blueOrbHit = GetGameObjectFromBundle("fxr4liangatk20hit");
             AddLightIntensityCurveWithCurve(
                 blueOrbHit.transform.GetChild(1).gameObject,
                 new LightIntensityProps 
@@ -446,13 +478,13 @@ namespace LeeHyperrealMod.Modules
                 );
             blueOrbHit = ModifyEffect(blueOrbHit, "", true);
 
-            blueOrbGroundHit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk20bao");
+            blueOrbGroundHit = GetGameObjectFromBundle("fxr4liangatk20bao");
             blueOrbGroundHit = ModifyEffect(blueOrbGroundHit, "", true);
         }
 
         private static void PopulateRedOrbAssets()
         {
-            redOrbSwing = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk10");
+            redOrbSwing = GetGameObjectFromBundle("fxr4liangatk10");
             AddLightIntensityCurveWithCurve(
                 redOrbSwing.transform.GetChild(1).GetChild(0).gameObject,
                 new LightIntensityProps
@@ -466,7 +498,7 @@ namespace LeeHyperrealMod.Modules
                 );
             redOrbSwing = ModifyEffect(redOrbSwing, "", true);
 
-            redOrbHit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk10hit02");
+            redOrbHit = GetGameObjectFromBundle("fxr4liangatk10hit02");
             AddLightIntensityCurveWithCurve(
                 redOrbHit.transform.GetChild(1).gameObject,
                 new LightIntensityProps
@@ -491,10 +523,10 @@ namespace LeeHyperrealMod.Modules
                 );
             redOrbHit = ModifyEffect(redOrbHit, "", false);
 
-            redOrbPingSwing = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk11");
+            redOrbPingSwing = GetGameObjectFromBundle("fxr4liangatk11");
             redOrbPingSwing = ModifyEffect(redOrbPingSwing, "", false);
 
-            redOrbPingGround = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk11dilie");
+            redOrbPingGround = GetGameObjectFromBundle("fxr4liangatk11dilie");
             AddLightIntensityCurveWithCurve(
                 redOrbPingGround.transform.GetChild(0).gameObject,
                 new LightIntensityProps
@@ -508,7 +540,7 @@ namespace LeeHyperrealMod.Modules
                 );
             redOrbPingGround = ModifyEffect(redOrbPingGround, "", false);
 
-            redOrbDomainFloorImpact = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk14dilie");
+            redOrbDomainFloorImpact = GetGameObjectFromBundle("fxr4liangatk14dilie");
             AddLightIntensityCurveWithCurve(
                 redOrbDomainFloorImpact.transform.GetChild(0).gameObject,
                 new LightIntensityProps 
@@ -522,7 +554,7 @@ namespace LeeHyperrealMod.Modules
                 );
             redOrbDomainFloorImpact = ModifyEffect(redOrbDomainFloorImpact, "", false);
 
-            redOrbDomainHit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk14fshit01");
+            redOrbDomainHit = GetGameObjectFromBundle("fxr4liangatk14fshit01");
             AddLightIntensityCurveWithCurve(
                 redOrbDomainHit.transform.GetChild(0).GetChild(4).gameObject,
                 new LightIntensityProps
@@ -539,10 +571,10 @@ namespace LeeHyperrealMod.Modules
 
         private static void PopulatePrimary5Assets()
         {
-            primary5Swing = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk05");
+            primary5Swing = GetGameObjectFromBundle("fxr4liangatk05");
             primary5Swing = ModifyEffect(primary5Swing, "", true, 1.5f);
 
-            primary5Floor = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk05dilie");
+            primary5Floor = GetGameObjectFromBundle("fxr4liangatk05dilie");
             AddLightIntensityCurveWithCurve(
                 primary5Floor.transform.GetChild(0).gameObject,
                 new LightIntensityProps
@@ -559,7 +591,7 @@ namespace LeeHyperrealMod.Modules
 
         private static void PopulatePrimary4Assets()
         {
-            primary4Swing = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk04");
+            primary4Swing = GetGameObjectFromBundle("fxr4liangatk04");
             AddLightIntensityCurveWithCurve(
                primary4Swing.transform.GetChild(1).GetChild(0).gameObject,
                new LightIntensityProps
@@ -573,10 +605,10 @@ namespace LeeHyperrealMod.Modules
                );
             primary4Swing = ModifyEffect(primary4Swing, "", true);
 
-            primary4AfterImage = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk04canying");
+            primary4AfterImage = GetGameObjectFromBundle("fxr4liangatk04canying");
             primary4AfterImage = ModifyEffect(primary4AfterImage, "", true);
 
-            primary4Hit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk04hit");
+            primary4Hit = GetGameObjectFromBundle("fxr4liangatk04hit");
             AddLightIntensityCurveWithCurve(
                 primary4Hit.transform.GetChild(1).gameObject,
                 new LightIntensityProps
@@ -604,13 +636,13 @@ namespace LeeHyperrealMod.Modules
 
         public static void PopulatePrimary3Assets() 
         {
-            primary3Swing1 = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk03dilie1");
+            primary3Swing1 = GetGameObjectFromBundle("fxr4liangatk03dilie1");
             primary3Swing1 = ModifyEffect(primary3Swing1, "", true);
 
-            primary3Swing2 = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk03dilie2");
+            primary3Swing2 = GetGameObjectFromBundle("fxr4liangatk03dilie2");
             primary3Swing2 = ModifyEffect(primary3Swing2, "", true);
 
-            primary3hit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk03hit01");
+            primary3hit = GetGameObjectFromBundle("fxr4liangatk03hit01");
             AddLightIntensityCurveWithCurve(
                 primary3hit.transform.GetChild(0).GetChild(1).gameObject,
                 new LightIntensityProps
@@ -638,7 +670,7 @@ namespace LeeHyperrealMod.Modules
 
         public static void PopulatePrimary2Assets()
         {
-            primary2Shot = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk02");
+            primary2Shot = GetGameObjectFromBundle("fxr4liangatk02");
             AddLightIntensityCurveWithCurve(
                 primary2Shot.transform.GetChild(2).GetChild(0).gameObject,
                 new LightIntensityProps 
@@ -652,7 +684,7 @@ namespace LeeHyperrealMod.Modules
                 );
             primary2Shot = ModifyEffect(primary2Shot, "", true);
 
-            primary2hit1 = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk02hit01");
+            primary2hit1 = GetGameObjectFromBundle("fxr4liangatk02hit01");
             AddLightIntensityCurveWithCurve(
                 primary2hit1.transform.GetChild(1).gameObject,
                 new LightIntensityProps
@@ -666,7 +698,7 @@ namespace LeeHyperrealMod.Modules
                 );
             primary2hit1 = ModifyEffect(primary2hit1, "", true);
 
-            primary2hit2 = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk02hit02");
+            primary2hit2 = GetGameObjectFromBundle("fxr4liangatk02hit02");
             AddLightIntensityCurveWithCurve(
                 primary2hit2.transform.GetChild(1).gameObject,
                 new LightIntensityProps 
@@ -694,10 +726,10 @@ namespace LeeHyperrealMod.Modules
 
         public static void PopulatePrimary1Assets() 
         {
-            primary1Swing = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk01");
+            primary1Swing = GetGameObjectFromBundle("fxr4liangatk01");
             primary1Swing = ModifyEffect(primary1Swing, "", true);
 
-            primary1Hit = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk01hit");
+            primary1Hit = GetGameObjectFromBundle("fxr4liangatk01hit");
             AddLightIntensityCurveWithCurve(
                 primary1Hit.transform.GetChild(1).gameObject, 
                 new LightIntensityProps 
@@ -710,7 +742,7 @@ namespace LeeHyperrealMod.Modules
                 "Fxr4liangatk01hit");
             primary1Hit = ModifyEffect(primary1Hit, "", true);
 
-            primary1Floor = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk01dilie");
+            primary1Floor = GetGameObjectFromBundle("fxr4liangatk01dilie");
             primary1Floor = ModifyEffect(primary1Floor, "", true);
         }
 

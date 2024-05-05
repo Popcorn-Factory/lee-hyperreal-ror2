@@ -84,6 +84,13 @@ namespace LeeHyperrealMod.Modules
         internal static Color parryInvincibility = new Color(c(255), c(139), c(232), c(255));
         #endregion
 
+        #region Snipe
+        internal const float snipeProcCoefficient = 4.5f;
+        internal const float snipeRange = 1000f;
+        internal const float snipeDamageCoefficient = 4f;
+        internal const float snipeForce = 100f;
+        #endregion
+
         #region Static functions
 
         public static float c(int val) 
