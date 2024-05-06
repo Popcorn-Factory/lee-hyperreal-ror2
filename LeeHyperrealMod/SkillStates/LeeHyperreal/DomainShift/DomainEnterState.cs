@@ -129,13 +129,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
                 base.characterMotor.Motor.MoveCharacter(newPosition);
             }
 
+            EffectData transitionEffect = new EffectData
+            {
+                origin = baseTransform.position,
+                rotation = baseTransform.rotation,
+                scale = 1.25f
+            };
+
+            transitionEffect.SetChildLocatorTransformReference(gameObject, childLocator.FindChildIndex("BaseTransform"));
+
             EffectManager.SpawnEffect(Modules.ParticleAssets.transitionEffectLee,
-                new EffectData
-                {
-                    origin = baseTransform.position,
-                    rotation = baseTransform.rotation,
-                    scale = 2f
-                },
+                transitionEffect,
                 true);
         }
 
