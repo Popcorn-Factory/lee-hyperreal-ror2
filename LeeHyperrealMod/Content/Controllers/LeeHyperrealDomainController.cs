@@ -19,36 +19,51 @@ namespace LeeHyperrealMod.Content.Controllers
         int intuitionStacks = 0;
 
         int maxIntuitionStack = 4;
-        
+
+        GameObject loopDomainEffect;
+        GameObject despawnDomainEffect;
+
 
         //UI Controller
         private LeeHyperrealUIController uiController;
 
         //CharBody
-        private CharacterBody charBody;    
+        private CharacterBody charBody;
+
+        //other shit
+        private ModelLocator modelLocator;
 
         public void Start()
         {
             uiController = GetComponent<LeeHyperrealUIController>();
             charBody = GetComponent<CharacterBody>();
+            modelLocator = gameObject.GetComponent<ModelLocator>();
             energy = 0f;
             energyRegenAllowed = true;
+
+            ChildLocator childLocator = modelLocator.modelTransform.GetComponent<ChildLocator>();
+            Transform baseTransform = childLocator.FindChild("BaseTransform");
+            loopDomainEffect = UnityEngine.Object.Instantiate(Modules.ParticleAssets.domainFieldLoopEffect, baseTransform.transform);
+            despawnDomainEffect = UnityEngine.Object.Instantiate(Modules.ParticleAssets.domainFieldEndEffect, baseTransform.transform);
+
+            loopDomainEffect.SetActive(false);
+            despawnDomainEffect.SetActive(false);
         }
 
         public void Update()
         {
-            if (charBody.hasEffectiveAuthority) 
+            if (charBody.hasEffectiveAuthority)
             {
                 // Normal stuff.
                 if (!isInDomain)
                 {
                     ResetIntutionStacksOnBody();
-                    if (energyRegenAllowed) 
+                    if (energyRegenAllowed)
                     {
                         EnergyRegen();
                     }
                 }
-                else 
+                else
                 {
                     ApplyIntutionBuffsToBody();
                     SpendEnergy(Time.deltaTime * consumptionSpeed);
@@ -57,12 +72,12 @@ namespace LeeHyperrealMod.Content.Controllers
             }
         }
 
-        private void ApplyIntutionBuffsToBody() 
+        private void ApplyIntutionBuffsToBody()
         {
             charBody.ApplyBuff(Modules.Buffs.intuitionBuff.buffIndex, intuitionStacks, -1);
         }
 
-        private void ResetIntutionStacksOnBody() 
+        private void ResetIntutionStacksOnBody()
         {
             charBody.ApplyBuff(Modules.Buffs.intuitionBuff.buffIndex, 0, -1);
 
@@ -70,68 +85,83 @@ namespace LeeHyperrealMod.Content.Controllers
             intuitionStacks = 0;
         }
 
-        public void EnergyRegen() 
+        public void EnergyRegen()
         {
             energy += Time.deltaTime * powerRechargeSpeed;
-            if (energy >= maxEnergy) 
+            if (energy >= maxEnergy)
             {
                 energy = maxEnergy;
             }
         }
 
-        public void SpendEnergy(float energy) 
+        public void SpendEnergy(float energy)
         {
             this.energy -= energy;
-            if (this.energy < 0f) 
+            if (this.energy < 0f)
             {
                 this.energy = 0f;
                 DisableDomain();
             }
         }
 
-        public void UpdateUIController() 
+        public void UpdateUIController()
         {
             if (uiController && charBody.hasEffectiveAuthority)
             {
                 uiController.SetMeterLevel(energy / maxEnergy);
             }
-            else if (!uiController) 
+            else if (!uiController)
             {
                 uiController = GetComponent<LeeHyperrealUIController>();
             }
         }
 
-        public void DisableDomain() 
+        public void DisableDomain()
         {
             isInDomain = false;
             this.energy = 0f;
             //DisableEffect?
+            DisableDomainEffect();
         }
 
-        public void EnableDomain() 
+        public void EnableDomain()
         {
             isInDomain = true;
 
             //EnableEffect?
+            EnableDomainEffect();
         }
 
-        public bool DomainEntryAllowed() 
+        //Separated from base function to play on other systems.
+        public void EnableDomainEffect() 
         {
-            if (isInDomain) 
+            loopDomainEffect.SetActive(true);
+            despawnDomainEffect.SetActive(false);
+        }
+
+        public void DisableDomainEffect() 
+        {
+            loopDomainEffect.SetActive(false);
+            despawnDomainEffect.SetActive(true);
+        }
+
+        public bool DomainEntryAllowed()
+        {
+            if (isInDomain)
             {
                 return false;
             }
             return energy >= maxEnergy;
         }
 
-        public bool GetDomainState() 
+        public bool GetDomainState()
         {
             return isInDomain;
         }
 
-        public bool ConsumeIntuitionStacks(int amount) 
+        public bool ConsumeIntuitionStacks(int amount)
         {
-            if (amount > intuitionStacks) 
+            if (amount > intuitionStacks)
             {
                 return false;
             }
@@ -140,19 +170,25 @@ namespace LeeHyperrealMod.Content.Controllers
             return true;
         }
 
-        public void GrantIntuitionStack(int amount) 
+        public void GrantIntuitionStack(int amount)
         {
             intuitionStacks += amount;
 
-            if(intuitionStacks > maxIntuitionStack) 
+            if (intuitionStacks > maxIntuitionStack)
             {
                 intuitionStacks = maxIntuitionStack;
-            }            
+            }
         }
 
         public int GetIntuitionStacks()
         {
             return intuitionStacks;
+        }
+
+        public void OnDestroy() 
+        {
+            Destroy(loopDomainEffect);
+            Destroy(despawnDomainEffect);
         }
     }
 }

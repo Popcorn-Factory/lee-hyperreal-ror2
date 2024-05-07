@@ -93,8 +93,7 @@ namespace LeeHyperrealMod.Modules
         public static GameObject transitionEffectLee;
         public static GameObject transitionEffectHit;
         public static GameObject transitionEffectGround;
-        public static GameObject domainFieldEffect;
-        public static GameObject domainFieldStartEffect;
+        public static GameObject domainFieldLoopEffect;
         public static GameObject domainFieldEndEffect;
         #endregion
 
@@ -245,9 +244,9 @@ namespace LeeHyperrealMod.Modules
                 "fxr4liangatk41hit"
             );
             transitionEffectHit = ModifyEffect(transitionEffectHit, "", true);
-            //public static GameObject domainFieldEffect;
-            //public static GameObject domainFieldStartEffect;
-            //public static GameObject domainFieldEndEffect;
+
+            domainFieldLoopEffect = GetGameObjectFromBundle("fxr4liangatk41loop");
+            domainFieldEndEffect = GetGameObjectFromBundle("fxr4liangatk41out");
         }
 
         private static void PopulateDodgeAssets()
