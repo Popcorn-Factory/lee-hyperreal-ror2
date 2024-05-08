@@ -231,7 +231,7 @@ namespace LeeHyperrealMod.Modules
         private static void PopulateDomainUltimateAssets()
         {
             UltimateDomainFinisherEffect = GetGameObjectFromBundle("fxr4liangatk42suiping");
-            UltimateDomainFinisherEffect = ModifyEffect(UltimateDomainFinisherEffect, "", true);
+            UltimateDomainFinisherEffect.AddComponent<DestroyOnTimer>().duration = 4f;
         }
 
         private static void PopulateDomainTransitionAssets()
