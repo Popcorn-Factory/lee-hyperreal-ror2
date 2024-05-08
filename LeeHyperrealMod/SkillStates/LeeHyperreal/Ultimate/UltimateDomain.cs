@@ -19,7 +19,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public LeeHyperrealDomainController docon;
 
         public float start = 0;
-        public float earlyEnd = 0.5f;
+        public float earlyEnd = 0.65f;
+        public float effectPlay = 0.55f;
+        public bool hasPlayedEffect = false;
         public float fireTime = 0.01f;
         public float fireEndTime = 0.35f;
         public float fireInterval = 0.1f;
@@ -51,7 +53,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
             Ray aimRay = base.GetAimRay();
 
-
+            base.GetModelAnimator().SetFloat("attack.playbackRate", 1f);
             base.characterDirection.forward = inputBank.aimDirection;
 
             Freeze();
@@ -129,6 +131,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
+
+            if (age >= duration * effectPlay && !hasPlayedEffect && base.isAuthority) 
+            {
+                hasPlayedEffect = true;
+                EffectManager.SpawnEffect(Modules.ParticleAssets.UltimateDomainFinisherEffect,
+                    new EffectData 
+                    {
+                        origin = base.gameObject.transform.position,
+                        scale = 1.25f
+                    },
+                    true);
+            }
         }
 
         public override void FixedUpdate()
@@ -169,7 +183,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
                 }
             }
-
 
 
             if (fixedAge >= duration)

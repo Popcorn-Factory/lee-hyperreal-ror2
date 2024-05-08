@@ -86,6 +86,7 @@ namespace LeeHyperrealMod.Modules
 
         #region Ultimate Domain
         //FXR 42
+        public static GameObject UltimateDomainFinisherEffect;
         #endregion
 
         #region Domain/Transition Effects
@@ -221,6 +222,16 @@ namespace LeeHyperrealMod.Modules
             #region Domain/Transition Effects
             PopulateDomainTransitionAssets();
             #endregion
+
+            #region Domain Ultimate
+            PopulateDomainUltimateAssets();
+            #endregion
+        }
+
+        private static void PopulateDomainUltimateAssets()
+        {
+            UltimateDomainFinisherEffect = GetGameObjectFromBundle("fxr4liangatk42suiping");
+            UltimateDomainFinisherEffect = ModifyEffect(UltimateDomainFinisherEffect, "", true);
         }
 
         private static void PopulateDomainTransitionAssets()
