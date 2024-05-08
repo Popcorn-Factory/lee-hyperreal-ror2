@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml.Serialization;
 using RoR2;
 using UnityEngine;
@@ -90,17 +91,17 @@ namespace LeeHyperrealMod.ParticleScripts
             {
                 case CameraSearchRule.MainOrParentCamera:
                     //Debug.Log(Camera.main);
-                    return Camera.main;
+                    return CameraRigController.instancesList.FirstOrDefault(x => x.isActiveAndEnabled == true).uiCam;
 
                 case CameraSearchRule.CameraUI:
-                    return Camera.current;
+                    return CameraRigController.instancesList.FirstOrDefault(x => x.isActiveAndEnabled == true).uiCam;
 
                 case CameraSearchRule.FarCamera:
-                    return Camera.current;
+                    return CameraRigController.instancesList.FirstOrDefault(x => x.isActiveAndEnabled == true).uiCam;
                 case CameraSearchRule.NearCamera:
-                    return Camera.current;
+                    return CameraRigController.instancesList.FirstOrDefault(x => x.isActiveAndEnabled == true).uiCam;
                 case CameraSearchRule.CustomCamera:
-                    return CustomCamera;
+                    return CameraRigController.instancesList.FirstOrDefault(x => x.isActiveAndEnabled == true).uiCam;
 
             }
             return null;
