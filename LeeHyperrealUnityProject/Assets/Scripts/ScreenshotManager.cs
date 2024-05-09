@@ -46,7 +46,7 @@ namespace LeeHyperrealMod.ParticleScripts
 
         public static void BlitToScreenShot(RenderTexture source)
         {
-            // Debug.Log("running blitToScreenshot");
+            Debug.Log("running blitToScreenshot");
             if (screenShot == null)
             {
 
