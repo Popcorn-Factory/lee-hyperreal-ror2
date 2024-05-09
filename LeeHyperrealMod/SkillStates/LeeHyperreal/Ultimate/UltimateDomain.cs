@@ -135,7 +135,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             if (age >= duration * effectPlay && !hasPlayedEffect && base.isAuthority) 
             {
                 hasPlayedEffect = true;
-                UnityEngine.Object.Instantiate(Modules.ParticleAssets.UltimateDomainFinisherEffect);
+                UnityEngine.Object.Instantiate(Modules.ParticleAssets.UltimateDomainFinisherEffect, Camera.main.transform);
             }
         }
 
