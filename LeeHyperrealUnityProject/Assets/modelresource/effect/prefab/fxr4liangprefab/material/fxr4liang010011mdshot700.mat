@@ -8,8 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: fxr4liang010011mdshot700
-  m_Shader: {fileID: 4800000, guid: 1dec7b30702e7054abc2f770235a80dc, type: 2}
-  m_ShaderKeywords: _RIM_LERP_WITH_ALPHA
+  m_Shader: {fileID: 4800000, guid: 4aa51fefc4ef77e49aed092d94481aa9, type: 3}
+  m_ShaderKeywords: _RIM_LERP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -75,14 +75,14 @@ Material:
     - _ColorMask: 15
     - _CullMode: 0
     - _CustomAlpha: 1
-    - _DepthFade: 1.19
+    - _DepthFade: 1.02
     - _DepthFadeDistance: 1.06
-    - _DetailAlphaTestValue: 10
+    - _DetailAlphaTestValue: 0
     - _DissolutionRotation: 0
     - _DissolutionSoftness: 0.5
     - _DissolutionThreshold: 0.5
-    - _DstBlend: 2
-    - _EffectBrightness: 2.5
+    - _DstBlend: 6
+    - _EffectBrightness: 3
     - _EffectBrightnessB: 1
     - _EffectBrightnessG: 1
     - _EffectBrightnessR: 1
@@ -97,14 +97,14 @@ Material:
     - _ParallaxScale: 0.5
     - _ParallaxZOffset: 0
     - _RenderType: 3000
-    - _RimRange: 0.419
+    - _RimRange: 0.43
     - _SecondRotation: 0
     - _ShakeVertexNoiseFrequancy: 20
     - _ShakeVertexNoiseIntensity: 0.2
     - _ShakeVertexScrollSpeed: 3
     - _ShowDistance: 20
     - _SpecialEffectIntensity: 0
-    - _SrcBlend: 2
+    - _SrcBlend: 3
     - _StencilReadMask: 255
     - _VAT_Blend: 1
     - _VAT_Frame: 0
@@ -125,9 +125,9 @@ Material:
     - _DissolutionRotationParams: {r: 1, g: 0, b: 0, a: 1}
     - _FlowSpeed: {r: 0.1, g: 0.1, b: -0.1, a: 0.1}
     - _MainRotationParams: {r: 1, g: 0, b: 0, a: 1}
-    - _MainTexColor: {r: 0.33018863, g: 0.33018863, b: 0.33018863, a: 0}
+    - _MainTexColor: {r: 0.33018863, g: 0.3301886, b: 0.3301886, a: 0}
     - _MaskRotationParams: {r: 1, g: 0, b: 0, a: 1}
-    - _RimColor: {r: 0.33018863, g: 0.35857958, b: 0.9622642, a: 1}
+    - _RimColor: {r: 0.43120328, g: 0.69508445, b: 0.9622642, a: 1}
     - _SecondColor: {r: 1, g: 1, b: 1, a: 1}
     - _SecondRotationParams: {r: 1, g: 0, b: 0, a: 1}
     - _ShakeVertexData: {r: 1, g: 0, b: 0, a: 3}

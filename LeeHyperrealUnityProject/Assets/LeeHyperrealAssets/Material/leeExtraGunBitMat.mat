@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: leeExtraGunBitMat
-  m_Shader: {fileID: 4800000, guid: 946e7a9e65651d04289884d62323dfb0, type: 2}
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: _ALPHABLEND_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -16,6 +16,7 @@ Material:
   m_CustomRenderQueue: 3000
   stringTagMap:
     QUEUE: Transparent
+    RenderType: Transparent
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -28,12 +29,28 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _DetailMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionFlowMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 2800000, guid: 2bcb77a723758cb45b8d9123d474d516, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FaceMap:
@@ -60,7 +77,19 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _PBRMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -93,6 +122,7 @@ Material:
     - _Cull: 2
     - _Cutoff: 0.5
     - _DepthPassColorMask: 15
+    - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _EffectRimFading: 0
     - _EffectRimIntensity: 0
@@ -108,6 +138,9 @@ Material:
     - _FlowCutMaskThreshold: 0.01
     - _FlowIntensity: 0.5
     - _FlowThreshold: 1
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
     - _GrayIntensity: 0
     - _IndirectLightIntensity: 1
     - _Lerp_SpecularIntensity: 1
@@ -115,9 +148,12 @@ Material:
     - _MatcapMask: 1
     - _Metallic: 0
     - _MetallicMapScale: 1
+    - _Mode: 2
+    - _OcclusionStrength: 0
     - _PBRMode: 0
     - _PBRRate: 1
     - _PBRSpecularIntensity: 1
+    - _Parallax: 0.005
     - _RimDistanceMax: 20
     - _RimDistanceMin: 8
     - _RimIntensity: 0.8
@@ -130,8 +166,10 @@ Material:
     - _SkinIntensity: 1
     - _SkinRate: 1
     - _SmoothFactor: 0.0001
+    - _SmoothnessTextureChannel: 0
     - _SpecularBloomIntensity: 0
     - _SpecularBloomThreshold: 1
+    - _SpecularHighlights: 1
     - _SpecularIntensity: 3
     - _SpecularShadowIntensity: 1
     - _SpecularShiness: 3
@@ -141,19 +179,21 @@ Material:
     - _StencilReadMask: 255
     - _StencilWriteMask: 255
     - _StencilWriteRef: 6
+    - _UVSec: 0
     - _UseCustomRenderQueue: 0
     - _ZTest: 4
-    - _ZWrite: 1
+    - _ZWrite: 0
     m_Colors:
     - _AfterImage_BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _AfterImage_RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _AfterImage_RimRange: {r: 1, g: 1, b: 1, a: 1}
     - _AlbedoColor: {r: 1, g: 1, b: 1, a: 1}
     - _BloomModColor: {r: 1, g: 1, b: 1, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _CubemapColor: {r: 1, g: 1, b: 1, a: 1}
     - _DirectLightColor: {r: 1, g: 1, b: 1, a: 1}
     - _EffectRimColor: {r: 0, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 1.4, g: 1.4, b: 1.4, a: 1}
     - _FirstShadowColor: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 0}
     - _FirstShadowColor1: {r: 1, g: 1, b: 1, a: 0}
     - _FirstShadowColor2: {r: 1, g: 1, b: 1, a: 0}
