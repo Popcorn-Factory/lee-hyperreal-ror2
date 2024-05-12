@@ -75,13 +75,13 @@ Material:
     - _ColorMask: 15
     - _CullMode: 0
     - _CustomAlpha: 1
-    - _DepthFade: 1.02
-    - _DepthFadeDistance: 1.06
+    - _DepthFade: 0.97
+    - _DepthFadeDistance: 0.96
     - _DetailAlphaTestValue: 0
     - _DissolutionRotation: 0
     - _DissolutionSoftness: 0.5
     - _DissolutionThreshold: 0.5
-    - _DstBlend: 6
+    - _DstBlend: 0
     - _EffectBrightness: 3
     - _EffectBrightnessB: 1
     - _EffectBrightnessG: 1
@@ -104,7 +104,7 @@ Material:
     - _ShakeVertexScrollSpeed: 3
     - _ShowDistance: 20
     - _SpecialEffectIntensity: 0
-    - _SrcBlend: 3
+    - _SrcBlend: 1
     - _StencilReadMask: 255
     - _VAT_Blend: 1
     - _VAT_Frame: 0
