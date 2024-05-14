@@ -86,6 +86,11 @@ namespace LeeHyperrealMod.Content.Controllers
         private BulletState targetBulletState;
         #endregion
 
+        #region Domain overlay
+        private GameObject domainOverlayObject;
+        private bool spawnedEffect;
+        #endregion
+
         private HGTextMeshProUGUI CreateLabel(Transform parent, string name, string text, Vector2 position, float textScale)
         {
             GameObject gameObject = new GameObject(name);
@@ -187,6 +192,12 @@ namespace LeeHyperrealMod.Content.Controllers
                 {
                     enabledUI = true;
                     canvasObject.SetActive(true);
+
+                    if (!spawnedEffect) 
+                    {
+                        domainOverlayObject = UnityEngine.Object.Instantiate(Modules.ParticleAssets.DomainOverlayEffect, Camera.main.transform);
+                        domainOverlayObject.SetActive(false);
+                    }
                 }
             }
         }
@@ -598,6 +609,16 @@ namespace LeeHyperrealMod.Content.Controllers
             SetBulletStates(targetBulletState.bulletTypes);
         }
 
+        #endregion
+
+        #region Domain overlay
+        public void DomainOverlayEnable(bool state) 
+        {
+            if (domainOverlayObject) 
+            {
+                domainOverlayObject.SetActive(state);
+            }
+        }
         #endregion
 
         #region Hook

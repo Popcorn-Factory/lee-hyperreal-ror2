@@ -137,12 +137,14 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             loopDomainEffect.SetActive(true);
             despawnDomainEffect.SetActive(false);
+            uiController.DomainOverlayEnable(true);
         }
 
         public void DisableDomainEffect() 
         {
             loopDomainEffect.SetActive(false);
             despawnDomainEffect.SetActive(true);
+            uiController.DomainOverlayEnable(false);
         }
 
         public bool DomainEntryAllowed()

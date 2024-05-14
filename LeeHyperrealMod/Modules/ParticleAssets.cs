@@ -87,6 +87,7 @@ namespace LeeHyperrealMod.Modules
         #region Ultimate Domain
         //FXR 42
         public static GameObject UltimateDomainFinisherEffect;
+        public static GameObject DomainOverlayEffect;
         #endregion
 
         #region Domain/Transition Effects
@@ -102,6 +103,7 @@ namespace LeeHyperrealMod.Modules
         //FXR 51
         public static GameObject ultExplosion;
         public static GameObject ultGunEffect;
+        public static GameObject ultTracerEffect;
         public static GameObject ultPreExplosionProjectile;
         #endregion
 
@@ -226,12 +228,33 @@ namespace LeeHyperrealMod.Modules
             #region Domain Ultimate
             PopulateDomainUltimateAssets();
             #endregion
+
+            #region Ultimate Non-domain
+            PopulateUltimateAssets();
+            #endregion
+        }
+
+        private static void PopulateUltimateAssets()
+        {
+            //ultGunEffect = GetGameObjectFromBundle("");
+            //ultGunEffect = ModifyEffect(ultGunEffect, "", true);
+
+            ultTracerEffect = GetGameObjectFromBundle("fxr4liangatk51xuli");
+            ultTracerEffect = ModifyEffect(ultTracerEffect, "", true);
+
+            ultPreExplosionProjectile = GetGameObjectFromBundle("fxr4liangatk51");
+            ultPreExplosionProjectile = ModifyEffect(ultPreExplosionProjectile, "", true);
+
+            ultExplosion = GetGameObjectFromBundle("fxr4liangatk51zha");
+            ultExplosion = ModifyEffect(ultExplosion, "", true);
         }
 
         private static void PopulateDomainUltimateAssets()
         {
             UltimateDomainFinisherEffect = GetGameObjectFromBundle("fxr4liangatk42suiping");
             UltimateDomainFinisherEffect.AddComponent<DestroyOnTimer>().duration = 4f;
+
+            DomainOverlayEffect = GetGameObjectFromBundle("fxr4liangatk51pingmu"); // Control manually.
         }
 
         private static void PopulateDomainTransitionAssets()
