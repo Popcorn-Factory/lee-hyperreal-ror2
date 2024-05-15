@@ -19,9 +19,9 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             base.OnExit();
         }
 
-        public override void Update()
+        public override void FixedUpdate()
         {
-            base.Update();
+            base.FixedUpdate();
             UpdateMeleeRootMotion(rmaMultiplier);
         }
 

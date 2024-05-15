@@ -89,6 +89,8 @@ namespace LeeHyperrealMod.Content.Controllers
             //    }
             //}
 
+            //Chat.AddMessage("y-vel:" + motor.velocity.y);
+
             //Update the Pitch.
             UpdateAimAngle();
             UpdateAnimatorParameters(animator, aimAnimator.pitchRangeMin, aimAnimator.pitchRangeMax, aimAnimator.yawRangeMin, aimAnimator.yawRangeMax);

@@ -98,6 +98,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         public override void Update()
         {
             base.Update();
+
+            if (!hasFired && base.isAuthority)
+            {
+                //Allow free aim until firing
+                Vector3 velocity = Vector3.zero;
+                base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
+            }
+
             if (age >= duration * earlyEnd && base.isAuthority)
             {
                 if (base.inputBank.moveVector != Vector3.zero) 
@@ -148,6 +156,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             base.FixedUpdate();
 
             //Able to be cancelled after this.
+
+
 
             if (fixedAge >= duration * fireTime && !hasFired)
             {
