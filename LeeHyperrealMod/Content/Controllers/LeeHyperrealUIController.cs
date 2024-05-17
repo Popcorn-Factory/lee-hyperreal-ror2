@@ -205,6 +205,7 @@ namespace LeeHyperrealMod.Content.Controllers
         public void OnDestroy()
         {
             Destroy(canvasObject);
+            Destroy(domainOverlayObject);
             Unhook();
         }
         #endregion
