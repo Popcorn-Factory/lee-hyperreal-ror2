@@ -193,6 +193,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 Vector3 forwardDirection = GetAimRay().direction;
                 Vector3 backwardsDirection = forwardDirection * -1f;
 
+                movementMultiplier = defaultMovementMultiplier;
+
                 if (inputBank.moveVector == Vector3.zero)
                 {
                     movementMultiplier = defaultMovementMultiplier;

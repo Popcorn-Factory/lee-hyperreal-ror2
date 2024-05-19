@@ -201,7 +201,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
                     bulletAttack.Fire();
 
-
+                    SpawnEffectFromRay(aimRay);
                 }
 
             }
@@ -211,6 +211,28 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             {
                 outer.SetNextStateToMain();
                 return;
+            }
+        }
+
+        private void SpawnEffectFromRay(Ray ray)
+        {
+            RaycastHit hit;
+            Physics.Raycast(ray, out hit, 30f);
+            if (hit.collider)
+            {
+                EffectManager.SpawnEffect(Modules.ParticleAssets.ultExplosion, new EffectData
+                {
+                    scale = 1.25f,
+                    origin = hit.point
+                }, true);
+            }
+            else 
+            {
+                EffectManager.SpawnEffect(Modules.ParticleAssets.ultExplosion, new EffectData
+                {
+                    scale = 1.25f,
+                    origin = ray.direction * 30f
+                }, true);
             }
         }
 
