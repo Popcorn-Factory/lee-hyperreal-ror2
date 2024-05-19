@@ -195,7 +195,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
                     if (!spawnedEffect) 
                     {
-                        domainOverlayObject = UnityEngine.Object.Instantiate(Modules.ParticleAssets.DomainOverlayEffect, Camera.main.transform);
+                        domainOverlayObject = UnityEngine.Object.Instantiate(Modules.ParticleAssets.DomainOverlayEffect, new Vector3(0, 0, -0.1f), Quaternion.identity, Camera.main.transform);
                         domainOverlayObject.SetActive(false);
                     }
                 }

@@ -33,6 +33,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         private BulletController bulletController;
         private WeaponModelHandler weaponModelHandler;
 
+        private Vector3 velocity = Vector3.zero;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -102,8 +104,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             if (!hasFired && base.isAuthority)
             {
                 //Allow free aim until firing
-                Vector3 velocity = Vector3.zero;
+
                 base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
+                base.characterDirection.moveVector = new Vector3(0, 0, 0);
             }
 
             if (age >= duration * earlyEnd && base.isAuthority)
