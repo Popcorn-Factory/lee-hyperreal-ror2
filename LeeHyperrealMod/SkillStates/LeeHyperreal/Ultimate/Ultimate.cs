@@ -27,7 +27,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         internal BlastAttack blastAttack;
         private BulletAttack bulletAttack;
 
-        internal string muzzleString = "SubmachineGunMuzzle"; //need to change to the sniper one
+        internal string muzzleString = "BaseTransform"; //need to change to the sniper one
 
         private float movementMultiplier = 1.5f;
         private BulletController bulletController;
@@ -59,6 +59,28 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
             TriggerEnemyFreeze();
 
+            GetModelAnimator().SetBool("isUltimate", true);
+
+            ModelLocator component = gameObject.GetComponent<ModelLocator>();
+            if (component && component.modelTransform)
+            {
+                ChildLocator component2 = component.modelTransform.GetComponent<ChildLocator>();
+                if (component2)
+                {
+                    int childIndex = component2.FindChildIndex(muzzleString);
+                    Transform transform = component2.FindChild(childIndex);
+                    if (transform)
+                    {
+                        EffectData effectData = new EffectData
+                        {
+                            origin = transform.position,
+                            scale = 1.25f,
+                        };
+                        effectData.SetChildLocatorTransformReference(gameObject, childIndex);
+                        EffectManager.SpawnEffect(Modules.ParticleAssets.ultTracerEffect, effectData, true);
+                    }
+                }
+            }
         }
 
         private bool AttachComponent(BulletAttack bulletAttackRef, ref BulletAttack.BulletHit hitInfo)
@@ -93,6 +115,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         public override void OnExit()
         {
             base.OnExit();
+
+            GetModelAnimator().SetBool("isUltimate", false);
             PlayAnimation("Body", "BufferEmpty");
             weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
         }
@@ -191,6 +215,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                     bulletAttack.radius = 2f;
                     bulletAttack.sniper = true;
                     bulletAttack.stopperMask = LayerIndex.noCollision.mask;
+                    bulletAttack.smartCollision = true;
                     bulletAttack.weapon = null;
                     bulletAttack.tracerEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("RoR2/Base/Huntress/TracerHuntressSnipe.prefab"); //temporary
                     bulletAttack.spreadPitchScale = 0f;
@@ -217,7 +242,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         private void SpawnEffectFromRay(Ray ray)
         {
             RaycastHit hit;
-            Physics.Raycast(ray, out hit, 30f);
+            Physics.Raycast(ray, out hit);
             if (hit.collider)
             {
                 EffectManager.SpawnEffect(Modules.ParticleAssets.ultExplosion, new EffectData
@@ -231,7 +256,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 EffectManager.SpawnEffect(Modules.ParticleAssets.ultExplosion, new EffectData
                 {
                     scale = 1.25f,
-                    origin = ray.direction * 30f
+                    origin = ray.direction * 20f
                 }, true);
             }
         }
