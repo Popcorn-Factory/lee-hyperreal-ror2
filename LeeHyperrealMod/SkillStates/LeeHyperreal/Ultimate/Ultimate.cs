@@ -32,7 +32,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         private float movementMultiplier = 1.5f;
         private BulletController bulletController;
         private WeaponModelHandler weaponModelHandler;
-
+        private UltimateCameraController ultimateCameraController;
+        private Ray aimRay;
         private Vector3 velocity = Vector3.zero;
 
         public override void OnEnter()
@@ -42,6 +43,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             rmaMultiplier = movementMultiplier;
             bulletController = gameObject.GetComponent<BulletController>();
             weaponModelHandler = gameObject.GetComponent<WeaponModelHandler>();
+            ultimateCameraController = gameObject.GetComponent<UltimateCameraController>();
 
             if (bulletController.inSnipeStance && isAuthority) 
             {
@@ -50,7 +52,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
             weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.CANNON);
 
-            Ray aimRay = base.GetAimRay();
+            aimRay = base.GetAimRay();
 
 
             base.characterDirection.forward = inputBank.aimDirection;
@@ -80,6 +82,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                         EffectManager.SpawnEffect(Modules.ParticleAssets.ultTracerEffect, effectData, true);
                     }
                 }
+            }
+
+            if (base.isAuthority) 
+            {
+                ultimateCameraController.TriggerUlt();
             }
         }
 
@@ -115,7 +122,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         public override void OnExit()
         {
             base.OnExit();
-
+            if (base.isAuthority)
+            {
+                ultimateCameraController.UnsetUltimate();
+            }
             GetModelAnimator().SetBool("isUltimate", false);
             PlayAnimation("Body", "BufferEmpty");
             weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
@@ -125,13 +135,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         {
             base.Update();
 
-            if (!hasFired && base.isAuthority)
-            {
-                //Allow free aim until firing
+            //if (!hasFired && base.isAuthority)
+            //{
+            //    //Allow free aim until firing
 
-                base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
-                base.characterDirection.moveVector = new Vector3(0, 0, 0);
-            }
+            //    base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
+            //    base.characterDirection.moveVector = new Vector3(0, 0, 0);
+            //}
 
             if (age >= duration * earlyEnd && base.isAuthority)
             {
@@ -191,7 +201,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 hasFired = true;
                 if (base.isAuthority)
                 {
-                    Ray aimRay = base.GetAimRay();
+
+                    GetModelAnimator().SetBool("isUltimate", false);
 
                     bulletAttack = new BulletAttack();
                     bulletAttack.bulletCount = (uint)(1U);
@@ -226,7 +237,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
                     bulletAttack.Fire();
 
-                    SpawnEffectFromRay(aimRay);
+                    SpawnBlastFromRay(aimRay);
                 }
 
             }
@@ -239,7 +250,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             }
         }
 
-        private void SpawnEffectFromRay(Ray ray)
+        private void SpawnBlastFromRay(Ray ray)
         {
             RaycastHit hit;
             Physics.Raycast(ray, out hit);
@@ -259,6 +270,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                     origin = ray.direction * 20f
                 }, true);
             }
+
+            //Spawn blast attack.
         }
 
         public void OnHitEnemyAuthority()

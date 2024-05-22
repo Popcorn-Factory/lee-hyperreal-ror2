@@ -1,17 +1,19 @@
 ManifestFileVersion: 0
-CRC: 2004212906
+CRC: 1384065402
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 5a4769f114b7cc356dfedd6eabe2409e
+    Hash: 48519b82a84546f648efe75bbb462f66
   TypeTreeHash:
     serializedVersion: 2
-    Hash: ccf83c106d1cdc77a68e7ad854e13c05
+    Hash: f11dd90a5a81e5e081dab2a11a7057a9
 HashAppended: 0
 ClassTypes:
 - Class: 1
   Script: {instanceID: 0}
 - Class: 4
+  Script: {instanceID: 0}
+- Class: 20
   Script: {instanceID: 0}
 - Class: 21
   Script: {instanceID: 0}
@@ -40,13 +42,13 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: e5b98180a9589ea48b1638a294134ce5, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: c6e70bb247a8cd74aad98f5aca67911d, type: 3}
 - Class: 114
@@ -484,6 +486,7 @@ Assets:
 - Assets/modelresource/effect/texture/mask425.png
 - Assets/modelresource/effect/prefab/fxr4liangprefab/material/fxr4liang010331mdcanying301.mat
 - Assets/modelresource/effect/prefab/fxr4liangprefab/common/fxr4liangmove01bonelcalftwist1.prefab
+- Assets/VFX/Camera Root Root.prefab
 - Assets/modelresource/effect/prefab/fxr4liangprefab/common/fxr4lianguistandp01.prefab
 - Assets/modelresource/effect/texture/fxr2pulao1207a.png
 - Assets/modelresource/effect/prefab/fxr4liangprefab/material/fxr4liang010331md326.mat
@@ -1070,6 +1073,7 @@ Assets:
 - Assets/modelresource/effect/prefab/fxr4liangprefab/material/fxr4liang010011md790.mat
 - Assets/modelresource/effect/texture/mask115.png
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SprintStop.anim
+- Assets/VFX/Camera Ult.controller
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk35hit-spjere.asset
 - Assets/modelresource/effect/texture/chunse500.png
 - Assets/modelresource/effect/mesh/fxr4lifumesh/r4lifuhuan01_5.asset
@@ -1107,6 +1111,7 @@ Assets:
 - Assets/modelresource/effect/texture/liuguang106_exclude.png
 - Assets/modelresource/effect/prefab/fxr4liangprefab/material/fxr4lianguipingmu1001.mat
 - Assets/modelresource/effect/prefab/fxr4liangprefab/material/fxr4liang010331md315.mat
+- Assets/VFX/Camera Ultimate.anim
 - Assets/modelresource/effect/mesh/luoxuanxishou.asset
 - Assets/modelresource/effect/prefab/fxr4liangprefab/common/fxr4liangatk05.prefab
 - Assets/modelresource/effect/prefab/fxr4liangprefab/material/fxr4liang010011md765.mat
@@ -1428,6 +1433,7 @@ Assets:
 - Assets/modelresource/effect/mesh/fxr4liangmesh/fxr4liangatk41text_12.asset
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Hit2_Base
   Layer.anim
+- Assets/Prefabs/Camera Ultimate Root.prefab
 - Assets/modelresource/effect/material/chunse05.mat
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk42fire-spjere.asset
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack74_Base

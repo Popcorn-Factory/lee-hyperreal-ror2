@@ -24,6 +24,8 @@ namespace LeeHyperrealMod.Modules
         internal static Material yellowOrbMat;
         internal static Material redOrbMat;
 
+        internal static GameObject ultimateCameraObject;
+
         // networked hit sounds
         internal static NetworkSoundEventDef swordHitSoundEvent;
         #endregion
@@ -89,6 +91,9 @@ namespace LeeHyperrealMod.Modules
             blueOrbMat = mainAssetBundle.LoadAsset<Material>("UI Blue Orb");
             yellowOrbMat = mainAssetBundle.LoadAsset<Material>("UI Yellow Orb");
             redOrbMat = mainAssetBundle.LoadAsset<Material>("UI Red Orb");
+
+            ultimateCameraObject = mainAssetBundle.LoadAsset<GameObject>("Camera Ultimate Root");
+
         }
 
         private static GameObject CreateTracer(string originalTracerName, string newTracerName)

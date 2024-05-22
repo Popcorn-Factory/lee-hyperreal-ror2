@@ -129,6 +129,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             bodyPrefab.AddComponent<ParryMonitor>();
             bodyPrefab.AddComponent<BulletController>();
             bodyPrefab.AddComponent<WeaponModelHandler>();
+            bodyPrefab.AddComponent<UltimateCameraController>();
         }
 
         public override void InitializeUnlockables()
