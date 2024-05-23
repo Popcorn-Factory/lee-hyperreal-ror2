@@ -43,6 +43,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             if (bulletController && unsetSnipe) 
             {
                 bulletController.UnsetSnipeStance();
+                if (bulletController.snipeAerialPlatform) 
+                {
+                    bulletController.snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+                }
             }
 
             animator = GetModelAnimator();

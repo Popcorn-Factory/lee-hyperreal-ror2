@@ -78,6 +78,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             PlayDodgeAnimation();
 
             StartAimMode(duration, false);
+
+            if (bulletController.snipeAerialPlatform) 
+            {
+                bulletController.snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+
+                bulletController.snipeAerialPlatform = null; // reset so Idle spawns another.
+            }
         }
 
         protected virtual void PlaySwingEffect(float scale, GameObject effectPrefab, bool aimRot = true)

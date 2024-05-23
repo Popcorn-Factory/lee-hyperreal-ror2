@@ -18,6 +18,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public float duration = 2.133f;
         public float earlyExitFrac = 0.28f;
         Vector3 velocity;
+        GameObject platform;
+
+        DestroyPlatformOnDelay destroyPlatformOnDelay;
 
         public override void OnEnter()
         {
@@ -42,11 +45,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             base.characterMotor.velocity = new Vector3();
 
             //characterBody.SetAimTimer(duration);
+            ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
+            Transform baseTransform = childLocator.FindChild("BaseTransform");
+            platform = UnityEngine.Object.Instantiate(Modules.ParticleAssets.snipeAerialFloor, baseTransform.position, Quaternion.identity);
+            destroyPlatformOnDelay = platform.GetComponent<DestroyPlatformOnDelay>();
         }
 
         public override void OnExit()
         {
             base.OnExit();
+            destroyPlatformOnDelay.StartDestroying();
         }
 
         public void PlayAttackAnimation() 

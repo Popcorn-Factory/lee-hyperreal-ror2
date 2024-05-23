@@ -72,6 +72,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
 
             //characterBody.SetAimTimer(duration + 1f);
+
+            if (!bulletController.snipeAerialPlatform)
+            {
+                ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
+                Transform baseTransform = childLocator.FindChild("BaseTransform");
+                bulletController.snipeAerialPlatform = UnityEngine.Object.Instantiate(Modules.ParticleAssets.snipeAerialFloor, baseTransform.position, Quaternion.identity);
+            }
         }
 
         public override void OnExit()

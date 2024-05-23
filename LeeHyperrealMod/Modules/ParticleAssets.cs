@@ -5,6 +5,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
 using ShaderSwapper;
+using LeeHyperrealMod.Content.Controllers;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -72,6 +73,7 @@ namespace LeeHyperrealMod.Modules
         public static GameObject snipeHit;
         public static GameObject snipeGround;
         public static GameObject snipeDodge;
+        public static GameObject snipeAerialFloor;
         #endregion
 
         #region Parry
@@ -370,6 +372,9 @@ namespace LeeHyperrealMod.Modules
 
             snipeDodge = GetGameObjectFromBundle("fxr4liangatk28");
             snipeDodge = ModifyEffect(snipeDodge, "", true);
+
+            snipeAerialFloor = GetGameObjectFromBundle("Snipe Floor");
+            snipeAerialFloor.AddComponent<DestroyPlatformOnDelay>();
         }
 
         private static void PopulateYellowOrbAssets()

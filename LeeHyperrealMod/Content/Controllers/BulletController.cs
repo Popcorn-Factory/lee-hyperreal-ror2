@@ -49,6 +49,8 @@ namespace LeeHyperrealMod.Content.Controllers
 
         AimAngles aimAngle;
 
+        public GameObject snipeAerialPlatform;
+
         //Debug
         public ModelLocator modelLocator;
         //public string[] strings = { "Idle", "StopRun", "Run", "Sprint", "Jump", "AscendDescend", "IdleIn", "BufferEmpty", "SnipePitchControl" };

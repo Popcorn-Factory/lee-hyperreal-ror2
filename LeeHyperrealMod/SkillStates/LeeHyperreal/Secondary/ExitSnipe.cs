@@ -21,6 +21,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
         Vector3 velocity;
 
+
+
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -39,6 +42,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
 
             //characterBody.SetAimTimer(0f);
+
+            //Destroy platform in exit
+            bulletController.snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
         }
 
         public override void OnExit()

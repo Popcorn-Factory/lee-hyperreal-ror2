@@ -2,6 +2,7 @@
 using UnityEngine;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.Evade;
 using RoR2;
+using LeeHyperrealMod.Content.Controllers;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 {
@@ -10,6 +11,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         Animator animator;
         public float duration = 2.133f;
         Vector3 velocity = Vector3.zero;
+        BulletController bulletController;
 
         public override void OnEnter()
         {
@@ -18,11 +20,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             //Enter the snipe stance, move to IdleSnipe
             animator = this.GetModelAnimator();
             animator.SetFloat("attack.playbackRate", 1f);
+            bulletController = gameObject.GetComponent<BulletController>();
 
             base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
             PlayAttackAnimation();
 
             //characterBody.SetAimTimer(duration + 1f);
+            if (!bulletController.snipeAerialPlatform) 
+            {
+                ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
+                Transform baseTransform = childLocator.FindChild("BaseTransform");
+                bulletController.snipeAerialPlatform = UnityEngine.Object.Instantiate(Modules.ParticleAssets.snipeAerialFloor, baseTransform.position, Quaternion.identity);
+            }
         }
 
         public override void OnExit()
