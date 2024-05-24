@@ -256,19 +256,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             Physics.Raycast(ray, out hit);
             if (hit.collider)
             {
-                EffectManager.SpawnEffect(Modules.ParticleAssets.ultExplosion, new EffectData
-                {
-                    scale = 1.25f,
-                    origin = hit.point
-                }, true);
+                new UltimateObjectSpawnNetworkRequest(characterBody.netId, hit.point).Send(NetworkDestination.Clients);
             }
             else 
             {
-                EffectManager.SpawnEffect(Modules.ParticleAssets.ultExplosion, new EffectData
-                {
-                    scale = 1.25f,
-                    origin = ray.direction * 20f
-                }, true);
+                new UltimateObjectSpawnNetworkRequest(characterBody.netId, ray.origin + (ray.direction * 20f)).Send(NetworkDestination.Clients);
             }
 
             //Spawn blast attack.

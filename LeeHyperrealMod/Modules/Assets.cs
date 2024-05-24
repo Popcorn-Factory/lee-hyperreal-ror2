@@ -7,6 +7,7 @@ using System.IO;
 using System.Collections.Generic;
 using RoR2.UI;
 using System;
+using LeeHyperrealMod.Content.Controllers;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -25,6 +26,8 @@ namespace LeeHyperrealMod.Modules
         internal static Material redOrbMat;
 
         internal static GameObject ultimateCameraObject;
+
+        internal static GameObject ultimateExplosionObject;
 
         // networked hit sounds
         internal static NetworkSoundEventDef swordHitSoundEvent;
@@ -94,6 +97,8 @@ namespace LeeHyperrealMod.Modules
 
             ultimateCameraObject = mainAssetBundle.LoadAsset<GameObject>("Camera Ultimate Root");
 
+            ultimateExplosionObject = mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk51sound"); // LMAO empty object let's use it 
+            ultimateExplosionObject.AddComponent<UltimateOrbExplosion>();
         }
 
         private static GameObject CreateTracer(string originalTracerName, string newTracerName)

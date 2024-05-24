@@ -78,6 +78,7 @@ namespace LeeHyperrealMod
             NetworkingAPI.RegisterMessageType<SetFreezeOnBodyRequest>();
             NetworkingAPI.RegisterMessageType<SetPauseTriggerNetworkRequest>();
             NetworkingAPI.RegisterMessageType<PlaySoundNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<UltimateObjectSpawnNetworkRequest>();
 
             // now make a content pack and add it- this part will change with the next update
             new Modules.ContentPacks().Initialize();

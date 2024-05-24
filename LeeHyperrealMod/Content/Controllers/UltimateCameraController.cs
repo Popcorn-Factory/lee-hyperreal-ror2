@@ -48,7 +48,14 @@ namespace LeeHyperrealMod.Content.Controllers
             eventComponent.body = body;
             eventComponent.controller = this;
 
-            cameraObject = Camera.main.gameObject;
+            try
+            {
+                cameraObject = Camera.main.gameObject;
+            }
+            catch (NullReferenceException e) 
+            {
+                Debug.Log($"Should be alright: {e}");
+            }
 
         }
 
