@@ -245,10 +245,10 @@ namespace LeeHyperrealMod.Modules
             ultTracerEffect = ModifyEffect(ultTracerEffect, "", true);
 
             ultPreExplosionProjectile = GetGameObjectFromBundle("fxr4liangatk51");
-            ultPreExplosionProjectile = ModifyEffect(ultPreExplosionProjectile, "", true);
+            ultPreExplosionProjectile = ModifyEffect(ultPreExplosionProjectile, "", true, 5f);
 
             ultExplosion = GetGameObjectFromBundle("fxr4liangatk51zha");
-            ultExplosion = ModifyEffect(ultExplosion, "", true);
+            ultExplosion = ModifyEffect(ultExplosion, "", true, 5f);
         }
 
         private static void PopulateDomainUltimateAssets()
