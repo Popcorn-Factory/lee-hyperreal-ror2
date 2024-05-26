@@ -13,6 +13,7 @@ namespace LeeHyperrealMod.Content.Controllers
         public CharacterBody body;
         public GameObject cameraObject;
         public Animator ultimateAnimator;
+        public Transform ultimateCameraTransform;
         public GameObject ultimateCameraGameObject;
         public Transform previousCameraParent;
 
@@ -57,6 +58,8 @@ namespace LeeHyperrealMod.Content.Controllers
                 Debug.Log($"Should be alright: {e}");
             }
 
+            ultimateCameraTransform = ultimateCameraGameObject.transform.GetChild(0).GetChild(0);
+
         }
 
         public void Update() 
@@ -85,7 +88,7 @@ namespace LeeHyperrealMod.Content.Controllers
             //Store old position
             previousCameraParent = cameraObject.transform.parent;
 
-            cameraObject.transform.SetParent(ultimateCameraGameObject.transform.GetChild(0).GetChild(0), false);
+            cameraObject.transform.SetParent(ultimateCameraTransform, false);
             //reset to 0
             cameraObject.transform.localPosition = Vector3.zero;
             cameraObject.transform.localRotation = Quaternion.identity;
