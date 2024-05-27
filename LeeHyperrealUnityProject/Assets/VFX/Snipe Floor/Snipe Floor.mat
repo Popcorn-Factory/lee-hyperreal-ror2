@@ -48,8 +48,8 @@ Material:
         m_Offset: {x: 0, y: -0.05}
     - _MaskTex:
         m_Texture: {fileID: 2800000, guid: b38ff4e4130c0e04fb5a79198fd1e4b8, type: 3}
-        m_Scale: {x: 0.7, y: 0.7}
-        m_Offset: {x: 0.15, y: 0.15}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SecondTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 40, y: 40}
@@ -75,7 +75,7 @@ Material:
     - _DissolutionSoftness: 0
     - _DissolutionThreshold: 1
     - _DstBlend: 10
-    - _EffectBrightness: 3.4
+    - _EffectBrightness: 0.9
     - _EffectBrightnessB: 8.2
     - _EffectBrightnessG: 2
     - _EffectBrightnessR: 2
@@ -107,8 +107,8 @@ Material:
     - _VertexOffset_AlphaMask: 0
     - _VertexOffset_Speed_G: 0
     - _VertexOffset_Speed_R: -0.072
-    - _VertexOffset_Strength_G: 0.051
-    - _VertexOffset_Strength_R: -0.049
+    - _VertexOffset_Strength_G: 0.043
+    - _VertexOffset_Strength_R: -0.064
     - _ZOffset: 0
     - _ZTest: 8
     - _ZWrite: 0

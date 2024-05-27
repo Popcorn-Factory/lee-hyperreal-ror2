@@ -2295,7 +2295,7 @@ ParticleSystemRenderer:
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 4300000, guid: a1991cbd4d7b451478890507003556ca, type: 2}
+  m_Mesh: {fileID: 4300000, guid: c38196fba9979cf47b666e34a18d84d3, type: 2}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -2476,8 +2476,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.005
-      minScalar: 0.002
+      scalar: 0.02
+      minScalar: 0.01
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -4827,8 +4827,8 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 0.015
-      minScalar: 0.002
+      scalar: 0.025
+      minScalar: 0.005
       maxCurve:
         serializedVersion: 2
         m_Curve: []
@@ -4951,7 +4951,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 3.44
+    angle: 1.46
     length: 0
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -5123,7 +5123,7 @@ ParticleSystem:
           inWeight: 0
           outWeight: 0.5807722
         - serializedVersion: 3
-          time: 0.19555205
+          time: 0.04021758
           value: 1
           inSlope: 0.016298458
           outSlope: 0.016298458
@@ -9246,7 +9246,7 @@ ParticleSystemRenderer:
   m_ApplyActiveColorSpace: 1
   m_AllowRoll: 1
   m_VertexStreams: 00010304
-  m_Mesh: {fileID: 4300000, guid: a1991cbd4d7b451478890507003556ca, type: 2}
+  m_Mesh: {fileID: 4300000, guid: c38196fba9979cf47b666e34a18d84d3, type: 2}
   m_Mesh1: {fileID: 0}
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
@@ -9275,7 +9275,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83609786462087546}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.4}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 83609784856016374}
