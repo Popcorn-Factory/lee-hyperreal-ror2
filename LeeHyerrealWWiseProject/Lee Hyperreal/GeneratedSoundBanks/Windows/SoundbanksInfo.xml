@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="505873666" GUID="{8F1A8A27-C3E1-4938-8B10-4FB1FF6A3F19}" Language="SFX" Hash="3715308880">
+		<SoundBank Id="505873666" GUID="{8F1A8A27-C3E1-4938-8B10-4FB1FF6A3F19}" Language="SFX" Hash="3528297217">
 			<ObjectPath>\SoundBanks\Default Work Unit\Lee_Hyperreal</ObjectPath>
 			<ShortName>Lee_Hyperreal</ShortName>
 			<Path>Lee_Hyperreal.bnk</Path>
@@ -580,11 +580,19 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="975961716" Name="Play_c_liRk4_skill_ultimate" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_ultimate" GUID="{770C67B9-0788-45A3-88C8-8230E49DBAF0}">
+				<Event Id="2588682071" Name="Play_c_liRk4_skill_ultimate_blast" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_ultimate_blast" GUID="{5D3828E7-CA88-4B28-B17F-5EF45A361349}">
 					<IncludedMemoryFiles>
-						<File Id="946466880" Language="SFX">
-							<ShortName>c_liRk4_skill_ultimate.wav</ShortName>
-							<Path>SFX\c_liRk4_skill_ultimate_E686EB18.wem</Path>
+						<File Id="1030896477" Language="SFX">
+							<ShortName>c_liRk4_skill_ultimate_blast.wav</ShortName>
+							<Path>SFX\c_liRk4_skill_ultimate_blast_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2114053593" Name="Play_c_liRk4_skill_ultimate_start" ObjectPath="\Events\Default Work Unit\Lee\Play_c_liRk4_skill_ultimate_start" GUID="{7F77A349-3203-42EA-8953-75FB97E36D5B}">
+					<IncludedMemoryFiles>
+						<File Id="209203937" Language="SFX">
+							<ShortName>c_liRk4_skill_ultimate_start.wav</ShortName>
+							<Path>SFX\c_liRk4_skill_ultimate_start_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -657,7 +665,7 @@
 				<GameParameter Id="3673881719" Name="Volume_SFX" ObjectPath="\Game Parameters\Default Work Unit\Volume_SFX" GUID="{53CAC302-8159-435B-B9E8-E4869EAC3995}"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" GUID="{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}" Language="SFX" Hash="3121345809">
+		<SoundBank Id="1355168291" GUID="{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}" Language="SFX" Hash="2209698957">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>

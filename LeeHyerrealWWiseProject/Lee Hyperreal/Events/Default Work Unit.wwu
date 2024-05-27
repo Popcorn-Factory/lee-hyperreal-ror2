@@ -500,17 +500,6 @@
 								</Action>
 							</ChildrenList>
 						</Event>
-						<Event Name="Play_c_liRk4_skill_ultimate" ID="{770C67B9-0788-45A3-88C8-8230E49DBAF0}">
-							<ChildrenList>
-								<Action Name="" ID="{C0052233-CE5E-459B-A1EA-0B66C885836F}" ShortID="712762006">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="c_liRk4_skill_ultimate" ID="{DE4974A0-64AA-4B6C-B1C9-F05F5BFA4F29}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Event Name="Play_c_liRk4_act_flash_3" ID="{0966BD68-2E55-4550-8750-6648D2138793}">
 							<ChildrenList>
 								<Action Name="" ID="{7A3FF58A-7D8F-47B7-AD94-D8D9C8CA9E8B}" ShortID="345388101">
@@ -682,6 +671,28 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Big parry" ID="{EA6EFF9B-71B7-4B35-8562-85BB45D74002}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_c_liRk4_skill_ultimate_start" ID="{7F77A349-3203-42EA-8953-75FB97E36D5B}">
+							<ChildrenList>
+								<Action Name="" ID="{747DEBCA-D1C1-4DFB-9198-B935527DBA10}" ShortID="919452910">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="c_liRk4_skill_ultimate_start" ID="{DDA27FCD-C1D4-4B81-974E-19EA94A275D0}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_c_liRk4_skill_ultimate_blast" ID="{5D3828E7-CA88-4B28-B17F-5EF45A361349}">
+							<ChildrenList>
+								<Action Name="" ID="{DD20F0F6-3D0B-497C-914D-C8BF48D06B79}" ShortID="541396660">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="c_liRk4_skill_ultimate_blast" ID="{18ADB59D-BD2C-40DC-BF90-551BB6794B0F}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

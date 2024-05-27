@@ -2681,32 +2681,6 @@
 										<ActiveSource Name="c_liRk4_act_win" ID="{870048CE-7791-40A8-8453-94A1D4DD6367}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
-								<Sound Name="c_liRk4_skill_ultimate" ID="{DE4974A0-64AA-4B6C-B1C9-F05F5BFA4F29}" ShortID="927871564">
-									<PropertyList>
-										<Property Name="Color" Type="int16" Value="17"/>
-										<Property Name="OverrideColor" Type="bool" Value="True"/>
-									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="c_liRk4_skill_ultimate" ID="{559B20DE-DA80-4940-A288-9802E410E0F8}">
-											<Language>SFX</Language>
-											<AudioFile>c_liRk4_skill_ultimate.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="946466880"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="c_liRk4_skill_ultimate" ID="{559B20DE-DA80-4940-A288-9802E410E0F8}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
 								<RandomSequenceContainer Name="c_liRk4_skill_yellow_bullet" ID="{3F2BF87C-C9A7-46E7-830F-CB461E56A510}" ShortID="603851548">
 									<PropertyList>
 										<Property Name="Color" Type="int16" Value="17"/>
@@ -2847,7 +2821,7 @@
 										</Property>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-2</Value>
+												<Value>-1</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2870,6 +2844,66 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="big parry" ID="{CC3EF3BC-5C35-4288-AAFA-121961CD7B4D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="c_liRk4_skill_ultimate_blast" ID="{18ADB59D-BD2C-40DC-BF90-551BB6794B0F}" ShortID="1066173074">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="17"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Ultimate" ID="{CF08FAA3-3332-4E8A-969C-1486427BFFC5}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="c_liRk4_skill_ultimate_blast" ID="{294C2AC7-AC9D-419D-8C7D-B21FB95877B0}">
+											<Language>SFX</Language>
+											<AudioFile>c_liRk4_skill_ultimate_blast.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1030896477"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="c_liRk4_skill_ultimate_blast" ID="{294C2AC7-AC9D-419D-8C7D-B21FB95877B0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="c_liRk4_skill_ultimate_start" ID="{DDA27FCD-C1D4-4B81-974E-19EA94A275D0}" ShortID="197077188">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="17"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Ultimate" ID="{CF08FAA3-3332-4E8A-969C-1486427BFFC5}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="c_liRk4_skill_ultimate_start" ID="{1C51FA17-80C2-4F27-8534-C3F3D3273032}">
+											<Language>SFX</Language>
+											<AudioFile>c_liRk4_skill_ultimate_start.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="209203937"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="c_liRk4_skill_ultimate_start" ID="{1C51FA17-80C2-4F27-8534-C3F3D3273032}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
