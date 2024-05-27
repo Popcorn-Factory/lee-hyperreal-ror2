@@ -29,6 +29,12 @@ namespace LeeHyperrealMod.Modules
 
         internal static GameObject ultimateExplosionObject;
 
+        // UI objects
+        internal static GameObject powerMeterObject;
+        internal static GameObject healthPrefabs;
+        internal static GameObject orbsUIObject;
+        internal static GameObject spinnyIconUIObject;
+
         // networked hit sounds
         internal static NetworkSoundEventDef swordHitSoundEvent;
         #endregion
@@ -91,6 +97,11 @@ namespace LeeHyperrealMod.Modules
             swordHitSoundEvent = CreateNetworkSoundEventDef("HenrySwordHit");
 
             uiObject = mainAssetBundle.LoadAsset<GameObject>("LeeHyperrealUI");
+            powerMeterObject = mainAssetBundle.LoadAsset<GameObject>("Power Bar Empty");
+            healthPrefabs = mainAssetBundle.LoadAsset<GameObject>("LeeHealth");
+            orbsUIObject = mainAssetBundle.LoadAsset<GameObject>("Orbs");
+            spinnyIconUIObject = mainAssetBundle.LoadAsset<GameObject>("Ult Base");
+
             blueOrbMat = mainAssetBundle.LoadAsset<Material>("UI Blue Orb");
             yellowOrbMat = mainAssetBundle.LoadAsset<Material>("UI Yellow Orb");
             redOrbMat = mainAssetBundle.LoadAsset<Material>("UI Red Orb");

@@ -17,6 +17,7 @@ namespace LeeHyperrealMod.Content.Controllers
         private CharacterBody characterBody;
         private CharacterMaster characterMaster;
         private GameObject canvasObject;
+        private GameObject RoRHUDObject;
         private OrbController orbController;
         public bool baseAIPresent;
         public bool enabledUI;
@@ -28,13 +29,15 @@ namespace LeeHyperrealMod.Content.Controllers
         private int startIndex = 4;
         private int endIndex = 11;
         private int orbAmountIndex = 1;
-        HGTextMeshProUGUI orbAmountLabel;        
+        GameObject orbUIObject;
+        HGTextMeshProUGUI orbAmountLabel;
         List<Animator> orbAnimators;
         List<Image> orbImages;
         #endregion
 
         #region Power Meter
         private int meterindex = 15;
+        private GameObject powerMeterUIObject;
         private Animator meterAnimator;
         private bool isLerpingBetweenValues;
         private const float lerpSpeed = 10f;
@@ -66,7 +69,7 @@ namespace LeeHyperrealMod.Content.Controllers
         GameObject IncomingExtraParryBullet;
         BulletTriggerComponent trigger;
 
-        public struct BulletState 
+        public struct BulletState
         {
             public List<BulletController.BulletType> bulletTypes;
             public int parryBulletCount;
@@ -74,7 +77,7 @@ namespace LeeHyperrealMod.Content.Controllers
             public bool isColouredBulletMoving;
             public bool isEnhancedBulletMoving;
 
-            public BulletState(int parryCount, List<BulletController.BulletType> types, float bulletAnimationSpeed, bool isColouredBulletMoving, bool isEnhancedBulletMoving) 
+            public BulletState(int parryCount, List<BulletController.BulletType> types, float bulletAnimationSpeed, bool isColouredBulletMoving, bool isEnhancedBulletMoving)
             {
                 bulletTypes = types;
                 parryBulletCount = parryCount;
@@ -90,6 +93,8 @@ namespace LeeHyperrealMod.Content.Controllers
         private GameObject domainOverlayObject;
         private bool spawnedEffect;
         #endregion
+
+        private bool isInitialized = false;
 
         private HGTextMeshProUGUI CreateLabel(Transform parent, string name, string text, Vector2 position, float textScale)
         {
@@ -153,17 +158,44 @@ namespace LeeHyperrealMod.Content.Controllers
                 UpdateOrbList(orbController.orbList);
             }
 
-            InitializeOrbAmountLabel();
+            try 
+            {
+                InitializeUI();
+            }
+            catch (NullReferenceException e) 
+            {
+                Debug.Log(e);
+            }
+        }
 
-            InitializePowerMeter();
-            InitializeHealthLayer();
-            InitializeBulletUI();
+        public void InitializeUI() 
+        {
+            if (!isInitialized)
+            {
+                InitializeOrbAmountLabel();
+                InitializePowerMeter();
+                InitializeHealthLayer();
+                InitializeBulletUI();
+                isInitialized = true;
+            }
         }
 
         public void Update()
         {
             if (characterBody.hasEffectiveAuthority)
             {
+                if (!isInitialized) 
+                {
+                    try
+                    {
+                        InitializeUI();
+                    }
+                    catch (NullReferenceException e)
+                    {
+                        Debug.Log(e);
+                    }
+                }
+
                 if (enabledUI)
                 {
                     UpdateUIScale();
@@ -239,7 +271,12 @@ namespace LeeHyperrealMod.Content.Controllers
         #region Power Meter Functions
         private void InitializePowerMeter()
         {
-            meterAnimator = canvasObject.transform.GetChild(meterindex).GetComponent<Animator>();
+            if (RoRHUDObject) 
+            {
+                powerMeterUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.powerMeterObject, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(0));
+            }
+
+            meterAnimator = powerMeterUIObject.transform.GetComponent<Animator>();
         }
 
         public void SetMeterLevel(float percentageFill)
@@ -626,11 +663,22 @@ namespace LeeHyperrealMod.Content.Controllers
         public void Hook()
         {
             On.RoR2.CameraRigController.Update += CameraRigController_Update;
+            On.RoR2.UI.HUD.Update += HUD_Update;
         }
 
         public void Unhook()
         {
             On.RoR2.CameraRigController.Update -= CameraRigController_Update;
+            On.RoR2.UI.HUD.Update -= HUD_Update;
+        }
+
+        private void HUD_Update(On.RoR2.UI.HUD.orig_Update orig, HUD self)
+        {
+            orig(self);
+            if (!RoRHUDObject) 
+            {
+                RoRHUDObject = self.gameObject;
+            }
         }
 
         private void CameraRigController_Update(On.RoR2.CameraRigController.orig_Update orig, CameraRigController self)
@@ -641,14 +689,14 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 if (canvasObject && characterBody.hasEffectiveAuthority && !baseAIPresent)
                 {
-                    canvasObject.SetActive(true);
+
                 }
             }
             else
             {
                 if (canvasObject && characterBody.hasEffectiveAuthority)
                 {
-                    canvasObject.SetActive(false);
+                
                 }
             }
         }

@@ -14,6 +14,7 @@ using LeeHyperrealMod.Modules.Networking;
 using R2API.Networking;
 using R2API.Networking.Interfaces;
 using ShaderSwapper;
+using Rewired.UI.ControlMapper;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
