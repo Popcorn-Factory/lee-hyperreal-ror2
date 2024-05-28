@@ -340,7 +340,7 @@ namespace LeeHyperrealMod.Modules
                 "fxr4liangatk24-lightSC2"
                 );
 
-            Snipe = ModifyEffect(Snipe, "", true, 0.75f, VFXAttributes.VFXPriority.Medium);
+            Snipe = ModifyEffect(Snipe, "", true, 0.6f, VFXAttributes.VFXPriority.Medium);
 
             snipeHit = GetGameObjectFromBundle("fxr4liangatk24hit");
             AddLightIntensityCurveWithCurve(
