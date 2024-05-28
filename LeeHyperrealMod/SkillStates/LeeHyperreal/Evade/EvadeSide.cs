@@ -70,7 +70,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                 true);
             PlayDodgeAnimation();
 
-            bulletController.snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+            if (bulletController.snipeAerialPlatform) 
+            {
+                bulletController.snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+            }
         }
 
         public override void OnExit()

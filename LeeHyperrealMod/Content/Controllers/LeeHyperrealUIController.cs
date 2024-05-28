@@ -26,9 +26,9 @@ namespace LeeHyperrealMod.Content.Controllers
 
         #region Orb Variables
         private int maxShownOrbs = 8;
-        private int startIndex = 4;
-        private int endIndex = 11;
-        private int orbAmountIndex = 1;
+        private int startIndex = 1;
+        private int endIndex = 8;
+        private int orbAmountIndex = 0;
         GameObject orbUIObject;
         HGTextMeshProUGUI orbAmountLabel;
         List<Animator> orbAnimators;
@@ -46,6 +46,7 @@ namespace LeeHyperrealMod.Content.Controllers
         #endregion
 
         #region Invincibility Layer
+        private GameObject healthLayers;
         private GameObject layerInvincibilityHealthObject;
         private GameObject layerInvincibilityHazeObject;
         private Image invincibilityBorder;
@@ -144,19 +145,12 @@ namespace LeeHyperrealMod.Content.Controllers
             if (!characterMaster) baseAIPresent = true; // Disable UI Just in case.
 
 
-            canvasObject = UnityEngine.GameObject.Instantiate(Modules.Assets.uiObject);
+            //canvasObject = UnityEngine.GameObject.Instantiate(Modules.Assets.uiObject);
 
-            if (characterBody)
-            {
-                canvasObject.SetActive(characterBody.hasEffectiveAuthority);
-            }
-
-            //Now we need to initialize everything inside the canvas to variables we can control.
-            InitializeOrbAnimatorArray();
-            if (orbController)
-            {
-                UpdateOrbList(orbController.orbList);
-            }
+            //if (characterBody)
+            //{
+            //    canvasObject.SetActive(characterBody.hasEffectiveAuthority);
+            //}
 
             try 
             {
@@ -172,10 +166,16 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             if (!isInitialized)
             {
-                InitializeOrbAmountLabel();
                 InitializePowerMeter();
                 InitializeHealthLayer();
                 InitializeBulletUI();
+                //Now we need to initialize everything inside the canvas to variables we can control.
+                InitializeOrbAnimatorArray();
+                InitializeOrbAmountLabel();
+                if (orbController)
+                {
+                    UpdateOrbList(orbController.orbList);
+                }
                 isInitialized = true;
             }
         }
@@ -196,14 +196,11 @@ namespace LeeHyperrealMod.Content.Controllers
                     }
                 }
 
-                if (enabledUI)
-                {
-                    UpdateUIScale();
-                    UpdateHealthUIObject();
-                    UpdateMeterLevel();
-                    SetAnimatorMeterValue();
-                    HandleBulletUIChange();
-                }
+                UpdateUIScale();
+                UpdateHealthUIObject();
+                UpdateMeterLevel();
+                SetAnimatorMeterValue();
+                HandleBulletUIChange();
             }
         }
 
@@ -222,13 +219,13 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 if (!enabledUI && !baseAIPresent)
                 {
-                    enabledUI = true;
-                    canvasObject.SetActive(true);
+                    //canvasObject.SetActive(true);
 
                     if (!spawnedEffect) 
                     {
                         domainOverlayObject = UnityEngine.Object.Instantiate(Modules.ParticleAssets.DomainOverlayEffect, new Vector3(0, 0, -0.1f), Quaternion.identity, Camera.main.transform);
                         domainOverlayObject.SetActive(false);
+                        spawnedEffect = true;
                     }
                 }
             }
@@ -236,7 +233,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void OnDestroy()
         {
-            Destroy(canvasObject);
+            //Destroy(canvasObject);
             Destroy(domainOverlayObject);
             Unhook();
         }
@@ -245,8 +242,12 @@ namespace LeeHyperrealMod.Content.Controllers
         #region Invincible Health layer
         public void InitializeHealthLayer()
         {
-            layerInvincibilityHealthObject = canvasObject.transform.GetChild(healthIndex).gameObject;
-            layerInvincibilityHazeObject = canvasObject.transform.GetChild(hazeIndex).gameObject;
+            if (RoRHUDObject && !healthLayers) 
+            {
+                healthLayers = UnityEngine.GameObject.Instantiate(Modules.Assets.healthPrefabs, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(0).GetChild(1).GetChild(1));
+            }
+            layerInvincibilityHealthObject = healthLayers.transform.GetChild(0).gameObject;
+            layerInvincibilityHazeObject = healthLayers.transform.GetChild(1).gameObject;
             invincibilityBorder = layerInvincibilityHealthObject.transform.GetChild(0).gameObject.GetComponent<Image>();
         }
 
@@ -271,12 +272,12 @@ namespace LeeHyperrealMod.Content.Controllers
         #region Power Meter Functions
         private void InitializePowerMeter()
         {
-            if (RoRHUDObject) 
+            if (RoRHUDObject && !powerMeterUIObject) 
             {
                 powerMeterUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.powerMeterObject, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(0));
             }
 
-            meterAnimator = powerMeterUIObject.transform.GetComponent<Animator>();
+            meterAnimator = powerMeterUIObject.GetComponent<Animator>();
         }
 
         public void SetMeterLevel(float percentageFill)
@@ -335,7 +336,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         private void InitializeOrbAmountLabel()
         {
-            Transform labeltransform = canvasObject.transform.GetChild(orbAmountIndex);
+            Transform labeltransform = orbUIObject.transform.GetChild(orbAmountIndex);
             Destroy(labeltransform.gameObject.GetComponent<Text>());
             orbAmountLabel = CreateLabel(labeltransform, "Orb Amount", "0 / 16", Vector2.zero, 24f);
         }
@@ -347,11 +348,16 @@ namespace LeeHyperrealMod.Content.Controllers
 
         private void InitializeOrbAnimatorArray()
         {
+            if (RoRHUDObject && !orbUIObject) 
+            {
+                orbUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.orbsUIObject, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(4));
+            }
+
             // blegh not modular at all
             for (int i = startIndex; i <= endIndex; i++)
             {
-                orbAnimators.Add(canvasObject.transform.GetChild(i).GetComponent<Animator>());
-                orbImages.Add(canvasObject.transform.GetChild(i).GetChild(0).GetComponent<Image>());
+                orbAnimators.Add(orbUIObject.transform.GetChild(i).GetComponent<Animator>());
+                orbImages.Add(orbUIObject.transform.GetChild(i).GetChild(0).GetComponent<Image>());
             }
 
             UpdateOrbList(new List<OrbController.OrbType>());// Update with empty list.
@@ -477,7 +483,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void InitializeBulletUI()
         {
-            Transform powerMeter = canvasObject.transform.GetChild(meterindex);
+            Transform powerMeter = powerMeterUIObject.transform;
 
             //Add the Script to the animator part of the thing we want to monitor.
             trigger = powerMeter.gameObject.AddComponent<BulletTriggerComponent>();
