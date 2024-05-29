@@ -55,7 +55,10 @@ namespace LeeHyperrealMod.SkillStates
             aiComponents = characterBody.master.aiComponents;
             foreach (BaseAI aiComponent in aiComponents)
             {
-                aiComponent.enabled = false;
+                if (aiComponent) 
+                {
+                    aiComponent.enabled = false;
+                }
             }
 
         }
@@ -69,7 +72,10 @@ namespace LeeHyperrealMod.SkillStates
             aiComponents = characterBody.master.aiComponents;
             foreach (BaseAI aiComponent in aiComponents)
             {
-                aiComponent.enabled = true;
+                if (aiComponent) 
+                {
+                    aiComponent.enabled = true;
+                }                
             }
             attackSpeedStat = previousAttackSpeedStat;
 

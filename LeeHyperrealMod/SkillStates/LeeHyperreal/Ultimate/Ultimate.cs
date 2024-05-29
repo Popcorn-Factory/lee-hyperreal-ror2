@@ -55,7 +55,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             aimRay = base.GetAimRay();
 
 
-            base.characterDirection.forward = inputBank.aimDirection;
+            base.characterDirection.forward = aimRay.direction;
 
             PlayAttackAnimation();
 
@@ -139,7 +139,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             //{
             //    //Allow free aim until firing
 
-            //    base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
+            base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, aimRay.direction, ref velocity, 0.1f, 100f, Time.deltaTime);
             //    base.characterDirection.moveVector = new Vector3(0, 0, 0);
             //}
 

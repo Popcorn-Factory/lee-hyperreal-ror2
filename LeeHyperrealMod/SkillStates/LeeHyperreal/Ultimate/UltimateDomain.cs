@@ -12,7 +12,7 @@ using System.Linq;
 using R2API.Networking.Interfaces;
 using LeeHyperrealMod.Content.Controllers;
 
-namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
+namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 {
     internal class UltimateDomain : BaseRootMotionMoverState
     {
