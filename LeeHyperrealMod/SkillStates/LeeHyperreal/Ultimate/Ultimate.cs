@@ -54,7 +54,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
             aimRay = base.GetAimRay();
 
-
             base.characterDirection.forward = aimRay.direction;
 
             PlayAttackAnimation();
@@ -135,13 +134,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         {
             base.Update();
 
-            //if (!hasFired && base.isAuthority)
-            //{
-            //    //Allow free aim until firing
-
             base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, aimRay.direction, ref velocity, 0.1f, 100f, Time.deltaTime);
-            //    base.characterDirection.moveVector = new Vector3(0, 0, 0);
-            //}
 
             if (age >= duration * earlyEnd && base.isAuthority)
             {

@@ -73,10 +73,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void UnsetUltimate() 
         {
-            //Force the animation back to default 
-            //ultimateAnimator.SetTrigger("forceUnsetUltimate");
-            //ultimateAnimator.ResetTrigger("forceUnsetUltimate");
-            //ultimateAnimator.ResetTrigger("startUltimate");
+            //Force the animation back to default
             ultimateAnimator.Play("New State");
             
             //Set parent
@@ -89,8 +86,6 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             ultimateAnimator.SetTrigger("startUltimate");
 
-            //ultimateAnimator.ResetTrigger("forceUnsetUltimate");
-            //ultimateAnimator.ResetTrigger("startUltimate");
             //Store old position
             previousCameraParent = cameraObject.transform.parent;
 
