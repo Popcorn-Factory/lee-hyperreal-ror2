@@ -47,14 +47,20 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             //characterBody.SetAimTimer(duration);
             ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
             Transform baseTransform = childLocator.FindChild("BaseTransform");
-            platform = UnityEngine.Object.Instantiate(Modules.ParticleAssets.snipeAerialFloor, baseTransform.position, Quaternion.identity);
-            destroyPlatformOnDelay = platform.GetComponent<DestroyPlatformOnDelay>();
+            if (!isGrounded) 
+            {
+                platform = UnityEngine.Object.Instantiate(Modules.ParticleAssets.snipeAerialFloor, baseTransform.position, Quaternion.identity);
+                destroyPlatformOnDelay = platform.GetComponent<DestroyPlatformOnDelay>();
+            }
         }
 
         public override void OnExit()
         {
             base.OnExit();
-            destroyPlatformOnDelay.StartDestroying();
+            if (destroyPlatformOnDelay) 
+            {
+                destroyPlatformOnDelay.StartDestroying();
+            }
         }
 
         public void PlayAttackAnimation() 

@@ -44,7 +44,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             //characterBody.SetAimTimer(0f);
 
             //Destroy platform in exit
-            bulletController.snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+            if (bulletController.snipeAerialPlatform) 
+            {
+                bulletController.snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+            }
         }
 
         public override void OnExit()

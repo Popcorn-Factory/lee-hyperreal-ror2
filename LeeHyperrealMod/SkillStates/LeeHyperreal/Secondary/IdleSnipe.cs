@@ -26,7 +26,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             PlayAttackAnimation();
 
             //characterBody.SetAimTimer(duration + 1f);
-            if (!bulletController.snipeAerialPlatform) 
+            if (!bulletController.snipeAerialPlatform && !isGrounded) 
             {
                 ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
                 Transform baseTransform = childLocator.FindChild("BaseTransform");
