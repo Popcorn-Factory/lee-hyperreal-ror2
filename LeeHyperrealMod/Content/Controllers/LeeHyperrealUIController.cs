@@ -188,7 +188,6 @@ namespace LeeHyperrealMod.Content.Controllers
                     }
                 }
 
-                UpdateUIScale();
                 UpdateHealthUIObject();
                 UpdateMeterLevel();
                 SetAnimatorMeterValue();
