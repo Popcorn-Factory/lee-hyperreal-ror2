@@ -49,6 +49,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         AimAngles aimAngle;
 
+        Transform BaseTransform;
         public GameObject snipeAerialPlatform;
 
         //Debug
@@ -70,6 +71,9 @@ namespace LeeHyperrealMod.Content.Controllers
             //Debug
             modelLocator = gameObject.GetComponent<ModelLocator>();
             animator = modelLocator.modelTransform.gameObject.GetComponent<Animator>();
+
+            ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
+            BaseTransform = childLocator.FindChild("BaseTransform");
         }
 
         public void Start() 
@@ -96,6 +100,10 @@ namespace LeeHyperrealMod.Content.Controllers
             //Update the Pitch.
             UpdateAimAngle();
             UpdateAnimatorParameters(animator, aimAnimator.pitchRangeMin, aimAnimator.pitchRangeMax, aimAnimator.yawRangeMin, aimAnimator.yawRangeMax);
+            if (snipeAerialPlatform) 
+            {
+                snipeAerialPlatform.transform.position = BaseTransform.transform.position;
+            }
         }
 
         private void UpdateAimAngle()

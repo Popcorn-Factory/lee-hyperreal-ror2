@@ -23,9 +23,8 @@ namespace LeeHyperrealMod.Content.Controllers
         public Vector3 previousCameraPosition;
         public Quaternion previousRotation;
 
-        //Steal the camera
-        //force the camera to child object
-        //Once done, unparent camera back to original position
+        public Vector3 smoothDampVelocity;
+        public bool isCaptured;
 
         public void Awake() 
         {
@@ -65,33 +64,37 @@ namespace LeeHyperrealMod.Content.Controllers
         public void Update() 
         {
             //???
-            if (!cameraObject) 
+            if (!cameraObject)
             {
                 cameraObject = Camera.main.gameObject;
+            }
+
+            if (cameraObject) 
+            {
+                cameraObject.transform.localPosition = Vector3.SmoothDamp(cameraObject.transform.localPosition, Vector3.zero, ref smoothDampVelocity, 0.2f, 50f, Time.deltaTime);
             }
         }
 
         public void UnsetUltimate() 
         {
+            isCaptured = false;
             //Force the animation back to default
             ultimateAnimator.Play("New State");
             
             //Set parent
-            cameraObject.transform.SetParent(previousCameraParent, false);
-            cameraObject.transform.localPosition = Vector3.zero;
+            cameraObject.transform.SetParent(previousCameraParent, true);
             cameraObject.transform.localRotation = Quaternion.identity;
         }
 
         public void TriggerUlt()
         {
             ultimateAnimator.SetTrigger("startUltimate");
-
+            isCaptured = true;
             //Store old position
             previousCameraParent = cameraObject.transform.parent;
 
-            cameraObject.transform.SetParent(ultimateCameraTransform, false);
+            cameraObject.transform.SetParent(ultimateCameraTransform, true);
             //reset to 0
-            cameraObject.transform.localPosition = Vector3.zero;
             cameraObject.transform.localRotation = Quaternion.identity;
         }
 

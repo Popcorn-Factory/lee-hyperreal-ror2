@@ -68,12 +68,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                     scale = 1.25f 
                 }, 
                 true);
-            PlayDodgeAnimation();
 
-            if (bulletController.snipeAerialPlatform) 
+
+            if (bulletController.snipeAerialPlatform)
             {
                 bulletController.snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+                bulletController.snipeAerialPlatform = null;
             }
+
+            PlayDodgeAnimation();
+
         }
 
         public override void OnExit()

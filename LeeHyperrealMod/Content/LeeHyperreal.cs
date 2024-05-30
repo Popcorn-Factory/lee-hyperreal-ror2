@@ -264,7 +264,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 interruptPriority = EntityStates.InterruptPriority.Pain,
                 resetCooldownTimerOnUse = false,
                 isCombatSkill = false,
-                mustKeyPress = false,
+                mustKeyPress = true,
                 cancelSprintingOnActivation = false,
                 rechargeStock = 1,
                 requiredStock = 1,

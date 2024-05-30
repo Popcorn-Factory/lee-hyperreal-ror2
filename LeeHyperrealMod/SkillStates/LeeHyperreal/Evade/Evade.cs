@@ -46,6 +46,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                 if (bulletController.snipeAerialPlatform) 
                 {
                     bulletController.snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+                    bulletController.snipeAerialPlatform = null; //unset so it doesn't follow the player.
                 }
             }
 

@@ -23,6 +23,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             bulletController = gameObject.GetComponent<BulletController>();
 
             base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
+            base.characterMotor.velocity = Vector3.zero;
+
             PlayAttackAnimation();
 
             //characterBody.SetAimTimer(duration + 1f);

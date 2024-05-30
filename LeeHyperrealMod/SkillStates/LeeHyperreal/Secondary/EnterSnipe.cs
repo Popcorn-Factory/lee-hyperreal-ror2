@@ -20,8 +20,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         Vector3 velocity;
         GameObject platform;
 
-        DestroyPlatformOnDelay destroyPlatformOnDelay;
-
         public override void OnEnter()
         {
             base.OnEnter();
@@ -42,25 +40,20 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             //Set direction
             base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
 
-            base.characterMotor.velocity = new Vector3();
+            base.characterMotor.velocity = Vector3.zero;
 
             //characterBody.SetAimTimer(duration);
             ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
             Transform baseTransform = childLocator.FindChild("BaseTransform");
             if (!isGrounded) 
             {
-                platform = UnityEngine.Object.Instantiate(Modules.ParticleAssets.snipeAerialFloor, baseTransform.position, Quaternion.identity);
-                destroyPlatformOnDelay = platform.GetComponent<DestroyPlatformOnDelay>();
+                bulletController.snipeAerialPlatform = UnityEngine.Object.Instantiate(Modules.ParticleAssets.snipeAerialFloor, baseTransform.position, Quaternion.identity);
             }
         }
 
         public override void OnExit()
         {
             base.OnExit();
-            if (destroyPlatformOnDelay) 
-            {
-                destroyPlatformOnDelay.StartDestroying();
-            }
         }
 
         public void PlayAttackAnimation() 

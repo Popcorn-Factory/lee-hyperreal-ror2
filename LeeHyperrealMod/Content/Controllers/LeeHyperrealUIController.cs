@@ -144,27 +144,19 @@ namespace LeeHyperrealMod.Content.Controllers
             // Besides, there should never be a UI element related to a non-existant master on screen if the attached master/charbody does not exist.
             if (!characterMaster) baseAIPresent = true; // Disable UI Just in case.
 
-
-            //canvasObject = UnityEngine.GameObject.Instantiate(Modules.Assets.uiObject);
-
-            //if (characterBody)
-            //{
-            //    canvasObject.SetActive(characterBody.hasEffectiveAuthority);
-            //}
-
             try 
             {
                 InitializeUI();
             }
-            catch (NullReferenceException e) 
+            catch (NullReferenceException e)
             {
-                Debug.Log(e);
+                Debug.Log("Lee: Hyperreal - NRE on UI Initialization, trying again.");
             }
         }
 
         public void InitializeUI() 
         {
-            if (!isInitialized)
+            if (!isInitialized && !baseAIPresent)
             {
                 InitializePowerMeter();
                 InitializeHealthLayer();
@@ -192,7 +184,7 @@ namespace LeeHyperrealMod.Content.Controllers
                     }
                     catch (NullReferenceException e)
                     {
-                        Debug.Log(e);
+                        Debug.Log("Lee: Hyperreal - NRE on UI Initialization, trying again.");
                     }
                 }
 
@@ -253,9 +245,20 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void SetActiveHealthUIObject(bool state, Color color)
         {
-            layerInvincibilityHealthObject.SetActive(state);
-            layerInvincibilityHazeObject.SetActive(state);
-            invincibilityBorder.color = color;
+            if (layerInvincibilityHazeObject)
+            {
+                layerInvincibilityHazeObject.SetActive(state);
+            }
+
+            if (layerInvincibilityHealthObject)
+            {
+                layerInvincibilityHealthObject.SetActive(state);
+            }
+
+            if (invincibilityBorder) 
+            {
+                invincibilityBorder.color = color;
+            }
         }
 
         public void UpdateHealthUIObject() 
@@ -327,7 +330,10 @@ namespace LeeHyperrealMod.Content.Controllers
 
         private void SetAnimatorMeterValue()
         {
-            meterAnimator.SetFloat("bar fill", currentMeterAmount);
+            if (meterAnimator) 
+            {
+                meterAnimator.SetFloat("bar fill", currentMeterAmount);
+            }
         }
 
         #endregion
@@ -668,13 +674,13 @@ namespace LeeHyperrealMod.Content.Controllers
         #region Hook
         public void Hook()
         {
-            On.RoR2.CameraRigController.Update += CameraRigController_Update;
+            //On.RoR2.CameraRigController.Update += CameraRigController_Update;
             On.RoR2.UI.HUD.Update += HUD_Update;
         }
 
         public void Unhook()
         {
-            On.RoR2.CameraRigController.Update -= CameraRigController_Update;
+            //On.RoR2.CameraRigController.Update -= CameraRigController_Update;
             On.RoR2.UI.HUD.Update -= HUD_Update;
         }
 
