@@ -48,7 +48,7 @@ namespace LeeHyperrealMod.Content.Controllers
             ultimateAnimator = ultimateCameraGameObject.GetComponent<Animator>();
             domainUltimateAnimator = domainUltimateCameraGameObject.GetComponent<Animator>();
             UltimateCameraEvent eventComponent = ultimateCameraGameObject.AddComponent<UltimateCameraEvent>();
-            UltimateDomainCameraEvent secondEventComponent = domainUltimateCameraGameObject.AddComponent<UltimateDomainCameraEvent>();
+            UltimateCameraEvent secondEventComponent = domainUltimateCameraGameObject.AddComponent<UltimateCameraEvent>();
      
             eventComponent.controller = this;
             secondEventComponent.controller = this;

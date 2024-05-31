@@ -7,12 +7,20 @@ namespace LeeHyperrealMod.Content.Controllers
     {
         public UltimateCameraController controller;
 
-        public void CameraFinished(AnimationEvent animationEvent)
+        public void CameraFinished(string str)
         {
-            Debug.Log(animationEvent.stringParameter);
+            Debug.Log(str);
             if (controller)
             {
-                controller.UnsetUltimate();
+                switch (str) 
+                {
+                    case "domain":
+                        controller.UnsetDomainUltimate();
+                        break;
+                    case "nondomain":
+                        controller.UnsetUltimate();
+                        break;
+                }
             }
         }
     }
