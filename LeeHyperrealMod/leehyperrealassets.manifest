@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3008259830
+CRC: 1699157439
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: fd7f3da29c2ed95f65a013b75585732b
+    Hash: e46fbd1b2b96bf74943d5dc10b3b277f
   TypeTreeHash:
     serializedVersion: 2
-    Hash: f11dd90a5a81e5e081dab2a11a7057a9
+    Hash: ffbecafca2f2454cbfc24c988bf1ca55
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -40,9 +40,9 @@ ClassTypes:
 - Class: 111
   Script: {instanceID: 0}
 - Class: 114
-  Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
-- Class: 114
   Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
 - Class: 114
@@ -116,6 +116,7 @@ Assets:
 - Assets/modelresource/effect/mesh/fxr4liangmesh/fxr4liangatk24jujijing_0.asset
 - Assets/modelresource/effect/mesh/fxr4liangmesh/fxr4liangatk20.asset
 - Assets/modelresource/effect/mesh/wuti110.asset
+- Assets/modelresource/effect/mesh/fxr3lunamesh/r3lunaplane810.asset
 - Assets/modelresource/effect/prefab/fxr4liangprefab/common/fxr4liangatk24bao.prefab
 - Assets/modelresource/effect/gpuparticles/fxr4liangmd010011gpu/fxr4liangatk25/5.asset
 - Assets/modelresource/effect/gpuparticles/fxr3luosaitamd019241gpu/fxr3luosaitaatk51jiguang/1.asset
@@ -178,6 +179,7 @@ Assets:
 - Assets/modelresource/effect/texture/keji015.png
 - Assets/modelresource/effect/texture/mask210cx.png
 - Assets/modelresource/effect/texture/smoke112.png
+- Assets/modelresource/effect/mesh/fxscenesushemesh/studiosushe001_0.asset
 - Assets/modelresource/effect/texture/mask235.png
 - Assets/LeeHyperrealAssets/Animation/Custom Animations/Attack24_Aim down.anim
 - Assets/modelresource/effect/prefab/fxr4kalieninaprefab/material/fxr4kalieninaniuqu901.mat
@@ -662,6 +664,7 @@ Assets:
   Layer.anim
 - Assets/LeeHyperrealAssets/DummyIcons/texDodge.png
 - Assets/modelresource/effect/mesh/fxr2nuoanmesh/fxr2nuoanstar700.asset
+- Assets/VFX/Domain Camera Ult.controller
 - Assets/modelresource/effect/texture/noise801_0.png
 - Assets/modelresource/effect/mesh/fxr4liangmesh/fxr4lianggcube301.asset
 - Assets/LeeHyperrealAssets/Animation/BodyAnims/primary5.anim
@@ -715,10 +718,12 @@ Assets:
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/SitDown.anim
 - Assets/modelresource/effect/prefab/fxr4liangprefab/material/fxr4liang010331md312.mat
 - Assets/modelresource/effect/texture/mask235_0.png
+- Assets/modelresource/effect/mesh/fxmb1bengyueht01mesh/fxmb1bengyueht01atk205xian406_2.asset
 - Assets/modelresource/effect/mesh/e3superliboxmd1401.asset
 - Assets/LeeHyperrealAssets/DummyIcons/texSnipe.png
 - Assets/modelresource/effect/prefab/fxr4liangprefab/material/fxr4liang010011md334.mat
 - Assets/modelresource/effect/prefab/fxtongyong/textures/liuguang401.png
+- Assets/modelresource/effect/mesh/fxjiaojingmesh/jiaojingsanjiao_0.asset
 - Assets/modelresource/effect/texture/noise803.png
 - Assets/modelresource/effect/mesh/shenweir3daoguang.asset
 - Assets/modelresource/effect/texture/path511.png
@@ -854,6 +859,7 @@ Assets:
 - Assets/modelresource/effect/prefab/fxr4liangprefab/material/fxr4liang010331md348.mat
 - Assets/modelresource/effect/texture/blurredspherealpha.png
 - Assets/modelresource/effect/texture/bengyuewenli500.png
+- Assets/modelresource/effect/mesh/fxmb1lamiya01mesh/fxmb1lamiya01atk2302.asset
 - Assets/modelresource/effect/texture/mask115clamp.png
 - Assets/modelresource/effect/prefab/fxr4liangprefab/common/fxr4liangatk32.prefab
 - Assets/LeeHyperrealAssets/FadeIn.shader
@@ -1131,6 +1137,7 @@ Assets:
 - Assets/modelresource/effect/texture/mask172c.png
 - Assets/modelresource/effect/texture/path044c.png
 - Assets/modelresource/effect/mesh/r3yongyechaox4.asset
+- Assets/modelresource/effect/mesh/fxr3kuluomumesh/fxr3kuluomumd019091mesh/fxr3kuluomuatk1105.asset
 - Assets/modelresource/effect/texture/keji602.png
 - Assets/LeeHyperrealAssets/LeeHyperrealUINew.prefab
 - Assets/modelresource/effect/prefab/fxr4liangprefab/material/fxr4liang010331md313.mat
@@ -1139,6 +1146,7 @@ Assets:
 - Assets/modelresource/effect/mesh/fxr4liangmesh/fxr4liangatk41text_6.asset
 - Assets/modelresource/effect/mesh/fxr4liangmesh/fxr4liangatk42bao_7.asset
 - Assets/modelresource/effect/mesh/fxr4liangmesh/fxr4liangatk42bao.asset
+- Assets/VFX/Camera Ultimate Domain.anim
 - Assets/modelresource/effect/mesh/fxr4liangmesh/fxr4liangatksuiping05_5.asset
 - Assets/modelresource/effect/prefab/fxr4liangprefab/material/fxr4liang010011md301.mat
 - Assets/modelresource/effect/prefab/fxr4liangprefab/common/fxr4liangmove02.prefab
@@ -1524,6 +1532,7 @@ Assets:
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack93_Base
   Layer.anim
 - Assets/modelresource/effect/texture/mask137c.png
+- Assets/Prefabs/Domain Ultimate Camera.prefab
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/yellowOrb2.anim
 - Assets/modelresource/effect/mesh/fxr4liangmesh/fxr4liangatksuiping05_10.asset
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack33_Base
@@ -1546,21 +1555,4 @@ Assets:
 - Assets/LeeHyperrealAssets/Texture/Albedo/leeChestLegPlateTex.png
 - Assets/modelresource/effect/prefab/fxr4liangprefab/common/fxr4liangatk34dilie.prefab
 - Assets/modelresource/effect/texture/noise107.png
-Dependencies:
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/animation/fxr4liangmd019011animation.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/gpuparticles/fxr3ninesgpu.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxjiaojingmesh.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxmb1bengyueht01mesh.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxmb1lamiya01mesh.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr3kuluomumesh/fxr3kuluomumd019091mesh.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxr3lunamesh.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/effect/mesh/fxscenesushemesh.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/animation/r4liangmdcommon/r4liangmdcommondisplay.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/body/r4liangmd010011.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/weaponres/superli/e2superliboxmd020011.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/weaponres/superli/e3superliboxmd010011.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/role/weaponres/superli/e3superliboxmd030011.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/scene/cubemaps/generatecubes.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/scene/sceneres/common/scene013/textures.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/assets/product/scene/sceneres/common/scene030/textures.ab
-- C:/coding/lee-hyperreal-ror2/LeeHyperrealMod/myassetbundle
+Dependencies: []

@@ -26,6 +26,7 @@ namespace LeeHyperrealMod.Modules
         internal static Material redOrbMat;
 
         internal static GameObject ultimateCameraObject;
+        internal static GameObject domainUltimateCameraObject;
 
         internal static GameObject ultimateExplosionObject;
 
@@ -107,6 +108,7 @@ namespace LeeHyperrealMod.Modules
             redOrbMat = mainAssetBundle.LoadAsset<Material>("UI Red Orb");
 
             ultimateCameraObject = mainAssetBundle.LoadAsset<GameObject>("Camera Ultimate Root");
+            domainUltimateCameraObject = mainAssetBundle.LoadAsset<GameObject>("Domain Ultimate Camera");
 
             ultimateExplosionObject = mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk51sound"); // LMAO empty object let's use it 
             ultimateExplosionObject.AddComponent<UltimateOrbExplosion>();

@@ -13,7 +13,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
     {
 
         public float start = 0;
-        public float earlyEnd = 0.7f;
+        public float earlyEnd = 0.41f;
         public float fireTime = 0.01f;
         public float fireEndTime = 0.25f;
         public float baseFireInterval = 0.07f;

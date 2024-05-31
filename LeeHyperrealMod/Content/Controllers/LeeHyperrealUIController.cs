@@ -348,7 +348,10 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void UpdateOrbAmount(int amount, int max) 
         {
-            orbAmountLabel.SetText($"{amount} / {max}");
+            if (orbAmountLabel) 
+            {
+                orbAmountLabel.SetText($"{amount} / {max}");
+            }   
         }
 
         private void InitializeOrbAnimatorArray()
@@ -449,7 +452,10 @@ namespace LeeHyperrealMod.Content.Controllers
             }
             else 
             {
-                IncomingExtraParryBullet.SetActive(false);
+                if (IncomingExtraParryBullet) 
+                {
+                    IncomingExtraParryBullet.SetActive(false);
+                }
             }
             if (targetBulletState.parryBulletCount > 4)
             {

@@ -5,13 +5,12 @@ namespace LeeHyperrealMod.Content.Controllers
 {
     internal class UltimateCameraEvent : MonoBehaviour
     {
-
-        public CharacterBody body;
         public UltimateCameraController controller;
 
         public void CameraFinished(AnimationEvent animationEvent)
         {
-            if (controller) 
+            Debug.Log(animationEvent.stringParameter);
+            if (controller)
             {
                 controller.UnsetUltimate();
             }

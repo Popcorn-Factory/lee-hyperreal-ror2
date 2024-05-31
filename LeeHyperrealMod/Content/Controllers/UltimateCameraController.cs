@@ -8,7 +8,6 @@ namespace LeeHyperrealMod.Content.Controllers
 {
     internal class UltimateCameraController : MonoBehaviour
     {
-        public bool enabled = false;
         public static string targetChild = "BaseTransform";
         public CharacterBody body;
         public GameObject cameraObject;
@@ -17,6 +16,10 @@ namespace LeeHyperrealMod.Content.Controllers
         public GameObject ultimateCameraGameObject;
         public Transform previousCameraParent;
 
+        public Animator domainUltimateAnimator;
+        public GameObject domainUltimateCameraGameObject;
+        public Transform domainUltimateCameraTransform;
+
         public ModelLocator modelLocator;
         public Transform rootTransform;
 
@@ -24,7 +27,6 @@ namespace LeeHyperrealMod.Content.Controllers
         public Quaternion previousRotation;
 
         public Vector3 smoothDampVelocity;
-        public bool isCaptured;
 
         public void Awake() 
         {
@@ -41,24 +43,28 @@ namespace LeeHyperrealMod.Content.Controllers
 
             //Spawn object on toes.
             ultimateCameraGameObject = UnityEngine.Object.Instantiate(Modules.Assets.ultimateCameraObject, rootTransform);
+            domainUltimateCameraGameObject = UnityEngine.Object.Instantiate(Modules.Assets.domainUltimateCameraObject, rootTransform);
 
             ultimateAnimator = ultimateCameraGameObject.GetComponent<Animator>();
+            domainUltimateAnimator = domainUltimateCameraGameObject.GetComponent<Animator>();
             UltimateCameraEvent eventComponent = ultimateCameraGameObject.AddComponent<UltimateCameraEvent>();
-
-            eventComponent.body = body;
+            UltimateDomainCameraEvent secondEventComponent = domainUltimateCameraGameObject.AddComponent<UltimateDomainCameraEvent>();
+     
             eventComponent.controller = this;
+            secondEventComponent.controller = this;
+
+            ultimateCameraTransform = ultimateCameraGameObject.transform.GetChild(0).GetChild(0);
+            domainUltimateCameraTransform = domainUltimateCameraGameObject.transform.GetChild(0);
 
             try
             {
                 cameraObject = Camera.main.gameObject;
+                previousCameraParent = cameraObject.transform.parent;
             }
             catch (NullReferenceException e) 
             {
                 Debug.Log($"Should be alright: {e}");
             }
-
-            ultimateCameraTransform = ultimateCameraGameObject.transform.GetChild(0).GetChild(0);
-
         }
 
         public void Update() 
@@ -67,6 +73,7 @@ namespace LeeHyperrealMod.Content.Controllers
             if (!cameraObject)
             {
                 cameraObject = Camera.main.gameObject;
+                previousCameraParent = cameraObject.transform.parent;
             }
 
             if (cameraObject) 
@@ -77,7 +84,6 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void UnsetUltimate() 
         {
-            isCaptured = false;
             //Force the animation back to default
             ultimateAnimator.Play("New State");
             
@@ -86,12 +92,27 @@ namespace LeeHyperrealMod.Content.Controllers
             cameraObject.transform.localRotation = Quaternion.identity;
         }
 
+        public void UnsetDomainUltimate()
+        {
+            //Force the animation back to default
+            domainUltimateAnimator.Play("New State");
+
+            //Set parent
+            cameraObject.transform.SetParent(previousCameraParent, true);
+            cameraObject.transform.localRotation = Quaternion.identity;
+        }
+
+        public void TriggerDomainUlt()
+        {
+            domainUltimateAnimator.SetTrigger("startUltimateDomain");
+
+            cameraObject.transform.SetParent(domainUltimateCameraTransform, true);
+            cameraObject.transform.localRotation = Quaternion.identity;
+        }
+
         public void TriggerUlt()
         {
             ultimateAnimator.SetTrigger("startUltimate");
-            isCaptured = true;
-            //Store old position
-            previousCameraParent = cameraObject.transform.parent;
 
             cameraObject.transform.SetParent(ultimateCameraTransform, true);
             //reset to 0

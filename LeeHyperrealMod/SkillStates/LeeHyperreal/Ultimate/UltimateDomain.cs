@@ -17,6 +17,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
     internal class UltimateDomain : BaseRootMotionMoverState
     {
         public LeeHyperrealDomainController docon;
+        private UltimateCameraController ultimateCameraController;
 
         public float start = 0;
         public float earlyEnd = 0.65f;
@@ -44,6 +45,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         {
             base.OnEnter();
             docon = gameObject.GetComponent<LeeHyperrealDomainController>();
+            ultimateCameraController = gameObject.GetComponent<UltimateCameraController>();
+
             sightStacks = docon.GetIntuitionStacks();
             docon.DisableDomain();
 
@@ -79,6 +82,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 procCoefficient = procCoefficient,
             };
 
+            if (base.isAuthority)
+            {
+                ultimateCameraController.TriggerDomainUlt();
+            }
         }
 
         public void Freeze()
@@ -120,6 +127,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         public override void OnExit()
         {
             base.OnExit();
+            if (base.isAuthority)
+            {
+                ultimateCameraController.UnsetUltimate();
+            }
             PlayAnimation("Body", "BufferEmpty");
         }
 
