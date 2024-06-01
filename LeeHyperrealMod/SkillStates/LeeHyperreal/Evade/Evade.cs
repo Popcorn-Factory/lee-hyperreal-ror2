@@ -30,7 +30,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
         private float disableInvincibility = 0.15f;
         public bool unsetSnipe = false;
-        private float movementMultiplierPrimary3 = 1.6f;
+        private float movementMultiplierPrimary3 = 3.0f;
 
         public Transform baseTransform;
 
