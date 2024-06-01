@@ -11,7 +11,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
     {
         private float rollSpeed;
         private Vector3 forwardDirection;
-        private Animator animator;
         private Vector3 previousPosition;
 
         public static float initialSpeedCoefficient = 2.6f;
@@ -115,11 +114,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 base.outer.SetState(new DomainEnterState { shouldForceUpwards = true });
             }
 
+
+            if (base.stopwatch <= duration * turnOffGravityFrac)
+            {
+                base.characterMotor.Motor.ForceUnground();
+            }
+
             if (base.stopwatch >= duration * turnOffGravityFrac)
             {
                 base.characterMotor.gravityParameters = oldGravParams;
                 //Is falling, play effect
-
+                animator.SetBool("isGrounded", base.isGrounded);
                 if (!playedLandingEffect) 
                 {
                     playedLandingEffect = true;
@@ -129,8 +134,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
 
             base.Update();
-
-            base.characterMotor.Motor.ForceUnground();
             UpdateMeleeRootMotion(1.8f);
         }
         public void PlaySwing(string muzzleString, float swingScale, GameObject effectPrefab)
@@ -160,11 +163,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            base.characterMotor.Motor.ForceUnground();
         }
 
         public override void OnExit()
         {
+            animator.SetBool("isGrounded", base.isGrounded);
             base.characterMotor.gravityParameters = oldGravParams;
             base.OnExit();
 

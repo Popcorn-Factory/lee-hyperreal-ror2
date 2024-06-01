@@ -13,7 +13,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         private float rollSpeed;
         private Vector3 forwardDirection;
-        private Animator animator;
         private Vector3 previousPosition;
 
         public static float initialSpeedCoefficient = 4f;
@@ -125,13 +124,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 base.outer.SetState(new DomainEnterState { shouldForceUpwards = true });
             }
 
+            if (base.stopwatch <= duration * turnOffGravityFrac) 
+            {
+                base.characterMotor.Motor.ForceUnground();
+            }
+
             if (base.stopwatch >= duration * turnOffGravityFrac) 
             {
                 base.characterMotor.gravityParameters = oldGravParams;
+                animator.SetBool("isGrounded", base.isGrounded);
             }
 
             base.Update();
-            base.characterMotor.Motor.ForceUnground();
             UpdateMeleeRootMotion(1.6f);
         }
 
@@ -143,7 +147,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override void OnExit()
         {
-
+            animator.SetBool("isGrounded", base.isGrounded);
             base.PlayAnimation("Body", "BufferEmpty");
             base.characterMotor.gravityParameters = oldGravParams;
             base.OnExit();

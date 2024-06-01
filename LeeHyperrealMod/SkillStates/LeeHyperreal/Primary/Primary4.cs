@@ -174,7 +174,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             {
                 playedSwing = true;
 
-                PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.primary4Swing);
+                PlaySwingEffect("BaseTransform", 1f, Modules.ParticleAssets.primary4Swing);
             }
 
             if (base.isAuthority && this.age <= duration * earlyExitTime) 

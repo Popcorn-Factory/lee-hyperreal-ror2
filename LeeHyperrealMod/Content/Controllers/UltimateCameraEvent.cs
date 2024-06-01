@@ -9,7 +9,6 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void CameraFinished(string str)
         {
-            Debug.Log(str);
             if (controller)
             {
                 switch (str) 

@@ -28,6 +28,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         internal string muzzleString = "SubmachineGunMuzzle";
 
         internal OrbController orbController;
+
+        private float effectTimingFrac = 0.17f;
+        private bool hasPlayedEffect = false;
         public override void OnEnter()
         {
             base.OnEnter();
@@ -76,8 +79,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
             PlayAttackAnimation();
 
-            Modules.Helpers.PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.redOrbPingSwing, gameObject);
-            Modules.Helpers.PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.redOrbPingGround, gameObject);
         }
         
         protected void PlayAttackAnimation()
@@ -102,6 +103,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
+
+            if (base.age >= duration * effectTimingFrac && !hasPlayedEffect) 
+            {
+                hasPlayedEffect = true;
+
+                Modules.Helpers.PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.redOrbPingSwing, gameObject);
+                Modules.Helpers.PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.redOrbPingGround, gameObject);
+            }
+
             if (base.age >= duration * exitEarlyFrac && base.isAuthority) 
             {
                 if (orbController)

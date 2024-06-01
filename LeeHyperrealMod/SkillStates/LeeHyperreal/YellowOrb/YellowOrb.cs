@@ -35,6 +35,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         private OrbController orbController;
         private Transform baseTransform;
 
+        private float effectTimingFrac = 0.15f;
+        private bool hasPlayedEffect;
+
         public override void OnEnter()
         {
             orbController = gameObject.GetComponent<OrbController>();
@@ -87,13 +90,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             PlayAttackAnimation();
             ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
             baseTransform = childLocator.FindChild("BaseTransform");
-            EffectData effectData = new EffectData
-            {
-                origin = baseTransform.position,
-                rotation = Quaternion.LookRotation(characterDirection.forward),
-                scale = 1.25f,
-            };
-            EffectManager.SpawnEffect(Modules.ParticleAssets.yellowOrbSwing, effectData, true);
         }
 
         protected void PlayAttackAnimation()
@@ -119,6 +115,19 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
+
+            if (age >= duration * effectTimingFrac && !hasPlayedEffect) 
+            {
+                hasPlayedEffect = true;
+                EffectData effectData = new EffectData
+                {
+                    origin = baseTransform.position,
+                    rotation = Quaternion.LookRotation(characterDirection.forward),
+                    scale = 1.25f,
+                };
+                EffectManager.SpawnEffect(Modules.ParticleAssets.yellowOrbSwing, effectData, true);
+            }
+
 
             if (age >= duration * earlyEnd && base.isAuthority)
             {

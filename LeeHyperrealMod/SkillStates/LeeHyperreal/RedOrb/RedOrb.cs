@@ -32,7 +32,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         internal float procCoefficient = Modules.StaticValues.redOrbProcCoefficient;
 
         internal string muzzleString = "SubmachineGunMuzzle";
-        private float movementMultiplier = 1.5f;
+        private float movementMultiplier = 3f;
 
         private float invincibilityStartFrac = 0.16f;
         private float invincibilityEndFrac = 0.4f;
