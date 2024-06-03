@@ -4,6 +4,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UIElements;
 using EntityStates;
+using TMPro;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -14,6 +15,41 @@ namespace LeeHyperrealMod.Modules
         internal const float gunDamageCoefficient = 4.2f;
 
         internal const float bombDamageCoefficient = 16f;
+
+        #region Primary 1
+        internal const float primary1DamageCoefficient = 3f;
+        internal const float primary1ProcCoefficient = 1f;
+        internal const float primary1PushForce = 300f;
+        internal const float primary1HitHopVelocity = 4f;
+        #endregion
+
+        #region Primary 2
+        internal const float primary2DamageCoefficient = 3f;
+        internal const float primary2ProcCoefficient = 1f;
+        internal const float primary2PushForce = 300f;
+        internal const float primary2HitHopVelocity = 4f;
+        #endregion
+
+        #region Primary 3
+        internal const float primary3DamageCoefficient = 3f;
+        internal const float primary3ProcCoefficient = 1f;
+        internal const float primary3PushForce = 300f;
+        internal const float primary3HitHopVelocity = 4f;
+        #endregion
+
+        #region Primary 4
+        internal const float primary4DamageCoefficient = 0.75f; // This is per tick!
+        internal const float primary4ProcCoefficient = 0.15f;
+        internal const float primary4BasePulseRate = 0.2f;
+        internal const float primary4BlastRadius = 35f;
+        #endregion
+
+        #region Primary 5
+        internal const float primary5DamageCoefficient = 3f;
+        internal const float primary5ProcCoefficient = 1f;
+        internal const float primary5PushForce = 300f;
+        internal const float primary5HitHopVelocity = 4f;
+        #endregion
 
         #region Domain Shift
         internal const float forceUpwardsMagnitude = 7f;
@@ -58,12 +94,22 @@ namespace LeeHyperrealMod.Modules
 
         #region Red Orb
         internal const float redOrbDamageCoefficient = 2f;
-        internal const int redOrbBaseHitAmount = 3;
+        internal const int redOrbBaseHitAmount = 3; // Amount of shots at 1 attack speed
         internal const float redOrbProcCoefficient = 1f;
+        internal const float redOrbBulletRange = 256f;
+        internal const float redOrbBulletForce = 800f;
+
+        internal const float redOrbFinisherDamageCoefficient = 3f;
+        internal const float redOrbFinisherProcCoefficient = 1f;
+        internal const float redOrbFinisherBulletRange = 256f;
+        internal const float redOrbFinisherBulletForce = 800f;
 
         internal const float redOrbDomainDamageCoefficient = 2f;
         internal const float redOrbDomainBlastRadius = 5f;
         internal const int redOrbDomainFireCount = 4;
+        internal const float redOrbDomainProcCoefficient = 1f;
+        internal const float redOrbDomainBlastForce = 1000f;
+        internal const float redOrbDomainBaseFireInterval = 0.1f;
         #endregion
 
         #region Ultimate

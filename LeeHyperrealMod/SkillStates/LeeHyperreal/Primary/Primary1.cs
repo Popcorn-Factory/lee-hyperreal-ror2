@@ -15,9 +15,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         private Animator animator;
         private Vector3 previousPosition;
 
-        public static float initialSpeedCoefficient = 3.5f;
-        public static float finalSpeedCoefficient = 0f;
-
         public static float moveStartFrac = 0f;
         public static float moveEndFrac = 0.03f;
         private Ray aimRay;
@@ -45,9 +42,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.hitboxName = "ShortMelee";
 
             this.damageType = DamageType.Generic;
-            this.damageCoefficient = Modules.StaticValues.swordDamageCoefficient;
-            this.procCoefficient = 1f;
-            this.pushForce = 300f;
+            this.damageCoefficient = Modules.StaticValues.primary1DamageCoefficient;
+            this.procCoefficient = Modules.StaticValues.primary1ProcCoefficient;
+            this.pushForce = Modules.StaticValues.primary1PushForce;
             this.bonusForce = Vector3.zero;
             this.baseDuration = 2.23f;
             this.attackStartTime = 0.04f;
@@ -57,7 +54,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.bufferActiveTime = 0.10f;
             this.hitStopDuration = 0.012f;
             this.attackRecoil = 0.5f;
-            this.hitHopVelocity = 4f;
+            this.hitHopVelocity = Modules.StaticValues.primary1HitHopVelocity;
 
             this.swingSoundString = "HenrySwordSwing";
             this.hitSoundString = "";

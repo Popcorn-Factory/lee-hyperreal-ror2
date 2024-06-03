@@ -20,9 +20,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public static float moveStartFrac = 0.05f;
         public static float moveEndFrac = 0.47f;
-        public static float shootRadius = 35f;
-        public static float basePulseRate = 0.2f;
-        public static float damageCoefficient = 0.5f;
+        public static float shootRadius = Modules.StaticValues.primary4BlastRadius;
+        public static float basePulseRate = Modules.StaticValues.primary4BasePulseRate;
+        public static float damageCoefficient = Modules.StaticValues.primary4DamageCoefficient;
         public float pulseRate;
         private Ray aimRay;
 
@@ -89,7 +89,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 losType = BlastAttack.LoSType.NearestHit,
                 canRejectForce = false,
                 procChainMask = new ProcChainMask(),
-                procCoefficient = 0.15f,
+                procCoefficient = Modules.StaticValues.primary4ProcCoefficient,
                 //impactEffect = EffectCatalog.FindEffectIndexFromPrefab(Modules.ParticleAssets.primary4Hit)
             };
 

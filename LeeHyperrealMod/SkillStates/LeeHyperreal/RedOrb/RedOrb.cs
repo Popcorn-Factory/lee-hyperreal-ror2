@@ -16,7 +16,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public float earlyEnd = 0.35f;
         public float fireFrac = 0.20f;
         public float endFireFrac = 0.3f;
-        public int baseFireAmount = 3;
+        public int baseFireAmount = Modules.StaticValues.redOrbBaseHitAmount;
         public int fireAmount;
         public float duration = 2.2f;
         public int moveStrength; //1-3
@@ -78,12 +78,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 bulletCount = 1,
                 aimVector = aimRay.direction,
                 origin = aimRay.origin,
-                damage = Shoot.damageCoefficient * this.damageStat,
+                damage = Modules.StaticValues.redOrbDamageCoefficient * this.damageStat,
                 damageColorIndex = DamageColorIndex.Default,
                 damageType = DamageType.Generic,
                 falloffModel = BulletAttack.FalloffModel.DefaultBullet,
-                maxDistance = Shoot.range,
-                force = Shoot.force,
+                maxDistance = Modules.StaticValues.redOrbBulletRange,
+                force = Modules.StaticValues.redOrbBulletForce,
                 hitMask = LayerIndex.CommonMasks.bullet,
                 minSpread = 0f,
                 maxSpread = 0f,

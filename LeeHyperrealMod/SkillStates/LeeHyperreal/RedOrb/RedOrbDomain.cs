@@ -17,7 +17,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public float start = 0;
         public float earlyEnd = 0.35f;
         public float fireTime = 0.17f;
-        public float baseFireInterval = 0.07f;
+        public float baseFireInterval = Modules.StaticValues.redOrbDomainBaseFireInterval;
         public float fireInterval;
         public float duration = 4f;
         public int moveStrength; //1-3
@@ -29,7 +29,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         internal OrbController orbController;
 
         internal bool isStrong;
-        internal float procCoefficient = Modules.StaticValues.redOrbProcCoefficient;
+        internal float procCoefficient = Modules.StaticValues.redOrbDomainProcCoefficient;
         internal float damageCoefficient = Modules.StaticValues.redOrbDomainDamageCoefficient;
 
 
@@ -82,7 +82,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 radius = Modules.StaticValues.redOrbDomainBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.Linear,
                 baseDamage = damageStat * Modules.StaticValues.redOrbDomainDamageCoefficient,
-                baseForce = 1000f,
+                baseForce = Modules.StaticValues.redOrbDomainBlastForce,
                 bonusForce = Vector3.zero,
                 crit = RollCrit(),
                 damageType = DamageType.Generic,

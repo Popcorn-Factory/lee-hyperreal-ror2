@@ -38,9 +38,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.hitboxName = "LongMelee";
 
             this.damageType = DamageType.Generic;
-            this.damageCoefficient = Modules.StaticValues.swordDamageCoefficient;
-            this.procCoefficient = 1f;
-            this.pushForce = 300f;
+            this.damageCoefficient = Modules.StaticValues.primary5DamageCoefficient;
+            this.procCoefficient = Modules.StaticValues.primary5ProcCoefficient;
+            this.pushForce = Modules.StaticValues.primary5PushForce;
             this.bonusForce = Vector3.zero;
             this.baseDuration = 2.4f;
             this.attackStartTime = 0.28f;
@@ -50,7 +50,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.moveCancelEndTime = 0.48f;
             this.hitStopDuration = 0.012f;
             this.attackRecoil = 0.5f;
-            this.hitHopVelocity = 4f;
+            this.hitHopVelocity = Modules.StaticValues.primary5HitHopVelocity;
 
             this.swingSoundString = "HenrySwordSwing";
             this.hitSoundString = "";
