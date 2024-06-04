@@ -28,7 +28,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         internal OrbController orbController;
 
         internal bool isStrong;
-        internal float procCoefficient = Modules.StaticValues.yellowOrbProcCoefficient;
+        internal float procCoefficient = Modules.StaticValues.yellowOrbDomainProcCoefficient;
         internal float damageCoefficient = Modules.StaticValues.yellowOrbDomainDamageCoefficient;
 
         private float movementMultiplier = 1f;
@@ -75,8 +75,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 position = gameObject.transform.position + GetAimRay().direction * 2.5f,
                 radius = Modules.StaticValues.yellowOrbDomainBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.Linear,
-                baseDamage = damageStat * Modules.StaticValues.yellowOrbDomainDamageCoefficient,
-                baseForce = 1000f,
+                baseDamage = damageStat * damageCoefficient,
+                baseForce = Modules.StaticValues.yellowOrbDomainBlastForce,
                 bonusForce = Vector3.zero,
                 crit = RollCrit(),
                 damageType = DamageType.Generic,

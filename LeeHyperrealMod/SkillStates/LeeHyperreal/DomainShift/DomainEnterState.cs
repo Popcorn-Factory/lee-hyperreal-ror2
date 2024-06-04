@@ -54,7 +54,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
                 // Calculate aim vector before firing 
                 //aimVector = aimRay.direction,
                 //origin = aimRay.origin,
-                damage = Modules.StaticValues.snipeDamageCoefficient * this.damageStat,
+                damage = Modules.StaticValues.domainShiftBulletDamageCoefficient * this.damageStat,
                 damageColorIndex = DamageColorIndex.Default,
                 damageType = DamageType.Generic,
                 falloffModel = BulletAttack.FalloffModel.DefaultBullet,

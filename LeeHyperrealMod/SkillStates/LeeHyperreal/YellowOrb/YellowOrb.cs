@@ -70,9 +70,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 inflictor = null,
                 teamIndex = TeamIndex.Player,
                 position = gameObject.transform.position + GetAimRay().direction * 2.5f,
-                radius = (moveStrength == 3 ? 1 : Modules.StaticValues.blueOrbTripleMultiplier) * Modules.StaticValues.blueOrbBlastRadius,
+                radius = (moveStrength == 3 ? 1 : Modules.StaticValues.yellowOrbTripleMultiplier) * Modules.StaticValues.yellowOrbBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.Linear,
-                baseDamage = damageStat * Modules.StaticValues.blueOrbBlastRadius * (moveStrength == 3 ? 1 : Modules.StaticValues.blueOrbTripleMultiplier),
+                baseDamage = damageStat * Modules.StaticValues.yellowOrbBlastRadius * (moveStrength == 3 ? 1 : Modules.StaticValues.yellowOrbTripleMultiplier),
                 baseForce = 0f,
                 bonusForce = Vector3.zero,
                 crit = RollCrit(),
@@ -80,7 +80,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 losType = BlastAttack.LoSType.None,
                 canRejectForce = false,
                 procChainMask = new ProcChainMask(),
-                procCoefficient = 1f,
+                procCoefficient = Modules.StaticValues.yellowOrbProcCoefficient,
             };
 
 

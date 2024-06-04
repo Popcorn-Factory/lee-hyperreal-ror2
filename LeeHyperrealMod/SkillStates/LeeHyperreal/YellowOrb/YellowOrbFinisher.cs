@@ -30,10 +30,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             duration = 1.13f;
 
             this.damageType = DamageType.Generic;
-            this.damageCoefficient = Modules.StaticValues.swordDamageCoefficient;
-            this.procCoefficient = 1f;
-            this.pushForce = 300f;
-            this.bonusForce = Vector3.zero;
+            this.damageCoefficient = Modules.StaticValues.yellowOrbFinisherDamageCoefficient;
+            this.procCoefficient = Modules.StaticValues.yellowOrbFinisherProcCoefficient;
+            this.pushForce = Modules.StaticValues.yellowOrbFinisherPushForce;
+            this.bonusForce = Vector3.up;
             this.baseDuration = 2.366f;
             this.attackStartTime = attackStart;
             this.attackEndTime = attackEnd;
