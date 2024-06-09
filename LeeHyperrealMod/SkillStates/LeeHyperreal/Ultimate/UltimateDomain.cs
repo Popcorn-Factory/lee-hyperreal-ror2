@@ -30,6 +30,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         public float duration = StaticValues.ultimateDomainDuration;
         public float fireStopwatch;
         public float finalStopwatch;
+        public bool preFinalBlastTriggered = false;
+        public bool finalBlastTriggered = false;
 
         internal BlastAttack blastAttack;
 
@@ -48,6 +50,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             ultimateCameraController = gameObject.GetComponent<UltimateCameraController>();
 
             sightStacks = docon.GetIntuitionStacks();
+            if (sightStacks == 0) 
+            {
+                sightStacks = 1;
+            }
             docon.DisableDomain();
 
 
@@ -56,21 +62,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
             Ray aimRay = base.GetAimRay();
 
-            base.GetModelAnimator().SetFloat("attack.playbackRate", 1f);
-            base.characterDirection.forward = inputBank.aimDirection;
-
-            Freeze();
-            PlayAttackAnimation();
-
-            //add random 3 ping - later
             blastAttack = new BlastAttack
             {
                 attacker = gameObject,
                 inflictor = null,
                 teamIndex = TeamIndex.Player,
-                position = gameObject.transform.position + GetAimRay().direction * 2.5f,
+                position = gameObject.transform.position,
                 radius = Modules.StaticValues.ultimateDomainBlastRadius,
-                falloffModel = BlastAttack.FalloffModel.Linear,
+                falloffModel = BlastAttack.FalloffModel.None,
                 baseDamage = damageStat * Modules.StaticValues.ultimateDomainMiniDamageCoefficient * sightStacks, //multiply by anschauung stacks
                 baseForce = 0f,
                 bonusForce = Vector3.zero,
@@ -81,6 +80,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 procChainMask = new ProcChainMask(),
                 procCoefficient = procCoefficient,
             };
+
+            base.GetModelAnimator().SetFloat("attack.playbackRate", 1f);
+            base.characterDirection.forward = inputBank.aimDirection;
+
+            Freeze();
+            PlayAttackAnimation();
+
 
             if (base.isAuthority)
             {
@@ -155,9 +161,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             base.FixedUpdate();
 
             //Able to be cancelled after this.
-
-
-            if (fixedAge >= duration * fireTime )
+            if (fixedAge >= duration * fireTime && base.isAuthority)
             {
                 if(fireStopwatch <= 0f && fireCount < StaticValues.ultimateDomainFireCount)
                 {
@@ -174,8 +178,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
                 if (fireCount >= StaticValues.ultimateDomainFireCount)
                 {
-                    if(finalStopwatch > finalInterval)
+                    if(finalStopwatch > finalInterval && !preFinalBlastTriggered)
                     {
+                        preFinalBlastTriggered = true;
                         //final hit
                         blastAttack.baseDamage = damageStat * Modules.StaticValues.ultimateDomainDamageCoefficient * sightStacks; //multiple by anschauung stacks
                         blastAttack.Fire();
@@ -186,6 +191,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                         finalStopwatch += Time.fixedDeltaTime;
                     }
 
+                }
+            }
+
+            if (fixedAge >= duration * effectPlay && base.isAuthority) 
+            {
+                if (!finalBlastTriggered) 
+                {
+                    finalBlastTriggered = true;
+                    blastAttack.baseDamage = damageStat * Modules.StaticValues.ultimateDomainDamageCoefficient * sightStacks;
+                    blastAttack.bonusForce = Vector3.up;
+                    blastAttack.baseForce = 1000f;
+                    blastAttack.Fire();
                 }
             }
 

@@ -130,7 +130,7 @@ namespace LeeHyperrealMod.Modules
 
         internal const float ultimateDomainMiniDamageCoefficient = 1f;
         internal const float ultimateDomainDamageCoefficient = 4f;
-        internal const float ultimateDomainBlastRadius = 40f;
+        internal const float ultimateDomainBlastRadius = 50f;
         internal const int ultimateDomainFireCount = 3;
         internal const float ultimateDomainDuration = 4f;
         #endregion
