@@ -211,6 +211,28 @@ namespace LeeHyperrealMod.Content.Controllers
             }
         }
 
+        public void SetUltimateStance() 
+        {
+            if (body.hasEffectiveAuthority) 
+            {
+                gravParams = new CharacterGravityParameters();
+                gravParams.environmentalAntiGravityGranterCount = 1;
+                gravParams.channeledAntiGravityGranterCount = 1;
+                motor.gravityParameters = gravParams;
+            }
+        }
+
+        public void UnsetUltimateStance() 
+        {
+            if (body.hasEffectiveAuthority)
+            {
+                gravParams = new CharacterGravityParameters();
+                gravParams.environmentalAntiGravityGranterCount = 0;
+                gravParams.channeledAntiGravityGranterCount = 0;
+                motor.gravityParameters = gravParams;
+            }
+        }
+
         //Consumes from the front of the list.
         public BulletType ConsumeColouredBullet() 
         {

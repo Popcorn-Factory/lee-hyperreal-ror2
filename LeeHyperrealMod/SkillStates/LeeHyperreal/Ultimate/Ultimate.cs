@@ -50,6 +50,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 bulletController.UnsetSnipeStance();
             }
 
+
+            bulletController.SetUltimateStance();
+
+            base.characterMotor.velocity = Vector3.zero;
+
             weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.CANNON);
 
             aimRay = base.GetAimRay();
@@ -87,6 +92,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             if (base.isAuthority) 
             {
                 ultimateCameraController.TriggerUlt();
+            }
+
+            ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
+            Transform baseTransform = childLocator.FindChild("BaseTransform");
+            if (!isGrounded)
+            {
+                bulletController.snipeAerialPlatform = UnityEngine.Object.Instantiate(Modules.ParticleAssets.snipeAerialFloor, baseTransform.position, Quaternion.identity);
             }
         }
 
@@ -126,6 +138,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             {
                 ultimateCameraController.UnsetUltimate();
             }
+
+            if (bulletController.snipeAerialPlatform)
+            {
+                bulletController.snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+            }
+            
+            bulletController.UnsetUltimateStance();
+
             GetModelAnimator().SetBool("isUltimate", false);
             PlayAnimation("Body", "BufferEmpty");
             weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
@@ -197,7 +217,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 hasFired = true;
                 if (base.isAuthority)
                 {
-
                     GetModelAnimator().SetBool("isUltimate", false);
 
                     bulletAttack = new BulletAttack();
