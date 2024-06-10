@@ -446,6 +446,16 @@ namespace LeeHyperrealMod.Content.Controllers
             // triggers an update.
             // We need a way to trigger the update by checking the previous state of the UI. If the UI is outdated, force an update on the UI to show what it should actually look like.
 
+            if (!IncomingExtraParryBullet) 
+            {
+                return;
+            }
+
+            if (!IncomingParryBullet) 
+            {
+                return;
+            }
+
             if (targetBulletState.parryBulletCount > 19)
             {
                 IncomingExtraParryBullet.SetActive(true);

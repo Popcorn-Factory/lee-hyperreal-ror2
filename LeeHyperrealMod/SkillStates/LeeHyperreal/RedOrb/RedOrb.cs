@@ -90,10 +90,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 isCrit = base.RollCrit(),
                 owner = base.gameObject,
                 muzzleName = muzzleString,
-                smartCollision = false,
+                smartCollision = true,
                 procChainMask = default(ProcChainMask),
                 procCoefficient = procCoefficient,
-                radius = 0.75f,
+                radius = 1.4f,
                 sniper = false,
                 stopperMask = LayerIndex.CommonMasks.bullet,
                 weapon = null,
@@ -188,7 +188,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 {
                     Util.PlaySound("HenryShootPistol", base.gameObject);
                     firingStopwatch = 0f;
-                    bulletAttack.aimVector = base.GetAimRay().direction;
                     bulletAttack.origin = base.GetAimRay().origin;
                     bulletAttack.Fire();
                 }

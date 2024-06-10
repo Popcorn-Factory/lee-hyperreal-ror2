@@ -2,6 +2,7 @@
 using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using RoR2;
+using System;
 using UnityEngine;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
@@ -24,6 +25,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         internal float exitEarlyFrac = 0.37f;
         internal Ray aimRay;
 
+        internal OverlapAttack overlapAttack;
+        internal string hitboxName = "Red3Ping";
+        internal float overlapStart = 0.17f;
+        internal float overlapEnd = 0.33f;
+        internal HitBoxGroup hitBoxGroup;
+
         internal BulletAttack bulletAttack;
         internal string muzzleString = "SubmachineGunMuzzle";
 
@@ -31,6 +38,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
         private float effectTimingFrac = 0.17f;
         private bool hasPlayedEffect = false;
+
+        internal float damageCoefficient = Modules.StaticValues.redOrbFinisherDamageCoefficient;
+        internal float procCoefficient = Modules.StaticValues.redOrbFinisherProcCoefficient;
+        internal Vector3 bonusForce = Vector3.zero;
+        internal float pushForce = 100f;
+        private bool hasFiredOverlap;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -76,6 +90,21 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 hitEffectPrefab = Modules.ParticleAssets.redOrbHit,
                 hitCallback = BulletAttack.defaultHitCallback,
             };
+
+            hitBoxGroup = null;
+            Transform modelTransform = base.GetModelTransform();
+
+            if (modelTransform)
+            {
+                hitBoxGroup = Array.Find<HitBoxGroup>(modelTransform.GetComponents<HitBoxGroup>(), (HitBoxGroup element) => element.groupName == this.hitboxName);
+            }
+
+            attackAmount = (int)this.attackSpeedStat;
+            if (attackAmount < 1)
+            {
+                attackAmount = 1;
+            }
+            partialAttack = (float)(this.attackSpeedStat - (float)attackAmount);
 
             PlayAttackAnimation();
 
@@ -131,27 +160,72 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         {
             base.FixedUpdate();
 
-            if (fixedAge >= duration * attackStart && fixedAge <= duration * attackEnd && isAuthority)
+            //if (fixedAge >= duration * attackStart && fixedAge <= duration * attackEnd && isAuthority)
+            //{
+            //    firingStopwatch += Time.fixedDeltaTime;
+            //    if (firingStopwatch >= (attackStart - attackEnd) / fireAmount)
+            //    {
+            //        Util.PlaySound("HenryShootPistol", base.gameObject);
+            //        firingStopwatch = 0f;
+            //        bulletAttack.aimVector = base.GetAimRay().direction;
+            //        bulletAttack.origin = base.GetAimRay().origin;
+            //        bulletAttack.Fire();
+            //    }
+            //}
+
+            if (fixedAge >= duration * attackFinalShot && isAuthority)
             {
-                firingStopwatch += Time.fixedDeltaTime;
-                if (firingStopwatch >= (attackStart - attackEnd) / fireAmount)
+                if (!hasFired)
                 {
-                    Util.PlaySound("HenryShootPistol", base.gameObject);
-                    firingStopwatch = 0f;
+                    hasFired = true;
                     bulletAttack.aimVector = base.GetAimRay().direction;
                     bulletAttack.origin = base.GetAimRay().origin;
                     bulletAttack.Fire();
                 }
             }
 
-            if (fixedAge >= duration * attackFinalShot && isAuthority) 
+
+            if (fixedAge >= duration * attackStart && fixedAge <= duration * attackEnd && isAuthority)
             {
-                if (!hasFired) 
+                if (!hasFiredOverlap)
                 {
-                    hasFired = true;
-                    bulletAttack.aimVector = base.GetAimRay().direction;
-                    bulletAttack.origin = base.GetAimRay().origin;
-                    bulletAttack.Fire();
+                    hasFiredOverlap = true;
+                    for (int i = 0; i < attackAmount; i++)
+                    {
+                        overlapAttack = new OverlapAttack();
+                        overlapAttack.attacker = gameObject;
+                        overlapAttack.inflictor = null;
+                        overlapAttack.teamIndex = GetTeam();
+                        overlapAttack.damageType = DamageType.Generic;
+                        overlapAttack.damage = this.damageCoefficient * this.damageStat;
+                        overlapAttack.procCoefficient = this.procCoefficient;
+                        overlapAttack.hitEffectPrefab = Modules.ParticleAssets.redOrbDomainHit;
+                        overlapAttack.forceVector = this.bonusForce / attackAmount;
+                        overlapAttack.pushAwayForce = this.pushForce / attackAmount;
+                        overlapAttack.isCrit = base.RollCrit();
+                        overlapAttack.procCoefficient = procCoefficient;
+                        overlapAttack.procChainMask = new ProcChainMask();
+                        overlapAttack.hitBoxGroup = hitBoxGroup;
+                        overlapAttack.Fire();
+                    }
+                    if (partialAttack > 0.0f)
+                    {
+                        overlapAttack = new OverlapAttack();
+                        overlapAttack.attacker = gameObject;
+                        overlapAttack.inflictor = null;
+                        overlapAttack.teamIndex = GetTeam();
+                        overlapAttack.damageType = DamageType.Generic;
+                        overlapAttack.hitBoxGroup = hitBoxGroup;
+                        overlapAttack.damage = this.damageCoefficient * this.damageStat * partialAttack;
+                        overlapAttack.procCoefficient = this.procCoefficient * partialAttack;
+                        overlapAttack.hitEffectPrefab = Modules.ParticleAssets.redOrbDomainHit;
+                        overlapAttack.forceVector = this.bonusForce * partialAttack / attackAmount;
+                        overlapAttack.pushAwayForce = this.pushForce * partialAttack / attackAmount;
+                        overlapAttack.isCrit = base.RollCrit();
+                        overlapAttack.procCoefficient = procCoefficient;
+                        overlapAttack.procChainMask = new ProcChainMask();
+                        overlapAttack.Fire();
+                    }
                 }
             }
 
