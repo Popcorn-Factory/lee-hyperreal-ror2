@@ -327,6 +327,12 @@ namespace LeeHyperrealMod.ParticleScripts
             XGPUParticlePlayerInfo cur;
             if (!curData)
                 return;
+
+            if (curData.AllParticleInfos == null) 
+            {
+                return;
+            }
+
             float workingFrameFloat = curFrameFloat;
             if (sumLength < workingFrameFloat)
             {

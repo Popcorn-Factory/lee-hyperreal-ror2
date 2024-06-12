@@ -50,6 +50,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 bulletController.UnsetSnipeStance();
             }
 
+            if (bulletController.snipeAerialPlatform) 
+            {
+                bulletController.snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+                bulletController.snipeAerialPlatform = null;
+            }
+
 
             bulletController.SetUltimateStance();
 
@@ -142,6 +148,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             if (bulletController.snipeAerialPlatform)
             {
                 bulletController.snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+                bulletController.snipeAerialPlatform = null;
             }
             
             bulletController.UnsetUltimateStance();
