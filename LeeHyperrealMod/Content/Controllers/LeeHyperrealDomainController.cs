@@ -23,6 +23,8 @@ namespace LeeHyperrealMod.Content.Controllers
         GameObject loopDomainEffect;
         GameObject despawnDomainEffect;
 
+        public List<GameObject> yellowOrbDomainEffects;
+
 
         //UI Controller
         private LeeHyperrealUIController uiController;
@@ -48,6 +50,8 @@ namespace LeeHyperrealMod.Content.Controllers
 
             loopDomainEffect.SetActive(false);
             despawnDomainEffect.SetActive(false);
+
+            yellowOrbDomainEffects = new List<GameObject>();
         }
 
         public void Update()
@@ -70,6 +74,16 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
                 UpdateUIController();
             }
+        }
+
+        private void DestroyAllYellowOrbEffects() 
+        {
+            foreach (GameObject obj in yellowOrbDomainEffects) 
+            {
+                Destroy(obj);
+            }
+
+            yellowOrbDomainEffects.Clear();
         }
 
         private void ApplyIntutionBuffsToBody()
@@ -122,6 +136,7 @@ namespace LeeHyperrealMod.Content.Controllers
             this.energy = 0f;
             //DisableEffect?
             DisableDomainEffect();
+            DestroyAllYellowOrbEffects();
         }
 
         public void EnableDomain()

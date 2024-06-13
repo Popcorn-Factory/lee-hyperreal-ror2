@@ -66,6 +66,7 @@ namespace LeeHyperrealMod.Modules
         public static GameObject yellowOrbKick;
         public static GameObject yellowOrbMultishot;
         public static GameObject yellowOrbMultishotHit;
+        public static GameObject yellowOrbDomainBulletLeftovers;
         #endregion
 
         #region Snipe
@@ -90,6 +91,7 @@ namespace LeeHyperrealMod.Modules
         //FXR 42
         public static GameObject UltimateDomainFinisherEffect;
         public static GameObject DomainOverlayEffect;
+        public static GameObject UltimateDomainBulletFinisher;
         #endregion
 
         #region Domain/Transition Effects
@@ -257,6 +259,9 @@ namespace LeeHyperrealMod.Modules
             UltimateDomainFinisherEffect.AddComponent<DestroyOnTimer>().duration = 2f;
 
             DomainOverlayEffect = GetGameObjectFromBundle("fxr4liangatk51pingmu"); // Control manually.
+
+            UltimateDomainBulletFinisher = GetGameObjectFromBundle("fxr4liangatk42zhongjie01");
+            UltimateDomainBulletFinisher = ModifyEffect(UltimateDomainBulletFinisher, "", true, 10f);
         }
 
         private static void PopulateDomainTransitionAssets()
@@ -462,6 +467,9 @@ namespace LeeHyperrealMod.Modules
                 "fxr4liangatk35hit-spjere"
                 );
             yellowOrbMultishotHit = ModifyEffect(yellowOrbMultishotHit, "", true);
+
+            yellowOrbDomainBulletLeftovers = GetGameObjectFromBundle("fxr4liangatk35dandao");
+            yellowOrbDomainBulletLeftovers.AddComponent<DestroyOnTimer>().duration = 100f;
         }
 
         private static void PopulateBlueOrbAssets()
