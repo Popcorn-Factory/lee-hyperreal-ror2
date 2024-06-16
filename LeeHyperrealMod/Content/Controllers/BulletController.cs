@@ -187,7 +187,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void UnsetSnipeStance() 
         {
-            if (body.hasEffectiveAuthority) 
+            if (body.hasEffectiveAuthority)
             {
                 inSnipeStance = false;
                 skillLocator.primary.UnsetSkillOverride(skillLocator.primary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.SnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
@@ -207,6 +207,12 @@ namespace LeeHyperrealMod.Content.Controllers
                 if (animator)
                 {
                     animator.SetBool("isSniping", false);
+                }
+
+                if (snipeAerialPlatform) 
+                {
+                    snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+                    snipeAerialPlatform = null;
                 }
             }
         }

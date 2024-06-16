@@ -50,6 +50,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 bulletController.UnsetSnipeStance();
             }
 
+            if (bulletController.snipeAerialPlatform) 
+            {
+                bulletController.snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+                bulletController.snipeAerialPlatform = null;
+            }
+
+            if (base.isAuthority) 
+            {
+                new PlaySoundNetworkRequest(characterBody.netId, 2114053593).Send(NetworkDestination.Clients);
+            }
 
             bulletController.SetUltimateStance();
 
@@ -142,6 +152,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             if (bulletController.snipeAerialPlatform)
             {
                 bulletController.snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+                bulletController.snipeAerialPlatform = null;
             }
             
             bulletController.UnsetUltimateStance();

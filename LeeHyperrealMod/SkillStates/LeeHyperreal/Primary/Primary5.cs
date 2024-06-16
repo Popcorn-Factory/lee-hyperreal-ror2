@@ -52,7 +52,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.attackRecoil = 0.5f;
             this.hitHopVelocity = Modules.StaticValues.primary5HitHopVelocity;
 
-            this.swingSoundString = "HenrySwordSwing";
+            this.swingSoundString = "";
             this.hitSoundString = "";
             this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
             this.swingEffectPrefab = Modules.ParticleAssets.primary5Swing;
@@ -68,6 +68,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             gravParams.channeledAntiGravityGranterCount = 1;
 
             characterMotor.gravityParameters = gravParams;
+
+
+            PlaySwing("BaseTransform", 1.25f, Modules.ParticleAssets.primary5Swing);
+            Util.PlaySound("Play_c_liRk4_atk_nml_5_xuli", base.gameObject);
         }
 
         public RootMotionAccumulator InitMeleeRootMotion()

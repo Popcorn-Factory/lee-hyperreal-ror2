@@ -56,6 +56,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             }
             docon.DisableDomain();
 
+            if (isAuthority) 
+            {
+                new PlaySoundNetworkRequest(characterBody.netId, 435488756).Send(NetworkDestination.Clients);            
+            }
+
 
             rma = InitMeleeRootMotion();
             rmaMultiplier = movementMultiplier;
@@ -92,6 +97,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             {
                 ultimateCameraController.TriggerDomainUlt();
             }
+            ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
+            Transform baseTransform = childLocator.FindChild("BaseTransform");
+            EffectData effectData = new EffectData
+            {
+                origin = gameObject.transform.position,
+                rotation = Quaternion.identity,
+                scale = 1.25f,
+            };
+            EffectManager.SpawnEffect(Modules.ParticleAssets.UltimateDomainBulletFinisher, effectData, true);
         }
 
         public void Freeze()

@@ -32,7 +32,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void OnEnter()
         {
             domainController = this.GetComponent<LeeHyperrealDomainController>();
-            this.hitboxName = "ShortMelee";
+            this.hitboxName = "Primary2";
 
             this.damageType = DamageType.Generic;
             this.damageCoefficient = Modules.StaticValues.primary2DamageCoefficient;

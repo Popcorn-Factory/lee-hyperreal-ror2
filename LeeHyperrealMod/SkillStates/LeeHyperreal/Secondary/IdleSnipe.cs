@@ -91,6 +91,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
                     return;
                 }
+                if (base.inputBank.skill4.down)
+                {
+                    Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
+                }
             }
 
 

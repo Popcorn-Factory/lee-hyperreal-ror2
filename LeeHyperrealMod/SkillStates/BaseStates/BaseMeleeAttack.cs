@@ -199,25 +199,29 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
 
         protected virtual void PlaySwingEffect()
         {
-            ModelLocator component = gameObject.GetComponent<ModelLocator>();
-            if (component && component.modelTransform)
+            if (swingEffectPrefab) 
             {
-                ChildLocator component2 = component.modelTransform.GetComponent<ChildLocator>();
-                if (component2)
+                ModelLocator component = gameObject.GetComponent<ModelLocator>();
+                if (component && component.modelTransform)
                 {
-                    int childIndex = component2.FindChildIndex(muzzleString);
-                    Transform transform = component2.FindChild(childIndex);
-                    if (transform)
+                    ChildLocator component2 = component.modelTransform.GetComponent<ChildLocator>();
+                    if (component2)
                     {
-                        EffectData effectData = new EffectData
+                        int childIndex = component2.FindChildIndex(muzzleString);
+                        Transform transform = component2.FindChild(childIndex);
+                        if (transform)
                         {
-                            origin = transform.position,
-                            scale = swingScale,
-                        };
-                        effectData.SetChildLocatorTransformReference(gameObject, childIndex);
-                        EffectManager.SpawnEffect(swingEffectPrefab, effectData, true);
+                            EffectData effectData = new EffectData
+                            {
+                                origin = transform.position,
+                                scale = swingScale,
+                            };
+                            effectData.SetChildLocatorTransformReference(gameObject, childIndex);
+                            EffectManager.SpawnEffect(swingEffectPrefab, effectData, true);
+                        }
                     }
                 }
+
             }
             //EffectManager.SimpleMuzzleFlash(this.swingEffectPrefab, base.gameObject, this.muzzleString, true);
         }
@@ -465,7 +469,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         {
             base.Update();
 
-            if (base.inputBank.skill3.down && base.isAuthority)
+            if (base.inputBank.skill3.down && base.inputBank.skill4.down && base.isAuthority)
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }

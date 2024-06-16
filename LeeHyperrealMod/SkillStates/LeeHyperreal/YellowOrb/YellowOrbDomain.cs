@@ -26,6 +26,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
         internal BlastAttack blastAttack;
         internal OrbController orbController;
+        internal LeeHyperrealDomainController domainController;
 
         internal bool isStrong;
         internal float procCoefficient = Modules.StaticValues.yellowOrbDomainProcCoefficient;
@@ -42,6 +43,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void OnEnter()
         {
             base.OnEnter();
+            domainController = gameObject.GetComponent<LeeHyperrealDomainController>();
             orbController = gameObject.GetComponent<OrbController>();
             if (orbController)
             {
@@ -119,6 +121,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 origin = baseTransform.position,
                 rotation = Quaternion.LookRotation(characterDirection.forward),
             };
+            int childIndex = childLocator.FindChildIndex("BaseTransform");
+            effectData.SetChildLocatorTransformReference(gameObject, childIndex);
             EffectManager.SpawnEffect(Modules.ParticleAssets.yellowOrbMultishot, effectData, true);
 
 
@@ -129,6 +133,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             characterMotor.gravityParameters = gravParams;
 
+            if (domainController) 
+            {
+                GameObject yellowBullet = UnityEngine.Object.Instantiate(Modules.ParticleAssets.yellowOrbDomainBulletLeftovers, this.gameObject.transform.position, this.gameObject.transform.rotation);
+                domainController.yellowOrbDomainEffects.Add(yellowBullet);
+            }
         }
 
         protected void PlayAttackAnimation()
@@ -149,7 +158,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void Update()
         {
             base.Update();
-            if (base.inputBank.skill3.down && base.isAuthority)
+            if (base.inputBank.skill3.down && base.inputBank.skill4.down && base.isAuthority)
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
