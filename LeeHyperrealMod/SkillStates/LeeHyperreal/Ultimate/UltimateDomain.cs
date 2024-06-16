@@ -56,6 +56,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             }
             docon.DisableDomain();
 
+            if (isAuthority) 
+            {
+                new PlaySoundNetworkRequest(characterBody.netId, 435488756).Send(NetworkDestination.Clients);            
+            }
+
 
             rma = InitMeleeRootMotion();
             rmaMultiplier = movementMultiplier;

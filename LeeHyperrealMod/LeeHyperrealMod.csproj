@@ -13,7 +13,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="HenryBank.bnk" />
     <None Remove="leehyperrealassets" />
     <None Remove="LeeHyperrealSoundBank.bnk" />
     <None Remove="Modules\Characters\Henry.cs~RF6221a098.TMP" />
@@ -30,11 +29,10 @@
 		</PackageReference>
 		<PackageReference Include="BepInEx.Core" Version="5.4.21" />
 		<PackageReference Include="RiskOfRain2.GameLibs" Version="1.2.1-r.1" />
-		<PackageReference Include="UnityEngine.Modules" Version="2019.4.37"/>
+		<PackageReference Include="UnityEngine.Modules" Version="2019.4.37" />
 	</ItemGroup>
 	
   <ItemGroup>
-    <EmbeddedResource Include="HenryBank.bnk" />
     <EmbeddedResource Include="leehyperrealassets" />
   </ItemGroup>
 

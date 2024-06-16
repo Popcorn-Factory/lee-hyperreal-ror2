@@ -247,7 +247,7 @@ namespace LeeHyperrealMod.Modules
             ultTracerEffect = ModifyEffect(ultTracerEffect, "", true);
 
             ultPreExplosionProjectile = GetGameObjectFromBundle("fxr4liangatk51");
-            ultPreExplosionProjectile = ModifyEffect(ultPreExplosionProjectile, "", true, 5f);
+            ultPreExplosionProjectile = ModifyEffect(ultPreExplosionProjectile, "Play_c_liRk4_skill_ultimate_blast", true, 5f);
 
             ultExplosion = GetGameObjectFromBundle("fxr4liangatk51zha");
             ultExplosion = ModifyEffect(ultExplosion, "", true, 5f);

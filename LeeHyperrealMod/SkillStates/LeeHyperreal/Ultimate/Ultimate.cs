@@ -56,6 +56,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 bulletController.snipeAerialPlatform = null;
             }
 
+            if (base.isAuthority) 
+            {
+                new PlaySoundNetworkRequest(characterBody.netId, 2114053593).Send(NetworkDestination.Clients);
+            }
 
             bulletController.SetUltimateStance();
 
