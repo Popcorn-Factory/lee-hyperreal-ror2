@@ -1,7 +1,9 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift;
+using R2API.Networking.Interfaces;
 using RoR2;
 using System.Security.Cryptography;
 using UnityEngine;
@@ -34,6 +36,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         CharacterGravityParameters oldGravParams;
         float turnOffGravityFrac = 0.11f;
 
+        private float playSlamSFXFrac = 0.2f;
+        private bool soundPlayed = false;
+
+        private float playInitialWeaponImpactEffect = 0.07f;
+        private bool effectPlayed = false;
+
 
         public override void OnEnter()
         {
@@ -55,10 +63,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.attackRecoil = 0.5f;
             this.hitHopVelocity = Modules.StaticValues.primary3HitHopVelocity;
 
-            this.swingSoundString = "HenrySwordSwing";
+            this.swingSoundString = "";
             this.hitSoundString = "";
             this.muzzleString = "BaseTransform";
-            this.swingEffectPrefab = Modules.ParticleAssets.primary3Swing1;
+            this.swingEffectPrefab = null;
             this.hitEffectPrefab = Modules.ParticleAssets.primary3hit;
 
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
@@ -124,6 +132,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 base.outer.SetState(new DomainEnterState { shouldForceUpwards = true });
             }
 
+            if (base.stopwatch >= duration * playInitialWeaponImpactEffect && !effectPlayed && base.isAuthority) 
+            {
+                effectPlayed = true;
+                PlayExtraSwingEffect(Modules.ParticleAssets.primary3Swing1);
+            }
+
+            if (base.stopwatch >= duration * playSlamSFXFrac && !soundPlayed && base.isAuthority) 
+            {
+                soundPlayed = true;
+                PlayExtraSwingEffect(Modules.ParticleAssets.primary3Swing2);
+            }
+
             if (base.stopwatch <= duration * turnOffGravityFrac) 
             {
                 base.characterMotor.Motor.ForceUnground();
@@ -153,9 +173,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             base.OnExit();
         }
 
-        protected override void PlaySwingEffect()
+        protected void PlayExtraSwingEffect(GameObject effect)
         {
-            base.PlaySwingEffect();
             ModelLocator component = gameObject.GetComponent<ModelLocator>();
             if (component && component.modelTransform)
             {
@@ -172,7 +191,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                             scale = swingScale,
                         };
                         effectData.SetChildLocatorTransformReference(gameObject, childIndex);
-                        EffectManager.SpawnEffect(Modules.ParticleAssets.primary3Swing2, effectData, true);
+                        EffectManager.SpawnEffect(effect, effectData, true);
                     }
                 }
             }

@@ -618,7 +618,7 @@ namespace LeeHyperrealMod.Modules
         private static void PopulatePrimary5Assets()
         {
             primary5Swing = GetGameObjectFromBundle("fxr4liangatk05");
-            primary5Swing = ModifyEffect(primary5Swing, "", true, 1.5f);
+            primary5Swing = ModifyEffect(primary5Swing, "Play_c_liRk4_atk_nml_5_jump", true, 1.5f);
 
             primary5Floor = GetGameObjectFromBundle("fxr4liangatk05dilie");
             AddLightIntensityCurveWithCurve(
@@ -632,7 +632,7 @@ namespace LeeHyperrealMod.Modules
                 },
                 "fxr4liangatk05dilie"
                 );
-            primary5Floor = ModifyEffect(primary5Floor, "", true, 1.5f);
+            primary5Floor = ModifyEffect(primary5Floor, "Play_c_liRk4_atk_nml_5_dilie", true, 1.5f);
         }
 
         private static void PopulatePrimary4Assets()
@@ -649,7 +649,7 @@ namespace LeeHyperrealMod.Modules
                },
                "fxr4liangatk04"
                );
-            primary4Swing = ModifyEffect(primary4Swing, "", true);
+            primary4Swing = ModifyEffect(primary4Swing, "Play_c_liRk4_atk_nml_4", true);
 
             primary4AfterImage = GetGameObjectFromBundle("fxr4liangatk04canying");
             primary4AfterImage = ModifyEffect(primary4AfterImage, "", true);
@@ -683,10 +683,10 @@ namespace LeeHyperrealMod.Modules
         public static void PopulatePrimary3Assets() 
         {
             primary3Swing1 = GetGameObjectFromBundle("fxr4liangatk03dilie1");
-            primary3Swing1 = ModifyEffect(primary3Swing1, "", true);
+            primary3Swing1 = ModifyEffect(primary3Swing1, "Play_c_liRk4_atk_nml_3_dilie_1", true);
 
             primary3Swing2 = GetGameObjectFromBundle("fxr4liangatk03dilie2");
-            primary3Swing2 = ModifyEffect(primary3Swing2, "", true);
+            primary3Swing2 = ModifyEffect(primary3Swing2, "Play_c_liRk4_atk_nml_3_dilie_2", true);
 
             primary3hit = GetGameObjectFromBundle("fxr4liangatk03hit01");
             AddLightIntensityCurveWithCurve(
@@ -728,7 +728,7 @@ namespace LeeHyperrealMod.Modules
                 },
                 "Fxr4liangatk02"
                 );
-            primary2Shot = ModifyEffect(primary2Shot, "", true);
+            primary2Shot = ModifyEffect(primary2Shot, "Play_c_liRk4_atk_nml_2", true);
 
             primary2hit1 = GetGameObjectFromBundle("fxr4liangatk02hit01");
             AddLightIntensityCurveWithCurve(
@@ -773,7 +773,7 @@ namespace LeeHyperrealMod.Modules
         public static void PopulatePrimary1Assets() 
         {
             primary1Swing = GetGameObjectFromBundle("fxr4liangatk01");
-            primary1Swing = ModifyEffect(primary1Swing, "", true);
+            primary1Swing = ModifyEffect(primary1Swing, "Play_c_liRk4_atk_nml_1", true);
 
             primary1Hit = GetGameObjectFromBundle("fxr4liangatk01hit");
             AddLightIntensityCurveWithCurve(
