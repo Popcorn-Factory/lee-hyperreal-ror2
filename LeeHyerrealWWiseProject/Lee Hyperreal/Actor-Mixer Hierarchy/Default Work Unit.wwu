@@ -2910,6 +2910,207 @@
 						</Folder>
 					</ChildrenList>
 				</ActorMixer>
+				<ActorMixer Name="Voice Mixxer" ID="{0240A367-BF98-4092-9FF7-989BBC15F701}" ShortID="15342479">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+						<Property Name="Color" Type="int16" Value="11"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<RTPCList>
+								<RTPC Name="" ID="{61D0448F-D78C-4208-B317-A14B29313D9A}" ShortID="365222732">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="Volume_Lee_Voice" ID="{45C3F420-295C-4C38-B91F-4CEAB4F1272A}" WorkUnitID="{6295A856-9B33-4897-94CD-E7B7C423ADF4}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{E3B89C09-9ACF-4634-8194-A9513B136E8D}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="3"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>-200</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>50</XPos>
+												<YPos>0</YPos>
+												<Flags>0</Flags>
+											</Point>
+											<Point>
+												<XPos>100</XPos>
+												<YPos>9</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
+							</RTPCList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Folder Name="Lee Voice" ID="{10ABD9C9-068C-4758-B5AF-911CC233CF39}" ShortID="648009959">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="11"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Folder Name="EN" ID="{4A18CD69-8D31-4D3B-ADCF-2BD08505B8FC}" ShortID="1068421186">
+									<ChildrenList>
+										<Sound Name="Lee Domain Ult Voice EN" ID="{7C575C1E-640F-4F25-8FF0-BCA319B0057F}" ShortID="149048320">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Domain Ult Voice EN" ID="{A2948571-C185-4D86-A851-CE541D699B74}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Domain Ult Voice EN.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="358197402"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Domain Ult Voice EN" ID="{A2948571-C185-4D86-A851-CE541D699B74}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Lee Intro Voice EN" ID="{65C1EB6F-5B27-4471-9B84-3629F60732A2}" ShortID="183856321">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Intro Voice EN" ID="{1E0DF3BB-A813-4F05-A72B-2E291439B659}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Intro Voice EN.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1026042879"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Intro Voice EN" ID="{1E0DF3BB-A813-4F05-A72B-2E291439B659}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Lee Ult Voice EN" ID="{07C5C1CF-A35B-474D-A698-0293A2BB21BD}" ShortID="73701567">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Ult Voice EN" ID="{503B6743-54F9-40BC-9356-B6FD9DD95FF5}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Ult Voice EN.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="414203180"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Ult Voice EN" ID="{503B6743-54F9-40BC-9356-B6FD9DD95FF5}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</Folder>
+								<Folder Name="JP" ID="{09EB593C-9A99-4E24-91A4-3352AE7D1910}" ShortID="751855271">
+									<ChildrenList>
+										<Sound Name="Lee Domain Ult Voice JP" ID="{43396369-A69F-4E34-B378-1030402103F1}" ShortID="121783135">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Domain Ult Voice JP" ID="{7EB9C65C-C722-4FF4-B1DC-205932101FB9}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Domain Ult Voice JP.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="277465116"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Domain Ult Voice JP" ID="{7EB9C65C-C722-4FF4-B1DC-205932101FB9}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Lee Intro Voice JP" ID="{61EB32B5-9C5A-4F01-A3C1-26F625575333}" ShortID="233952222">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Intro Voice JP" ID="{18D8545B-997A-4877-BBB1-23BFA8EAB230}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Intro Voice JP.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="626382630"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Intro Voice JP" ID="{18D8545B-997A-4877-BBB1-23BFA8EAB230}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Lee Ult Voice JP" ID="{3B489203-DBE5-48D9-B4FB-903F2C75553A}" ShortID="860883271">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Ult Voice JP" ID="{581D75DF-C199-4F33-8BAA-65C3C7CB4210}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Ult Voice JP.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="657177854"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Ult Voice JP" ID="{581D75DF-C199-4F33-8BAA-65C3C7CB4210}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</Folder>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

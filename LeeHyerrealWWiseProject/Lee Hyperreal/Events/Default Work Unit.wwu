@@ -700,6 +700,84 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Lee Voice" ID="{BD9BEE8B-1DF9-4CEE-A79C-B0F6FD89A428}" ShortID="44920354">
+					<ChildrenList>
+						<Folder Name="EN" ID="{D64356D3-E181-4A98-AD90-B3DC716DFDE1}" ShortID="499302992">
+							<ChildrenList>
+								<Event Name="Play_Lee_Ult_Voice_EN" ID="{E52196A1-7951-49EA-9ABB-66B9160506FF}">
+									<ChildrenList>
+										<Action Name="" ID="{8EF98F99-2939-4523-94D0-331F72631070}" ShortID="63242687">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lee Ult Voice EN" ID="{07C5C1CF-A35B-474D-A698-0293A2BB21BD}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Lee_Domain_Ult_Voice_EN" ID="{60A9216B-4542-4A83-8F41-8886690BD0F7}">
+									<ChildrenList>
+										<Action Name="" ID="{BEEEE6B8-8285-470D-AA86-C7EF61A9AE3B}" ShortID="12838879">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lee Domain Ult Voice EN" ID="{7C575C1E-640F-4F25-8FF0-BCA319B0057F}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Lee_Intro_Voice_EN" ID="{05122C2F-E332-48CF-B8B5-C18B38246436}">
+									<ChildrenList>
+										<Action Name="" ID="{171D18CE-A105-4567-8557-C673EE247B3C}" ShortID="684341362">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lee Intro Voice EN" ID="{65C1EB6F-5B27-4471-9B84-3629F60732A2}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="JP" ID="{04F7ED88-E21F-4760-BEF4-A5298245A2CD}" ShortID="354525793">
+							<ChildrenList>
+								<Event Name="Play_Lee_Ult_Voice_JP" ID="{632F9990-4038-4285-B7B3-18B713C85733}">
+									<ChildrenList>
+										<Action Name="" ID="{04CC0809-DFED-4A90-AA2F-EEF6FFD9BA38}" ShortID="762171827">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lee Ult Voice JP" ID="{3B489203-DBE5-48D9-B4FB-903F2C75553A}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Lee_Intro_Voice_JP" ID="{66E208B0-A0EA-41EB-B0F4-2FDF091470D9}">
+									<ChildrenList>
+										<Action Name="" ID="{5C01376F-4C07-4E6F-A396-22BFACEDA17F}" ShortID="664682844">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lee Intro Voice JP" ID="{61EB32B5-9C5A-4F01-A3C1-26F625575333}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Lee_Domain_Ult_Voice_JP" ID="{CD1204F3-8778-495E-BB3B-8869724EFD39}">
+									<ChildrenList>
+										<Action Name="" ID="{379F5F6D-F0D9-4242-BD13-AB8730BDFB49}" ShortID="397055612">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lee Domain Ult Voice JP" ID="{43396369-A69F-4E34-B378-1030402103F1}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

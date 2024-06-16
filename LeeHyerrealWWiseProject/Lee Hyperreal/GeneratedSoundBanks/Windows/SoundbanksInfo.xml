@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="505873666" GUID="{8F1A8A27-C3E1-4938-8B10-4FB1FF6A3F19}" Language="SFX" Hash="3528297217">
+		<SoundBank Id="505873666" GUID="{8F1A8A27-C3E1-4938-8B10-4FB1FF6A3F19}" Language="SFX" Hash="2459311859">
 			<ObjectPath>\SoundBanks\Default Work Unit\Lee_Hyperreal</ObjectPath>
 			<ShortName>Lee_Hyperreal</ShortName>
 			<Path>Lee_Hyperreal.bnk</Path>
@@ -652,6 +652,54 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="299803410" Name="Play_Lee_Domain_Ult_Voice_EN" ObjectPath="\Events\Default Work Unit\Lee Voice\EN\Play_Lee_Domain_Ult_Voice_EN" GUID="{60A9216B-4542-4A83-8F41-8886690BD0F7}">
+					<IncludedMemoryFiles>
+						<File Id="358197402" Language="SFX">
+							<ShortName>Lee Domain Ult Voice EN.wav</ShortName>
+							<Path>SFX\Lee Domain Ult Voice EN_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="417246961" Name="Play_Lee_Domain_Ult_Voice_JP" ObjectPath="\Events\Default Work Unit\Lee Voice\JP\Play_Lee_Domain_Ult_Voice_JP" GUID="{CD1204F3-8778-495E-BB3B-8869724EFD39}">
+					<IncludedMemoryFiles>
+						<File Id="277465116" Language="SFX">
+							<ShortName>Lee Domain Ult Voice JP.wav</ShortName>
+							<Path>SFX\Lee Domain Ult Voice JP_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2035664118" Name="Play_Lee_Intro_Voice_EN" ObjectPath="\Events\Default Work Unit\Lee Voice\EN\Play_Lee_Intro_Voice_EN" GUID="{05122C2F-E332-48CF-B8B5-C18B38246436}">
+					<IncludedMemoryFiles>
+						<File Id="1026042879" Language="SFX">
+							<ShortName>Lee Intro Voice EN.wav</ShortName>
+							<Path>SFX\Lee Intro Voice EN_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2018886517" Name="Play_Lee_Intro_Voice_JP" ObjectPath="\Events\Default Work Unit\Lee Voice\JP\Play_Lee_Intro_Voice_JP" GUID="{66E208B0-A0EA-41EB-B0F4-2FDF091470D9}">
+					<IncludedMemoryFiles>
+						<File Id="626382630" Language="SFX">
+							<ShortName>Lee Intro Voice JP.wav</ShortName>
+							<Path>SFX\Lee Intro Voice JP_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4230288271" Name="Play_Lee_Ult_Voice_EN" ObjectPath="\Events\Default Work Unit\Lee Voice\EN\Play_Lee_Ult_Voice_EN" GUID="{E52196A1-7951-49EA-9ABB-66B9160506FF}">
+					<IncludedMemoryFiles>
+						<File Id="414203180" Language="SFX">
+							<ShortName>Lee Ult Voice EN.wav</ShortName>
+							<Path>SFX\Lee Ult Voice EN_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4112844972" Name="Play_Lee_Ult_Voice_JP" ObjectPath="\Events\Default Work Unit\Lee Voice\JP\Play_Lee_Ult_Voice_JP" GUID="{632F9990-4038-4285-B7B3-18B713C85733}">
+					<IncludedMemoryFiles>
+						<File Id="657177854" Language="SFX">
+							<ShortName>Lee Ult Voice JP.wav</ShortName>
+							<Path>SFX\Lee Ult Voice JP_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1499659704" Name="Play_Normal_parry" ObjectPath="\Events\Default Work Unit\Lee\Play_Normal_parry" GUID="{84DC700D-9341-40EE-BC24-A3E77D5C85B0}">
 					<IncludedMemoryFiles>
 						<File Id="408586629" Language="SFX">
@@ -662,10 +710,11 @@
 				</Event>
 			</IncludedEvents>
 			<GameParameters>
+				<GameParameter Id="1917128131" Name="Volume_Lee_Voice" ObjectPath="\Game Parameters\Default Work Unit\Volume_Lee_Voice" GUID="{45C3F420-295C-4C38-B91F-4CEAB4F1272A}"/>
 				<GameParameter Id="3673881719" Name="Volume_SFX" ObjectPath="\Game Parameters\Default Work Unit\Volume_SFX" GUID="{53CAC302-8159-435B-B9E8-E4869EAC3995}"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" GUID="{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}" Language="SFX" Hash="2209698957">
+		<SoundBank Id="1355168291" GUID="{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}" Language="SFX" Hash="1656436776">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
