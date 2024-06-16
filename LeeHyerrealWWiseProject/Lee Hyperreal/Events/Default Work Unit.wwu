@@ -4,6 +4,10 @@
 		<WorkUnit Name="Default Work Unit" ID="{CF1A2F73-2879-4F80-9332-9D485F74EB46}" PersistMode="Standalone">
 			<ChildrenList>
 				<Folder Name="Lee" ID="{CA8F3CB9-0B21-4617-AB36-767A887AD3D6}" ShortID="367378310">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="1"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
 					<ChildrenList>
 						<Event Name="Play_c_liRk4_skill_ex_timestop_loop" ID="{D159FB38-6789-4BD6-9927-FD1313D7B600}">
 							<ChildrenList>
@@ -701,6 +705,10 @@
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Lee Voice" ID="{BD9BEE8B-1DF9-4CEE-A79C-B0F6FD89A428}" ShortID="44920354">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="11"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
 					<ChildrenList>
 						<Folder Name="EN" ID="{D64356D3-E181-4A98-AD90-B3DC716DFDE1}" ShortID="499302992">
 							<ChildrenList>
