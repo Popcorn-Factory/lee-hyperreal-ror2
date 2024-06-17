@@ -58,7 +58,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
             if (base.isAuthority) 
             {
-                new PlaySoundNetworkRequest(characterBody.netId, 2114053593).Send(NetworkDestination.Clients);
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_ultimate_start").Send(NetworkDestination.Clients);
             }
 
             bulletController.SetUltimateStance();

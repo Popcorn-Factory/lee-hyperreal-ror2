@@ -1,6 +1,8 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.Evade;
+using R2API.Networking.Interfaces;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -35,6 +37,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
         public Vector3 velocity;
 
+        public bool playBreakSFX = false;
+        public float playReloadSFXFrac = 0.505f;
+        public bool hasPlayedReload = false;
+
         public override void OnEnter()
         {
             bulletController = gameObject.GetComponent<BulletController>();
@@ -53,6 +59,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             if (bulletController.ConsumeEnhancedBullet(1)) 
             {
                 empoweredBulletMultiplier = 2.0f;
+                playBreakSFX = true;
             }
 
             if (domainController.GetDomainState()) 
@@ -63,6 +70,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                 {
                     //Grant a 3 ping.
                     orbController.Grant3Ping(type);
+                    playBreakSFX = true;
                 }
             }
 
@@ -84,6 +92,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public override void OnExit()
         {
             base.OnExit();
+            if(!hasPlayedReload)
+            {
+                hasPlayedReload = true;
+                AkSoundEngine.PostEvent("Play_c_liRk4_atk_ex_3_reload", base.gameObject);
+            }
         }
 
         protected virtual void PlaySwingEffect(float scale, GameObject effectPrefab, bool aimRot = true)
@@ -127,6 +140,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
             Ray aimRay = base.GetAimRay();
 
+            if (age >= duration * playReloadSFXFrac && !hasPlayedReload) 
+            {
+                hasPlayedReload = true;
+                AkSoundEngine.PostEvent("Play_c_liRk4_atk_ex_3_reload", base.gameObject);
+            }
+
             base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
             if (age >= duration * firingFrac && base.isAuthority && !hasFired) 
             {
@@ -151,42 +170,44 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     PlaySwingEffect(1.25f, Modules.ParticleAssets.snipeGround, false);
                 }
                 PlaySwingEffect(1.25f, Modules.ParticleAssets.Snipe);
-                Util.PlaySound("HenryShootPistol", base.gameObject);
 
-                if (base.isAuthority)
+                base.AddRecoil(-1f * Shoot.recoil, -2f * Shoot.recoil, -0.5f * Shoot.recoil, 0.5f * Shoot.recoil);
+
+                new BulletAttack
                 {
-                    base.AddRecoil(-1f * Shoot.recoil, -2f * Shoot.recoil, -0.5f * Shoot.recoil, 0.5f * Shoot.recoil);
+                    bulletCount = 1,
+                    aimVector = aimRay.direction,
+                    origin = aimRay.origin,
+                    damage = damageCoefficient * this.damageStat * empoweredBulletMultiplier,
+                    damageColorIndex = DamageColorIndex.Default,
+                    damageType = DamageType.Generic,
+                    falloffModel = BulletAttack.FalloffModel.DefaultBullet,
+                    maxDistance = Modules.StaticValues.snipeRange,
+                    force = Modules.StaticValues.snipeForce,
+                    hitMask = LayerIndex.CommonMasks.bullet,
+                    minSpread = 0f,
+                    maxSpread = 0f,
+                    isCrit = base.RollCrit(),
+                    owner = base.gameObject,
+                    muzzleName = muzzleString,
+                    smartCollision = false,
+                    procChainMask = default(ProcChainMask),
+                    procCoefficient = Modules.StaticValues.snipeProcCoefficient,
+                    radius = 0.75f,
+                    sniper = false,
+                    stopperMask = LayerIndex.CommonMasks.bullet,
+                    weapon = null,
+                    spreadPitchScale = 0f,
+                    spreadYawScale = 0f,
+                    queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
+                    hitEffectPrefab = Modules.ParticleAssets.snipeHit,
+                }.Fire();
 
-                    new BulletAttack
-                    {
-                        bulletCount = 1,
-                        aimVector = aimRay.direction,
-                        origin = aimRay.origin,
-                        damage = damageCoefficient * this.damageStat * empoweredBulletMultiplier,
-                        damageColorIndex = DamageColorIndex.Default,
-                        damageType = DamageType.Generic,
-                        falloffModel = BulletAttack.FalloffModel.DefaultBullet,
-                        maxDistance = Modules.StaticValues.snipeRange,
-                        force = Modules.StaticValues.snipeForce,
-                        hitMask = LayerIndex.CommonMasks.bullet,
-                        minSpread = 0f,
-                        maxSpread = 0f,
-                        isCrit = base.RollCrit(),
-                        owner = base.gameObject,
-                        muzzleName = muzzleString,
-                        smartCollision = false,
-                        procChainMask = default(ProcChainMask),
-                        procCoefficient = Modules.StaticValues.snipeProcCoefficient,
-                        radius = 0.75f,
-                        sniper = false,
-                        stopperMask = LayerIndex.CommonMasks.bullet,
-                        weapon = null,
-                        spreadPitchScale = 0f,
-                        spreadYawScale = 0f,
-                        queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
-                        hitEffectPrefab = Modules.ParticleAssets.snipeHit,
-                    }.Fire();
+                if (playBreakSFX)
+                {
+                    new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_atk_ex_3_break").Send(R2API.Networking.NetworkDestination.Clients);
                 }
+                
             }
 
             if (age >= duration * earlyExitFrac && base.isAuthority) 

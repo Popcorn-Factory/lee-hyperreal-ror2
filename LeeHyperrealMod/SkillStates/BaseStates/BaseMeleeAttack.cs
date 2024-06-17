@@ -168,7 +168,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
 
                         //Util.PlayAttackSpeedSound(Sounds.BashDeflect, EnforcerPlugin.VRAPICompat.IsLocalVRPlayer(characterBody) ? EnforcerPlugin.VRAPICompat.GetShieldMuzzleObject() : gameObject, UnityEngine.Random.Range(0.9f, 1.1f));
 
-                        new PlaySoundNetworkRequest(characterBody.netId, 1499659704).Send(NetworkDestination.Clients);
+                        new PlaySoundNetworkRequest(characterBody.netId, "Play_Normal_parry").Send(NetworkDestination.Clients);
                         EffectManager.SpawnEffect(Modules.ParticleAssets.normalParry,
                             new EffectData
                             {
@@ -398,7 +398,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                         TriggerHitPause(1.2f);
                         TriggerEnemyFreeze();
                         Vector3 position = base.gameObject.transform.position + (characterDirection.forward + Vector3.up * 1f) * 2f;
-                        new PlaySoundNetworkRequest(characterBody.netId, 2985300151).Send(NetworkDestination.Clients);
+                        new PlaySoundNetworkRequest(characterBody.netId, "Play_Big_parry").Send(NetworkDestination.Clients);
                         if (ParryTransform) 
                         {
                             position = ParryTransform.position;
@@ -414,7 +414,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                     {
                         TriggerHitPause(parryPauseLength);
 
-                        new PlaySoundNetworkRequest(characterBody.netId, 1499659704).Send(NetworkDestination.Clients);
+                        new PlaySoundNetworkRequest(characterBody.netId, "Play_Normal_parry").Send(NetworkDestination.Clients);
                         Vector3 position = base.gameObject.transform.position + (characterDirection.forward + Vector3.up * 1f) * 2f;
 
                         if (ParryTransform)

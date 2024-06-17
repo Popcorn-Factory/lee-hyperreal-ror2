@@ -49,6 +49,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             {
                 bulletController.snipeAerialPlatform = UnityEngine.Object.Instantiate(Modules.ParticleAssets.snipeAerialFloor, baseTransform.position, Quaternion.identity);
             }
+
+            Util.PlaySound("Play_c_liRk4_atk_ex_3_xuli", base.gameObject);
         }
 
         public override void OnExit()
