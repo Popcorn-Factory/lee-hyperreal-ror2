@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="505873666" GUID="{8F1A8A27-C3E1-4938-8B10-4FB1FF6A3F19}" Language="SFX" Hash="2459311859">
+		<SoundBank Id="505873666" GUID="{8F1A8A27-C3E1-4938-8B10-4FB1FF6A3F19}" Language="SFX" Hash="1516644280">
 			<ObjectPath>\SoundBanks\Default Work Unit\Lee_Hyperreal</ObjectPath>
 			<ShortName>Lee_Hyperreal</ShortName>
 			<Path>Lee_Hyperreal.bnk</Path>
@@ -649,6 +649,14 @@
 						<File Id="224120806" Language="SFX">
 							<ShortName>c_liRk4_skill_yellow_tuijin.wav</ShortName>
 							<Path>SFX\c_liRk4_skill_yellow_tuijin_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3985604687" Name="Play_cease_your_existance_NOW" ObjectPath="\Events\Default Work Unit\Lee Voice\Play_cease_your_existance_NOW" GUID="{DEAFE3E4-AAD8-4639-9179-9D6175BF5A53}">
+					<IncludedMemoryFiles>
+						<File Id="276511089" Language="SFX">
+							<ShortName>cease_your_existance_NOW.wav</ShortName>
+							<Path>SFX\cease_your_existance_NOW_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

@@ -3107,6 +3107,35 @@
 										</Sound>
 									</ChildrenList>
 								</Folder>
+								<Sound Name="cease_your_existance_NOW" ID="{ED802562-9F4C-4ACC-B0D9-DFB4563DD6F2}" ShortID="292767781">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="cease_your_existance_NOW" ID="{6361DFA5-5A13-4B98-BAEB-4503F5ADA495}">
+											<Language>SFX</Language>
+											<AudioFile>cease_your_existance_NOW.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="276511089"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="cease_your_existance_NOW" ID="{6361DFA5-5A13-4B98-BAEB-4503F5ADA495}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>

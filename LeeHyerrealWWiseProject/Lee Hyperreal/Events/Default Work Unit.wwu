@@ -784,6 +784,17 @@
 								</Event>
 							</ChildrenList>
 						</Folder>
+						<Event Name="Play_cease_your_existance_NOW" ID="{DEAFE3E4-AAD8-4639-9179-9D6175BF5A53}">
+							<ChildrenList>
+								<Action Name="" ID="{7A28922E-CD0D-44B9-9541-A7FF8CE9CC7A}" ShortID="818271088">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="cease_your_existance_NOW" ID="{ED802562-9F4C-4ACC-B0D9-DFB4563DD6F2}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>
