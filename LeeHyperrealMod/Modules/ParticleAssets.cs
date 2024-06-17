@@ -90,6 +90,7 @@ namespace LeeHyperrealMod.Modules
         #region Ultimate Domain
         //FXR 42
         public static GameObject UltimateDomainFinisherEffect;
+        public static GameObject UltimateDomainCEASEYOUREXISTANCE;
         public static GameObject DomainOverlayEffect;
         public static GameObject UltimateDomainBulletFinisher;
         #endregion
@@ -257,6 +258,9 @@ namespace LeeHyperrealMod.Modules
         {
             UltimateDomainFinisherEffect = GetGameObjectFromBundle("fxr4liangatk42suiping");
             UltimateDomainFinisherEffect.AddComponent<DestroyOnTimer>().duration = 2f;
+
+            UltimateDomainCEASEYOUREXISTANCE = GetGameObjectFromBundle("Cease");
+            UltimateDomainCEASEYOUREXISTANCE.AddComponent<DestroyOnTimer>().duration = 2f;
 
             DomainOverlayEffect = GetGameObjectFromBundle("fxr4liangatk51pingmu"); // Control manually.
 

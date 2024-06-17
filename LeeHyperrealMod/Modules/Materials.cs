@@ -63,7 +63,7 @@ namespace LeeHyperrealMod.Modules
             }
             if (emissionColor != null)
             {
-                tempMat.SetColor("_EmColor", (Color)emissionColor);
+                tempMat.SetColor("_EmColor", (Color)emissionColor); 
                 tempMat.SetFloat("_EmPower", 1);
             }
 

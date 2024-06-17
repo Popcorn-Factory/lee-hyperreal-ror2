@@ -43,6 +43,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         private int fireCount;
         private int sightStacks; //annschauung
 
+        private bool setCease = false;
+        private float playCeaseFrac = 0.188f;
+        private bool hasCeased = false;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -56,9 +60,32 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             }
             docon.DisableDomain();
 
-            if (isAuthority) 
+            if (base.isAuthority && Modules.Config.ceaseChance.Value != 0f) 
             {
-                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_ex_ultimate").Send(NetworkDestination.Clients);            
+                //Roll Cease chance
+                float rand = UnityEngine.Random.Range(0f, 100f);
+                if (rand <= Modules.Config.ceaseChance.Value) 
+                {
+                    setCease = true;
+                }
+            }
+
+
+            if (isAuthority)
+            {
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_ex_ultimate").Send(NetworkDestination.Clients);
+
+                if (Modules.Config.voiceEnabled.Value && !setCease)
+                {
+                    if (Modules.Config.voiceLanguageOption.Value == Modules.Config.VoiceLanguage.ENG)
+                    {
+                        Util.PlaySound("Play_Lee_Ult_Voice_EN", this.gameObject);
+                    }
+                    else
+                    {
+                        Util.PlaySound("Play_Lee_Ult_Voice_JP", this.gameObject);
+                    }
+                }
             }
 
 
@@ -99,10 +126,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             }
             ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
             Transform baseTransform = childLocator.FindChild("BaseTransform");
+            Vector3 targetDir = Camera.main.transform.position - baseTransform.position;
             EffectData effectData = new EffectData
             {
                 origin = gameObject.transform.position,
-                rotation = Quaternion.identity,
+                rotation = Quaternion.LookRotation(targetDir.normalized, Vector3.up),
                 scale = 1.25f,
             };
             EffectManager.SpawnEffect(Modules.ParticleAssets.UltimateDomainBulletFinisher, effectData, true);
@@ -163,7 +191,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
 
-            if (age >= duration * effectPlay && !hasPlayedEffect && base.isAuthority) 
+            if (age >= duration * playCeaseFrac && !hasCeased && base.isAuthority && setCease) 
+            {
+                //Play cease effect.
+                hasCeased = true;
+
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_cease_your_existance_NOW").Send(NetworkDestination.Clients);
+                UnityEngine.Object.Instantiate(Modules.ParticleAssets.UltimateDomainCEASEYOUREXISTANCE, Camera.main.transform);
+            }
+
+            if (age >= duration * effectPlay && !hasPlayedEffect && base.isAuthority && !setCease) 
             {
                 hasPlayedEffect = true;
                 UnityEngine.Object.Instantiate(Modules.ParticleAssets.UltimateDomainFinisherEffect, Camera.main.transform);

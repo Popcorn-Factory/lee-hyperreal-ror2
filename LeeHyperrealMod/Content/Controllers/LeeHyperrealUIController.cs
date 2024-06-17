@@ -92,6 +92,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         #region Domain overlay
         private GameObject domainOverlayObject;
+        private GameObject ceaseDomainOverlayObject;
         private bool spawnedEffect;
         #endregion
 

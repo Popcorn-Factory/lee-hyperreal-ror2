@@ -3,6 +3,7 @@ using IL.RoR2;
 using RiskOfOptions;
 using RiskOfOptions.OptionConfigs;
 using RiskOfOptions.Options;
+using System;
 using UnityEngine;
 
 namespace LeeHyperrealMod.Modules
@@ -25,6 +26,17 @@ namespace LeeHyperrealMod.Modules
         public static ConfigEntry<float> horizontalCameraPosition;
         public static ConfigEntry<float> verticalCameraPosition;
         public static ConfigEntry<float> depthCameraPosition;
+
+        public enum VoiceLanguage 
+        {
+            ENG,
+            JPN,
+        }
+        public static ConfigEntry<VoiceLanguage> voiceLanguageOption;
+        public static ConfigEntry<bool> voiceEnabled;
+        public static ConfigEntry<float> voiceVolume;
+
+        public static ConfigEntry<float> ceaseChance;
 
 
         public static void ReadConfig()
@@ -111,6 +123,36 @@ namespace LeeHyperrealMod.Modules
                 -2.5f,
                 new ConfigDescription("Changes the the vertical position of the camera when scoped. Positive values is up, Negative values are down.")
             );
+
+            voiceLanguageOption = LeeHyperrealPlugin.instance.Config.Bind
+            (
+                "04 - Voice", 
+                "Voice Language", 
+                VoiceLanguage.ENG, 
+                "Sets the Language for Voicelines."
+            );
+
+            voiceEnabled = LeeHyperrealPlugin.instance.Config.Bind<bool>
+            (
+                new ConfigDefinition("04 - Voice", "Voiceline Enabled"),
+                true,
+                new ConfigDescription("Determines whether the voiceline should play or not.")
+            );
+
+            voiceVolume = LeeHyperrealPlugin.instance.Config.Bind<float>
+            (
+                new ConfigDefinition("04 - Voice", "Voiceline volume"),
+                100f,
+                new ConfigDescription("Determines the volume of voice lines")
+            );
+
+            ceaseChance = LeeHyperrealPlugin.instance.Config.Bind<float>
+            (
+                new ConfigDefinition("05 - Cease", "Cease chance"),
+                1f,
+                new ConfigDescription("Determines chance of cease event to occur. (Go figure out what this means yourself.)")
+            );
+
         }
 
         public static void SetupRiskOfOptions() 
@@ -163,6 +205,34 @@ namespace LeeHyperrealMod.Modules
                     }
                 )
             );
+
+            ModSettingsManager.AddOption(new ChoiceOption(voiceLanguageOption));
+
+            ModSettingsManager.AddOption(new CheckBoxOption(voiceEnabled));
+
+            ModSettingsManager.AddOption(
+                new StepSliderOption(
+                    voiceVolume,
+                    new StepSliderConfig
+                    {
+                        min = 0f,
+                        max = 100f,
+                        increment = 0.1f
+                    }
+                )
+            );
+
+            ModSettingsManager.AddOption(
+                  new StepSliderOption(
+                      ceaseChance,
+                      new StepSliderConfig
+                      {
+                          min = 0f,
+                          max = 100f,
+                          increment = 0.01f
+                      }
+                  )
+              );
         }
 
         // this helper automatically makes config entries for disabling survivors
@@ -172,6 +242,19 @@ namespace LeeHyperrealMod.Modules
                                                           "Enable " + characterName,
                                                           enabledDefault,
                                                           description);
+        }
+
+        public static void OnChangeHooks()
+        {
+            voiceVolume.SettingChanged += VoiceVolume_SettingChanged; ;
+        }
+
+        private static void VoiceVolume_SettingChanged(object sender, System.EventArgs e)
+        {
+            if (AkSoundEngine.IsInitialized())
+            {
+                AkSoundEngine.SetRTPCValue("Volume_Lee_Voice", voiceVolume.Value);
+            }
         }
     }
 }

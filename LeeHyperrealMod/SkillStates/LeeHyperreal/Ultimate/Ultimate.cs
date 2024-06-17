@@ -59,6 +59,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             if (base.isAuthority) 
             {
                 new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_ultimate_start").Send(NetworkDestination.Clients);
+
+                if (Modules.Config.voiceEnabled.Value)
+                {
+                    if (Modules.Config.voiceLanguageOption.Value == Modules.Config.VoiceLanguage.ENG)
+                    {
+                        Util.PlaySound("Play_Lee_Domain_Ult_Voice_EN", this.gameObject);
+                    }
+                    else
+                    {
+                        Util.PlaySound("Play_Lee_Domain_Ult_Voice_JP", this.gameObject);
+                    }
+                }
             }
 
             bulletController.SetUltimateStance();

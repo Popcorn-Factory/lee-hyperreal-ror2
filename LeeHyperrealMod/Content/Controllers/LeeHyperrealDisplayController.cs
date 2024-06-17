@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using RoR2;
+using UnityEngine;
 
 namespace LeeHyperrealMod.Content.Controllers
 {
@@ -6,17 +7,24 @@ namespace LeeHyperrealMod.Content.Controllers
     {
         Animator animator;
         int selectedNum;
+        bool playedSound;
 
         public void Awake() 
         {
             animator = GetComponent<Animator>();
 
             selectedNum = GenerateRandomNum();
+
+            if (AkSoundEngine.IsInitialized())
+            {
+                AkSoundEngine.SetRTPCValue("Volume_Lee_Voice", Modules.Config.voiceVolume.Value);
+            }
         }
 
         public void OnEnable() 
         {
             selectedNum = GenerateRandomNum();
+            playedSound = false;
         }
 
         public int GenerateRandomNum() 
@@ -31,6 +39,18 @@ namespace LeeHyperrealMod.Content.Controllers
             if (animator) 
             {
                 animator.SetInteger("SelectSpawnTrigger", selectedNum);
+            }
+            if (!playedSound && Modules.Config.voiceEnabled.Value) 
+            {
+                playedSound = true;
+                if (Modules.Config.voiceLanguageOption.Value == Modules.Config.VoiceLanguage.ENG)
+                {
+                    Util.PlaySound("Play_Lee_Intro_Voice_EN", this.gameObject);
+                }
+                else 
+                {
+                    Util.PlaySound("Play_Lee_Intro_Voice_JP", this.gameObject);
+                }
             }
         }
     }

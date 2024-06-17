@@ -123,6 +123,11 @@ namespace LeeHyperrealMod.Modules.Survivors
         {
             base.InitializeCharacter();
 
+            if (AkSoundEngine.IsInitialized())
+            {
+                AkSoundEngine.SetRTPCValue("Volume_Lee_Voice", Modules.Config.voiceVolume.Value);
+            }
+
             bodyPrefab.AddComponent<LeeHyperrealUIController>();
             bodyPrefab.AddComponent<OrbController>();
             bodyPrefab.AddComponent<LeeHyperrealDomainController>();
