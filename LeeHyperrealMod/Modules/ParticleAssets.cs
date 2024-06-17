@@ -345,7 +345,7 @@ namespace LeeHyperrealMod.Modules
                 "fxr4liangatk24-lightSC2"
                 );
 
-            Snipe = ModifyEffect(Snipe, "", true, 0.6f, VFXAttributes.VFXPriority.Medium);
+            Snipe = ModifyEffect(Snipe, "Play_c_liRk4_atk_ex_3", true, 0.6f, VFXAttributes.VFXPriority.Medium);
 
             snipeHit = GetGameObjectFromBundle("fxr4liangatk24hit");
             AddLightIntensityCurveWithCurve(
@@ -370,7 +370,7 @@ namespace LeeHyperrealMod.Modules
                 },
                 "fxr4liangatk24hit-spjere"
                 );
-            snipeHit = ModifyEffect(snipeHit, "", true);
+            snipeHit = ModifyEffect(snipeHit, "Play_c_liRk4_imp_ex_3_1", true);
 
             snipeGround = GetGameObjectFromBundle("fxr4liangatk24ground");
             snipeGround = ModifyEffect(snipeGround, "", true);

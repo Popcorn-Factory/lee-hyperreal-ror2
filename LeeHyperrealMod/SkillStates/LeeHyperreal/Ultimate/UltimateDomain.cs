@@ -58,7 +58,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
             if (isAuthority) 
             {
-                new PlaySoundNetworkRequest(characterBody.netId, 435488756).Send(NetworkDestination.Clients);            
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_ex_ultimate").Send(NetworkDestination.Clients);            
             }
 
 

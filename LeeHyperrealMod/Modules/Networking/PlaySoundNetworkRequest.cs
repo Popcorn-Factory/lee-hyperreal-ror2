@@ -13,6 +13,7 @@ namespace LeeHyperrealMod.Modules.Networking
         //Network these ones.
         NetworkInstanceId charnetID;
         uint soundNum;
+        string soundStr;
 
         //Don't network these.
         GameObject bodyObj;
@@ -26,18 +27,28 @@ namespace LeeHyperrealMod.Modules.Networking
         {
             this.charnetID = charnetID;
             this.soundNum = soundNum;
+            this.soundStr = "";
+        }
+
+        public PlaySoundNetworkRequest(NetworkInstanceId charnetID, string soundStr)
+        {
+            this.charnetID = charnetID;
+            this.soundStr = soundStr;
+            this.soundNum = 0;
         }
 
         public void Deserialize(NetworkReader reader)
         {
             charnetID = reader.ReadNetworkId();
             soundNum = reader.ReadUInt32();
+            soundStr = reader.ReadString();
         }
 
         public void Serialize(NetworkWriter writer)
         {
             writer.Write(charnetID);
             writer.Write(soundNum);
+            writer.Write(soundStr);
         }
 
         public void OnReceived()
@@ -47,7 +58,16 @@ namespace LeeHyperrealMod.Modules.Networking
             {
                 return;
             }
-            AkSoundEngine.PostEvent(soundNum, bodyObj);
+
+            if (soundNum != 0) 
+            {
+                AkSoundEngine.PostEvent(soundNum, bodyObj);
+            }
+
+            if (soundStr != "") 
+            {
+                AkSoundEngine.PostEvent(soundStr, bodyObj);
+            }
         }
     }
 }
