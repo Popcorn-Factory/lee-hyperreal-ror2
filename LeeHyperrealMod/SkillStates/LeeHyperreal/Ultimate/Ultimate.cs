@@ -36,6 +36,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         private Ray aimRay;
         private Vector3 velocity = Vector3.zero;
 
+        private bool setCease = false;
+        private float playCeaseFrac = 0.2f;
+        private bool hasCeased = false;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -56,19 +60,30 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 bulletController.snipeAerialPlatform = null;
             }
 
+            if (base.isAuthority && Modules.Config.ceaseChance.Value != 0f)
+            {
+                //Roll Cease chance
+                float rand = UnityEngine.Random.Range(0f, 100f);
+                if (rand <= Modules.Config.ceaseChance.Value)
+                {
+                    setCease = true;
+                }
+            }
+
+
             if (base.isAuthority) 
             {
                 new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_ultimate_start").Send(NetworkDestination.Clients);
 
-                if (Modules.Config.voiceEnabled.Value)
+                if (Modules.Config.voiceEnabled.Value && !setCease)
                 {
                     if (Modules.Config.voiceLanguageOption.Value == Modules.Config.VoiceLanguage.ENG)
                     {
-                        Util.PlaySound("Play_Lee_Domain_Ult_Voice_EN", this.gameObject);
+                        new PlaySoundNetworkRequest(characterBody.netId, "Play_Lee_Domain_Ult_Voice_EN").Send(NetworkDestination.Clients);
                     }
                     else
                     {
-                        Util.PlaySound("Play_Lee_Domain_Ult_Voice_JP", this.gameObject);
+                        new PlaySoundNetworkRequest(characterBody.netId, "Play_Lee_Domain_Ult_Voice_JP").Send(NetworkDestination.Clients);
                     }
                 }
             }
@@ -181,6 +196,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
             base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, aimRay.direction, ref velocity, 0.1f, 100f, Time.deltaTime);
             base.characterDirection.moveVector = Vector3.SmoothDamp(base.characterDirection.moveVector, aimRay.direction, ref velocity, 0.1f, 100f, Time.deltaTime);
+
+            if (age >= duration * playCeaseFrac && !hasCeased && base.isAuthority && setCease)
+            {
+                //Play cease effect.
+                hasCeased = true;
+
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_cease_your_existance_NOW").Send(NetworkDestination.Clients);
+                UnityEngine.Object.Instantiate(Modules.ParticleAssets.UltimateDomainCEASEYOUREXISTANCE, Camera.main.transform);
+            }
+
 
             if (age >= duration * earlyEnd && base.isAuthority)
             {
