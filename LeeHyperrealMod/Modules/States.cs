@@ -20,6 +20,10 @@ namespace LeeHyperrealMod.Modules
             Modules.Content.AddEntityState(typeof(LeeHyperrealCharacterMain));
 
             #region Primary
+            Modules.Content.AddEntityState(typeof(PrimaryEntry));
+            Modules.Content.AddEntityState(typeof(PrimaryAerialStart));
+            Modules.Content.AddEntityState(typeof(PrimaryAerialLoop));
+            Modules.Content.AddEntityState(typeof(PrimaryAerialSlam));
             Modules.Content.AddEntityState(typeof(Primary1));
             Modules.Content.AddEntityState(typeof(Primary2));
             Modules.Content.AddEntityState(typeof(Primary3));

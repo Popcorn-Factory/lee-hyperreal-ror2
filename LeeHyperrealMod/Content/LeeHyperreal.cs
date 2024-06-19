@@ -166,7 +166,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "PRIMARY_NAME",
                                                                                       prefix + "PRIMARY_DESCRIPTION",
                                                                                       Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimary"),
-                                                                                      new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Primary.Primary1)),
+                                                                                      new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Primary.PrimaryEntry)),
                                                                                       "Body",
                                                                                       true));
 

@@ -29,7 +29,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
 
         CharacterGravityParameters gravParams;
         CharacterGravityParameters oldGravParams;
-        float turnOffGravityFrac = 0.5f;
+        float turnOffGravityFrac = 0.3f;
 
         public bool shouldForceUpwards;
 
