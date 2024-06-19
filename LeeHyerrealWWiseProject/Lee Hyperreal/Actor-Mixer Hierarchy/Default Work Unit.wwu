@@ -573,6 +573,11 @@
 											</ReferenceList>
 											<ChildrenList>
 												<AudioFileSource Name="c_liRk4_skill_red_dilie" ID="{90C6515E-29B2-4B71-B3E3-51662E4449F9}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0.387991383952611"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.387991383952611"/>
+													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>c_liRk4_skill_red_dilie.wav</AudioFile>
 													<MediaIDList>
@@ -601,6 +606,10 @@
 											</ReferenceList>
 											<ChildrenList>
 												<AudioFileSource Name="c_liRk4_skill_red_bullet" ID="{C18BCB35-1881-4859-853F-5F2D893A0FA2}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.384275713516424"/>
+													</PropertyList>
 													<Language>SFX</Language>
 													<AudioFile>c_liRk4_skill_red_bullet.wav</AudioFile>
 													<MediaIDList>

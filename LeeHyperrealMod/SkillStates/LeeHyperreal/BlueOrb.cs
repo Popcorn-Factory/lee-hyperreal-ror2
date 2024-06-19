@@ -5,6 +5,8 @@ using UnityEngine;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using UnityEngine.Networking;
 using R2API.Networking;
+using LeeHyperrealMod.Modules.Networking;
+using R2API.Networking.Interfaces;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 {
@@ -158,6 +160,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             if (base.isAuthority) 
             {
                 base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, duration * disableInvincibility);
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_blue_shine").Send(NetworkDestination.Clients);
             }
 
             weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.RIFLE);

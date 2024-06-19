@@ -1,6 +1,8 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
+using R2API.Networking.Interfaces;
 using RoR2;
 using System;
 using UnityEngine;
@@ -177,6 +179,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             {
                 if (!hasFired)
                 {
+                    new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_red_dilie").Send(R2API.Networking.NetworkDestination.Clients);
                     hasFired = true;
                     bulletAttack.aimVector = base.GetAimRay().direction;
                     bulletAttack.origin = base.GetAimRay().origin;
@@ -190,6 +193,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 if (!hasFiredOverlap)
                 {
                     hasFiredOverlap = true;
+                    new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_red_bullet").Send(R2API.Networking.NetworkDestination.Clients);
                     for (int i = 0; i < attackAmount; i++)
                     {
                         overlapAttack = new OverlapAttack();

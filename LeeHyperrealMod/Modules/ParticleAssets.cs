@@ -501,7 +501,7 @@ namespace LeeHyperrealMod.Modules
                 },
                 "fxr4liangatk20-lightSC"
                 );
-            blueOrbShot = ModifyEffect(blueOrbShot, "", true);
+            blueOrbShot = ModifyEffect(blueOrbShot, "Play_c_liRk4_skill_blue", true);
 
             blueOrbHit = GetGameObjectFromBundle("fxr4liangatk20hit");
             AddLightIntensityCurveWithCurve(
@@ -526,10 +526,10 @@ namespace LeeHyperrealMod.Modules
                 },
                 "fxr4liangatk20hit-lightSC"
                 );
-            blueOrbHit = ModifyEffect(blueOrbHit, "", true);
+            blueOrbHit = ModifyEffect(blueOrbHit, "Play_c_liRk4_imp_blue", true);
 
             blueOrbGroundHit = GetGameObjectFromBundle("fxr4liangatk20bao");
-            blueOrbGroundHit = ModifyEffect(blueOrbGroundHit, "", true);
+            blueOrbGroundHit = ModifyEffect(blueOrbGroundHit, "Play_c_liRk4_skill_blue_dilie", true);
         }
 
         private static void PopulateRedOrbAssets()
@@ -546,7 +546,7 @@ namespace LeeHyperrealMod.Modules
                 },
                 "fxr4liangatk10"
                 );
-            redOrbSwing = ModifyEffect(redOrbSwing, "", true);
+            redOrbSwing = ModifyEffect(redOrbSwing, "Play_c_liRk4_skill_red", true);
 
             redOrbHit = GetGameObjectFromBundle("fxr4liangatk10hit02");
             AddLightIntensityCurveWithCurve(

@@ -15,13 +15,29 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         {
             base.OnEnter();
             //Do nothing until you hit the ground.
-            
+            if (base.isAuthority && isGrounded)
+            {
+                //Send instantly to end state
+                base.outer.SetState(new PrimaryAerialSlam { airTime = fixedAge });
+                return;
+            }
         }
 
 
         public override void OnExit()
         {
             base.OnExit();
+        }
+
+        public override void Update()
+        {
+            base.Update();
+            if (base.isAuthority && isGrounded)
+            {
+                //Send instantly to end state
+                base.outer.SetState(new PrimaryAerialSlam { airTime = fixedAge });
+                return;
+            }
         }
 
         public override void FixedUpdate()

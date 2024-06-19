@@ -6,6 +6,8 @@ using LeeHyperrealMod.SkillStates.BaseStates;
 using System;
 using R2API.Networking;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
+using R2API.Networking.Interfaces;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 {
@@ -120,6 +122,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             if (base.isAuthority)
             {
                 base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, duration * disableInvincibility);
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_red").Send(NetworkDestination.Clients);
             }
 
             Modules.Helpers.PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.redOrbSwing, gameObject);
