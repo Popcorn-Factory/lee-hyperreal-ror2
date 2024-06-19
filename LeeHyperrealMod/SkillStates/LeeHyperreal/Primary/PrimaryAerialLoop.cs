@@ -29,7 +29,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             base.FixedUpdate();
 
             //Increase y vel until grounded
-            base.characterMotor.velocity = Vector3.SmoothDamp(base.characterMotor.velocity, (Vector3.down * 60f), ref velocity, 0.4f);
+            //base.characterMotor.velocity = Vector3.SmoothDamp(base.characterMotor.velocity, (Vector3.down * 60f), ref velocity, 0.4f);
 
             //Only transition on grounded.
             if (base.isAuthority && isGrounded) 
