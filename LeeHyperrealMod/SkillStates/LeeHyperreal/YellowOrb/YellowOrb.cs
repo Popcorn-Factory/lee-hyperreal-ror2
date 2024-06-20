@@ -39,6 +39,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
         private float effectTimingFrac = 0.15f;
         private bool hasPlayedEffect;
+        private bool hasPlayedBulletCasingSFX = false;
+
 
         public override void OnEnter()
         {
@@ -138,6 +140,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             if (age >= duration * earlyEnd && base.isAuthority)
             {
+                if (!hasPlayedBulletCasingSFX) 
+                {
+                    hasPlayedBulletCasingSFX = true;
+                    new PlaySoundNetworkRequest(characterBody.netId, "c_liRk4_skill_yellow_bullet").Send(NetworkDestination.Clients);
+                }
                 if (orbController)
                 {
                     orbController.isExecutingSkill = false;
