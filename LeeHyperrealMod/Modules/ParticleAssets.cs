@@ -602,7 +602,7 @@ namespace LeeHyperrealMod.Modules
                 },
                 "fxr4liangatk14dilie"
                 );
-            redOrbDomainFloorImpact = ModifyEffect(redOrbDomainFloorImpact, "", false);
+            redOrbDomainFloorImpact = ModifyEffect(redOrbDomainFloorImpact, "Play_c_liRk4_atk_ex_2", false);
 
             redOrbDomainHit = GetGameObjectFromBundle("fxr4liangatk14fshit01");
             AddLightIntensityCurveWithCurve(
@@ -616,7 +616,7 @@ namespace LeeHyperrealMod.Modules
                 },
                 "fxr4liangatk14fshit01"
                 );
-            redOrbDomainHit = ModifyEffect(redOrbDomainHit, "", false);
+            redOrbDomainHit = ModifyEffect(redOrbDomainHit, "Play_c_liRk4_imp_ex_2_2", false);
         }
 
         private static void PopulatePrimary5Assets()

@@ -8,6 +8,9 @@ using LeeHyperrealMod.Modules;
 using UnityEngine.UIElements.UIR;
 using LeeHyperrealMod.Content.Controllers;
 using System.ComponentModel;
+using System.Collections.Generic;
+using LeeHyperrealMod.Modules.Networking;
+using R2API.Networking.Interfaces;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 {
@@ -42,6 +45,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
         internal Transform boxGunTransform;
         internal bool effectPlayed;
+
+        internal bool hasHit = false;
+        internal bool hasHit2 = false;
 
         public override void OnEnter()
         {
@@ -165,6 +171,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                     fireStopwatch -= Time.fixedDeltaTime;
                 }
 
+                if (fixedAge >= duration * fireTime * 1.5f && !hasHit)
+                {
+                    hasHit = true;
+                    new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_ex_2_1").Send(R2API.Networking.NetworkDestination.Clients);
+                }
+                if (fixedAge >= duration * fireTime * 1.8f && !hasHit2)
+                {
+                    hasHit2 = true;
+                    new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_ex_2_2").Send(R2API.Networking.NetworkDestination.Clients);
+                }
             }
 
 
@@ -181,6 +197,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             //Do something on hit.
             foreach (BlastAttack.HitPoint point in hitPoints) 
             {
+                hasHit = true;
+                hasHit2 = true;
                 EffectManager.SimpleEffect(Modules.ParticleAssets.redOrbDomainHit, point.hitPosition, Quaternion.identity, true);
             }
         }
