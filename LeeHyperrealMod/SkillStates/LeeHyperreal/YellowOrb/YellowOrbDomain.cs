@@ -6,6 +6,8 @@ using LeeHyperrealMod.SkillStates.BaseStates;
 using System;
 using LeeHyperrealMod.Modules;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
+using R2API.Networking.Interfaces;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 {
@@ -138,6 +140,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 GameObject yellowBullet = UnityEngine.Object.Instantiate(Modules.ParticleAssets.yellowOrbDomainBulletLeftovers, this.gameObject.transform.position, this.gameObject.transform.rotation);
                 domainController.yellowOrbDomainEffects.Add(yellowBullet);
             }
+
+            if (base.isAuthority) 
+            {
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_atk_ex_1").Send(R2API.Networking.NetworkDestination.Clients);
+            }
         }
 
         protected void PlayAttackAnimation()
@@ -192,6 +199,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             {
                 if (fireStopwatch <= 0f && fireCount < StaticValues.yellowOrbDomainFireCount)
                 {
+                    new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_atk_ex_1_bullet_1").Send(R2API.Networking.NetworkDestination.Clients);
                     fireStopwatch = fireInterval;
                     blastAttack.Fire();
                     fireCount++;
