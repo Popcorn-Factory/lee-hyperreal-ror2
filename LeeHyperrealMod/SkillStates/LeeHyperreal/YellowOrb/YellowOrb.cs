@@ -7,6 +7,8 @@ using R2API.Networking;
 using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.Modules;
 using static RoR2.BlastAttack;
+using LeeHyperrealMod.Modules.Networking;
+using R2API.Networking.Interfaces;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 {
@@ -14,7 +16,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
     {
 
         public float start = 0;
-        public float earlyEnd = 0.42f;
+        public float earlyEnd = 0.30f;
         public float fireFrac = 0.22f;
         public float duration = 2f;
         public int moveStrength; //1-3
@@ -90,6 +92,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             PlayAttackAnimation();
             ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
             baseTransform = childLocator.FindChild("BaseTransform");
+
+            if (base.isAuthority) 
+            {
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_yellow_tuijin").Send(NetworkDestination.Clients);
+            }
         }
 
         protected void PlayAttackAnimation()

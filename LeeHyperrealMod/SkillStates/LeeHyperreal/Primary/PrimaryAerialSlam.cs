@@ -79,12 +79,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             if (fixedAge >= duration * moveCancelFrac && base.isAuthority) 
             {
+                Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
+
                 if (base.inputBank.moveVector != new Vector3(0, 0, 0))
                 {
                     this.outer.SetNextStateToMain();
                     return;
                 }
             }
+
+
 
 
             if (fixedAge >= duration && base.isAuthority)
@@ -132,7 +136,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.PrioritySkill;
+            return InterruptPriority.Skill;
         }
     }
 }

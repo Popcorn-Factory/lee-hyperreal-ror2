@@ -79,11 +79,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 {
                     if (Modules.Config.voiceLanguageOption.Value == Modules.Config.VoiceLanguage.ENG)
                     {
-                        new PlaySoundNetworkRequest(characterBody.netId, "Play_Lee_Ult_Voice_EN").Send(NetworkDestination.Clients);
+                        new PlaySoundNetworkRequest(characterBody.netId, "Play_Lee_Domain_Ult_Voice_EN").Send(NetworkDestination.Clients);
                     }
                     else
                     {
-                        new PlaySoundNetworkRequest(characterBody.netId, "Play_Lee_Ult_Voice_JP").Send(NetworkDestination.Clients);
+                        new PlaySoundNetworkRequest(characterBody.netId, "Play_Lee_Domain_Ult_Voice_JP").Send(NetworkDestination.Clients);
                     }
                 }
             }

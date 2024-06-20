@@ -389,7 +389,7 @@ namespace LeeHyperrealMod.Modules
         private static void PopulateYellowOrbAssets()
         {
             yellowOrbSwing = GetGameObjectFromBundle("fxr4liangatk34dilie");
-            yellowOrbSwing = ModifyEffect(yellowOrbSwing, "", true);
+            yellowOrbSwing = ModifyEffect(yellowOrbSwing, "Play_c_liRk4_skill_yellow", true);
 
             yellowOrbSwingHit = GetGameObjectFromBundle("fxr4liangatk34hit");
             AddLightIntensityCurveWithCurve(
@@ -416,7 +416,7 @@ namespace LeeHyperrealMod.Modules
                 },
                 "fxr4liangatk34hit-lightSC"
                 );
-            yellowOrbSwingHit = ModifyEffect(yellowOrbSwingHit, "", true);
+            yellowOrbSwingHit = ModifyEffect(yellowOrbSwingHit, "Play_c_liRk4_imp_yellow_1", true);
 
             yellowOrbKick = GetGameObjectFromBundle("fxr4liangatk32");
             AddLightIntensityCurveWithCurve(
@@ -431,7 +431,7 @@ namespace LeeHyperrealMod.Modules
                 },
                 "fxr4liangatk32"
                 );
-            yellowOrbKick = ModifyEffect(yellowOrbKick, "", true);
+            yellowOrbKick = ModifyEffect(yellowOrbKick, "Play_c_liRk4_skill_yellow_fire", true);
 
             yellowOrbMultishot = GetGameObjectFromBundle("fxr4liangatk35");
             AddLightIntensityCurveWithCurve(
@@ -571,7 +571,7 @@ namespace LeeHyperrealMod.Modules
                 },
                 "fxr4liangatk10hit02-lightSC"
                 );
-            redOrbHit = ModifyEffect(redOrbHit, "", false);
+            redOrbHit = ModifyEffect(redOrbHit, "Play_c_liRk4_imp_red_1", false);
 
             redOrbPingSwing = GetGameObjectFromBundle("fxr4liangatk11");
             redOrbPingSwing = ModifyEffect(redOrbPingSwing, "", false);

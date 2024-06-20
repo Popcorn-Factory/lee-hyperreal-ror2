@@ -1,5 +1,7 @@
 ﻿using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
+using R2API.Networking.Interfaces;
 using RoR2;
 using UnityEngine;
 
@@ -22,6 +24,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         internal OrbController orbController;
         private Transform baseTransform;
 
+        internal float playSoundFrac = 0.12f;
+        internal bool hasPlayedSound = false;
         public override void OnEnter()
         {
 
@@ -154,6 +158,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+
+            if (fixedAge >= duration * playSoundFrac && base.isAuthority && !hasPlayedSound) 
+            {
+                hasPlayedSound = true;
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_yellow_dilie").Send(R2API.Networking.NetworkDestination.Clients);
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_yellow_fire").Send(R2API.Networking.NetworkDestination.Clients);
+            }
         }
 
 
