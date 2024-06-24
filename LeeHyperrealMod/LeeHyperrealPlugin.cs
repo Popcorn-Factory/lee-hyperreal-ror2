@@ -108,6 +108,19 @@ namespace LeeHyperrealMod
             {
                 if (self.body)
                 {
+                    if (self.body.HasBuff(Modules.Buffs.fallDamageNegateBuff)) 
+                    {
+                        DamageType tempDamageType = DamageType.FallDamage | DamageType.NonLethal;
+                        DamageType frailtyDamageType = DamageType.FallDamage | DamageType.BypassOneShotProtection;
+
+                        if (damageInfo.damageType == tempDamageType || damageInfo.damageType == frailtyDamageType)
+                        {
+                            damageInfo.rejected = true;
+
+                            damageInfo.damage = 0;
+                        }
+                    }
+
                     if (self.body.HasBuff(Modules.Buffs.invincibilityBuff)) 
                     {
                         damageInfo.rejected = true;

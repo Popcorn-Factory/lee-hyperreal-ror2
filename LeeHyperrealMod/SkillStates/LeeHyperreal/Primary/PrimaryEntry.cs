@@ -1,4 +1,5 @@
 ﻿using EntityStates;
+using LeeHyperrealMod.Content.Controllers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -13,10 +14,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             //Decide where to start the move:
 
+            LeeHyperrealDomainController domainController = base.gameObject.GetComponent<LeeHyperrealDomainController>();
+
             if (base.isAuthority) 
             {
                 if (!characterMotor.isGrounded) 
                 {
+                    if (domainController && domainController.GetDomainState()) 
+                    {
+                        base.outer.SetState(new PrimaryDomainAerialStart { });
+                    }
+
                     base.outer.SetState(new PrimaryAerialStart { });
                     return;
                 }

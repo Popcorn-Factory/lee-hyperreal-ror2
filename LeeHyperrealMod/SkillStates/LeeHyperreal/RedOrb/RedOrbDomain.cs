@@ -183,8 +183,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 }
             }
 
-
-
             if (fixedAge >= duration && isAuthority)
             {
                 outer.SetNextStateToMain();

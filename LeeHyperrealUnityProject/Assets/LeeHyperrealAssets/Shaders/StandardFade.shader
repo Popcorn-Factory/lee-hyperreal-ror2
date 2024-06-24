@@ -38,7 +38,7 @@ SubShader {
     }
    
     CGPROGRAM
-    #pragma surface surf Lambert alpha
+    #pragma surface surf Lambert alpha:fade
     #pragma debug
  
     sampler2D _MainTex;
@@ -56,6 +56,5 @@ SubShader {
     ENDCG
 }
  
-Fallback "Transparent/Diffuse"
 }
  

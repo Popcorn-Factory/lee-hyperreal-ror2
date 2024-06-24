@@ -24,6 +24,9 @@ namespace LeeHyperrealMod.Modules
             Modules.Content.AddEntityState(typeof(PrimaryAerialStart));
             Modules.Content.AddEntityState(typeof(PrimaryAerialLoop));
             Modules.Content.AddEntityState(typeof(PrimaryAerialSlam));
+            Modules.Content.AddEntityState(typeof(PrimaryDomainAerialStart));
+            Modules.Content.AddEntityState(typeof(PrimaryDomainAerialLoop));
+            Modules.Content.AddEntityState(typeof(PrimaryDomainAerialSlam));
             Modules.Content.AddEntityState(typeof(Primary1));
             Modules.Content.AddEntityState(typeof(Primary2));
             Modules.Content.AddEntityState(typeof(Primary3));
