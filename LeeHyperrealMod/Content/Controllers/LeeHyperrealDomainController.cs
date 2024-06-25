@@ -1,4 +1,6 @@
-﻿using R2API.Networking;
+﻿using LeeHyperrealMod.Modules.Networking;
+using R2API.Networking;
+using R2API.Networking.Interfaces;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -153,6 +155,8 @@ namespace LeeHyperrealMod.Content.Controllers
             loopDomainEffect.SetActive(true);
             despawnDomainEffect.SetActive(false);
             uiController.DomainOverlayEnable(true);
+            //Play Sound
+            new PlaySoundNetworkRequest(charBody.netId, "Play_c_liRk4_skill_ex_timestop_loop").Send(R2API.Networking.NetworkDestination.Clients);
         }
 
         public void DisableDomainEffect() 
@@ -160,6 +164,9 @@ namespace LeeHyperrealMod.Content.Controllers
             loopDomainEffect.SetActive(false);
             despawnDomainEffect.SetActive(true);
             uiController.DomainOverlayEnable(false);
+
+            //Play Sound
+            new PlaySoundNetworkRequest(charBody.netId, "Play_c_liRk4_skill_ex_timestop_end").Send(R2API.Networking.NetworkDestination.Clients);
         }
 
         public bool DomainEntryAllowed()

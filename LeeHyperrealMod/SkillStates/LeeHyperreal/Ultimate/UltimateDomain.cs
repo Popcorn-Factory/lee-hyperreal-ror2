@@ -18,6 +18,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
     {
         public LeeHyperrealDomainController docon;
         private UltimateCameraController ultimateCameraController;
+        private BulletController bulletController;
 
         public float start = 0;
         public float earlyEnd = 0.65f;
@@ -52,6 +53,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             base.OnEnter();
             docon = gameObject.GetComponent<LeeHyperrealDomainController>();
             ultimateCameraController = gameObject.GetComponent<UltimateCameraController>();
+            bulletController = gameObject.GetComponent<BulletController>();
+
+            if (bulletController.inSnipeStance && isAuthority)
+            {
+                bulletController.UnsetSnipeStance();
+            }
 
             sightStacks = docon.GetIntuitionStacks();
             if (sightStacks == 0) 

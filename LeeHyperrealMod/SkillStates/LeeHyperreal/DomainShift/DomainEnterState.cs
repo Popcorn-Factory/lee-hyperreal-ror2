@@ -1,6 +1,8 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
+using R2API.Networking.Interfaces;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -136,6 +138,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
                 scale = 1.25f
             };
 
+            if (base.isAuthority) 
+            {
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_ex_timestop").Send(R2API.Networking.NetworkDestination.Clients);
+            }
+
             transitionEffect.SetChildLocatorTransformReference(gameObject, childLocator.FindChildIndex("BaseTransform"));
 
             EffectManager.SpawnEffect(Modules.ParticleAssets.transitionEffectLee,
@@ -197,6 +204,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
                         },
                         true);
                     bulletAttack.Fire();
+                    new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_ex_timestop_break").Send(R2API.Networking.NetworkDestination.Clients);
+
 
                     //Draw a ray to the ground and spawn a blast there too.
                     RaycastHit hit;
