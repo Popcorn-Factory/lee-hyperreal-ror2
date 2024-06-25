@@ -23,6 +23,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                     if (domainController && domainController.GetDomainState()) 
                     {
                         base.outer.SetState(new PrimaryDomainAerialStart { });
+                        return;
                     }
 
                     base.outer.SetState(new PrimaryAerialStart { });

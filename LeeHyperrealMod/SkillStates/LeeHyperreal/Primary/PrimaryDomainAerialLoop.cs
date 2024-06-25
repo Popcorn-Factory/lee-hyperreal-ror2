@@ -28,6 +28,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             {
                 base.characterBody.ApplyBuff(Modules.Buffs.fallDamageNegateBuff.buffIndex, 1);
             }
+
+            base.characterMotor.velocity = Vector3.SmoothDamp(base.characterMotor.velocity, ((Vector3.down + base.characterDirection.forward).normalized * Modules.StaticValues.primaryAerialSlamSpeed), ref velocity, 0.02f);
         }
 
 
@@ -52,7 +54,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             base.FixedUpdate();
 
             //Increase y vel until grounded
-            base.characterMotor.velocity = Vector3.SmoothDamp(base.characterMotor.velocity, ((Vector3.down + base.characterDirection.forward).normalized * 60f), ref velocity, 0.4f);
+            base.characterMotor.velocity = Vector3.SmoothDamp(base.characterMotor.velocity, ((Vector3.down + base.characterDirection.forward).normalized * Modules.StaticValues.primaryAerialSlamSpeed), ref velocity, 0.02f);
 
             //Only transition on grounded.
             if (base.isAuthority && isGrounded) 

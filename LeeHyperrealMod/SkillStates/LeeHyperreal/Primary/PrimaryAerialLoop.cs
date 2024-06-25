@@ -1,6 +1,7 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.SkillStates.BaseStates;
+using R2API.Networking;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,6 +22,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 base.outer.SetState(new PrimaryAerialSlam { airTime = fixedAge });
                 return;
             }
+
+            if (base.isAuthority)
+            {
+                base.characterBody.ApplyBuff(Modules.Buffs.fallDamageNegateBuff.buffIndex, 1);
+            }
+
+            base.characterMotor.velocity = Vector3.SmoothDamp(base.characterMotor.velocity, ((Vector3.down + base.characterDirection.forward).normalized * Modules.StaticValues.primaryAerialSlamSpeed), ref velocity, 0.1f);
         }
 
 
@@ -45,7 +53,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             base.FixedUpdate();
 
             //Increase y vel until grounded
-            //base.characterMotor.velocity = Vector3.SmoothDamp(base.characterMotor.velocity, (Vector3.down * 60f), ref velocity, 0.4f);
+            base.characterMotor.velocity = Vector3.SmoothDamp(base.characterMotor.velocity, ((Vector3.down + base.characterDirection.forward).normalized * Modules.StaticValues.primaryAerialSlamSpeed), ref velocity, 0.1f);
+
 
             //Only transition on grounded.
             if (base.isAuthority && isGrounded) 

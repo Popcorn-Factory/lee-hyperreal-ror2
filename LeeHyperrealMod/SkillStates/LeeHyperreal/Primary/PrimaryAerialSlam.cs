@@ -1,6 +1,7 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.SkillStates.BaseStates;
+using R2API.Networking;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -42,6 +43,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             base.PlayAnimation("Body", "Midair Attack End", "attack.playbackRate", duration);
             PlaySwing("BaseTransform", 1.25f, Modules.ParticleAssets.primary5Floor);
+
+            if (base.isAuthority)
+            {
+                base.characterBody.ApplyBuff(Modules.Buffs.fallDamageNegateBuff.buffIndex, 0);
+            }
         }
 
         public void PlaySwing(string muzzleString, float swingScale, GameObject effectPrefab)
@@ -71,6 +77,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void OnExit()
         {
             base.OnExit();
+            if (base.isAuthority)
+            {
+                base.characterBody.ApplyBuff(Modules.Buffs.fallDamageNegateBuff.buffIndex, 0);
+            }
         }
 
         public override void FixedUpdate()

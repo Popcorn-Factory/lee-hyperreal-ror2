@@ -56,6 +56,7 @@ namespace LeeHyperrealMod.Modules
         internal const float primaryAerialMaxDamageMultiplier = 3f;
         internal const float primaryAerialDamageCoefficient = 5f;
         internal const float primaryAerialProcCoefficient = 1f;
+        internal const float primaryAerialSlamSpeed = 70f;
         #endregion
 
         #region Domain Shift

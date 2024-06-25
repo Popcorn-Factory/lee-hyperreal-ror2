@@ -78,6 +78,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void OnExit()
         {
             base.OnExit();
+            if (base.isAuthority)
+            {
+                base.characterBody.ApplyBuff(Modules.Buffs.fallDamageNegateBuff.buffIndex, 0);
+            }
         }
 
         public override void FixedUpdate()
