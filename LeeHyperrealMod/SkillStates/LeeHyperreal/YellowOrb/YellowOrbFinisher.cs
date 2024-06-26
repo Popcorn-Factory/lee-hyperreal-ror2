@@ -165,6 +165,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_yellow_dilie").Send(R2API.Networking.NetworkDestination.Clients);
                 new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_yellow_fire").Send(R2API.Networking.NetworkDestination.Clients);
             }
+
+            if (fixedAge >= duration && base.isAuthority) 
+            {
+                base.outer.SetNextStateToMain();
+                return;
+            }
         }
 
 
