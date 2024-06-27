@@ -149,7 +149,13 @@ namespace LeeHyperrealMod.Modules
 
             foreach (Renderer i in objectToConvert.GetComponentsInChildren<Renderer>())
             {
-                i?.material?.SetHopooMaterial();
+                if (i) 
+                {
+                    if (!i.gameObject.transform.parent.gameObject.name.Contains("Clone"))
+                    {
+                        i?.material?.SetHopooMaterial();
+                    }
+                }
             }
         }
 

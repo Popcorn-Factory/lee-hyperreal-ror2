@@ -51,6 +51,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         public override void OnEnter()
         {
             base.OnEnter();
+            characterBody.isSprinting = false;
             docon = gameObject.GetComponent<LeeHyperrealDomainController>();
             ultimateCameraController = gameObject.GetComponent<UltimateCameraController>();
             bulletController = gameObject.GetComponent<BulletController>();
@@ -65,7 +66,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             {
                 sightStacks = 1;
             }
-            docon.DisableDomain();
+            docon.DisableDomain(false);
 
             if (base.isAuthority && Modules.Config.ceaseChance.Value != 0f) 
             {

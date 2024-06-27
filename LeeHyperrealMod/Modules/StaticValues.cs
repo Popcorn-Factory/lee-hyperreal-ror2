@@ -87,8 +87,10 @@ namespace LeeHyperrealMod.Modules
         internal const float domainShiftBlastRadius = 10f;
         internal const float domainShiftCoefficient = 3f;
         internal const float domainShiftBulletDamageCoefficient = 4.5f;
+        internal const float energyRechargeSpeed = 50f;
+        internal const float energyConsumptionSpeed = 50f;
+        internal const int maxIntuitionStocks = 4;
         #endregion
-
 
         #region Yellow Orb
         internal const float yellowOrbDamageCoefficient = 2f;

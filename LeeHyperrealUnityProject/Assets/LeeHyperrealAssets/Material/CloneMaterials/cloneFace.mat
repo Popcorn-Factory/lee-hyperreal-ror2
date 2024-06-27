@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: cloneFace
-  m_Shader: {fileID: 4800000, guid: 1b555469f3e785d48bd0679c2099ac25, type: 3}
+  m_Shader: {fileID: 4800000, guid: 11bef2a90eac9c049b60ad0a773814df, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -55,6 +55,14 @@ Material:
         m_Texture: {fileID: 2800000, guid: 5735e433cf6ec2c4d8a188ff048ec847, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Occlusion:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -63,11 +71,16 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
-    - _Cutoff: 0.5
+    - _Cutoff: 3.34
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _EndDitheringFade: 1
     - _FrenelMultiplier: 2.44
     - _GlossMapScale: 1
     - _Glossiness: 0
@@ -81,9 +94,11 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _StartDitheringFade: 0
     - _UVSec: 0
     - _VertexOffset: 0.003
     - _ZWrite: 1
+    - __dirty: 0
     - _scrollspeed: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 0.39215687}

@@ -43,6 +43,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         public override void OnEnter()
         {
             base.OnEnter();
+            characterBody.isSprinting = false;
             rma = InitMeleeRootMotion();
             rmaMultiplier = movementMultiplier;
             bulletController = gameObject.GetComponent<BulletController>();

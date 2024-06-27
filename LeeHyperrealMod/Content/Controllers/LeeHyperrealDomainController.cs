@@ -16,11 +16,11 @@ namespace LeeHyperrealMod.Content.Controllers
         bool energyRegenAllowed;
         float energy;
         const float maxEnergy = 100f;
-        float powerRechargeSpeed = 50f;
-        float consumptionSpeed = 1f;
+        float powerRechargeSpeed = Modules.StaticValues.energyRechargeSpeed;
+        float consumptionSpeed = Modules.StaticValues.energyConsumptionSpeed;
         int intuitionStacks = 0;
 
-        int maxIntuitionStack = 4;
+        int maxIntuitionStack = Modules.StaticValues.maxIntuitionStocks;
 
         GameObject loopDomainEffect;
         GameObject despawnDomainEffect;
@@ -116,7 +116,7 @@ namespace LeeHyperrealMod.Content.Controllers
             if (this.energy < 0f)
             {
                 this.energy = 0f;
-                DisableDomain();
+                DisableDomain(true);
             }
         }
 
@@ -132,8 +132,12 @@ namespace LeeHyperrealMod.Content.Controllers
             }
         }
 
-        public void DisableDomain()
+        public void DisableDomain(bool shouldSetState)
         {
+            if (shouldSetState && charBody.hasEffectiveAuthority) 
+            {
+                new SetDomainUltimateNetworkRequest(charBody.netId).Send(NetworkDestination.Clients);
+            }
             isInDomain = false;
             this.energy = 0f;
             //DisableEffect?
