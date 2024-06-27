@@ -22,7 +22,13 @@ namespace LeeHyperrealMod.Content.Controllers
         private GameObject sniperRifleAlphaModel;
         
         private GameObject supercannonModel;
-        
+
+        private Animator superCannonAnimator;
+        private GameObject superCannonEffect;
+        private float disableCannonEffectTimer;
+        private bool isCannonEnabled;
+
+
         private WeaponState state;
         private ChildLocator childLocator;
 
@@ -43,15 +49,43 @@ namespace LeeHyperrealMod.Content.Controllers
                 sniperRifleModel = childLocator.FindChild("SuperRifleModel").gameObject;
                 sniperRifleAlphaModel = childLocator.FindChild("SuperRifleModelAlphaBit").gameObject;
                 supercannonModel = childLocator.FindChild("SuperCannonModel").gameObject;
+                superCannonAnimator = childLocator.FindChild("CannonAnimator").gameObject.GetComponent<Animator>();
+                superCannonEffect = childLocator.FindChild("CannonEffect").gameObject;
             }
+
+            superCannonEffect.gameObject.SetActive(false);
 
             TransitionState(WeaponState.SUBMACHINE);
         }
 
         public void Update() 
-        { 
+        {
             //TODO:
             //Transitions
+
+            if (isCannonEnabled) 
+            {
+                disableCannonEffectTimer += Time.deltaTime;
+                if (disableCannonEffectTimer >= 5f) 
+                {
+                    disableCannonEffectTimer = 0f;
+                    isCannonEnabled = false;
+                    superCannonEffect.gameObject.SetActive(false);
+                    superCannonAnimator.ResetTrigger("Ultimate");
+                }
+            }
+        }
+
+        public void ActivateCannonOnAnimator() 
+        {
+            if (superCannonAnimator) 
+            {
+                superCannonEffect.gameObject.SetActive(true);
+                superCannonAnimator.SetTrigger("Ultimate");
+
+                isCannonEnabled = true;
+                disableCannonEffectTimer = 0f;
+            }
         }
 
         public void TransitionState(WeaponState newState) 

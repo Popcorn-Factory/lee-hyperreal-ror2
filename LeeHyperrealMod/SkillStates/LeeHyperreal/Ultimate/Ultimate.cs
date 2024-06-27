@@ -93,6 +93,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             base.characterMotor.velocity = Vector3.zero;
 
             weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.CANNON);
+            weaponModelHandler.ActivateCannonOnAnimator();
 
             aimRay = base.GetAimRay();
 
