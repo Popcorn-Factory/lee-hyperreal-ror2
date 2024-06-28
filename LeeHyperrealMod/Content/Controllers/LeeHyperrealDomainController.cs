@@ -22,6 +22,9 @@ namespace LeeHyperrealMod.Content.Controllers
 
         int maxIntuitionStack = Modules.StaticValues.maxIntuitionStocks;
 
+        Vector3 velocity;
+        Transform baseTransform;
+
         GameObject loopDomainEffect;
         GameObject despawnDomainEffect;
 
@@ -46,8 +49,9 @@ namespace LeeHyperrealMod.Content.Controllers
             energyRegenAllowed = true;
 
             ChildLocator childLocator = modelLocator.modelTransform.GetComponent<ChildLocator>();
-            Transform baseTransform = childLocator.FindChild("BaseTransform");
-            loopDomainEffect = UnityEngine.Object.Instantiate(Modules.ParticleAssets.domainFieldLoopEffect, baseTransform.transform);
+            baseTransform = childLocator.FindChild("BaseTransform");
+            loopDomainEffect = UnityEngine.Object.Instantiate(Modules.ParticleAssets.domainFieldLoopEffect, baseTransform.transform.position, Quaternion.identity);
+            loopDomainEffect.transform.localScale = new Vector3(4f, 4f, 4f);
             despawnDomainEffect = UnityEngine.Object.Instantiate(Modules.ParticleAssets.domainFieldEndEffect, baseTransform.transform);
 
             loopDomainEffect.SetActive(false);
@@ -58,6 +62,11 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void Update()
         {
+            if (loopDomainEffect) 
+            {
+                loopDomainEffect.transform.position = Vector3.SmoothDamp(loopDomainEffect.transform.position, baseTransform.position, ref velocity, 5f);
+            }
+
             if (charBody.hasEffectiveAuthority)
             {
                 // Normal stuff.
