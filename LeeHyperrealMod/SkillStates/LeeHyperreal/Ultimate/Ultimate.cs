@@ -40,6 +40,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         private float playCeaseFrac = 0.2f;
         private bool hasCeased = false;
 
+        private float weaponTransitionFrac = 0.70f;
+        private bool hasTransitioned = false;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -206,6 +209,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
                 new PlaySoundNetworkRequest(characterBody.netId, "Play_cease_your_existance_NOW").Send(NetworkDestination.Clients);
                 UnityEngine.Object.Instantiate(Modules.ParticleAssets.UltimateDomainCEASEYOUREXISTANCE, Camera.main.transform);
+            }
+
+            if (age >= duration * weaponTransitionFrac && !hasTransitioned) 
+            {
+                hasTransitioned = true;
+                weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
             }
 
 
