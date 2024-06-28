@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace LeeHyperrealMod.Content.Controllers
 {
-    internal class LeeHyperrealDomainController : MonoBehaviour
+    public class LeeHyperrealDomainController : MonoBehaviour
     {
         //Domain Control
         bool isInDomain;

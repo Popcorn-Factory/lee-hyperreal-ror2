@@ -227,6 +227,9 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             //Destroy(canvasObject);
             Destroy(domainOverlayObject);
+            Destroy(orbUIObject);
+            Destroy(powerMeterUIObject);
+            Destroy(healthLayers);
             Unhook();
         }
         #endregion

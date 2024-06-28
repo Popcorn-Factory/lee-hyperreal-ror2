@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: cloneDown
-  m_Shader: {fileID: 4800000, guid: 11bef2a90eac9c049b60ad0a773814df, type: 3}
+  m_Shader: {fileID: 4800000, guid: 7f3f5414a7a7a03478091a38c58581c8, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -77,7 +77,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _BumpScale: 1
-    - _Cutoff: 3.34
+    - _Cutoff: -0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EndDitheringFade: 1

@@ -6,17 +6,45 @@ ShaderVariantCollection:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: leeshadervariants
+  m_Name: leeShadervariants
   m_Shaders:
   - first: {fileID: 66, guid: 0000000000000000f000000000000000, type: 0}
     second:
       variants:
       - keywords: 
         passType: 0
-  - first: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  - first: {fileID: 45, guid: 0000000000000000f000000000000000, type: 0}
     second:
       variants:
       - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH UNITY_HDR_ON
+        passType: 4
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH UNITY_HDR_ON
+          _OUTLINE_VERTEX_COLOR
+        passType: 4
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH UNITY_HDR_ON
+          _MULTI_OUTLINE_COLOR _OUTLINE_VERTEX_COLOR
+        passType: 4
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH UNITY_HDR_ON
+          _MULTI_OUTLINE_COLOR _OUTLINE_VERTEX_COLOR _USER_OUTLINE
+        passType: 4
+      - keywords: 
+        passType: 8
+      - keywords: _OUTLINE_VERTEX_COLOR
+        passType: 8
+      - keywords: _MULTI_OUTLINE_COLOR _OUTLINE_VERTEX_COLOR
+        passType: 8
+      - keywords: _MULTI_OUTLINE_COLOR _OUTLINE_VERTEX_COLOR _USER_OUTLINE
+        passType: 8
+  - first: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH UNITY_HDR_ON
+        passType: 4
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH _NORMALMAP
+        passType: 4
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH _EMISSION _NORMALMAP
         passType: 4
       - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH UNITY_HDR_ON
           _NORMALMAP
@@ -24,19 +52,56 @@ ShaderVariantCollection:
       - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH UNITY_HDR_ON
           _EMISSION _NORMALMAP
         passType: 4
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH _ALPHABLEND_ON
+        passType: 4
       - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH UNITY_HDR_ON
           _ALPHABLEND_ON
+        passType: 4
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH _EMISSION _NORMALMAP
+          _PARALLAXMAP
         passType: 4
       - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH UNITY_HDR_ON
           _EMISSION _NORMALMAP _PARALLAXMAP
         passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: POINT
+        passType: 5
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL
+        passType: 5
+      - keywords: DIRECTIONAL _NORMALMAP
+        passType: 5
+      - keywords: POINT _NORMALMAP
+        passType: 5
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL _EMISSION _NORMALMAP
+        passType: 5
+      - keywords: BILLBOARD_FACE_CAMERA_POS POINT UNITY_HDR_ON _NORMALMAP
+        passType: 5
+      - keywords: DIRECTIONAL _ALPHABLEND_ON
+        passType: 5
+      - keywords: POINT _ALPHABLEND_ON
+        passType: 5
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL _ALPHABLEND_ON
+        passType: 5
+      - keywords: DIRECTIONAL _NORMALMAP _PARALLAXMAP
+        passType: 5
+      - keywords: POINT _NORMALMAP _PARALLAXMAP
+        passType: 5
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL _EMISSION _NORMALMAP _PARALLAXMAP
+        passType: 5
       - keywords: 
+        passType: 8
+      - keywords: SHADOWS_DEPTH
         passType: 8
       - keywords: _NORMALMAP
         passType: 8
       - keywords: _EMISSION _NORMALMAP
         passType: 8
       - keywords: _ALPHABLEND_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _ALPHABLEND_ON
+        passType: 8
+      - keywords: SHADOWS_DEPTH _PARALLAXMAP
         passType: 8
       - keywords: _EMISSION _NORMALMAP _PARALLAXMAP
         passType: 8
@@ -46,6 +111,9 @@ ShaderVariantCollection:
       - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH UNITY_HDR_ON
           _GLOSSYREFLECTIONS_OFF _SPECULARHIGHLIGHTS_OFF
         passType: 4
+      - keywords: BILLBOARD_FACE_CAMERA_POS POINT UNITY_HDR_ON _GLOSSYREFLECTIONS_OFF
+          _SPECULARHIGHLIGHTS_OFF
+        passType: 5
       - keywords: _GLOSSYREFLECTIONS_OFF _SPECULARHIGHLIGHTS_OFF
         passType: 8
   - first: {fileID: 210, guid: 0000000000000000f000000000000000, type: 0}
@@ -54,8 +122,14 @@ ShaderVariantCollection:
       - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH PROCEDURAL_INSTANCING_ON
           UNITY_HDR_ON _ALPHABLEND_ON _EMISSION
         passType: 4
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH PROCEDURAL_INSTANCING_ON
+          UNITY_HDR_ON VERTEXLIGHT_ON _ALPHABLEND_ON _EMISSION
+        passType: 4
       - keywords: PROCEDURAL_INSTANCING_ON _ALPHABLEND_ON _EMISSION
         passType: 8
+      - keywords: BILLBOARD_FACE_CAMERA_POS PROCEDURAL_INSTANCING_ON UNITY_HDR_ON
+          _ALPHABLEND_ON _EMISSION
+        passType: 13
   - first: {fileID: 9000, guid: 0000000000000000f000000000000000, type: 0}
     second:
       variants:
@@ -91,52 +165,226 @@ ShaderVariantCollection:
       variants:
       - keywords: 
         passType: 0
+  - first: {fileID: 4800000, guid: 5725e8300be208449973f771ab6682f2, type: 3}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: d6909e30fd813df40bdd9301d7d96ba4, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL UNITY_HDR_ON
+        passType: 5
+      - keywords: 
+        passType: 8
+  - first: {fileID: 4800000, guid: b035bc40da1ac7c4eafad4116382ec79, type: 3}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: fa1e3e404e6b3c243b5527b82739d682, type: 3}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: 409f06d00d1094849b0834c52791fa72, type: 3}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON
+        passType: 0
   - first: {fileID: 4800000, guid: e7dccd93dac658541bab74eefd8256a7, type: 3}
     second:
       variants:
       - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH MASK UNITY_HDR_ON
         passType: 4
-  - first: {fileID: 4800000, guid: 1b555469f3e785d48bd0679c2099ac25, type: 3}
+      - keywords: BILLBOARD_FACE_CAMERA_POS MASK POINT UNITY_HDR_ON
+        passType: 5
+  - first: {fileID: 4800000, guid: 7f3f5414a7a7a03478091a38c58581c8, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 1
+      - keywords: 
+        passType: 2
+      - keywords: DIRECTIONAL
+        passType: 4
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: POINT
+        passType: 5
+      - keywords: 
+        passType: 6
+      - keywords: 
+        passType: 7
+      - keywords: 
+        passType: 8
+      - keywords: SHADOWS_DEPTH
+        passType: 8
+      - keywords: 
+        passType: 10
+      - keywords: 
+        passType: 11
+  - first: {fileID: 4800000, guid: 50fc796413bac8b40aff70fb5a886273, type: 3}
     second:
       variants:
       - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON
         passType: 0
-      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH UNITY_HDR_ON
-        passType: 4
+  - first: {fileID: 4800000, guid: d9ca47581ac157145bff6f72ac5dd73e, type: 3}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: 7b4e86a89b70ae64993bf422eb406422, type: 3}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON
+        passType: 0
   - first: {fileID: 4800000, guid: 11bef2a90eac9c049b60ad0a773814df, type: 3}
     second:
-      variants: []
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON
+        passType: 4
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH UNITY_HDR_ON
+        passType: 4
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL UNITY_HDR_ON
+        passType: 5
+      - keywords: 
+        passType: 8
+  - first: {fileID: 4800000, guid: 5dde35cabcdd6d84e916c4a7b1cfebc3, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: SHADOWS_DEPTH UNITY_PASS_SHADOWCASTER
+        passType: 8
+  - first: {fileID: 4800000, guid: e90ef6ea05743b84baf9549874c52e47, type: 3}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: 085e462b2de441a42949be0e666cf5d2, type: 3}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: 9eb150cbc752cbc458a0a37984b9934a, type: 3}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: fb95ebfb6127b174c8a181a98e8241e6, type: 3}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL LIGHTPROBE_SH UNITY_HDR_ON
+        passType: 4
+      - keywords: BILLBOARD_FACE_CAMERA_POS DIRECTIONAL UNITY_HDR_ON
+        passType: 5
+      - keywords: 
+        passType: 8
+  - first: {fileID: 4800000, guid: 13bd295c44d04e1419f20f792d331e33, type: 3}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: 97ae846cb0a6b044388fad3bc03bb4c2, type: 3}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON
+        passType: 0
   - first: {fileID: 4800000, guid: 8f767d6ddad4f0e4bafcb930820f149f, type: 3}
     second:
       variants:
       - keywords: BILLBOARD_FACE_CAMERA_POS S_BILLBOARD UNITY_HDR_ON
         passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS S_BILLBOARD UNITY_HDR_ON VERTEXLIGHT_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: 88b4191eb06084d4da85d1dd2f984085, type: 3}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: 9c34f18ebe2be3e48b201b748c73dec0, type: 3}
+    second:
+      variants:
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: 521323deb7e76dd4d9df45339334b534, type: 3}
+    second:
+      variants:
+      - keywords: DIRECTIONAL LIGHTPROBE_SH
+        passType: 4
+      - keywords: DIRECTIONAL
+        passType: 5
+      - keywords: SHADOWS_DEPTH UNITY_PASS_SHADOWCASTER
+        passType: 8
   - first: {fileID: 4800000, guid: 4aa51fefc4ef77e49aed092d94481aa9, type: 3}
     second:
       variants:
       - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ALPHABLEND_ON
         passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON VERTEXLIGHT_ON _ALPHABLEND_ON
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _RIM_LERP
+        passType: 0
+      - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON VERTEXLIGHT_ON _RIM_LERP
+        passType: 0
+      - keywords: _ALPHABLEND_ON _MASKUV0
+        passType: 0
+      - keywords: _MAINTEX_DISABLE
+        passType: 0
+      - keywords: INSTANCING_ON _MAINTEX_DISABLE
+        passType: 0
       - keywords: BILLBOARD_FACE_CAMERA_POS INSTANCING_ON UNITY_HDR_ON _MAINTEX_DISABLE
+        passType: 0
+      - keywords: INSTANCING_ON _ALPHABLEND_ON _FLOWMAP
         passType: 0
       - keywords: BILLBOARD_FACE_CAMERA_POS INSTANCING_ON UNITY_HDR_ON _ALPHABLEND_ON
           _FLOWMAP
         passType: 0
+      - keywords: _ALPHABLEND_ON _FLOWMAP _MASKUV0
+        passType: 0
       - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ALPHABLEND_ON _FLOWMAP
           _MASKUV0
+        passType: 0
+      - keywords: _ALPHABLEND_ON _DISSOLUTION _FLOWMAP _MASKUV0
+        passType: 0
+      - keywords: _ALPHABLEND_ON _DISSOLUTION _FLOWMAP _VERTEX_ALPHA_OFF
         passType: 0
       - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ALPHABLEND_ON _DISSOLUTION
           _FLOWMAP _VERTEX_ALPHA_OFF
         passType: 0
+      - keywords: _ALPHABLEND_ON _DISSOLUTION _FLOWMAP _MASKUV0 _VERTEX_ALPHA_OFF
+        passType: 0
+      - keywords: INSTANCING_ON _ALPHABLEND_ON _DISSOLUTION _FLOWMAP _MASKUV0 _VERTEX_ALPHA_OFF
+        passType: 0
       - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ALPHABLEND_ON _DISSOLUTION
           _FLOWMAP _MASKUV0 _VERTEX_ALPHA_OFF
         passType: 0
+      - keywords: XFOG_DISABLED _ALPHABLEND_ON
+        passType: 0
       - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON XFOG_DISABLED _ALPHABLEND_ON
+        passType: 0
+      - keywords: XFOG_DISABLED _ALPHABLEND_ON _MAINTEX_DISABLE
         passType: 0
       - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON XFOG_DISABLED _ALPHABLEND_ON
           _MAINTEX_DISABLE
         passType: 0
+      - keywords: XFOG_DISABLED _ALPHABLEND_ON _FLOWMAP _RIM_LERP
+        passType: 0
       - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON XFOG_DISABLED _ALPHABLEND_ON
           _FLOWMAP _RIM_LERP
+        passType: 0
+      - keywords: _ALPHABLEND_ON _FLOWMAP _SECOND_TEX
+        passType: 0
+      - keywords: _ALPHABLEND_ON _DISSOLUTION _FLOWMAP _MASKUV0 _SECOND_TEX
         passType: 0
       - keywords: BILLBOARD_FACE_CAMERA_POS UNITY_HDR_ON _ALPHABLEND_ON _DISSOLUTION
           _FLOWMAP _MASKUV0 _SECOND_TEX

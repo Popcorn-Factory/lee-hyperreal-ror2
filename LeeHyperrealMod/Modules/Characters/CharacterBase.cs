@@ -16,11 +16,15 @@ namespace LeeHyperrealMod.Modules.Characters
         public abstract Type characterMainState { get; }
         public virtual Type characterSpawnState { get; }
 
+        public virtual Type characterDeathState { get; }
+
         public virtual ItemDisplaysBase itemDisplays { get; } = null;
 
         public virtual GameObject bodyPrefab { get; set; }
         public virtual CharacterBody prefabCharacterBody { get; set; }
         public virtual CharacterModel prefabCharacterModel { get; set; }
+
+
         public string fullBodyName => prefabBodyName + "Body";
 
         public virtual void Initialize()
@@ -49,6 +53,8 @@ namespace LeeHyperrealMod.Modules.Characters
         {
             bodyPrefab = Modules.Prefabs.CreateBodyPrefab(prefabBodyName + "Body", "mdl" + prefabBodyName, bodyInfo);
             prefabCharacterBody = bodyPrefab.GetComponent<CharacterBody>();
+            CharacterDeathBehavior prefabCharacterDeathState = bodyPrefab.GetComponent<CharacterDeathBehavior>();
+            prefabCharacterDeathState.deathState.stateType = characterDeathState;
             InitializeCharacterModel();
         }
         protected virtual void InitializeCharacterModel()

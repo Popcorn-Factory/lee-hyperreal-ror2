@@ -88,7 +88,7 @@ namespace LeeHyperrealMod.Modules
         internal const float domainShiftCoefficient = 3f;
         internal const float domainShiftBulletDamageCoefficient = 4.5f;
         internal const float energyRechargeSpeed = 50f;
-        internal const float energyConsumptionSpeed = 50f;
+        internal const float energyConsumptionSpeed = 3f;
         internal const int maxIntuitionStocks = 4;
         #endregion
 

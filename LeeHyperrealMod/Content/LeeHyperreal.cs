@@ -112,6 +112,8 @@ namespace LeeHyperrealMod.Modules.Survivors
 
         public override Type characterMainState => typeof(LeeHyperrealCharacterMain);
 
+        public override Type characterDeathState => typeof(LeeHyperrealDeathState);
+
         public override ItemDisplaysBase itemDisplays => new LeeHyperrealItemDisplays();
 
                                                                           //if you have more than one character, easily create a config to enable/disable them like this
@@ -262,8 +264,8 @@ namespace LeeHyperrealMod.Modules.Survivors
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texDodge"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(Evade)),
                 activationStateMachineName = "Body",
-                baseMaxStock = 1,
-                baseRechargeInterval = 1f,
+                baseMaxStock = 5,
+                baseRechargeInterval = 4f,
                 beginSkillCooldownOnSkillEnd = false,
                 canceledFromSprinting = false,
                 forceSprintDuringState = true,

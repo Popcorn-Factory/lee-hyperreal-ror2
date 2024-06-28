@@ -290,6 +290,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         protected void SetNextState()
         {
             // Move to Primary5
+            if (!base.isGrounded)
+            {
+                if (domainController && domainController.GetDomainState())
+                {
+                    base.outer.SetState(new PrimaryDomainAerialStart { });
+                    return;
+                }
+
+                base.outer.SetState(new PrimaryAerialStart { });
+                return;
+            }
 
             base.outer.SetState(new Primary5 { });
         }
