@@ -8,6 +8,7 @@ namespace LeeHyperrealMod.Content.Controllers
         Animator animator;
         ChildLocator childLocator;
         Transform bornPackTransform;
+        Transform baseTransform;
         int selectedNum;
         bool playedSound;
 
@@ -17,6 +18,7 @@ namespace LeeHyperrealMod.Content.Controllers
             childLocator = GetComponent<ChildLocator>();
 
             bornPackTransform = childLocator.FindChild("LeeBornAnimPack");
+            baseTransform = childLocator.FindChild("BaseTransform"); 
 
             selectedNum = GenerateRandomNum();
             SetDisableClone();
@@ -35,11 +37,11 @@ namespace LeeHyperrealMod.Content.Controllers
                 {
                     if (i != selectedNum - 1)
                     {
-                        bornPackTransform.GetChild(selectedNum - 1).gameObject.SetActive(true);
+                        bornPackTransform.GetChild(i).gameObject.SetActive(true);
                     }
                     else
                     {
-                        bornPackTransform.GetChild(selectedNum - 1).gameObject.SetActive(false);
+                        bornPackTransform.GetChild(i).gameObject.SetActive(false);
                     }
                 }
             }
@@ -55,7 +57,6 @@ namespace LeeHyperrealMod.Content.Controllers
         public int GenerateRandomNum() 
         {
             int chosen = UnityEngine.Random.Range(1, 5);// 1 to 4 bruh
-
             return chosen;
         }
 
@@ -75,6 +76,12 @@ namespace LeeHyperrealMod.Content.Controllers
                 else 
                 {
                     Util.PlaySound("Play_Lee_Intro_Voice_JP", this.gameObject);
+                }
+
+                //Always play the effect on spawn, start the effect 2 on spawn 2.
+                if (selectedNum == 2) 
+                {
+                    UnityEngine.Object.Instantiate(Modules.ParticleAssets.displayLandingEffect, baseTransform.position, Quaternion.identity, baseTransform);
                 }
             }
         }

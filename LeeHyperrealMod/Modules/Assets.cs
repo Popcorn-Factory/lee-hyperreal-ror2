@@ -151,7 +151,7 @@ namespace LeeHyperrealMod.Modules
             {
                 if (i) 
                 {
-                    if (!i.gameObject.transform.parent.gameObject.name.Contains("Clone"))
+                    if (!i.gameObject.transform.parent.gameObject.name.Contains("Clone") && !i.gameObject.transform.parent.gameObject.name.Contains("xuanzhuan"))
                     {
                         i?.material?.SetHopooMaterial();
                     }

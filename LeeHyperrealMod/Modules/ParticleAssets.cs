@@ -112,6 +112,10 @@ namespace LeeHyperrealMod.Modules
         public static GameObject ultPreExplosionProjectile;
         #endregion
 
+        #region Display particles
+        public static GameObject displayLandingEffect;
+        #endregion
+
         public struct LightIntensityProps 
         {
             public float timeMax;
@@ -237,6 +241,16 @@ namespace LeeHyperrealMod.Modules
             #region Ultimate Non-domain
             PopulateUltimateAssets();
             #endregion
+
+            #region Display Particles
+            PopulateDisplayParticleAssets();
+            #endregion
+        }
+
+        private static void PopulateDisplayParticleAssets()
+        {
+            displayLandingEffect = GetGameObjectFromBundle("fxr4liangborn1");
+            displayLandingEffect.AddComponent<DestroyOnTimer>().duration = 5f;
         }
 
         private static void PopulateUltimateAssets()
