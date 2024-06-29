@@ -47,6 +47,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             orbController = gameObject.GetComponent<OrbController>();
             domainController = gameObject.GetComponent<LeeHyperrealDomainController>();
 
+            base.characterMotor.velocity = new Vector3(0, 0, 0);
+            base.characterDirection.moveVector = new Vector3(0, 0, 0);
+
             base.characterBody.isSprinting = false;
             base.OnEnter();
             //Enter the snipe stance, move to IdleSnipe
@@ -134,6 +137,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public override void Update()
         {
             base.Update();
+
+            base.characterMotor.velocity = new Vector3(0, 0, 0);
+            base.characterDirection.moveVector = new Vector3(0, 0, 0);
+
+
             if (base.inputBank.skill4.down && base.isAuthority)
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);

@@ -71,6 +71,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             base.OnExit();
         }
 
+        public override void Update()
+        {
+            base.Update();
+            if (base.isAuthority && isGrounded)
+            {
+                //Send instantly to end state
+                base.outer.SetState(new PrimaryAerialSlam { });
+                return;
+            }
+        }
+
         public override void FixedUpdate()
         {
             base.FixedUpdate();
