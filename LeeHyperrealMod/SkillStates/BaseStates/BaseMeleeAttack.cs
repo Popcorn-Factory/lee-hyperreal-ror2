@@ -324,9 +324,12 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                         this.attack.hitBoxGroup = hitBoxGroup;
                         this.attack.isCrit = base.RollCrit();
                         this.attack.impactSound = this.impactSound;
-                        if (this.attack.Fire())
+                        if (this.attack != null) 
                         {
-                            this.OnHitEnemyAuthority();
+                            if (this.attack.Fire())
+                            {
+                                this.OnHitEnemyAuthority();
+                            }
                         }
                     }
                     if (partialAttack > 0.0f) 
@@ -345,9 +348,12 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                         this.attack.hitBoxGroup = hitBoxGroup;
                         this.attack.isCrit = base.RollCrit();
                         this.attack.impactSound = this.impactSound;
-                        if (this.attack.Fire())
+                        if (this.attack != null)
                         {
-                            this.OnHitEnemyAuthority();
+                            if (this.attack.Fire())
+                            {
+                                this.OnHitEnemyAuthority();
+                            }
                         }
                     }
                 }

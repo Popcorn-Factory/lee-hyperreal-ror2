@@ -46,6 +46,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             bulletController = gameObject.GetComponent<BulletController>();
             orbController = gameObject.GetComponent<OrbController>();
             domainController = gameObject.GetComponent<LeeHyperrealDomainController>();
+
             base.characterBody.isSprinting = false;
             base.OnEnter();
             //Enter the snipe stance, move to IdleSnipe

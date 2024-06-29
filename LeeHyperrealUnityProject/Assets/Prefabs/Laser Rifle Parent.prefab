@@ -23,14 +23,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182094731903068036}
-  m_LocalRotation: {x: 0.00017246048, y: -0.0000013108876, z: 0.00000065561335, w: 1}
+  m_LocalRotation: {x: 0.00017452026, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.2420688, y: 1.3941722, z: -0.03899485}
   m_LocalScale: {x: 1.2500002, y: 1.2499999, z: 1.25}
   m_Children:
   - {fileID: 8216393537673118333}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.020000001, y: 0, z: 0}
 --- !u!1 &8216393536613596831
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,9 +133,9 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 0.010215605, b: 0, a: 1}
-      key1: {r: 0, g: 0.94070315, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 0, g: 0.23313046, b: 1, a: 1}
+      key2: {r: 0, g: 0.94070315, b: 1, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -143,7 +143,7 @@ LineRenderer:
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
       ctime1: 65535
-      ctime2: 0
+      ctime2: 65535
       ctime3: 0
       ctime4: 0
       ctime5: 0

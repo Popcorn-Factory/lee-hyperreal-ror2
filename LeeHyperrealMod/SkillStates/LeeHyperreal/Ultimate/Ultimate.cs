@@ -191,7 +191,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
             GetModelAnimator().SetBool("isUltimate", false);
             PlayAnimation("Body", "BufferEmpty");
-            weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
+            if (weaponModelHandler.GetState() != WeaponModelHandler.WeaponState.SUBMACHINE) 
+            {
+                weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
+            }
         }
 
         public override void Update()

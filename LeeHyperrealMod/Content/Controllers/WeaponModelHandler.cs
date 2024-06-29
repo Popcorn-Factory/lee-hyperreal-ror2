@@ -24,6 +24,7 @@ namespace LeeHyperrealMod.Content.Controllers
         private GameObject supercannonModel;
 
         private ParticleSystem rifleFlashEffect;
+        private GameObject rifleLaser;
         private ParticleSystem boxFlashEffect;
 
         private Animator superCannonAnimator;
@@ -56,10 +57,11 @@ namespace LeeHyperrealMod.Content.Controllers
                 superCannonEffect = childLocator.FindChild("CannonEffect").gameObject;
                 rifleFlashEffect = childLocator.FindChild("RifleFlashEffect").gameObject.GetComponent<ParticleSystem>();
                 boxFlashEffect = childLocator.FindChild("BoxFlashEffect").gameObject.GetComponent<ParticleSystem>();
+                rifleLaser = childLocator.FindChild("RifleLaser").gameObject;
             }
 
             superCannonEffect.gameObject.SetActive(false);
-
+            SetLaserState(false);
             TransitionState(WeaponState.SUBMACHINE);
         }
 
@@ -91,6 +93,19 @@ namespace LeeHyperrealMod.Content.Controllers
                 isCannonEnabled = true;
                 disableCannonEffectTimer = 0f;
             }
+        }
+
+        public void SetLaserState(bool state) 
+        {
+            if (rifleLaser) 
+            {
+                rifleLaser.SetActive(state);
+            }
+        }
+
+        public WeaponState GetState() 
+        {
+            return state;
         }
 
         public void TransitionState(WeaponState newState)

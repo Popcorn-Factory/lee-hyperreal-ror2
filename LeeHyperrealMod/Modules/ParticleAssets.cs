@@ -70,6 +70,7 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Snipe
+        public static GameObject SnipeStart;
         public static GameObject Snipe;
         public static GameObject snipeHit;
         public static GameObject snipeGround;
@@ -328,6 +329,9 @@ namespace LeeHyperrealMod.Modules
 
         private static void PopulateSnipeAssets()
         {
+            SnipeStart = GetGameObjectFromBundle("fxr4liangatk23");
+            SnipeStart = ModifyEffect(SnipeStart, "", true);
+
             Snipe = GetGameObjectFromBundle("fxr4liangatk24");
             AddLightIntensityCurveWithCurve(
                 Snipe.transform.GetChild(0).GetChild(1).gameObject,

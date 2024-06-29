@@ -19,6 +19,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public float earlyExitFrac = 0.28f;
         Vector3 velocity;
         GameObject platform;
+        public string muzzleString = "BaseTransform";
 
         public override void OnEnter()
         {
@@ -51,6 +52,38 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             }
 
             Util.PlaySound("Play_c_liRk4_atk_ex_3_xuli", base.gameObject);
+            PlaySwingEffect(1.25f, Modules.ParticleAssets.SnipeStart, true);
+        }
+
+        protected virtual void PlaySwingEffect(float scale, GameObject effectPrefab, bool aimRot = true)
+        {
+            ModelLocator component = gameObject.GetComponent<ModelLocator>();
+            if (component && component.modelTransform)
+            {
+                ChildLocator component2 = component.modelTransform.GetComponent<ChildLocator>();
+                if (component2)
+                {
+                    int childIndex = component2.FindChildIndex(muzzleString);
+                    Transform transform = component2.FindChild(childIndex);
+                    if (transform)
+                    {
+                        Vector3 aimRotation = GetAimRay().direction;
+                        EffectData effectData = new EffectData
+                        {
+                            origin = transform.position,
+                            scale = scale,
+                            rotation = Quaternion.LookRotation(new Vector3(aimRotation.x, 0f, aimRotation.z), Vector3.up),
+                        };
+                        if (aimRot)
+                        {
+                            effectData.rotation = Quaternion.LookRotation(GetAimRay().direction, Vector3.up);
+                        }
+                        //effectData.SetChildLocatorTransformReference(gameObject, childIndex);
+                        EffectManager.SpawnEffect(effectPrefab, effectData, true);
+                    }
+                }
+            }
+            //EffectManager.SimpleMuzzleFlash(this.swingEffectPrefab, base.gameObject, this.muzzleString, true);
         }
 
         public override void OnExit()

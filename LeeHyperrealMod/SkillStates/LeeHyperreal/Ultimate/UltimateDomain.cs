@@ -170,8 +170,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
                     //Chat.AddMessage("freeze enemy");
                     new SetFreezeOnBodyRequest(singularTarget.healthComponent.body.masterObjectId, StaticValues.ultimateDomainDuration).Send(NetworkDestination.Clients);
-
-
                 }
             }
         }

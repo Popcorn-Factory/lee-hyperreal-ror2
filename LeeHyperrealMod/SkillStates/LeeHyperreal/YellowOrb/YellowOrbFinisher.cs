@@ -173,9 +173,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             }
         }
 
+        protected override void SetNextState()
+        {
+            return;
+        }
 
-
-        public void OnHitEnemyAuthority()
+        protected override void OnHitEnemyAuthority()
         {
             //Do something on hit.
         }

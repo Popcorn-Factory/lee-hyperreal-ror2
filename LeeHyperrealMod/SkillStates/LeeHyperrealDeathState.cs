@@ -20,6 +20,11 @@ namespace LeeHyperrealMod.SkillStates
             base.OnEnter();
 
             base.PlayAnimation("Death", "FullBody, Override", "attack.playbackRate", duration);
+
+            if (!isGrounded) 
+            {
+                TriggerRagdoll(true);
+            }
         }
 
         public override bool shouldAutoDestroy
@@ -30,7 +35,7 @@ namespace LeeHyperrealMod.SkillStates
             }
         }
 
-        public void TriggerRagdoll()
+        public void TriggerRagdoll(bool useForce)
         {
             triggeredRagdoll = true;
             Vector3 vector = Vector3.up * 3f;
@@ -41,10 +46,10 @@ namespace LeeHyperrealMod.SkillStates
             }
             if (base.cachedModelTransform)
             {
-                RagdollController component = base.cachedModelTransform.GetComponent<RagdollController>();
-                if (component)
+                RagdollController ragdollController = base.cachedModelTransform.GetComponent<RagdollController>();
+                if (ragdollController)
                 {
-                    component.BeginRagdoll(Vector3.zero);
+                    ragdollController.BeginRagdoll(useForce ? vector : Vector3.zero);
                 }
             }
         }
@@ -54,14 +59,17 @@ namespace LeeHyperrealMod.SkillStates
             base.FixedUpdate();
             if (base.fixedAge > duration * triggerRagdollFrac)
             {
-                TriggerRagdoll();
+                if (!triggeredRagdoll) 
+                {
+                    TriggerRagdoll(false);
+                }
             }
 
             if (base.fixedAge > duration) 
             {
                 if (!triggeredRagdoll) 
                 {
-                    TriggerRagdoll();
+                    TriggerRagdoll(false);
                 }
             }
 

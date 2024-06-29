@@ -177,6 +177,7 @@ namespace LeeHyperrealMod.Content.Controllers
                     handle = cameraTargetParams.AddParamsOverride(request, 0.4f);
                 }
                 weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.RIFLE);
+                weaponModelHandler.SetLaserState(true);
 
                 if (animator) 
                 {
@@ -203,6 +204,7 @@ namespace LeeHyperrealMod.Content.Controllers
                     cameraTargetParams.RemoveParamsOverride(handle);
                 }
                 weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
+                weaponModelHandler.SetLaserState(false);
 
                 if (animator)
                 {

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2096706119
+CRC: 4149555037
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 98f55057359c1f654bcf32cdde1c971f
+    Hash: 834a9606b3e9e883bd628cbb6e64ca1a
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 12abee253e26275dccd006bb8e541544
+    Hash: 9c447348be229a859cd59b50a17758f9
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -26,6 +26,10 @@ ClassTypes:
 - Class: 43
   Script: {instanceID: 0}
 - Class: 48
+  Script: {instanceID: 0}
+- Class: 54
+  Script: {instanceID: 0}
+- Class: 65
   Script: {instanceID: 0}
 - Class: 74
   Script: {instanceID: 0}
@@ -79,9 +83,13 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 128
   Script: {instanceID: 0}
+- Class: 135
+  Script: {instanceID: 0}
 - Class: 136
   Script: {instanceID: 0}
 - Class: 137
+  Script: {instanceID: 0}
+- Class: 144
   Script: {instanceID: 0}
 - Class: 198
   Script: {instanceID: 0}
@@ -154,6 +162,7 @@ Assets:
 - Assets/LeeHyperrealAssets/Material/CloneMaterials/cloneBody.mat
 - Assets/modelresource/effect/prefab/fxr4liangprefab/material/fxr4liang010011md798.mat
 - Assets/Prefabs/Snipe Floor.prefab
+- Assets/modelresource/effect/prefab/fxr4liangprefab/material/fxr4liang010011mdchunse707-1.mat
 - Assets/modelresource/effect/texture/wenli510.png
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack36_Base
   Layer.anim
@@ -1485,7 +1494,7 @@ Assets:
 - Assets/LeeHyperrealAssets/AnimationCurves/fxr4liangatk42fire-spjere.asset
 - Assets/LeeHyperrealAssets/Animation/BodyAnimsBlend/Unrenamed_Originals Left/Armature_Armature_Attack74_Base
   Layer.anim
-- Assets/LeeHyperrealAssets/ShaderVariants/leeShadervariants.shadervariants
+- Assets/LeeHyperrealAssets/ShaderVariants/leeShaderVariants.shadervariants
 - Assets/modelresource/effect/texture/smoke004.png
 - Assets/modelresource/dummyshader/xcharacter_character##e1b23e1944c337fbdeca7102648dd40cf251a211/xcharacter-character-variant.asset
 - Assets/modelresource/effect/gpuparticles/fxr4kalieninagpu/fxr4kalieninaatk03dilie2gpu/6.asset

@@ -140,6 +140,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             if (age >= duration * earlyEnd && base.isAuthority)
             {
+                //Check any move to cancel into.
+                Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
+
                 if (!hasPlayedBulletCasingSFX) 
                 {
                     hasPlayedBulletCasingSFX = true;

@@ -51,6 +51,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         Vector3 OriginalPosition;
 
+        float transitionWeaponFrac = 0.35f;
+        bool hasTransitioned = false;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -164,6 +167,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             }
 
             weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.RIFLE);
+            weaponModelHandler.SetLaserState(true);
         }
 
         protected void PlayAttackAnimation()
@@ -186,7 +190,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             PlayAnimation("Body", "BufferEmpty");
             base.OnExit();
 
-            weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
+            if (weaponModelHandler.GetState() != WeaponModelHandler.WeaponState.SUBMACHINE) 
+            {
+                weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
+                weaponModelHandler.SetLaserState(false);
+            }
         }
 
         public override void Update()
@@ -215,6 +223,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             }
 
             base.Update();
+
+            if (base.age >= duration * transitionWeaponFrac && !hasTransitioned) 
+            {
+                hasTransitioned = true;
+                weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
+                weaponModelHandler.SetLaserState(false);
+            }
 
             if (base.inputBank.skill1.down && base.isAuthority && base.age <= duration * disallowTransition)
             {

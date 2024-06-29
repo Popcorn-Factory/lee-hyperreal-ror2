@@ -21,14 +21,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
         Vector3 velocity;
 
-
-
-
         public override void OnEnter()
         {
             base.OnEnter();
             uiController = gameObject.GetComponent<LeeHyperrealUIController>();
             bulletController = gameObject.GetComponent<BulletController>();
+
             base.characterBody.isSprinting = false;
             //Enter the snipe stance, move to IdleSnipe
             animator = this.GetModelAnimator();
