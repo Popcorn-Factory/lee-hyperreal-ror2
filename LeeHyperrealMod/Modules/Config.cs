@@ -142,7 +142,7 @@ namespace LeeHyperrealMod.Modules
             voiceVolume = LeeHyperrealPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("04 - Voice", "Voiceline volume"),
-                100f,
+                50f,
                 new ConfigDescription("Determines the volume of voice lines")
             );
 
