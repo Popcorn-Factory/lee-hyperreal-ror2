@@ -29768,6 +29768,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7440147491345895717, guid: d5450be515eb02e43aa8a448ab462c67,
         type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7440147491345895717, guid: d5450be515eb02e43aa8a448ab462c67,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.05882353
+      objectReference: {fileID: 0}
+    - target: {fileID: 7440147491345895717, guid: d5450be515eb02e43aa8a448ab462c67,
+        type: 3}
       propertyPath: VelocityModule.orbitalX.minMaxState
       value: 2
       objectReference: {fileID: 0}
