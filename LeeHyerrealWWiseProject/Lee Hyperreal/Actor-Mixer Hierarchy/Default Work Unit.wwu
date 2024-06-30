@@ -2955,6 +2955,30 @@
 										</PointList>
 									</Curve>
 								</RTPC>
+								<RTPC Name="" ID="{423127E2-AA43-4D92-B15F-1057C4CA3080}" ShortID="689374416">
+									<ReferenceList>
+										<Reference Name="ControlInput">
+											<ObjectRef Name="Volume_SFX" ID="{53CAC302-8159-435B-B9E8-E4869EAC3995}" WorkUnitID="{6295A856-9B33-4897-94CD-E7B7C423ADF4}"/>
+										</Reference>
+									</ReferenceList>
+									<Curve Name="" ID="{08CA9C71-F7B7-4482-80EF-34864FB1EA62}">
+										<PropertyList>
+											<Property Name="Flags" Type="int32" Value="3"/>
+										</PropertyList>
+										<PointList>
+											<Point>
+												<XPos>0</XPos>
+												<YPos>-200</YPos>
+												<Flags>5</Flags>
+											</Point>
+											<Point>
+												<XPos>100</XPos>
+												<YPos>0</YPos>
+												<Flags>37</Flags>
+											</Point>
+										</PointList>
+									</Curve>
+								</RTPC>
 							</RTPCList>
 						</Property>
 					</PropertyList>
