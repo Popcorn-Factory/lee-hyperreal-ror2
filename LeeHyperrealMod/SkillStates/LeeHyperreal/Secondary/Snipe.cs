@@ -179,6 +179,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     PlaySwingEffect(1.25f, Modules.ParticleAssets.snipeGround, false);
                 }
                 PlaySwingEffect(1.25f, Modules.ParticleAssets.Snipe);
+                PlaySwingEffect(1.25f, Modules.ParticleAssets.snipeBulletCasing);
 
                 base.AddRecoil(-1f * Shoot.recoil, -2f * Shoot.recoil, -0.5f * Shoot.recoil, 0.5f * Shoot.recoil);
 

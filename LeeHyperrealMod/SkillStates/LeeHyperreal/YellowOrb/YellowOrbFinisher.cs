@@ -55,11 +55,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
 
             enableParry = true;
-            parryLength = 0.5f;
-            parryTiming = 0.05f;
-            parryPauseLength = 0.2f;
-            parryProjectileTiming = 0.04f;
-            parryProjectileTimingEnd = 0.08f;
+            parryLength = Modules.StaticValues.yellowOrbFinisherParryLength;
+            parryTiming = Modules.StaticValues.yellowOrbFinisherParryTiming;
+            parryPauseLength = Modules.StaticValues.yellowOrbFinisherParryPauseLength;
+            parryProjectileTiming = Modules.StaticValues.yellowOrbFinisherParryProjectileTimingStart;
+            parryProjectileTimingEnd = Modules.StaticValues.yellowOrbFinisherParryProjectileTimingEnd;
 
             base.OnEnter();
 

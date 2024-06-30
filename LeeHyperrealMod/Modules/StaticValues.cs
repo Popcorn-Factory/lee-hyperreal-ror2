@@ -21,6 +21,11 @@ namespace LeeHyperrealMod.Modules
         internal const float primary1ProcCoefficient = 1f;
         internal const float primary1PushForce = 300f;
         internal const float primary1HitHopVelocity = 4f;
+        internal const float primary1ParryLength = 0.1f; //How long the parry window is openf or
+        internal const float primary1ParryTiming = 0.05f; // A percentage of the duration in which the parry starts
+        internal const float primary1ParryPauseLength = 0.2f; // How long YOU are stuck in hit pause when a parry is triggered
+        internal const float primary1ParryProjectileTimingStart = 0.03f; // Percentage of the duration of the move where a projectile parry can be triggered
+        internal const float primary1ParryProjectileTimingEnd = 0.07f; // Percentage of the duration of the move when a projectile parry can be triggered. In this case it's ranging from duration * start to duration * end, this value should never be higher than 1f
         #endregion
 
         #region Primary 2
@@ -35,6 +40,11 @@ namespace LeeHyperrealMod.Modules
         internal const float primary3ProcCoefficient = 1f;
         internal const float primary3PushForce = 300f;
         internal const float primary3HitHopVelocity = 4f;
+        internal const float primary3ParryLength = 0.3f; //How long the parry window is openf or
+        internal const float primary3ParryTiming = 0.08f; // A percentage of the duration in which the parry starts
+        internal const float primary3ParryPauseLength = 0.2f; // How long YOU are stuck in hit pause when a parry is triggered
+        internal const float primary3ParryProjectileTimingStart = 0.05f; // Percentage of the duration of the move where a projectile parry can be triggered
+        internal const float primary3ParryProjectileTimingEnd = 0.1f; // Percentage of the duration of the move when a projectile parry can be triggered. In this case it's ranging from 5% to 10% of the move, this value should never be higher than 1f
         #endregion
 
         #region Primary 4
@@ -67,7 +77,10 @@ namespace LeeHyperrealMod.Modules
         internal const float bigParryFreezeRadius = 20f;
         internal const float bigParryFreezeDuration = 1.5f;
         internal const float bigParryHealthFrac = 0.2f;
-        internal const float parryProjectileRadius = 10f;
+        internal const float parryProjectileRadius = 5f;
+        internal const float parryProjectileDamageMultiplier = 10f;
+        internal const int enhancedBulletGrantOnProjectileParry = 1;
+        internal const int enhancedBulletGrantOnDamageParry = 1;
         #endregion
 
         #region Orb Controller Values
@@ -108,8 +121,13 @@ namespace LeeHyperrealMod.Modules
         internal const float yellowOrbDomainBlastForce = 1000f;
         internal const float yellowOrbDomainBlastRadius = 20f;
         internal const int yellowOrbDomainFireCount = 6;
-        #endregion
 
+        internal const float yellowOrbFinisherParryLength = 0.5f; //How long the parry window is openf or
+        internal const float yellowOrbFinisherParryTiming = 0.05f; // A percentage of the duration in which the parry starts
+        internal const float yellowOrbFinisherParryPauseLength = 0.2f; // How long YOU are stuck in hit pause when a parry is triggered
+        internal const float yellowOrbFinisherParryProjectileTimingStart = 0.04f; // Percentage of the duration of the move where a projectile parry can be triggered
+        internal const float yellowOrbFinisherParryProjectileTimingEnd = 0.08f; // Percentage of the duration of the move when a projectile parry can be triggered. In this case it's ranging from 5% to 10% of the move, this value should never be higher than 1f
+        #endregion
 
         #region Red Orb
         internal const float redOrbDamageCoefficient = 2f;

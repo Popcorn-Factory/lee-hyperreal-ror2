@@ -167,6 +167,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                     queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
                     hitEffectPrefab = Modules.ParticleAssets.snipeHit,
                 }.Fire();
+
+                //characterBody.SetAimTimer(duration + 1f);
+                if (!bulletController.snipeAerialPlatform && !isGrounded)
+                {
+                    ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
+                    Transform baseTransform = childLocator.FindChild("BaseTransform");
+                    bulletController.snipeAerialPlatform = UnityEngine.Object.Instantiate(Modules.ParticleAssets.snipeAerialFloor, baseTransform.position, Quaternion.identity);
+                }
             }
 
             if (age >= duration * earlyExitFrac && isAuthority)

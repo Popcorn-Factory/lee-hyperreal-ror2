@@ -72,11 +72,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.impactSound = Modules.Assets.swordHitSoundEvent.index;
 
             enableParry = true;
-            parryLength = 0.3f;
-            parryTiming = 0.08f;
-            parryPauseLength = 0.2f;
-            parryProjectileTiming = 0.05f;
-            parryProjectileTimingEnd = 0.1f;
+            parryLength = Modules.StaticValues.primary3ParryLength;
+            parryTiming = Modules.StaticValues.primary3ParryTiming;
+            parryPauseLength = Modules.StaticValues.primary3ParryPauseLength;
+            parryProjectileTiming = Modules.StaticValues.primary3ParryProjectileTimingStart;
+            parryProjectileTimingEnd = Modules.StaticValues.primary3ParryProjectileTimingEnd;
 
             base.OnEnter();
             InitMeleeRootMotion();

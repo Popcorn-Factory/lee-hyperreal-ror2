@@ -146,17 +146,15 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                     {
                         Ray aimRay = base.GetAimRay();
 
-                        Vector3 aimSpot = (aimRay.origin + 100 * aimRay.direction) - pc.gameObject.transform.position;
-
                         pc.owner = gameObject;
 
                         FireProjectileInfo info = new FireProjectileInfo()
                         {
                             projectilePrefab = pc.gameObject,
                             position = pc.gameObject.transform.position,
-                            rotation = base.characterBody.transform.rotation * Quaternion.FromToRotation(new Vector3(0, 0, 1), aimSpot),
+                            rotation = Util.QuaternionSafeLookRotation(aimRay.direction),
                             owner = base.characterBody.gameObject,
-                            damage = base.characterBody.damage * 10f,
+                            damage = base.characterBody.damage * Modules.StaticValues.parryProjectileDamageMultiplier,
                             force = 200f,
                             crit = base.RollCrit(),
                             damageColorIndex = DamageColorIndex.Default,
@@ -165,8 +163,6 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                             fuseOverride = -1f
                         };
                         ProjectileManager.instance.FireProjectile(info);
-
-                        //Util.PlayAttackSpeedSound(Sounds.BashDeflect, EnforcerPlugin.VRAPICompat.IsLocalVRPlayer(characterBody) ? EnforcerPlugin.VRAPICompat.GetShieldMuzzleObject() : gameObject, UnityEngine.Random.Range(0.9f, 1.1f));
 
                         new PlaySoundNetworkRequest(characterBody.netId, "Play_Normal_parry").Send(NetworkDestination.Clients);
                         EffectManager.SpawnEffect(Modules.ParticleAssets.normalParry,
@@ -178,6 +174,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                             },
                             true);
 
+                        bulletController.GrantEnhancedBullet(Modules.StaticValues.enhancedBulletGrantOnProjectileParry);
                         Destroy(pc.gameObject);
                     }
                 }
@@ -289,8 +286,6 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                         //stop time for all enemies within this radius
 
                         new SetFreezeOnBodyRequest(singularTarget.healthComponent.body.masterObjectId, StaticValues.bigParryFreezeDuration).Send(NetworkDestination.Clients);
-
-
                     }
                 }
             }
@@ -437,7 +432,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                             true);
                     }
 
-                    bulletController.GrantEnhancedBullet(1);
+                    bulletController.GrantEnhancedBullet(Modules.StaticValues.enhancedBulletGrantOnDamageParry);
                 }
             }
 

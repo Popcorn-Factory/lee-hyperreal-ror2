@@ -251,7 +251,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
             // Lock player into animation for a sizeable section of the skill
             if (base.age >= duration * 0.41f)
             {
-                return InterruptPriority.Death;
+                return InterruptPriority.Frozen;
             }
             else 
             {
