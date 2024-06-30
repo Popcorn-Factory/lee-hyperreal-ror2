@@ -326,8 +326,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
             EffectData effectData = new EffectData
             {
-                origin = muzzlePos.position,
-                start = muzzlePos.position,
+                origin = muzzlePos.position + Vector3.down * 2f,
                 rotation = Quaternion.LookRotation((OriginalPosition - muzzlePos.position).normalized, Vector3.up),
             };
             EffectManager.SpawnEffect(Modules.ParticleAssets.blueOrbShot, effectData, true);

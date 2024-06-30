@@ -265,7 +265,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 activationState = new EntityStates.SerializableEntityStateType(typeof(Evade)),
                 activationStateMachineName = "Body",
                 baseMaxStock = 5,
-                baseRechargeInterval = 4f,
+                baseRechargeInterval = 3f,
                 beginSkillCooldownOnSkillEnd = false,
                 canceledFromSprinting = false,
                 forceSprintDuringState = true,

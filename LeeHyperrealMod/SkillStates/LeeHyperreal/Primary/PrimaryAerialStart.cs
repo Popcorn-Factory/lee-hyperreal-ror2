@@ -85,6 +85,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+            if (base.isAuthority && isGrounded)
+            {
+                //Send instantly to end state
+                base.outer.SetState(new PrimaryAerialSlam { });
+                return;
+            }
             if (fixedAge >= duration * ungroundFrac) 
             {
                 base.characterMotor.Motor.ForceUnground();
@@ -94,13 +100,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             {
                 //Send to loop state.
                 base.outer.SetState(new PrimaryAerialLoop { });
-                return;
-            }
-
-            if (base.isAuthority && isGrounded) 
-            {
-                //Send instantly to end state
-                base.outer.SetState(new PrimaryAerialSlam { });
                 return;
             }
         }

@@ -74,6 +74,7 @@ namespace LeeHyperrealMod.Modules
         public static GameObject Snipe;
         public static GameObject snipeHit;
         public static GameObject snipeGround;
+        public static GameObject snipeBulletCasing;
         public static GameObject snipeDodge;
         public static GameObject snipeAerialFloor;
         #endregion
@@ -367,7 +368,7 @@ namespace LeeHyperrealMod.Modules
                 "fxr4liangatk24-lightSC2"
                 );
 
-            Snipe = ModifyEffect(Snipe, "Play_c_liRk4_atk_ex_3", true, 0.6f, VFXAttributes.VFXPriority.Medium);
+            Snipe = ModifyEffect(Snipe, "Play_c_liRk4_atk_ex_3", true, 1f, VFXAttributes.VFXPriority.Medium);
 
             snipeHit = GetGameObjectFromBundle("fxr4liangatk24hit");
             AddLightIntensityCurveWithCurve(
@@ -396,6 +397,9 @@ namespace LeeHyperrealMod.Modules
 
             snipeGround = GetGameObjectFromBundle("fxr4liangatk24ground");
             snipeGround = ModifyEffect(snipeGround, "", true);
+
+            snipeBulletCasing = GetGameObjectFromBundle("fxr4liangatk24bulletcasing");
+            snipeBulletCasing = ModifyEffect(snipeBulletCasing, "", true, 2f, VFXAttributes.VFXPriority.Low);
 
             snipeDodge = GetGameObjectFromBundle("fxr4liangatk28");
             snipeDodge = ModifyEffect(snipeDodge, "", true);
