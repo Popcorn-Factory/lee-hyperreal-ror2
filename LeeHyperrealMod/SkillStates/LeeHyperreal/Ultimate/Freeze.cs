@@ -126,7 +126,7 @@ namespace LeeHyperrealMod.SkillStates
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.Death;
+            return InterruptPriority.Frozen;
         }
 
         public override void OnSerialize(NetworkWriter writer)
