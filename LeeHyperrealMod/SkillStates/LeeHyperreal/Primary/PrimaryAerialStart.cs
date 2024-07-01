@@ -1,9 +1,11 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.SkillStates.BaseStates;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift;
 using RoR2;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using UnityEngine;
 
@@ -12,10 +14,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
     internal class PrimaryAerialStart : BaseRootMotionMoverState
     {
         LeeHyperrealDomainController domainController;
-        private bool isDomain;
         private float duration = 0.8f;
 
         private float ungroundFrac = 0.33f;
+
+        public static float heldButtonThreshold = 0.4f;
+        public bool ifButtonLifted = false;
 
         public override void OnEnter()
         {
@@ -23,14 +27,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             //Play animation for going straight down. There will be a switch to change to domain variant in this state.
             //There are no attacks on this until you hit the ground.
             domainController = gameObject.GetComponent<LeeHyperrealDomainController>();
-
-            isDomain = domainController.GetDomainState();
-
-            if (isDomain && base.isAuthority)
-            {
-                //Lead to new state
-
-            }
 
             //Continue with straight down attack
             base.PlayAnimation("Body", "Midair Attack Start", "attack.playbackRate", duration);
@@ -74,6 +70,19 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void Update()
         {
             base.Update();
+
+            if (!base.inputBank.skill1.down && base.isAuthority)
+            {
+                ifButtonLifted = true;
+            }
+                
+            if (!ifButtonLifted && base.isAuthority && base.age >= duration * heldButtonThreshold && domainController.DomainEntryAllowed())
+            {
+                //Cancel out into Domain shift skill state
+                base.outer.SetState(new DomainEnterState { shouldForceUpwards = true });
+                return;
+            }
+
             if (base.isAuthority && isGrounded)
             {
                 //Send instantly to end state

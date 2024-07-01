@@ -598,8 +598,6 @@ GameObject:
   - component: {fileID: 8222862191769063486}
   - component: {fileID: 1628879708498556016}
   - component: {fileID: 4672362839826166618}
-  - component: {fileID: 7212086853259150901}
-  - component: {fileID: 2218304622442073581}
   m_Layer: 17
   m_Name: Bip001Head
   m_TagString: Untagged
@@ -743,84 +741,6 @@ CharacterJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &7212086853259150901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 414308320843613913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a68da65c907acb4eb4dbcd042f172e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Root: {fileID: 414308320843613914}
-  m_UpdateRate: 60
-  m_UpdateMode: 0
-  m_Damping: 0.8
-  m_DampingDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_Elasticity: 0.837
-  m_ElasticityDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_Stiffness: 0.716
-  m_StiffnessDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_Inert: 0
-  m_InertDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_Radius: 0.002
-  m_RadiusDistrib:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  m_EndLength: 0
-  m_EndOffset: {x: 0, y: 0, z: 0}
-  m_Gravity: {x: 0, y: 0, z: 0}
-  m_Force: {x: 0, y: 0, z: 0}
-  m_Colliders:
-  - {fileID: 2218304622442073581}
-  m_Exclusions: []
-  m_FreezeAxis: 0
-  m_DistantDisable: 0
-  m_ReferenceObject: {fileID: 0}
-  m_DistanceToObject: 20
---- !u!114 &2218304622442073581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 414308320843613913}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fc41cd48bee14034db80323ab44fbd3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Center: {x: -0.02, y: 0.07, z: 0}
-  m_Radius: 0.08
-  m_Height: 0
-  m_Direction: 0
-  m_Bound: 0
 --- !u!1 &414308320844206989
 GameObject:
   m_ObjectHideFlags: 0
@@ -2135,7 +2055,6 @@ MonoBehaviour:
   - {fileID: 414308322731812270}
   - {fileID: 414308321840283438}
   componentsToDisableOnRagdoll:
-  - {fileID: 7212086853259150901}
   - {fileID: 5291074941063251308}
   - {fileID: 7946662508156008445}
   - {fileID: 982442345127139651}

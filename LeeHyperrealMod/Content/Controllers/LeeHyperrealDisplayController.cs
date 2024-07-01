@@ -78,6 +78,8 @@ namespace LeeHyperrealMod.Content.Controllers
                     Util.PlaySound("Play_Lee_Intro_Voice_JP", this.gameObject);
                 }
 
+                Util.PlaySound("Play_c_liRk4_act_born", this.gameObject);
+
                 //Always play the effect on spawn, start the effect 2 on spawn 2.
                 if (selectedNum == 2) 
                 {

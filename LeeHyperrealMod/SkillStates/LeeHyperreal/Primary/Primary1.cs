@@ -134,6 +134,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             {
                 //Cancel out into Domain shift skill state
                 base.outer.SetState(new DomainEnterState { shouldForceUpwards = true }) ;
+                return;
             }
 
             base.Update();

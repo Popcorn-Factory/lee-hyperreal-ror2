@@ -313,10 +313,10 @@ namespace LeeHyperrealMod.Modules
         private static void PopulateDodgeAssets()
         {
             dodgeForwards = GetGameObjectFromBundle("fxr4liangmove01");
-            dodgeForwards = ModifyEffect(dodgeForwards, "", true);
+            dodgeForwards = ModifyEffect(dodgeForwards, "Play_c_liRk4_act_flash_1", true);
 
             dodgeBackwards = GetGameObjectFromBundle("fxr4liangmove02");
-            dodgeBackwards = ModifyEffect(dodgeBackwards, "", true);
+            dodgeBackwards = ModifyEffect(dodgeBackwards, "Play_c_liRk4_act_flash_2", true);
         }
 
         private static void PopulateParryAssets()
@@ -402,7 +402,7 @@ namespace LeeHyperrealMod.Modules
             snipeBulletCasing = ModifyEffect(snipeBulletCasing, "", true, 2f, VFXAttributes.VFXPriority.Low);
 
             snipeDodge = GetGameObjectFromBundle("fxr4liangatk28");
-            snipeDodge = ModifyEffect(snipeDodge, "", true);
+            snipeDodge = ModifyEffect(snipeDodge, "Play_c_liRk4_act_flash_3", true);
 
             snipeAerialFloor = GetGameObjectFromBundle("Snipe Floor");
             snipeAerialFloor.AddComponent<DestroyPlatformOnDelay>();

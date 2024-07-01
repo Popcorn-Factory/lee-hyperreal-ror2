@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using RoR2.Projectile;
 using UnityEngine.UIElements;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.Primary;
 
 namespace LeeHyperrealMod.SkillStates.BaseStates
 {
@@ -72,6 +73,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         internal float parryPauseLength = 0.75f;
         internal ParryMonitor parryMonitor;
         internal bool parryFreeze;
+        internal bool isInParryFreeze;
         internal Collider[] targetList;
 
         internal BulletController bulletController;
@@ -389,6 +391,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                 {
                     //Check the parry monitor, if at any time it's enabled trigger the pause.
                     //Consume value.
+                    isInParryFreeze = true;
                     parryMonitor.SetPauseTrigger(false);
                     //Trigger the hitpause.
 
@@ -396,7 +399,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                     {
                         parryMonitor.ShouldDoBigParry = false;
                         //Determine if it's big pause or not.
-                        TriggerHitPause(1.2f);
+                        TriggerHitPause(Modules.StaticValues.bigParryLeeFreezeDuration);
                         TriggerEnemyFreeze();
                         Vector3 position = base.gameObject.transform.position + (characterDirection.forward + Vector3.up * 1f) * 2f;
                         new PlaySoundNetworkRequest(characterBody.netId, "Play_Big_parry").Send(NetworkDestination.Clients);
@@ -440,6 +443,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             {
                 base.ConsumeHitStopCachedState(this.hitStopCachedState, base.characterMotor, this.animator);
                 this.inHitPause = false;
+                isInParryFreeze = false;
                 base.characterMotor.velocity = this.storedVelocity;
             }
 
@@ -465,10 +469,26 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             }
         }
 
+        public virtual void SetNextStateOnParry() 
+        {
+            this.outer.SetState(new Primary1{ });
+            return;
+        }
+
 
         public override void Update()
         {
             base.Update();
+
+            if (base.isAuthority && isInParryFreeze) 
+            {
+                if (base.inputBank.skill1.down && !base.inputBank.skill1.hasPressBeenClaimed) 
+                {
+                    base.inputBank.skill1.hasPressBeenClaimed = true;
+                    SetNextStateOnParry();
+                    return;
+                }
+            }
 
             if (base.inputBank.skill3.down && base.inputBank.skill4.down && base.isAuthority)
             {

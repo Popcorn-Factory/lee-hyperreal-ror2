@@ -76,6 +76,7 @@ namespace LeeHyperrealMod.Modules
         #region Parry Stuff
         internal const float bigParryFreezeRadius = 20f;
         internal const float bigParryFreezeDuration = 1.5f;
+        internal const float bigParryLeeFreezeDuration = 0.6f;
         internal const float bigParryHealthFrac = 0.2f;
         internal const float parryProjectileRadius = 5f;
         internal const float parryProjectileDamageMultiplier = 10f;

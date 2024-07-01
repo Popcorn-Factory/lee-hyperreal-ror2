@@ -70,32 +70,35 @@ namespace LeeHyperrealMod.Content.Controllers
                 float zDiff = Math.Abs(loopDomainEffect.transform.position.z - baseTransform.position.z);
 
                 bool useX = false;
-                bool useY = false;
+                //bool useY = false;
                 bool useZ = false;
 
                 //if X is greater than Y, use X, otherwise use Y, If the selected value is greater than Z, then use selected value. otherwise use Z
-                if (xDiff > yDiff)
-                {
-                    if (xDiff > zDiff)
-                    {
-                        useX = true;
-                    }
-                    else { useZ = true; }
-                }
-                else 
-                {
-                    if (yDiff > zDiff)
-                    {
-                        useY = true;
-                    }
-                    else { useZ = true; }
-                }
+                //if (xDiff > yDiff)
+                //{
+                //    if (xDiff > zDiff)
+                //    {
+                //        useX = true;
+                //    }
+                //    else { useZ = true; }
+                //}
+                //else 
+                //{
+                //    if (yDiff > zDiff)
+                //    {
+                //        useY = true;
+                //    }
+                //    else { useZ = true; }
+                //}
+
+                useX = xDiff > zDiff;
+                useZ = zDiff > xDiff;
 
                 //Build the target vector based on what is prioritised.
                 Vector3 target = Vector3.zero;
-                if (useX) { target = new Vector3(baseTransform.position.x, loopDomainEffect.transform.position.y, loopDomainEffect.transform.position.z); }
-                if (useY) { target = new Vector3(loopDomainEffect.transform.position.x, baseTransform.position.y, loopDomainEffect.transform.position.z); }
-                if (useZ) { target = new Vector3(loopDomainEffect.transform.position.x, loopDomainEffect.transform.position.y, baseTransform.position.z); }
+                if (useX) { target = new Vector3(baseTransform.position.x, baseTransform.position.y, loopDomainEffect.transform.position.z); }
+                //if (useY) { target = new Vector3(loopDomainEffect.transform.position.x, baseTransform.position.y, loopDomainEffect.transform.position.z); }
+                if (useZ) { target = new Vector3(loopDomainEffect.transform.position.x, baseTransform.position.y, baseTransform.position.z); }
                 
                 loopDomainEffect.transform.position = Vector3.SmoothDamp(loopDomainEffect.transform.position, target, ref velocity, 0.5f);
             }
