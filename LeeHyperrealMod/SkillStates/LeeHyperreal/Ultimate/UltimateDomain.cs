@@ -19,6 +19,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         public LeeHyperrealDomainController docon;
         private UltimateCameraController ultimateCameraController;
         private BulletController bulletController;
+        private OrbController orbController;
 
         public float start = 0;
         public float earlyEnd = 0.65f;
@@ -55,6 +56,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             docon = gameObject.GetComponent<LeeHyperrealDomainController>();
             ultimateCameraController = gameObject.GetComponent<UltimateCameraController>();
             bulletController = gameObject.GetComponent<BulletController>();
+            orbController = gameObject.GetComponent<OrbController>();
+
+            if (orbController)
+            {
+                orbController.isExecutingSkill = true;
+            }
 
             if (bulletController.inSnipeStance && isAuthority)
             {
@@ -142,6 +149,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 scale = 1.25f,
             };
             EffectManager.SpawnEffect(Modules.ParticleAssets.UltimateDomainBulletFinisher, effectData, true);
+
+            if (NetworkServer.active)
+            {
+                //Set Invincibility cause fuck you.
+                characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, -1);
+            }
         }
 
         public void Freeze()
@@ -186,6 +199,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 ultimateCameraController.UnsetUltimate();
             }
             PlayAnimation("Body", "BufferEmpty");
+            
+            if (NetworkServer.active)
+            {
+                //Set Invincibility cause fuck you.
+                characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 0, -1);
+            }
+
+            if (orbController)
+            {
+                orbController.isExecutingSkill = false;
+            }
         }
 
         public override void Update()

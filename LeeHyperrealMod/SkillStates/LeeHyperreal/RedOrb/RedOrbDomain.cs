@@ -11,6 +11,7 @@ using System.ComponentModel;
 using System.Collections.Generic;
 using LeeHyperrealMod.Modules.Networking;
 using R2API.Networking.Interfaces;
+using R2API.Networking;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 {
@@ -48,6 +49,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
         internal bool hasHit = false;
         internal bool hasHit2 = false;
+
+        float invincibilityOnFrac = 0.05f;
+        float invincibilityOffFrac = 0.2f;
+        bool invincibilityApplied = false;
 
         public override void OnEnter()
         {
@@ -114,11 +119,25 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             {
                 orbController.isExecutingSkill = false;
             }
+
+            if (NetworkServer.active)
+            {
+                //Set Invincibility cause fuck you.
+                characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 0, -1);
+            }
         }
 
         public override void Update()
         {
             base.Update();
+
+            if (age >= duration * invincibilityOnFrac && base.isAuthority && !invincibilityApplied)
+            {
+                invincibilityApplied = true;
+                float buffDuration = (duration * invincibilityOffFrac) - (duration * invincibilityOnFrac);
+                characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, buffDuration);
+            }
+
             if (base.inputBank.skill3.down && base.inputBank.skill4.down && base.isAuthority)
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
