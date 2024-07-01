@@ -15,6 +15,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
     internal class DomainEnterState : BaseRootMotionMoverState
     {
         private LeeHyperrealDomainController domainController;
+        private WeaponModelHandler weaponModelHandler;
         private Vector3 aoePos;
         private float duration = 4.06f;
         private BlastAttack blastAttack;
@@ -48,6 +49,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
         {
             base.OnEnter();
             domainController = this.GetComponent<LeeHyperrealDomainController>();
+            weaponModelHandler = this.GetComponent<WeaponModelHandler>();
             aoePos = this.gameObject.transform.position;
 
             bulletAttack = new BulletAttack
@@ -148,6 +150,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
             EffectManager.SpawnEffect(Modules.ParticleAssets.transitionEffectLee,
                 transitionEffect,
                 true);
+
+            weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.RIFLE);
+            weaponModelHandler.SetLaserState(true);
         }
 
         public void PlayAnimation() 
@@ -161,6 +166,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
 
             base.characterMotor.gravityParameters = oldGravParams;
             base.PlayAnimation("Body", "BufferEmpty");
+            if (weaponModelHandler.GetState() != WeaponModelHandler.WeaponState.SUBMACHINE)
+            {
+                weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
+                weaponModelHandler.SetLaserState(false);
+            }
         }
 
         public override void FixedUpdate()
@@ -231,6 +241,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
 
 
                     domainController.EnableDomain();
+                    if (weaponModelHandler.GetState() != WeaponModelHandler.WeaponState.SUBMACHINE)
+                    {
+                        weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
+                        weaponModelHandler.SetLaserState(false);
+                    }
                 }
 
             }
