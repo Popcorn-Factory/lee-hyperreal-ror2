@@ -8,6 +8,7 @@ using LeeHyperrealMod.Modules;
 using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.Modules.Networking;
 using R2API.Networking.Interfaces;
+using R2API.Networking;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 {
@@ -41,6 +42,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         CharacterGravityParameters oldGravParams;
         float turnOffGravityFrac = 0.18f;
         float turnOnGravityFrac = 0.3f;
+
+        float invincibilityOnFrac = 0.05f;
+        float invincibilityOffFrac = 0.25f;
+        bool invincibilityApplied = false;
 
         public override void OnEnter()
         {
@@ -155,11 +160,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void OnExit()
         {
             base.OnExit();
+            characterMotor.gravityParameters = oldGravParams;
             if (orbController)
             {
                 orbController.isExecutingSkill = false;
             }
             PlayAnimation("Body", "BufferEmpty");
+
+            if (NetworkServer.active)
+            {
+                //Set Invincibility cause fuck you.
+                characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 0);
+            }
         }
 
         public override void Update()
@@ -182,6 +194,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                     return;
                 }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
+            }
+
+            if (age >= duration * invincibilityOnFrac && base.isAuthority && !invincibilityApplied) 
+            {
+                invincibilityApplied = true;
+                float buffDuration = (duration * invincibilityOffFrac) - (duration * invincibilityOnFrac);
+                characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, buffDuration);
             }
 
             if (age >= duration * turnOnGravityFrac)

@@ -33,6 +33,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         private BulletController bulletController;
         private WeaponModelHandler weaponModelHandler;
         private UltimateCameraController ultimateCameraController;
+        private OrbController orbController;
         private Ray aimRay;
         private Vector3 velocity = Vector3.zero;
 
@@ -52,6 +53,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             bulletController = gameObject.GetComponent<BulletController>();
             weaponModelHandler = gameObject.GetComponent<WeaponModelHandler>();
             ultimateCameraController = gameObject.GetComponent<UltimateCameraController>();
+            orbController = gameObject.GetComponent<OrbController>();
+
+            if (orbController) 
+            {
+                orbController.isExecutingSkill = true;
+            }
 
             if (bulletController.inSnipeStance && isAuthority) 
             {
@@ -142,6 +149,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             {
                 bulletController.snipeAerialPlatform = UnityEngine.Object.Instantiate(Modules.ParticleAssets.snipeAerialFloor, baseTransform.position, Quaternion.identity);
             }
+
+            if (NetworkServer.active) 
+            {
+                //Set Invincibility cause fuck you.
+                characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, -1);
+            }
         }
 
         private bool AttachComponent(BulletAttack bulletAttackRef, ref BulletAttack.BulletHit hitInfo)
@@ -176,6 +189,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         public override void OnExit()
         {
             base.OnExit();
+            if (NetworkServer.active)
+            {
+                //Set Invincibility cause fuck you.
+                characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 0, -1);
+            }
+
             if (base.isAuthority)
             {
                 ultimateCameraController.UnsetUltimate();
@@ -194,6 +213,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             if (weaponModelHandler.GetState() != WeaponModelHandler.WeaponState.SUBMACHINE) 
             {
                 weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
+            }
+
+            if (orbController)
+            {
+                orbController.isExecutingSkill = false;
             }
         }
 
