@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657874, g: 0.49641258, b: 0.5748171, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5533,12 +5533,32 @@ PrefabInstance:
     - target: {fileID: 3586202131465089915, guid: d31e276f9d274634e83415f55ef47b94,
         type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586202131485544732, guid: d31e276f9d274634e83415f55ef47b94,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586202131485544732, guid: d31e276f9d274634e83415f55ef47b94,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586202131485544732, guid: d31e276f9d274634e83415f55ef47b94,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586202131485544734, guid: d31e276f9d274634e83415f55ef47b94,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3586202131533455742, guid: d31e276f9d274634e83415f55ef47b94,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3586202131661922669, guid: d31e276f9d274634e83415f55ef47b94,
         type: 3}
@@ -5571,6 +5591,26 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3586202132240695747, guid: d31e276f9d274634e83415f55ef47b94,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586202132521822310, guid: d31e276f9d274634e83415f55ef47b94,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586202132521822310, guid: d31e276f9d274634e83415f55ef47b94,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586202132521822310, guid: d31e276f9d274634e83415f55ef47b94,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586202132521822312, guid: d31e276f9d274634e83415f55ef47b94,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -5723,6 +5763,46 @@ PrefabInstance:
     - target: {fileID: 3586202132967363098, guid: d31e276f9d274634e83415f55ef47b94,
         type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586202133124839611, guid: d31e276f9d274634e83415f55ef47b94,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586202133124839611, guid: d31e276f9d274634e83415f55ef47b94,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586202133124839611, guid: d31e276f9d274634e83415f55ef47b94,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586202133124839613, guid: d31e276f9d274634e83415f55ef47b94,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586202133226017028, guid: d31e276f9d274634e83415f55ef47b94,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586202133226017028, guid: d31e276f9d274634e83415f55ef47b94,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586202133226017028, guid: d31e276f9d274634e83415f55ef47b94,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3586202133226017030, guid: d31e276f9d274634e83415f55ef47b94,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3586202133309617709, guid: d31e276f9d274634e83415f55ef47b94,
