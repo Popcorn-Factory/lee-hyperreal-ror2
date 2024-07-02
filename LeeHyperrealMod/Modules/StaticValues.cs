@@ -90,10 +90,10 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Blue Orb
-        internal const float blueOrbCoefficient = 2f;
+        internal const float blueOrbCoefficient = 6f;
         internal const float blueOrbBlastRadius = 12f;
         internal const float blueOrbTripleMultiplier = 4f;
-        internal const float blueOrbShotCoefficient = 6f;
+        internal const float blueOrbShotCoefficient = 4f;
         internal const float blueOrbProcCoefficient = 1f;
         #endregion
 
@@ -113,11 +113,11 @@ namespace LeeHyperrealMod.Modules
         internal const float yellowOrbTripleMultiplier = 4f;
         internal const float yellowOrbBlastRadius = 10f;
 
-        internal const float yellowOrbFinisherDamageCoefficient = 10f;
+        internal const float yellowOrbFinisherDamageCoefficient = 6f;
         internal const float yellowOrbFinisherProcCoefficient = 1f;
         internal const float yellowOrbFinisherPushForce = 300f;
 
-        internal const float yellowOrbDomainDamageCoefficient = 1.5f;
+        internal const float yellowOrbDomainDamageCoefficient = 1f;
         internal const float yellowOrbDomainProcCoefficient = 1f;
         internal const float yellowOrbDomainBlastForce = 1000f;
         internal const float yellowOrbDomainBlastRadius = 20f;
@@ -138,12 +138,12 @@ namespace LeeHyperrealMod.Modules
         internal const float redOrbBulletForce = 800f;
         internal const float redOrbTripleMultiplier = 4f;
 
-        internal const float redOrbFinisherDamageCoefficient = 4f;
+        internal const float redOrbFinisherDamageCoefficient = 6f;
         internal const float redOrbFinisherProcCoefficient = 1f;
         internal const float redOrbFinisherBulletRange = 256f;
         internal const float redOrbFinisherBulletForce = 800f;
 
-        internal const float redOrbDomainDamageCoefficient = 3f;
+        internal const float redOrbDomainDamageCoefficient = 4f;
         internal const float redOrbDomainBlastRadius = 10f;
         internal const int redOrbDomainFireCount = 3;
         internal const float redOrbDomainProcCoefficient = 1f;
