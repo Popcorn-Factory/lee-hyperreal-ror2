@@ -269,8 +269,11 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void GrantEnhancedBullet(int amount)
         {
+            //Get Backup magazine count, add on top of enhanced bullet
+            int secondaryCharges = (int)body.skillLocator.secondary.maxStock - 1;
+
             //No limit to enhanced bullet 
-            enhancedBulletAmount += amount;
+            enhancedBulletAmount += amount + secondaryCharges;
             //Update the UI.
             uiController.SetEnhancedBulletState(enhancedBulletAmount);
             //uiController.UpdateBulletStateTarget(new LeeHyperrealUIController.BulletState(enhancedBulletAmount, ColouredBulletList.ToList(), body.attackSpeed * 1.5f, false, false));
