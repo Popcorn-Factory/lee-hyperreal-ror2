@@ -56,9 +56,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             animator = this.GetModelAnimator();
             animator.SetFloat("attack.playbackRate", base.attackSpeedStat);
 
+            duration = baseDuration / base.attackSpeedStat;
+
             PlayAttackAnimation();
 
-            duration = baseDuration / base.attackSpeedStat;
 
             if (bulletController.ConsumeEnhancedBullet(1)) 
             {

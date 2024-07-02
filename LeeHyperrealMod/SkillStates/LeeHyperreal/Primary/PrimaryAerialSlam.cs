@@ -117,7 +117,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 teamIndex = TeamIndex.Player,
                 position = base.gameObject.transform.position,
                 radius = Modules.StaticValues.primaryAerialSlamRadius,
-                falloffModel = BlastAttack.FalloffModel.Linear,
+                falloffModel = BlastAttack.FalloffModel.None,
                 baseDamage = this.damageStat * damageCoefficient * airTime,
                 baseForce = 600f * airTime,
                 bonusForce = Vector3.up,

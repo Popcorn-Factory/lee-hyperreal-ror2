@@ -89,7 +89,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
                 teamIndex = TeamIndex.Player,
                 position = aoePos,
                 radius = Modules.StaticValues.domainShiftBlastRadius,
-                falloffModel = BlastAttack.FalloffModel.Linear,
+                falloffModel = BlastAttack.FalloffModel.None,
                 baseDamage = this.damageStat * Modules.StaticValues.domainShiftCoefficient,
                 baseForce = 0f,
                 bonusForce = Vector3.zero,

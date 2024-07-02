@@ -33,7 +33,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 teamIndex = TeamIndex.Player,
                 position = position,
                 radius = Modules.StaticValues.ultimateBlastRadius,
-                falloffModel = BlastAttack.FalloffModel.Linear,
+                falloffModel = BlastAttack.FalloffModel.None,
                 baseDamage = leeBody.damage * Modules.StaticValues.ultimateDamageCoefficient,
                 baseForce = 0f,
                 bonusForce = Vector3.zero,
