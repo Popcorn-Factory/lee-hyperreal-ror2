@@ -29,6 +29,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
         internal string muzzleString = "BaseTransform"; //need to change to the sniper one
 
+        internal Transform cannonEndTransform;
+
         private float movementMultiplier = 1.5f;
         private BulletController bulletController;
         private WeaponModelHandler weaponModelHandler;
@@ -123,6 +125,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 ChildLocator component2 = component.modelTransform.GetComponent<ChildLocator>();
                 if (component2)
                 {
+                    cannonEndTransform = component2.FindChild("CannonEnd");
                     int childIndex = component2.FindChildIndex(muzzleString);
                     Transform transform = component2.FindChild(childIndex);
                     if (transform)
@@ -353,14 +356,20 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
         private void SpawnBlastFromRay(Ray ray)
         {
+            //Get CannonEnd transform
+            // Hijack the ray so that it fires from the cannon end 
+            ray.origin = cannonEndTransform.position;
+
             RaycastHit hit;
-            Physics.Raycast(ray, out hit);
+            Physics.Raycast(ray, out hit, Mathf.Infinity, LayerIndex.world.intVal | LayerIndex.entityPrecise.intVal);
             if (hit.collider)
             {
+                Debug.Log($"hit: {hit.collider.gameObject}");
                 new UltimateObjectSpawnNetworkRequest(characterBody.netId, hit.point).Send(NetworkDestination.Clients);
             }
             else 
             {
+                Debug.Log("Miss!");
                 new UltimateObjectSpawnNetworkRequest(characterBody.netId, ray.origin + (ray.direction * 20f)).Send(NetworkDestination.Clients);
             }
 

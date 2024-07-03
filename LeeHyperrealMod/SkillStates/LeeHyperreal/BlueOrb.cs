@@ -76,7 +76,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 bulletController.UnsetSnipeStance();
             }
 
-            if (moveStrength == 3)
+            if (moveStrength == 3 && !domainController.GetDomainState())
             {
                 bulletController.GrantColouredBullet(BulletController.BulletType.BLUE);
             }

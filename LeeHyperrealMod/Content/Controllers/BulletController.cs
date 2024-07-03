@@ -48,7 +48,8 @@ namespace LeeHyperrealMod.Content.Controllers
         }
 
         AimAngles aimAngle;
-
+        float lerpPitch;
+        float lerpPitchVelocity;
         Transform BaseTransform;
         public GameObject snipeAerialPlatform;
 
@@ -139,8 +140,10 @@ namespace LeeHyperrealMod.Content.Controllers
                 pitch = 0.99f;
             }
 
+            lerpPitch = Mathf.SmoothDamp(lerpPitch, pitch, ref lerpPitchVelocity, 0.2f, 1000f);
+
             //Chat.AddMessage($"pitch: {aimAngle.pitch} remapPitch: {pitch} aimDirection: {inputBank.aimDirection}");
-            animator.SetFloat(AimAnimator.aimPitchCycleHash, pitch);
+            animator.SetFloat(AimAnimator.aimPitchCycleHash, lerpPitch);
         }
 
         public float Remap(float value, float low1, float high1, float low2, float high2) 

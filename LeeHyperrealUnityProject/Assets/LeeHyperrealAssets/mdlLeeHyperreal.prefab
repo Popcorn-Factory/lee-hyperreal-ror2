@@ -2015,6 +2015,8 @@ MonoBehaviour:
     transform: {fileID: 8975270574482711849}
   - name: RifleLaser
     transform: {fileID: 6689073245886902986}
+  - name: CannonEnd
+    transform: {fileID: 4592609880623195486}
 --- !u!114 &414308320962201776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24257,6 +24259,7 @@ Transform:
   m_LocalScale: {x: 0.9999999, y: 1.0000001, z: 0.9999999}
   m_Children:
   - {fileID: 2549690622333920977}
+  - {fileID: 4592609880623195486}
   m_Father: {fileID: 6201275040118339878}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0.00000018783146, y: 0.0000022476463, z: 0.0000018146819}
@@ -24289,6 +24292,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2274331559411905417}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3274491647687098666
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4592609880623195486}
+  m_Layer: 0
+  m_Name: End
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4592609880623195486
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3274491647687098666}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0, y: -0.25, z: -0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4787975491219497532}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3565258101490145601
 GameObject:

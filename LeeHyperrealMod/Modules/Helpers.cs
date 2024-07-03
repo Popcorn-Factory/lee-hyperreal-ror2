@@ -24,6 +24,11 @@ namespace LeeHyperrealMod.Modules
             return $"<style=cIsDamage>{desc}</style>";
         }
 
+        internal static string Keyword(string desc) 
+        {
+            return $"<style=cKeywordName>{desc}</style>";
+        }
+
 
         public static T[] Append<T>(ref T[] array, List<T> list)
         {

@@ -13,7 +13,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         public static float duration = 2.0f;
         public BulletController bulletController;
 
-        public static string dodgeSoundString = "HenryRoll";
         public static float dodgeFOV = EntityStates.Commando.DodgeState.dodgeFOV;
 
         private Animator animator;
@@ -32,6 +31,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         public bool unsetSnipe = false;
         private float movementMultiplierPrimary3 = 3.0f;
 
+        private Vector3 previousMovementVector;
+
         public Transform baseTransform;
 
         public override void OnEnter()
@@ -49,6 +50,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                     bulletController.snipeAerialPlatform = null; //unset so it doesn't follow the player.
                 }
             }
+
+            previousMovementVector = characterMotor.velocity;
 
             animator = GetModelAnimator();
             forwardDirection = GetAimRay().direction;
@@ -116,6 +119,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             float y = characterMotor.velocity.y;
             characterMotor.velocity = Vector3.zero;
             characterMotor.velocity.y = y;
+
+
             if (isForwardRoll)
             {
                 characterDirection.moveVector = moveVector;
@@ -180,6 +185,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         public override void OnExit()
         {
             base.OnExit();
+            base.characterMotor.velocity = new Vector3(previousMovementVector.x, 0, previousMovementVector.z);
             base.characterBody.SetAimTimer(0);
             base.PlayAnimation("Body", "BufferEmpty");
         }

@@ -38,29 +38,31 @@ namespace LeeHyperrealMod.Modules
                 $"Lee uses {Helpers.UtilDesc("[Orbs]")} that allow the execution of unique skills. " +
                 $"His {Helpers.UtilDesc("[Ammo Counter]")} grants unique effects for {Helpers.UtilDesc("[Snipe Stance]")}.");
 
-            LanguageAPI.Add(prefix + "PASSIVE_DOMAIN_NAME", "Hyper Reality System");
+            LanguageAPI.Add(prefix + "PASSIVE_DOMAIN_NAME", "Hypermatrix System");
             LanguageAPI.Add(prefix + "PASSIVE_DOMAIN_DESCRIPTION", "" +
-                $"Lee has access to the {Helpers.UtilDesc("[Hypermatrix]")}, by holding down the Primary button" +
-                $" down with a full {Helpers.UtilDesc("[Power Gauge]")}");
+                $"Lee has access to the {Helpers.UtilDesc("[Hypermatrix]")}, by holding the Primary button" +
+                $" down with a full {Helpers.UtilDesc("[Power Gauge]")}." +
+                $" Lee gains damage scales with attack speed, however {Helpers.UtilDesc("[ Snipe Stance ]")} scales normally.");
             #endregion
 
             #region Primary
             LanguageAPI.Add(prefix + "PRIMARY_NAME", "Armament Barrage");
             LanguageAPI.Add(prefix + "PRIMARY_DESCRIPTION", "Launch a 5-hit-combo attack. On hit 1 and 3, " +
-                $"peform a {Helpers.UtilDesc("[Parry]")} active for a short time.");
+                $"peform a {Helpers.UtilDesc("[Parry]")} active for a short time. " +
+                $"In the air, slam down, dealing {Helpers.DmgDesc($"{StaticValues.primaryAerialDamageCoefficient * 100}% damage")}, increasing up to 3 times dependant on vertical distance travelled.");
             #endregion
 
             #region Secondary
             LanguageAPI.Add(prefix + "SECONDARY_SNIPE_NAME", "Snipe");
             LanguageAPI.Add(prefix + "SECONDARY_SNIPE_DESCRIPTION","" +
-                $"Shoot a bullet for {Helpers.DmgDesc($"{StaticValues.snipeDamageCoefficient * 100f}")}%.");
+                $"Shoot a bullet for {Helpers.DmgDesc($"{StaticValues.snipeDamageCoefficient * 100f}% damage")}.");
             LanguageAPI.Add(prefix + "EXIT_SNIPE_NAME", "Exit Snipe Stance");
             LanguageAPI.Add(prefix + "EXIT_SNIPE_DESCRIPTION","" +
                 $"Exit {Helpers.UtilDesc("[Snipe Stance]")}, allowing you to move again.");
             LanguageAPI.Add(prefix + "ENTER_SNIPE_NAME", "Snipe Stance");
             LanguageAPI.Add(prefix + "ENTER_SNIPE_DESCRIPTION", "" +
                 $"Enter {Helpers.UtilDesc("[Snipe Stance]")}, locking you in place, allowing you to Snipe using Primary" +
-                $" for {Helpers.DmgDesc($"{StaticValues.snipeDamageCoefficient * 100f}")}%.");
+                $" for {Helpers.DmgDesc($"{StaticValues.snipeDamageCoefficient * 100f}% damage")}.");
             #endregion
 
             #region Utility
@@ -72,15 +74,23 @@ namespace LeeHyperrealMod.Modules
             #region Special
             LanguageAPI.Add(prefix + "ULTIMATE_NAME", "End of Time");
             LanguageAPI.Add(prefix + "ULTIMATE_DESCRIPTION", "" +
-                $"Turn invincible, pulling out a cannon that blasts enemies in a wide radius for {Helpers.DmgDesc($"{StaticValues.ultimateDamageCoefficient * 100f}")}% after a short windup. " +
+                $"Turn invincible, pulling out a cannon that blasts enemies in a wide radius for {Helpers.DmgDesc($"{StaticValues.ultimateDamageCoefficient * 100f}% damage")} after a short windup. " +
                 $"Move changes while in the {Helpers.UtilDesc("[Hypermatrix]")}.");
 
             LanguageAPI.Add(prefix + "ULTIMATE_DOMAIN_NAME", "Collapsing Realm");
             LanguageAPI.Add(prefix + "ULTIMATE_DOMAIN_DESCRIPTION", "" +
-                $"Collapse the {Helpers.UtilDesc("[Hypermatrix]")}, turning invincible for a short time and dealing {Helpers.DmgDesc($"{StaticValues.ultimateDomainDamageCoefficient * 100f}")}% in your wake.");
+                $"Collapse the {Helpers.UtilDesc("[Hypermatrix]")}, turning invincible for a short time and dealing {Helpers.DmgDesc($"{StaticValues.ultimateDomainDamageCoefficient * 100f}% damage")} in your wake.");
             #endregion
 
             #region Keywords
+            LanguageAPI.Add(prefix + "KEYWORD_ORBS", "");
+            LanguageAPI.Add(prefix + "KEYWORD_AMMO", "");
+            LanguageAPI.Add(prefix + "KEYWORD_SNIPE_STANCE", "");
+            LanguageAPI.Add(prefix + "KEYWORD_POWER_GAUGE", "");
+            LanguageAPI.Add(prefix + "KEYWORD_PARRY", "");
+            LanguageAPI.Add(prefix + "KEYWORD_DOMAIN", 
+                $"{Helpers.Keyword("[ Hypermatrix System ]")}" +
+                Environment.NewLine + $"");
 
             #endregion
 

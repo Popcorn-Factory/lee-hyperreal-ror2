@@ -43,7 +43,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                         if (moveStrength == 3)
                         {
                             domainController.GrantIntuitionStack(1);
-                            bulletController.GrantColouredBullet(BulletController.BulletType.RED);
                         }
                         this.outer.SetState(new RedOrbDomain { moveStrength = moveStrength });
                         return;
