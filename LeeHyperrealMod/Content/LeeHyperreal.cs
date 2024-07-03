@@ -160,8 +160,68 @@ namespace LeeHyperrealMod.Modules.Survivors
 
         public override void InitializeSkills()
         {
+            LeeHyperrealPassive passive = bodyPrefab.AddComponent<LeeHyperrealPassive>();
             Modules.Skills.CreateSkillFamilies(bodyPrefab, true);
             string prefix = LeeHyperrealPlugin.DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_";
+
+            #region Passive
+            passive.orbAndBulletPassive = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = prefix + "PASSIVE_ORB_AND_AMMO_NAME",
+                skillNameToken = prefix + "PASSIVE_ORB_AND_AMMO_NAME",
+                skillDescriptionToken = prefix + "PASSIVE_ORB_AND_AMMO_DESCRIPTION",
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimary"),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Primary.PrimaryEntry)),
+                activationStateMachineName = "Body",
+                baseMaxStock = 1,
+                baseRechargeInterval = 0f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = EntityStates.InterruptPriority.Skill,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = true,
+                mustKeyPress = true,
+                cancelSprintingOnActivation = false,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 1,
+                keywordTokens = new string[] {}
+            });
+
+            passive.hypermatrixPassive = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = prefix + "PASSIVE_DOMAIN_NAME",
+                skillNameToken = prefix + "PASSIVE_DOMAIN_NAME",
+                skillDescriptionToken = prefix + "PASSIVE_DOMAIN_DESCRIPTION",
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimary"),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Primary.PrimaryEntry)),
+                activationStateMachineName = "Body",
+                baseMaxStock = 1,
+                baseRechargeInterval = 0f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = EntityStates.InterruptPriority.Skill,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = true,
+                mustKeyPress = true,
+                cancelSprintingOnActivation = false,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 1,
+                keywordTokens = new string[] { }
+            });
+
+            Modules.Skills.AddPassiveSkills(passive.orbPassiveSkillSlot.skillFamily, new SkillDef[]{
+                passive.orbAndBulletPassive
+            });
+            Modules.Skills.AddPassiveSkills(passive.hypermatrixPassiveSkillSlot.skillFamily, new SkillDef[]{
+                passive.hypermatrixPassive
+            });
+            #endregion
 
             #region Primary
             //Creates a skilldef for a typical primary 

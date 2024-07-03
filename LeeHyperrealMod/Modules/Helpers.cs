@@ -14,6 +14,17 @@ namespace LeeHyperrealMod.Modules
             return "\n<color=#d299ff>SCEPTER: " + desc + "</color>";
         }
 
+        internal static string UtilDesc(string desc)
+        { 
+            return $"<style=cIsUtility>{desc}</style>";
+        }
+
+        internal static string DmgDesc(string desc) 
+        {
+            return $"<style=cIsDamage>{desc}</style>";
+        }
+
+
         public static T[] Append<T>(ref T[] array, List<T> list)
         {
             var orig = array.Length;

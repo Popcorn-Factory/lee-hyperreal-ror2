@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using LeeHyperrealMod;
 using UnityEngine;
+using LeeHyperrealMod.Content.Controllers;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -13,7 +14,7 @@ namespace LeeHyperrealMod.Modules
     {
 
         #region genericskills
-        public static void CreateSkillFamilies(GameObject targetPrefab, bool destroyExisting = true)
+        public static void CreateSkillFamilies(GameObject targetPrefab, bool passiveEnabled, bool destroyExisting = true)
         {
             if (destroyExisting)
             {
@@ -21,6 +22,21 @@ namespace LeeHyperrealMod.Modules
                 {
                     UnityEngine.Object.DestroyImmediate(obj);
                 }
+            }
+
+            // Add the passive if it's enabled. MAKE SURE THE CONTROLLER IS ADDED BEFOREHAND.
+            if (passiveEnabled)
+            {
+                LeeHyperrealPassive passive = targetPrefab.GetComponent<LeeHyperrealPassive>();
+                if (passive)
+                {
+                    passive.orbPassiveSkillSlot = CreateGenericSkillWithSkillFamily(targetPrefab, "Orbs and Ammo");
+                    passive.hypermatrixPassiveSkillSlot = CreateGenericSkillWithSkillFamily(targetPrefab, "Hypermatrix");
+                }
+                //if (Modules.Config.enableOldLoadout.Value) 
+                //{
+                //    passive.secondaryPassiveSkillSlot = CreateGenericSkillWithSkillFamily(targetPrefab, "Passive");
+                //}
             }
 
             SkillLocator skillLocator = targetPrefab.GetComponent<SkillLocator>();
@@ -87,7 +103,10 @@ namespace LeeHyperrealMod.Modules
         {
             AddSkillsToFamily(targetPrefab.GetComponent<SkillLocator>().special.skillFamily, skillDefs);
         }
-
+        public static void AddPassiveSkills(SkillFamily passiveSkillFamily, params SkillDef[] skillDefs)
+        {
+            AddSkillsToFamily(passiveSkillFamily, skillDefs);
+        }
 
         /// <summary>
         /// pass in an amount of unlockables equal to or less than skill variants, null for skills that aren't locked

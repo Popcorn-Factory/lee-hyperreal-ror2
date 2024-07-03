@@ -1,5 +1,7 @@
 ﻿using R2API;
 using System;
+using static LeeHyperrealMod.Modules.Helpers;
+using static LeeHyperrealMod.Modules.StaticValues;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -16,12 +18,12 @@ namespace LeeHyperrealMod.Modules
             desc = desc + "< ! > Roll has a lingering armor buff that helps to use it aggressively." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Bomb can be used to wipe crowds with ease." + Environment.NewLine + Environment.NewLine;
 
-            string outro = "..and so he left, searching for a new identity.";
-            string outroFailure = "..and so he vanished, forever a blank slate.";
+            string outro = "..and so he left, ready for duty.";
+            string outroFailure = "..and so he vanished, with a mission unfulfilled";
 
             LanguageAPI.Add(prefix + "NAME", "Lee: Hyperreal");
             LanguageAPI.Add(prefix + "DESCRIPTION", desc);
-            LanguageAPI.Add(prefix + "SUBTITLE", "The Chosen One");
+            LanguageAPI.Add(prefix + "SUBTITLE", "Hypermatrix Traverser");
             LanguageAPI.Add(prefix + "LORE", "sample lore");
             LanguageAPI.Add(prefix + "OUTRO_FLAVOR", outro);
             LanguageAPI.Add(prefix + "OUTRO_FAILURE", outroFailure);
@@ -31,28 +33,55 @@ namespace LeeHyperrealMod.Modules
             #endregion
 
             #region Passive
-            LanguageAPI.Add(prefix + "PASSIVE_NAME", "Henry passive");
-            LanguageAPI.Add(prefix + "PASSIVE_DESCRIPTION", "Sample text.");
+            LanguageAPI.Add(prefix + "PASSIVE_ORB_AND_AMMO_NAME", "Orb and Ammo System");
+            LanguageAPI.Add(prefix + "PASSIVE_ORB_AND_AMMO_DESCRIPTION", "" +
+                $"Lee uses {Helpers.UtilDesc("[Orbs]")} that allow the execution of unique skills. " +
+                $"His {Helpers.UtilDesc("[Ammo Counter]")} grants unique effects for {Helpers.UtilDesc("[Snipe Stance]")}.");
+
+            LanguageAPI.Add(prefix + "PASSIVE_DOMAIN_NAME", "Hyper Reality System");
+            LanguageAPI.Add(prefix + "PASSIVE_DOMAIN_DESCRIPTION", "" +
+                $"Lee has access to the {Helpers.UtilDesc("[Hypermatrix]")}, by holding down the Primary button" +
+                $" down with a full {Helpers.UtilDesc("[Power Gauge]")}");
             #endregion
 
             #region Primary
-            LanguageAPI.Add(prefix + "PRIMARY_SLASH_NAME", "Sword");
-            LanguageAPI.Add(prefix + "PRIMARY_SLASH_DESCRIPTION", Helpers.agilePrefix + $"Swing forward for <style=cIsDamage>{100f * StaticValues.swordDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "PRIMARY_NAME", "Armament Barrage");
+            LanguageAPI.Add(prefix + "PRIMARY_DESCRIPTION", "Launch a 5-hit-combo attack. On hit 1 and 3, " +
+                $"peform a {Helpers.UtilDesc("[Parry]")} active for a short time.");
             #endregion
 
             #region Secondary
-            LanguageAPI.Add(prefix + "SECONDARY_GUN_NAME", "Handgun");
-            LanguageAPI.Add(prefix + "SECONDARY_GUN_DESCRIPTION", Helpers.agilePrefix + $"Fire a handgun for <style=cIsDamage>{100f * StaticValues.gunDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "SECONDARY_SNIPE_NAME", "Snipe");
+            LanguageAPI.Add(prefix + "SECONDARY_SNIPE_DESCRIPTION","" +
+                $"Shoot a bullet for {Helpers.DmgDesc($"{StaticValues.snipeDamageCoefficient * 100f}")}%.");
+            LanguageAPI.Add(prefix + "EXIT_SNIPE_NAME", "Exit Snipe Stance");
+            LanguageAPI.Add(prefix + "EXIT_SNIPE_DESCRIPTION","" +
+                $"Exit {Helpers.UtilDesc("[Snipe Stance]")}, allowing you to move again.");
+            LanguageAPI.Add(prefix + "ENTER_SNIPE_NAME", "Snipe Stance");
+            LanguageAPI.Add(prefix + "ENTER_SNIPE_DESCRIPTION", "" +
+                $"Enter {Helpers.UtilDesc("[Snipe Stance]")}, locking you in place, allowing you to Snipe using Primary" +
+                $" for {Helpers.DmgDesc($"{StaticValues.snipeDamageCoefficient * 100f}")}%.");
             #endregion
 
             #region Utility
-            LanguageAPI.Add(prefix + "UTILITY_ROLL_NAME", "Roll");
-            LanguageAPI.Add(prefix + "UTILITY_ROLL_DESCRIPTION", "Roll a short distance, gaining <style=cIsUtility>300 armor</style>. <style=cIsUtility>You cannot be hit during the roll.</style>");
+            LanguageAPI.Add(prefix + "DASH_NAME", "Reality Travel");
+            LanguageAPI.Add(prefix + "DASH_DESCRIPTION", "" +
+                "Dodge, turning invincible for a short time.");
             #endregion
 
             #region Special
-            LanguageAPI.Add(prefix + "SPECIAL_BOMB_NAME", "Bomb");
-            LanguageAPI.Add(prefix + "SPECIAL_BOMB_DESCRIPTION", $"Throw a bomb for <style=cIsDamage>{100f * StaticValues.bombDamageCoefficient}% damage</style>.");
+            LanguageAPI.Add(prefix + "ULTIMATE_NAME", "End of Time");
+            LanguageAPI.Add(prefix + "ULTIMATE_DESCRIPTION", "" +
+                $"Turn invincible, pulling out a cannon that blasts enemies in a wide radius for {Helpers.DmgDesc($"{StaticValues.ultimateDamageCoefficient * 100f}")}% after a short windup. " +
+                $"Move changes while in the {Helpers.UtilDesc("[Hypermatrix]")}.");
+
+            LanguageAPI.Add(prefix + "ULTIMATE_DOMAIN_NAME", "Collapsing Realm");
+            LanguageAPI.Add(prefix + "ULTIMATE_DOMAIN_DESCRIPTION", "" +
+                $"Collapse the {Helpers.UtilDesc("[Hypermatrix]")}, turning invincible for a short time and dealing {Helpers.DmgDesc($"{StaticValues.ultimateDomainDamageCoefficient * 100f}")}% in your wake.");
+            #endregion
+
+            #region Keywords
+
             #endregion
 
             #region Achievements
