@@ -363,13 +363,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             RaycastHit hit;
             Physics.Raycast(ray, out hit, Mathf.Infinity, LayerIndex.world.intVal | LayerIndex.entityPrecise.intVal);
             if (hit.collider)
-            {
-                Debug.Log($"hit: {hit.collider.gameObject}");
+            { 
                 new UltimateObjectSpawnNetworkRequest(characterBody.netId, hit.point).Send(NetworkDestination.Clients);
             }
             else 
             {
-                Debug.Log("Miss!");
                 new UltimateObjectSpawnNetworkRequest(characterBody.netId, ray.origin + (ray.direction * 20f)).Send(NetworkDestination.Clients);
             }
 
