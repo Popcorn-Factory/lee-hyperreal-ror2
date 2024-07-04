@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using static LeeHyperrealMod.Content.Controllers.BulletController;
+using static LeeHyperrealMod.Content.Controllers.LeeHyperrealUIController;
 
 namespace LeeHyperrealMod.Content.Controllers
 {
@@ -91,11 +92,59 @@ namespace LeeHyperrealMod.Content.Controllers
             orbGrantRate = Mathf.Min(this.baseOrbGrantRate, Mathf.Max(1f, this.baseOrbGrantRate * cooldownScale - flatCooldownReduction));
         }
 
+        public void UpdateBracketPositionFromIntArr(int[] ints, OrbType orbType) 
+        {
+            int str = 0;
+            for (int i = 0; i < ints.Length; i++)
+            {
+                if (ints[i] != -1) 
+                {
+                    str++;
+                }
+            }
+
+            if (str != 0)
+            {
+                BracketType bracketType = BracketType.ONE;
+                if (str == 1)
+                {
+                    bracketType = BracketType.ONE;
+                }
+                else if (str == 2)
+                {
+                    bracketType = BracketType.TWO;
+                }
+                else if (str == 3)
+                {
+                    bracketType = BracketType.THREE;
+                }
+
+                uiController.SetBracketOnOrb(ints[0], bracketType, orbType);
+                return;
+            }
+            else 
+            {
+                //disable bracket.
+                uiController.DisableBracket(orbType);
+            }            
+        }
+
         public void Update()
         {
             //Check input
             if (charBody.hasEffectiveAuthority) 
             {
+
+                //If the orb list is greater than 8, it means that we don't need to update the glyph indicators cause there's nothing
+                // Modifying the position.
+                if (Modules.Config.isSimple.Value) 
+                {
+                    //Check move validity of Blue, red and yellow, update the brackets accordingly.
+                    UpdateBracketPositionFromIntArr(CheckMoveValidity(OrbType.BLUE), OrbType.BLUE);
+                    UpdateBracketPositionFromIntArr(CheckMoveValidity(OrbType.RED), OrbType.RED);
+                    UpdateBracketPositionFromIntArr(CheckMoveValidity(OrbType.YELLOW), OrbType.YELLOW);
+                }
+
                 if (!isExecutingSkill)
                 {
                     if (Modules.Config.isSimple.Value)

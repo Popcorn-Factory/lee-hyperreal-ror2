@@ -8,6 +8,7 @@ using System.Text;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static LeeHyperrealMod.Content.Controllers.LeeHyperrealUIController;
 using static UnityEngine.AddressableAssets.ResourceLocators.ContentCatalogData;
 
 namespace LeeHyperrealMod.Content.Controllers
@@ -34,9 +35,9 @@ namespace LeeHyperrealMod.Content.Controllers
         List<Animator> orbAnimators;
         List<Image> orbImages;
 
-        private int blueBracketIndex = 9;
-        private int redBracketIndex = 10;
-        private int yellowBracketIndex = 11;
+        private int blueBracketIndex = 11;
+        private int redBracketIndex = 12;
+        private int yellowBracketIndex = 13;
 
         HGTextMeshProUGUI blueOrbLabel;
         HGTextMeshProUGUI redOrbLabel;
@@ -370,7 +371,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
             //Go through each object and destroy the text label and replace it.
 
-            Transform blueLabel = blueOrbBracketContainer.transform.GetChild(0).GetChild(0);
+            Transform blueLabel = blueOrbBracketContainer.transform.GetChild(0);
             Destroy(blueLabel.gameObject.GetComponent<Text>());
             blueOrbLabel = CreateLabel(blueLabel, "Hotkey", Modules.Config.blueOrbTrigger.Value.ToString(), Vector2.zero, 24f);
 
@@ -378,7 +379,7 @@ namespace LeeHyperrealMod.Content.Controllers
             Destroy(redlabel.gameObject.GetComponent<Text>());
             redOrbLabel = CreateLabel(redlabel, "Hotkey", Modules.Config.redOrbTrigger.Value.ToString(), Vector2.zero, 24f);
 
-            Transform yellowLabel = blueOrbBracketContainer.transform.GetChild(0);
+            Transform yellowLabel = yellowOrbBracketContainer.transform.GetChild(0);
             Destroy(yellowLabel.gameObject.GetComponent<Text>());
             yellowOrbLabel = CreateLabel(yellowLabel, "Hotkey", Modules.Config.yellowOrbTrigger.Value.ToString(), Vector2.zero, 24f);
 
@@ -402,6 +403,27 @@ namespace LeeHyperrealMod.Content.Controllers
             }   
         }
 
+        public void DisableBracket(OrbController.OrbType orbType) 
+        {
+            if (!blueOrbBracketContainer || !redOrbBracketContainer || !yellowOrbBracketContainer)
+            {
+                return;
+            }
+
+            switch (orbType)
+            {
+                case OrbController.OrbType.BLUE:
+                    blueOrbBracketContainer.SetActive(false);
+                    break;
+                case OrbController.OrbType.RED:
+                    redOrbBracketContainer.SetActive(false);
+                    break;
+                case OrbController.OrbType.YELLOW:
+                    yellowOrbBracketContainer.SetActive(false);
+                    break;
+            }
+        }
+
         public void SetBracketOnOrb(int position, BracketType bracketType, OrbController.OrbType orbType)
         {
             //position is zero-indexed!
@@ -418,8 +440,94 @@ namespace LeeHyperrealMod.Content.Controllers
                 return;
             }
 
-            
+            if (!blueOrbBracketContainer || !redOrbBracketContainer || !yellowOrbBracketContainer) 
+            {
+                return;
+            }
+
+            //Assuming the situation of RR BBB Y BB
+            // if position 2 is given, get the 3rd object, B, extend by bracketType, and then position in the center object (object at position 2 + 1)
+            // If position 0 is given, get the first object, R, get pos + 1 and half distance, put the bracket at that position.
+            // If position 5 is given, get the object and place underneath it.
+            switch (orbType) 
+            {
+                case OrbController.OrbType.BLUE:
+                    blueOrbBracketContainer.SetActive(true);
+                    HandleBracketTransition(blueOrbBracketContainer, position, bracketType);
+                    break;
+                case OrbController.OrbType.RED:
+                    redOrbBracketContainer.SetActive(true);
+                    HandleBracketTransition(redOrbBracketContainer, position, bracketType);
+                    break;
+                case OrbController.OrbType.YELLOW:
+                    yellowOrbBracketContainer.SetActive(true);
+                    HandleBracketTransition(yellowOrbBracketContainer, position, bracketType);
+                    break;
+            }           
         }
+
+        public void HandleBracketTransition(GameObject bracketObject, int position, BracketType bracketType) 
+        {
+            if (!bracketObject) 
+            {
+                return;
+            }
+            switch (bracketType) 
+            {
+                case BracketType.ONE:
+                    HandleBracketOne(bracketObject, position);
+                    break;
+                case BracketType.TWO:
+                    HandleBracketTwo(bracketObject, position);
+                    break;
+                case BracketType.THREE:
+                    HandleBracketThree(bracketObject, position);
+                    break;
+            }            
+        }
+
+        public void HandleBracketOne(GameObject bracketObj, int position)
+        {
+            //Get the one orb bracket
+            bracketObj.transform.GetChild(1).gameObject.SetActive(true);
+            bracketObj.transform.GetChild(2).gameObject.SetActive(false);
+            bracketObj.transform.GetChild(3).gameObject.SetActive(false);
+
+            //Set right under the orb.
+            Vector3 newPosition = orbAnimators[position].transform.localPosition;
+            newPosition.y = Modules.StaticValues.yAxisPositionBrackets;
+            bracketObj.transform.localPosition = newPosition;
+        }
+
+        public void HandleBracketTwo(GameObject bracketObj, int position)
+        {
+            //Get the two orb bracket
+            bracketObj.transform.GetChild(1).gameObject.SetActive(false);
+            bracketObj.transform.GetChild(2).gameObject.SetActive(true);
+            bracketObj.transform.GetChild(3).gameObject.SetActive(false);
+
+            //Set in between position and position + 1
+            Vector3 newPosition = orbAnimators[position].transform.localPosition + orbAnimators[position + 1].transform.localPosition;
+            newPosition = newPosition / 2f;
+            newPosition.y = Modules.StaticValues.yAxisPositionBrackets;
+
+            bracketObj.transform.localPosition = newPosition;
+        }
+
+        public void HandleBracketThree(GameObject bracketObj, int position)
+        {
+            //Get the three orb bracket
+            bracketObj.transform.GetChild(1).gameObject.SetActive(false);
+            bracketObj.transform.GetChild(2).gameObject.SetActive(false);
+            bracketObj.transform.GetChild(3).gameObject.SetActive(true);
+
+            //Set in between position and position + 1
+            Vector3 newPosition = orbAnimators[position + 1].transform.localPosition;
+            newPosition.y = Modules.StaticValues.yAxisPositionBrackets;
+
+            bracketObj.transform.localPosition = newPosition;
+        }
+
 
         private void InitializeOrbAnimatorArray()
         {
