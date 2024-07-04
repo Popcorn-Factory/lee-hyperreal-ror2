@@ -361,7 +361,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             ray.origin = cannonEndTransform.position;
 
             RaycastHit hit;
-            Physics.Raycast(ray, out hit, Mathf.Infinity, LayerIndex.world.intVal | LayerIndex.entityPrecise.intVal);
+            Physics.Raycast(ray, out hit, Mathf.Infinity, (1 << LayerIndex.world.intVal) | (1 << LayerIndex.entityPrecise.intVal));
             if (hit.collider)
             { 
                 new UltimateObjectSpawnNetworkRequest(characterBody.netId, hit.point).Send(NetworkDestination.Clients);
