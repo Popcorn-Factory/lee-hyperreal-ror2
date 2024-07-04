@@ -33,6 +33,24 @@ namespace LeeHyperrealMod.Content.Controllers
         HGTextMeshProUGUI orbAmountLabel;
         List<Animator> orbAnimators;
         List<Image> orbImages;
+
+        private int blueBracketIndex = 9;
+        private int redBracketIndex = 10;
+        private int yellowBracketIndex = 11;
+
+        HGTextMeshProUGUI blueOrbLabel;
+        HGTextMeshProUGUI redOrbLabel;
+        HGTextMeshProUGUI yellowOrbLabel;
+        private GameObject blueOrbBracketContainer;
+        private GameObject redOrbBracketContainer;
+        private GameObject yellowOrbBracketContainer;
+
+        public enum BracketType 
+        {
+            ONE,
+            TWO,
+            THREE,
+        }
         #endregion
 
         #region Power Meter
@@ -165,6 +183,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 //Now we need to initialize everything inside the canvas to variables we can control.
                 InitializeOrbAnimatorArray();
                 InitializeOrbAmountLabel();
+                InitializeOrbBrackets();
                 if (orbController)
                 {
                     UpdateOrbList(orbController.orbList);
@@ -343,6 +362,27 @@ namespace LeeHyperrealMod.Content.Controllers
 
         #region Orb Functions
 
+        private void InitializeOrbBrackets() 
+        {
+            blueOrbBracketContainer = orbUIObject.transform.GetChild(blueBracketIndex).gameObject;
+            redOrbBracketContainer = orbUIObject.transform.GetChild(redBracketIndex).gameObject;
+            yellowOrbBracketContainer = orbUIObject.transform.GetChild(yellowBracketIndex).gameObject;
+
+            //Go through each object and destroy the text label and replace it.
+
+            Transform blueLabel = blueOrbBracketContainer.transform.GetChild(0);
+            Destroy(blueLabel.gameObject.GetComponent<Text>());
+            blueOrbLabel = CreateLabel(blueLabel, "Hotkey", Modules.Config.blueOrbTrigger.Value.ToString(), Vector2.zero, 24f);
+
+            Transform redlabel = redOrbBracketContainer.transform.GetChild(0);
+            Destroy(redlabel.gameObject.GetComponent<Text>());
+            redOrbLabel = CreateLabel(redlabel, "Hotkey", Modules.Config.redOrbTrigger.Value.ToString(), Vector2.zero, 24f);
+
+            Transform yellowLabel = blueOrbBracketContainer.transform.GetChild(0);
+            Destroy(yellowLabel.gameObject.GetComponent<Text>());
+            yellowOrbLabel = CreateLabel(yellowLabel, "Hotkey", Modules.Config.yellowOrbTrigger.Value.ToString(), Vector2.zero, 24f);
+        }
+
         private void InitializeOrbAmountLabel()
         {
             Transform labeltransform = orbUIObject.transform.GetChild(orbAmountIndex);
@@ -356,6 +396,26 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 orbAmountLabel.SetText($"{amount} / {max}");
             }   
+        }
+
+        public void SetBracketOnOrb(int position, BracketType bracketType)
+        {
+            //position is zero-indexed!
+            //This function takes a position and sets the bracket 
+            // If the selection is a 3 ping but positions on the 7th index, then we do nothing.
+
+            bool exitCondition = (bracketType == BracketType.THREE && position >= 6)
+                    || (bracketType == BracketType.TWO && position >= 7)
+                    || (position > 7);
+            //Check Bracket type and position.
+            if (exitCondition) 
+            {
+                //NO
+                return;
+            }
+
+            
+
         }
 
         private void InitializeOrbAnimatorArray()

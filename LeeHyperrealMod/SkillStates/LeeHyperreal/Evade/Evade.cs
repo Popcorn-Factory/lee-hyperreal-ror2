@@ -185,7 +185,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         public override void OnExit()
         {
             base.OnExit();
-            base.characterMotor.velocity = new Vector3(previousMovementVector.x, 0, previousMovementVector.z);
+            float y = base.characterMotor.velocity.y;
+            base.characterMotor.velocity = new Vector3(previousMovementVector.x, y, previousMovementVector.z);
             base.characterBody.SetAimTimer(0);
             base.PlayAnimation("Body", "BufferEmpty");
         }

@@ -299,5 +299,13 @@ namespace LeeHyperrealMod.Content.Controllers
 
             return true;
         }
+
+        public void OnDestroy() 
+        {
+            if (snipeAerialPlatform) 
+            {
+                snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+            }
+        }
     }
 }
