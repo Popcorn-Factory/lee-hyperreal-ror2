@@ -179,13 +179,15 @@ namespace LeeHyperrealMod.Content.Controllers
 
                     handle = cameraTargetParams.AddParamsOverride(request, 0.4f);
                 }
-                weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.RIFLE);
-                weaponModelHandler.SetLaserState(true);
+            }
 
-                if (animator) 
-                {
-                    animator.SetBool("isSniping", true);
-                }
+            //Should set for everyone.
+            weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.RIFLE);
+            weaponModelHandler.SetLaserState(true);
+
+            if (animator)
+            {
+                animator.SetBool("isSniping", true);
             }
         }
 
@@ -206,19 +208,21 @@ namespace LeeHyperrealMod.Content.Controllers
                 {
                     cameraTargetParams.RemoveParamsOverride(handle);
                 }
-                weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
-                weaponModelHandler.SetLaserState(false);
-
-                if (animator)
-                {
-                    animator.SetBool("isSniping", false);
-                }
 
                 if (snipeAerialPlatform) 
                 {
                     snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
                     snipeAerialPlatform = null;
                 }
+            }
+
+            //Should set for everyone.
+            weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
+            weaponModelHandler.SetLaserState(false);
+
+            if (animator)
+            {
+                animator.SetBool("isSniping", false);
             }
         }
 

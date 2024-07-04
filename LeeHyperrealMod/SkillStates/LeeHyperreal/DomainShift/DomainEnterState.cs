@@ -196,10 +196,19 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
                 }
             }
 
-            if (base.age >= duration * triggerBlastFrac && base.isAuthority) 
+            if (base.age >= duration * triggerBlastFrac && !hasFired) 
             {
-                if (!hasFired) 
+
+                if (weaponModelHandler.GetState() != WeaponModelHandler.WeaponState.SUBMACHINE)
                 {
+                    weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
+                    weaponModelHandler.SetLaserState(false);
+                }
+
+                if (!hasFired && base.isAuthority) 
+                {
+                    domainController.EnableDomain();
+
                     hasFired = true;
 
                     bulletAttack.aimVector = (aoePos - base.gameObject.transform.position).normalized;
@@ -237,14 +246,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
                                 scale = 1.5f,
                             },
                             true);
-                    }
-
-
-                    domainController.EnableDomain();
-                    if (weaponModelHandler.GetState() != WeaponModelHandler.WeaponState.SUBMACHINE)
-                    {
-                        weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
-                        weaponModelHandler.SetLaserState(false);
                     }
                 }
 
