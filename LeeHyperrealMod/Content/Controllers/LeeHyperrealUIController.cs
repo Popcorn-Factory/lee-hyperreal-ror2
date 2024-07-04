@@ -362,7 +362,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         #region Orb Functions
 
-        private void InitializeOrbBrackets() 
+        private void InitializeOrbBrackets()
         {
             blueOrbBracketContainer = orbUIObject.transform.GetChild(blueBracketIndex).gameObject;
             redOrbBracketContainer = orbUIObject.transform.GetChild(redBracketIndex).gameObject;
@@ -370,7 +370,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
             //Go through each object and destroy the text label and replace it.
 
-            Transform blueLabel = blueOrbBracketContainer.transform.GetChild(0);
+            Transform blueLabel = blueOrbBracketContainer.transform.GetChild(0).GetChild(0);
             Destroy(blueLabel.gameObject.GetComponent<Text>());
             blueOrbLabel = CreateLabel(blueLabel, "Hotkey", Modules.Config.blueOrbTrigger.Value.ToString(), Vector2.zero, 24f);
 
@@ -381,6 +381,10 @@ namespace LeeHyperrealMod.Content.Controllers
             Transform yellowLabel = blueOrbBracketContainer.transform.GetChild(0);
             Destroy(yellowLabel.gameObject.GetComponent<Text>());
             yellowOrbLabel = CreateLabel(yellowLabel, "Hotkey", Modules.Config.yellowOrbTrigger.Value.ToString(), Vector2.zero, 24f);
+
+            blueOrbBracketContainer.SetActive(false);
+            yellowOrbBracketContainer.SetActive(false);
+            redOrbBracketContainer.SetActive(false);
         }
 
         private void InitializeOrbAmountLabel()
@@ -398,7 +402,7 @@ namespace LeeHyperrealMod.Content.Controllers
             }   
         }
 
-        public void SetBracketOnOrb(int position, BracketType bracketType)
+        public void SetBracketOnOrb(int position, BracketType bracketType, OrbController.OrbType orbType)
         {
             //position is zero-indexed!
             //This function takes a position and sets the bracket 
@@ -415,7 +419,6 @@ namespace LeeHyperrealMod.Content.Controllers
             }
 
             
-
         }
 
         private void InitializeOrbAnimatorArray()
