@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 6c1e98c69bb3d5d46a1f313f7adb5399, type: 3}
+  Title: Sprite Mask
+  Description:
+    Heading: 
+    Text: Camera facing sprites with a screen space tiling masked texture.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Sprite Texture
+    Text: Scale-independent screen space tiled texture.
+    LinkText: 
+    Url: 
+  - Heading: Tint
+    Text: Sprite tint color value.
+    LinkText: 
+    Url: 
+  - Heading: Pixel snap
+    Text: Toggle Pixel Snapping which prevents subpixel movement and make Sprites
+      appear to move in pixel-by-pixel increments. This does not affect any GameObjects'
+      Transform positions, it snaps Sprite Renderers to a grid in world space at
+      render-time. The grid size is based on the Assets Pixels Per Unit value.
+    LinkText: 
+    Url: 
+  - Heading: Screen Map
+    Text: Texture to be applied in screen space.
+    LinkText: 
+    Url: 
+  - Heading: Mask
+    Text: Tile texture mask.
+    LinkText: 
+    Url: 
+  - Heading: ScreenTilling
+    Text: Screen space texture tile amount.
+    LinkText: 
+    Url: 
+  - Heading: CustomUV's
+    Text: Sprite Custom UV override.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts:
+  - BlockHeader:
+      Heading: SpriteMaskController Script
+      Text: No parameters, accesses inner UV's of the Sprite and passes it on to
+        the shader for further use, place it on sprite.
+      LinkText: 
+      Url: 
+    BlockContent: []
+  LoadedLayout: 0
+  RPType: 3

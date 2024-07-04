@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: c033541d58f45e543b11cc10be8ae58f, type: 3}
+  Title: Simple Potion Liquid
+  Description:
+    Heading: 
+    Text: This samples performs a simple configurable liquid animation.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Simple Potion Liquid Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Speed
+    Text: Liquid animation speed.
+    LinkText: 
+    Url: 
+  - Heading: Size
+    Text: Liquid animation height.
+    LinkText: 
+    Url: 
+  - Heading: Height
+    Text: Amount of liquid over container.
+    LinkText: 
+    Url: 
+  - Heading: Falloff
+    Text: Controls transition falloff over liquid/air border.
+    LinkText: 
+    Url: 
+  - Heading: Opacity
+    Text: Liquid opacity.
+    LinkText: 
+    Url: 
+  - Heading: Color
+    Text: Liquid color.
+    LinkText: 
+    Url: 
+  AdditionalProperties:
+  - BlockHeader:
+      Heading: Simple Glass Properties
+      Text: 
+      LinkText: 
+      Url: 
+    BlockContent:
+    - Heading: Color
+      Text: Glass color (RGB channels ) and opacity (A channel).
+      LinkText: 
+      Url: 
+    - Heading: Smoothness
+      Text: Overall surface smoothness value.
+      LinkText: 
+      Url: 
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

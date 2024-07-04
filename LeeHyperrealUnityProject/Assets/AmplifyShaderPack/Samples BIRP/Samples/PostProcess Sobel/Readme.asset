@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 7b84e39c89b1997418be5bfdcd9cbe6e, type: 3}
+  Title: PostProcess Sobel
+  Description:
+    Heading: 
+    Text: Edge detection effect.
+    LinkText: Based on Sobel Filter shader by Forceflow
+    Url: https://www.shadertoy.com/view/Xdf3Rf
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Screen
+    Text: Set internally by the shader, don't use.
+    LinkText: 
+    Url: 
+  - Heading: Intensity
+    Text: Sobel effect intensity.
+    LinkText: 
+    Url: 
+  - Heading: Step
+    Text: Edge step value, influences thickness.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts:
+  - BlockHeader:
+      Heading: Post Process Example Script
+      Text: Base script that applies Post Process Material to Camera.
+      LinkText: 
+      Url: 
+    BlockContent:
+    - Heading: Post Process
+      Text: The Image Effect Material to be used.
+      LinkText: 
+      Url: 
+  LoadedLayout: 0
+  RPType: 3

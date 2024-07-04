@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: d4876e8c0c19d7747adb62fa63ec3194, type: 3}
+  Title: Community Hologram Simple
+  Description:
+    Heading: 
+    Text: Simple hologram scanline effect with transparency.
+    LinkText: Created by The Four Headed Cat
+    Url: https://twitter.com/fourheadedcat
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Hologram color
+    Text: Hologram color value.
+    LinkText: 
+    Url: 
+  - Heading: Speed
+    Text: Scanline scroll speed.
+    LinkText: 
+    Url: 
+  - Heading: Scan Lines
+    Text: Amount of scan lines, influences individual scanline size.
+    LinkText: 
+    Url: 
+  - Heading: Opacity
+    Text: Base opacity amount.
+    LinkText: 
+    Url: 
+  - Heading: Rim Normal Map
+    Text: Rim Normals texture to be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: Rim Power
+    Text: Scanline effect Rim Power.
+    LinkText: 
+    Url: 
+  - Heading: Intensity
+    Text: Scanline effect intensity.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

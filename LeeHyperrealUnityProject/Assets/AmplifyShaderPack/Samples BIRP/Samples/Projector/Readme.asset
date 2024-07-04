@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 7d815bb166211ac4793439a5f312c841, type: 3}
+  Title: Projector
+  Description:
+    Heading: 
+    Text: This samples demonstrates the use of both light and shadow projectors.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Projector Light Properties
+    Text: Projected fake light effect, relies on Unity's own Projector component.
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: LightTex
+    Text: Light texture projected to surface.
+    LinkText: 
+    Url: 
+  - Heading: FalloffTex
+    Text: 'Projection falloff texture. '
+    LinkText: 
+    Url: 
+  - Heading: Color
+    Text: Light texture color tint value.
+    LinkText: 
+    Url: 
+  AdditionalProperties:
+  - BlockHeader:
+      Heading: Projector Shadow Properties
+      Text: Projected fake shadow effect, relies on Unity's own Projector component.
+      LinkText: 
+      Url: 
+    BlockContent:
+    - Heading: ShadowTex
+      Text: Shadow texture projected to surface.
+      LinkText: 
+      Url: 
+    - Heading: FalloffTex
+      Text: 'Projection falloff texture. '
+      LinkText: 
+      Url: 
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

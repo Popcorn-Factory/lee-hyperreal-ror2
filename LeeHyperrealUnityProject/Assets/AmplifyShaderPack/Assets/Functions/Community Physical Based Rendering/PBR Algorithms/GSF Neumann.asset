@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: GSF Neumann
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.4.4\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19404\nNode;AmplifyShaderEditor.CommentaryNode;34;-1408,1536;Inherit;False;829.7892;358.7545;Math;6;218;77;75;76;337;338;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;266;-2557.787,1536;Inherit;False;1089.524;582.833;Dot
+    Products;9;270;303;269;262;271;272;327;341;342;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;338;-1376,1728;Inherit;False;198.0162;134.4329;NdotL;1;109;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;337;-1376,1584;Inherit;False;199.1671;132.5834;NdotV;1;91;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;232;-1408,1232;Inherit;False;677.3402;274.2595;GSF
+    Neumann Node;1;47;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;47;-1088,1280;Inherit;False;331.0288;166.2273;;;0,0,0,1;The
+    Neumann-Neumann GSF is another example of a GSF suited for Anisotropic Normal
+    Distribution. It produces more pronounced geometric shading based on the greater
+    of view direction or light direction -Jorden Stevens;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;336;-1408,1056;Inherit;False;548.0165;153.5884;Credits;;0,0,0,0.5019608;Method
+    by Jordan Stevens$Link: https://www.jordanstevenstechart.com/physically-based-rendering$$Node
+    Made by Tiber Legacy$Special Thanks to Dawie;0;0\nNode;AmplifyShaderEditor.SimpleMaxOpNode;76;-1136,1776;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;75;-1136,1632;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;77;-960,1632;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.GetLocalVarNode;109;-1360,1776;Inherit;False;262;NdotL;1;0;OBJECT;;False;1;FLOAT;0\nNode;AmplifyShaderEditor.GetLocalVarNode;91;-1360,1632;Inherit;False;327;NdotV;1;0;OBJECT;;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RegisterLocalVarNode;327;-1728,1616;Inherit;True;NdotV;-1;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;272;-2176,1920;Inherit;False;NdotL;1;1;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;271;-2176,1696;Inherit;False;NdotV;1;2;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RegisterLocalVarNode;262;-1728,1840;Inherit;True;NdotL;-1;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;269;-2016,1616;Inherit;False;Custom
+    Dot Products;True;0;2;1;In 0;In 1;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;303;-2432,1616;Inherit;False;Normal;3;0;False;1;0;FLOAT3;0,0,1;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionSwitch;270;-2016,1840;Inherit;False;Option;False;0;2;1;In
+    0;In 1;Instance;269;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;341;-2240,1616;Inherit;False;NdotV;-1;;3;65be4ec269a534f4e8867af2f999aaa9;4,27,1,377,0,452,0,451,0;3;230;FLOAT3;0,0,1;False;443;FLOAT3;0,0,0;False;415;FLOAT;1E-37;False;1;FLOAT;23\nNode;AmplifyShaderEditor.FunctionNode;342;-2240,1840;Inherit;False;NdotL;-1;;4;6d7ee1aa8c79587448475fa2b37affc1;5,27,1,381,0,460,0,461,0,463,0;4;230;FLOAT3;0,0,1;False;462;FLOAT3;0,0,0;False;454;FLOAT3;0,0,0;False;416;FLOAT;1E-37;False;1;FLOAT;111\nNode;AmplifyShaderEditor.FunctionOutput;218;-800,1632;Inherit;True;True;-1;Out;0;False;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;76;0;109;0\nWireConnection;76;1;91;0\nWireConnection;75;0;91;0\nWireConnection;75;1;109;0\nWireConnection;77;0;75;0\nWireConnection;77;1;76;0\nWireConnection;327;0;269;0\nWireConnection;262;0;270;0\nWireConnection;269;0;341;23\nWireConnection;269;1;271;0\nWireConnection;270;0;342;111\nWireConnection;270;1;272;0\nWireConnection;341;230;303;0\nWireConnection;342;230;303;0\nWireConnection;218;0;77;0\nASEEND*/\n//CHKSM=66FD4301E10F2BE5DA24E46DDA03D3E7622AF91D"
+  m_functionName: 
+  m_description: 'GSF Neumann Node
+
+'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 0
+  m_headerStyle: 2
+  m_headerColor: {r: 0.7529412, g: 0.6784314, b: 0, a: 1}
+  m_customNodeCategory: Amplify Shader Pack
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 

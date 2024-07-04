@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: NDF BlinnPhong
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.4.4\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19404\nNode;AmplifyShaderEditor.CommentaryNode;168;-2048,-384;Inherit;False;1823.633;723;Math;25;16;53;54;21;55;56;26;24;23;58;44;59;60;61;62;39;57;25;0;15;17;19;14;169;41;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;64;-3203.353,-384;Inherit;False;1113.479;641.5006;Dot
+    Products;8;159;158;92;165;125;123;114;214;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;181;-2048,-992;Inherit;False;806.8541;548.368;NDF
+    BlinnPhong Node;3;180;43;42;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;61;-2016,-240;Inherit;False;193.449;128.9591;RdotV;1;166;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;62;-2016,-96;Inherit;False;192.3518;124.7719;NdotH;1;167;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;41;-1776,-336;Inherit;False;374;130;Blinn
+    the Phong;;0,0,0,0.5019608;Switch between Phong and Blinn-Phong methods$$-- BlinnPhong$--
+    Phong;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;42;-1680,-784;Inherit;False;383.4779;173.6793;Blinn-Phong;;0,0,0,0.5019608;Blinn
+    approximation of Phong specularity was created as an optimization of the Phong
+    Specular Model. Blinn decided that it was faster to produce the dot product of
+    the normal and half vector, than it was to calculate the reflect vector of light
+    every frame. The algorithms do produce much different results, with Blinn being
+    softer than Phong - Jordan Stevens;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;43;-1680,-592;Inherit;False;380.7549;126.7846;Phong;;0,0,0,0.5019608;Phong
+    algorithm is another non-physical algorithm, but it produces much finer results
+    than the above Blinn approximation - Jordan Stevens;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;59;-1632,-48;Inherit;False;276.167;132.2267;Specular
+    Power;;0,0,0,1;in jordan mentions that scale of '40' to \"provide the function
+    a higher range\" tho says it might NOT be the right value for everyone, so try
+    you're own!;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;60;-1840,128;Inherit;False;181.5096;105.6268;Gloss;;0,0,0,1;;0;0\nNode;AmplifyShaderEditor.PowerNode;16;-1008,-192;Inherit;False;False;2;0;FLOAT;0;False;1;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;21;-816,16;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;55;-864,-128;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;56;-864,32;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;26;-624,16;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;24;-784,128;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;23;-928,128;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;2;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;58;-992,96;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;44;-1120,128;Inherit;False;Constant;_Two;Two;0;0;Create;True;0;0;0;False;0;False;2;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;57;-1008,80;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.TauNode;25;-928,224;Inherit;False;0;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;53;-1360,-32;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;54;-1360,144;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;169;-1312,-128;Inherit;False;Custom
+    Specular Gloss;True;0;2;-1;In 0;In 1;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.ScaleNode;19;-1632,144;Inherit;False;40;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMaxOpNode;17;-1472,144;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;39;-1776,-192;Inherit;False;Blinn
+    the Phong;False;0;2;0;BlinnPhong;Phong;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.StickyNoteNode;180;-1680,-928;Inherit;False;383.23;126.704;;;0,0,0,1;Blinn-Phong
+    is not considered a physically correct algorithm, but it will still produce reliable
+    specular highlights that can be used for specific artistic intentions - Jordan
+    Stevens$;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;182;-2048,-1184;Inherit;False;511.6644;165.4868;Credits;;0,0,0,0.5019608;Method
+    by Jordan Stevens$Link: https://www.jordanstevenstechart.com/physically-based-rendering$$Node
+    Made by Tiber Legacy$Special Thanks to Dawie;0;0\nNode;AmplifyShaderEditor.GetLocalVarNode;167;-2000,-48;Inherit;False;114;NdotH;1;0;OBJECT;;False;1;FLOAT;0\nNode;AmplifyShaderEditor.GetLocalVarNode;166;-2000,-192;Inherit;False;165;RdotV;1;0;OBJECT;;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RegisterLocalVarNode;114;-2400,-256;Inherit;True;NdotH;-1;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;123;-2848,-176;Inherit;False;NdotH;1;1;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;125;-2688,-256;Inherit;False;Custom
+    Dot Products;True;0;2;1;In 0;In 1;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RegisterLocalVarNode;165;-2400,-32;Inherit;True;RdotV;-1;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;92;-3136,-256;Inherit;False;Normal;3;0;False;1;0;FLOAT3;0,0,1;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionInput;159;-2848,96;Inherit;False;RdotV;1;2;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;14;-1792,48;Inherit;False;Gloss;1;3;False;1;0;FLOAT;0.98;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;158;-2688,-32;Inherit;False;Option;False;0;2;1;In
+    0;In 1;Instance;125;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;15;-1520,-128;Inherit;False;Specular
+    Power;1;4;False;1;0;FLOAT;36;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;214;-2912,-256;Inherit;False;NdotH;-1;;3;fadb6690f179c1448859861f76ebb061;7,27,1,373,0,451,0,463,0,460,0,461,0,452,0;6;230;FLOAT3;0,0,1;False;443;FLOAT3;0,0,0;False;462;FLOAT3;0,0,0;False;454;FLOAT3;0,0,0;False;453;FLOAT3;0,0,0;False;417;FLOAT;1E-37;False;1;FLOAT;109\nNode;AmplifyShaderEditor.FunctionNode;215;-2944,-32;Inherit;False;RdotV;-1;;4;57d3b3f789fb88e41aad491f72c6ab43;6,27,1,401,0,454,0,463,0,464,0,466,0;5;230;FLOAT3;0,0,1;False;446;FLOAT3;0,0,0;False;465;FLOAT3;0,0,0;False;457;FLOAT3;0,0,0;False;421;FLOAT;1E-37;False;3;FLOAT;298;FLOAT3;430;FLOAT3;433\nNode;AmplifyShaderEditor.FunctionOutput;0;-464,16;Inherit;True;True;-1;Out;0;True;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;16;0;39;0\nWireConnection;16;1;169;0\nWireConnection;21;0;56;0\nWireConnection;21;1;14;0\nWireConnection;55;0;16;0\nWireConnection;56;0;55;0\nWireConnection;26;0;21;0\nWireConnection;26;1;24;0\nWireConnection;24;0;23;0\nWireConnection;24;1;25;0\nWireConnection;23;0;58;0\nWireConnection;23;1;44;0\nWireConnection;58;0;57;0\nWireConnection;57;0;14;0\nWireConnection;53;0;54;0\nWireConnection;54;0;17;0\nWireConnection;169;0;53;0\nWireConnection;169;1;15;0\nWireConnection;19;0;14;0\nWireConnection;17;0;19;0\nWireConnection;39;0;166;0\nWireConnection;39;1;167;0\nWireConnection;114;0;125;0\nWireConnection;125;0;214;109\nWireConnection;125;1;123;0\nWireConnection;165;0;158;0\nWireConnection;158;0;215;298\nWireConnection;158;1;159;0\nWireConnection;214;230;92;0\nWireConnection;215;230;92;0\nWireConnection;0;0;26;0\nASEEND*/\n//CHKSM=55E0F578821BA620C877874F528AB7738B97831D"
+  m_functionName: 
+  m_description: 'NDF BlinnPhong Node
+
+'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 0
+  m_headerStyle: 2
+  m_headerColor: {r: 0.7529412, g: 0.6784314, b: 0, a: 1}
+  m_customNodeCategory: Amplify Shader Pack
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 

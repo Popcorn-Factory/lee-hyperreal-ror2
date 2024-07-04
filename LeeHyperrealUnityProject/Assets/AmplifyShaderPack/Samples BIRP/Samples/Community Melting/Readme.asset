@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 19972cced177dfd4a86f8c72bdcd3648, type: 3}
+  Title: Community Melting
+  Description:
+    Heading: 
+    Text: This sample creates a metal melting effect.
+    LinkText: Created by Gil Damoiseaux
+    Url: https://twitter.com/Gaxil
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Base Color
+    Text: Base Color Value.
+    LinkText: 
+    Url: 
+  - Heading: Base Normal
+    Text: Normals texture to be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: Color 1
+    Text: Glowing metal inner color.
+    LinkText: 
+    Url: 
+  - Heading: Color 2
+    Text: 'Glowing metal outer border color. '
+    LinkText: 
+    Url: 
+  - Heading: Displace Noise
+    Text: Control displacement texture.
+    LinkText: 
+    Url: 
+  - Heading: NoiseScale
+    Text: Displacement texture tiling multiplier.
+    LinkText: 
+    Url: 
+  - Heading: Limit
+    Text: Height limit for the melting effect.
+    LinkText: 
+    Url: 
+  - Heading: Oscillation
+    Text: Oscillation intensity of the noise effect.
+    LinkText: 
+    Url: 
+  - Heading: Emission Intensity
+    Text: Emission intensity of the glowing metal effect.
+    LinkText: 
+    Url: 
+  - Heading: Smoothness
+    Text: Base smoothness value.
+    LinkText: 
+    Url: 
+  - Heading: Emission Weight
+    Text: Weight value of the emission.
+    LinkText: 
+    Url: 
+  - Heading: Metallic
+    Text: Base Metallic value.
+    LinkText: 
+    Url: 
+  - Heading: Noise Multiply
+    Text: Displacement noise texture multiplier.
+    LinkText: 
+    Url: 
+  - Heading: Animated Melt
+    Text: Toggle for melting animation effect over time.
+    LinkText: 
+    Url: 
+  - Heading: Manual Control
+    Text: Melt amount value.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 6348f15bd2ecc7c4b9629554966990ba, type: 3}
+  Title: Refraction Soap Bubble
+  Description:
+    Heading: 
+    Text: Soap bubble refraction effect.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Chromatic Aberration
+    Text: Chromatic aberration value.
+    LinkText: 
+    Url: 
+  - Heading: Opacity
+    Text: Bubble opacity value.
+    LinkText: 
+    Url: 
+  - Heading: Index of Refraction
+    Text: Bubble Index of refraction.
+    LinkText: 
+    Url: 
+  - Heading: Specular
+    Text: Specular value.
+    LinkText: 
+    Url: 
+  - Heading: Soap Amount
+    Text: Soap film opacity value.
+    LinkText: 
+    Url: 
+  - Heading: Smoothness
+    Text: Smoothness Value.
+    LinkText: 
+    Url: 
+  - Heading: Foam
+    Text: Foam texture, controls soap appearance.
+    LinkText: 
+    Url: 
+  - Heading: Soap
+    Text: Soap ramp texture.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

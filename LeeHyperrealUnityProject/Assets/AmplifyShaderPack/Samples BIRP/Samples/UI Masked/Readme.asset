@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: d7d0e9ec46a14e243a22622054a44d7e, type: 3}
+  Title: UI Masked
+  Description:
+    Heading: 
+    Text: This sample shows usage of masking and procedurally generated waves over
+      UI elements.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Sprite Texture
+    Text: Main sprite texture.
+    LinkText: 
+    Url: 
+  - Heading: Tint
+    Text: Overall color tint value.
+    LinkText: 
+    Url: 
+  - Heading: Stencil Comparison
+    Text: Stencil comparison value.
+    LinkText: 
+    Url: 
+  - Heading: Stencil ID
+    Text: Stencil ID value.
+    LinkText: 
+    Url: 
+  - Heading: Stencil Operation
+    Text: Stencil operation value.
+    LinkText: 
+    Url: 
+  - Heading: Stencil Write Mask
+    Text: Stencil write mask value.
+    LinkText: 
+    Url: 
+  - Heading: Stencil Read Mask
+    Text: Stencil read mask value.
+    LinkText: 
+    Url: 
+  - Heading: Color Mask
+    Text: Color mask value.
+    LinkText: 
+    Url: 
+  - Heading: Use Alpha Clip
+    Text: Toggle to use Unity alpha clip.
+    LinkText: 
+    Url: 
+  - Heading: Wave Amplitude A
+    Text: Amplitute of first proceduraly generated wave.
+    LinkText: 
+    Url: 
+  - Heading: Wave Width A
+    Text: Width of first proceduraly generated wave.
+    LinkText: 
+    Url: 
+  - Heading: Color Wave A
+    Text: Color of first proceduraly generated wave.
+    LinkText: 
+    Url: 
+  - Heading: Y Displacement A
+    Text: Vertical displacement of first proceduraly generated wave.
+    LinkText: 
+    Url: 
+  - Heading: Wave Amplitude B
+    Text: Amplitute of second proceduraly generated wave.
+    LinkText: 
+    Url: 
+  - Heading: Wave Width B
+    Text: Width of second proceduraly generated wave.
+    LinkText: 
+    Url: 
+  - Heading: Color Wave B
+    Text: Color of second proceduraly generated wave.
+    LinkText: 
+    Url: 
+  - Heading: Y Displacement B
+    Text: Vertical displacement of first proceduraly generated wave.
+    LinkText: 
+    Url: 
+  - Heading: Mask
+    Text: Mask texture to be used by procedurally generated waves.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

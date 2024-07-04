@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 17a581b272957394b947e0212e0c0a90, type: 3}
+  Title: Stencil Portals
+  Description:
+    Heading: 
+    Text: This sample places multiple objects at the same location, each one only
+      visible through its own portal. This is achieved by writing a specific value
+      into the stencil buffer for each portal and then each object only is rendered
+      if the stencil buffer contains its reference value.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Refraction Panel Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Portal Color
+    Text: Tint value for refraction value.
+    LinkText: 
+    Url: 
+  - Heading: Distortion Value
+    Text: Overall strength for refraction made by refraction panel.
+    LinkText: 
+    Url: 
+  - Heading: Distortion Map
+    Text: Normals texture to set distortion behavior.
+    LinkText: 
+    Url: 
+  AdditionalProperties:
+  - BlockHeader:
+      Heading: Stencil Portal Write
+      Text: Objects using this are not drawn in scene, they only write to the stencil
+        buffer.
+      LinkText: 
+      Url: 
+    BlockContent:
+    - Heading: Stencil Reference
+      Text: Value to be written to the stencil buffer.
+      LinkText: 
+      Url: 
+  - BlockHeader:
+      Heading: Stencil Portal Read
+      Text: Objects with the shader applied only are visible if its reference value
+        is written on the stencil buffer.
+      LinkText: 
+      Url: 
+    BlockContent:
+    - Heading: Stencil Reference
+      Text: Value to check with stencil buffer to determine if its to be drawn or
+        not.
+      LinkText: 
+      Url: 
+    - Heading: Tint Color
+      Text: Color value to tint Albedo channel.
+      LinkText: 
+      Url: 
+    - Heading: 'Albedo '
+      Text: Albedo texture to be applied to surface.
+      LinkText: 
+      Url: 
+    - Heading: Normal
+      Text: Normals texture to be applied to surface.
+      LinkText: 
+      Url: 
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

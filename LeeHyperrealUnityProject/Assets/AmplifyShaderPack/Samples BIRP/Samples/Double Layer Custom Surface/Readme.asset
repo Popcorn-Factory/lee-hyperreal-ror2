@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 39c1de61c070e31468fcbedc0bc91f49, type: 3}
+  Title: Double Layer Custom Surface
+  Description:
+    Heading: 
+    Text: This samples creates a double layer coat effect, similar to ones used in
+      cars.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Base Color 1
+    Text: Base color for inner layer
+    LinkText: 
+    Url: 
+  - Heading: Base Color 2
+    Text: Base color for rim area
+    LinkText: 
+    Url: 
+  - Heading: Base Metallic
+    Text: Metallic value for inner layer
+    LinkText: 
+    Url: 
+  - Heading: Base Smoothness
+    Text: Smoothness value for inner layer
+    LinkText: 
+    Url: 
+  - Heading: Base Occlusion
+    Text: Occlusion value for inner layer
+    LinkText: 
+    Url: 
+  - Heading: Flakes (RGB = color variation, A = mask)
+    Text: Flakes texture, RGB channels must contain flake color variation and A channel
+      the mask used to interpolate between base colors and flakes
+    LinkText: 
+    Url: 
+  - Heading: Flake Color Variation Amount
+    Text: Value between 0 and 1 which determines the amount of color variation on
+      the flakes
+    LinkText: 
+    Url: 
+  - Heading: Flakes Color 1
+    Text: Base flake color for inner layer
+    LinkText: 
+    Url: 
+  - Heading: Flakes Color 2
+    Text: Base flake color for rim area
+    LinkText: 
+    Url: 
+  - Heading: Flakes Metallic
+    Text: Metallic value for flakes
+    LinkText: 
+    Url: 
+  - Heading: Flakes Smoothness
+    Text: Smoothness value for flakes
+    LinkText: 
+    Url: 
+  - Heading: Flakes Normal
+    Text: Flakes normal map texture
+    LinkText: 
+    Url: 
+  - Heading: Flakes Bump
+    Text: Normal map scale for flakes
+    LinkText: 
+    Url: 
+  - Heading: Coat Normal
+    Text: Normal map texture for coat layer
+    LinkText: 
+    Url: 
+  - Heading: Coat Bump
+    Text: Normal map scale for coat layer
+    LinkText: 
+    Url: 
+  - Heading: Coat Amount
+    Text: Coat layer intensity
+    LinkText: 
+    Url: 
+  - Heading: Coat Smoothness
+    Text: Coat layer smoothness
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

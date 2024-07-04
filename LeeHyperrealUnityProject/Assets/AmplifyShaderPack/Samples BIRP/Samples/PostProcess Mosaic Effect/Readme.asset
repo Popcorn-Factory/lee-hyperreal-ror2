@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 9903961246be2c84c829a2d575c8c447, type: 3}
+  Title: PostProcess Mosaic Effect
+  Description:
+    Heading: 
+    Text: This sample creates a mosaic fullscreen effect using Unity post-processing
+      stack.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: TileSize
+    Text: Mosaic tile size.
+    LinkText: 
+    Url: 
+  - Heading: RadiusTweak
+    Text: Value to teak mosaic roundness.
+    LinkText: 
+    Url: 
+  - Heading: InBetweenColor
+    Text: Color value to tint mosaic in-between areas.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts:
+  - BlockHeader:
+      Heading: Scripts
+      Text: 
+      LinkText: 
+      Url: 
+    BlockContent:
+    - Heading: MosaicEffectPPSPPSSettings
+      Text: Necessary script to properly register the effect over the post-processing
+        stack.
+      LinkText: 
+      Url: 
+  LoadedLayout: 0
+  RPType: 3

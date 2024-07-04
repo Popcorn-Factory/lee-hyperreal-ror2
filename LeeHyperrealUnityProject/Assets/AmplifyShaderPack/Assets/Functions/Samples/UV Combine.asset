@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: UV Combine
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.1.5\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19105\nNode;AmplifyShaderEditor.CommentaryNode;9;-757,386;Inherit;False;215;158;UV3;1;25;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;5;-752,7;Inherit;False;209;159.5892;UV1;1;23;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;3;-751,-169;Inherit;False;219;160;UV0;1;22;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;17;-431.9529,424.2127;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;18;-250.7474,322.8828;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.TextureCoordinatesNode;24;-751.3204,215.6725;Inherit;False;2;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.TextureCoordinatesNode;23;-742.1047,45.18152;Inherit;False;1;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.SimpleAddOpNode;20;-95.37438,122.5595;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.BreakToComponentsNode;13;-577.7816,-321.3676;Inherit;False;FLOAT4;1;0;FLOAT4;0,0,0,0;False;16;FLOAT;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT;5;FLOAT;6;FLOAT;7;FLOAT;8;FLOAT;9;FLOAT;10;FLOAT;11;FLOAT;12;FLOAT;13;FLOAT;14;FLOAT;15\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;14;-437.0767,-127.8653;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;16;-434.5148,215.4223;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.StickyNoteNode;1;-72.51964,-70.4688;Inherit;False;628;174;UV
+    Combine Node;;0,0,0,1;UV Channel Selection$This node allows the user to select
+    the UV channel with a Vector 4 by typing \"1\" in the column that corresponds
+    to the channel they want and 0 in the others.$1 in X will use UV channel 0$1
+    in Y will use UV channel 1$1 in Z will use UV channel 2$1 in W will use UV channel
+    3;0;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;15;-438.3576,50.18309;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.TextureCoordinatesNode;25;-747.8643,421.8745;Inherit;False;3;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.SimpleAddOpNode;19;-259.0111,-30.08693;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.TextureCoordinatesNode;22;-734.0405,-131.0693;Inherit;False;0;-1;2;3;2;SAMPLER2D;;False;0;FLOAT2;1,1;False;1;FLOAT2;0,0;False;5;FLOAT2;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4\nNode;AmplifyShaderEditor.CommentaryNode;7;-747,184;Inherit;False;203;163;UV2;0;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.BreakToComponentsNode;33;146.6473,268.3306;Inherit;False;FLOAT4;1;0;FLOAT4;0,0,0,0;False;16;FLOAT;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT;5;FLOAT;6;FLOAT;7;FLOAT;8;FLOAT;9;FLOAT;10;FLOAT;11;FLOAT;12;FLOAT;13;FLOAT;14;FLOAT;15\nNode;AmplifyShaderEditor.ScaleAndOffsetNode;21;476.2316,124.6654;Inherit;False;3;0;FLOAT2;0,0;False;1;FLOAT2;1,0;False;2;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.FunctionOutput;0;678.5718,125.3421;Inherit;False;True;-1;UV;0;False;1;0;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.FunctionInput;10;-787.1816,-325.7676;Inherit;False;UV
+    Channel Mask;4;0;False;1;0;FLOAT4;1,0,0,0;False;1;FLOAT4;0\nNode;AmplifyShaderEditor.DynamicAppendNode;34;282.8793,245.1621;Inherit;False;FLOAT2;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.DynamicAppendNode;35;283.6318,338.6321;Inherit;False;FLOAT2;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.FunctionInput;31;-64.99339,263.264;Inherit;False;UV
+    Tile and Offset;4;1;False;1;0;FLOAT4;1,1,0,0;False;1;FLOAT4;0\nWireConnection;17;0;25;0\nWireConnection;17;1;13;3\nWireConnection;18;0;16;0\nWireConnection;18;1;17;0\nWireConnection;20;0;19;0\nWireConnection;20;1;18;0\nWireConnection;13;0;10;0\nWireConnection;14;0;22;0\nWireConnection;14;1;13;0\nWireConnection;16;0;24;0\nWireConnection;16;1;13;2\nWireConnection;15;0;23;0\nWireConnection;15;1;13;1\nWireConnection;19;0;14;0\nWireConnection;19;1;15;0\nWireConnection;33;0;31;0\nWireConnection;21;0;20;0\nWireConnection;21;1;34;0\nWireConnection;21;2;35;0\nWireConnection;0;0;21;0\nWireConnection;34;0;33;0\nWireConnection;34;1;33;1\nWireConnection;35;0;33;2\nWireConnection;35;1;33;3\nASEEND*/\n//CHKSM=1162FF87AD309A8E0A6064989C087664D24DED47"
+  m_functionName: 
+  m_description: 'Amplify Shader Pack Example
+
+
+    UV Channel Selection
+
+    This
+    node allows the user to select the UV channel with a Vector 4 by typing "1" in
+    the column that corresponds to the channel they want and 0 in the others.
+
+    1
+    in X will use UV channel 0
+
+    1 in Y will use UV channel 1
+
+    1 in Z will
+    use UV channel 2
+
+    1 in W will use UV channel 3'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 0
+  m_headerStyle: 2
+  m_headerColor: {r: 0.6627451, g: 0.4392157, b: 0, a: 1}
+  m_customNodeCategory: Amplify Shader Pack
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 

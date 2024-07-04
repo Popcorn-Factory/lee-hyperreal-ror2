@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: dc4dd20ba58280a47afade797ebbc36f, type: 3}
+  Title: CustomRT Rain
+  Description:
+    Heading: 
+    Text: 'This sample combines a render texture, on which rain is being procedurally
+      generated, with a regular surface. '
+    LinkText: The Rain Update shader was based on Rainier mood effect by Zavie.
+    Url: https://www.shadertoy.com/view/ldfyzl
+  PropertiesHeader:
+    Heading: Custom RT Rain Surface Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: RainRT
+    Text: Custom render texture containing procedural rain.
+    LinkText: 
+    Url: 
+  - Heading: Albedo
+    Text: Albedo texture to be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: Normal
+    Text: Normals texture to be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: Metallic
+    Text: Overall metallic value to be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: Smoothness
+    Text: Overall smoothness value to be applied to surface.
+    LinkText: 
+    Url: 
+  AdditionalProperties:
+  - BlockHeader:
+      Heading: Custom RT Init Properties
+      Text: Initializes custom render texture.
+      LinkText: 
+      Url: 
+    BlockContent:
+    - Heading: Initial Color
+      Text: Color value to initialize custom render texture.
+      LinkText: 
+      Url: 
+  - BlockHeader:
+      Heading: Custom RT Rain Update Properties
+      Text: Updates custom render texture.
+      LinkText: 
+      Url: 
+    BlockContent:
+    - Heading: Resolution
+      Text: Value that sets resolution for ripples and control their amount of the
+        render texture.
+      LinkText: 
+      Url: 
+    - Heading: Max Radius
+      Text: Value to control ripple maximum radius.
+      LinkText: 
+      Url: 
+    - Heading: Ripple Intensity
+      Text: Value to control overall ripple intensity.
+      LinkText: 
+      Url: 
+    - Heading: Time Scale
+      Text: Value to control ripple animation.
+      LinkText: 
+      Url: 
+  - BlockHeader:
+      Heading: '* Amplify Shader Editor Template required when editing *'
+      Text: 'Custom Render Texture template located at package: AmplifyShaderEditor
+        > Plugins > EditorResources > Templates > CustomRTTemplates must be imported
+        before being able to edit this sample over Amplify Shader Editor canvas.'
+      LinkText: 
+      Url: 
+    BlockContent: []
+  AdditionalScripts:
+  - BlockHeader:
+      Heading: Scripts
+      Text: 
+      LinkText: 
+      Url: 
+    BlockContent:
+    - Heading: CustomRTRainUpdate
+      Text: Script which forces custom render texture update. Please note that this
+        is only necessary when Update Mode is set to OnDemand.
+      LinkText: 
+      Url: 
+  LoadedLayout: 0
+  RPType: 3

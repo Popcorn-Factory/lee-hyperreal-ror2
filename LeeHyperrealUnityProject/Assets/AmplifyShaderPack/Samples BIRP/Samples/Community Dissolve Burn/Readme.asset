@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: eeeaa89652587c04d955a3000b55a6b6, type: 3}
+  Title: Community Dissolve Burn
+  Description:
+    Heading: 
+    Text: Dissolve burn effect using alpha clip.
+    LinkText: Created by The Four Headed Cat
+    Url: https://twitter.com/fourheadedcat
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Mask Clip Value
+    Text: 'Alpha clip value. '
+    LinkText: 
+    Url: 
+  - Heading: Albedo
+    Text: Albedo texture atlas to be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: Normal
+    Text: Normals texture atlas to be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: Disolve Guide
+    Text: Control texture used to guide the dissolve Opacity Mask and Emission.
+    LinkText: 
+    Url: 
+  - Heading: Burn Ramp
+    Text: Ramp texture used to color the burn effect based on the Dissolved Guide.
+    LinkText: 
+    Url: 
+  - Heading: Dissolve Amount
+    Text: Dissolve effect amount.
+    LinkText: 
+    Url: 
+  - Heading: Intensity
+    Text: Burn emission intensity multiplier.
+    LinkText: 
+    Url: 
+  - Heading: Color 0
+    Text: Burn emission color.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

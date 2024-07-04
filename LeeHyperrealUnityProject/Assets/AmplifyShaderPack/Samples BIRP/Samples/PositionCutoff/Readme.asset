@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 1553b7ffb68bc1f4e818c4c2a9da5688, type: 3}
+  Title: Local Position Cutoff
+  Description:
+    Heading: 
+    Text: This sample modifies the material behaviors according to the surface Y
+      coordinate ( which can be taken into account either on local/object or world
+      coordinates ). This can be used to set an underwater behavior to objects.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Use Object Space
+    Text: Toggles Y coordinate usage between local/object or world space.
+    LinkText: 
+    Url: 
+  - Heading: Distribution
+    Text: Value that sets how spread is the underwater effect over the top section.
+    LinkText: 
+    Url: 
+  - Heading: SmoothnessFactor
+    Text: Value that scales overall smoothness.
+    LinkText: 
+    Url: 
+  - Heading: StartPoint
+    Text: Offset value to control where separation from top and bottom behaviors
+      happens.
+    LinkText: 
+    Url: 
+  - Heading: UnderwaterInfluence
+    Text: Value that specifices how much influence does the bottom effect has on
+      the material.
+    LinkText: 
+    Url: 
+  - Heading: Tint
+    Text: Color value to be used on the bottom effect.
+    LinkText: 
+    Url: 
+  - Heading: Normals
+    Text: Normals texture texture to be used on surface.
+    LinkText: 
+    Url: 
+  - Heading: Albedo
+    Text: Albedo texture texture to be used on surface.
+    LinkText: 
+    Url: 
+  - Heading: Occlusion
+    Text: Occlusion texture texture to be used on surface. ( Only R channel used
+      )
+    LinkText: 
+    Url: 
+  - Heading: Metallic
+    Text: Metallic texture texture to be used on surface. ( Only R channel used 
+      )
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

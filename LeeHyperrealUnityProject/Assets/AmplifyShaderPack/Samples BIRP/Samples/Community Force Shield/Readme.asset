@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 187f0d656af20aa4d8d721a92c3effe1, type: 3}
+  Title: Community Force Shield
+  Description:
+    Heading: 
+    Text: Force shield effect with depth intersection that reacts to hits at a specific
+      position passed on via a simple script.
+    LinkText: Created by The Four Headed Cat
+    Url: https://twitter.com/fourheadedcat
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Color
+    Text: 'Base tint color value. '
+    LinkText: 
+    Url: 
+  - Heading: Albedo
+    Text: Albedo textureto be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: Normal
+    Text: Normals texture to be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: Opacity
+    Text: Transparency value.
+    LinkText: 
+    Url: 
+  - Heading: Shield Pattern Color
+    Text: 'Shield tint color value. '
+    LinkText: 
+    Url: 
+  - Heading: Shield Pattern
+    Text: Shield pattern texture.
+    LinkText: 
+    Url: 
+  - Heading: Shield Pattern Size
+    Text: Shield pattern tile amount.
+    LinkText: 
+    Url: 
+  - Heading: Shield Pattern Power
+    Text: Shield pattern power value.
+    LinkText: 
+    Url: 
+  - Heading: Shield Rim Power
+    Text: Shield rim effect power value.
+    LinkText: 
+    Url: 
+  - Heading: Shield Anim Speed
+    Text: Shield pattern scrolling speed.
+    LinkText: 
+    Url: 
+  - Heading: Shield Pattern Waves
+    Text: Shield wave pattern texture.
+    LinkText: 
+    Url: 
+  - Heading: Shield Distortion
+    Text: Shield noise offset intensity.
+    LinkText: 
+    Url: 
+  - Heading: Intersect Intensity
+    Text: Surface intersection intensity.
+    LinkText: 
+    Url: 
+  - Heading: Intersect Color
+    Text: Surface intersection color.
+    LinkText: 
+    Url: 
+  - Heading: Hit Position
+    Text: Ball projectile hit position.
+    LinkText: 
+    Url: 
+  - Heading: Hit Time
+    Text: Hit effect duration.
+    LinkText: 
+    Url: 
+  - Heading: Hit Color
+    Text: Hit color value.
+    LinkText: 
+    Url: 
+  - Heading: Hit Size
+    Text: Hit size value.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts:
+  - BlockHeader:
+      Heading: Force Shield Shoot Ball Script
+      Text: Shoots balls and passes hit position to shader, placed in active camera.
+      LinkText: 
+      Url: 
+    BlockContent:
+    - Heading: Bullet
+      Text: Projectile prefab asset.
+      LinkText: 
+      Url: 
+    - Heading: Origin
+      Text: Origin transform.
+      LinkText: 
+      Url: 
+    - Heading: Speed
+      Text: Projectile initial speed.
+      LinkText: 
+      Url: 
+  - BlockHeader:
+      Heading: Force Shield Impact Detection
+      Text: Forceshield impact detection, no properties available. Added to force
+        shield object, passes value to shader.
+      LinkText: 
+      Url: 
+    BlockContent: []
+  LoadedLayout: 0
+  RPType: 3

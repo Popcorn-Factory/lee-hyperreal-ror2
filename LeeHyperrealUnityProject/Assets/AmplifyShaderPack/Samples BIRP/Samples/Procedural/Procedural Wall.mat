@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Procedural Wall
+  m_Shader: {fileID: 4800000, guid: 79b085c0c51c89043ab966ff5ca5faa0, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BrickAlbedo:
+        m_Texture: {fileID: 2800000, guid: f0325b098cd84bc1a847391f531b3007, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _BrickNormal:
+        m_Texture: {fileID: 2800000, guid: 8ec217f770e34536be4d0dee12abb7a6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _InnerAlbedo:
+        m_Texture: {fileID: 2800000, guid: 6633e66536f148a281a9fcaa7ef60863, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _InnerNormal:
+        m_Texture: {fileID: 2800000, guid: b91e3e42ac594b849bc5700ddfa92aa0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Noise:
+        m_Texture: {fileID: 2800000, guid: 62695c15a49d430abd2ae1471c72b1c7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: 16d574e53541bba44a84052fa38778df, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample1:
+        m_Texture: {fileID: 2800000, guid: b297077dae62c1944ba14cad801cddf5, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample2:
+        m_Texture: {fileID: 2800000, guid: 00d034bb5072d8043a98b8a4aae5a40d, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample3:
+        m_Texture: {fileID: 2800000, guid: 7ddcba51d9fc0894d98b4ba77fbdfbd7, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample4:
+        m_Texture: {fileID: 2800000, guid: 0bebe40e9ebbecc48b8e9cfea982da7e, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BrickHeight: 0.035
+    - _BrickTiling: 8
+    - _Cull: 2
+    - _EdgeLength: 12
+    - _Float2: 0.001
+    - _Float4: 0.08187147
+    - _Float6: 0.21346533
+    - _NoiseIntensity: 0.137
+    - _Slope: 0.0234
+    - _TessMax: 25
+    - _TessMin: 2
+    - _TessPhongStrength: 0.148
+    - _TessValue: 32
+    - _Zoom: 5
+    - __dirty: 0
+    m_Colors:
+    - _PatternSize: {r: 0.9, g: 0.9, b: 0, a: 0}
+    - _Size: {r: 0.9, g: 0.9, b: 0, a: 0}

@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: GSF Walter et all
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.4.4\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19404\nNode;AmplifyShaderEditor.CommentaryNode;62;-1792,-224;Inherit;False;2154;567.1787;Math;20;19;54;52;56;0;38;53;37;32;35;30;27;29;23;25;21;59;57;55;58;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;63;-2878.631,-224;Inherit;False;1023.854;574.4578;Dot
+    Products;9;128;91;127;112;121;120;113;155;156;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;61;-1792,-672;Inherit;False;899.8539;378.9521;GSF
+    Walter et all Node;2;60;42;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;58;-1744,-176;Inherit;False;204.2971;121.9717;NdotV;1;151;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;59;-1744,-32;Inherit;False;204;125;NdotL;1;152;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;42;-1408,-512;Inherit;False;481.949;192.7061;;;0,0,0,0.5019608;The
+    common form of the GGX GSF, Walter et al. created this function to be used with
+    any NDF. Walter et al. felt that the GSF \"has relatively little effect on the
+    shape of the BSDF [Bi-Directional Scattering Distribution Function], except near
+    grazing angles or for very rough surfaces, but is needed to maintain energy conservation.\"
+    With this in mind, they created a GSF that respected this principle, using Roughness
+    as a driving force for the GSF - Jordan Stevens $$;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;51;-1792,-848;Inherit;False;567.7152;166.9153;Credits;;0,0,0,0.5019608;Method
+    by Jordan Stevens$Link: https://www.jordanstevenstechart.com/physically-based-rendering$$Node
+    Made by Tiber Legacy$Special Thanks to Dawie;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;55;-1488,-160;Inherit;False;214;101;Vectorized;;0,0,0,0.5019608;to
+    simplify and Optimize the Algorithm;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;57;-1408,176;Inherit;False;193;100;Roughness;;0,0,0,1;;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;60;-1408,-624;Inherit;False;477.1721;100;;;0,0,0,1;The
+    common form of the GGX GSF, Walter et al. created this function to be used with
+    any NDF - Jordan Stevens;0;0\nNode;AmplifyShaderEditor.OneMinusNode;21;-1184,-96;Inherit;False;1;0;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;25;-976,-96;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;23;-832,-64;Inherit;False;2;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.RangedFloatNode;29;-832,48;Inherit;False;Constant;_One;One;0;0;Create;True;0;0;0;False;0;False;1;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;27;-688,-64;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SqrtOpNode;30;-576,-64;Inherit;False;1;0;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;35;-288,-64;Inherit;False;2;0;FLOAT;2;False;1;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;32;-448,32;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.RangedFloatNode;37;-448,-64;Inherit;False;Constant;_Two;Two;0;0;Create;True;0;0;0;False;0;False;2;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;56;-1184,96;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;54;-1328,-32;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.FunctionInput;19;-1376,96;Inherit;False;Roughness;1;3;False;1;0;FLOAT;0.5;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RegisterLocalVarNode;113;-2112,96;Inherit;True;NdotL;-1;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;120;-2560,-48;Inherit;False;NdotV;1;2;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;121;-2560,176;Inherit;False;NdotL;1;1;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RegisterLocalVarNode;112;-2112,-128;Inherit;True;NdotV;-1;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;127;-2400,-128;Inherit;False;Custom
+    Dot Products;True;0;2;1;In 0;In 1;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;91;-2816,-128;Inherit;False;Normal;3;0;False;1;0;FLOAT3;0,0,1;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionSwitch;128;-2400,96;Inherit;False;Option;False;0;2;1;In
+    0;In 1;Instance;127;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.GetLocalVarNode;152;-1728,16;Inherit;False;113;NdotL;1;0;OBJECT;;False;1;FLOAT;0\nNode;AmplifyShaderEditor.GetLocalVarNode;151;-1728,-128;Inherit;False;112;NdotV;1;0;OBJECT;;False;1;FLOAT;0\nNode;AmplifyShaderEditor.DynamicAppendNode;52;-1488,-32;Inherit;False;FLOAT2;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.BreakToComponentsNode;53;-144,-64;Inherit;False;FLOAT2;1;0;FLOAT2;0,0;False;16;FLOAT;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT;5;FLOAT;6;FLOAT;7;FLOAT;8;FLOAT;9;FLOAT;10;FLOAT;11;FLOAT;12;FLOAT;13;FLOAT;14;FLOAT;15\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;38;-32,-64;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;155;-2624,-128;Inherit;False;NdotV;-1;;3;65be4ec269a534f4e8867af2f999aaa9;4,27,1,377,0,452,0,451,0;3;230;FLOAT3;0,0,1;False;443;FLOAT3;0,0,0;False;415;FLOAT;1E-37;False;1;FLOAT;23\nNode;AmplifyShaderEditor.FunctionNode;156;-2624,96;Inherit;False;NdotL;-1;;4;6d7ee1aa8c79587448475fa2b37affc1;5,27,1,381,0,460,0,461,0,463,0;4;230;FLOAT3;0,0,1;False;462;FLOAT3;0,0,0;False;454;FLOAT3;0,0,0;False;416;FLOAT;1E-37;False;1;FLOAT;111\nNode;AmplifyShaderEditor.FunctionOutput;0;128,-64;Inherit;True;True;-1;Out;0;True;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;21;0;54;0\nWireConnection;25;0;21;0\nWireConnection;25;1;56;0\nWireConnection;23;0;25;0\nWireConnection;23;1;54;0\nWireConnection;27;0;23;0\nWireConnection;27;1;29;0\nWireConnection;30;0;27;0\nWireConnection;35;0;37;0\nWireConnection;35;1;32;0\nWireConnection;32;0;30;0\nWireConnection;32;1;29;0\nWireConnection;56;0;19;0\nWireConnection;56;1;19;0\nWireConnection;54;0;52;0\nWireConnection;54;1;52;0\nWireConnection;113;0;128;0\nWireConnection;112;0;127;0\nWireConnection;127;0;155;23\nWireConnection;127;1;120;0\nWireConnection;128;0;156;111\nWireConnection;128;1;121;0\nWireConnection;52;0;151;0\nWireConnection;52;1;152;0\nWireConnection;53;0;35;0\nWireConnection;38;0;53;0\nWireConnection;38;1;53;1\nWireConnection;155;230;91;0\nWireConnection;156;230;91;0\nWireConnection;0;0;38;0\nASEEND*/\n//CHKSM=A94B72C1580525B45484EE25332360F75A42E063"
+  m_functionName: 
+  m_description: 'GSF Walter et all Node
+
+'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 0
+  m_headerStyle: 2
+  m_headerColor: {r: 0.7529412, g: 0.6784314, b: 0, a: 1}
+  m_customNodeCategory: Amplify Shader Pack
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 

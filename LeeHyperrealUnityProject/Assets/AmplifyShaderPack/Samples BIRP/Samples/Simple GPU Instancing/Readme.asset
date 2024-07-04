@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: a461e6b7314a34f47a4c71818a50c0d7, type: 3}
+  Title: Simple GPU Instancing
+  Description:
+    Heading: 
+    Text: Really simple sample on how to set and use GPU Instancing.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Color
+    Text: Color value to tint final result.
+    LinkText: 
+    Url: 
+  - Heading: Checkers
+    Text: Albedo texture to be applied to surface.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts:
+  - BlockHeader:
+      Heading: Scripts
+      Text: 
+      LinkText: 
+      Url: 
+    BlockContent:
+    - Heading: SimpleGPUInstancingExample
+      Text: This script shows how to set property values over GPU Instancing. It
+        instantiates 1000 spheres and sets a random color to each one.
+      LinkText: 
+      Url: 
+  LoadedLayout: 0
+  RPType: 3

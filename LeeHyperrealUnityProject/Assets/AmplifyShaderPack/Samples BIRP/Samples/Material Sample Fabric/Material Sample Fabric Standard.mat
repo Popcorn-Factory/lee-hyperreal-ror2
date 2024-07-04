@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Material Sample Fabric Standard
+  m_Shader: {fileID: 4800000, guid: d6626fc43f737d5449227b21b5cf22de, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 2800000, guid: a6399e81ea2aeb04684e8f3885d5b9b7, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FuzzMaskMap:
+        m_Texture: {fileID: 2800000, guid: 9b8e591f5e320474d959c10c3576cac2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 5b3183df972b8e741b13ea6318e38c37, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 2800000, guid: b51d137fa991674458ad27362f5d2993, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SmoothnessMap:
+        m_Texture: {fileID: 2800000, guid: f6eb1426ad80b724da53a9ed990909eb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SpecularMap:
+        m_Texture: {fileID: 2800000, guid: b51d137fa991674458ad27362f5d2993, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ThreadMaskMap:
+        m_Texture: {fileID: 2800000, guid: f6eb1426ad80b724da53a9ed990909eb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ThreadNormalMap:
+        m_Texture: {fileID: 2800000, guid: 87a0e3a1aa76a6a4ebb3ad823532a982, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _BaseAffectUVchannel0: 1
+    - _BaseAffectUVchannel1: 0
+    - _BaseAffectUVchannel2: 0
+    - _BaseAffectUVchannel3: 0
+    - _BaseBrightnessBackFace: 0.447
+    - _BaseBrightnessFrontFace: 1
+    - _Cull: 0
+    - _FuzzMaskEnable: 1
+    - _FuzzMaskStrength: 0.589
+    - _GlossyReflections: 1
+    - _NormalStrength: 1.04
+    - _OcclusionStrengthAO: 0.817
+    - _SmoothnessStrength: 0.504
+    - _SpecularColorIOR: 0
+    - _SpecularColorWeight: 1.28
+    - _SpecularHighlights: 1
+    - _SpecularStrength: 0.534
+    - _ThreadMaskEnable: 1
+    - _ThreadMaskOcclusionStrength: 0.24
+    - _ThreadMaskSmoothnessStrength: 0.301
+    - _ThreadMaskUVAffectchannel0: 1
+    - _ThreadMaskUVAffectchannel1: 0
+    - _ThreadMaskUVAffectchannel2: 0
+    - _ThreadMaskUVAffectchannel3: 0
+    - _ThreadNormalStrength: 0.7
+    - __dirty: 1
+    m_Colors:
+    - _BaseColor1: {r: 0.7294118, g: 0.7294118, b: 0.7294118, a: 0}
+    - _BaseColorBackFace: {r: 0.3679245, g: 0.3679245, b: 0.3679245, a: 0}
+    - _BaseMainUV: {r: 1, g: 1, b: 0, a: 0}
+    - _FuzzMaskColor: {r: 0.7294118, g: 0.7294118, b: 0.7294118, a: 0}
+    - _FuzzMaskUV: {r: 2, g: 2, b: 0, a: 0}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 0}
+    - _ThreadMaskUV: {r: 3, g: 3, b: 0, a: 0}

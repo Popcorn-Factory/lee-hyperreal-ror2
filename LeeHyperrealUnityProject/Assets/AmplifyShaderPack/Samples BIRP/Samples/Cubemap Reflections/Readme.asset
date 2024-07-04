@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: e2a93e3ffd660ab4c99b76ee5a8351e0, type: 3}
+  Title: Cubemap Reflections
+  Description:
+    Heading: 
+    Text: This samples reflects on the surface the contents of a cubemap.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Albedo
+    Text: Albedo texture to be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: Normals
+    Text: Normals texture to be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: Cubemap
+    Text: Cubemap to reflect from.
+    LinkText: 
+    Url: 
+  - Heading: Metallic
+    Text: Metallic texture to be applied to surface.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

@@ -1,0 +1,144 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: f669a52d799006c47ba1e73d3b952823, type: 3}
+  Title: Vector Displacement
+  Description:
+    Heading: 
+    Text: Multiple vector displacement maps combined in haunted tv effect.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Screen Toggle
+    Text: Screen static noise intensity.
+    LinkText: 
+    Url: 
+  - Heading: Hand Intensity
+    Text: Hand vector displacement amount.
+    LinkText: 
+    Url: 
+  - Heading: Skull Intensity
+    Text: Skull vector displacement amount.
+    LinkText: 
+    Url: 
+  - Heading: Side Hand Intensity
+    Text: Side hand vector displacement amount.
+    LinkText: 
+    Url: 
+  - Heading: Noise Tiling
+    Text: 'Random noise variation applied to vector displaced areas for additional
+      animation.  '
+    LinkText: 
+    Url: 
+  - Heading: Tiling Glow
+    Text: TV noise glow.
+    LinkText: 
+    Url: 
+  - Heading: Normal Hands
+    Text: 'Normals texture to be applied to surface. '
+    LinkText: 
+    Url: 
+  - Heading: Albedo
+    Text: 'Albedo texture to be applied to surface.  '
+    LinkText: 
+    Url: 
+  - Heading: Masks
+    Text: 'Vector displacement area mask texture.  '
+    LinkText: 
+    Url: 
+  - Heading: Normal Top Skull
+    Text: 'Normals texture to be applied to surface. '
+    LinkText: 
+    Url: 
+  - Heading: Top Skull Tint
+    Text: 'Top skull color tint value.  '
+    LinkText: 
+    Url: 
+  - Heading: Side Hand Tint
+    Text: 'Side hand color tint value.  '
+    LinkText: 
+    Url: 
+  - Heading: Normal
+    Text: 'Normals texture to be applied to surface. '
+    LinkText: 
+    Url: 
+  - Heading: Normals Left Hand
+    Text: 'Normals texture to be applied to surface. '
+    LinkText: 
+    Url: 
+  - Heading: TV_MetallicSmoothness
+    Text: 'TV Metallic and Smoothness texture to be applied to surface. '
+    LinkText: 
+    Url: 
+  - Heading: Base Smoothness
+    Text: 'Base Smoothness multiplier.  '
+    LinkText: 
+    Url: 
+  - Heading: Noise Flipbook
+    Text: 'TV noise texture flipbook.  '
+    LinkText: 
+    Url: 
+  - Heading: Glow Intensity
+    Text: 'TV screen glow intensity.  '
+    LinkText: 
+    Url: 
+  - Heading: Noise Tint
+    Text: 'TV noise color tint value.  '
+    LinkText: 
+    Url: 
+  - Heading: TV Hands Tint
+    Text: 'TV hands color tint value.  '
+    LinkText: 
+    Url: 
+  - Heading: Screen Hands VDM
+    Text: 'TV screen vector displacement texture to be applied to surface. '
+    LinkText: 
+    Url: 
+  - Heading: Top Skull VDM
+    Text: 'Top skull vector displacement texture to be applied to surface.  '
+    LinkText: 
+    Url: 
+  - Heading: Left Hand VDM
+    Text: 'Left handvector displacement texture to be applied to surface.  '
+    LinkText: 
+    Url: 
+  - Heading: Screen Color Tint Blend
+    Text: 'TV screen color tint blend with base texture.  '
+    LinkText: 
+    Url: 
+  - Heading: Displacement Multiplier
+    Text: Global displacement multiplier.
+    LinkText: 
+    Url: 
+  - Heading: Max Tessellation
+    Text: Maximum Tessellation amount.
+    LinkText: 
+    Url: 
+  - Heading: Tess Min Distance
+    Text: Minimum Tessellation distance value.
+    LinkText: 
+    Url: 
+  - Heading: Tess Max Distance
+    Text: Maximum Tessellation distance value.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

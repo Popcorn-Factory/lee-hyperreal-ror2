@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 2100dffcc5f027a4fa2092affdbe740d, type: 3}
+  Title: Community Environment Gradient
+  Description:
+    Heading: 
+    Text: Height based coloring effect.
+    LinkText: Created by Mourelas Konstantinos
+    Url: http://www.moure.xyz
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: GradientHeight
+    Text: Color gradient height value.
+    LinkText: 
+    Url: 
+  - Heading: Top_Y
+    Text: Top Y axis color value.
+    LinkText: 
+    Url: 
+  - Heading: Top_XZ
+    Text: 'Top XZ axis color value. '
+    LinkText: 
+    Url: 
+  - Heading: Bot_Y
+    Text: 'Bottom Y axis color value. '
+    LinkText: 
+    Url: 
+  - Heading: Bot_XZ
+    Text: 'Bottom XZ axis color value. '
+    LinkText: 
+    Url: 
+  - Heading: EdgeMultiplier
+    Text: Edge intensity multiplier.
+    LinkText: 
+    Url: 
+  - Heading: R_AO_G_Edges
+    Text: Control texture, Ambient Occlusion(R) and Edges(G).
+    LinkText: 
+    Url: 
+  - Heading: AO_Power
+    Text: Ambient Occlusion power.
+    LinkText: 
+    Url: 
+  - Heading: EdgeColor
+    Text: Edge color value.
+    LinkText: 
+    Url: 
+  - Heading: NormalMap
+    Text: Normals texture to be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: Smoothness
+    Text: Snow smoothness value.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

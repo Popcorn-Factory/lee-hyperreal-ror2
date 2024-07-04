@@ -1,0 +1,100 @@
+v2.2.0
+
+   Highlights
+      * Updated per ASE editor v1.9.5.1
+      * New Material Sample Specular Simple (URP)
+      * New community shader Physical Based Rendering (BIRP/HDRP/HDRP)
+      * Updated Reflection Probe URP (URP)
+      * Updated Terrain Samples (BIRP/HDRP)
+      * Update demo scene lighting (BIRP/HDRP/HDRP)
+ 
+
+v2.1.2
+
+   Highlights
+      * Updated per ASE editor v1.9.3.3 
+      * Updated samples URP/HDRP 17x (updated per Beta 6000.0b13)
+      * Updated URP 14x per unity version 2022.3.18 & or higher
+      * Added samples scene Particle Heat Haze (URP)
+      * Added samples scene Material Sample Billboard (BIRP/HDRP/HDRP) 
+      * Updated Material Sample Hair (HDRP)  
+
+v2.1.1
+
+   Highlights
+      * Updated per ASE editor v1.9.3.2
+
+v2.1.0
+
+   Highlights
+      * Updated per ASE editor v1.9.3.0 
+      * Added samples URP/HDRP 17x (updated per Beta 2023.3.0b4)
+      * New sample Refraction HDRP
+
+v2.0.0.2
+
+   Highlights
+      * Updated per ASE editor v1.9.2.2 
+      * Updated function Material Baked GI
+      * Updated function Material Lighting
+      * Updated function Terrain 4 Layer
+      * Updated function Terrain 8 Layer
+
+v2.0.0.1
+
+   Highlights
+      * Updated per ASE editor v1.9.2.1 
+      * New material lighting function replaced baked GI  function
+      * New example scripts for Global Light Settings (BIRP)
+
+v2.0.0
+
+   Highlights
+      * Added samples for URP/HDRP 16x (updated per Beta 2023.2.0b5)
+      * Added samples for URP/HDRP 15x
+      * Added samples for URP/HDRP 14x
+      * Updated samples for URP/HDRP 10x and 12x      
+      * Fixed all samples for URP/HDRP versions 10 to 12
+      * Built with Amplify Shader Editor v1.9.2
+      * Improved Start Screen sample importer
+
+   Samples
+      * New demo scenes
+      * New Baked GI Specular Cutout (BIRP/HDRP/HDRP)
+      * New Baked GI Specular (BIRP/HDRP/HDRP)
+      * New Baked GI Standard (BIRP/HDRP/HDRP)
+      * New Interior Mapping Cubemap (BIRP/HDRP/HDRP)
+      * New Interior Mapping LatLong (BIRP/HDRP/HDRP)
+      * New Material Sample Hair (HDRP)
+      * New Material Sample Fabric (BIRP/HDRP/HDRP)
+      * New UV LatLong Projection (BIRP/HDRP/HDRP)
+      * New Vector Displacement Simple (BIRP/HDRP/HDRP)
+
+v1.0.3 rev 00:
+* Fixes:
+    * Fixed issue on fallback behavior not properly working if using an unrecognized SRP version
+        * On this case the latest samples package for that specific SRP will now be imported
+
+
+v1.0.2 rev 00:
+* Fixes:
+    * Fixed issue on incorrectly importing URP files over HDRP project when on SRP v12
+
+
+v1.0.1 rev 00:
+* New URP 12 Samples:
+    * Decal SciFi Panels
+    * Decals Muddy Ground
+
+
+* Improvements:
+    * Removed versions dropdown for each SRP type on Start Screen
+        * User no longer has to manually choose which version to import
+        * Package is now automatically selected according to installed SRP version
+    * Removed unused ground material and shader from HDRP Decals Muddy Ground samples
+
+
+v1.0.0 rev 00:
+* New Samples added:
+    * Added tons of new cool samples across all rendering pipelines.
+        * HDRP and URP samples were created both on 7.7.1 and 10.5.1 versions

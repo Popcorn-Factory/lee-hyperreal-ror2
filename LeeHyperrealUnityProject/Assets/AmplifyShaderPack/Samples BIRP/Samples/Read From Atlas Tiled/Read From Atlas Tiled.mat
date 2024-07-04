@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Read From Atlas Tiled
+  m_Shader: {fileID: 4800000, guid: 9103b2ce8e003504b8db7589babd0e70, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 1
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Atlas:
+        m_Texture: {fileID: 2800000, guid: c1efbea8a190455497f6910632f58675, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _TileAmount: 1
+    - __dirty: 0
+    m_Colors:
+    - _Max: {r: 512, g: 512, b: 0, a: 0}
+    - _Max1: {r: 511, g: 511, b: 0, a: 0}
+    - _Min: {r: 255, g: 255, b: 0, a: 0}
+    - _Min1: {r: 257, g: 257, b: 0, a: 0}
+    - _TileAmount: {r: 2, g: 2, b: 0, a: 0}
+    - _TileSize: {r: 2, g: 2, b: 0, a: 0}
+    - _TileSize1: {r: 2, g: 2, b: 0, a: 0}

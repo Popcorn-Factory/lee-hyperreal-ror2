@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 0696e917bfeed9e43a630a230cee7133, type: 3}
+  Title: Vertex Normal Reconstruction
+  Description:
+    Heading: 
+    Text: This sample performs a procedural wave animation changing both vertex position
+      and vertex normal to achieve correct lighting.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Amplitude
+    Text: Wave amplitude.
+    LinkText: 
+    Url: 
+  - Heading: Frequency
+    Text: Wave frequency.
+    LinkText: 
+    Url: 
+  - Heading: Normal position deviation
+    Text: Deviation used on position to calculate new normal vector.
+    LinkText: 
+    Url: 
+  - Heading: Flag albedo
+    Text: Albedo texture to be applied to surface.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

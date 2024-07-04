@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: eb96fdda04c527746939b743fc11dca8, type: 3}
+  Title: Snow Accumulate
+  Description:
+    Heading: 
+    Text: 'Blends snow on top of a base texture depending on its World Normal Y value. '
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Rock Albedo
+    Text: Albedo texture to be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: Rock Normal
+    Text: 'Normals texture to be applied to surface. '
+    LinkText: 
+    Url: 
+  - Heading: Rock Specular
+    Text: 'Specular texture to be applied to surface. '
+    LinkText: 
+    Url: 
+  - Heading: Snow Albedo
+    Text: Snow albedo texture blended over MainTex.
+    LinkText: 
+    Url: 
+  - Heading: Snow Normal
+    Text: Snow normals texture.
+    LinkText: 
+    Url: 
+  - Heading: Snow Specular
+    Text: 'Specular texture to be applied to surface. '
+    LinkText: 
+    Url: 
+  - Heading: Snow Amount
+    Text: Snow amount.
+    LinkText: 
+    Url: 
+  - Heading: Snow Spec Multiplier
+    Text: Snow Specular multiplier value.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

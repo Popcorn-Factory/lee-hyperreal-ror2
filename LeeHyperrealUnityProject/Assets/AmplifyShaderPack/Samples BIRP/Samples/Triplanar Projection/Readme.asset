@@ -1,0 +1,102 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 194575bc99d81594290402b8781b2fc4, type: 3}
+  Title: Triplanar Projection
+  Description:
+    Heading: 
+    Text: This samples presents a triplanar solution where a top and bottom/middle
+      projection can be configured.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Triplanar Projection Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Triplanar Albedo
+    Text: Albedo texture to be applied at middle and bottom projection.
+    LinkText: 
+    Url: 
+  - Heading: Triplanar Normal
+    Text: Normals texture to be applied at middle and bottom projection.
+    LinkText: 
+    Url: 
+  - Heading: Top Albedo
+    Text: Albedo texture to be applied at top projection.
+    LinkText: 
+    Url: 
+  - Heading: Top Normal
+    Text: Normals texture to be applied at top projection.
+    LinkText: 
+    Url: 
+  - Heading: World to Object Switch
+    Text: Switches projection from world to object space
+    LinkText: 
+    Url: 
+  - Heading: Coverage Amount
+    Text: Defines amount covered by top projection.
+    LinkText: 
+    Url: 
+  - Heading: Coverage Falloff
+    Text: Defines falloff behavior for top projection.
+    LinkText: 
+    Url: 
+  - Heading: Specular
+    Text: Overall specular value for surface.
+    LinkText: 
+    Url: 
+  - Heading: Smoothness
+    Text: Overall smoothness value for surface.
+    LinkText: 
+    Url: 
+  AdditionalProperties:
+  - BlockHeader:
+      Heading: Triplanar Simple Properties
+      Text: 
+      LinkText: 
+      Url: 
+    BlockContent:
+    - Heading: Top Albedo
+      Text: Albedo texture to be applied at top projection.
+      LinkText: 
+      Url: 
+    - Heading: Top Normal
+      Text: Normals texture to be applied at top projection.
+      LinkText: 
+      Url: 
+    - Heading: Triplanar Albedo
+      Text: Albedo texture to be applied at middle and bottom projection.
+      LinkText: 
+      Url: 
+    - Heading: Triplanar Normal
+      Text: Normals texture to be applied at middle and bottom projection.
+      LinkText: 
+      Url: 
+    - Heading: Specular
+      Text: Overall specular value for surface.
+      LinkText: 
+      Url: 
+    - Heading: Smoothness
+      Text: Overall smoothness value for surface.
+      LinkText: 
+      Url: 
+    - Heading: Coverage Falloff
+      Text: Defines falloff behavior for top projection.
+      LinkText: 
+      Url: 
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

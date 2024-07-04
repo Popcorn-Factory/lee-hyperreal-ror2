@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: Schlick Fresnel Lerp
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.4.4\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19404\nNode;AmplifyShaderEditor.CommentaryNode;19;-1792,-128;Inherit;False;1420.871;647.1912;Math;7;0;10;1;3;2;9;24;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;21;-1792,-448;Inherit;False;578.7905;259.8023;Schlick
+    Fresnel Lerp Node;1;20;;0.0471698,0.0471698,0.0471698,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;9;-1472,160;Inherit;False;672.2909;220.0321;Schlick
+    Fresnel Approximation;4;22;4;5;6;;0,0,0,0.5019608;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;18;-1792,-640;Inherit;False;560.553;158.8937;Credits;;0,0,0,1;Method
+    by Jordan Stevens$Link: https://www.jordanstevenstechart.com/physically-based-rendering$$Node
+    Made by Tiber Legacy$Special Thanks to Dawie;0;0\nNode;AmplifyShaderEditor.SaturateNode;6;-1120,208;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.OneMinusNode;5;-1280,208;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;3;-944,16;Inherit;False;B;1;1;True;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.LerpOp;1;-752,-80;Inherit;False;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.StickyNoteNode;20;-1520,-400;Inherit;False;247.8938;134.6796;;;0,0,0,1;Interpolating
+    Between A & B via Schlick's Fresnel Approximation;0;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;22;-944,208;Inherit;False;5;5;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.PowerNode;10;-944,384;Inherit;False;False;2;0;FLOAT;0;False;1;FLOAT;5;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;4;-1440,208;Inherit;False;Alpha;1;2;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;2;-944,-80;Inherit;False;A;1;0;True;1;0;FLOAT;0.25;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;24;-1712,208;Inherit;False;NdotV;-1;;3;65be4ec269a534f4e8867af2f999aaa9;4,27,1,377,0,452,0,451,0;3;230;FLOAT3;0,0,1;False;443;FLOAT3;0,0,0;False;415;FLOAT;1E-37;False;1;FLOAT;23\nNode;AmplifyShaderEditor.FunctionOutput;0;-576,-80;Inherit;True;True;-1;Out;0;True;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;6;0;5;0\nWireConnection;5;0;4;0\nWireConnection;1;0;2;0\nWireConnection;1;1;3;0\nWireConnection;1;2;22;0\nWireConnection;22;0;6;0\nWireConnection;22;1;6;0\nWireConnection;22;2;6;0\nWireConnection;22;3;6;0\nWireConnection;22;4;6;0\nWireConnection;10;0;6;0\nWireConnection;4;0;24;23\nWireConnection;0;0;1;0\nASEEND*/\n//CHKSM=FE18CF42804BB065814FD6781B1E3FE4CA0EA025"
+  m_functionName: 
+  m_description: 'Schlick Fresnel Lerp Node
+
+'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 0
+  m_headerStyle: 2
+  m_headerColor: {r: 0.7529412, g: 0.6784314, b: 0, a: 1}
+  m_customNodeCategory: Amplify Shader Pack
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 

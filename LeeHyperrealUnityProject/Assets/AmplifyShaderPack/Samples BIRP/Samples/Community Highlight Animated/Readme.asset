@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: ea451c291ae8cd14b9f5094c8f1a3490, type: 3}
+  Title: Community Highlight Animated
+  Description:
+    Heading: 
+    Text: Pulsating highlight effect automatically toggled when the cursor hovers
+      the object.
+    LinkText: Created by The Four Headed Cat
+    Url: https://twitter.com/fourheadedcat
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Color
+    Text: Albedo color tint value.
+    LinkText: 
+    Url: 
+  - Heading: Albedo
+    Text: Albedo texture to be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: Normal
+    Text: 'Normals texture to be applied to surface. '
+    LinkText: 
+    Url: 
+  - Heading: Emission
+    Text: 'Emission texture to be applied to surface. '
+    LinkText: 
+    Url: 
+  - Heading: Oclussion
+    Text: 'Occlusion texture to be applied to surface. '
+    LinkText: 
+    Url: 
+  - Heading: Highlight Color
+    Text: 'Highlight effect  color value. '
+    LinkText: 
+    Url: 
+  - Heading: MinHighLightLevel
+    Text: Highlight rim effect minimum level.
+    LinkText: 
+    Url: 
+  - Heading: MaxHighLightLevel
+    Text: 'Highlight rim effect maximum level. '
+    LinkText: 
+    Url: 
+  - Heading: Highlight Speed
+    Text: Highlight pulsate speed.
+    LinkText: 
+    Url: 
+  - Heading: Highlighted
+    Text: Highlight Toggle.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts:
+  - BlockHeader:
+      Heading: Highlighted Animated Script
+      Text: No parameters, must be placed on object to be highlighted which must
+        contain a Collider.
+      LinkText: 
+      Url: 
+    BlockContent: []
+  LoadedLayout: 0
+  RPType: 3

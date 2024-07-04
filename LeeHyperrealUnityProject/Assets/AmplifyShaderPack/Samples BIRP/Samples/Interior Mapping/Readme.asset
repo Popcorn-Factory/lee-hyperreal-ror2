@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 856e2f7c6eddf504fb2840f8f8f80e73, type: 3}
+  Title: Interior Mapping
+  Description:
+    Heading: 
+    Text: This sample combines a facade and room interior (with two layers) texture
+      using a parallax effect giving the illusion of a fake 3D interior. For a more
+      complete sample take a look at our Fake Interiors package over the Unity Asset
+      Store.
+    LinkText: Fake Interiors Free
+    Url: https://assetstore.unity.com/packages/vfx/shaders/fake-interiors-free-104029
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Back
+    Text: Back room layer texture for the interior.
+    LinkText: 
+    Url: 
+  - Heading: Back Dark
+    Text: Value to darken the back room layer interior color.
+    LinkText: 
+    Url: 
+  - Heading: Back Depth Scale
+    Text: Scale value for the back room layer interior parallax effect.
+    LinkText: 
+    Url: 
+  - Heading: Mid
+    Text: Middle room layer texture for the interior.
+    LinkText: 
+    Url: 
+  - Heading: Mid Dark
+    Text: Value to darken the middle room layer interior color.
+    LinkText: 
+    Url: 
+  - Heading: Mid Depth Scale
+    Text: Scale value for the middle room layer interior parallax effect.
+    LinkText: 
+    Url: 
+  - Heading: Front
+    Text: Facade texture.
+    LinkText: 
+    Url: 
+  - Heading: Mask
+    Text: Texture that controls where to show face and interior layers. R channel
+      controls facade/interior and G channel controls Back/Mid interior.
+    LinkText: 
+    Url: 
+  - Heading: Specular
+    Text: Overall specular strength. (takes Mask R channel into account)
+    LinkText: 
+    Url: 
+  - Heading: Smoothness
+    Text: Overall smoothness strength. (takes Mask R channel into account)
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

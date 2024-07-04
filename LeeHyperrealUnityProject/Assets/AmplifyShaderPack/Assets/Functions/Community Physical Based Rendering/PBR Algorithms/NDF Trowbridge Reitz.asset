@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: NDF Trowbridge Reitz
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.4.4\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19404\nNode;AmplifyShaderEditor.CommentaryNode;383;-2176,-512;Inherit;False;1585.777;543.905;Math;17;273;462;461;118;117;115;460;459;457;458;212;290;113;116;114;379;456;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;575;-2176,128;Inherit;False;1535.312;643.3311;SG
+    Version of NormalDistributionTrowReitz;15;569;578;563;573;559;574;568;557;554;570;567;572;561;562;555;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;463;-3228.173,-512;Inherit;False;989.396;392.4908;Dot
+    Products;5;491;583;526;515;524;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;456;-1808,-464;Inherit;False;202;136.6667;NdotH;1;378;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;343;-2176,-928;Inherit;False;831.2883;354.692;GTX
+    Trowbridge Reitz Node ;2;454;295;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;578;-1424,432;Inherit;False;466.0796;300.6007;Unity
+    SG vs GTX Trowbridge Reitz Node ;4;582;581;580;579;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;295;-1824,-880;Inherit;False;417.1895;135.4182;;;0,0,0,1;The
+    Trowbridge-Reitz approach was developed in the same paper as GGX, and produces
+    remarkably similar results to the GGX algorithm -Jorden Stevens$;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;379;-2080,-384;Inherit;False;256.2408;137.3369;Roughness;;0,0,0,1;Low
+    Roughness:$Should be Noted that low enough Roughness will lead the Specular Point
+    to \"Disappear\" when reaching 'close' to Zero;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;454;-1824,-736;Inherit;False;414.4607;132.6893;Difference
+    to GGX;;0,0,0,1;The main noticeable difference is that the extreme edge of the
+    object features a smoother highlight than the GGX, which is a more harsh falloff
+    at the grazing angle - Jordan Stevens;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;455;-2176,-1120;Inherit;False;548.6364;149.6442;Credits;;0,0,0,0.5019608;Method
+    by Jordan Stevens$Link: https://www.jordanstevenstechart.com/physically-based-rendering$$Node
+    Made by Tiber Legacy$Special Thanks to Dawie;0;0\nNode;AmplifyShaderEditor.FunctionInput;524;-2944,-336;Inherit;False;NdotH;1;1;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RegisterLocalVarNode;515;-2496,-416;Inherit;True;NdotH;-1;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;526;-2784,-416;Inherit;False;Custom
+    Dot Products;True;0;2;1;In 0;In 1;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;114;-1552,-416;Inherit;False;3;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;116;-1360,-416;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;113;-1888,-224;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleSubtractOpNode;212;-1696,-304;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;458;-1408,-336;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;457;-1888,-128;Inherit;False;Constant;_One;One;0;0;Create;True;0;0;0;False;0;False;1;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;460;-1408,-128;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.PiNode;115;-1360,-304;Inherit;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;117;-1152,-416;Inherit;False;3;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;118;-960,-224;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;461;-1009.533,-352.0183;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;462;-1008,-224;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.GetLocalVarNode;378;-1792,-416;Inherit;False;515;NdotH;1;0;OBJECT;;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;459;-1440,-96;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;555;-1520,320;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;562;-1392,320;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.PiNode;561;-1424,240;Inherit;False;1;0;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;572;-1232,240;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.GetLocalVarNode;567;-2112,320;Inherit;False;515;NdotH;1;0;OBJECT;;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;570;-1712,320;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;554;-1888,320;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleSubtractOpNode;557;-1888,416;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;568;-1584,480;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;574;-1600,512;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMaxOpNode;573;-1056,240;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0.0001;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;563;-928,176;Inherit;True;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMinOpNode;579;-1376,480;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0.95;False;1;FLOAT;0\nNode;AmplifyShaderEditor.OneMinusNode;580;-1264,480;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;581;-1104,480;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.StickyNoteNode;582;-1376,576;Inherit;False;375.5869;136.5718;;;0,0,0,1;In
+    the Unity SG Geometry term and Normal Distribution term functions they need roughness
+    squared as an input, so they convert smoothness input to roughness squared prior
+    to inout.;0;0\nNode;AmplifyShaderEditor.FunctionInput;290;-2080,-224;Inherit;False;Roughness;1;2;False;1;0;FLOAT;0.1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;569;-2096,176;Inherit;False;Constant;_SGRoughness;SG
+    Roughness;0;0;Create;True;0;0;0;False;0;False;0.01;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;559;-2048,496;Inherit;False;Constant;_SGOne;SGOne;0;0;Create;True;0;0;0;False;0;False;1;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;583;-3008,-416;Inherit;False;NdotH;-1;;2;fadb6690f179c1448859861f76ebb061;7,27,1,373,0,451,0,463,0,460,0,461,0,452,0;6;230;FLOAT3;0,0,1;False;443;FLOAT3;0,0,0;False;462;FLOAT3;0,0,0;False;454;FLOAT3;0,0,0;False;453;FLOAT3;0,0,0;False;417;FLOAT;1E-37;False;1;FLOAT;109\nNode;AmplifyShaderEditor.FunctionInput;491;-3168,-416;Inherit;False;Normal;3;0;False;1;0;FLOAT3;0,0,1;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionOutput;273;-800,-224;Inherit;True;True;-1;Out;0;True;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;515;0;526;0\nWireConnection;526;0;583;109\nWireConnection;526;1;524;0\nWireConnection;114;0;378;0\nWireConnection;114;1;378;0\nWireConnection;114;2;212;0\nWireConnection;116;0;114;0\nWireConnection;116;1;458;0\nWireConnection;113;0;290;0\nWireConnection;113;1;290;0\nWireConnection;212;0;113;0\nWireConnection;212;1;457;0\nWireConnection;458;0;460;0\nWireConnection;460;0;459;0\nWireConnection;117;0;116;0\nWireConnection;117;1;116;0\nWireConnection;117;2;115;0\nWireConnection;118;0;113;0\nWireConnection;118;1;462;0\nWireConnection;461;0;117;0\nWireConnection;462;0;461;0\nWireConnection;459;0;457;0\nWireConnection;555;0;570;0\nWireConnection;555;1;568;0\nWireConnection;562;0;555;0\nWireConnection;562;1;555;0\nWireConnection;572;0;561;0\nWireConnection;572;1;562;0\nWireConnection;570;0;554;0\nWireConnection;570;1;557;0\nWireConnection;554;0;567;0\nWireConnection;554;1;567;0\nWireConnection;557;0;569;0\nWireConnection;557;1;559;0\nWireConnection;568;0;574;0\nWireConnection;574;0;559;0\nWireConnection;573;0;572;0\nWireConnection;563;0;569;0\nWireConnection;563;1;573;0\nWireConnection;580;0;579;0\nWireConnection;581;0;580;0\nWireConnection;581;1;580;0\nWireConnection;583;230;491;0\nWireConnection;273;0;118;0\nASEEND*/\n//CHKSM=A4DA1A243AA5C443951389655EEAC176A1089AAF"
+  m_functionName: 
+  m_description: 'GTX Trowbridge Reitz Node
+
+'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 0
+  m_headerStyle: 2
+  m_headerColor: {r: 0.7529412, g: 0.6784314, b: 0, a: 1}
+  m_customNodeCategory: Amplify Shader Pack
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 

@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: a195c6b254636db4d8ee47ffab426aa9, type: 3}
+  Title: Sonar Scan
+  Description:
+    Heading: 
+    Text: Depth-based sonar sweep effect.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Screen
+    Text: Set internally by the shader, don't use.
+    LinkText: 
+    Url: 
+  - Heading: Sonar Color
+    Text: Sonar sweep color tint value.
+    LinkText: 
+    Url: 
+  - Heading: Speed
+    Text: Sweep speed.
+    LinkText: 
+    Url: 
+  - Heading: Brightness
+    Text: Sonar sweep brightness value.
+    LinkText: 
+    Url: 
+  - Heading: Curve
+    Text: Visibility depth weak.
+    LinkText: 
+    Url: 
+  - Heading: Fade Distance
+    Text: Sweep depth fade distance value.
+    LinkText: 
+    Url: 
+  - Heading: Fade Range
+    Text: Sweep depth fade range value.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts:
+  - BlockHeader:
+      Heading: Post Process Example Script
+      Text: Base script that applies Post Process Material to Camera.
+      LinkText: 
+      Url: 
+    BlockContent:
+    - Heading: Post Process
+      Text: The Image Effect Material to be used.
+      LinkText: 
+      Url: 
+  - BlockHeader:
+      Heading: Camera Depth Activation Script
+      Text: 'No parameters, forces Unity to generate the required depth data used
+        by the shader in Forward Rendering. Not required with Deferred rendering. '
+      LinkText: 
+      Url: 
+    BlockContent: []
+  LoadedLayout: 0
+  RPType: 3

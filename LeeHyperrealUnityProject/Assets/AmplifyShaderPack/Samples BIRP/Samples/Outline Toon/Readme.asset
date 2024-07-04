@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 93740b42dac483c49a78b6e083bd939a, type: 3}
+  Title: Outline Toon
+  Description:
+    Heading: 
+    Text: 'Stylized custom lighting toon effect with additional cell control and
+      tessellation.  '
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Base Color (RGB) Outline Width (A)
+    Text: Base Texture(RGB) and outline width for thickness control.
+    LinkText: 
+    Url: 
+  - Heading: Base Tint
+    Text: Base tint color value.
+    LinkText: 
+    Url: 
+  - Heading: Base Cell Sharpness
+    Text: Base cell sharpness value.
+    LinkText: 
+    Url: 
+  - Heading: Base Cell Offset
+    Text: 'Base cell offset value.  '
+    LinkText: 
+    Url: 
+  - Heading: Indirect Diffuse Contribution
+    Text: Base cell indirect lighting contribution.
+    LinkText: 
+    Url: 
+  - Heading: Shadow Contribution
+    Text: Highlight textureto be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: Highlight
+    Text: Highlight tint color value.
+    LinkText: 
+    Url: 
+  - Heading: Highlight Tint
+    Text: Highlight tint color value.
+    LinkText: 
+    Url: 
+  - Heading: Highlight Cell Offset
+    Text: Base cell offset value.
+    LinkText: 
+    Url: 
+  - Heading: Highlight Cell Sharpness
+    Text: Base cell sharpness value.
+    LinkText: 
+    Url: 
+  - Heading: Indirect Specular Contribution
+    Text: Base cell indirect specular contribution.
+    LinkText: 
+    Url: 
+  - Heading: Static HighLights
+    Text: Static highlights toggle.
+    LinkText: 
+    Url: 
+  - Heading: Normal Map
+    Text: Normals texture to be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: Normal Scale
+    Text: Normal intensity value.
+    LinkText: 
+    Url: 
+  - Heading: Rim Color
+    Text: Rim effect color value.
+    LinkText: 
+    Url: 
+  - Heading: Rim Power
+    Text: Rim effect power value.
+    LinkText: 
+    Url: 
+  - Heading: Rim Offset
+    Text: Rim effect position offset.
+    LinkText: 
+    Url: 
+  - Heading: Outline Tint
+    Text: Outline color tint value.
+    LinkText: 
+    Url: 
+  - Heading: Outline Width
+    Text: Outline width, controls thickness.
+    LinkText: 
+    Url: 
+  - Heading: Max Tessellation
+    Text: Maximum Tessellation amount.
+    LinkText: 
+    Url: 
+  - Heading: Tess Min Distance
+    Text: Minimum Tessellation distance value.
+    LinkText: 
+    Url: 
+  - Heading: Tess Max Distance
+    Text: Maximum Tessellation distance value.
+    LinkText: 
+    Url: 
+  - Heading: Phong Tess Strength
+    Text: Modifies the positions of the subdivided faces so that the resulting surface
+      follows the mesh normals a bit; set to OFF by Default.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

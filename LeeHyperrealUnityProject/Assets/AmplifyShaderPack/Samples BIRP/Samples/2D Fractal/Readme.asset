@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: bbc7d4d8ae16c484e93128f9761cc700, type: 3}
+  Title: 2D Fractal
+  Description:
+    Heading: 
+    Text: This sample proceduraly creates an animated 2D Mandlebrot fractal.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: MaxIter
+    Text: The amount of iterations used to calculate the mandlebrot fractal thus
+      affecting overall detail.
+    LinkText: 
+    Url: 
+  - Heading: Threshold
+    Text: Sets how deep is to calculate the fractal.
+    LinkText: 
+    Url: 
+  - Heading: Center
+    Text: Define the center point for the fractal generation.
+    LinkText: 
+    Url: 
+  - Heading: Zoom Base
+    Text: Base zoom for the fractal animation.
+    LinkText: 
+    Url: 
+  - Heading: Zoom Scale
+    Text: Scale value applied over the sinusoidal animation.
+    LinkText: 
+    Url: 
+  - Heading: Zoom Offset
+    Text: Offset value applied over the sinusoidal animation.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

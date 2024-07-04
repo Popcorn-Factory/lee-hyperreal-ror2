@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: GSF CookTorrance
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.4.4\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19404\nNode;AmplifyShaderEditor.CommentaryNode;31;-1408,2048;Inherit;False;1265.901;675.235;Math;13;224;132;124;129;123;127;128;133;338;339;340;341;347;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;268;-2496.516,2048;Inherit;False;1028.253;960.019;Dot
+    Products;18;305;337;275;272;271;277;333;274;273;261;260;259;258;270;348;349;350;351;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;341;-1093,2512;Inherit;False;193;136;VdotH;1;146;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;340;-1344,2480;Inherit;False;188;129;NdotL;1;147;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;339;-1344,2336;Inherit;False;189;128;NdotH;1;158;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;338;-1344,2192;Inherit;False;188;130;NdotV;1;144;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;267;-1408,1632;Inherit;False;833.0816;322.047;GSF
+    CookTorrance Node;1;51;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;51;-1072,1696;Inherit;False;443.4383;168.5728;;;0,0,0,1;The
+    Cook-Torrance GSF was created to solve three cases of Geometric attenuation.
+    The first case states that the light is reflected without interference, the second
+    case states that some reflected light is blocked after reflection, and the third
+    case states that some light is blocked before reaching the next microfacet -Jorden
+    Stevens;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;270;-2016,2192;Inherit;False;225.4207;107.2891;Custom
+    Dot Products;;0,0,0,1;;0;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;128;-1088,2384;Inherit;False;3;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;127;-1088,2192;Inherit;False;3;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;123;-832,2192;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleDivideOpNode;129;-832,2384;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMinOpNode;124;-672,2192;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMinOpNode;132;-544,2192;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;1;False;1;FLOAT;0\nNode;AmplifyShaderEditor.GetLocalVarNode;146;-1072,2560;Inherit;False;258;VdotH;1;0;OBJECT;;False;1;FLOAT;0\nNode;AmplifyShaderEditor.GetLocalVarNode;147;-1328,2528;Inherit;False;261;NdotL;1;0;OBJECT;;False;1;FLOAT;0\nNode;AmplifyShaderEditor.GetLocalVarNode;158;-1328,2384;Inherit;False;259;NdotH;1;0;OBJECT;;False;1;FLOAT;0\nNode;AmplifyShaderEditor.GetLocalVarNode;144;-1328,2240;Inherit;False;260;NdotV;1;0;OBJECT;;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RegisterLocalVarNode;258;-1744,2096;Inherit;True;VdotH;-1;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RegisterLocalVarNode;259;-1744,2320;Inherit;True;NdotH;-1;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RegisterLocalVarNode;260;-1744,2544;Inherit;True;NdotV;-1;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RegisterLocalVarNode;261;-1744,2768;Inherit;True;NdotL;-1;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.StickyNoteNode;342;-1408,1440;Inherit;False;580;154;Credits;;0,0,0,0.5019608;Method
+    by Jordan Stevens$Link: https://www.jordanstevenstechart.com/physically-based-rendering$$Node
+    Made by Tiber Legacy$Special Thanks to Dawie;0;0\nNode;AmplifyShaderEditor.FunctionInput;273;-2176,2624;Inherit;False;NdotV;1;2;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;274;-2176,2848;Inherit;False;NdotL;1;1;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;333;-2176,2400;Inherit;False;NdotH;1;3;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;277;-2016,2320;Inherit;False;Option;False;0;2;1;In
+    0;In 1;Instance;337;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;271;-2016,2544;Inherit;False;Option;False;0;2;1;In
+    0;In 1;Instance;337;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;272;-2016,2768;Inherit;False;Option;False;0;2;1;In
+    0;In 1;Instance;337;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;275;-2176,2176;Inherit;False;VdotH;1;4;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;337;-2016,2096;Inherit;False;Custom
+    Dot Products;True;0;2;1;In 0;In 1;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;305;-2432,2320;Inherit;False;Normal;3;0;False;1;0;FLOAT3;0,0,1;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.RangedFloatNode;133;-1280,2112;Inherit;False;Constant;_two;two;0;0;Create;True;0;0;0;False;0;False;2;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.RangedFloatNode;347;-704,2112;Inherit;False;Constant;_One;One;0;0;Create;True;0;0;0;False;0;False;1;0;0;0;0;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;348;-2256,2096;Inherit;False;VdotH;-1;;6;0538bd8fc12afb44aa34ce2aa4cd3663;5,363,0,451,0,460,0,452,0,461,0;5;443;FLOAT3;0,0,0;False;462;FLOAT3;0,0,0;False;454;FLOAT3;0,0,0;False;453;FLOAT3;0,0,0;False;418;FLOAT;1E-37;False;1;FLOAT;108\nNode;AmplifyShaderEditor.FunctionNode;349;-2240,2320;Inherit;False;NdotH;-1;;7;fadb6690f179c1448859861f76ebb061;7,27,1,373,0,451,0,463,0,460,0,461,0,452,0;6;230;FLOAT3;0,0,1;False;443;FLOAT3;0,0,0;False;462;FLOAT3;0,0,0;False;454;FLOAT3;0,0,0;False;453;FLOAT3;0,0,0;False;417;FLOAT;1E-37;False;1;FLOAT;109\nNode;AmplifyShaderEditor.FunctionNode;350;-2240,2544;Inherit;False;NdotV;-1;;8;65be4ec269a534f4e8867af2f999aaa9;4,27,1,377,0,452,0,451,0;3;230;FLOAT3;0,0,1;False;443;FLOAT3;0,0,0;False;415;FLOAT;1E-37;False;1;FLOAT;23\nNode;AmplifyShaderEditor.FunctionNode;351;-2240,2768;Inherit;False;NdotL;-1;;9;6d7ee1aa8c79587448475fa2b37affc1;5,27,1,381,0,460,0,461,0,463,0;4;230;FLOAT3;0,0,1;False;462;FLOAT3;0,0,0;False;454;FLOAT3;0,0,0;False;416;FLOAT;1E-37;False;1;FLOAT;111\nNode;AmplifyShaderEditor.FunctionOutput;224;-416,2192;Inherit;True;True;-1;Out;0;False;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;128;0;158;0\nWireConnection;128;1;147;0\nWireConnection;128;2;133;0\nWireConnection;127;0;144;0\nWireConnection;127;1;158;0\nWireConnection;127;2;133;0\nWireConnection;123;0;127;0\nWireConnection;123;1;146;0\nWireConnection;129;0;128;0\nWireConnection;129;1;146;0\nWireConnection;124;0;123;0\nWireConnection;124;1;129;0\nWireConnection;132;0;124;0\nWireConnection;132;1;347;0\nWireConnection;258;0;337;0\nWireConnection;259;0;277;0\nWireConnection;260;0;271;0\nWireConnection;261;0;272;0\nWireConnection;277;0;349;109\nWireConnection;277;1;333;0\nWireConnection;271;0;350;23\nWireConnection;271;1;273;0\nWireConnection;272;0;351;111\nWireConnection;272;1;274;0\nWireConnection;337;0;348;108\nWireConnection;337;1;275;0\nWireConnection;349;230;305;0\nWireConnection;350;230;305;0\nWireConnection;351;230;305;0\nWireConnection;224;0;132;0\nASEEND*/\n//CHKSM=9F2ECA84B76983A72CDD226206A764FD3C13FB68"
+  m_functionName: 
+  m_description: 'GSF CookTorrance Node
+
+'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 0
+  m_headerStyle: 2
+  m_headerColor: {r: 0.7529412, g: 0.6784314, b: 0, a: 1}
+  m_customNodeCategory: Amplify Shader Pack
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 

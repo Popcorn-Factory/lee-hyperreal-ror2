@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: Schlick Fresnel Approx
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.4.4\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19404\nNode;AmplifyShaderEditor.CommentaryNode;34;-1152,-256;Inherit;False;1747.067;566.2758;Math;8;22;5;0;7;6;16;32;46;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;32;-176,-192;Inherit;False;487.4862;315.5383;Power
+    of 5;4;30;29;28;33;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;26;-1152,-672;Inherit;False;709;360;Schlick
+    Fresnel Approx Node;2;25;23;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;41;-173.6384,464;Inherit;False;388.8192;229.8008;Original
+    Formula from the Article;2;42;43;;0,0,0,0.5019608;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;16;-608,0;Inherit;False;381;251;Schlick
+    formula;;0,0,0,0.5019608;of which, by jordans code, follows as:$float x = clamp
+    ( 1.0 - i, 0.0, 1.0 )@$float x2 = x * x@$return x2*x2*x@$$which is basically$$float
+    x = Clamp( 1.0 - i, 0.0, 1.0 )@$float x = pow(x, 5)@$return x@;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;23;-832,-480;Inherit;False;351;113;Schlick
+    Approx.;;0,0,0,0.5019608;\"Schlick's Approximation of the Fresnel Equation may
+    be one of his most famous approximations. \" - Jordan Stevens;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;24;-1152,-864;Inherit;False;581;163;Credits;;0,0,0,1;Method
+    by Jordan Stevens$Link: https://www.jordanstevenstechart.com/physically-based-rendering$$Node
+    Made by Tiber Legacy$Special Thanks to Dawie;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;25;-832,-608;Inherit;False;353;121;;;0,0,0,1;This
+    approximation of the Fresnel Effect allows us to calculate the reflectance at
+    grazing angles - Jordan Stevens;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;33;-160,-16;Inherit;False;309.4788;107.8871;;;0,0,0,1;Hard
+    coding with multiple can be a lot cheaper than use of power node;0;0\nNode;AmplifyShaderEditor.SaturateNode;7;-352,-80;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;28;-160,-144;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;29;0,-144;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;30;160,-112;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.Vector3Node;22;-1120,-80;Inherit;False;Constant;_FakeNormal;_FakeNormal;0;0;Create;True;0;0;0;False;0;False;0,0,1;0,0,0;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.OneMinusNode;6;-512,-80;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;5;-672,-80;Inherit;False;In;1;0;True;1;0;FLOAT;0.5;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;43;32,512;Inherit;False;3;3;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.PowerNode;44;-144,352;Inherit;False;False;2;0;FLOAT;0;False;1;FLOAT;5;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;45;-176,464;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;42;-128,576;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;46;-896,-80;Inherit;False;NdotV;-1;;4;65be4ec269a534f4e8867af2f999aaa9;4,27,1,377,0,452,0,451,0;3;230;FLOAT3;0,0,1;False;443;FLOAT3;0,0,0;False;415;FLOAT;1E-37;False;1;FLOAT;23\nNode;AmplifyShaderEditor.FunctionOutput;0;368,-112;Inherit;True;True;-1;Out;0;True;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;7;0;6;0\nWireConnection;28;0;7;0\nWireConnection;28;1;7;0\nWireConnection;29;0;28;0\nWireConnection;29;1;28;0\nWireConnection;30;0;29;0\nWireConnection;30;1;7;0\nWireConnection;6;0;5;0\nWireConnection;5;0;46;23\nWireConnection;43;0;45;0\nWireConnection;43;1;42;0\nWireConnection;43;2;42;0\nWireConnection;44;0;7;0\nWireConnection;45;0;7;0\nWireConnection;42;0;7;0\nWireConnection;42;1;7;0\nWireConnection;46;230;22;0\nWireConnection;0;0;30;0\nASEEND*/\n//CHKSM=5D52CC04C0BBB53D4B37E336224867C230CC3E7A"
+  m_functionName: 
+  m_description: 'Schlick Fresnel Approx Node
+
+'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 0
+  m_headerStyle: 2
+  m_headerColor: {r: 0.7529412, g: 0.6784314, b: 0, a: 1}
+  m_customNodeCategory: Amplify Shader Pack
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 

@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: b7c0c2e0fc0a4de47895861eaef624af, type: 3}
+  Title: MultiPass Distortion
+  Description:
+    Heading: 
+    Text: This sample creates a dome/forcefield which refracts whats inside of it
+      and takes intersections with it into account. A fresnel effect is used to color
+      both its borders and intersection with other objects.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Distortion
+    Text: Normals texture used to distort value sampled from grab pass.
+    LinkText: 
+    Url: 
+  - Heading: Distortion Amount
+    Text: 'Value to control overall effect distort value from texture '
+    LinkText: 
+    Url: 
+  - Heading: Depth Fade Distance
+    Text: Value to tweak intersection between main surface and other objects.
+    LinkText: 
+    Url: 
+  - Heading: Time Scale
+    Text: Value to control distortion animation speed.
+    LinkText: 
+    Url: 
+  - Heading: Forcefield Tint
+    Text: Color value to tint forcefield/dome where there are <b>no</b> intersections.
+    LinkText: 
+    Url: 
+  - Heading: Intersection Color
+    Text: Color value to tint forcefield/dome where there <b>are</b> intersections.
+    LinkText: 
+    Url: 
+  - Heading: Fresnel Power
+    Text: Value to control fresnel power, or spreading.
+    LinkText: 
+    Url: 
+  - Heading: Fresnel Scale
+    Text: Value to control fresnel scale, or strength.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

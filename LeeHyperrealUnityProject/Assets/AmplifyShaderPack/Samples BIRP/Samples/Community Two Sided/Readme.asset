@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 663bd052e255a394daca7c30e8be972e, type: 3}
+  Title: Community Two Sided
+  Description:
+    Heading: 
+    Text: Two sided shader with different texture / color for inner and outer faces.
+    LinkText: Created by The Four Headed Cat
+    Url: https://twitter.com/fourheadedcat
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Mask Clip Value
+    Text: Alpha clip value.
+    LinkText: 
+    Url: 
+  - Heading: Front Faces Color
+    Text: 'Front faces color value. '
+    LinkText: 
+    Url: 
+  - Heading: Front Faces Albedo
+    Text: Albedo texture to be applied to front facing surface.
+    LinkText: 
+    Url: 
+  - Heading: Front Faces Normal
+    Text: Normals texture to be applied to front facing surface.
+    LinkText: 
+    Url: 
+  - Heading: Back Faces Color
+    Text: 'Back faces color value. '
+    LinkText: 
+    Url: 
+  - Heading: Back Faces Albedo
+    Text: Albedo texture to be applied to back facing surface.
+    LinkText: 
+    Url: 
+  - Heading: Back Faces Normal
+    Text: Normals texture to be applied to back facing surface.
+    LinkText: 
+    Url: 
+  - Heading: Opacity Mask
+    Text: Opacity textureto be applied to surface.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

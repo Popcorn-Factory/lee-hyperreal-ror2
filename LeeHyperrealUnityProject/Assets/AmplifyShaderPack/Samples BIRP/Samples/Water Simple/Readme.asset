@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: e4184943db074ca49972117753987a4a, type: 3}
+  Title: Water Simple
+  Description:
+    Heading: 
+    Text: 'This sample sets up a water volume that changes color according to depth
+      and automatically sets foam areas on shorelines. '
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Water Sample Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Water Normal
+    Text: Normals texture for water area.
+    LinkText: 
+    Url: 
+  - Heading: Normal Scale
+    Text: Value to control normal scale from sampled normal map.
+    LinkText: 
+    Url: 
+  - Heading: Deep Color
+    Text: Color value to be used on deep areas.
+    LinkText: 
+    Url: 
+  - Heading: Shalow Color
+    Text: Color value to be used on shalow areas.
+    LinkText: 
+    Url: 
+  - Heading: Water Depth
+    Text: Value to tweak final depth value between water and land.
+    LinkText: 
+    Url: 
+  - Heading: Water Falloff
+    Text: Value to control falloff between deep and shalow areas.
+    LinkText: 
+    Url: 
+  - Heading: Water Specular
+    Text: Overall specular value for water area.
+    LinkText: 
+    Url: 
+  - Heading: Water Smoothness
+    Text: Overall smoothness value for water area.
+    LinkText: 
+    Url: 
+  - Heading: Distortion
+    Text: Value to control distortion made by water, simulating refracttion.
+    LinkText: 
+    Url: 
+  - Heading: Foam
+    Text: Texture to be applied on foam areas.
+    LinkText: 
+    Url: 
+  - Heading: Foam Depth
+    Text: Value to adjust from which depth foam should start to appear.
+    LinkText: 
+    Url: 
+  - Heading: Foam Falloff
+    Text: Value to control falloff between water and foam areas.
+    LinkText: 
+    Url: 
+  - Heading: Foam Specular
+    Text: Overall specular value for foam area.
+    LinkText: 
+    Url: 
+  - Heading: Foam Smoothness
+    Text: Overall smoothness value for foam area.
+    LinkText: 
+    Url: 
+  AdditionalProperties:
+  - BlockHeader:
+      Heading: Ground Properties
+      Text: 
+      LinkText: 
+      Url: 
+    BlockContent:
+    - Heading: Top
+      Text: Color value for top areas of the terrain.
+      LinkText: 
+      Url: 
+    - Heading: Bottom
+      Text: Color value for bottom areas of the terrain.
+      LinkText: 
+      Url: 
+  AdditionalScripts:
+  - BlockHeader:
+      Heading: Camera Depth Activation
+      Text: Activates depth texture creation over the main camera.
+      LinkText: 
+      Url: 
+    BlockContent: []
+  LoadedLayout: 0
+  RPType: 3

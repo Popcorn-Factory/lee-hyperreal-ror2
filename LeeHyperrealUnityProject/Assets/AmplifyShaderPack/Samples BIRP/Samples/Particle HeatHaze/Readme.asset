@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 0bbde647b257ffd4c95ff9b439cf66cd, type: 3}
+  Title: Particle HeatHaze
+  Description:
+    Heading: 
+    Text: Heat haze effect.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Tint Color
+    Text: ' Particle tint color value.  '
+    LinkText: 
+    Url: 
+  - Heading: Particle Texture
+    Text: Base Texture applied to particle surface.
+    LinkText: 
+    Url: 
+  - Heading: Soft Particles Factor
+    Text: 'Control value for fading out particles as they get close to the surface
+      of objects written into the depth buffer. This is useful for avoiding hard
+      edges when particles intersect with opaque geometry. '
+    LinkText: 
+    Url: 
+  - Heading: Haze VSpeed
+    Text: Haze vertical scroll speed.
+    LinkText: 
+    Url: 
+  - Heading: Haze Mask
+    Text: Haze mask falloff.
+    LinkText: 
+    Url: 
+  - Heading: Distortion
+    Text: Normals texture used to control heat haze distortion.
+    LinkText: 
+    Url: 
+  - Heading: Haze HFreq
+    Text: Haze effect frequency.
+    LinkText: 
+    Url: 
+  - Heading: Haze Normal Intensity
+    Text: Distortion value intensity based on Normals texture.
+    LinkText: 
+    Url: 
+  - Heading: Haze HAmp
+    Text: Haze effect amplitude.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

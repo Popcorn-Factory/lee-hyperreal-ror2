@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: GSF Smith GGX
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.4.4\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19404\nNode;AmplifyShaderEditor.CommentaryNode;41;-770.6135,736;Inherit;False;2184.564;578.5157;Math;21;24;32;30;23;27;74;73;72;0;37;35;34;33;31;28;25;29;46;45;44;43;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;38;-768,448;Inherit;False;582.9353;251.9245;GSF
+    Smith GGX Node;1;40;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;42;-1790.174,736;Inherit;False;991.3848;574.2638;Dot
+    Products;9;55;49;48;51;52;50;47;75;76;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;43;-720,800;Inherit;False;200.5789;133.2894;NdotV;1;66;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;44;-720,944;Inherit;False;200.5789;133.2894;NdotL;1;67;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;39;-768,256;Inherit;False;584.1855;155.0499;Credits;;0,0,0,0.5019608;Method
+    by Jordan Stevens$Link: https://www.jordanstevenstechart.com/physically-based-rendering$$Node
+    Made by Tiber Legacy$Special Thanks to Dawie;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;40;-449,496;Inherit;False;201.0849;135.6059;;;0,0,0,1;Unity's
+    Version of the Smith GGX GSF method;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;45;-448,784;Inherit;False;194;100;Vectorized;;0,0,0,0.5019608;to
+    simplify and Optimize the Algorithm;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;46;-720,1184;Inherit;False;204.6;102.6;Roughness;;0,0,0,1;;0;0\nNode;AmplifyShaderEditor.RegisterLocalVarNode;47;-1056,816;Inherit;True;NdotV;-1;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.GetLocalVarNode;66;-688,848;Inherit;False;47;NdotV;1;0;OBJECT;;False;1;FLOAT;0\nNode;AmplifyShaderEditor.GetLocalVarNode;67;-688,992;Inherit;False;50;NdotL;1;0;OBJECT;;False;1;FLOAT;0\nNode;AmplifyShaderEditor.DynamicAppendNode;25;-448,896;Inherit;False;FLOAT2;4;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;31;480,896;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.BreakToComponentsNode;33;608,896;Inherit;False;FLOAT2;1;0;FLOAT2;0,0;False;16;FLOAT;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4;FLOAT;5;FLOAT;6;FLOAT;7;FLOAT;8;FLOAT;9;FLOAT;10;FLOAT;11;FLOAT;12;FLOAT;13;FLOAT;14;FLOAT;15\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;34;736,896;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.WireNode;72;-32,928;Inherit;False;1;0;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.WireNode;73;-176,928;Inherit;False;1;0;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;23;-464,1104;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RegisterLocalVarNode;50;-1056,1040;Inherit;True;NdotL;-1;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;52;-1312,816;Inherit;False;Custom
+    Dot Products;True;0;2;1;In 0;In 1;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionSwitch;51;-1312,1040;Inherit;False;Option;False;0;2;1;In
+    0;In 1;Instance;52;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;48;-1472,896;Inherit;False;NdotV;1;2;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;49;-1472,1120;Inherit;False;NdotL;1;1;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;55;-1728,816;Inherit;False;Normal;3;0;False;1;0;FLOAT3;0,0,1;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionInput;24;-672,1104;Inherit;False;Roughness;1;3;False;1;0;FLOAT;0.5;False;1;FLOAT;0\nNode;AmplifyShaderEditor.ReciprocalOpNode;37;1024,896;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;29;48,960;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleSubtractOpNode;28;-112,1008;Inherit;False;2;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.WireNode;74;-160,960;Inherit;False;1;0;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;27;-288,1024;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;30;208,1072;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SqrtOpNode;32;336,1072;Inherit;False;1;0;FLOAT2;0,0;False;1;FLOAT2;0\nNode;AmplifyShaderEditor.SimpleMaxOpNode;35;896,896;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;75;-1536,816;Inherit;False;NdotV;-1;;4;65be4ec269a534f4e8867af2f999aaa9;4,27,1,377,0,452,0,451,0;3;230;FLOAT3;0,0,1;False;443;FLOAT3;0,0,0;False;415;FLOAT;1E-37;False;1;FLOAT;23\nNode;AmplifyShaderEditor.FunctionNode;76;-1536,1040;Inherit;False;NdotL;-1;;5;6d7ee1aa8c79587448475fa2b37affc1;5,27,1,381,0,460,0,461,0,463,0;4;230;FLOAT3;0,0,1;False;462;FLOAT3;0,0,0;False;454;FLOAT3;0,0,0;False;416;FLOAT;1E-37;False;1;FLOAT;111\nNode;AmplifyShaderEditor.FunctionOutput;0;1184,896;Inherit;True;True;-1;Out;0;False;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;47;0;52;0\nWireConnection;25;0;66;0\nWireConnection;25;1;67;0\nWireConnection;31;0;25;0\nWireConnection;31;1;32;0\nWireConnection;33;0;31;0\nWireConnection;34;0;33;0\nWireConnection;34;1;33;1\nWireConnection;72;0;25;0\nWireConnection;73;0;25;0\nWireConnection;23;0;24;0\nWireConnection;23;1;24;0\nWireConnection;50;0;51;0\nWireConnection;52;0;75;23\nWireConnection;52;1;48;0\nWireConnection;51;0;76;111\nWireConnection;51;1;49;0\nWireConnection;37;0;35;0\nWireConnection;29;0;72;0\nWireConnection;29;1;28;0\nWireConnection;28;0;74;0\nWireConnection;28;1;27;0\nWireConnection;74;0;73;0\nWireConnection;27;0;25;0\nWireConnection;27;1;23;0\nWireConnection;30;0;29;0\nWireConnection;30;1;23;0\nWireConnection;32;0;30;0\nWireConnection;35;0;34;0\nWireConnection;75;230;55;0\nWireConnection;76;230;55;0\nWireConnection;0;0;37;0\nASEEND*/\n//CHKSM=ECC8F09EDE33209A06BE6031EA236991438E2454"
+  m_functionName: 
+  m_description: 'GSF Smith GGX Node
+
+'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 0
+  m_headerStyle: 2
+  m_headerColor: {r: 0.7529412, g: 0.6784314, b: 0, a: 1}
+  m_customNodeCategory: Amplify Shader Pack
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 

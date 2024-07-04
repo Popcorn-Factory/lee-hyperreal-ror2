@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: Gaussian Fresnel
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.4.4\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19404\nNode;AmplifyShaderEditor.CommentaryNode;162;-769.3676,256;Inherit;False;1179.368;381.9409;Math;7;0;14;10;13;12;11;28;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;31;-1860.944,256;Inherit;False;1035.07;385.8209;Dot
+    Products;5;128;79;71;148;164;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;30;-768,-96;Inherit;False;767.0288;286.8078;Gaussian
+    Fresnel Node;1;29;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;28;-720,304;Inherit;False;207;141;LdotH;1;161;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;24;-768,-288;Inherit;False;559.9227;159.4601;Credits;;0,0,0,1;Method
+    by Jordan Stevens$Link: https://www.jordanstevenstechart.com/physically-based-rendering$$Node
+    Made by Tiber Legacy$Special Thanks to Dawie;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;29;-432,-32;Inherit;False;377.0542;150.0213;;;0,0,0,1;Spherical-Gaussian
+    Fresnel function produces remarkably similar results to Schlicks Approximation.
+    The only difference is that the power is derived from a Spherical Gaussian calculation
+    - Jordan Stevens;0;0\nNode;AmplifyShaderEditor.GetLocalVarNode;161;-704,352;Inherit;False;71;LdotH;1;0;OBJECT;;False;1;FLOAT;0\nNode;AmplifyShaderEditor.Vector2Node;10;-704,464;Inherit;False;Constant;_GaussianApprox;Gaussian
+    Approx.;0;0;Create;True;0;0;0;False;0;False;-5.55473,6.98316;0,0;0;3;FLOAT2;0;FLOAT;1;FLOAT;2\nNode;AmplifyShaderEditor.FunctionSwitch;148;-1392,384;Inherit;False;Custom
+    Dot Products;True;0;2;1;In 0;In 1;Object;-1;10;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.RegisterLocalVarNode;71;-1120,384;Inherit;True;LdotH;-1;True;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;79;-1568,464;Inherit;False;LdotH;1;0;False;1;0;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionInput;128;-1808,384;Inherit;False;Normal;3;1;False;1;0;FLOAT3;0,0,1;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;11;-464,288;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleSubtractOpNode;12;-304,288;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;13;-144,352;Inherit;False;2;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.PowerNode;14;16,352;Inherit;False;True;2;0;FLOAT;2;False;1;FLOAT;2;False;1;FLOAT;0\nNode;AmplifyShaderEditor.FunctionNode;164;-1632,384;Inherit;False;NdotH;-1;;2;fadb6690f179c1448859861f76ebb061;7,27,1,373,0,451,0,463,0,460,0,461,0,452,0;6;230;FLOAT3;0,0,1;False;443;FLOAT3;0,0,0;False;462;FLOAT3;0,0,0;False;454;FLOAT3;0,0,0;False;453;FLOAT3;0,0,0;False;417;FLOAT;1E-37;False;1;FLOAT;109\nNode;AmplifyShaderEditor.FunctionOutput;0;176,352;Inherit;True;True;-1;Out;0;True;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;148;0;164;109\nWireConnection;148;1;79;0\nWireConnection;71;0;148;0\nWireConnection;11;0;161;0\nWireConnection;11;1;10;1\nWireConnection;12;0;11;0\nWireConnection;12;1;10;2\nWireConnection;13;0;161;0\nWireConnection;13;1;12;0\nWireConnection;14;1;13;0\nWireConnection;164;230;128;0\nWireConnection;0;0;14;0\nASEEND*/\n//CHKSM=6C53875BCDF1F2447EF4BED8FBEFC77F7E8B81B5"
+  m_functionName: 
+  m_description: 'Gaussian Fresnel Node
+
+'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 0
+  m_headerStyle: 2
+  m_headerColor: {r: 0.7529412, g: 0.6784314, b: 0, a: 1}
+  m_customNodeCategory: Amplify Shader Pack
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 

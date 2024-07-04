@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: HdotY
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor v1.9.4.4\n// Available at the
+    Unity Asset Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=19404\nNode;AmplifyShaderEditor.CommentaryNode;410;-256,-768;Inherit;False;942.6534;412.0685;HdotY;4;300;242;443;444;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;444;-192,-560;Inherit;False;236;128.6667;Half
+    Vector;1;294;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;443;-192,-704;Inherit;False;236;130.6667;World
+    Bitangent;1;405;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.CommentaryNode;119;-256,-1248;Inherit;False;931.4651;417.8707;HdotY
+    Node;3;438;35;442;;0,0,0,1;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;35;224,-1040;Inherit;False;411.5415;185.3484;;;0,0,0,1;Common
+    Dot Pruducts used in lighting calculations$$Naming Conventions:$'A-Vector' dot
+    'B-Vector'$Example: dot(Light Dir, View Dir) = LdotV$$HdotY$;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;141;-928,-368;Inherit;False;384.4344;143.0341;Additional
+    Vectors;;0,0,0,0.5019608;As with the Trowbridge-Reitz method, the Ward Algorithm
+    requires tangent and bitangent data, but also relies on the dot product of the
+    normal and light, as well as the dot product of the normal and our viewpoint
+    - Jordans Stevens;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;142;-1248,-368;Inherit;False;300;125;Keep
+    in mind of UVs;;0,0,0,0.5019608;as the use of 'Tangents' requires the Object
+    or Meshl this method is used on is correctly UV Mapped, usually in a \"Vertical\"
+    Orientation;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;438;224,-1184;Inherit;False;414.9685;134.1714;;;0,0,0,1;Common
+    Normal Calculations typically used in PBR Shaders, expand as necessary or if
+    needed. Source: \"Physically Based Rendering Algorithms:$A Comprehensive Study
+    In Unity3D\" By Jordan Steve;0;0\nNode;AmplifyShaderEditor.StickyNoteNode;442;-240,-944;Inherit;False;219;100;Inputs;;1,0,0,1;all
+    Inputs should be pre normalized prior to input;0;0\nNode;AmplifyShaderEditor.DotProductOpNode;242;112,-656;Inherit;False;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT;0\nNode;AmplifyShaderEditor.GetLocalVarNode;405;-160,-656;Inherit;False;403;World
+    Bitangent;1;0;OBJECT;;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionInput;445;-1680,-656;Inherit;False;View
+    Dir;3;0;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.ViewDirInputsCoordNode;446;-1888,-736;Inherit;False;World;True;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.SimpleAddOpNode;447;-2096,-336;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.ViewDirInputsCoordNode;448;-2320,-256;Float;False;World;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.NormalizeNode;449;-1120,-736;Inherit;False;True;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.SimpleAddOpNode;450;-1248,-736;Inherit;False;2;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.NormalizeNode;452;-1968,-336;Inherit;False;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionInput;455;-960,-656;Inherit;False;Half
+    Vector;3;3;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionInput;456;-2320,-336;Inherit;False;Fake
+    Light Dir;3;2;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionSwitch;463;-1776,-416;Inherit;False;Fake
+    Light Dir;True;0;2;3;In 0;In 1;Object;-1;10;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionInput;464;-1968,-416;Inherit;False;Light
+    Dir;3;1;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionInput;466;-1264,-112;Inherit;False;World
+    Bitangent;3;4;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.GetLocalVarNode;294;-128,-512;Inherit;False;457;Half
+    Vector;1;0;OBJECT;;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.VertexBinormalNode;245;-1616,-208;Inherit;False;0;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.FunctionSwitch;462;-1520,-576;Inherit;False;Custom
+    Light Dir;True;0;2;2;In 0;In 1;Object;-1;10;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionSwitch;453;-1520,-736;Inherit;False;Custom
+    View Dir;True;0;2;1;In 0;In 1;Object;-1;10;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.RegisterLocalVarNode;457;-512,-736;Inherit;False;Half
+    Vector;-1;True;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionSwitch;454;-768,-736;Inherit;False;Custom
+    Half Vector;True;0;2;4;In 0;In 1;Object;-1;10;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.RegisterLocalVarNode;403;-768,-208;Inherit;False;World
+    Bitangent;-1;True;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.FunctionSwitch;465;-1056,-208;Inherit;False;Custom
+    World Bitangent;True;0;2;5;In 0;In 1;Object;-1;10;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;2;FLOAT;0;False;3;FLOAT;0;False;4;FLOAT;0;False;5;FLOAT;0;False;6;FLOAT;0;False;7;FLOAT;0;False;8;FLOAT;0;False;9;FLOAT;0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.NormalizeNode;248;-1408,-208;Inherit;False;False;1;0;FLOAT3;0,0,0;False;1;FLOAT3;0\nNode;AmplifyShaderEditor.WorldSpaceLightDirHlpNode;451;-1776,-576;Inherit;False;True;1;0;FLOAT;0;False;4;FLOAT3;0;FLOAT;1;FLOAT;2;FLOAT;3\nNode;AmplifyShaderEditor.FunctionOutput;300;256,-656;Inherit;True;True;-1;HdotY;0;True;1;0;FLOAT;0;False;1;FLOAT;0\nWireConnection;242;0;405;0\nWireConnection;242;1;294;0\nWireConnection;447;0;456;0\nWireConnection;447;1;448;0\nWireConnection;449;0;450;0\nWireConnection;450;0;453;0\nWireConnection;450;1;462;0\nWireConnection;452;0;447;0\nWireConnection;463;0;464;0\nWireConnection;463;1;452;0\nWireConnection;462;0;451;0\nWireConnection;462;1;463;0\nWireConnection;453;0;446;0\nWireConnection;453;1;445;0\nWireConnection;457;0;454;0\nWireConnection;454;0;449;0\nWireConnection;454;1;455;0\nWireConnection;403;0;465;0\nWireConnection;465;0;248;0\nWireConnection;465;1;466;0\nWireConnection;248;0;245;0\nWireConnection;300;0;242;0\nASEEND*/\n//CHKSM=B1BB4B1296A02BD0C04E11DD38635BC80231A536"
+  m_functionName: 
+  m_description: 'HdotY Node
+
+'
+  m_additionalIncludes:
+    m_additionalIncludes: []
+    m_outsideIncludes: []
+  m_additionalPragmas:
+    m_additionalPragmas: []
+    m_outsidePragmas: []
+  m_additionalDirectives:
+    m_validData: 0
+    m_isDirty: 0
+    m_moduleName: ' Additional Directives'
+    m_independentModule: 1
+    m_customEdited: 0
+    m_additionalDirectives: []
+    m_shaderFunctionDirectives: []
+    m_nativeDirectives: []
+    m_nativeDirectivesIndex: -1
+    m_nativeDirectivesFoldout: 0
+    m_directivesSaveItems: []
+  m_nodeCategory: 0
+  m_headerStyle: 2
+  m_headerColor: {r: 0.7529412, g: 0.6784314, b: 0, a: 1}
+  m_customNodeCategory: Amplify Shader Pack
+  m_previewPosition: 0
+  m_hidden: 0
+  m_url: 

@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Road Base Shoulder 01
+  m_Shader: {fileID: 4800000, guid: a20b92c0fd2e9d74185708432a7458bb, type: 3}
+  m_ShaderKeywords: _ACTIVATECLIP_ON
+  m_LightmapFlags: 0
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - <noninit>:
+        m_Texture: {fileID: 2800000, guid: 7b705e3c0dd4d4240acdbee5cfcd62c8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Smoothness:
+        m_Texture: {fileID: 2800000, guid: 990b5224ab6b406487e7328c391ad210, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Textured_Course_AlbedoTransparency:
+        m_Texture: {fileID: 2800000, guid: 25a357f6ca52475daf0f03609c392f79, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - <noninit>: 1
+    - _ActivateClip: 1
+    - __dirty: 0
+    m_Colors:
+    - <noninit>: {r: 0.29411766, g: 0.28627452, b: 0.27450982, a: 0}
+    - _CutoffColor: {r: 0.29411766, g: 0.28627452, b: 0.27450982, a: 1}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}

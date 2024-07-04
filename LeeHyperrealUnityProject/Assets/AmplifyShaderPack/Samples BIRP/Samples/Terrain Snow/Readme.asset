@@ -1,0 +1,157 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 35b830ce16f63b04983351671f33ca75, type: 3}
+  Title: Terrain Snow
+  Description:
+    Heading: 
+    Text: This sample sets a native Unity terrain with a custom material using snow
+      coverage.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Terrain First Pass Properties
+    Text: Terrain First Pass shader, basic splat use and coverage layer blending.
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Coverage Fade
+    Text: Coverage layer toggle.
+    LinkText: 
+    Url: 
+  - Heading: Coverage Albedo
+    Text: Coverage Albedo texture overlaid over the entire terrain surface.
+    LinkText: 
+    Url: 
+  - Heading: Transition Distance
+    Text: Coverage to splat transition distance.
+    LinkText: 
+    Url: 
+  - Heading: Transition Falloff
+    Text: Coverage to splat transition falloff value.
+    LinkText: 
+    Url: 
+  - Heading: Coverage Normal
+    Text: Coverage Normals texture overlaid over the entire terrain surface.
+    LinkText: 
+    Url: 
+  - Heading: Coverage Normal Intensity
+    Text: Coverage Normal intensity value.
+    LinkText: 
+    Url: 
+  - Heading: Snow Coverage Amount
+    Text: Snow coverage amount.
+    LinkText: 
+    Url: 
+  - Heading: Snow Coverage Falloff
+    Text: Snow coverage falloff amount.
+    LinkText: 
+    Url: 
+  - Heading: Smoothness
+    Text: Base Smoothness Value.
+    LinkText: 
+    Url: 
+  - Heading: Metallic
+    Text: Base Metallic Value.
+    LinkText: 
+    Url: 
+  - Heading: MainTex
+    Text: 'Used internally by Unity''s Terrain, no configuration required. '
+    LinkText: 
+    Url: 
+  - Heading: Color
+    Text: 'Base color tint value, no configuration required. '
+    LinkText: 
+    Url: 
+  - Heading: Control
+    Text: 'Control Splat used internally by Unity''s Terrain, created and assigned
+      automatically when texture painting via the Terrain Component. '
+    LinkText: 
+    Url: 
+  - Heading: Splat3
+    Text: 'Splat 3 Albedo texture, assigned automatically via layers set in the Terrain
+      Component. '
+    LinkText: 
+    Url: 
+  - Heading: Splat2
+    Text: 'Splat 2 Albedo texture, assigned automatically via layers set in the Terrain
+      Component. '
+    LinkText: 
+    Url: 
+  - Heading: Splat1
+    Text: 'Splat 1 Albedo texture, assigned automatically via layers set in the Terrain
+      Component. '
+    LinkText: 
+    Url: 
+  - Heading: Splat0
+    Text: 'Splat 0 Albedo texture, assigned automatically via layers set in the Terrain
+      Component. '
+    LinkText: 
+    Url: 
+  - Heading: Normal0
+    Text: 'Splat 0 Normals texture, assigned automatically via layers set in the
+      Terrain Component.  '
+    LinkText: 
+    Url: 
+  - Heading: Normal1
+    Text: 'Splat 1 Normals texture, assigned automatically via layers set in the
+      Terrain Component.  '
+    LinkText: 
+    Url: 
+  - Heading: Normal2
+    Text: 'Splat 2 Normals texture, assigned automatically via layers set in the
+      Terrain Component.  '
+    LinkText: 
+    Url: 
+  - Heading: Normal3
+    Text: 'Splat 3 Normals texture, assigned automatically via layers set in the
+      Terrain Component.  '
+    LinkText: 
+    Url: 
+  - Heading: Texture Sample 0
+    Text: 'Snow Albedo texture overlaid over the entire terrain surface.  '
+    LinkText: 
+    Url: 
+  AdditionalProperties:
+  - BlockHeader:
+      Heading: Terrain Base Properties
+      Text: Base terrain shader used internally by Unity Terrain.
+      LinkText: 
+      Url: 
+    BlockContent:
+    - Heading: MainTex
+      Text: 'Base Albedo Texture, used internally, no configuration required unless
+        you''re editing the shader.  '
+      LinkText: 
+      Url: 
+    - Heading: MetallicTex
+      Text: 'Base Metallic Texture, used internally, no configuration required unless
+        you''re editing the shader.  '
+      LinkText: 
+      Url: 
+    - Heading: Color
+      Text: 'Albedo color tint value, no configuration required unless you''re editing
+        the shader. '
+      LinkText: 
+      Url: 
+  AdditionalScripts:
+  - BlockHeader:
+      Heading: WARNING
+      Text: 'Terrain shaders must follow exact construction steps. Please consult
+        the available documentation. '
+      LinkText: Terrains - ASE Official Wiki
+      Url: 'https://wiki.amplify.pt/index.php?title=Unity_Products:Amplify_Shader_Editor/Terrain_Shaders  '
+    BlockContent: []
+  LoadedLayout: 0
+  RPType: 3

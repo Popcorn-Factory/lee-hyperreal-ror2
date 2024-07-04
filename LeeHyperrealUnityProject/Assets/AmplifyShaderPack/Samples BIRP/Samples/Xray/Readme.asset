@@ -1,0 +1,122 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: b239d15602a68f64d88c572d7028fc5b, type: 3}
+  Title: XRay
+  Description:
+    Heading: 
+    Text: This sample draws objects with different behavior if being occluded by
+      others or not. A fresnell effect is used when occluded.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: XRay Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Albedo
+    Text: Albedo texture to be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: XRay Power
+    Text: Value set to control fresnel falloff over occluded part.
+    LinkText: 
+    Url: 
+  - Heading: XRay Color
+    Text: Color value used on occluded part.
+    LinkText: 
+    Url: 
+  - Heading: XRay Scale
+    Text: Value set to control fresnel scale/intensity over occluded part.
+    LinkText: 
+    Url: 
+  - Heading: XRay Bias
+    Text: Value set to control fresnel bias, when falloff starts happening, over
+      occluded part.
+    LinkText: 
+    Url: 
+  - Heading: XRayIntensity
+    Text: Overall intensity value for occluded part.
+    LinkText: 
+    Url: 
+  AdditionalProperties:
+  - BlockHeader:
+      Heading: Procedural Wall Properties
+      Text: Creates a procedural wall with different properties for inner and outer
+        sections.
+      LinkText: 
+      Url: 
+    BlockContent:
+    - Heading: Max Tessellation
+      Text: Maximum Tessellation amount.
+      LinkText: 
+      Url: 
+    - Heading: Tess Min Distance
+      Text: Minimum Tessellation distance value.
+      LinkText: 
+      Url: 
+    - Heading: Tess Max Distance
+      Text: Maximum Tessellation distance value.
+      LinkText: 
+      Url: 
+    - Heading: Phong Tess Strength
+      Text: Modifies the positions of the subdivided faces so that the resulting
+        surface       follows the mesh normals a bit; set to OFF by Default
+      LinkText: 
+      Url: 
+    - Heading: Slope
+      Text: Value to define amount of slope between inner and outer/brick sections
+        of brick wall.
+      LinkText: 
+      Url: 
+    - Heading: Noise
+      Text: Noise texture to be applied to wall.
+      LinkText: 
+      Url: 
+    - Heading: Pattern Size
+      Text: Vector which sets inner sections horizontal and vertical size.
+      LinkText: 
+      Url: 
+    - Heading: Noise Intensity
+      Text: Overall noise intensity value.
+      LinkText: 
+      Url: 
+    - Heading: Brick Tiling
+      Text: Tiling amount for wall outer/brick section.
+      LinkText: 
+      Url: 
+    - Heading: Brick Height
+      Text: Overall height value for outer/brick sections.
+      LinkText: 
+      Url: 
+    - Heading: 'Inner Albedo '
+      Text: Albedo texture to be applied to inner section.
+      LinkText: 
+      Url: 
+    - Heading: Inner Normal
+      Text: Normals texture to be applied to inner section.
+      LinkText: 
+      Url: 
+    - Heading: 'Brick Albedo '
+      Text: Albedo texture to be applied to outer/bick section.
+      LinkText: 
+      Url: 
+    - Heading: Brick Normal
+      Text: Normals texture to be applied to outer/brick section.
+      LinkText: 
+      Url: 
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

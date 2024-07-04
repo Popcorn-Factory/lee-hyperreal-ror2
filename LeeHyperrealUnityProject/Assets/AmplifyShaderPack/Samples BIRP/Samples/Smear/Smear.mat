@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Smear
+  m_Shader: {fileID: 4800000, guid: b7a48a4b267a5f8489a92a78a950a87b, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: aab8de1052c54173b3d61e7f8b05aedf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 2800000, guid: b36d82dce1944357b33e03f7e2975b06, type: 3}
+        m_Scale: {x: 2, y: 2}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _EffectScale: 2
+    - _Float4: 1
+    - _Metallic: 0.538
+    - _NoiseHeightScale: 0.247
+    - _NoiseInfluence: 0.426
+    - _NoiseScale: 0.5
+    - _NoiseTilling: 5.5
+    - _Smoothness: 0.408
+    - _TessMax: 20
+    - _TessMin: 10
+    - _TessPhongStrength: 0.5
+    - _TessValue: 4
+    - __dirty: 0
+    m_Colors:
+    - _Position: {r: -6.72, g: 5.75, b: -3.86, a: 0}
+    - _PrevPosition: {r: -6.71, g: 5.75, b: -3.94, a: 0}
+    - _Tint: {r: 1, g: 0.7363322, b: 0.47058803, a: 1}

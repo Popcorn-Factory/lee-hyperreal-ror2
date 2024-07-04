@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 03102a5d5695a92409f6b34455ab12de, type: 3}
+  Title: Glint Sparkle
+  Description:
+    Heading: 
+    Text: Animated Glint and Sparkle effects.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Albedo
+    Text: Albedo color value.
+    LinkText: 
+    Url: 
+  - Heading: Normals
+    Text: Normals texture to be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: Color
+    Text: Glint effect color value.
+    LinkText: 
+    Url: 
+  - Heading: Direction
+    Text: Direction of the Glint effect.
+    LinkText: 
+    Url: 
+  - Heading: Invert Direction
+    Text: Reverse Gling effect animation toggle.
+    LinkText: 
+    Url: 
+  - Heading: Size, Speed, Interval
+    Text: X defines the size of the Glint effect, Y its speed, Z the effect interval.
+    LinkText: 
+    Url: 
+  - Heading: Fresnel Bias, Scale, Power
+    Text: X Defines the Fresnel Bias of the Glint effect, Y its Scale, Z the Power.
+    LinkText: 
+    Url: 
+  - Heading: Tail Head Falloff
+    Text: Falloff of the Glint effect.
+    LinkText: 
+    Url: 
+  - Heading: Brightness
+    Text: Multiplies the final brightness of the Glint effect.
+    LinkText: 
+    Url: 
+  - Heading: Color
+    Text: 'Sparkles effect color value. '
+    LinkText: 
+    Url: 
+  - Heading: Noise
+    Text: Noise texture by the Sparkles effect.
+    LinkText: 
+    Url: 
+  - Heading: Frequency
+    Text: Sparkle effect frequency.
+    LinkText: 
+    Url: 
+  - Heading: Threshold
+    Text: Noise texture threshold used to generate the Sparkle effect
+    LinkText: 
+    Url: 
+  - Heading: Range
+    Text: Additive range tweak based on Noise texture.
+    LinkText: 
+    Url: 
+  - Heading: Brightness
+    Text: 'Multiplies the final brightness of the Sparkle effect. '
+    LinkText: 
+    Url: 
+  - Heading: Spakle Speed
+    Text: Sparkle effect speed.
+    LinkText: 
+    Url: 
+  - Heading: Screen Contribution
+    Text: Screen position influence on Sparkle distribution.
+    LinkText: 
+    Url: 
+  - Heading: Fresnel Bias, Scale, Power
+    Text: 'X Defines the Fresnel Bias of the Sparkle effect, Y its Scale, Z the Power. '
+    LinkText: 
+    Url: 
+  - Heading: Color
+    Text: 'Additive body glow color value. '
+    LinkText: 
+    Url: 
+  - Heading: Fresnel Bias, Scale, Power
+    Text: 'X Defines the Fresnel Bias of the Sparkle effect, Y its Scale, Z the Power. '
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

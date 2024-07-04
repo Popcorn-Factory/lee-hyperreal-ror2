@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Water Flow
+  m_Shader: {fileID: 4800000, guid: 544226c96b83ffb43b5e17c0e155f0eb, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Albedo:
+        m_Texture: {fileID: 2800000, guid: 4998839cc7304cff87a29e2535dd1bbb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FlowMap:
+        m_Texture: {fileID: 2800000, guid: 857a3925d05e5ff4f82825804691c22e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Normal:
+        m_Texture: {fileID: 2800000, guid: b253eb6675e043b9870a2bbd48feb6f8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _TextureSample0:
+        m_Texture: {fileID: 2800000, guid: e901190044a54e7186ca567492f42131, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _FadeDistance: 0.24
+    - _Float1: 0.29
+    - _FlowSpeed: 0.5
+    - _Metallic: 0.7
+    - _NormalScale: 1
+    - _NormalStrength: 0.094
+    - _Size: 1
+    - _Smoothness: 0.33
+    - _Tiling: 1
+    - __dirty: 0
+    m_Colors:
+    - _FlowStrength: {r: 1, g: 1, b: 0, a: 0}
+    - _RiverColor: {r: 0.41585064, g: 0.77207935, b: 0.99056596, a: 0}

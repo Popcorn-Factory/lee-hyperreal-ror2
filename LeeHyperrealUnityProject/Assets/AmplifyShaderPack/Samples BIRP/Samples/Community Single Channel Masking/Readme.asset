@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 521dc1a59c20431409ce411cadc9c851, type: 3}
+  Title: Community Masking Single Channel
+  Description:
+    Heading: 
+    Text: 'Stores multiple masks in a single texture channel using different grayscale
+      values for each mask.  '
+    LinkText: Created by Sarah Akers and David Marshall
+    Url: https://twitter.com/MrBinaryCats
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Mask
+    Text: Mask grayscale texture, single channel.
+    LinkText: 
+    Url: 
+  - Heading: Color 01
+    Text: Color value applied to the first grayscale mask.
+    LinkText: 
+    Url: 
+  - Heading: Color 02
+    Text: ' Color value applied to the second grayscale mask.  '
+    LinkText: 
+    Url: 
+  - Heading: Color 03
+    Text: ' Color value applied to the third grayscale mask.  '
+    LinkText: 
+    Url: 
+  - Heading: Color 04
+    Text: 'Color value applied to the forth grayscale mask.  '
+    LinkText: 
+    Url: 
+  - Heading: Color 05
+    Text: ' Color value applied to the fifth grayscale mask.  '
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3

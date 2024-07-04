@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e78934177bebe0545ab566bb787b0282, type: 3}
+  m_Name: Readme
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 2800000, guid: 37e463cd4c4a630469851d85a0378a05, type: 3}
+  Title: Radial UV Distortion
+  Description:
+    Heading: 
+    Text: This sample calculates and uses animated radial UV coordinates.
+    LinkText: 
+    Url: 
+  PropertiesHeader:
+    Heading: Properties
+    Text: 
+    LinkText: 
+    Url: 
+  Properties:
+  - Heading: Noise Map
+    Text: Texture that allows adding distortion over final calculated radial UVs
+    LinkText: 
+    Url: 
+  - Heading: NoiseMapStrength
+    Text: Value that sets the distortion strength over the final UVs.
+    LinkText: 
+    Url: 
+  - Heading: RingPannerSpeed
+    Text: Value that sets animation speed over radial U and V coordinates separately
+    LinkText: 
+    Url: 
+  - Heading: NoiseMapSize
+    Text: Value for noise texture tiling.
+    LinkText: 
+    Url: 
+  - Heading: NoiseMapPannerSpeed
+    Text: Value to set panning speed over U and V coordinates separately on distortion
+      texture.
+    LinkText: 
+    Url: 
+  - Heading: Base Texture
+    Text: Emission texture to be applied to surface.
+    LinkText: 
+    Url: 
+  - Heading: Tint
+    Text: Color value to tint surface.
+    LinkText: 
+    Url: 
+  - Heading: Smoothness
+    Text: Overall smoothness value for surface.
+    LinkText: 
+    Url: 
+  AdditionalProperties: []
+  AdditionalScripts: []
+  LoadedLayout: 0
+  RPType: 3
