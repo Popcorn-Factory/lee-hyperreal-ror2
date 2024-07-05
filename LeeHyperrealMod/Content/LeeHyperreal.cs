@@ -25,6 +25,8 @@ namespace LeeHyperrealMod.Modules.Survivors
         public static SkillDef SnipeSkill;
         public static SkillDef ExitSnipeSkill;
         public static SkillDef EnterSnipeSkill;
+        public static SkillDef ultimateSkill;
+        public static SkillDef domainUltimateSkill;
 
         public override BodyInfo bodyInfo { get; set; } = new BodyInfo
         {
@@ -344,7 +346,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             #endregion
 
             #region Special
-            SkillDef ultTrigger = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            ultimateSkill = Modules.Skills.CreateSkillDef(new SkillDefInfo
             {
                 skillName = prefix + "ULTIMATE_NAME",
                 skillNameToken = prefix + "ULTIMATE_NAME",
@@ -353,7 +355,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Ultimate.UltimateEntry)),
                 activationStateMachineName = "Body",
                 baseMaxStock = 1,
-                baseRechargeInterval = 1f,
+                baseRechargeInterval = 40f,
                 beginSkillCooldownOnSkillEnd = false,
                 canceledFromSprinting = false,
                 forceSprintDuringState = false,
@@ -368,7 +370,31 @@ namespace LeeHyperrealMod.Modules.Survivors
                 stockToConsume = 1
             });
 
-            Modules.Skills.AddSpecialSkills(bodyPrefab, ultTrigger);
+            domainUltimateSkill = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = prefix + "ULTIMATE_DOMAIN_NAME",
+                skillNameToken = prefix + "ULTIMATE_DOMAIN_NAME",
+                skillDescriptionToken = prefix + "ULTIMATE_DOMAIN_DESCRIPTION",
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUltimate"),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Ultimate.UltimateEntry)),
+                activationStateMachineName = "Body",
+                baseMaxStock = 1,
+                baseRechargeInterval = 40f, //instantly triggerable but only in the powered state.
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = EntityStates.InterruptPriority.PrioritySkill,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = true,
+                mustKeyPress = true,
+                cancelSprintingOnActivation = true,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 1
+            });
+
+            Modules.Skills.AddSpecialSkills(bodyPrefab, ultimateSkill);
             #endregion
         }
 

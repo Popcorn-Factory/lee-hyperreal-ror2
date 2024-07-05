@@ -197,6 +197,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             if (base.isAuthority)
             {
                 ultimateCameraController.UnsetUltimate();
+
+                skillLocator.special.UnsetSkillOverride(skillLocator.special, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.domainUltimateSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
             }
             PlayAnimation("Body", "BufferEmpty");
             

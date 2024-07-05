@@ -115,7 +115,21 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
             PlayAttackAnimation();
 
-            TriggerEnemyFreeze();
+            RaycastHit hit;
+            Physics.Raycast(GetAimRay(), out hit, Mathf.Infinity, (1 << LayerIndex.world.intVal) | (1 << LayerIndex.entityPrecise.intVal));
+
+            if (base.isAuthority) 
+            {
+                TriggerFreezeAtPoint(characterBody.corePosition);
+                if (hit.collider)
+                {
+                    TriggerFreezeAtPoint(hit.point);
+                }
+                else
+                {
+                    TriggerFreezeAtPoint(aimRay.origin + (aimRay.direction * 20f));
+                }
+            }
 
             GetModelAnimator().SetBool("isUltimate", true);
 
@@ -260,14 +274,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
         }
 
-        public void TriggerEnemyFreeze()
+        public void TriggerFreezeAtPoint(Vector3 point) 
         {
-
             BullseyeSearch search = new BullseyeSearch
             {
                 teamMaskFilter = TeamMask.GetEnemyTeams(characterBody.teamComponent.teamIndex),
                 filterByLoS = false,
-                searchOrigin = characterBody.corePosition,
+                searchOrigin = point,
                 searchDirection = UnityEngine.Random.onUnitSphere,
                 sortMode = BullseyeSearch.SortMode.Distance,
                 maxDistanceFilter = 100f,

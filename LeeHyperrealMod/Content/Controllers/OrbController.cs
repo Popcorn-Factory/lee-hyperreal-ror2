@@ -132,17 +132,23 @@ namespace LeeHyperrealMod.Content.Controllers
         public void Update()
         {
             //Check input
-            if (charBody.hasEffectiveAuthority) 
+            if (charBody.hasEffectiveAuthority)
             {
 
                 //If the orb list is greater than 8, it means that we don't need to update the glyph indicators cause there's nothing
                 // Modifying the position.
-                if (Modules.Config.isSimple.Value) 
+                if (Modules.Config.isSimple.Value)
                 {
                     //Check move validity of Blue, red and yellow, update the brackets accordingly.
                     UpdateBracketPositionFromIntArr(CheckMoveValidity(OrbType.BLUE), OrbType.BLUE);
                     UpdateBracketPositionFromIntArr(CheckMoveValidity(OrbType.RED), OrbType.RED);
                     UpdateBracketPositionFromIntArr(CheckMoveValidity(OrbType.YELLOW), OrbType.YELLOW);
+                }
+                else if(!Modules.Config.isSimple.Value) 
+                {
+                    uiController.DisableBracket(OrbType.BLUE);
+                    uiController.DisableBracket(OrbType.RED);
+                    uiController.DisableBracket(OrbType.YELLOW);
                 }
 
                 if (!isExecutingSkill)

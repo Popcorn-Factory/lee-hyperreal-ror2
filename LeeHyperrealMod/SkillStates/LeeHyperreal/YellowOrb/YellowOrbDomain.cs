@@ -133,12 +133,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             EffectManager.SpawnEffect(Modules.ParticleAssets.yellowOrbMultishot, effectData, true);
 
 
+            Debug.Log($"BeforeEnterEnv: {characterMotor.gravityParameters.environmentalAntiGravityGranterCount}");
+            Debug.Log($"BeforeEnterChannel: {characterMotor.gravityParameters.channeledAntiGravityGranterCount}");
             oldGravParams = base.characterMotor.gravityParameters;
             gravParams = new CharacterGravityParameters();
             gravParams.environmentalAntiGravityGranterCount = 1;
             gravParams.channeledAntiGravityGranterCount = 1;
 
             characterMotor.gravityParameters = gravParams;
+            Debug.Log($"AfterEnterEnv: {characterMotor.gravityParameters.environmentalAntiGravityGranterCount}");
+            Debug.Log($"AfterEnterChannel: {characterMotor.gravityParameters.channeledAntiGravityGranterCount}");
 
             if (domainController) 
             {
@@ -160,7 +164,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void OnExit()
         {
             base.OnExit();
+            Debug.Log($"BeforeExitEnv: {characterMotor.gravityParameters.environmentalAntiGravityGranterCount}");
+            Debug.Log($"BeforeExitChannel: {characterMotor.gravityParameters.channeledAntiGravityGranterCount}");
             characterMotor.gravityParameters = oldGravParams;
+
+            Debug.Log($"AfterExitEnv: {characterMotor.gravityParameters.environmentalAntiGravityGranterCount}");
+            Debug.Log($"AfterExitChannel: {characterMotor.gravityParameters.channeledAntiGravityGranterCount}");
             if (orbController)
             {
                 orbController.isExecutingSkill = false;

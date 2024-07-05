@@ -142,6 +142,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
 
             if (base.isAuthority) 
             {
+                skillLocator.special.SetSkillOverride(skillLocator.special, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.domainUltimateSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
                 new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_ex_timestop").Send(R2API.Networking.NetworkDestination.Clients);
             }
 

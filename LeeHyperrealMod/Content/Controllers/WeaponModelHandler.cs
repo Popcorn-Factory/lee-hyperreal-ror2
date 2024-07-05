@@ -67,9 +67,6 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void Update() 
         {
-            //TODO:
-            //Transitions
-
             if (isCannonEnabled) 
             {
                 disableCannonEffectTimer += Time.deltaTime;
@@ -135,7 +132,7 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 case WeaponState.SUBMACHINE:
                     submachineModel.SetActive(true);
-                    submachine2Model.SetActive(true);
+                    //submachine2Model.SetActive(true);
                     guncaseModel.SetActive(true);
                     boxFlashEffect.Play();
                     break;

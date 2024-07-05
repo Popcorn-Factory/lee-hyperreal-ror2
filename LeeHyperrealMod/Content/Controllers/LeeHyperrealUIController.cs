@@ -373,19 +373,24 @@ namespace LeeHyperrealMod.Content.Controllers
 
             Transform blueLabel = blueOrbBracketContainer.transform.GetChild(0);
             Destroy(blueLabel.gameObject.GetComponent<Text>());
-            blueOrbLabel = CreateLabel(blueLabel, "Hotkey", Modules.Config.blueOrbTrigger.Value.ToString(), Vector2.zero, 24f);
+            blueOrbLabel = CreateLabel(blueLabel, "Hotkey", DeAlphaizeString(Modules.Config.blueOrbTrigger.Value.ToString()), Vector2.zero, 24f);
 
             Transform redlabel = redOrbBracketContainer.transform.GetChild(0);
             Destroy(redlabel.gameObject.GetComponent<Text>());
-            redOrbLabel = CreateLabel(redlabel, "Hotkey", Modules.Config.redOrbTrigger.Value.ToString(), Vector2.zero, 24f);
+            redOrbLabel = CreateLabel(redlabel, "Hotkey", DeAlphaizeString(Modules.Config.redOrbTrigger.Value.ToString()), Vector2.zero, 24f);
 
             Transform yellowLabel = yellowOrbBracketContainer.transform.GetChild(0);
             Destroy(yellowLabel.gameObject.GetComponent<Text>());
-            yellowOrbLabel = CreateLabel(yellowLabel, "Hotkey", Modules.Config.yellowOrbTrigger.Value.ToString(), Vector2.zero, 24f);
+            yellowOrbLabel = CreateLabel(yellowLabel, "Hotkey", DeAlphaizeString(Modules.Config.yellowOrbTrigger.Value.ToString()), Vector2.zero, 24f);
 
             blueOrbBracketContainer.SetActive(false);
             yellowOrbBracketContainer.SetActive(false);
             redOrbBracketContainer.SetActive(false);
+        }
+
+        private string DeAlphaizeString(string input) 
+        {
+            return input.Replace("Alpha", "");
         }
 
         private void InitializeOrbAmountLabel()
