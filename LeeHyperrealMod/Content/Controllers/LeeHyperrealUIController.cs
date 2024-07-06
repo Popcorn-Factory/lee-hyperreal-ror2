@@ -39,12 +39,21 @@ namespace LeeHyperrealMod.Content.Controllers
         private int redBracketIndex = 12;
         private int yellowBracketIndex = 13;
 
-        HGTextMeshProUGUI blueOrbLabel;
-        HGTextMeshProUGUI redOrbLabel;
-        HGTextMeshProUGUI yellowOrbLabel;
-        private GameObject blueOrbBracketContainer;
-        private GameObject redOrbBracketContainer;
-        private GameObject yellowOrbBracketContainer;
+        //REGRET
+        internal class BracketContainerProps 
+        {
+            public HGTextMeshProUGUI orbLabel;
+            public Vector3 glyphSpeed;
+            public Vector3 targetPosition;
+            public GameObject bracketContainer;
+            public Animator[] animators; // 1-3 wide brackets in order!
+
+            public BracketContainerProps() { }
+        }
+
+        BracketContainerProps blueSimpleGlyph;
+        BracketContainerProps redSimpleGlyph;
+        BracketContainerProps yellowSimpleGlyph;
 
         public enum BracketType 
         {
@@ -170,7 +179,7 @@ namespace LeeHyperrealMod.Content.Controllers
             }
             catch (NullReferenceException e)
             {
-                Debug.Log("Lee: Hyperreal - NRE on UI Initialization, trying again.");
+                Debug.Log($"Lee: Hyperreal - NRE on UI Initialization, trying again: {e}");
             }
         }
 
@@ -205,7 +214,7 @@ namespace LeeHyperrealMod.Content.Controllers
                     }
                     catch (NullReferenceException e)
                     {
-                        Debug.Log("Lee: Hyperreal - NRE on UI Initialization, trying again.");
+                        Debug.Log($"Lee: Hyperreal - NRE on UI Initialization, trying again. {e}");
                     }
                 }
 
@@ -213,6 +222,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 UpdateMeterLevel();
                 SetAnimatorMeterValue();
                 HandleBulletUIChange();
+                UpdateGlyphPositions();
             }
         }
 
@@ -365,27 +375,100 @@ namespace LeeHyperrealMod.Content.Controllers
 
         private void InitializeOrbBrackets()
         {
-            blueOrbBracketContainer = orbUIObject.transform.GetChild(blueBracketIndex).gameObject;
-            redOrbBracketContainer = orbUIObject.transform.GetChild(redBracketIndex).gameObject;
-            yellowOrbBracketContainer = orbUIObject.transform.GetChild(yellowBracketIndex).gameObject;
+            if (blueSimpleGlyph == null)
+            {
+                blueSimpleGlyph = new BracketContainerProps();
+            }
+            if (redSimpleGlyph == null)
+            {
+                redSimpleGlyph = new BracketContainerProps();
+            }
+            if (yellowSimpleGlyph == null)
+            {
+                yellowSimpleGlyph = new BracketContainerProps();
+            }
+
+            if (!blueSimpleGlyph.bracketContainer) { blueSimpleGlyph.bracketContainer = orbUIObject.transform.GetChild(blueBracketIndex).gameObject; }
+            if (!redSimpleGlyph.bracketContainer) { redSimpleGlyph.bracketContainer = orbUIObject.transform.GetChild(redBracketIndex).gameObject; }
+            if (!yellowSimpleGlyph.bracketContainer) { yellowSimpleGlyph.bracketContainer = orbUIObject.transform.GetChild(yellowBracketIndex).gameObject; }
 
             //Go through each object and destroy the text label and replace it.
 
-            Transform blueLabel = blueOrbBracketContainer.transform.GetChild(0);
+            Transform blueLabel = blueSimpleGlyph.bracketContainer.transform.GetChild(0);
             Destroy(blueLabel.gameObject.GetComponent<Text>());
-            blueOrbLabel = CreateLabel(blueLabel, "Hotkey", DeAlphaizeString(Modules.Config.blueOrbTrigger.Value.ToString()), Vector2.zero, 24f);
+            blueSimpleGlyph.orbLabel = CreateLabel(blueLabel, "Hotkey", DeAlphaizeString(Modules.Config.blueOrbTrigger.Value.ToString()), Vector2.zero, 24f);
 
-            Transform redlabel = redOrbBracketContainer.transform.GetChild(0);
+            Transform redlabel = redSimpleGlyph.bracketContainer.transform.GetChild(0);
             Destroy(redlabel.gameObject.GetComponent<Text>());
-            redOrbLabel = CreateLabel(redlabel, "Hotkey", DeAlphaizeString(Modules.Config.redOrbTrigger.Value.ToString()), Vector2.zero, 24f);
+            redSimpleGlyph.orbLabel = CreateLabel(redlabel, "Hotkey", DeAlphaizeString(Modules.Config.redOrbTrigger.Value.ToString()), Vector2.zero, 24f);
 
-            Transform yellowLabel = yellowOrbBracketContainer.transform.GetChild(0);
+            Transform yellowLabel = yellowSimpleGlyph.bracketContainer.transform.GetChild(0);
             Destroy(yellowLabel.gameObject.GetComponent<Text>());
-            yellowOrbLabel = CreateLabel(yellowLabel, "Hotkey", DeAlphaizeString(Modules.Config.yellowOrbTrigger.Value.ToString()), Vector2.zero, 24f);
+            yellowSimpleGlyph.orbLabel = CreateLabel(yellowLabel, "Hotkey", DeAlphaizeString(Modules.Config.yellowOrbTrigger.Value.ToString()), Vector2.zero, 24f);
 
-            blueOrbBracketContainer.SetActive(false);
-            yellowOrbBracketContainer.SetActive(false);
-            redOrbBracketContainer.SetActive(false);
+            //Get Animators for glyphs 
+            blueSimpleGlyph.animators = new Animator[3];
+            for (int i = 1; i < blueSimpleGlyph.bracketContainer.transform.childCount; i++)
+            {
+                blueSimpleGlyph.animators[i - 1] = blueSimpleGlyph.bracketContainer.transform.GetChild(i).GetChild(0).GetComponent<Animator>();
+            }
+            redSimpleGlyph.animators = new Animator[3];
+            for (int i = 1; i < redSimpleGlyph.bracketContainer.transform.childCount; i++)
+            {
+                redSimpleGlyph.animators[i - 1] = redSimpleGlyph.bracketContainer.transform.GetChild(i).GetChild(0).GetComponent<Animator>();
+            }
+            yellowSimpleGlyph.animators = new Animator[3];
+            for (int i = 1; i < yellowSimpleGlyph.bracketContainer.transform.childCount; i++)
+            {
+                yellowSimpleGlyph.animators[i - 1] = yellowSimpleGlyph.bracketContainer.transform.GetChild(i).GetChild(0).GetComponent<Animator>();
+            }
+
+            blueSimpleGlyph.targetPosition = new Vector3(0, Modules.StaticValues.yAxisPositionBrackets, 0f);
+            redSimpleGlyph.targetPosition = new Vector3(0, Modules.StaticValues.yAxisPositionBrackets, 0f);
+            yellowSimpleGlyph.targetPosition = new Vector3(0, Modules.StaticValues.yAxisPositionBrackets, 0f);
+        }
+
+        private void ExitAllSimpleBrackets() 
+        {
+            for (int i = 0; i < 3; i++) 
+            {
+                blueSimpleGlyph.animators[i].SetTrigger("Exit");
+                redSimpleGlyph.animators[i].SetTrigger("Exit");
+                yellowSimpleGlyph.animators[i].SetTrigger("Exit");
+            }
+        }
+
+        private void SetColorForBrackets() 
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                //Modify all animators.
+                blueSimpleGlyph.animators[i].SetTrigger("Blue");
+                redSimpleGlyph.animators[i].SetTrigger("Red");
+                yellowSimpleGlyph.animators[i].SetTrigger("Yellow");
+            }
+        }
+
+        private void UpdateGlyphPositions()
+        {
+            if (blueSimpleGlyph == null || redSimpleGlyph == null || yellowSimpleGlyph == null) 
+            {
+                return;
+            }
+
+            if (blueSimpleGlyph.bracketContainer)
+            {
+                blueSimpleGlyph.bracketContainer.transform.localPosition = Vector3.SmoothDamp(blueSimpleGlyph.bracketContainer.transform.localPosition, blueSimpleGlyph.targetPosition, ref blueSimpleGlyph.glyphSpeed, 0.15f);
+            }
+            if (redSimpleGlyph.bracketContainer)
+            {
+                redSimpleGlyph.bracketContainer.transform.localPosition = Vector3.SmoothDamp(redSimpleGlyph.bracketContainer.transform.localPosition, redSimpleGlyph.targetPosition, ref redSimpleGlyph.glyphSpeed, 0.15f);
+            }
+            if (yellowSimpleGlyph.bracketContainer) 
+            {
+                yellowSimpleGlyph.bracketContainer.transform.localPosition = Vector3.SmoothDamp(yellowSimpleGlyph.bracketContainer.transform.localPosition, yellowSimpleGlyph.targetPosition, ref yellowSimpleGlyph.glyphSpeed, 0.15f);
+
+            }
         }
 
         private string DeAlphaizeString(string input) 
@@ -410,7 +493,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void DisableBracket(OrbController.OrbType orbType) 
         {
-            if (!blueOrbBracketContainer || !redOrbBracketContainer || !yellowOrbBracketContainer)
+            if (blueSimpleGlyph == null || redSimpleGlyph == null || yellowSimpleGlyph == null)
             {
                 return;
             }
@@ -418,13 +501,25 @@ namespace LeeHyperrealMod.Content.Controllers
             switch (orbType)
             {
                 case OrbController.OrbType.BLUE:
-                    blueOrbBracketContainer.SetActive(false);
+                    for (int i = 0; i < 3; i++)
+                    {
+                        blueSimpleGlyph.animators[i].SetTrigger("Exit");
+                    }
+                    blueSimpleGlyph.orbLabel.gameObject.SetActive(false);
                     break;
                 case OrbController.OrbType.RED:
-                    redOrbBracketContainer.SetActive(false);
+                    for (int i = 0; i < 3; i++)
+                    {
+                        redSimpleGlyph.animators[i].SetTrigger("Exit");
+                    }
+                    redSimpleGlyph.orbLabel.gameObject.SetActive(false);
                     break;
                 case OrbController.OrbType.YELLOW:
-                    yellowOrbBracketContainer.SetActive(false);
+                    for (int i = 0; i < 3; i++)
+                    {
+                        yellowSimpleGlyph.animators[i].SetTrigger("Exit");
+                    }
+                    yellowSimpleGlyph.orbLabel.gameObject.SetActive(false);
                     break;
             }
         }
@@ -445,7 +540,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 return;
             }
 
-            if (!blueOrbBracketContainer || !redOrbBracketContainer || !yellowOrbBracketContainer) 
+            if (!blueSimpleGlyph.bracketContainer || !redSimpleGlyph.bracketContainer || !yellowSimpleGlyph.bracketContainer)
             {
                 return;
             }
@@ -457,80 +552,84 @@ namespace LeeHyperrealMod.Content.Controllers
             switch (orbType) 
             {
                 case OrbController.OrbType.BLUE:
-                    blueOrbBracketContainer.SetActive(true);
-                    HandleBracketTransition(blueOrbBracketContainer, position, bracketType);
+                    blueSimpleGlyph.targetPosition = HandleBracketTransition(blueSimpleGlyph, position, bracketType);
+                    blueSimpleGlyph.orbLabel.gameObject.SetActive(true);
                     break;
                 case OrbController.OrbType.RED:
-                    redOrbBracketContainer.SetActive(true);
-                    HandleBracketTransition(redOrbBracketContainer, position, bracketType);
+                    redSimpleGlyph.targetPosition = HandleBracketTransition(redSimpleGlyph, position, bracketType);
+                    redSimpleGlyph.orbLabel.gameObject.SetActive(true);
                     break;
                 case OrbController.OrbType.YELLOW:
-                    yellowOrbBracketContainer.SetActive(true);
-                    HandleBracketTransition(yellowOrbBracketContainer, position, bracketType);
+                    yellowSimpleGlyph.targetPosition = HandleBracketTransition(yellowSimpleGlyph, position, bracketType);
+                    yellowSimpleGlyph.orbLabel.gameObject.SetActive(true);
                     break;
             }           
         }
 
-        public void HandleBracketTransition(GameObject bracketObject, int position, BracketType bracketType) 
+        public Vector3 HandleBracketTransition(BracketContainerProps bracketContainerProps, int position, BracketType bracketType) 
         {
-            if (!bracketObject) 
+            if (!bracketContainerProps.bracketContainer) 
             {
-                return;
+                return new Vector3();
             }
+
+            SetColorForBrackets();
             switch (bracketType) 
             {
                 case BracketType.ONE:
-                    HandleBracketOne(bracketObject, position);
+                    return HandleBracketOne(bracketContainerProps, position);
                     break;
                 case BracketType.TWO:
-                    HandleBracketTwo(bracketObject, position);
+                    return HandleBracketTwo(bracketContainerProps, position);
                     break;
                 case BracketType.THREE:
-                    HandleBracketThree(bracketObject, position);
+                    return HandleBracketThree(bracketContainerProps, position);
+                    break;
+                default:
+                    return new Vector3();
                     break;
             }            
         }
 
-        public void HandleBracketOne(GameObject bracketObj, int position)
+        public Vector3 HandleBracketOne(BracketContainerProps bracketContainerProps, int position)
         {
-            //Get the one orb bracket
-            bracketObj.transform.GetChild(1).gameObject.SetActive(true);
-            bracketObj.transform.GetChild(2).gameObject.SetActive(false);
-            bracketObj.transform.GetChild(3).gameObject.SetActive(false);
+            //Get the one orb bracket, set the rest to exit.
+            bracketContainerProps.animators[0].SetTrigger("Enter");
+            bracketContainerProps.animators[1].SetTrigger("Exit");
+            bracketContainerProps.animators[2].SetTrigger("Exit");
 
             //Set right under the orb.
             Vector3 newPosition = orbAnimators[position].transform.localPosition;
             newPosition.y = Modules.StaticValues.yAxisPositionBrackets;
-            bracketObj.transform.localPosition = newPosition;
+            return newPosition;
         }
 
-        public void HandleBracketTwo(GameObject bracketObj, int position)
+        public Vector3 HandleBracketTwo(BracketContainerProps bracketContainerProps, int position)
         {
             //Get the two orb bracket
-            bracketObj.transform.GetChild(1).gameObject.SetActive(false);
-            bracketObj.transform.GetChild(2).gameObject.SetActive(true);
-            bracketObj.transform.GetChild(3).gameObject.SetActive(false);
+            bracketContainerProps.animators[0].SetTrigger("Exit");
+            bracketContainerProps.animators[1].SetTrigger("Enter");
+            bracketContainerProps.animators[2].SetTrigger("Exit");
 
             //Set in between position and position + 1
             Vector3 newPosition = orbAnimators[position].transform.localPosition + orbAnimators[position + 1].transform.localPosition;
             newPosition = newPosition / 2f;
             newPosition.y = Modules.StaticValues.yAxisPositionBrackets;
-
-            bracketObj.transform.localPosition = newPosition;
+            return newPosition;
         }
 
-        public void HandleBracketThree(GameObject bracketObj, int position)
+        public Vector3 HandleBracketThree(BracketContainerProps bracketContainerProps, int position)
         {
             //Get the three orb bracket
-            bracketObj.transform.GetChild(1).gameObject.SetActive(false);
-            bracketObj.transform.GetChild(2).gameObject.SetActive(false);
-            bracketObj.transform.GetChild(3).gameObject.SetActive(true);
+            bracketContainerProps.animators[0].SetTrigger("Exit");
+            bracketContainerProps.animators[1].SetTrigger("Exit");
+            bracketContainerProps.animators[2].SetTrigger("Enter");
 
             //Set in between position and position + 1
             Vector3 newPosition = orbAnimators[position + 1].transform.localPosition;
             newPosition.y = Modules.StaticValues.yAxisPositionBrackets;
 
-            bracketObj.transform.localPosition = newPosition;
+            return newPosition;
         }
 
 
