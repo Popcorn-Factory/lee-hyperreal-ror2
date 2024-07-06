@@ -199,6 +199,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 ultimateCameraController.UnsetUltimate();
 
                 skillLocator.special.UnsetSkillOverride(skillLocator.special, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.domainUltimateSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
+                skillLocator.special.rechargeStopwatch = docon.ultCooldownBeforeSwitch;
+                skillLocator.special.stock = docon.ultStockBeforeSwitch;
             }
             PlayAnimation("Body", "BufferEmpty");
             

@@ -40,6 +40,9 @@ namespace LeeHyperrealMod.Content.Controllers
         //other shit
         private ModelLocator modelLocator;
 
+        public float ultCooldownBeforeSwitch;
+        public int ultStockBeforeSwitch;
+
         public void Start()
         {
             uiController = GetComponent<LeeHyperrealUIController>();

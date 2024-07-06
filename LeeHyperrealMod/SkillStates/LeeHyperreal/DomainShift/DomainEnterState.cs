@@ -52,6 +52,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
             weaponModelHandler = this.GetComponent<WeaponModelHandler>();
             aoePos = this.gameObject.transform.position;
 
+            domainController.ultCooldownBeforeSwitch = skillLocator.special.rechargeStopwatch;
+            domainController.ultStockBeforeSwitch = skillLocator.special.stock;
+
             bulletAttack = new BulletAttack
             {
                 bulletCount = 1,

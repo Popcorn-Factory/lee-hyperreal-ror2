@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BepInEx.Bootstrap;
+using EmotesAPI;
+using RoR2;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
@@ -36,6 +39,8 @@ namespace LeeHyperrealMod.Content.Controllers
         private WeaponState state;
         private ChildLocator childLocator;
 
+        private bool isEmoting;
+
         public void Awake() 
         {
             state = WeaponState.SUBMACHINE;
@@ -63,10 +68,69 @@ namespace LeeHyperrealMod.Content.Controllers
             superCannonEffect.gameObject.SetActive(false);
             SetLaserState(false);
             TransitionState(WeaponState.SUBMACHINE);
+            Hook();
         }
 
-        public void Update() 
+        public void Hook() 
         {
+            if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
+            {
+                SetupEmoteHook();
+            }
+        }
+
+        public void Unhook() 
+        {
+            if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
+            {
+                UnsetEmoteHook();
+            }
+        }
+
+        //Removed from normal flow as we don't want these hooks to be called if they aren't loaded in game.
+        public void SetupEmoteHook() 
+        {
+            CustomEmotesAPI.animChanged += CustomEmotesAPI_animChanged;
+        }
+
+        //Removed from normal flow as we don't want these hooks to be called if they aren't loaded in game.
+        public void UnsetEmoteHook() 
+        {
+            CustomEmotesAPI.animChanged -= CustomEmotesAPI_animChanged;
+        }
+        
+        private void CustomEmotesAPI_animChanged(string newAnimation, BoneMapper mapper)
+        {
+            if (newAnimation == "none") 
+            {
+                isEmoting = false;
+                TransitionState(state);
+                return;
+            }
+
+            isEmoting = true;
+        }
+
+
+        public void OnDestroy() 
+        {
+            Unhook();
+        }
+
+        public void Update()
+        {
+            if (isEmoting) 
+            {
+                submachineModel.SetActive(false);
+                submachine2Model.SetActive(false);
+                guncaseModel.SetActive(false);
+
+                sniperRifleAlphaModel.SetActive(false);
+                sniperRifleModel.SetActive(false);
+
+                supercannonModel.SetActive(false);
+            }
+
             if (isCannonEnabled) 
             {
                 disableCannonEffectTimer += Time.deltaTime;
@@ -103,6 +167,18 @@ namespace LeeHyperrealMod.Content.Controllers
         public WeaponState GetState() 
         {
             return state;
+        }
+
+        public void DisableAll() 
+        {
+            submachineModel.SetActive(false);
+            submachine2Model.SetActive(false);
+            guncaseModel.SetActive(false);
+
+            sniperRifleAlphaModel.SetActive(false);
+            sniperRifleModel.SetActive(false);
+
+            supercannonModel.SetActive(false);
         }
 
         public void TransitionState(WeaponState newState)

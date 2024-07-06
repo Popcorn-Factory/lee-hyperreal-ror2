@@ -132,7 +132,7 @@ namespace LeeHyperrealMod.Content.Controllers
         public void Update()
         {
             //Check input
-            if (charBody.hasEffectiveAuthority)
+            if (charBody.hasEffectiveAuthority && !PauseManager.isPaused)
             {
 
                 //If the orb list is greater than 8, it means that we don't need to update the glyph indicators cause there's nothing

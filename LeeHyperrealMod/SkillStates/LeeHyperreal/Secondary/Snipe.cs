@@ -192,7 +192,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     damage = damageCoefficient * this.damageStat * empoweredBulletMultiplier,
                     damageColorIndex = DamageColorIndex.Default,
                     damageType = DamageType.Generic,
-                    falloffModel = BulletAttack.FalloffModel.DefaultBullet,
+                    falloffModel = BulletAttack.FalloffModel.None,
                     maxDistance = Modules.StaticValues.snipeRange,
                     force = Modules.StaticValues.snipeForce,
                     hitMask = LayerIndex.CommonMasks.bullet,

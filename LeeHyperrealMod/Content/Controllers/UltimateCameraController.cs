@@ -2,7 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Unity.Audio;
 using UnityEngine;
+using static RoR2.CameraTargetParams;
 
 namespace LeeHyperrealMod.Content.Controllers
 {
@@ -15,7 +17,7 @@ namespace LeeHyperrealMod.Content.Controllers
         public Transform ultimateCameraTransform;
         public GameObject ultimateCameraGameObject;
         public Transform previousCameraParent;
-
+        public CameraTargetParams cameraTargetParams;
         public Animator domainUltimateAnimator;
         public GameObject domainUltimateCameraGameObject;
         public Transform domainUltimateCameraTransform;
@@ -27,6 +29,7 @@ namespace LeeHyperrealMod.Content.Controllers
         public Quaternion previousRotation;
 
         public Vector3 smoothDampVelocity;
+        public CameraParamsOverrideHandle handle;
 
         public void Awake() 
         {
@@ -37,6 +40,7 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             body = gameObject.GetComponent<CharacterBody>();
             modelLocator = gameObject.GetComponent<ModelLocator>();
+            cameraTargetParams = GetComponent<CameraTargetParams>();
 
             ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
             rootTransform = childLocator.FindChild("BaseTransform");
@@ -90,6 +94,8 @@ namespace LeeHyperrealMod.Content.Controllers
             //Set parent
             cameraObject.transform.SetParent(previousCameraParent, true);
             cameraObject.transform.localRotation = Quaternion.identity;
+
+            cameraTargetParams.RemoveParamsOverride(handle);
         }
 
         public void UnsetDomainUltimate()
@@ -100,6 +106,8 @@ namespace LeeHyperrealMod.Content.Controllers
             //Set parent
             cameraObject.transform.SetParent(previousCameraParent, true);
             cameraObject.transform.localRotation = Quaternion.identity;
+
+            cameraTargetParams.RemoveParamsOverride(handle);
         }
 
         public void TriggerDomainUlt()
@@ -108,6 +116,17 @@ namespace LeeHyperrealMod.Content.Controllers
 
             cameraObject.transform.SetParent(domainUltimateCameraTransform, true);
             cameraObject.transform.localRotation = Quaternion.identity;
+
+            CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
+            cameraParamsData.fov = 40f;
+
+            CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
+            {
+                cameraParamsData = cameraParamsData,
+                priority = 0,
+            };
+
+            handle = cameraTargetParams.AddParamsOverride(request, 0.4f);
         }
 
         public void TriggerUlt()
@@ -117,6 +136,17 @@ namespace LeeHyperrealMod.Content.Controllers
             cameraObject.transform.SetParent(ultimateCameraTransform, true);
             //reset to 0
             cameraObject.transform.localRotation = Quaternion.identity;
+
+            CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
+            cameraParamsData.fov = 40f;
+
+            CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
+            {
+                cameraParamsData = cameraParamsData,
+                priority = 0,
+            };
+
+            handle = cameraTargetParams.AddParamsOverride(request, 0.4f);
         }
 
         public void OnDestroy() 
