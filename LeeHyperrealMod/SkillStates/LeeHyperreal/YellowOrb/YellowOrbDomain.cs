@@ -71,10 +71,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             //check for move strength whether to get Anschauung stack
             // Added in entry.
-            //if (moveStrength >= 3)
-            //{
-            //    //add anschauung stack
-            //}
+            if (moveStrength >= 3)
+            {
+                //add anschauung stack
+            }
 
             blastAttack = new BlastAttack
             {
