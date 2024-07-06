@@ -179,7 +179,7 @@ namespace LeeHyperrealMod.Content.Controllers
             }
             catch (NullReferenceException e)
             {
-                Debug.Log($"Lee: Hyperreal - NRE on UI Initialization, trying again: {e}");
+                Debug.Log($"Lee: Hyperreal - NRE on UI Initialization, trying again");
             }
         }
 
@@ -214,8 +214,10 @@ namespace LeeHyperrealMod.Content.Controllers
                     }
                     catch (NullReferenceException e)
                     {
-                        Debug.Log($"Lee: Hyperreal - NRE on UI Initialization, trying again. {e}");
+                        Debug.Log($"Lee: Hyperreal - NRE on UI Initialization, trying again.");
                     }
+
+                    return;
                 }
 
                 UpdateHealthUIObject();

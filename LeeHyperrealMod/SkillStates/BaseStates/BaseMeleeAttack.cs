@@ -74,6 +74,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         internal ParryMonitor parryMonitor;
         internal bool parryFreeze;
         internal bool isInParryFreeze;
+        internal bool resetComboOnParry;
         internal Collider[] targetList;
 
         internal BulletController bulletController;
@@ -392,6 +393,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                     //Check the parry monitor, if at any time it's enabled trigger the pause.
                     //Consume value.
                     isInParryFreeze = true;
+                    resetComboOnParry = true;
                     parryMonitor.SetPauseTrigger(false);
                     //Trigger the hitpause.
 
@@ -480,7 +482,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         {
             base.Update();
 
-            if (base.isAuthority && isInParryFreeze) 
+            if (base.isAuthority && resetComboOnParry) 
             {
                 if (base.inputBank.skill1.down && !base.inputBank.skill1.hasPressBeenClaimed) 
                 {
