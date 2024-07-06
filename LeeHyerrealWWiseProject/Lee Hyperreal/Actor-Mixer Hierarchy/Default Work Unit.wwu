@@ -1391,6 +1391,11 @@
 														<Sound Name="c_liRk4_atk_ex_3" ID="{844260F1-903D-4E78-8D61-08303EAEC1A0}" ShortID="784258451">
 															<PropertyList>
 																<Property Name="3DSpatialization" Type="int16" Value="1"/>
+																<Property Name="Volume" Type="Real64">
+																	<ValueList>
+																		<Value>-1</Value>
+																	</ValueList>
+																</Property>
 															</PropertyList>
 															<ReferenceList>
 																<Reference Name="Attenuation">
@@ -1419,6 +1424,11 @@
 														<RandomSequenceContainer Name="c_liRk4_imp_ex_3_1" ID="{A2E18244-EBA7-400A-B834-A83AC2B2CFEA}" ShortID="48788915">
 															<PropertyList>
 																<Property Name="3DSpatialization" Type="int16" Value="1"/>
+																<Property Name="Volume" Type="Real64">
+																	<ValueList>
+																		<Value>-2</Value>
+																	</ValueList>
+																</Property>
 															</PropertyList>
 															<ReferenceList>
 																<Reference Name="Attenuation">
