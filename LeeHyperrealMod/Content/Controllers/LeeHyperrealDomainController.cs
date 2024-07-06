@@ -61,6 +61,11 @@ namespace LeeHyperrealMod.Content.Controllers
             despawnDomainEffect.SetActive(false);
 
             yellowOrbDomainEffects = new List<GameObject>();
+
+            if (AkSoundEngine.IsInitialized())
+            {
+                AkSoundEngine.SetRTPCValue("Volume_Lee_Voice", Modules.Config.voiceVolume.Value);
+            }
         }
 
         public void Update()
