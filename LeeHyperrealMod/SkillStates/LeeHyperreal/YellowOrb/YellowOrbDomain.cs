@@ -77,7 +77,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 position = gameObject.transform.position + GetAimRay().direction * 2.5f,
                 radius = Modules.StaticValues.yellowOrbDomainBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.None,
-                baseDamage = damageStat * damageCoefficient * (moveStrength == 3 ? 1 : Modules.StaticValues.yellowOrbDomainTripleMultiplier),
+                baseDamage = damageStat * damageCoefficient * (moveStrength == 3 ? Modules.StaticValues.yellowOrbDomainTripleMultiplier : 1),
                 baseForce = Modules.StaticValues.yellowOrbDomainBlastForce,
                 bonusForce = Vector3.zero,
                 crit = RollCrit(),

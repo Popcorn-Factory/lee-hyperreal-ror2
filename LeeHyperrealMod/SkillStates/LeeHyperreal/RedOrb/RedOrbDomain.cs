@@ -92,7 +92,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 position = boxGunTransform.position,
                 radius = Modules.StaticValues.redOrbDomainBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.None,
-                baseDamage = damageStat * Modules.StaticValues.redOrbDomainDamageCoefficient * (moveStrength == 3 ? 1 : Modules.StaticValues.redOrbDomainTripleMultiplier),
+                baseDamage = damageStat * Modules.StaticValues.redOrbDomainDamageCoefficient * (moveStrength == 3 ? Modules.StaticValues.redOrbDomainTripleMultiplier : 1),
                 baseForce = Modules.StaticValues.redOrbDomainBlastForce,
                 bonusForce = Vector3.zero,
                 crit = RollCrit(),
