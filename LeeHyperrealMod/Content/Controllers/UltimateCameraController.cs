@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Text;
 using Unity.Audio;
 using UnityEngine;
+using UnityEngine.Animations;
 using static RoR2.CameraTargetParams;
 
 namespace LeeHyperrealMod.Content.Controllers
@@ -31,6 +32,8 @@ namespace LeeHyperrealMod.Content.Controllers
         public Vector3 smoothDampVelocity;
         public CameraParamsOverrideHandle handle;
 
+        bool followRoRCamera;
+        RotationConstraint constraint;
         public void Awake() 
         {
 
@@ -60,6 +63,8 @@ namespace LeeHyperrealMod.Content.Controllers
             ultimateCameraTransform = ultimateCameraGameObject.transform.GetChild(0).GetChild(0);
             domainUltimateCameraTransform = domainUltimateCameraGameObject.transform.GetChild(0);
 
+            followRoRCamera = true;
+
             try
             {
                 cameraObject = Camera.main.gameObject;
@@ -67,7 +72,7 @@ namespace LeeHyperrealMod.Content.Controllers
             }
             catch (NullReferenceException e) 
             {
-                Debug.Log($"Should be alright: {e}");
+                Debug.Log($"Can't grab the camera now! Attempting later.");
             }
         }
 
@@ -78,45 +83,105 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 cameraObject = Camera.main.gameObject;
                 previousCameraParent = cameraObject.transform.parent;
+                ApplyConstraintRemoveParent();
             }
 
             if (cameraObject) 
             {
-                cameraObject.transform.localPosition = Vector3.SmoothDamp(cameraObject.transform.localPosition, Vector3.zero, ref smoothDampVelocity, 0.2f, 50f, Time.deltaTime);
+                if (followRoRCamera)
+                {
+                    cameraObject.transform.position = Vector3.SmoothDamp(cameraObject.transform.position, previousCameraParent.position, ref smoothDampVelocity, 0.1f, 10000f, Time.deltaTime);
+                }
+                else 
+                {
+                    cameraObject.transform.localPosition = Vector3.SmoothDamp(cameraObject.transform.localPosition, Vector3.zero, ref smoothDampVelocity, 0.2f, 100f, Time.deltaTime);
+                }
             }
+        }
+
+        public void ApplyConstraintRemoveParent() 
+        {
+            constraint = cameraObject.GetComponent<RotationConstraint>();
+            if (!constraint) 
+            {
+                constraint = cameraObject.AddComponent<RotationConstraint>();
+            }
+
+            constraint.AddSource
+                (
+                    new ConstraintSource
+                    {
+                        sourceTransform = previousCameraParent,
+                        weight = 1.0f,
+                    }
+                );
+
+            constraint.constraintActive = true;
+            constraint.locked = true;
+
+            cameraObject.transform.SetParent(null, true);
         }
 
         public void UnsetUltimate() 
         {
+            followRoRCamera = true;
             //Force the animation back to default
             ultimateAnimator.Play("New State");
             
             //Set parent
-            cameraObject.transform.SetParent(previousCameraParent, true);
+            cameraObject.transform.SetParent(null, true);
             cameraObject.transform.localRotation = Quaternion.identity;
 
             cameraTargetParams.RemoveParamsOverride(handle);
+
+            constraint.AddSource
+                (
+                    new ConstraintSource
+                    {
+                        sourceTransform = previousCameraParent,
+                        weight = 1.0f,
+                    }
+                );
+
+            constraint.locked = true;
+            constraint.constraintActive = true;
         }
 
         public void UnsetDomainUltimate()
         {
+            followRoRCamera = true;
             //Force the animation back to default
             domainUltimateAnimator.Play("New State");
 
             //Set parent
-            cameraObject.transform.SetParent(previousCameraParent, true);
+            cameraObject.transform.SetParent(null, true);
             cameraObject.transform.localRotation = Quaternion.identity;
 
             cameraTargetParams.RemoveParamsOverride(handle);
+
+            constraint.AddSource
+                (
+                    new ConstraintSource
+                    {
+                        sourceTransform = previousCameraParent,
+                        weight = 1.0f,
+                    }
+                );
+            constraint.locked = true;
+            constraint.constraintActive = true;
         }
 
         public void TriggerDomainUlt()
         {
+            followRoRCamera = false;
             domainUltimateAnimator.SetTrigger("startUltimateDomain");
+            constraint.RemoveSource(0);
+            constraint.locked = false;
+            constraint.constraintActive = false;
 
             cameraObject.transform.SetParent(domainUltimateCameraTransform, true);
             cameraObject.transform.localRotation = Quaternion.identity;
-
+            
             CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
             cameraParamsData.fov = 40f;
 
@@ -131,12 +196,16 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void TriggerUlt()
         {
+            followRoRCamera = false;
             ultimateAnimator.SetTrigger("startUltimate");
+            constraint.RemoveSource(0);
+            constraint.locked = false;
+            constraint.constraintActive = false;
 
             cameraObject.transform.SetParent(ultimateCameraTransform, true);
             //reset to 0
             cameraObject.transform.localRotation = Quaternion.identity;
-
+            
             CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
             cameraParamsData.fov = 40f;
 
