@@ -246,7 +246,7 @@ namespace LeeHyperrealMod.Modules
 
         public static void OnChangeHooks()
         {
-            voiceVolume.SettingChanged += VoiceVolume_SettingChanged; ;
+            voiceVolume.SettingChanged += VoiceVolume_SettingChanged;
         }
 
         private static void VoiceVolume_SettingChanged(object sender, System.EventArgs e)
