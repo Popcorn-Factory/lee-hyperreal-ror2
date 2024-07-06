@@ -84,14 +84,6 @@ namespace LeeHyperrealMod.Modules
             #region Domain Enter State
             Modules.Content.AddEntityState(typeof(DomainEnterState));
             #endregion
-
-            Modules.Content.AddEntityState(typeof(SlashCombo));
-
-            Modules.Content.AddEntityState(typeof(Shoot));
-
-            Modules.Content.AddEntityState(typeof(Roll));
-
-            Modules.Content.AddEntityState(typeof(ThrowBomb));
         }
     }
 }

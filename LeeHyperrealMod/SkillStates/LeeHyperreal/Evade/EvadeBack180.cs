@@ -130,7 +130,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             {
                 hasFired = true;
                 Ray aimRay = base.GetAimRay();
-                base.AddRecoil(-1f * Shoot.recoil, -2f * Shoot.recoil, -0.5f * Shoot.recoil, 0.5f * Shoot.recoil);
+                base.AddRecoil(-1f * Modules.StaticValues.snipeRecoil, -2f * Modules.StaticValues.snipeRecoil, -0.5f * Modules.StaticValues.snipeRecoil, 0.5f * Modules.StaticValues.snipeRecoil);
 
                 if (isGrounded)
                 {
@@ -143,12 +143,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                     bulletCount = 1,
                     aimVector = aimRay.direction,
                     origin = aimRay.origin,
-                    damage = Shoot.damageCoefficient * this.damageStat * empoweredBulletMultiplier,
+                    damage = Modules.StaticValues.snipeDamageCoefficient * this.damageStat * empoweredBulletMultiplier,
                     damageColorIndex = DamageColorIndex.Default,
                     damageType = DamageType.Generic,
                     falloffModel = BulletAttack.FalloffModel.DefaultBullet,
-                    maxDistance = Shoot.range,
-                    force = Shoot.force,
+                    maxDistance = Modules.StaticValues.snipeRange,
+                    force = Modules.StaticValues.snipeForce,
                     hitMask = LayerIndex.CommonMasks.bullet,
                     minSpread = 0f,
                     maxSpread = 0f,

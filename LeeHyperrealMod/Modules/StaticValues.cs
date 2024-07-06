@@ -177,6 +177,7 @@ namespace LeeHyperrealMod.Modules
         internal const float snipeRange = 1000f;
         internal const float snipeDamageCoefficient = 4f;
         internal const float snipeForce = 100f;
+        internal const float snipeRecoil = 4f;
         #endregion
 
         #region Static functions
