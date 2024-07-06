@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UI Orb 3-ping wave
+  m_Name: UI Orb 3-ping wave Yellow
   m_Shader: {fileID: 4800000, guid: 01b3f2726996c274790a4a08dec30dea, type: 3}
   m_ShaderKeywords: UNITY_UI_ALPHACLIP
   m_LightmapFlags: 5
@@ -57,8 +57,8 @@ Material:
     - _WaveAmplitudeA: -0.2
     - _WaveAmplitudeB: 0.2
     - _WaveWidth: 5.3
-    - _WaveWidthA: 1
-    - _WaveWidthB: 2
+    - _WaveWidthA: 2.5
+    - _WaveWidthB: 2.5
     - _YDisplacement: 1
     - _YDisplacementA: 0
     - _YDisplacementB: 1
@@ -67,7 +67,7 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _Color0: {r: 1, g: 0, b: 0, a: 1}
-    - _ColorWaveA: {r: 0, g: 0, b: 1, a: 1}
-    - _ColorWaveB: {r: 0, g: 0, b: 1, a: 1}
+    - _ColorWaveA: {r: 1, g: 1, b: 0, a: 1}
+    - _ColorWaveB: {r: 1, g: 1, b: 0, a: 1}
     - _NoiseOffset: {r: 9.24, g: 0, b: 0, a: 0}
     - _NoiseTiling: {r: -0.51, g: 0.95, b: 0, a: 0}
