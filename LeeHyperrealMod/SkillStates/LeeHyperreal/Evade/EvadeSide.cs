@@ -57,18 +57,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             if (isAuthority)
             {
                 characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, duration * disableInvincibility);
+                EffectManager.SpawnEffect(Modules.ParticleAssets.snipeDodge,
+                    new EffectData
+                    {
+                        origin = this.gameObject.transform.position,
+                        scale = 1.25f
+                    },
+                    true);
             }
             Ray aimRay = base.GetAimRay();
             base.characterDirection.forward = aimRay.direction;
-
-            EffectManager.SpawnEffect(Modules.ParticleAssets.snipeDodge, 
-                new EffectData 
-                { 
-                    origin = this.gameObject.transform.position, 
-                    scale = 1.25f 
-                }, 
-                true);
-
 
             if (bulletController.snipeAerialPlatform)
             {

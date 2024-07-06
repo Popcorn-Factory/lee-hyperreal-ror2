@@ -128,13 +128,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             if (age >= duration * effectTimingFrac && !hasPlayedEffect) 
             {
                 hasPlayedEffect = true;
-                EffectData effectData = new EffectData
+                if (base.isAuthority) 
                 {
-                    origin = baseTransform.position,
-                    rotation = Quaternion.LookRotation(characterDirection.forward),
-                    scale = 1.25f,
-                };
-                EffectManager.SpawnEffect(Modules.ParticleAssets.yellowOrbSwing, effectData, true);
+                    EffectData effectData = new EffectData
+                    {
+                        origin = baseTransform.position,
+                        rotation = Quaternion.LookRotation(characterDirection.forward),
+                        scale = 1.25f,
+                    };
+
+                    EffectManager.SpawnEffect(Modules.ParticleAssets.yellowOrbSwing, effectData, true);
+                }
             }
 
 

@@ -46,13 +46,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             //characterBody.SetAimTimer(duration);
             ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
             Transform baseTransform = childLocator.FindChild("BaseTransform");
-            if (!isGrounded) 
+            if (!isGrounded)
             {
                 bulletController.snipeAerialPlatform = UnityEngine.Object.Instantiate(Modules.ParticleAssets.snipeAerialFloor, baseTransform.position, Quaternion.identity);
             }
 
             Util.PlaySound("Play_c_liRk4_atk_ex_3_xuli", base.gameObject);
-            PlaySwingEffect(1.25f, Modules.ParticleAssets.SnipeStart, true);
+            if (base.isAuthority) 
+            {
+                PlaySwingEffect(1.25f, Modules.ParticleAssets.SnipeStart, true);
+            }
         }
 
         protected virtual void PlaySwingEffect(float scale, GameObject effectPrefab, bool aimRot = true)

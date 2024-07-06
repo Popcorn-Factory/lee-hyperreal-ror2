@@ -97,7 +97,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             InitMeleeRootMotion();
             movementMultiplier = defaultMovementMultiplier;
 
-            PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.primary4AfterImage);
+            if (base.isAuthority) 
+            {
+                PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.primary4AfterImage);
+            }
         }
 
         public void PlaySwingEffect(string muzzleString, float swingScale, GameObject effectPrefab) 

@@ -116,15 +116,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
             baseTransform = childLocator.FindChild("BaseTransform");
-            EffectData effectData = new EffectData
-            {
-                origin = baseTransform.position,
-                rotation = Quaternion.LookRotation(characterDirection.forward),
-            };
-            int childIndex = childLocator.FindChildIndex("BaseTransform");
-            effectData.SetChildLocatorTransformReference(gameObject, childIndex);
-            EffectManager.SpawnEffect(Modules.ParticleAssets.yellowOrbMultishot, effectData, true);
 
+            if (base.isAuthority) 
+            {
+                EffectData effectData = new EffectData
+                {
+                    origin = baseTransform.position,
+                    rotation = Quaternion.LookRotation(characterDirection.forward),
+                };
+                int childIndex = childLocator.FindChildIndex("BaseTransform");
+                effectData.SetChildLocatorTransformReference(gameObject, childIndex);
+                EffectManager.SpawnEffect(Modules.ParticleAssets.yellowOrbMultishot, effectData, true);
+            }
 
             Debug.Log($"BeforeEnterEnv: {characterMotor.gravityParameters.environmentalAntiGravityGranterCount}");
             Debug.Log($"BeforeEnterChannel: {characterMotor.gravityParameters.channeledAntiGravityGranterCount}");

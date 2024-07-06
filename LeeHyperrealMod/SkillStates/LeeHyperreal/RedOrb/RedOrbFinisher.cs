@@ -139,8 +139,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             {
                 hasPlayedEffect = true;
 
-                Modules.Helpers.PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.redOrbPingSwing, gameObject);
-                Modules.Helpers.PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.redOrbPingGround, gameObject);
+                if (base.isAuthority) 
+                {
+                    Modules.Helpers.PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.redOrbPingSwing, gameObject);
+                    Modules.Helpers.PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.redOrbPingGround, gameObject);
+                }
             }
 
             if (base.age >= duration * exitEarlyFrac && base.isAuthority) 

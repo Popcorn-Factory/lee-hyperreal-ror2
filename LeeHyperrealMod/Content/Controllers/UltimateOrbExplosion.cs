@@ -46,7 +46,9 @@ namespace LeeHyperrealMod.Content.Controllers
             };
 
             //Trigger effect.
-            EffectManager.SpawnEffect(
+            if (leeBody.hasEffectiveAuthority) 
+            {
+                EffectManager.SpawnEffect(
                 Modules.ParticleAssets.ultPreExplosionProjectile,
                 new EffectData
                 {
@@ -55,6 +57,7 @@ namespace LeeHyperrealMod.Content.Controllers
                     scale = 1.25f,
                 },
                 true);
+            }
         }
 
         public void Update()
@@ -65,18 +68,22 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 triggeredExplosion = true;
                 //Trigger blast
-                blastAttack.Fire();
 
-                //Trigger effect.
-                EffectManager.SpawnEffect(
-                    Modules.ParticleAssets.ultExplosion,
-                    new EffectData
-                    {
-                        origin = position,
-                        rotation = Quaternion.identity,
-                        scale = 1.25f,
-                    },
-                    true);
+                if (leeBody.hasEffectiveAuthority) 
+                {
+                    blastAttack.Fire();
+
+                    //Trigger effect.
+                    EffectManager.SpawnEffect(
+                        Modules.ParticleAssets.ultExplosion,
+                        new EffectData
+                        {
+                            origin = position,
+                            rotation = Quaternion.identity,
+                            scale = 1.25f,
+                        },
+                        true);
+                }
 
                 Destroy(this.gameObject);
             }

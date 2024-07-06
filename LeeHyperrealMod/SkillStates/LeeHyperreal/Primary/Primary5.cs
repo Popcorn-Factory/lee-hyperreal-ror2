@@ -142,6 +142,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         }
         public void PlaySwing(string muzzleString, float swingScale, GameObject effectPrefab)
         {
+            if (!base.isAuthority) 
+            {
+                return;
+            }
             ModelLocator component = gameObject.GetComponent<ModelLocator>();
             if (component && component.modelTransform)
             {

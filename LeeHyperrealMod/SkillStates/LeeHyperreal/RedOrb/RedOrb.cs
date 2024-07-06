@@ -125,7 +125,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_red").Send(NetworkDestination.Clients);
             }
 
-            Modules.Helpers.PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.redOrbSwing, gameObject);
+            if (base.isAuthority) 
+            {
+                Modules.Helpers.PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.redOrbSwing, gameObject);
+            }
         }
 
         protected void PlayAttackAnimation()
@@ -189,7 +192,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 firingStopwatch += Time.fixedDeltaTime;
                 if (firingStopwatch >= (endFireFrac - fireFrac) / fireAmount) 
                 {
-                    Util.PlaySound("HenryShootPistol", base.gameObject);
                     firingStopwatch = 0f;
                     bulletAttack.origin = base.GetAimRay().origin;
                     bulletAttack.Fire();

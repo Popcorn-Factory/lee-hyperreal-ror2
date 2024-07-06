@@ -151,9 +151,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
 
             transitionEffect.SetChildLocatorTransformReference(gameObject, childLocator.FindChildIndex("BaseTransform"));
 
-            EffectManager.SpawnEffect(Modules.ParticleAssets.transitionEffectLee,
+            if (base.isAuthority) 
+            {
+                EffectManager.SpawnEffect(Modules.ParticleAssets.transitionEffectLee,
                 transitionEffect,
                 true);
+            }
 
             weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.RIFLE);
             weaponModelHandler.SetLaserState(true);

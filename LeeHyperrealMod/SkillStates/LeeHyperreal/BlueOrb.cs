@@ -309,6 +309,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         public void FireAttack()
         {
+            if (!base.isAuthority) 
+            {
+                return;
+            }
             ModelLocator component = base.modelLocator;
             Transform muzzlePos = null;
             if (component && component.modelTransform)

@@ -90,15 +90,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             //    return;
             //}
 
-            EffectManager.SpawnEffect(
-                Modules.ParticleAssets.dodgeForwards,
-                new EffectData
-                {
-                    origin = baseTransform.position,
-                    scale = 1.25f,
-                    rotation = Quaternion.LookRotation(inputBank.moveVector.normalized)
-                },
-                true);
+            if (base.isAuthority) 
+            {
+                EffectManager.SpawnEffect(
+                    Modules.ParticleAssets.dodgeForwards,
+                    new EffectData
+                    {
+                        origin = baseTransform.position,
+                        scale = 1.25f,
+                        rotation = Quaternion.LookRotation(inputBank.moveVector.normalized)
+                    },
+                    true);
+            }
             isForwardRoll = true;
             PlayAnimation();
 

@@ -35,7 +35,7 @@ namespace LeeHyperrealMod.Content.Controllers
         private float disableCannonEffectTimer;
         private bool isCannonEnabled;
 
-
+        CharacterBody characterBody;
         private WeaponState state;
         private ChildLocator childLocator;
 
@@ -49,6 +49,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void Start() 
         {
+            characterBody = GetComponent<CharacterBody>();
             childLocator = GetComponentInChildren<ChildLocator>();
             if (childLocator)
             {
@@ -101,6 +102,11 @@ namespace LeeHyperrealMod.Content.Controllers
         
         private void CustomEmotesAPI_animChanged(string newAnimation, BoneMapper mapper)
         {
+            //Can't change weapon state if in authority.
+            if (!characterBody.hasEffectiveAuthority) 
+            {
+                return;
+            }
             if (newAnimation == "none") 
             {
                 isEmoting = false;

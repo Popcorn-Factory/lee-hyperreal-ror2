@@ -39,7 +39,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             }
 
             //Fire as soon as this state is triggered.
-            FireAttack();
+
+            if (base.isAuthority) 
+            {
+                FireAttack();
+            }
 
             base.PlayAnimation("Body", "Midair Attack End", "attack.playbackRate", duration);
             PlaySwing("BaseTransform", 1.25f, Modules.ParticleAssets.primary5Floor);

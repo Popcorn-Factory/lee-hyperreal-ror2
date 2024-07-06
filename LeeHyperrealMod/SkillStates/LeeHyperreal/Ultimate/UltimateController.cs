@@ -33,7 +33,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         public void FixedUpdate()
         {
 
-            if (charbody.healthComponent.alive)
+            if (charbody.healthComponent.alive && charbody.hasEffectiveAuthority)
             {
                 timer += Time.fixedDeltaTime;
                 if (timer > 0.1f)

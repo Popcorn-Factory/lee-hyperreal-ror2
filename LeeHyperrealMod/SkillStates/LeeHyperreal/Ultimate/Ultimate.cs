@@ -133,30 +133,30 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
             GetModelAnimator().SetBool("isUltimate", true);
 
-            ModelLocator component = gameObject.GetComponent<ModelLocator>();
-            if (component && component.modelTransform)
-            {
-                ChildLocator component2 = component.modelTransform.GetComponent<ChildLocator>();
-                if (component2)
-                {
-                    cannonEndTransform = component2.FindChild("CannonEnd");
-                    int childIndex = component2.FindChildIndex(muzzleString);
-                    Transform transform = component2.FindChild(childIndex);
-                    if (transform)
-                    {
-                        EffectData effectData = new EffectData
-                        {
-                            origin = transform.position,
-                            scale = 1.25f,
-                        };
-                        effectData.SetChildLocatorTransformReference(gameObject, childIndex);
-                        EffectManager.SpawnEffect(Modules.ParticleAssets.ultTracerEffect, effectData, true);
-                    }
-                }
-            }
-
             if (base.isAuthority) 
             {
+                ModelLocator component = gameObject.GetComponent<ModelLocator>();
+                if (component && component.modelTransform)
+                {
+                    ChildLocator component2 = component.modelTransform.GetComponent<ChildLocator>();
+                    if (component2)
+                    {
+                        cannonEndTransform = component2.FindChild("CannonEnd");
+                        int childIndex = component2.FindChildIndex(muzzleString);
+                        Transform transform = component2.FindChild(childIndex);
+                        if (transform)
+                        {
+                            EffectData effectData = new EffectData
+                            {
+                                origin = transform.position,
+                                scale = 1.25f,
+                            };
+                            effectData.SetChildLocatorTransformReference(gameObject, childIndex);
+                            EffectManager.SpawnEffect(Modules.ParticleAssets.ultTracerEffect, effectData, true);
+                        }
+                    }
+                }
+
                 ultimateCameraController.TriggerUlt();
             }
 

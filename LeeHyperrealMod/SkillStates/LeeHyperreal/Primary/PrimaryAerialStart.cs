@@ -34,7 +34,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             Util.PlaySound("Play_c_liRk4_atk_nml_5_xuli", base.gameObject);
             //Automatically leads into Midair Attack Loop
 
-            PlaySwing("BaseTransform", 1.25f, Modules.ParticleAssets.primary5Swing);
+            if (base.isAuthority) 
+            {
+                PlaySwing("BaseTransform", 1.25f, Modules.ParticleAssets.primary5Swing);
+            }
         }
 
         public void PlaySwing(string muzzleString, float swingScale, GameObject effectPrefab)

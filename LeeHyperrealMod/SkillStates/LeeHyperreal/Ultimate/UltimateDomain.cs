@@ -142,13 +142,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
             Transform baseTransform = childLocator.FindChild("BaseTransform");
             Vector3 targetDir = Camera.main.transform.position - baseTransform.position;
-            EffectData effectData = new EffectData
+
+            if (base.isAuthority) 
             {
-                origin = gameObject.transform.position,
-                rotation = Quaternion.LookRotation(targetDir.normalized, Vector3.up),
-                scale = 1.25f,
-            };
-            EffectManager.SpawnEffect(Modules.ParticleAssets.UltimateDomainBulletFinisher, effectData, true);
+                EffectData effectData = new EffectData
+                {
+                    origin = gameObject.transform.position,
+                    rotation = Quaternion.LookRotation(targetDir.normalized, Vector3.up),
+                    scale = 1.25f,
+                };
+                EffectManager.SpawnEffect(Modules.ParticleAssets.UltimateDomainBulletFinisher, effectData, true);
+            }
 
             if (NetworkServer.active)
             {
