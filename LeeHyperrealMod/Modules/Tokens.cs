@@ -18,7 +18,7 @@ namespace LeeHyperrealMod.Modules
             desc = desc + "< ! > Roll has a lingering armor buff that helps to use it aggressively." + Environment.NewLine + Environment.NewLine;
             desc = desc + "< ! > Bomb can be used to wipe crowds with ease." + Environment.NewLine + Environment.NewLine;
 
-            string outro = "..and so he left, ready for duty.";
+            string outro = "..and so he left, still no closer to his true reality.";
             string outroFailure = "..and so he vanished, with a mission unfulfilled";
 
             LanguageAPI.Add(prefix + "NAME", "Lee: Hyperreal");
