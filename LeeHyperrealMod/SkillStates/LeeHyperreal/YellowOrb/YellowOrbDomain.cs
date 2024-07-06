@@ -69,13 +69,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             PlayAttackAnimation();
 
-            //check for move strength whether to get Anschauung stack
-            // Added in entry.
-            if (moveStrength >= 3)
-            {
-                //add anschauung stack
-            }
-
             blastAttack = new BlastAttack
             {
                 attacker = gameObject,
@@ -84,7 +77,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 position = gameObject.transform.position + GetAimRay().direction * 2.5f,
                 radius = Modules.StaticValues.yellowOrbDomainBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.None,
-                baseDamage = damageStat * damageCoefficient,
+                baseDamage = damageStat * damageCoefficient * (moveStrength == 3 ? 1 : Modules.StaticValues.yellowOrbDomainTripleMultiplier),
                 baseForce = Modules.StaticValues.yellowOrbDomainBlastForce,
                 bonusForce = Vector3.zero,
                 crit = RollCrit(),

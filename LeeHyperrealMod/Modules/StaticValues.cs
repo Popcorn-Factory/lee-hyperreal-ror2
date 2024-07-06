@@ -123,6 +123,7 @@ namespace LeeHyperrealMod.Modules
         internal const float yellowOrbDomainBlastForce = 1000f;
         internal const float yellowOrbDomainBlastRadius = 20f;
         internal const int yellowOrbDomainFireCount = 9;
+        internal const float yellowOrbDomainTripleMultiplier = 4f;
 
         internal const float yellowOrbFinisherParryLength = 0.75f; //How long the parry window is openf or
         internal const float yellowOrbFinisherParryTiming = 0.025f; // A percentage of the duration in which the parry starts
@@ -150,6 +151,7 @@ namespace LeeHyperrealMod.Modules
         internal const float redOrbDomainProcCoefficient = 1f;
         internal const float redOrbDomainBlastForce = 1000f;
         internal const float redOrbDomainBaseFireInterval = 0.15f;
+        internal const float redOrbDomainTripleMultiplier = 4f;
         #endregion
 
         #region Ultimate

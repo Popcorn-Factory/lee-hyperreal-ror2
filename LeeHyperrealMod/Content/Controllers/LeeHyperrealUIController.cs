@@ -970,12 +970,36 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             //On.RoR2.CameraRigController.Update += CameraRigController_Update;
             On.RoR2.UI.HUD.Update += HUD_Update;
+            Modules.Config.blueOrbTrigger.SettingChanged += SimpleKeyChanged;
+            Modules.Config.redOrbTrigger.SettingChanged += SimpleKeyChanged;
+            Modules.Config.yellowOrbTrigger.SettingChanged += SimpleKeyChanged;
+        }
+
+        private void SimpleKeyChanged(object sender, EventArgs e)
+        {
+            if (blueSimpleGlyph != null) 
+            {
+                blueSimpleGlyph.orbLabel.text = DeAlphaizeString(Modules.Config.blueOrbTrigger.Value.ToString());
+            }
+
+            if (redSimpleGlyph != null)
+            {
+                redSimpleGlyph.orbLabel.text = DeAlphaizeString(Modules.Config.redOrbTrigger.Value.ToString());
+            }
+
+            if (yellowSimpleGlyph != null)
+            {
+                yellowSimpleGlyph.orbLabel.text = DeAlphaizeString(Modules.Config.yellowOrbTrigger.Value.ToString());
+            }
         }
 
         public void Unhook()
         {
             //On.RoR2.CameraRigController.Update -= CameraRigController_Update;
             On.RoR2.UI.HUD.Update -= HUD_Update;
+            Modules.Config.blueOrbTrigger.SettingChanged -= SimpleKeyChanged;
+            Modules.Config.redOrbTrigger.SettingChanged -= SimpleKeyChanged;
+            Modules.Config.yellowOrbTrigger.SettingChanged -= SimpleKeyChanged;
         }
 
         private void HUD_Update(On.RoR2.UI.HUD.orig_Update orig, HUD self)
