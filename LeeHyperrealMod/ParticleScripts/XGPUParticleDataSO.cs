@@ -36,10 +36,10 @@ namespace LeeHyperrealMod.ParticleScripts
             int x = 0;
             string name;
 
-            if (AllParticleInfos == null) 
-            {
-                return;
-            }
+            //if (AllParticleInfos == null) 
+            //{
+            //    return;
+            //}
 
             if (InitState)
                 return;
