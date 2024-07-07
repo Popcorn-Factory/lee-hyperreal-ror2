@@ -40,10 +40,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         private Vector3 velocity = Vector3.zero;
 
         private bool setCease = false;
-        private float playCeaseFrac = 0.25f;
+        private float playCeaseFrac = 0.255f;
         private bool hasCeased = false;
 
-        private float weaponTransitionFrac = 0.65f;
+        private float weaponTransitionFrac = 0.665f;
         private bool hasTransitioned = false;
 
         public override void OnEnter()
