@@ -28,7 +28,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         private BulletAttack bulletAttack;
 
         internal string muzzleString = "BaseTransform"; //need to change to the sniper one
-        internal string cannonmainString = "BaseTransform";
+        internal string cannonmainString = "CannonMain";
 
         internal Transform cannonEndTransform;
         internal Transform cannonMainTransform;
@@ -41,6 +41,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         private LeeHyperrealDomainController domainController;
         private Ray aimRay;
         private Vector3 velocity = Vector3.zero;
+        private Quaternion PrefabShootingrotation = Quaternion.Euler(270,0,0);
 
         private bool setCease = false;
         private float playCeaseFrac = 0.255f;
@@ -171,7 +172,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                     ChildLocator component2 = maincannoncomponent.modelTransform.GetComponent<ChildLocator>();
                     if (component2)
                     {
-                        cannonMainTransform = component2.FindChild("SuperCannonModel");
+                        cannonMainTransform = component2.FindChild("CannonMain");
                         int childIndex = component2.FindChildIndex(cannonmainString);
                         Transform transform = component2.FindChild(childIndex);
                         if (transform)
@@ -179,6 +180,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                             EffectData effectData = new EffectData
                             {
                                 origin = transform.position,
+                                rotation = PrefabShootingrotation,
                             };
                             effectData.SetChildLocatorTransformReference(gameObject, childIndex);
                             EffectManager.SpawnEffect(Modules.ParticleAssets.ultShootingEffect, effectData, true);
