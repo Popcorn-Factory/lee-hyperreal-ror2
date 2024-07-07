@@ -51,6 +51,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
             domainController = this.GetComponent<LeeHyperrealDomainController>();
             weaponModelHandler = this.GetComponent<WeaponModelHandler>();
             aoePos = this.gameObject.transform.position;
+            characterMotor.velocity.y = 0f;
 
             domainController.ultCooldownBeforeSwitch = skillLocator.special.rechargeStopwatch;
             domainController.ultStockBeforeSwitch = skillLocator.special.stock;

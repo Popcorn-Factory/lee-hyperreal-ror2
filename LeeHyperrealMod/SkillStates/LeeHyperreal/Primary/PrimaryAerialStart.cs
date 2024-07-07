@@ -33,6 +33,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             Util.PlaySound("Play_c_liRk4_atk_nml_5_xuli", base.gameObject);
             //Automatically leads into Midair Attack Loop
+            characterMotor.velocity.y = 0f;        /*reset current Velocity at start.*/
 
             if (base.isAuthority) 
             {
