@@ -124,6 +124,11 @@ namespace LeeHyperrealMod.Content.Controllers
         private bool spawnedEffect;
         #endregion
 
+        #region Ultimate Indicator
+        private GameObject ultimateIndicatorObject;
+        private Animator ultimateIndicatorAnimator;
+        #endregion
+
         private bool isInitialized = false;
 
         private HGTextMeshProUGUI CreateLabel(Transform parent, string name, string text, Vector2 position, float textScale)
@@ -190,10 +195,12 @@ namespace LeeHyperrealMod.Content.Controllers
                 InitializePowerMeter();
                 InitializeHealthLayer();
                 InitializeBulletUI();
+                InitializeUltimateIndicator();
                 //Now we need to initialize everything inside the canvas to variables we can control.
                 InitializeOrbAnimatorArray();
                 InitializeOrbAmountLabel();
                 InitializeOrbBrackets();
+
                 if (orbController)
                 {
                     UpdateOrbList(orbController.orbList);
@@ -963,6 +970,71 @@ namespace LeeHyperrealMod.Content.Controllers
             if (domainOverlayObject) 
             {
                 domainOverlayObject.SetActive(state);
+            }
+        }
+        #endregion
+
+        #region Ultimate Indicator
+        public void InitializeUltimateIndicator() 
+        {
+            if (RoRHUDObject && !ultimateIndicatorObject)
+            {
+                ultimateIndicatorObject = UnityEngine.GameObject.Instantiate(Modules.Assets.spinnyIconUIObject, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(2).GetChild(0));
+            }
+
+            ultimateIndicatorAnimator = ultimateIndicatorObject.GetComponent<Animator>();
+        }
+
+        public void SetIntuitionStacks(int value) 
+        {
+            //Take int and apply it to a float between 0 -> 0.99
+            float fraction = (float)value / (float)Modules.StaticValues.maxIntuitionStocks;
+
+            if (fraction >= 0.999f) 
+            {
+                fraction = 0.99f;
+            }
+
+            if (fraction <= 0f) 
+            {
+                fraction = 0f;
+            }
+
+            if (ultimateIndicatorAnimator) 
+            {
+                ultimateIndicatorAnimator.SetFloat("Anschauung", fraction);
+            }
+        }
+
+        public void TriggerUltDomain() 
+        {
+            if (ultimateIndicatorAnimator)
+            {
+                ultimateIndicatorAnimator.SetTrigger("Ult Domain");
+            }
+        }
+
+        public void TriggerUlt()
+        {
+            if (ultimateIndicatorAnimator)
+            {
+                ultimateIndicatorAnimator.SetTrigger("Ult Normal Ready");
+            }
+        }
+        
+        public void TriggerNone()
+        {
+            if (ultimateIndicatorAnimator)
+            {
+                ultimateIndicatorAnimator.SetTrigger("None");
+            }
+        }
+
+        public void TriggerTappedUltIcon()
+        {
+            if (ultimateIndicatorAnimator)
+            {
+                ultimateIndicatorAnimator.SetTrigger("Tapped");
             }
         }
         #endregion

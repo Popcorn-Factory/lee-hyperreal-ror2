@@ -89,8 +89,11 @@ namespace LeeHyperrealMod.Content.Controllers
         public void UnsetUltimate() 
         {
             //Force the animation back to default
-            ultimateAnimator.Play("New State");
-            
+            if (ultimateAnimator) 
+            {
+                ultimateAnimator.Play("New State");
+            }
+
             //Set parent
             cameraObject.transform.SetParent(previousCameraParent, true);
             cameraObject.transform.localRotation = Quaternion.identity;

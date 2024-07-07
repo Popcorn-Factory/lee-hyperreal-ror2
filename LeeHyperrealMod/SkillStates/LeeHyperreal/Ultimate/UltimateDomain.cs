@@ -77,6 +77,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 sightStacks = 1;
             }
             docon.DisableDomain(false);
+            docon.SetTapped();
 
             characterMotor.velocity.y = 0f;
             oldGravParams = base.characterMotor.gravityParameters;

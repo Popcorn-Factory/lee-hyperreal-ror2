@@ -36,6 +36,16 @@ namespace LeeHyperrealMod.Content.Controllers
 
         //CharBody
         private CharacterBody charBody;
+        private SkillLocator skillLocator;
+        enum UltimateIconState 
+        {
+            NONE,
+            ULTIMATE,
+            DOMAIN
+        }
+
+        private UltimateIconState iconState;
+
 
         //other shit
         private ModelLocator modelLocator;
@@ -48,6 +58,8 @@ namespace LeeHyperrealMod.Content.Controllers
             uiController = GetComponent<LeeHyperrealUIController>();
             charBody = GetComponent<CharacterBody>();
             modelLocator = gameObject.GetComponent<ModelLocator>();
+            skillLocator = gameObject.GetComponent<SkillLocator>();
+            iconState = UltimateIconState.NONE;
             energy = 0f;
             energyRegenAllowed = true;
 
@@ -81,24 +93,6 @@ namespace LeeHyperrealMod.Content.Controllers
                 //bool useY = false;
                 bool useZ = false;
 
-                //if X is greater than Y, use X, otherwise use Y, If the selected value is greater than Z, then use selected value. otherwise use Z
-                //if (xDiff > yDiff)
-                //{
-                //    if (xDiff > zDiff)
-                //    {
-                //        useX = true;
-                //    }
-                //    else { useZ = true; }
-                //}
-                //else 
-                //{
-                //    if (yDiff > zDiff)
-                //    {
-                //        useY = true;
-                //    }
-                //    else { useZ = true; }
-                //}
-
                 useX = xDiff > zDiff;
                 useZ = zDiff > xDiff;
 
@@ -110,6 +104,8 @@ namespace LeeHyperrealMod.Content.Controllers
                 
                 loopDomainEffect.transform.position = Vector3.SmoothDamp(loopDomainEffect.transform.position, target, ref velocity, 0.5f);
             }
+
+            ChangeIconState();
 
             if (charBody.hasEffectiveAuthority)
             {
@@ -129,6 +125,52 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
                 UpdateUIController();
             }
+        }
+
+        private void ChangeIconState()
+        {
+            if(skillLocator.special.stock >= 1 && GetDomainState())
+            {
+                SetIconState(UltimateIconState.DOMAIN);
+                return;
+            }
+
+            if (skillLocator.special.stock >= 1 && !GetDomainState()) 
+            {
+                SetIconState(UltimateIconState.ULTIMATE);
+                return;
+            }
+
+            SetIconState(UltimateIconState.NONE);
+        }
+
+        private void SetIconState(UltimateIconState incomingIconState) 
+        {
+            if (iconState == incomingIconState) 
+            {
+                //Do nothing
+                return;
+            }
+
+            iconState = incomingIconState;
+
+            switch (iconState) 
+            {
+                case UltimateIconState.NONE:
+                    uiController.TriggerNone();
+                    break;
+                case UltimateIconState.DOMAIN:
+                    uiController.TriggerUltDomain();
+                    break;
+                case UltimateIconState.ULTIMATE:
+                    uiController.TriggerUlt();
+                    break;
+            }
+        }
+
+        public void SetTapped() 
+        {
+            uiController.TriggerTappedUltIcon();
         }
 
         private void DestroyAllYellowOrbEffects() 
@@ -248,6 +290,9 @@ namespace LeeHyperrealMod.Content.Controllers
             }
 
             intuitionStacks -= amount;
+
+            //Update UI
+            uiController.SetIntuitionStacks(intuitionStacks);
             return true;
         }
 
@@ -259,10 +304,15 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 intuitionStacks = maxIntuitionStack;
             }
+
+            //Update UI
+            uiController.SetIntuitionStacks(intuitionStacks);
         }
 
         public int GetIntuitionStacks()
         {
+            //Update UI
+            uiController.SetIntuitionStacks(intuitionStacks);
             return intuitionStacks;
         }
 

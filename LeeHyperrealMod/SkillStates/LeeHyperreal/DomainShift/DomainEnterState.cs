@@ -55,6 +55,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
 
             domainController.ultCooldownBeforeSwitch = skillLocator.special.rechargeStopwatch;
             domainController.ultStockBeforeSwitch = skillLocator.special.stock;
+            domainController.GetIntuitionStacks();
 
             bulletAttack = new BulletAttack
             {

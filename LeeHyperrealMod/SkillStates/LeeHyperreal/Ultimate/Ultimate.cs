@@ -36,6 +36,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         private WeaponModelHandler weaponModelHandler;
         private UltimateCameraController ultimateCameraController;
         private OrbController orbController;
+        private LeeHyperrealDomainController domainController;
         private Ray aimRay;
         private Vector3 velocity = Vector3.zero;
 
@@ -56,6 +57,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             weaponModelHandler = gameObject.GetComponent<WeaponModelHandler>();
             ultimateCameraController = gameObject.GetComponent<UltimateCameraController>();
             orbController = gameObject.GetComponent<OrbController>();
+            domainController = gameObject.GetComponent<LeeHyperrealDomainController>();
+
+            if (domainController) 
+            {
+                domainController.SetTapped();
+            }
 
             if (orbController) 
             {
