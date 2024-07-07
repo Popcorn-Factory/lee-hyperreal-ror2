@@ -30,6 +30,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         internal string muzzleString = "BaseTransform"; //need to change to the sniper one
 
         internal Transform cannonEndTransform;
+        internal Transform cannonMainTransform;
 
         private float movementMultiplier = 1.5f;
         private BulletController bulletController;
@@ -148,6 +149,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                     ChildLocator component2 = component.modelTransform.GetComponent<ChildLocator>();
                     if (component2)
                     {
+                        cannonMainTransform = component2.FindChild("E3SuperlicannonMd010011 1");
+
                         cannonEndTransform = component2.FindChild("CannonEnd");
                         int childIndex = component2.FindChildIndex(muzzleString);
                         Transform transform = component2.FindChild(childIndex);
@@ -160,6 +163,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                             };
                             effectData.SetChildLocatorTransformReference(gameObject, childIndex);
                             EffectManager.SpawnEffect(Modules.ParticleAssets.ultTracerEffect, effectData, true);
+                            EffectManager.SpawnEffect(Modules.ParticleAssets.ultShootingEffect, effectData, true);
                         }
                     }
                 }
