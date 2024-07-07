@@ -155,6 +155,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             {
                 //Check any move to cancel into.
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
+                characterMotor.gravityParameters = oldGravParams;
 
                 if (!hasPlayedBulletCasingSFX) 
                 {
