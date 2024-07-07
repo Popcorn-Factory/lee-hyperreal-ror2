@@ -49,6 +49,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         private float playCeaseFrac = 0.188f;
         private bool hasCeased = false;
 
+        CharacterGravityParameters gravParams;
+        CharacterGravityParameters oldGravParams;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -74,6 +77,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 sightStacks = 1;
             }
             docon.DisableDomain(false);
+
+            oldGravParams = base.characterMotor.gravityParameters;
+            gravParams = new CharacterGravityParameters();
+            gravParams.environmentalAntiGravityGranterCount = 1;
+            gravParams.channeledAntiGravityGranterCount = 1;
+
+            characterMotor.gravityParameters = gravParams;
 
             if (base.isAuthority && Modules.Config.ceaseChance.Value != 0f) 
             {
@@ -159,6 +169,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 //Set Invincibility cause fuck you.
                 characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, -1);
             }
+
+
         }
 
         public void Freeze()
@@ -218,6 +230,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             {
                 orbController.isExecutingSkill = false;
             }
+
+            characterMotor.gravityParameters = oldGravParams;
         }
 
         public override void Update()
