@@ -208,12 +208,13 @@ namespace LeeHyperrealMod.Content.Controllers
                 {
                     cameraTargetParams.RemoveParamsOverride(handle);
                 }
+            }
 
-                if (snipeAerialPlatform) 
-                {
-                    snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
-                    snipeAerialPlatform = null;
-                }
+
+            if (snipeAerialPlatform)
+            {
+                snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+                snipeAerialPlatform = null;
             }
 
             //Should set for everyone.
