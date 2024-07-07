@@ -40,7 +40,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         private float effectTimingFrac = 0.15f;
         private bool hasPlayedEffect;
         private bool hasPlayedBulletCasingSFX = false;
-
+       
+        CharacterGravityParameters gravParams;
+        CharacterGravityParameters oldGravParams;
 
         public override void OnEnter()
         {
@@ -53,7 +55,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             base.OnEnter();
             rma = InitMeleeRootMotion();
             rmaMultiplier = movementMultiplier;
+
             characterMotor.velocity.y = 0f;
+            oldGravParams = base.characterMotor.gravityParameters;      
+            gravParams = new CharacterGravityParameters();
+            gravParams.environmentalAntiGravityGranterCount = 1;
+            gravParams.channeledAntiGravityGranterCount = 1;
+
+            characterMotor.gravityParameters = gravParams;              ///Set Gravity
 
             if (moveStrength >= 3) 
             {
@@ -113,7 +122,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             {
                 orbController.isExecutingSkill = false;
             }
-
+            characterMotor.gravityParameters = oldGravParams;   ///reset Gravity
             PlayAnimation("Body", "BufferEmpty");
         }
 

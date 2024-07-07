@@ -78,6 +78,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             }
             docon.DisableDomain(false);
 
+            characterMotor.velocity.y = 0f;
             oldGravParams = base.characterMotor.gravityParameters;
             gravParams = new CharacterGravityParameters();
             gravParams.environmentalAntiGravityGranterCount = 1;
