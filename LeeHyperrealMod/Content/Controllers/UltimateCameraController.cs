@@ -99,6 +99,7 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 if (Time.time > cameraTimeAtStart + 2.76f && cameraAlreadyDamping && cameraStartFovAnimation)
                 {
+                    cameraTargetParams.RemoveParamsOverride(handle);
                     CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
                     cameraParamsData.fov = 110f;
 
@@ -113,6 +114,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
                 if(Time.time > cameraTimeAtStart + 3.4f && !cameraAlreadyDamping2 && cameraStartFovAnimation2)
                 {
+                    cameraTargetParams.RemoveParamsOverride(handle);
                     CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
                     cameraParamsData.fov = 40f;
 
