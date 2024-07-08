@@ -41,7 +41,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         private LeeHyperrealDomainController domainController;
         private Ray aimRay;
         private Vector3 velocity = Vector3.zero;
-        private Quaternion PrefabShootingrotation = Quaternion.Euler(270,0,0);
 
         private bool setCease = false;
         private float playCeaseFrac = 0.255f;
@@ -180,7 +179,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                             EffectData effectData = new EffectData
                             {
                                 origin = transform.position,
-                                rotation = PrefabShootingrotation,
                             };
                             effectData.SetChildLocatorTransformReference(gameObject, childIndex);
                             EffectManager.SpawnEffect(Modules.ParticleAssets.ultShootingEffect, effectData, true);
