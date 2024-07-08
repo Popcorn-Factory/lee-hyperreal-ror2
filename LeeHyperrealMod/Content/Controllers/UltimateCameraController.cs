@@ -1,9 +1,11 @@
-﻿using RoR2;
+﻿using LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate;
+using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using Unity.Audio;
 using UnityEngine;
+using UnityEngine.Networking.Match;
 using static RoR2.CameraTargetParams;
 
 namespace LeeHyperrealMod.Content.Controllers
@@ -27,6 +29,10 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public float smoothDampTime = 0.2f;
         public float maxSmoothDampSpeed = 50f;
+
+        public bool cameraAlreadyDamping2 = false;
+        public bool cameraAlreadyDamping = false;
+        public float cameraTimeAtStart;
 
         public Vector3 previousCameraPosition;
         public Quaternion previousRotation;
@@ -52,9 +58,9 @@ namespace LeeHyperrealMod.Content.Controllers
             ultimateCameraGameObject = UnityEngine.Object.Instantiate(Modules.Assets.ultimateCameraObject, rootTransform);
             domainUltimateCameraGameObject = UnityEngine.Object.Instantiate(Modules.Assets.domainUltimateCameraObject, rootTransform);
 
-            ultimateAnimator = ultimateCameraGameObject.GetComponent<Animator>();
+            ultimateAnimator = ultimateCameraGameObject.transform.GetChild(0).GetComponent<Animator>();
             domainUltimateAnimator = domainUltimateCameraGameObject.GetComponent<Animator>();
-            UltimateCameraEvent eventComponent = ultimateCameraGameObject.AddComponent<UltimateCameraEvent>();
+            UltimateCameraEvent eventComponent = ultimateCameraGameObject.transform.GetChild(0).gameObject.AddComponent<UltimateCameraEvent>();
             UltimateCameraEvent secondEventComponent = domainUltimateCameraGameObject.AddComponent<UltimateCameraEvent>();
      
             eventComponent.controller = this;
@@ -87,11 +93,49 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 cameraObject.transform.localPosition = Vector3.SmoothDamp(cameraObject.transform.localPosition, Vector3.zero, ref smoothDampVelocity, smoothDampTime, maxSmoothDampSpeed, Time.deltaTime);
             }
+            if (ultimateAnimator)
+            {
+                if (Time.deltaTime > cameraTimeAtStart + 2.76f)
+                {
+                    if (!cameraAlreadyDamping)
+                    {
+                        CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
+                        cameraParamsData.fov = 110f;
+
+                        CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
+                        {
+                            cameraParamsData = cameraParamsData,
+                            priority = 0,
+                        };
+                        cameraAlreadyDamping = true;
+                        handle = cameraTargetParams.AddParamsOverride(request, 0.6f);
+                    }
+                    else
+                    {
+
+                    }
+                }
+                if(Time.deltaTime > cameraTimeAtStart + 3.4f && !cameraAlreadyDamping2)
+                {
+                    CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
+                    cameraParamsData.fov = 40f;
+
+                    CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
+                    {
+                        cameraParamsData = cameraParamsData,
+                        priority = 0,
+                    };
+                    cameraAlreadyDamping2 = true;
+                    handle = cameraTargetParams.AddParamsOverride(request, 0.3f);
+                }
+            }
         }
 
         public void UnsetUltimate() 
         {
-            smoothDampTime = 0.3f;
+            cameraAlreadyDamping = false;
+            cameraAlreadyDamping2 = false;
+            smoothDampTime = 0.75f;
             maxSmoothDampSpeed = 50f;
             //Force the animation back to default
             if (ultimateAnimator) 
@@ -108,7 +152,9 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void UnsetDomainUltimate()
         {
-            smoothDampTime = 0.3f;
+            cameraAlreadyDamping = false ;
+            cameraAlreadyDamping2 = false;
+            smoothDampTime = 0.5f;
             maxSmoothDampSpeed = 50f;
             //Force the animation back to default
             domainUltimateAnimator.Play("New State");
@@ -146,6 +192,7 @@ namespace LeeHyperrealMod.Content.Controllers
             smoothDampTime = 0.001f;
             maxSmoothDampSpeed = 9999999f;
             ultimateAnimator.SetTrigger("startUltimate");
+            cameraTimeAtStart = Time.deltaTime;
 
             cameraObject.transform.SetParent(ultimateCameraTransform, true);
             //reset to 0
