@@ -202,11 +202,12 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
 
 
-                if (uiController)
+                if (uiController && !PauseManager.isPaused)
                 {
                     orbUIStopwatch += Time.deltaTime;
                     if (orbUIStopwatch >= updateRate)
-                    {
+                    { 
+                        orbUIStopwatch = 0f;
                         uiController.UpdateOrbList(orbList);
                         uiController.UpdateOrbAmount(orbList.Count, OrbLimit);
                     }

@@ -22,7 +22,6 @@ namespace LeeHyperrealMod.Content.Controllers
         private OrbController orbController;
         public bool baseAIPresent;
         public bool enabledUI;
-        private float uiScale;
 
 
         #region Orb Variables
@@ -232,15 +231,6 @@ namespace LeeHyperrealMod.Content.Controllers
                 SetAnimatorMeterValue();
                 HandleBulletUIChange();
                 UpdateGlyphPositions();
-            }
-        }
-
-        private void UpdateUIScale()
-        {
-            BaseConVar baseConVar = RoR2.Console.instance.FindConVar("hud_scale");
-            if (baseConVar != null && TextSerialization.TryParseInvariant(baseConVar.GetString(), out uiScale)) 
-            {
-                // Do something. Scale all the ui elements.
             }
         }
 
@@ -664,7 +654,7 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             try
             {
-                orbAnimators[index].SetTrigger("Pinged");
+                orbAnimators[index].SetTrigger("isPinged");
             }
             catch (IndexOutOfRangeException e)
             {
@@ -681,7 +671,8 @@ namespace LeeHyperrealMod.Content.Controllers
                 //Clear everything
                 for (int i = 0; i < orbAnimators.Count; i++)
                 {
-                    orbAnimators[i].SetTrigger("Silent Clear");
+                    orbAnimators[i].SetBool("spawned", false);
+                    orbAnimators[i].SetBool("hidden", true);
                 }
                 return;
             }
@@ -696,13 +687,26 @@ namespace LeeHyperrealMod.Content.Controllers
                 if (i < maxOrbCount)
                 {
                     orbImages[i].material = SelectOrbMaterial(orbsList[i]);
-                    orbAnimators[i].SetTrigger("Spawn Orb");
+                    orbAnimators[i].SetBool("spawned", true);
+                    orbAnimators[i].SetBool("hidden", false);
                 }
                 else
                 {
-                    orbAnimators[i].SetTrigger("Silent Clear");
+                    orbAnimators[i].SetBool("hidden", true);
+                    orbAnimators[i].SetBool("spawned", false);
                 }
             }
+
+            //if (orbsList.Count < maxShownOrbs) 
+            //{
+            //    //Go through all the orbs outside orbList.Count and silent clear.
+            //    int diff = maxShownOrbs - orbsList.Count;
+
+            //    for (int i = maxShownOrbs - 1; i > orbsList.Count - 1; i--) 
+            //    {
+            //        orbAnimators[i].SetTrigger("Silent Clear");                    
+            //    }
+            //}
         }
 
         public Material SelectOrbMaterial(OrbController.OrbType orb)
