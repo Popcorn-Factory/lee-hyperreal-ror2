@@ -118,8 +118,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     return;
                 }
 
-                if (base.inputBank.skill3.down)
+                if (base.inputBank.skill3.down && skillLocator.utility.stock >= 1)
                 {
+                    skillLocator.utility.stock -= 1;
                     Vector3 result = Modules.StaticValues.CheckDirection(inputBank.moveVector, GetAimRay());
 
                     if (result == new Vector3(0, 0, 1)) 
