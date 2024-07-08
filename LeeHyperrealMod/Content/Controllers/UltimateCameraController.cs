@@ -30,6 +30,8 @@ namespace LeeHyperrealMod.Content.Controllers
         public float smoothDampTime = 0.2f;
         public float maxSmoothDampSpeed = 50f;
 
+        public bool cameraStartFovAnimation = false;
+        public bool cameraStartFovAnimation2 = false;
         public bool cameraAlreadyDamping2 = false;
         public bool cameraAlreadyDamping = false;
         public float cameraTimeAtStart;
@@ -95,27 +97,21 @@ namespace LeeHyperrealMod.Content.Controllers
             }
             if (ultimateAnimator)
             {
-                if (Time.deltaTime > cameraTimeAtStart + 2.76f)
+                if (Time.time > cameraTimeAtStart + 2.76f && cameraAlreadyDamping && cameraStartFovAnimation)
                 {
-                    if (!cameraAlreadyDamping)
-                    {
-                        CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
-                        cameraParamsData.fov = 110f;
+                    CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
+                    cameraParamsData.fov = 110f;
 
-                        CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
-                        {
-                            cameraParamsData = cameraParamsData,
-                            priority = 0,
-                        };
-                        cameraAlreadyDamping = true;
-                        handle = cameraTargetParams.AddParamsOverride(request, 0.6f);
-                    }
-                    else
+                    CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
                     {
-
-                    }
+                        cameraParamsData = cameraParamsData,
+                        priority = 0,
+                    };
+                    cameraAlreadyDamping = true;
+                    cameraStartFovAnimation = false;
+                    handle = cameraTargetParams.AddParamsOverride(request, 0.6f);
                 }
-                if(Time.deltaTime > cameraTimeAtStart + 3.4f && !cameraAlreadyDamping2)
+                if(Time.time > cameraTimeAtStart + 3.4f && !cameraAlreadyDamping2 && cameraStartFovAnimation2)
                 {
                     CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
                     cameraParamsData.fov = 40f;
@@ -126,6 +122,7 @@ namespace LeeHyperrealMod.Content.Controllers
                         priority = 0,
                     };
                     cameraAlreadyDamping2 = true;
+                    cameraStartFovAnimation2 = false;
                     handle = cameraTargetParams.AddParamsOverride(request, 0.3f);
                 }
             }
@@ -184,7 +181,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 priority = 0,
             };
 
-            handle = cameraTargetParams.AddParamsOverride(request, 0.4f);
+            handle = cameraTargetParams.AddParamsOverride(request, 0.05f);
         }
 
         public void TriggerUlt()
@@ -192,7 +189,9 @@ namespace LeeHyperrealMod.Content.Controllers
             smoothDampTime = 0.001f;
             maxSmoothDampSpeed = 9999999f;
             ultimateAnimator.SetTrigger("startUltimate");
-            cameraTimeAtStart = Time.deltaTime;
+            cameraTimeAtStart = Time.time;
+            cameraStartFovAnimation = true;
+            cameraStartFovAnimation2 = true;
 
             cameraObject.transform.SetParent(ultimateCameraTransform, true);
             //reset to 0
@@ -207,7 +206,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 priority = 0,
             };
 
-            handle = cameraTargetParams.AddParamsOverride(request, 0.4f);
+            handle = cameraTargetParams.AddParamsOverride(request, 0.05f);
         }
 
         public void OnDestroy() 
