@@ -42,6 +42,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         CharacterGravityParameters oldGravParams;
         float turnOffGravityFrac = 0.18f;
         float turnOnGravityFrac = 0.3f;
+        float midmoveVFXrepeatFrac = 0.2f;
+        bool midmoveVFXrepeatplayed = false;
 
         float invincibilityOnFrac = 0.05f;
         float invincibilityOffFrac = 0.25f;
@@ -50,6 +52,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void OnEnter()
         {
             base.OnEnter();
+            midmoveVFXrepeatplayed = false;
             domainController = gameObject.GetComponent<LeeHyperrealDomainController>();
             orbController = gameObject.GetComponent<OrbController>();
             if (orbController)
@@ -226,7 +229,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             }
 
-
+            if (age >= duration * midmoveVFXrepeatFrac && domainController && !midmoveVFXrepeatplayed)
+            {
+                GameObject yellowBullet = UnityEngine.Object.Instantiate(Modules.ParticleAssets.yellowOrbDomainBulletLeftovers, this.gameObject.transform.position, this.gameObject.transform.rotation);
+                domainController.yellowOrbDomainEffects.Add(yellowBullet);
+                midmoveVFXrepeatplayed = true;
+            }
 
             if (fixedAge >= duration && isAuthority)
             {

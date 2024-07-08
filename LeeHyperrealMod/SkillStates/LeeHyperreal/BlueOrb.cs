@@ -50,6 +50,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         bool forceTransition = false;
 
         Vector3 OriginalPosition;
+        
 
         float transitionWeaponFrac = 0.35f;
         bool hasTransitioned = false;
@@ -324,14 +325,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 }
             }
 
-            bulletAttack.aimVector = (OriginalPosition - muzzlePos.position).normalized;
+            bulletAttack.aimVector = ((OriginalPosition - muzzlePos.position).normalized + Vector3.down * 0.4f).normalized;
             bulletAttack.origin = muzzlePos.position;
             bulletAttack.Fire();
 
             EffectData effectData = new EffectData
             {
                 origin = muzzlePos.position + Vector3.down * 2f,
-                rotation = Quaternion.LookRotation((OriginalPosition - muzzlePos.position).normalized, Vector3.up),
+                rotation = Quaternion.LookRotation(((OriginalPosition - muzzlePos.position).normalized + Vector3.down * 0.4f).normalized, Vector3.up),
             };
             EffectManager.SpawnEffect(Modules.ParticleAssets.blueOrbShot, effectData, true);
 
@@ -339,6 +340,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             RaycastHit hit;
             if (Physics.Raycast(muzzlePos.position, bulletAttack.aimVector, out hit, Mathf.Infinity, LayerIndex.world.mask))
             {
+                EffectData BlueOrbGroundEffectData = new EffectData
+                {
+                    scale = 2f
+                };
                 EffectManager.SimpleEffect(Modules.ParticleAssets.blueOrbGroundHit, hit.point, Quaternion.identity, true);
             }
 
