@@ -112,6 +112,7 @@ namespace LeeHyperrealMod.Modules
         public static GameObject ultGunEffect;
         public static GameObject ultTracerEffect;
         public static GameObject ultPreExplosionProjectile;
+        public static GameObject ultShootingEffect;
         #endregion
 
         #region Display particles
@@ -262,6 +263,9 @@ namespace LeeHyperrealMod.Modules
 
             ultTracerEffect = GetGameObjectFromBundle("fxr4liangatk51xuli");
             ultTracerEffect = ModifyEffect(ultTracerEffect, "", true, 6f);
+
+            ultShootingEffect = GetGameObjectFromBundle("Cannon Ult Shot Extra Prefab");
+            ultShootingEffect = ModifyEffect(ultShootingEffect, "", true, 6f);
 
             ultPreExplosionProjectile = GetGameObjectFromBundle("fxr4liangatk51");
             ultPreExplosionProjectile = ModifyEffect(ultPreExplosionProjectile, "Play_c_liRk4_skill_ultimate_blast", true, 5f);

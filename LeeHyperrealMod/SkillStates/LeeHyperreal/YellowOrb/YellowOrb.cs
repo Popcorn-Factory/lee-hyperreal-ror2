@@ -18,6 +18,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public float start = 0;
         public float earlyEnd = 0.30f;
         public float fireFrac = 0.22f;
+        public float GravityEndFrac = 0.5f;
         public float duration = 2f;
         public int moveStrength; //1-3
         public bool hasFired;
@@ -40,7 +41,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         private float effectTimingFrac = 0.15f;
         private bool hasPlayedEffect;
         private bool hasPlayedBulletCasingSFX = false;
-       
+
         CharacterGravityParameters gravParams;
         CharacterGravityParameters oldGravParams;
 
@@ -57,14 +58,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             rmaMultiplier = movementMultiplier;
 
             characterMotor.velocity.y = 0f;
-            oldGravParams = base.characterMotor.gravityParameters;      
+            oldGravParams = base.characterMotor.gravityParameters;
             gravParams = new CharacterGravityParameters();
             gravParams.environmentalAntiGravityGranterCount = 1;
             gravParams.channeledAntiGravityGranterCount = 1;
 
             characterMotor.gravityParameters = gravParams;              ///Set Gravity
 
-            if (moveStrength >= 3) 
+            if (moveStrength >= 3)
             {
                 isStrong = true;
             }
@@ -104,7 +105,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
             baseTransform = childLocator.FindChild("BaseTransform");
 
-            if (base.isAuthority) 
+            if (base.isAuthority)
             {
                 new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_yellow_tuijin").Send(NetworkDestination.Clients);
             }
@@ -134,10 +135,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
 
-            if (age >= duration * effectTimingFrac && !hasPlayedEffect) 
+            if (age >= duration * effectTimingFrac && !hasPlayedEffect)
             {
                 hasPlayedEffect = true;
-                if (base.isAuthority) 
+                if (base.isAuthority)
                 {
                     EffectData effectData = new EffectData
                     {
@@ -157,7 +158,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
                 characterMotor.gravityParameters = oldGravParams;
 
-                if (!hasPlayedBulletCasingSFX) 
+                if (!hasPlayedBulletCasingSFX)
                 {
                     hasPlayedBulletCasingSFX = true;
                     new PlaySoundNetworkRequest(characterBody.netId, "c_liRk4_skill_yellow_bullet").Send(NetworkDestination.Clients);
@@ -166,14 +167,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 {
                     orbController.isExecutingSkill = false;
                 }
-                if (isStrong) 
+                if (isStrong)
                 {
                     //Exit earlier to the Strong ender.
                     this.outer.SetState(new YellowOrbFinisher { });
                     return;
                 }
 
-                if (base.inputBank.moveVector != Vector3.zero) 
+                if (base.inputBank.moveVector != Vector3.zero)
                 {
                     base.outer.SetNextStateToMain();
                     return;
@@ -197,7 +198,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 }
             }
 
-
+            if (fixedAge >= duration * GravityEndFrac)
+            {
+                characterMotor.gravityParameters = oldGravParams;
+            }
             if (fixedAge >= duration * invincibilityStartFrac && fixedAge <= duration * invincibilityEndFrac && isAuthority && !invincibilitySet)
             {
                 invincibilitySet = true;

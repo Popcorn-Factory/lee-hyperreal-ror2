@@ -177,7 +177,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
                 if (isGrounded) 
                 {
-                    PlaySwingEffect(1.25f, Modules.ParticleAssets.snipeGround, false);
+                    PlaySwingEffect(1.25f, Modules.ParticleAssets.snipeGround);
                 }
                 PlaySwingEffect(1.25f, Modules.ParticleAssets.Snipe);
                 PlaySwingEffect(1.25f, Modules.ParticleAssets.snipeBulletCasing);
