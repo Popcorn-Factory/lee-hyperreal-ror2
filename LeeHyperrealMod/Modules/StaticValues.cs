@@ -22,10 +22,10 @@ namespace LeeHyperrealMod.Modules
         internal const float primary1PushForce = 300f;
         internal const float primary1HitHopVelocity = 4f;
         internal const float primary1ParryLength = 0.15f; //How long the parry window is openf or
-        internal const float primary1ParryTiming = 0.025f; // A percentage of the duration in which the parry starts
+        internal const float primary1ParryTiming = 0.0f; // A percentage of the duration in which the parry starts
         internal const float primary1ParryPauseLength = 0.2f; // How long YOU are stuck in hit pause when a parry is triggered
-        internal const float primary1ParryProjectileTimingStart = 0.03f; // Percentage of the duration of the move where a projectile parry can be triggered
-        internal const float primary1ParryProjectileTimingEnd = 0.07f; // Percentage of the duration of the move when a projectile parry can be triggered. In this case it's ranging from duration * start to duration * end, this value should never be higher than 1f
+        internal const float primary1ParryProjectileTimingStart = 0.00f; // Percentage of the duration of the move where a projectile parry can be triggered
+        internal const float primary1ParryProjectileTimingEnd = 0.1f; // Percentage of the duration of the move when a projectile parry can be triggered. In this case it's ranging from duration * start to duration * end, this value should never be higher than 1f
         #endregion
 
         #region Primary 2
@@ -43,15 +43,15 @@ namespace LeeHyperrealMod.Modules
         internal const float primary3ParryLength = 0.45f; //How long the parry window is openf or
         internal const float primary3ParryTiming = 0.08f; // A percentage of the duration in which the parry starts
         internal const float primary3ParryPauseLength = 0.2f; // How long YOU are stuck in hit pause when a parry is triggered
-        internal const float primary3ParryProjectileTimingStart = 0.05f; // Percentage of the duration of the move where a projectile parry can be triggered
-        internal const float primary3ParryProjectileTimingEnd = 0.1f; // Percentage of the duration of the move when a projectile parry can be triggered. In this case it's ranging from 5% to 10% of the move, this value should never be higher than 1f
+        internal const float primary3ParryProjectileTimingStart = 0.08f; // Percentage of the duration of the move where a projectile parry can be triggered
+        internal const float primary3ParryProjectileTimingEnd = 0.30f; // Percentage of the duration of the move when a projectile parry can be triggered. In this case it's ranging from 5% to 10% of the move, this value should never be higher than 1f
         #endregion
 
         #region Primary 4
         internal const float primary4DamageCoefficient = 1f; // This is per tick!
         internal const float primary4ProcCoefficient = 1f;
         internal const float primary4BasePulseRate = 0.2f;
-        internal const float primary4BlastRadius = 30f;
+        internal const float primary4BlastRadius = 20f;
         #endregion
 
         #region Primary 5
@@ -62,15 +62,15 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Primary Aerial
-        internal const float primaryAerialSlamRadius = 20f;
+        internal const float primaryAerialSlamRadius = 10f;
         internal const float primaryAerialMaxDamageMultiplier = 3f;
         internal const float primaryAerialDamageCoefficient = 7f;
         internal const float primaryAerialProcCoefficient = 1f;
-        internal const float primaryAerialSlamSpeed = 70f;
+        internal const float primaryAerialSlamSpeed = 100f;
         #endregion
 
         #region Domain Shift
-        internal const float forceUpwardsMagnitude = 7f;
+        internal const float forceUpwardsMagnitude = 9f;
         #endregion
 
         #region Parry Stuff
@@ -79,7 +79,7 @@ namespace LeeHyperrealMod.Modules
         internal const float bigParryLeeFreezeDuration = 0.6f;
         internal const float bigParryHealthFrac = 0.2f;
         internal const float parryProjectileRadius = 5f;
-        internal const float parryProjectileDamageMultiplier = 10f;
+        internal const float parryProjectileDamageMultiplier = 5f;
         internal const int enhancedBulletGrantOnProjectileParry = 1;
         internal const int enhancedBulletGrantOnDamageParry = 1;
         #endregion
@@ -92,15 +92,15 @@ namespace LeeHyperrealMod.Modules
 
         #region Blue Orb
         internal const float blueOrbCoefficient = 6f;
-        internal const float blueOrbBlastRadius = 12f;
+        internal const float blueOrbBlastRadius = 8f;
         internal const float blueOrbTripleMultiplier = 4f;
         internal const float blueOrbShotCoefficient = 4f;
         internal const float blueOrbProcCoefficient = 1f;
         #endregion
 
         #region Domain
-        internal const float domainShiftBlastRadius = 10f;
-        internal const float domainShiftCoefficient = 3f;
+        internal const float domainShiftBlastRadius = 18f;
+        internal const float domainShiftCoefficient = 8f;
         internal const float domainShiftBulletDamageCoefficient = 4.5f;
         internal const float energyRechargeSpeed = 50f;
         internal const float energyConsumptionSpeed = 3f;
@@ -112,9 +112,9 @@ namespace LeeHyperrealMod.Modules
         internal const int yellowOrbBaseHitAmount = 3;
         internal const float yellowOrbProcCoefficient = 1f;
         internal const float yellowOrbTripleMultiplier = 4f;
-        internal const float yellowOrbBlastRadius = 10f;
+        internal const float yellowOrbBlastRadius = 8f;
 
-        internal const float yellowOrbFinisherDamageCoefficient = 6f;
+        internal const float yellowOrbFinisherDamageCoefficient = 10f;
         internal const float yellowOrbFinisherProcCoefficient = 1f;
         internal const float yellowOrbFinisherPushForce = 300f;
 
@@ -126,10 +126,10 @@ namespace LeeHyperrealMod.Modules
         internal const float yellowOrbDomainTripleMultiplier = 4f;
 
         internal const float yellowOrbFinisherParryLength = 0.75f; //How long the parry window is openf or
-        internal const float yellowOrbFinisherParryTiming = 0.025f; // A percentage of the duration in which the parry starts
+        internal const float yellowOrbFinisherParryTiming = 0.0f; // A percentage of the duration in which the parry starts
         internal const float yellowOrbFinisherParryPauseLength = 0.2f; // How long YOU are stuck in hit pause when a parry is triggered
-        internal const float yellowOrbFinisherParryProjectileTimingStart = 0.04f; // Percentage of the duration of the move where a projectile parry can be triggered
-        internal const float yellowOrbFinisherParryProjectileTimingEnd = 0.08f; // Percentage of the duration of the move when a projectile parry can be triggered. In this case it's ranging from 5% to 10% of the move, this value should never be higher than 1f
+        internal const float yellowOrbFinisherParryProjectileTimingStart = 0.0f; // Percentage of the duration of the move where a projectile parry can be triggered
+        internal const float yellowOrbFinisherParryProjectileTimingEnd = 0.5f; // Percentage of the duration of the move when a projectile parry can be triggered. In this case it's ranging from 5% to 10% of the move, this value should never be higher than 1f
         #endregion
 
         #region Red Orb
@@ -150,19 +150,19 @@ namespace LeeHyperrealMod.Modules
         internal const int redOrbDomainFireCount = 3;
         internal const float redOrbDomainProcCoefficient = 1f;
         internal const float redOrbDomainBlastForce = 1000f;
-        internal const float redOrbDomainBaseFireInterval = 0.15f;
+        internal const float redOrbDomainBaseFireInterval = 0.2f;
         internal const float redOrbDomainTripleMultiplier = 4f;
         #endregion
 
         #region Ultimate
         internal const float ultimateDamageCoefficient = 40f;
         internal const float ultimateProcCoefficient = 1f;
-        internal const float ultimateBlastRadius = 25f;
+        internal const float ultimateBlastRadius = 22f;
         internal const float ultimateFreezeDuration = 8f;
 
         internal const float ultimateDomainMiniDamageCoefficient = 2f;
         internal const float ultimateDomainDamageCoefficient = 20f;
-        internal const float ultimateDomainBlastRadius = 50f;
+        internal const float ultimateDomainBlastRadius = 40f;
         internal const int ultimateDomainFireCount = 3;
         internal const float ultimateDomainDuration = 4f;
         #endregion

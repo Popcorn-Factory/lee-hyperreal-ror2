@@ -25,6 +25,9 @@ namespace LeeHyperrealMod.Content.Controllers
         public ModelLocator modelLocator;
         public Transform rootTransform;
 
+        public float smoothDampTime = 0.2f;
+        public float maxSmoothDampSpeed = 50f;
+
         public Vector3 previousCameraPosition;
         public Quaternion previousRotation;
 
@@ -82,12 +85,14 @@ namespace LeeHyperrealMod.Content.Controllers
 
             if (cameraObject) 
             {
-                cameraObject.transform.localPosition = Vector3.SmoothDamp(cameraObject.transform.localPosition, Vector3.zero, ref smoothDampVelocity, 0.2f, 50f, Time.deltaTime);
+                cameraObject.transform.localPosition = Vector3.SmoothDamp(cameraObject.transform.localPosition, Vector3.zero, ref smoothDampVelocity, smoothDampTime, maxSmoothDampSpeed, Time.deltaTime);
             }
         }
 
         public void UnsetUltimate() 
         {
+            smoothDampTime = 0.3f;
+            maxSmoothDampSpeed = 50f;
             //Force the animation back to default
             if (ultimateAnimator) 
             {
@@ -103,6 +108,8 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void UnsetDomainUltimate()
         {
+            smoothDampTime = 0.3f;
+            maxSmoothDampSpeed = 50f;
             //Force the animation back to default
             domainUltimateAnimator.Play("New State");
 
@@ -115,6 +122,8 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void TriggerDomainUlt()
         {
+            smoothDampTime = 0.001f;
+            maxSmoothDampSpeed = 9999999f;
             domainUltimateAnimator.SetTrigger("startUltimateDomain");
 
             cameraObject.transform.SetParent(domainUltimateCameraTransform, true);
@@ -134,6 +143,8 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void TriggerUlt()
         {
+            smoothDampTime = 0.001f;
+            maxSmoothDampSpeed = 9999999f;
             ultimateAnimator.SetTrigger("startUltimate");
 
             cameraObject.transform.SetParent(ultimateCameraTransform, true);
