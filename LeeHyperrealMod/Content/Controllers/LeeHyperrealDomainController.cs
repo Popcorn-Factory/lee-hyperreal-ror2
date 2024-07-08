@@ -146,11 +146,11 @@ namespace LeeHyperrealMod.Content.Controllers
 
         private void SetIconState(UltimateIconState incomingIconState) 
         {
-            if (iconState == incomingIconState) 
-            {
-                //Do nothing
-                return;
-            }
+            //if (iconState == incomingIconState && uiController.isInitialized) 
+            //{
+            //    //Do nothing
+            //    return;
+            //}
 
             iconState = incomingIconState;
 
