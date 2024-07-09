@@ -51,7 +51,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             weaponModelHandler = base.gameObject.GetComponent<WeaponModelHandler>();
             //Unset from IdleSnipe.
             bulletController.UnsetSnipeStance(false);
-            weaponModelHandler.SetLaserState(false);
 
             gravParams = new CharacterGravityParameters();
             gravParams.environmentalAntiGravityGranterCount = 1;
@@ -87,6 +86,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         public override void OnExit()
         {
             base.OnExit();
+            weaponModelHandler.SetLaserState(false);
             if (!hasChangedWeapon)
             {
                 weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
@@ -109,6 +109,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             }
             if (age >= duration * changeWeaponFrac && !hasChangedWeapon)
             {
+                weaponModelHandler.SetLaserState(false);
                 weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
                 hasChangedWeapon = true;
             }

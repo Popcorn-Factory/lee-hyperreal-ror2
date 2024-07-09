@@ -46,7 +46,7 @@ namespace LeeHyperrealMod.Content.Controllers
         public bool shouldRotateCamera;
         public Quaternion startRotation;
         public float stopwatch;
-        public static float lerpTime = 0.5f;
+        public static float lerpTime = 1.25f;
 
         public void Awake() 
         {
@@ -103,11 +103,11 @@ namespace LeeHyperrealMod.Content.Controllers
             }
             if (ultimateAnimator)
             {
-                if (Time.time > cameraTimeAtStart + 2.76f && !cameraAlreadyDamping && cameraStartFovAnimation)
+                if (Time.time > cameraTimeAtStart + 2.60f && !cameraAlreadyDamping && cameraStartFovAnimation)
                 {
                     cameraTargetParams.RemoveParamsOverride(handle);
                     CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
-                    cameraParamsData.fov = 110f;
+                    cameraParamsData.fov = 130f;
 
                     CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
                     {
@@ -116,13 +116,13 @@ namespace LeeHyperrealMod.Content.Controllers
                     };
                     cameraAlreadyDamping = true;
                     cameraStartFovAnimation = false;
-                    handle = cameraTargetParams.AddParamsOverride(request, 0.6f);
+                    handle = cameraTargetParams.AddParamsOverride(request, 0.7f);
                 }
                 if(Time.time > cameraTimeAtStart + 3.4f && !cameraAlreadyDamping2 && cameraStartFovAnimation2)
                 {
                     cameraTargetParams.RemoveParamsOverride(handle);
                     CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
-                    cameraParamsData.fov = 40f;
+                    cameraParamsData.fov = 60f;
 
                     CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
                     {
@@ -154,6 +154,7 @@ namespace LeeHyperrealMod.Content.Controllers
             cameraAlreadyDamping2 = false;
             smoothDampTime = 0.75f;
             maxSmoothDampSpeed = 50f;
+            lerpTime = 1.25f;
             //Force the animation back to default
             if (ultimateAnimator) 
             {
@@ -176,6 +177,8 @@ namespace LeeHyperrealMod.Content.Controllers
             cameraAlreadyDamping2 = false;
             smoothDampTime = 0.5f;
             maxSmoothDampSpeed = 50f;
+            lerpTime = 0.5f;
+            shouldRotateCamera = true;
 
             //Force the animation back to default
             domainUltimateAnimator.Play("New State");
@@ -191,6 +194,7 @@ namespace LeeHyperrealMod.Content.Controllers
             smoothDampTime = 0.001f;
             maxSmoothDampSpeed = 9999999f;
             domainUltimateAnimator.SetTrigger("startUltimateDomain");
+            shouldRotateCamera = false;
 
             cameraObject.transform.SetParent(domainUltimateCameraTransform, true);
             cameraObject.transform.localRotation = Quaternion.identity;
@@ -215,7 +219,6 @@ namespace LeeHyperrealMod.Content.Controllers
             cameraTimeAtStart = Time.time;
             cameraStartFovAnimation = true;
             cameraStartFovAnimation2 = true;
-
             shouldRotateCamera = false;
 
             cameraObject.transform.SetParent(ultimateCameraTransform, true);

@@ -58,7 +58,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.pushForce = Modules.StaticValues.primary3PushForce;
             this.bonusForce = Vector3.zero;
             this.baseDuration = 3f;
-            this.attackStartTime = 0.085f;
+            this.attackStartTime = 0.08f;
             this.attackEndTime = 0.11f;
             this.baseEarlyExitTime = 0.225f;
             this.bufferActiveTime = 0.15f;
