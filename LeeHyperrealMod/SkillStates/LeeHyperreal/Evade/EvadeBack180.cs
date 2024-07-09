@@ -132,6 +132,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                 Ray aimRay = base.GetAimRay();
                 base.AddRecoil(-1f * Modules.StaticValues.snipeRecoil, -2f * Modules.StaticValues.snipeRecoil, -0.5f * Modules.StaticValues.snipeRecoil, 0.5f * Modules.StaticValues.snipeRecoil);
 
+                if (base.inputBank.skill4.down || base.inputBank.skill2.down)
+                {
+                    Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
+                }
+
                 if (isGrounded)
                 {
                     PlaySwingEffect(1.25f, Modules.ParticleAssets.snipeGround, false);
@@ -183,13 +188,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                 {
                     //Fire Snipe
                     base.outer.SetState(new Snipe { });
-                    return;
-                }
-
-                if (base.inputBank.skill2.down)
-                {
-                    //Exit snipe
-                    base.outer.SetState(new ExitSnipe { });
                     return;
                 }
 

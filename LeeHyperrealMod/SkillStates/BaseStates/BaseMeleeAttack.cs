@@ -51,7 +51,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         public float duration;
         private bool hasFired;
         private float hitPauseTimer;
-        private OverlapAttack attack;
+        public OverlapAttack attack;
         protected bool inHitPause;
         private bool hasHopped;
         protected float stopwatch;
@@ -60,8 +60,8 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         private Vector3 storedVelocity;
 
         internal int attackAmount;
-        private float partialAttack;
-        private HitBoxGroup hitBoxGroup;
+        internal float partialAttack;
+        internal HitBoxGroup hitBoxGroup;
         internal OrbController orbController;
 
         internal bool enableParry;
@@ -295,7 +295,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
 
         }
 
-        private void FireAttack()
+        internal virtual void FireAttack()
         {
             if (!this.hasFired)
             {

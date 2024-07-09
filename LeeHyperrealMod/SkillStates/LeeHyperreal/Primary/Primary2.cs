@@ -27,6 +27,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public static float heldButtonThreshold = 0.25f;
         public bool ifButtonLifted = false;
 
+        public float attack2StartFrac = 0.24f;
+        public float attack2EndFrac = 0.26f;
+        public bool hasFired2 = false;
+
         private LeeHyperrealDomainController domainController;
 
         public override void OnEnter()
@@ -42,7 +46,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.baseDuration = 2.366f;
             this.attackStartTime = 0.04f;
             this.attackEndTime = 0.07f;
-            this.moveCancelEndTime = 0.27f;
+            this.moveCancelEndTime = 0.29f;
             this.baseEarlyExitTime = 0.26f;
 
             this.bufferActiveTime = 0.15f;
@@ -114,6 +118,72 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+            if (base.stopwatch >= duration * attack2StartFrac && base.stopwatch <= duration * attack2EndFrac && base.isAuthority && !hasFired2) 
+            {
+                FireSecondAttack();
+            }
+        }
+
+        internal void FireSecondAttack()
+        {
+            if (!hasFired2)
+            {
+                this.hasFired2 = true;
+
+                if (base.isAuthority)
+                {
+                    this.PlaySwingEffect();
+                    base.AddRecoil(-1f * this.attackRecoil, -2f * this.attackRecoil, -0.5f * this.attackRecoil, 0.5f * this.attackRecoil);
+                    for (int i = 0; i < attackAmount; i++)
+                    {
+                        // Create Attack, fire it, do the on hit enemy authority.
+                        this.attack = new OverlapAttack();
+                        this.attack.damageType = this.damageType;
+                        this.attack.attacker = base.gameObject;
+                        this.attack.inflictor = base.gameObject;
+                        this.attack.teamIndex = base.GetTeam();
+                        this.attack.damage = this.damageCoefficient * this.damageStat;
+                        this.attack.procCoefficient = this.procCoefficient;
+                        this.attack.hitEffectPrefab = this.hitEffectPrefab;
+                        this.attack.forceVector = this.bonusForce / attackAmount;
+                        this.attack.pushAwayForce = this.pushForce / attackAmount;
+                        this.attack.hitBoxGroup = hitBoxGroup;
+                        this.attack.isCrit = base.RollCrit();
+                        this.attack.impactSound = this.impactSound;
+                        if (this.attack != null)
+                        {
+                            if (this.attack.Fire())
+                            {
+                                this.OnHitEnemyAuthority();
+                            }
+                        }
+                    }
+                    if (partialAttack > 0.0f)
+                    {
+                        // Create Attack, fire it, do the on hit enemy authority, partaial damage on final 
+                        this.attack = new OverlapAttack();
+                        this.attack.damageType = this.damageType;
+                        this.attack.attacker = base.gameObject;
+                        this.attack.inflictor = base.gameObject;
+                        this.attack.teamIndex = base.GetTeam();
+                        this.attack.damage = this.damageCoefficient * this.damageStat * partialAttack;
+                        this.attack.procCoefficient = this.procCoefficient * partialAttack;
+                        this.attack.hitEffectPrefab = this.hitEffectPrefab;
+                        this.attack.forceVector = this.bonusForce * partialAttack / attackAmount;
+                        this.attack.pushAwayForce = this.pushForce * partialAttack / attackAmount;
+                        this.attack.hitBoxGroup = hitBoxGroup;
+                        this.attack.isCrit = base.RollCrit();
+                        this.attack.impactSound = this.impactSound;
+                        if (this.attack != null)
+                        {
+                            if (this.attack.Fire())
+                            {
+                                this.OnHitEnemyAuthority();
+                            }
+                        }
+                    }
+                }
+            }
         }
 
         public override void OnExit()
