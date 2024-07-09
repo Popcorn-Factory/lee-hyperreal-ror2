@@ -42,6 +42,12 @@ namespace LeeHyperrealMod.Content.Controllers
         public Vector3 smoothDampVelocity;
         public CameraParamsOverrideHandle handle;
 
+        public float lerpRotationInterpolationValue;
+        public bool shouldRotateCamera;
+        public Quaternion startRotation;
+        public float stopwatch;
+        public static float lerpTime = 0.5f;
+
         public void Awake() 
         {
 
@@ -128,6 +134,18 @@ namespace LeeHyperrealMod.Content.Controllers
                     handle = cameraTargetParams.AddParamsOverride(request, 0.3f);
                 }
             }
+
+            if (shouldRotateCamera) 
+            {
+                stopwatch += Time.deltaTime;
+                cameraObject.transform.localRotation = Quaternion.Slerp(startRotation, Quaternion.identity, stopwatch / lerpTime);
+                //Chat.AddMessage($"{stopwatch / lerpTime} {cameraObject.transform.localRotation}");
+                if (stopwatch >= lerpTime) 
+                {
+                    stopwatch = 0f;
+                    shouldRotateCamera = false;
+                }
+            }
         }
 
         public void UnsetUltimate() 
@@ -144,9 +162,12 @@ namespace LeeHyperrealMod.Content.Controllers
 
             //Set parent
             cameraObject.transform.SetParent(previousCameraParent, true);
-            cameraObject.transform.localRotation = Quaternion.identity;
 
-            cameraTargetParams.RemoveParamsOverride(handle);
+            cameraTargetParams.RemoveParamsOverride(handle, 0f);
+
+            //Set after the camera Object has changed parent.
+            shouldRotateCamera = true;
+            startRotation = cameraObject.transform.localRotation;
         }
 
         public void UnsetDomainUltimate()
@@ -155,12 +176,12 @@ namespace LeeHyperrealMod.Content.Controllers
             cameraAlreadyDamping2 = false;
             smoothDampTime = 0.5f;
             maxSmoothDampSpeed = 50f;
+
             //Force the animation back to default
             domainUltimateAnimator.Play("New State");
 
             //Set parent
             cameraObject.transform.SetParent(previousCameraParent, true);
-            cameraObject.transform.localRotation = Quaternion.identity;
 
             cameraTargetParams.RemoveParamsOverride(handle);
         }
@@ -194,6 +215,8 @@ namespace LeeHyperrealMod.Content.Controllers
             cameraTimeAtStart = Time.time;
             cameraStartFovAnimation = true;
             cameraStartFovAnimation2 = true;
+
+            shouldRotateCamera = false;
 
             cameraObject.transform.SetParent(ultimateCameraTransform, true);
             //reset to 0
