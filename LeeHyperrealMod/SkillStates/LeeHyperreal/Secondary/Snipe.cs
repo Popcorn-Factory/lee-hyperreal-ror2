@@ -143,7 +143,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             base.characterDirection.moveVector = new Vector3(0, 0, 0);
 
 
-            if (base.inputBank.skill4.down && base.isAuthority)
+            if ((base.inputBank.skill4.down || base.inputBank.skill2.down))
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }

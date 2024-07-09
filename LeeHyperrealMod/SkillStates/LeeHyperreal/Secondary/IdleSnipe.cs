@@ -58,13 +58,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                 }
 
                 //Check for dodging. Otherwise ignore.
-                if (base.inputBank.skill2.down)
-                {
-                    base.outer.SetState(new ExitSnipe { });
-                    return;
-                }
-
-                //Check for dodging. Otherwise ignore.
                 if (base.inputBank.skill3.down && skillLocator.utility.stock >= 1) 
                 {
                     skillLocator.utility.stock -= 1;
@@ -92,7 +85,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
                     return;
                 }
-                if (base.inputBank.skill4.down)
+                if ((base.inputBank.skill2.down || base.inputBank.skill4.down) && base.isAuthority)
                 {
                     Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
                 }
@@ -113,7 +106,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.PrioritySkill;
+            return InterruptPriority.Skill;
         }
     }
 }
