@@ -151,7 +151,7 @@ namespace LeeHyperrealMod.Content.Controllers
             return low2 + (value - low1) * (high2 - low2) / (high1 - low1);
         }
 
-        public void SetSnipeStance()    
+        public void SetSnipeStance(bool shouldTransition = true)    
         {
             if (body.hasEffectiveAuthority) 
             {
@@ -181,9 +181,12 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
             }
 
-            //Should set for everyone.
-            weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.RIFLE);
-            weaponModelHandler.SetLaserState(true);
+            if (shouldTransition) 
+            {
+                //Should set for everyone.
+                weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.RIFLE);
+                weaponModelHandler.SetLaserState(true);
+            }
 
             if (animator)
             {
@@ -191,7 +194,7 @@ namespace LeeHyperrealMod.Content.Controllers
             }
         }
 
-        public void UnsetSnipeStance() 
+        public void UnsetSnipeStance(bool shouldTransition = true)
         {
             if (body.hasEffectiveAuthority)
             {
@@ -217,9 +220,12 @@ namespace LeeHyperrealMod.Content.Controllers
                 snipeAerialPlatform = null;
             }
 
-            //Should set for everyone.
-            weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
-            weaponModelHandler.SetLaserState(false);
+            if (shouldTransition) 
+            {
+                //Should set for everyone.
+                weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
+                weaponModelHandler.SetLaserState(false);
+            }
 
             if (animator)
             {
