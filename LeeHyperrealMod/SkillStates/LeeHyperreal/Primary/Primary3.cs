@@ -42,8 +42,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         private float playInitialWeaponImpactEffect = 0.07f;
         private bool effectPlayed = false;
 
-        private float attack2StartFrac = 0.16f;
-        private float attack2EndFrac = 0.19f;
+        private float attack2StartFrac = 0.2f;
+        private float attack2EndFrac = 0.35f;
         private bool hasFired2 = false;
 
 
@@ -58,7 +58,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.pushForce = Modules.StaticValues.primary3PushForce;
             this.bonusForce = Vector3.zero;
             this.baseDuration = 3f;
-            this.attackStartTime = 0.09f;
+            this.attackStartTime = 0.085f;
             this.attackEndTime = 0.11f;
             this.baseEarlyExitTime = 0.225f;
             this.bufferActiveTime = 0.15f;
