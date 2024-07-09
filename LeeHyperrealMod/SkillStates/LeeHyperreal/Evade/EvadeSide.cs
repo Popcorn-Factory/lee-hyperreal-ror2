@@ -29,9 +29,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
         private float disableInvincibility = 0.15f;
 
+        private float changeWeaponFrac = 0.65f;
+        private bool hasChangedWeapon = false;
+
         CharacterGravityParameters gravParams;
         private float disableGrav = 0.3f;
 
+        WeaponModelHandler weaponModelHandler; 
         LeeHyperrealUIController uiController;
         BulletController bulletController;
 
@@ -44,8 +48,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             animator.SetFloat("attack.playbackRate", 1f);
             rmaMultiplier = movementMultiplier;
             base.characterBody.isSprinting = false;
+            weaponModelHandler = base.gameObject.GetComponent<WeaponModelHandler>();
             //Unset from IdleSnipe.
-            bulletController.UnsetSnipeStance();
+            bulletController.UnsetSnipeStance(false);
+            weaponModelHandler.SetLaserState(false);
 
             gravParams = new CharacterGravityParameters();
             gravParams.environmentalAntiGravityGranterCount = 1;
@@ -81,6 +87,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         public override void OnExit()
         {
             base.OnExit();
+            if (!hasChangedWeapon)
+            {
+                weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
+            }
             gravParams = new CharacterGravityParameters();
             gravParams.environmentalAntiGravityGranterCount = 0;
             gravParams.channeledAntiGravityGranterCount = 0;
@@ -97,7 +107,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                 gravParams.channeledAntiGravityGranterCount = 0;
                 base.characterMotor.gravityParameters = gravParams;
             }
-
+            if (age >= duration * changeWeaponFrac && !hasChangedWeapon)
+            {
+                weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
+                hasChangedWeapon = true;
+            }
             if (age >= duration * earlyExitFrac && isAuthority)
             {
                 if (base.inputBank.moveVector != new Vector3(0, 0, 0))
