@@ -15,20 +15,44 @@ namespace LeeHyperrealMod.Modules
         }
 
         internal static string UtilDesc(string desc)
-        { 
+        {
             return $"<style=cIsUtility>{desc}</style>";
         }
 
-        internal static string DmgDesc(string desc) 
+        internal static string DmgDesc(string desc)
         {
             return $"<style=cIsDamage>{desc}</style>";
         }
 
-        internal static string Keyword(string desc) 
+        internal static string Keyword(string desc)
         {
             return $"<style=cKeywordName>{desc}</style>";
         }
 
+        internal static string Mono(string desc)
+        {
+            return $"<style=cMono>{desc}</style>";
+        }
+
+        internal static string UserSetting(string desc)
+        {
+            return $"<style=cUserSetting>{desc}</style>";
+        }
+
+        internal static string BlueOrb() 
+        {
+            return $"<color=#4e69ff>Blue</color>";
+        }
+
+        internal static string RedOrb()
+        {
+            return $"<color=#FF0000>Red</color>";
+        }
+
+        internal static string YellowOrb()
+        {
+            return $"<color=#faf400>Yellow</color>";
+        }
 
         public static T[] Append<T>(ref T[] array, List<T> list)
         {

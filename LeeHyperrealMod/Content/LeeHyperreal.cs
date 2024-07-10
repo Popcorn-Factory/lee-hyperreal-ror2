@@ -189,7 +189,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1,
-                keywordTokens = new string[] {}
+                keywordTokens = new string[] { $"{prefix}KEYWORD_ORBS", $"{prefix}KEYWORD_AMMO" }
             });
 
             passive.hypermatrixPassive = Modules.Skills.CreateSkillDef(new SkillDefInfo
@@ -214,7 +214,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1,
-                keywordTokens = new string[] { }
+                keywordTokens = new string[] { $"{prefix}KEYWORD_DOMAIN" }
             });
 
             Modules.Skills.AddPassiveSkills(passive.orbPassiveSkillSlot.skillFamily, new SkillDef[]{

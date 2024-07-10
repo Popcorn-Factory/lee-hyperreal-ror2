@@ -82,6 +82,7 @@ namespace LeeHyperrealMod.Modules
         internal const float parryProjectileDamageMultiplier = 5f;
         internal const int enhancedBulletGrantOnProjectileParry = 1;
         internal const int enhancedBulletGrantOnDamageParry = 1;
+        internal const int enhancedBulletGrantOnDamageParryBig = 3;
         #endregion
 
         #region Orb Controller Values
@@ -178,6 +179,7 @@ namespace LeeHyperrealMod.Modules
         internal const float snipeDamageCoefficient = 4f;
         internal const float snipeForce = 100f;
         internal const float snipeRecoil = 4f;
+        internal const float empoweredBulletMultiplier = 2f;
         #endregion
 
         #region Static functions
