@@ -13,82 +13,39 @@ namespace LeeHyperrealMod.SkillStates
         internal float duration;
         BaseAI[] aiComponents;
         internal float previousAttackSpeedStat;
+        private Animator modelAnimator;
+        private TemporaryOverlay temporaryOverlay;
 
         public override void OnEnter()
         {
             base.OnEnter();
-
-            //Disable master, baseai, character motor, animator
-
-            animator = base.GetModelAnimator();
-            if (animator)
+            this.modelAnimator = base.GetModelAnimator();
+            if (this.modelAnimator)
             {
-                animator.enabled = false;
+                this.modelAnimator.enabled = false;
             }
-            previousAttackSpeedStat = base.attackSpeedStat;
-            attackSpeedStat = 0f;
-
+            if (base.rigidbody && !base.rigidbody.isKinematic)
+            {
+                base.rigidbody.velocity = Vector3.zero;
+                if (base.rigidbodyMotor)
+                {
+                    base.rigidbodyMotor.moveVector = Vector3.zero;
+                }
+            }
+            base.healthComponent.isInFrozenState = true;
             if (base.characterDirection)
             {
                 base.characterDirection.moveVector = base.characterDirection.forward;
             }
-            if (base.characterMotor)
-            {
-                base.characterMotor.velocity = Vector3.zero;
-                base.characterMotor.rootMotion = Vector3.zero;
-                base.characterMotor.enabled = false;
-            }
-            else if (!base.characterMotor)
-            {
-                RigidbodyMotor rigidBodyMotor = base.gameObject.GetComponent<RigidbodyMotor>();
-                rigidBodyMotor.moveVector = Vector3.zero;
-                rigidBodyMotor.rootMotion = Vector3.zero;
-
-                base.rigidbody.velocity = Vector3.zero;
-                rigidBodyMotor.enabled = false;
-            }
-            if (characterBody.master) 
-            {
-                characterBody.master.enabled = false;
-            }
-
-            aiComponents = characterBody.master.aiComponents;
-            foreach (BaseAI aiComponent in aiComponents)
-            {
-                if (aiComponent) 
-                {
-                    aiComponent.enabled = false;
-                }
-            }
-
         }
         public override void OnExit()
         {
+            if (this.modelAnimator)
+            {
+                this.modelAnimator.enabled = true;
+            }
+            base.healthComponent.isInFrozenState = false;
             base.OnExit();
-            if (animator)
-            {
-                animator.enabled = true;
-            }
-            aiComponents = characterBody.master.aiComponents;
-            foreach (BaseAI aiComponent in aiComponents)
-            {
-                if (aiComponent) 
-                {
-                    aiComponent.enabled = true;
-                }                
-            }
-            attackSpeedStat = previousAttackSpeedStat;
-
-            if (base.characterMotor) 
-            {
-                base.characterMotor.enabled = true;
-            }
-
-            RigidbodyMotor rigidBodyMotor = base.gameObject.GetComponent<RigidbodyMotor>();
-            if (rigidBodyMotor) 
-            {
-                rigidBodyMotor.enabled = true;
-            }
         }
 
         public override void FixedUpdate()
@@ -117,7 +74,7 @@ namespace LeeHyperrealMod.SkillStates
 
             }
 
-            if (base.fixedAge > duration && base.isAuthority)
+            if (base.isAuthority && base.fixedAge >= this.duration)
             {
                 this.outer.SetNextStateToMain();
                 return;
