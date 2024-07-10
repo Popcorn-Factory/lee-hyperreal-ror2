@@ -13,13 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="leehyperrealassets" />
-    <None Remove="LeeHyperrealSoundBank.bnk" />
     <None Remove="Modules\Characters\Henry.cs~RF6221a098.TMP" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="LeeHyperrealSoundBank.bnk" />
   </ItemGroup>
 
 	<ItemGroup>
@@ -31,10 +25,6 @@
 		<PackageReference Include="RiskOfRain2.GameLibs" Version="1.2.1-r.1" />
 		<PackageReference Include="UnityEngine.Modules" Version="2019.4.37" />
 	</ItemGroup>
-	
-  <ItemGroup>
-    <EmbeddedResource Include="leehyperrealassets" />
-  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="CustomEmotesAPI">

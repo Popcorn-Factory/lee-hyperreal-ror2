@@ -47,24 +47,47 @@ namespace LeeHyperrealMod.Modules
         private const string assetbundleName = "leehyperrealassets";
         //change this to your project's name if/when you've renamed it
         private const string csProjName = "LeeHyperrealMod";
-        
+
+        public static string AssetBundlePath
+        {
+            get
+            {
+                //This returns the path to your assetbundle assuming said bundle is on the same folder as your DLL. If you have your bundle in a folder, you can uncomment the statement below this one.
+                return System.IO.Path.Combine(System.IO.Path.GetDirectoryName(LeeHyperrealPlugin.PInfo.Location), assetbundleName);
+                //return Path.Combine(Path.GetDirectoryName(MainClass.PInfo.Location), assetBundleFolder, myBundle);
+            }
+        }
+
+        internal static uint _soundBankId;
+        internal static string soundbankName = "LeeHyperrealSoundBank.bnk";
+        internal static string soundbankFolder = "Soundbanks";
+        public static string SoundBankDirectory
+        {
+            get
+            {
+                return System.IO.Path.Combine(System.IO.Path.GetDirectoryName(LeeHyperrealPlugin.PInfo.Location), soundbankFolder);
+            }
+        }
+
+
         internal static void Initialize()
         {
             LoadAssetBundle();
-            LoadSoundbank();
             PopulateAssets();
         }
 
         internal static void LoadAssetBundle()
         {
+            Log.Info("Adding Assetbundle");
             try
             {
                 if (mainAssetBundle == null)
                 {
-                    using (var assetStream = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{csProjName}.{assetbundleName}"))
-                    {
-                        mainAssetBundle = AssetBundle.LoadFromStream(assetStream);
-                    }
+                    mainAssetBundle = AssetBundle.LoadFromFile(AssetBundlePath);
+                    //using (var assetStream = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{csProjName}.{assetbundleName}"))
+                    //{
+                    //    mainAssetBundle = AssetBundle.LoadFromStream(assetStream);
+                    //}
                 }
             }
             catch (Exception e)
@@ -76,11 +99,35 @@ namespace LeeHyperrealMod.Modules
 
         internal static void LoadSoundbank()
         {
-            using (Stream manifestResourceStream2 = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{csProjName}.LeeHyperrealSoundBank.bnk"))
+            //using (Stream manifestResourceStream2 = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{csProjName}.LeeHyperrealSoundBank.bnk"))
+            //{
+            //    byte[] array = new byte[manifestResourceStream2.Length];
+            //    manifestResourceStream2.Read(array, 0, array.Length);
+            //SoundAPI.SoundBanks.Add(array);
+            //}
+
+            var akResult = AkSoundEngine.AddBasePath(SoundBankDirectory);
+            if (akResult == AKRESULT.AK_Success)
             {
-                byte[] array = new byte[manifestResourceStream2.Length];
-                manifestResourceStream2.Read(array, 0, array.Length);
-                SoundAPI.SoundBanks.Add(array);
+                Log.Info($"Added bank base path : {SoundBankDirectory}");
+            }
+            else
+            {
+                Log.Error(
+                    $"Error adding base path : {SoundBankDirectory} " +
+                    $"Error code : {akResult}");
+            }
+
+            akResult = AkSoundEngine.LoadBank(soundbankName, out _soundBankId);
+            if (akResult == AKRESULT.AK_Success)
+            {
+                Log.Info($"Added bank : {soundbankName}");
+            }
+            else
+            {
+                Log.Error(
+                    $"Error loading bank : {soundbankName} " +
+                    $"Error code : {akResult}");
             }
         }
 

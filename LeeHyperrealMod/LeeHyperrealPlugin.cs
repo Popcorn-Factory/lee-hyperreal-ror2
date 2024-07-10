@@ -40,11 +40,12 @@ namespace LeeHyperrealMod
         public const string DEVELOPER_PREFIX = "POPCORN";
 
         public static LeeHyperrealPlugin instance;
+        public static PluginInfo PInfo { get; private set; }
 
         private void Awake()
         {
             instance = this;
-
+            PInfo = Info;
             Log.Init(Logger);
             Modules.Assets.Initialize(); // load assets and read config
             base.StartCoroutine(Modules.Assets.mainAssetBundle.UpgradeStubbedShadersAsync());
@@ -77,6 +78,16 @@ namespace LeeHyperrealMod
             new Modules.ContentPacks().Initialize();
 
             Hook();
+        }
+
+        private void Start() 
+        {
+            //Load Soundbanks in.
+            Modules.Assets.LoadSoundbank();
+            if (AkSoundEngine.IsInitialized())
+            {
+                AkSoundEngine.SetRTPCValue("Volume_Lee_Voice", Modules.Config.voiceVolume.Value);
+            }
         }
 
         private void Hook()
