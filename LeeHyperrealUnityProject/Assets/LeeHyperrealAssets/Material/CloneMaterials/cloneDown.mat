@@ -82,6 +82,9 @@ Material:
     - _DstBlend: 0
     - _EndDitheringFade: 1
     - _FrenelMultiplier: 1.243413
+    - _FresnelBias: 0
+    - _FresnelPower: 1
+    - _FresnelScale: 0.5
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -102,3 +105,4 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 0.39215687}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _TextureColor: {r: 1, g: 1, b: 1, a: 0.8}
+    - _Tint: {r: 0.38679248, g: 0.85542274, b: 1, a: 1}

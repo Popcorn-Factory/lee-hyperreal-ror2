@@ -63,7 +63,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
             if (bulletController.ConsumeEnhancedBullet(1)) 
             {
-                empoweredBulletMultiplier = 2.0f;
+                empoweredBulletMultiplier = Modules.StaticValues.empoweredBulletMultiplier;
                 playBreakSFX = true;
             }
 

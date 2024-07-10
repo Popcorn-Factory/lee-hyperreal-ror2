@@ -399,6 +399,8 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
 
                     if (parryMonitor.ShouldDoBigParry)
                     {
+
+                        bulletController.GrantEnhancedBullet(Modules.StaticValues.enhancedBulletGrantOnDamageParryBig);
                         parryMonitor.ShouldDoBigParry = false;
                         //Determine if it's big pause or not.
                         TriggerHitPause(Modules.StaticValues.bigParryLeeFreezeDuration);
@@ -420,6 +422,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                     {
                         TriggerHitPause(parryPauseLength);
 
+                        bulletController.GrantEnhancedBullet(Modules.StaticValues.enhancedBulletGrantOnDamageParry);
                         new PlaySoundNetworkRequest(characterBody.netId, "Play_Normal_parry").Send(NetworkDestination.Clients);
                         Vector3 position = base.gameObject.transform.position + (characterDirection.forward + Vector3.up * 1f) * 2f;
 
@@ -437,7 +440,6 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                             true);
                     }
 
-                    bulletController.GrantEnhancedBullet(Modules.StaticValues.enhancedBulletGrantOnDamageParry);
                 }
             }
 
