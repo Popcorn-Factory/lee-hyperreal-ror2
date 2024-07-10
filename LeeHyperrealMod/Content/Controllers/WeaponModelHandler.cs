@@ -20,11 +20,15 @@ namespace LeeHyperrealMod.Content.Controllers
         private GameObject submachineModel;
         private GameObject submachine2Model;
         private GameObject guncaseModel;
+        private GameObject guncaseRoot;
+        private GameObject submachineRoot;
 
         private GameObject sniperRifleModel;
         private GameObject sniperRifleAlphaModel;
-        
+        private GameObject snipeRoot;
+
         private GameObject supercannonModel;
+        private GameObject superCannonRoot;
 
         private ParticleSystem rifleFlashEffect;
         private GameObject rifleLaser;
@@ -64,6 +68,11 @@ namespace LeeHyperrealMod.Content.Controllers
                 rifleFlashEffect = childLocator.FindChild("RifleFlashEffect").gameObject.GetComponent<ParticleSystem>();
                 boxFlashEffect = childLocator.FindChild("BoxFlashEffect").gameObject.GetComponent<ParticleSystem>();
                 rifleLaser = childLocator.FindChild("RifleLaser").gameObject;
+
+                submachineRoot = childLocator.FindChild("SubmachineMain").gameObject;
+                snipeRoot = childLocator.FindChild("RifleMain").gameObject;
+                superCannonRoot = superCannonAnimator.gameObject;
+                guncaseRoot = childLocator.FindChild("WeaponCase").gameObject;
             }
 
             superCannonEffect.gameObject.SetActive(false);
@@ -127,14 +136,7 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             if (isEmoting) 
             {
-                submachineModel.SetActive(false);
-                submachine2Model.SetActive(false);
-                guncaseModel.SetActive(false);
-
-                sniperRifleAlphaModel.SetActive(false);
-                sniperRifleModel.SetActive(false);
-
-                supercannonModel.SetActive(false);
+                DisableAll();
             }
 
             if (isCannonEnabled) 
@@ -185,6 +187,11 @@ namespace LeeHyperrealMod.Content.Controllers
             sniperRifleModel.SetActive(false);
 
             supercannonModel.SetActive(false);
+        
+            submachineRoot.SetActive(false);
+            snipeRoot.SetActive(false);
+            guncaseRoot.SetActive(false);
+            superCannonRoot.SetActive(false);
         }
 
         public void TransitionState(WeaponState newState)
@@ -210,18 +217,27 @@ namespace LeeHyperrealMod.Content.Controllers
 
             supercannonModel.SetActive(false);
 
+            snipeRoot.SetActive(false);
+            submachineRoot.SetActive(false);
+            guncaseRoot.SetActive(false);
+            superCannonRoot.SetActive(false);
+
             switch (state) 
             {
                 case WeaponState.SUBMACHINE:
+                    submachineRoot.SetActive(true);
+                    guncaseRoot.SetActive(true);
                     submachineModel.SetActive(true);
                     //submachine2Model.SetActive(true);
                     guncaseModel.SetActive(true);
                     boxFlashEffect.Play();
                     break;
                 case WeaponState.CANNON:
+                    superCannonRoot.SetActive(true);
                     supercannonModel.SetActive(true);
                     break;
                 case WeaponState.RIFLE:
+                    snipeRoot.SetActive(true);
                     sniperRifleAlphaModel.SetActive(true);
                     sniperRifleModel.SetActive(true);
                     rifleFlashEffect.Play();
