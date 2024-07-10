@@ -1043,6 +1043,11 @@ namespace LeeHyperrealMod.Content.Controllers
         }
         #endregion
 
+        public void SetRORUIActiveState(bool state) 
+        {
+            RoRHUDObject.SetActive(state);
+        }
+
         #region Hook
         public void Hook()
         {

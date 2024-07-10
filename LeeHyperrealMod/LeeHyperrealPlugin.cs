@@ -93,7 +93,6 @@ namespace LeeHyperrealMod
         private void Hook()
         {
             // run hooks here, disabling one is as simple as commenting out the line
-            On.RoR2.CharacterBody.RecalculateStats += CharacterBody_RecalculateStats;
             On.RoR2.CharacterModel.Start += CharacterModel_Start;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
             //On.RoR2.CharacterBody.Update += CharacterBody_Update;
@@ -193,17 +192,6 @@ namespace LeeHyperrealMod
                 {
                     CustomEmotesAPI.ImportArmature(item.bodyPrefab, Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("humanoidLeeHyperreal"));
                 }
-            }
-        }
-
-        private void CharacterBody_RecalculateStats(On.RoR2.CharacterBody.orig_RecalculateStats orig, CharacterBody self)
-        {
-            orig(self);
-
-            // a simple stat hook, adds armor after stats are recalculated
-            if (self)
-            {
-            
             }
         }
     }

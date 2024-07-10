@@ -144,7 +144,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
                 if (base.isAuthority)
                 {
-                    this.PlaySwingEffect();
                     base.AddRecoil(-1f * this.attackRecoil, -2f * this.attackRecoil, -0.5f * this.attackRecoil, 0.5f * this.attackRecoil);
                     for (int i = 0; i < attackAmount; i++)
                     {
@@ -205,7 +204,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
                 if (base.isAuthority)
                 {
-                    this.PlaySwingEffect();
                     base.AddRecoil(-1f * this.attackRecoil, -2f * this.attackRecoil, -0.5f * this.attackRecoil, 0.5f * this.attackRecoil);
                     for (int i = 0; i < attackAmount; i++)
                     {

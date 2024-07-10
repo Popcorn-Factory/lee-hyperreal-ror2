@@ -12,6 +12,7 @@ namespace LeeHyperrealMod.Content.Controllers
 {
     internal class UltimateCameraController : MonoBehaviour
     {
+        public LeeHyperrealUIController uiController;
         public static string targetChild = "BaseTransform";
         public CharacterBody body;
         public GameObject cameraObject;
@@ -58,6 +59,7 @@ namespace LeeHyperrealMod.Content.Controllers
             body = gameObject.GetComponent<CharacterBody>();
             modelLocator = gameObject.GetComponent<ModelLocator>();
             cameraTargetParams = GetComponent<CameraTargetParams>();
+            uiController = GetComponent<LeeHyperrealUIController>();
 
             ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
             rootTransform = childLocator.FindChild("BaseTransform");
@@ -169,6 +171,8 @@ namespace LeeHyperrealMod.Content.Controllers
             //Set after the camera Object has changed parent.
             shouldRotateCamera = true;
             startRotation = cameraObject.transform.localRotation;
+
+            uiController.SetRORUIActiveState(true);
         }
 
         public void UnsetDomainUltimate()
@@ -187,6 +191,8 @@ namespace LeeHyperrealMod.Content.Controllers
             cameraObject.transform.SetParent(previousCameraParent, true);
 
             cameraTargetParams.RemoveParamsOverride(handle);
+
+            uiController.SetRORUIActiveState(true);
         }
 
         public void TriggerDomainUlt()
@@ -207,6 +213,8 @@ namespace LeeHyperrealMod.Content.Controllers
                 cameraParamsData = cameraParamsData,
                 priority = 0,
             };
+
+            uiController.SetRORUIActiveState(false);
 
             handle = cameraTargetParams.AddParamsOverride(request, 0.05f);
         }
@@ -235,6 +243,8 @@ namespace LeeHyperrealMod.Content.Controllers
             };
 
             handle = cameraTargetParams.AddParamsOverride(request, 0.05f);
+
+            uiController.SetRORUIActiveState(false);
         }
 
         public void OnDestroy() 
