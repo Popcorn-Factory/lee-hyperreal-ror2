@@ -40,7 +40,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override void OnEnter()
         {
-            PlayExtraSwingEffect(Modules.ParticleAssets.primary2Shot);
             domainController = this.GetComponent<LeeHyperrealDomainController>();
             this.hitboxName = "Primary2";
 
@@ -72,6 +71,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             InitMeleeRootMotion();
 
             this.swingScale = 1.25f;
+
+            //Play the effect after setting the muzzle string, it'll be spawned in a random place if you don't
+            if (base.isAuthority)
+            {
+                PlayExtraSwingEffect(Modules.ParticleAssets.primary2Shot);
+            }
         }
 
         public RootMotionAccumulator InitMeleeRootMotion()

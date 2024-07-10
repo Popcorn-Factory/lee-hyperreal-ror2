@@ -159,7 +159,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             Modules.Prefabs.SetupHitbox(prefabCharacterModel.gameObject, childLocator.FindChild("RedOrb3PingHitbox"), "Red3Ping");
             Modules.Prefabs.SetupHitbox(prefabCharacterModel.gameObject, childLocator.FindChild("Primary2Hitbox"), "Primary2");
         }
-
+        
         public override void InitializeSkills()
         {
             LeeHyperrealPassive passive = bodyPrefab.AddComponent<LeeHyperrealPassive>();
