@@ -34,7 +34,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 position = position,
                 radius = Modules.StaticValues.ultimateBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.None,
-                baseDamage = leeBody.damage * Modules.StaticValues.ultimateDamageCoefficient,
+                baseDamage = (leeBody.damage * Modules.StaticValues.ultimateDamageCoefficient) / (float)Modules.StaticValues.ultimateFinalBlastHitCount,
                 baseForce = 0f,
                 bonusForce = Vector3.zero,
                 crit = leeBody.RollCrit(),
@@ -69,9 +69,12 @@ namespace LeeHyperrealMod.Content.Controllers
                 triggeredExplosion = true;
                 //Trigger blast
 
-                if (leeBody.hasEffectiveAuthority) 
+                if (leeBody.hasEffectiveAuthority)
                 {
-                    blastAttack.Fire();
+                    for (int i = 0; i < Modules.StaticValues.ultimateFinalBlastHitCount; i++) 
+                    {
+                        blastAttack.Fire();
+                    }
 
                     //Trigger effect.
                     EffectManager.SpawnEffect(

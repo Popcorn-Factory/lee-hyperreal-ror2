@@ -28,8 +28,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
         }
 
-
-
         public void FixedUpdate()
         {
 

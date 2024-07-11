@@ -160,6 +160,7 @@ namespace LeeHyperrealMod.Modules
         internal const float ultimateProcCoefficient = 1f;
         internal const float ultimateBlastRadius = 22f;
         internal const float ultimateFreezeDuration = 8f;
+        internal const int ultimateFinalBlastHitCount = 12;
 
         internal const float ultimateDomainMiniDamageCoefficient = 2f;
         internal const float ultimateDomainDamageCoefficient = 20f;
