@@ -102,9 +102,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 }
             }
 
-
-
-
             if (fixedAge >= duration && base.isAuthority)
             {
                 base.outer.SetNextStateToMain();

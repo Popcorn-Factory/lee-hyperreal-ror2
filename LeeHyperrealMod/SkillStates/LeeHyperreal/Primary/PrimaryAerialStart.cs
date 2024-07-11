@@ -16,8 +16,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         LeeHyperrealDomainController domainController;
         private float duration = 0.8f;
 
-        private float ungroundFrac = 0.33f;
-
         public static float heldButtonThreshold = 0.4f;
         public bool ifButtonLifted = false;
 
@@ -103,12 +101,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 //Send instantly to end state
                 base.outer.SetState(new PrimaryAerialSlam { });
                 return;
-            }
-            if (fixedAge >= duration * ungroundFrac) 
-            {
-                base.characterMotor.Motor.ForceUnground();
-            }
-            
+            } 
+
             if (fixedAge >= duration && base.isAuthority) 
             {
                 //Send to loop state.

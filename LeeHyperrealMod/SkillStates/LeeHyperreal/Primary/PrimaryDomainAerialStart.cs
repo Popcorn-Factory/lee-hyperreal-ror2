@@ -77,11 +77,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void FixedUpdate()
         {
             base.FixedUpdate();
-            if (fixedAge >= duration * ungroundFrac) 
-            {
-                base.characterMotor.Motor.ForceUnground();
-            }
-            
+
             if (fixedAge >= duration && base.isAuthority) 
             {
                 //Send to loop state.
