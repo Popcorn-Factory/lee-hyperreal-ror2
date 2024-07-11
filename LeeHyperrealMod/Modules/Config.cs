@@ -114,13 +114,13 @@ namespace LeeHyperrealMod.Modules
             horizontalCameraPosition = LeeHyperrealPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("03 - Snipe", "Horizontal Camera Positioning when scoped"),
-                2.3f,
+                2f,
                 new ConfigDescription("Changes the the horizontal position of the camera when scoped. Positive values is right, Negative values are left.")
             );
             verticalCameraPosition = LeeHyperrealPlugin.instance.Config.Bind<float>
             (
                 new ConfigDefinition("03 - Snipe", "Vertical Camera Positioning when scoped"),
-                -2.5f,
+                -1.6f,
                 new ConfigDescription("Changes the the vertical position of the camera when scoped. Positive values is up, Negative values are down.")
             );
 
