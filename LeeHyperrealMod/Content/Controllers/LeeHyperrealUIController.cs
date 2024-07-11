@@ -259,6 +259,7 @@ namespace LeeHyperrealMod.Content.Controllers
             Destroy(orbUIObject);
             Destroy(powerMeterUIObject);
             Destroy(healthLayers);
+            Destroy(ultimateIndicatorObject);
             Unhook();
         }
         #endregion

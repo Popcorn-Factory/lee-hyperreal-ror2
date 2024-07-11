@@ -186,6 +186,8 @@ namespace LeeHyperrealMod.Content.Controllers
         private void ApplyIntutionBuffsToBody()
         {
             charBody.ApplyBuff(Modules.Buffs.intuitionBuff.buffIndex, intuitionStacks, -1);
+
+            uiController.SetIntuitionStacks(intuitionStacks);
         }
 
         private void ResetIntutionStacksOnBody()
@@ -194,6 +196,8 @@ namespace LeeHyperrealMod.Content.Controllers
 
             // Also Set intution stacks to 0
             intuitionStacks = 0;
+
+            uiController.SetIntuitionStacks(intuitionStacks);
         }
 
         public void EnergyRegen()

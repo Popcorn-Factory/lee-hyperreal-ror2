@@ -35,6 +35,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         public bool preFinalBlastTriggered = false;
         public bool finalBlastTriggered = false;
 
+        public int domainHitCount;
+
         internal BlastAttack blastAttack;
 
         internal bool isStrong;
@@ -72,6 +74,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             }
 
             sightStacks = docon.GetIntuitionStacks();
+
+            domainHitCount = StaticValues.ultimateDomainFireCount + (sightStacks * StaticValues.ultimateDomainFireCount);
+
             if (sightStacks == 0) 
             {
                 sightStacks = 1;
@@ -285,7 +290,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             //Able to be cancelled after this.
             if (fixedAge >= duration * fireTime && base.isAuthority)
             {
-                if(fireStopwatch <= 0f && fireCount < StaticValues.ultimateDomainFireCount)
+                if(fireStopwatch <= 0f && fireCount < domainHitCount)
                 {
                     //mini hits
                     fireStopwatch = fireInterval;
@@ -293,27 +298,27 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                     fireCount++;
 
                 }
-                else if (fireStopwatch > 0f && fireCount < StaticValues.ultimateDomainFireCount)
+                else if (fireStopwatch > 0f && fireCount < domainHitCount)
                 {
                     fireStopwatch -= Time.fixedDeltaTime;
                 }
 
-                if (fireCount >= StaticValues.ultimateDomainFireCount)
-                {
-                    if(finalStopwatch > finalInterval && !preFinalBlastTriggered)
-                    {
-                        preFinalBlastTriggered = true;
-                        //final hit
-                        blastAttack.baseDamage = damageStat * Modules.StaticValues.ultimateDomainDamageCoefficient * sightStacks; //multiple by anschauung stacks
-                        blastAttack.Fire();
+                //if (fireCount >= domainHitCount)
+                //{
+                //    if(finalStopwatch > finalInterval && !preFinalBlastTriggered)
+                //    {
+                //        preFinalBlastTriggered = true;
+                //        //final hit
+                //        blastAttack.baseDamage = damageStat * Modules.StaticValues.ultimateDomainDamageCoefficient * sightStacks; //multiple by anschauung stacks
+                //        blastAttack.Fire();
 
-                    }
-                    else
-                    {
-                        finalStopwatch += Time.fixedDeltaTime;
-                    }
+                //    }
+                //    else
+                //    {
+                //        finalStopwatch += Time.fixedDeltaTime;
+                //    }
 
-                }
+                //}
             }
 
             if (fixedAge >= duration * effectPlay && base.isAuthority) 

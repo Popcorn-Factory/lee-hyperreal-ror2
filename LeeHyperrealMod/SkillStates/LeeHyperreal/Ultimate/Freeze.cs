@@ -32,7 +32,6 @@ namespace LeeHyperrealMod.SkillStates
                     base.rigidbodyMotor.moveVector = Vector3.zero;
                 }
             }
-            base.healthComponent.isInFrozenState = true;
             if (base.characterDirection)
             {
                 base.characterDirection.moveVector = base.characterDirection.forward;
@@ -44,7 +43,6 @@ namespace LeeHyperrealMod.SkillStates
             {
                 this.modelAnimator.enabled = true;
             }
-            base.healthComponent.isInFrozenState = false;
             base.OnExit();
         }
 
