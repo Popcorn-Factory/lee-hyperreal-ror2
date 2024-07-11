@@ -45,6 +45,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             armor = 0f,
 
             jumpCount = 1,
+            moveSpeed = Modules.StaticValues.baseMoveSpeed,
         };
 
         public override CustomRendererInfo[] customRendererInfos { get; set; } = new CustomRendererInfo[] 

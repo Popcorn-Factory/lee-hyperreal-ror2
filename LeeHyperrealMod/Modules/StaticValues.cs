@@ -16,6 +16,10 @@ namespace LeeHyperrealMod.Modules
 
         internal const float bombDamageCoefficient = 16f;
 
+        #region Character Stats
+        internal const float baseMoveSpeed = 7f;
+        #endregion
+
         #region Primary 1
         internal const float primary1DamageCoefficient = 1.5f;
         internal const float primary1ProcCoefficient = 1f;

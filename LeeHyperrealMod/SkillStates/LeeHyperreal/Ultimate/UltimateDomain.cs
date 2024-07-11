@@ -234,11 +234,28 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             }
 
             characterMotor.gravityParameters = oldGravParams;
+
+            if (bulletController.snipeAerialPlatform) 
+            {
+                bulletController.snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+                bulletController.snipeAerialPlatform = null;
+            }
         }
 
         public override void Update()
         {
             base.Update();
+
+            if (!base.isGrounded) 
+            {
+                if (!bulletController.snipeAerialPlatform) 
+                {
+                    ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
+                    Transform baseTransform = childLocator.FindChild("BaseTransform");
+                    bulletController.snipeAerialPlatform = UnityEngine.Object.Instantiate(Modules.ParticleAssets.snipeAerialFloor, baseTransform.position, Quaternion.identity);
+                }
+            }
+
             if (age >= duration * earlyEnd && base.isAuthority)
             {
 
