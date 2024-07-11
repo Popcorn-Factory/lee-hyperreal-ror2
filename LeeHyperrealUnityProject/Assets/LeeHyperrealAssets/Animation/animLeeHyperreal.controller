@@ -1426,12 +1426,12 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.1
   m_TransitionOffset: 0
   m_ExitTime: 0.86702126
   m_HasExitTime: 0
   m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_InterruptionSource: 2
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1101 &-5638974863481110061
@@ -2035,7 +2035,7 @@ AnimatorStateTransition:
   m_ExitTime: 0.612069
   m_HasExitTime: 0
   m_HasFixedDuration: 1
-  m_InterruptionSource: 0
+  m_InterruptionSource: 2
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
 --- !u!1102 &-3999249859164210609
@@ -3441,7 +3441,7 @@ BlendTree:
     m_DirectBlendParameter: forwardSpeed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 71c011e78d81917499ad51b072f03db4, type: 2}
+    m_Motion: {fileID: 7400000, guid: 71fd4cc9ac80d0a48a9986255882a680, type: 2}
     m_Threshold: 0.4
     m_Position: {x: 0, y: -1}
     m_TimeScale: 1
@@ -3449,7 +3449,7 @@ BlendTree:
     m_DirectBlendParameter: forwardSpeed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 4496d2ef2e2010844af428571f86e8d1, type: 2}
+    m_Motion: {fileID: 7400000, guid: 71fd4cc9ac80d0a48a9986255882a680, type: 2}
     m_Threshold: 0.6
     m_Position: {x: 0, y: 1}
     m_TimeScale: 1
@@ -3457,7 +3457,7 @@ BlendTree:
     m_DirectBlendParameter: forwardSpeed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 4496d2ef2e2010844af428571f86e8d1, type: 2}
+    m_Motion: {fileID: 7400000, guid: 71fd4cc9ac80d0a48a9986255882a680, type: 2}
     m_Threshold: 0.8
     m_Position: {x: 1, y: 1}
     m_TimeScale: 1
@@ -3465,7 +3465,7 @@ BlendTree:
     m_DirectBlendParameter: forwardSpeed
     m_Mirror: 0
   - serializedVersion: 2
-    m_Motion: {fileID: 7400000, guid: 71c011e78d81917499ad51b072f03db4, type: 2}
+    m_Motion: {fileID: 7400000, guid: 71fd4cc9ac80d0a48a9986255882a680, type: 2}
     m_Threshold: 1
     m_Position: {x: 1, y: -1}
     m_TimeScale: 1
@@ -6655,7 +6655,7 @@ AnimatorStateMachine:
     m_Position: {x: 1080, y: 360, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1993087237014282240}
-    m_Position: {x: 2270, y: -200, z: 0}
+    m_Position: {x: 2210, y: -220, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2821704139875675400}
     m_Position: {x: 2190, y: 280, z: 0}

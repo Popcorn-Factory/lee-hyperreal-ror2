@@ -176,13 +176,13 @@ namespace LeeHyperrealMod.Modules.Characters
         public Vector3 modelBasePosition = new Vector3(0f, -0.92f, 0f);
        
         //basically the "height" of your camera
-        public Vector3 cameraPivotPosition = new Vector3(0f, 0.8f, 0f);
+        public Vector3 cameraPivotPosition = new Vector3(0f, 0.5f, 0f);
 
         //how far relative to the pivot is your camera's center 
-        public float cameraParamsVerticalOffset = 1.37f;
+        public float cameraParamsVerticalOffset = 0.8f;
 
         //large characters like loader are -12. for smaller characters like commando go for -10 maybe -9
-        public float cameraParamsDepth = -10;
+        public float cameraParamsDepth = -7;
 
         private CharacterCameraParams _cameraParams;
         public CharacterCameraParams cameraParams

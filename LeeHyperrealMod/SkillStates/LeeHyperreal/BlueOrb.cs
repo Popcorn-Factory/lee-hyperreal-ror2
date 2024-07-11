@@ -50,7 +50,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         bool forceTransition = false;
 
         Vector3 OriginalPosition;
-        
+
 
         float transitionWeaponFrac = 0.35f;
         bool hasTransitioned = false;
@@ -80,6 +80,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             if (moveStrength == 3 && !domainController.GetDomainState())
             {
                 bulletController.GrantColouredBullet(BulletController.BulletType.BLUE);
+            }
+            if (moveStrength == 3 && domainController.GetDomainState())
+            {
+                domainController.GrantIntuitionStack(1);
             }
 
             attackAmount = (int)this.attackSpeedStat;

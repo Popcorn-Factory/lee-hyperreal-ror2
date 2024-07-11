@@ -66,9 +66,9 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Primary Aerial
-        internal const float primaryAerialSlamRadius = 10f;
+        internal const float primaryAerialSlamRadius = 5f;
         internal const float primaryAerialMaxDamageMultiplier = 3f;
-        internal const float primaryAerialDamageCoefficient = 7f;
+        internal const float primaryAerialDamageCoefficient = 5f;
         internal const float primaryAerialProcCoefficient = 1f;
         internal const float primaryAerialSlamSpeed = 100f;
         #endregion
