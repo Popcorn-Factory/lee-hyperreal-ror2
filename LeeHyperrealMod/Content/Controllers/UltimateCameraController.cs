@@ -249,7 +249,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void OnDestroy() 
         {
-            UnsetUltimate();
+
             Destroy(ultimateCameraGameObject);
         }
     }

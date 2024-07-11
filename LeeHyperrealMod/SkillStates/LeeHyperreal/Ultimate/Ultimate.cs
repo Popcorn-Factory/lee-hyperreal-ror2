@@ -203,30 +203,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             }
         }
 
-        private bool AttachComponent(BulletAttack bulletAttackRef, ref BulletAttack.BulletHit hitInfo)
-        {
-
-            var hurtbox = hitInfo.hitHurtBox;
-            if (hurtbox)
-            {
-                var healthComponent = hurtbox.healthComponent;
-                if (healthComponent)
-                {
-                    var body = healthComponent.body;
-                    if (body)
-                    {
-                        Ray aimRay = base.GetAimRay();
-                        //attach component to pull enemies in, can add multiple?
-                        UltimateController ultimateCon = body.gameObject.AddComponent<UltimateController>();
-                        ultimateCon.charbody = characterBody;
-                        ultimateCon.enemycharbody = body;
-
-                    }
-                }
-            }
-            return false;
-        }
-
         protected void PlayAttackAnimation()
         {
             PlayAnimation("Body", "Ultimate", "attack.playbackRate", duration);
@@ -349,40 +325,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 if (base.isAuthority)
                 {
                     GetModelAnimator().SetBool("isUltimate", false);
-
-                    bulletAttack = new BulletAttack();
-                    bulletAttack.bulletCount = (uint)(1U);
-                    bulletAttack.aimVector = aimRay.direction;
-                    bulletAttack.origin = aimRay.origin;
-                    bulletAttack.damage = 1f * this.damageStat;
-                    bulletAttack.damageColorIndex = DamageColorIndex.Default;
-                    bulletAttack.damageType = DamageType.Generic;
-                    bulletAttack.falloffModel = BulletAttack.FalloffModel.None;
-                    bulletAttack.maxDistance = 200f;
-                    bulletAttack.force = 0f;
-                    bulletAttack.hitMask = LayerIndex.CommonMasks.bullet;
-                    bulletAttack.minSpread = 0f;
-                    bulletAttack.maxSpread = 0f;
-                    bulletAttack.isCrit = base.RollCrit();
-                    bulletAttack.owner = base.gameObject;
-                    bulletAttack.muzzleName = muzzleString;
-                    bulletAttack.smartCollision = false;
-                    bulletAttack.procChainMask = default(ProcChainMask);
-                    bulletAttack.procCoefficient = 0.1f;
-                    bulletAttack.radius = 2f;
-                    bulletAttack.sniper = true;
-                    bulletAttack.stopperMask = LayerIndex.noCollision.mask;
-                    bulletAttack.smartCollision = true;
-                    bulletAttack.weapon = null;
-                    bulletAttack.tracerEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("RoR2/Base/Huntress/TracerHuntressSnipe.prefab"); //temporary
-                    bulletAttack.spreadPitchScale = 0f;
-                    bulletAttack.spreadYawScale = 0f;
-                    bulletAttack.queryTriggerInteraction = QueryTriggerInteraction.UseGlobal;
-                    bulletAttack.hitEffectPrefab = null;
-                    bulletAttack.hitCallback = AttachComponent;
-
-                    bulletAttack.Fire();
-
                     SpawnBlastFromRay(aimRay);
                 }
 

@@ -66,7 +66,6 @@ namespace LeeHyperrealMod.Modules
             Modules.Content.AddEntityState(typeof(UltimateEntry));
             Modules.Content.AddEntityState(typeof(Ultimate));
             Modules.Content.AddEntityState(typeof(UltimateDomain));
-            Modules.Content.AddEntityState(typeof(UltimateController));
             Modules.Content.AddEntityState(typeof(Freeze));
             #endregion
 

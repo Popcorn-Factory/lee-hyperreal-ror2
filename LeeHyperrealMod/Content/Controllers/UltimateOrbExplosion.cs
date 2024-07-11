@@ -1,4 +1,7 @@
-﻿using RoR2;
+﻿using LeeHyperrealMod.Modules.Networking;
+using R2API.Networking;
+using R2API.Networking.Interfaces;
+using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,6 +13,7 @@ namespace LeeHyperrealMod.Content.Controllers
     internal class UltimateOrbExplosion : MonoBehaviour
     {
         public float timer;
+        public float pullTimer;
         public float duration;
         public bool triggeredExplosion;
         public Vector3 position;
@@ -17,9 +21,14 @@ namespace LeeHyperrealMod.Content.Controllers
         public GameObject leeObject;
         public CharacterBody leeBody;
 
+        public float numberOfHits = 10;
+        public float currentNumber;
+        public float interval = 0.14f;
+
         public void Start()
         {
             timer = 0f;
+            pullTimer = 0f;
             duration = 1.6f;
             triggeredExplosion = false;
 
@@ -63,6 +72,14 @@ namespace LeeHyperrealMod.Content.Controllers
         public void Update()
         {
             timer += Time.deltaTime;
+            pullTimer += Time.deltaTime;
+
+            if (pullTimer > interval && currentNumber <= numberOfHits)
+            {
+                currentNumber += 1;
+                pullTimer = 0f;
+                new PerformForceNetworkRequest(leeBody.masterObjectId, position, Vector3.up, Modules.StaticValues.ultimateBlastRadius, 10f, 0f, 360f).Send(NetworkDestination.Clients);
+            }
 
             if (!triggeredExplosion && timer >= duration)
             {

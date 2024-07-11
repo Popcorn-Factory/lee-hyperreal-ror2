@@ -59,20 +59,20 @@ namespace LeeHyperrealMod.SkillStates
             {
                 base.characterDirection.moveVector = base.characterDirection.forward;
             }
-            if (base.characterMotor)
-            {
-                base.characterMotor.velocity = Vector3.zero;
-                base.characterMotor.rootMotion = Vector3.zero;
-            }
-            else if (!base.characterMotor)
-            {
-                RigidbodyMotor rigidBodyMotor = base.gameObject.GetComponent<RigidbodyMotor>();
-                rigidBodyMotor.moveVector = Vector3.zero;
-                rigidBodyMotor.rootMotion = Vector3.zero;
+            //if (base.characterMotor)
+            //{
+            //    base.characterMotor.velocity = Vector3.zero;
+            //    base.characterMotor.rootMotion = Vector3.zero;
+            //}
+            //else if (!base.characterMotor)
+            //{
+            //    RigidbodyMotor rigidBodyMotor = base.gameObject.GetComponent<RigidbodyMotor>();
+            //    rigidBodyMotor.moveVector = Vector3.zero;
+            //    rigidBodyMotor.rootMotion = Vector3.zero;
 
-                base.rigidbody.velocity = Vector3.zero;
+            //    base.rigidbody.velocity = Vector3.zero;
 
-            }
+            //}
 
             if (base.isAuthority && base.fixedAge >= this.duration)
             {
