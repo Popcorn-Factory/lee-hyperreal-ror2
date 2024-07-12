@@ -36,6 +36,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         private float invincibilityEndFrac = 0.4f;
         private bool invincibilitySet = false;
         private OrbController orbController;
+        private BulletController bulletController;
         private Transform baseTransform;
 
         private float effectTimingFrac = 0.15f;
@@ -48,6 +49,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void OnEnter()
         {
             orbController = gameObject.GetComponent<OrbController>();
+            bulletController = gameObject.GetComponent<BulletController>();
+
+            if (bulletController.inSnipeStance)
+            {
+                bulletController.UnsetSnipeStance();
+            }
 
             if (orbController)
             {

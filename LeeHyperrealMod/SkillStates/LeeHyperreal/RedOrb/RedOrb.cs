@@ -44,12 +44,20 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
         float disableInvincibility = 0.42f;
         public OrbController orbController;
+        public BulletController bulletController;
 
         public override void OnEnter()
         {
             base.OnEnter();
 
             orbController = gameObject.GetComponent<OrbController>();
+            bulletController = gameObject.GetComponent<BulletController>();
+
+            if (bulletController.inSnipeStance)
+            {
+                bulletController.UnsetSnipeStance();
+            }
+
             if (orbController)
             {
                 orbController.isExecutingSkill = true;

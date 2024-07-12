@@ -24,11 +24,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             domainController = base.gameObject.GetComponent<LeeHyperrealDomainController>();
             bulletController = base.gameObject.GetComponent<BulletController>();
             characterMotor.velocity.y = 0f;
-            //For some reason these functions are not being run on other machines.
+
             if (bulletController.inSnipeStance)
             {
                 bulletController.UnsetSnipeStance();
             }
+
             if (base.isAuthority) 
             {
                 if (orbController)
@@ -47,7 +48,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                         {
                             domainController.GrantIntuitionStack(1);
                         }
-                        this.outer.SetState(new RedOrbDomain { moveStrength = moveStrength });
+                        this.outer.SetNextState(new RedOrbDomain { moveStrength = moveStrength });
                         return;
                     }
                     else
@@ -61,7 +62,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 {
                     if (moveStrength > 0)
                     {
-                        this.outer.SetState(new RedOrb { moveStrength = moveStrength });
+                        this.outer.SetNextState(new RedOrb { moveStrength = moveStrength });
 
                         if (moveStrength == 3) 
                         {
