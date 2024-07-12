@@ -168,9 +168,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 rmaMultiplier = movementMultiplier;
             }
 
+            if (NetworkServer.active) 
+            {
+                base.characterBody.AddTimedBuff(Modules.Buffs.invincibilityBuff, duration * disableInvincibility);
+            }
+
             if (base.isAuthority) 
             {
-                base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, duration * disableInvincibility);
                 new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_blue_shine").Send(NetworkDestination.Clients);
             }
 
@@ -191,10 +195,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 orbController.isExecutingSkill = false;
             }
             base.characterMotor.gravityParameters = oldGravParams;
-            if (base.isAuthority)
+            if (NetworkServer.active)
             {
-                //Remove the invincibility just in case.
-                base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 0);
+                base.characterBody.RemoveBuff(Modules.Buffs.invincibilityBuff);
             }
             PlayAnimation("Body", "BufferEmpty");
             base.OnExit();
