@@ -1,5 +1,7 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
+using R2API.Networking.Interfaces;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -22,14 +24,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             bulletController = base.gameObject.GetComponent<BulletController>();
             characterMotor.velocity.y = 0f;
 
-            Chat.AddMessage($"bullet: {bulletController.inSnipeStance}");
+            //For some reason these functions are not being run on other machines.
 
-            if (bulletController.inSnipeStance)
-            {
-                bulletController.UnsetSnipeStance();
-            }
+            new UnsetSnipeNetworkRequest(characterBody.netId).Send(R2API.Networking.NetworkDestination.Clients);
 
-            Chat.AddMessage($"bullet: {bulletController.snipeAerialPlatform}");
 
             if (base.isAuthority) 
             {

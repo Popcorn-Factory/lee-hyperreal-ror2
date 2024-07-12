@@ -72,10 +72,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
             base.characterMotor.velocity.y = 0f;
 
-            if (bulletController.inSnipeStance) 
-            {
-                bulletController.UnsetSnipeStance();
-            }
+            //For some reason these functions are not being run on other machines.
+            new UnsetSnipeNetworkRequest(characterBody.netId).Send(R2API.Networking.NetworkDestination.Clients);
 
             if (moveStrength == 3 && isAuthority && !domainController.GetDomainState())
             {

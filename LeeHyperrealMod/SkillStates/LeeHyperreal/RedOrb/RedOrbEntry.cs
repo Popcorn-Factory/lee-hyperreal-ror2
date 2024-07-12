@@ -1,5 +1,7 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
+using R2API.Networking.Interfaces;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -22,11 +24,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             domainController = base.gameObject.GetComponent<LeeHyperrealDomainController>();
             bulletController = base.gameObject.GetComponent<BulletController>();
             characterMotor.velocity.y = 0f;
+            //For some reason these functions are not being run on other machines.
 
-            if (bulletController.inSnipeStance)
-            {
-                bulletController.UnsetSnipeStance();
-            }
+            new UnsetSnipeNetworkRequest(characterBody.netId).Send(R2API.Networking.NetworkDestination.Clients);
 
             if (base.isAuthority) 
             {
