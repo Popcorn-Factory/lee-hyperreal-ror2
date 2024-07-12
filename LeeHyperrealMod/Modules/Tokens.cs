@@ -3,6 +3,7 @@ using System;
 using static LeeHyperrealMod.Modules.Helpers;
 using static LeeHyperrealMod.Modules.StaticValues;
 using static LeeHyperrealMod.Modules.Config;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.Primary;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -99,9 +100,9 @@ namespace LeeHyperrealMod.Modules
                 Environment.NewLine + $"" +
                 $"Lee: Hyperreal can store and use a variety of {UtilDesc("Ammo")}, indicated above the {UtilDesc("[Power Gauge]")}." +
                 Environment.NewLine +
-                $"Using a {UtilDesc("3-ping")} will store a {UtilDesc("[Coloured Bullet]")}, which can be used in the {UtilDesc("[Hypermatrix]")} to add 3 Orbs of the colour shot back into your {UtilDesc("[Orb System]")}" +
+                $"Using a {UtilDesc("3-ping")} will store a {UtilDesc("[Coloured Bullet]")}, which can be used in the {UtilDesc("[Hypermatrix]")} to add 3 Orbs of that shots colour back into your {UtilDesc("[Orb System]")}" +
                 Environment.NewLine +
-                $"Upon a successful {UtilDesc("[Parry]")}, {UtilDesc("[Outlined Bullet]s")} are granted, increasing the damage of your next shot in {UtilDesc("[Snipe Stance]")} by {DmgDesc($"{empoweredBulletMultiplier}x times.  ")}");
+                $"Upon a successful {UtilDesc("[Parry]")}, {UtilDesc("[Outlined Bullet]'s")} are granted, increasing the damage of your next shot in {UtilDesc("[Snipe Stance]")} by {DmgDesc($"{empoweredBulletMultiplier}x times.  ")}");
             LanguageAPI.Add(prefix + "KEYWORD_SNIPE_STANCE",
                 $"{Keyword("Snipe Stance")}" +
                 Environment.NewLine + $"");
@@ -114,7 +115,7 @@ namespace LeeHyperrealMod.Modules
             LanguageAPI.Add(prefix + "KEYWORD_DOMAIN", 
                 $"{Keyword("Hypermatrix System")}" +
                 Environment.NewLine + 
-                $"The left-bottom side has a Hypermatrix System gauge. When the gauge is full, holding the Primary at any time in {UtilDesc("[Armament Barrage]")} will transition him into the {UtilDesc("[Hypermatrix]")}. " +
+                $"Above your Health is the {UtilDesc("[Hypermatrix System Gauge]")}. When the gauge is full, holding {UserSetting("Primary Skill")} at any time in {UtilDesc("[Armament Barrage]")} will transition him into the {UtilDesc("[Hypermatrix]")}. " +
                 Environment.NewLine +
                 $"While in this state, {RedOrb()} and {YellowOrb()} orbs change entirely, and your Special becomes {UtilDesc("[Collapsing Realm]")}." +
                 Environment.NewLine +
