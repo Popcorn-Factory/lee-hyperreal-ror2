@@ -406,13 +406,13 @@ namespace LeeHyperrealMod.Content.Controllers
                 switch (orbType)
                 {
                     case OrbType.BLUE:
-                        bodyMachine.SetState(new BlueOrb { moveStrength = strength});
+                        bodyMachine.SetNextState(new BlueOrb { moveStrength = strength});
                         break;
                     case OrbType.YELLOW:
-                        bodyMachine.SetState(new YellowOrbEntry { moveStrength = strength });
+                        bodyMachine.SetNextState(new YellowOrbEntry { moveStrength = strength });
                         break;
                     case OrbType.RED:
-                        bodyMachine.SetState(new RedOrbEntry { moveStrength = strength });
+                        bodyMachine.SetNextState(new RedOrbEntry { moveStrength = strength });
                         break;
                     default:
                         break;

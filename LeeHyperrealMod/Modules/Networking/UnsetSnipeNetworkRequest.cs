@@ -47,7 +47,15 @@ namespace LeeHyperrealMod.Modules.Networking
             {
                 BulletController bulletController = bodyObject.GetComponent<BulletController>();
 
-                bulletController.UnsetSnipeStance();
+                if (bulletController.snipeAerialPlatform) 
+                {
+                    bulletController.snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+                }
+
+                //unset the weapon model back to submachine gun.
+
+                bulletController.weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
+                bulletController.weaponModelHandler.SetLaserState(false);
             }
         }
     }

@@ -73,7 +73,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             base.characterMotor.velocity.y = 0f;
 
             //For some reason these functions are not being run on other machines.
-            new UnsetSnipeNetworkRequest(characterBody.netId).Send(R2API.Networking.NetworkDestination.Clients);
+
+            bulletController.UnsetSnipeStance();
+            //if (base.isAuthority) 
+            //{
+            //    bulletController.UnsetSnipeStance();
+            //}
 
             if (moveStrength == 3 && isAuthority && !domainController.GetDomainState())
             {
@@ -169,6 +174,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_blue_shine").Send(NetworkDestination.Clients);
             }
 
+            
             weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.RIFLE);
             weaponModelHandler.SetLaserState(true);
         }
