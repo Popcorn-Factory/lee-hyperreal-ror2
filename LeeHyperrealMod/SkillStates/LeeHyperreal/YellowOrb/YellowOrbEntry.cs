@@ -22,10 +22,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             bulletController = base.gameObject.GetComponent<BulletController>();
             characterMotor.velocity.y = 0f;
 
+            Chat.AddMessage($"bullet: {bulletController.inSnipeStance}");
+
             if (bulletController.inSnipeStance)
             {
                 bulletController.UnsetSnipeStance();
             }
+
+            Chat.AddMessage($"bullet: {bulletController.snipeAerialPlatform}");
 
             if (base.isAuthority) 
             {
