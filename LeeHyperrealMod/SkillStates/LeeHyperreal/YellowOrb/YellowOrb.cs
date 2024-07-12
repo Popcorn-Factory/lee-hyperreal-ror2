@@ -132,6 +132,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             }
             characterMotor.gravityParameters = oldGravParams;   ///reset Gravity
             PlayAnimation("Body", "BufferEmpty");
+
+            if (NetworkServer.active) 
+            {
+                characterBody.ClearTimedBuffs(Modules.Buffs.invincibilityBuff.buffIndex);
+            }
         }
 
         public override void Update()
@@ -209,15 +214,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             {
                 characterMotor.gravityParameters = oldGravParams;
             }
-            if (fixedAge >= duration * invincibilityStartFrac && fixedAge <= duration * invincibilityEndFrac && isAuthority && !invincibilitySet)
+            if (fixedAge >= duration * invincibilityStartFrac && fixedAge <= duration * invincibilityEndFrac && NetworkServer.active && !invincibilitySet)
             {
                 invincibilitySet = true;
-                base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, (duration * invincibilityEndFrac) - (duration * invincibilityStartFrac));
-            }
-
-            if (fixedAge >= duration * invincibilityEndFrac && isAuthority)
-            {
-                base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 0, -1);
+                base.characterBody.AddTimedBuff(Modules.Buffs.invincibilityBuff.buffIndex, (duration * invincibilityEndFrac) - (duration * invincibilityStartFrac));
             }
 
             if (fixedAge >= duration)

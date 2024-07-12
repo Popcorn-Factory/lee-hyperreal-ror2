@@ -123,7 +123,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             if (NetworkServer.active)
             {
                 //Set Invincibility cause fuck you.
-                characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 0, -1);
+                characterBody.ClearTimedBuffs(Modules.Buffs.invincibilityBuff.buffIndex);
             }
         }
 
@@ -131,11 +131,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         {
             base.Update();
 
-            if (age >= duration * invincibilityOnFrac && base.isAuthority && !invincibilityApplied)
+            if (age >= duration * invincibilityOnFrac && NetworkServer.active && !invincibilityApplied)
             {
                 invincibilityApplied = true;
                 float buffDuration = (duration * invincibilityOffFrac) - (duration * invincibilityOnFrac);
-                characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, buffDuration);
+                characterBody.AddTimedBuff(Modules.Buffs.invincibilityBuff.buffIndex, buffDuration);
             }
 
             if (base.inputBank.skill3.down && base.inputBank.skill4.down && base.isAuthority)

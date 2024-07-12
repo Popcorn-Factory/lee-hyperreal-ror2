@@ -129,7 +129,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
             if (base.isAuthority)
             {
-                base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, duration * disableInvincibility);
                 new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_red").Send(NetworkDestination.Clients);
             }
 
@@ -152,9 +151,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 orbController.isExecutingSkill = false;
             }
             PlayAnimation("Body", "BufferEmpty");
-            if (base.isAuthority)
+            if (NetworkServer.active) 
             {
-                base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 0);
+                characterBody.ClearTimedBuffs(Modules.Buffs.invincibilityBuff.buffIndex);
             }
         }
 
@@ -206,15 +205,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 }
             }
 
-            if (fixedAge >= duration * invincibilityStartFrac && fixedAge <= duration * invincibilityEndFrac && isAuthority && !invincibilitySet) 
+            if (fixedAge >= duration * invincibilityStartFrac && fixedAge <= duration * invincibilityEndFrac && NetworkServer.active && !invincibilitySet) 
             {
                 invincibilitySet = true;
-                base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, (duration * invincibilityEndFrac) - (duration * invincibilityStartFrac));
-            }
-
-            if (fixedAge >= duration * invincibilityEndFrac && isAuthority) 
-            {
-                base.characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 0, -1);
+                base.characterBody.AddTimedBuff(Modules.Buffs.invincibilityBuff.buffIndex, (duration * invincibilityEndFrac) - (duration * invincibilityStartFrac));
             }
 
 
