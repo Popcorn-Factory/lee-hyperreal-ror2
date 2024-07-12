@@ -22,6 +22,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             domainController = base.gameObject.GetComponent<LeeHyperrealDomainController>();
             bulletController = base.gameObject.GetComponent<BulletController>();
             characterMotor.velocity.y = 0f;
+
+            bulletController.snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+            bulletController.snipeAerialPlatform = null;
+
             if (base.isAuthority) 
             {
                 if (orbController)

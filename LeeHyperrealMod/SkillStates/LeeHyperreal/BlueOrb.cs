@@ -72,7 +72,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
             base.characterMotor.velocity.y = 0f;
 
-            if (bulletController.inSnipeStance && isAuthority) 
+            if (bulletController.inSnipeStance) 
             {
                 bulletController.UnsetSnipeStance();
             }
