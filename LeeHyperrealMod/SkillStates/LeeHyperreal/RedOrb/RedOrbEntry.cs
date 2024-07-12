@@ -25,9 +25,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             bulletController = base.gameObject.GetComponent<BulletController>();
             characterMotor.velocity.y = 0f;
             //For some reason these functions are not being run on other machines.
-
-            new UnsetSnipeNetworkRequest(characterBody.netId).Send(R2API.Networking.NetworkDestination.Clients);
-
+            if (bulletController.inSnipeStance)
+            {
+                bulletController.UnsetSnipeStance();
+            }
             if (base.isAuthority) 
             {
                 if (orbController)
