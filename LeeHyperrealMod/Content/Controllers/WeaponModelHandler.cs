@@ -108,11 +108,15 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             CustomEmotesAPI.animChanged -= CustomEmotesAPI_animChanged;
         }
-        
+
         private void CustomEmotesAPI_animChanged(string newAnimation, BoneMapper mapper)
         {
-            //Can't change weapon state if in authority.
-            if (!characterBody.hasEffectiveAuthority) 
+            if (mapper != CustomEmotesAPI.localMapper) 
+            {
+                return;
+            }
+                //Can't change weapon state if in authority.
+                if (!characterBody.hasEffectiveAuthority) 
             {
                 return;
             }
