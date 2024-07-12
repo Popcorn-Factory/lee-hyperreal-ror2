@@ -44,7 +44,7 @@ namespace LeeHyperrealMod.Modules
             LanguageAPI.Add(prefix + "PASSIVE_DOMAIN_DESCRIPTION", "" +
                 $"Lee has access to the {UtilDesc("[Hypermatrix]")}, by holding the Primary button" +
                 $" down with a full {UtilDesc("[Power Gauge]")}." +
-                $" Lee gains damage scales with attack speed, however {UtilDesc("[ Snipe Stance ]")} scales normally.");
+                $" Lee gains damage in place of attack speed, however {UtilDesc("[ Snipe Stance ]")} scales normally.");
             #endregion
 
             #region Primary
