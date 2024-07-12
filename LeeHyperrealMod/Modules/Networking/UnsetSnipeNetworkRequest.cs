@@ -47,10 +47,7 @@ namespace LeeHyperrealMod.Modules.Networking
             {
                 BulletController bulletController = bodyObject.GetComponent<BulletController>();
 
-                if (!charBody.hasEffectiveAuthority) 
-                {
-                    bulletController.UnsetSnipeStance();
-                }
+                bulletController.UnsetSnipeStance();
             }
         }
     }
