@@ -73,7 +73,6 @@ namespace LeeHyperrealMod
             NetworkingAPI.RegisterMessageType<PlaySoundNetworkRequest>();
             NetworkingAPI.RegisterMessageType<UltimateObjectSpawnNetworkRequest>();
             NetworkingAPI.RegisterMessageType<SetDomainUltimateNetworkRequest>();
-            NetworkingAPI.RegisterMessageType<UnsetSnipeNetworkRequest>();
 
             // now make a content pack and add it- this part will change with the next update
             new Modules.ContentPacks().Initialize();

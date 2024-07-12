@@ -115,11 +115,7 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 return;
             }
-                //Can't change weapon state if in authority.
-                if (!characterBody.hasEffectiveAuthority) 
-            {
-                return;
-            }
+
             if (newAnimation == "none") 
             {
                 isEmoting = false;

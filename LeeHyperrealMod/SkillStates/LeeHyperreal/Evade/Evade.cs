@@ -207,11 +207,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         public override void OnSerialize(NetworkWriter writer)
         {
             base.OnSerialize(writer);
+            writer.Write(unsetSnipe);
         }
 
         public override void OnDeserialize(NetworkReader reader)
         {
             base.OnDeserialize(reader);
+            unsetSnipe = reader.ReadBoolean();
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()
