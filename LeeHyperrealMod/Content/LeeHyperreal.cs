@@ -425,10 +425,10 @@ namespace LeeHyperrealMod.Modules.Survivors
             //add new skindef to our list of skindefs. this is what we'll be passing to the SkinController
             skins.Add(defaultSkin);
             #endregion
-            
+
             //uncomment this when you have a mastery skin
             #region MasterySkin
-            /*
+
             //creating a new skindef as we did before
             SkinDef masterySkin = Modules.Skins.CreateSkinDef(LeeHyperrealPlugin.DEVELOPER_PREFIX + "_HENRY_BODY_MASTERY_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("texMasteryAchievement"),
@@ -439,29 +439,48 @@ namespace LeeHyperrealMod.Modules.Survivors
             //adding the mesh replacements as above. 
             //if you don't want to replace the mesh (for example, you only want to replace the material), pass in null so the order is preserved
             masterySkin.meshReplacements = Modules.Skins.getMeshReplacements(defaultRendererinfos,
-                "meshHenrySwordAlt",
+                null,
                 null,//no gun mesh replacement. use same gun mesh
-                "meshHenryAlt");
+                null,
+                null,
+                null,//no gun mesh replacement. use same gun mesh
+                null,
+                null,
+                null,//no gun mesh replacement. use same gun mesh
+                null,
+                null,
+                null,//no gun mesh replacement. use same gun mesh
+                null);
 
             //masterySkin has a new set of RendererInfos (based on default rendererinfos)
             //you can simply access the RendererInfos defaultMaterials and set them to the new materials for your skin.
-            masterySkin.rendererInfos[0].defaultMaterial = Modules.Materials.CreateHopooMaterial("matHenryAlt");
-            masterySkin.rendererInfos[1].defaultMaterial = Modules.Materials.CreateHopooMaterial("matHenryAlt");
-            masterySkin.rendererInfos[2].defaultMaterial = Modules.Materials.CreateHopooMaterial("matHenryAlt");
+            string[] materialStrings = { "cloneBody", "cloneCloth", "cloneFace", "cloneHair", "cloneAlpha", "cloneEye", "cloneDown", "cloneSuperBox", "clonePistol", null, null, "clonePistol" };
+
+            for (int i = 0; i < materialStrings.Length; i++) 
+            {
+                if (materialStrings[i] == null)
+                {
+                    masterySkin.rendererInfos[i].defaultMaterial = defaultRendererinfos[i].defaultMaterial;
+                }
+                else 
+                {
+                    masterySkin.rendererInfos[i].defaultMaterial = Modules.Assets.mainAssetBundle.LoadAsset<Material>(materialStrings[i]);
+                }
+            }
 
             //here's a barebones example of using gameobjectactivations that could probably be streamlined or rewritten entirely, truthfully, but it works
-            masterySkin.gameObjectActivations = new SkinDef.GameObjectActivation[]
-            {
-                new SkinDef.GameObjectActivation
-                {
-                    gameObject = childLocator.FindChildGameObject("GunModel"),
-                    shouldActivate = false,
-                }
-            };
+            //masterySkin.gameObjectActivations = new SkinDef.GameObjectActivation[]
+            //{
+            //    new SkinDef.GameObjectActivation
+            //    {
+            //        gameObject = childLocator.FindChildGameObject("GunModel"),
+            //        shouldActivate = false,
+            //    }
+            //};
             //simply find an object on your child locator you want to activate/deactivate and set if you want to activate/deacitvate it with this skin
 
             skins.Add(masterySkin);
-            */
+
             #endregion
 
             skinController.skins = skins.ToArray();
