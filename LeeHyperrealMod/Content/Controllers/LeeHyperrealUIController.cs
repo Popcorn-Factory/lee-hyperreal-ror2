@@ -1015,6 +1015,8 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             if (ultimateIndicatorAnimator)
             {
+                ultimateIndicatorAnimator.ResetTrigger("Ult Normal Ready");
+                ultimateIndicatorAnimator.ResetTrigger("Ult Domain");
                 ultimateIndicatorAnimator.SetTrigger("Ult Domain");
             }
         }
@@ -1023,6 +1025,8 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             if (ultimateIndicatorAnimator)
             {
+                ultimateIndicatorAnimator.ResetTrigger("Ult Normal Ready");
+                ultimateIndicatorAnimator.ResetTrigger("Ult Domain");
                 ultimateIndicatorAnimator.SetTrigger("Ult Normal Ready");
             }
         }

@@ -173,7 +173,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 }
             }
 
-            if (this.age >= waitSwingTimer * duration && !playedSwing) 
+            if (this.age >= waitSwingTimer * duration && !playedSwing && base.isAuthority) 
             {
                 playedSwing = true;
 
