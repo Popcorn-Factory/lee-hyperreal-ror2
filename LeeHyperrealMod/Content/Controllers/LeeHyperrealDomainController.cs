@@ -29,6 +29,8 @@ namespace LeeHyperrealMod.Content.Controllers
         GameObject despawnDomainEffect;
 
         public List<GameObject> yellowOrbDomainEffects;
+        public List<GameObject> yellowCloneObjects;
+        public List<GameObject> redCloneObjects;
 
 
         //UI Controller
@@ -73,6 +75,8 @@ namespace LeeHyperrealMod.Content.Controllers
             despawnDomainEffect.SetActive(false);
 
             yellowOrbDomainEffects = new List<GameObject>();
+            yellowCloneObjects = new List<GameObject>();
+            redCloneObjects = new List<GameObject>();
 
             if (AkSoundEngine.IsInitialized())
             {
@@ -173,7 +177,7 @@ namespace LeeHyperrealMod.Content.Controllers
             uiController.TriggerTappedUltIcon();
         }
 
-        private void DestroyAllYellowOrbEffects() 
+        private void DestroyAllClonesAndBullets() 
         {
             foreach (GameObject obj in yellowOrbDomainEffects) 
             {
@@ -181,6 +185,19 @@ namespace LeeHyperrealMod.Content.Controllers
             }
 
             yellowOrbDomainEffects.Clear();
+
+            foreach (GameObject obj in yellowCloneObjects) 
+            {
+                Destroy(obj);
+            }
+
+            yellowCloneObjects.Clear();
+
+            foreach (GameObject obj in redCloneObjects) 
+            {
+                Destroy(obj);
+            }
+            redCloneObjects.Clear();
         }
 
         private void ApplyIntutionBuffsToBody()
@@ -241,7 +258,7 @@ namespace LeeHyperrealMod.Content.Controllers
             this.energy = 0f;
             //DisableEffect?
             DisableDomainEffect();
-            DestroyAllYellowOrbEffects();
+            DestroyAllClonesAndBullets();
         }
 
         public void EnableDomain()

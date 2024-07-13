@@ -53,15 +53,23 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         float invincibilityOnFrac = 0.05f;
         float invincibilityOffFrac = 0.2f;
         bool invincibilityApplied = false;
+        LeeHyperrealDomainController domainController;
 
         public override void OnEnter()
         {
             base.OnEnter();
             effectPlayed = false;
+            domainController = gameObject.GetComponent<LeeHyperrealDomainController>();
             orbController = gameObject.GetComponent<OrbController>();
             if (orbController)
             {
                 orbController.isExecutingSkill = true;
+            }
+
+            if (domainController) 
+            {
+                GameObject domainClone = UnityEngine.Object.Instantiate(Modules.ParticleAssets.redOrbDomainClone, this.gameObject.transform.position, this.gameObject.transform.rotation);
+                domainController.redCloneObjects.Add(domainClone);
             }
             rma = InitMeleeRootMotion();
             rmaMultiplier = movementMultiplier;

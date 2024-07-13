@@ -52,6 +52,7 @@ namespace LeeHyperrealMod.Modules
 
         public static GameObject redOrbDomainHit;
         public static GameObject redOrbDomainFloorImpact;
+        public static GameObject redOrbDomainClone;
         #endregion
 
         #region Blue Orb
@@ -643,6 +644,8 @@ namespace LeeHyperrealMod.Modules
                 "fxr4liangatk14fshit01"
                 );
             redOrbDomainHit = ModifyEffect(redOrbDomainHit, "Play_c_liRk4_imp_ex_2_2", false);
+
+            redOrbDomainClone = GetGameObjectFromBundle("RedOrbDomainClone");
         }
 
         private static void PopulatePrimary5Assets()
