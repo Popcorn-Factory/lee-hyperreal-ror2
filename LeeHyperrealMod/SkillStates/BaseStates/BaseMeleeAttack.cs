@@ -380,6 +380,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             {
                 if (this.stopwatch >= duration * parryProjectileTiming && base.isAuthority && this.stopwatch <= this.duration * parryProjectileTimingEnd) 
                 {
+                    resetComboOnParry = true;
                     Deflect();
                 }
                 if (this.stopwatch >= this.duration * parryTiming && base.isAuthority && !parryTriggered) 
