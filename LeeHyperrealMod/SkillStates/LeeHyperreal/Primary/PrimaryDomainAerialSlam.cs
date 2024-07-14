@@ -42,16 +42,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             if (base.isAuthority) 
             {
                 FireAttack();
-                PlaySwing("BaseTransform", 1.25f, Modules.ParticleAssets.primary5Floor);
+                //PlaySwing("BaseTransform", 1.25f, Modules.ParticleAssets.primary5Floor);
             }
 
-            base.PlayAnimation("Body", "Midair Attack End", "attack.playbackRate", duration);
+            base.PlayAnimation("Body", "DomainMidairEnd", "attack.playbackRate", duration);
 
 
-            if (base.isAuthority)
-            {
-                base.characterBody.ApplyBuff(Modules.Buffs.fallDamageNegateBuff.buffIndex, 0);
-            }
+
         }
 
         public void PlaySwing(string muzzleString, float swingScale, GameObject effectPrefab)

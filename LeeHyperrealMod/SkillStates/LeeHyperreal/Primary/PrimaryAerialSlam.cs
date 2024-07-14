@@ -47,11 +47,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             }
 
             base.PlayAnimation("Body", "Midair Attack End", "attack.playbackRate", duration);
-
-            if (base.isAuthority)
-            {
-                base.characterBody.ApplyBuff(Modules.Buffs.fallDamageNegateBuff.buffIndex, 0);
-            }
         }
 
         public void PlaySwing(string muzzleString, float swingScale, GameObject effectPrefab)

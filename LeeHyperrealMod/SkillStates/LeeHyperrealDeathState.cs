@@ -1,4 +1,5 @@
 ﻿using EntityStates;
+using LeeHyperrealMod.Content.Controllers;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -13,13 +14,16 @@ namespace LeeHyperrealMod.SkillStates
         internal float triggerRagdollFrac = 0.97f;
         internal bool triggeredRagdoll = false;
         internal float duration = 3.66f;
-
+        LeeHyperrealDomainController domainController;
 
         public override void OnEnter()
         {
             base.OnEnter();
+            domainController = gameObject.GetComponent<LeeHyperrealDomainController>();
 
             base.PlayAnimation("Death", "FullBody, Override", "attack.playbackRate", duration);
+
+            domainController.DisableDomain(false);
 
             if (!isGrounded) 
             {

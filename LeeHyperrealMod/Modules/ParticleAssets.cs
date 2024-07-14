@@ -68,6 +68,7 @@ namespace LeeHyperrealMod.Modules
         public static GameObject yellowOrbMultishot;
         public static GameObject yellowOrbMultishotHit;
         public static GameObject yellowOrbDomainBulletLeftovers;
+        public static GameObject yellowOrbDomainClone;
         #endregion
 
         #region Snipe
@@ -501,6 +502,8 @@ namespace LeeHyperrealMod.Modules
 
             yellowOrbDomainBulletLeftovers = GetGameObjectFromBundle("fxr4liangatk35dandao");
             yellowOrbDomainBulletLeftovers.AddComponent<DestroyOnTimer>().duration = 100f;
+
+            yellowOrbDomainClone = GetGameObjectFromBundle("YellowOrbDomainClone");
         }
 
         private static void PopulateBlueOrbAssets()

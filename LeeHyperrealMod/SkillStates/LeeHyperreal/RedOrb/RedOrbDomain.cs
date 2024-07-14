@@ -66,11 +66,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 orbController.isExecutingSkill = true;
             }
 
-            if (domainController) 
-            {
-                GameObject domainClone = UnityEngine.Object.Instantiate(Modules.ParticleAssets.redOrbDomainClone, this.gameObject.transform.position, this.gameObject.transform.rotation);
-                domainController.redCloneObjects.Add(domainClone);
-            }
             rma = InitMeleeRootMotion();
             rmaMultiplier = movementMultiplier;
             fireInterval = baseFireInterval / attackSpeedStat;
@@ -89,8 +84,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
             boxGunTransform = childLocator.FindChild("GunCasePos");
 
+            Transform baseTransform = childLocator.FindChild("BaseTransform");
+
             PlayAttackAnimation();
 
+            if (domainController)
+            {
+                GameObject domainClone = UnityEngine.Object.Instantiate(Modules.ParticleAssets.redOrbDomainClone, baseTransform.position, Quaternion.LookRotation(characterDirection.forward));
+                domainController.redCloneObjects.Add(domainClone);
+            }
 
             blastAttack = new BlastAttack
             {

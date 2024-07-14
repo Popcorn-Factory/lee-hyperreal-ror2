@@ -45,6 +45,14 @@ namespace LeeHyperrealMod.Content.Controllers
 
         private bool isEmoting;
 
+        private GameObject armModel;
+        private GameObject torsoModel;
+        private GameObject faceModel;
+        private GameObject hairModel;
+        private GameObject armourPlateModel;
+        private GameObject eyeModel;
+        private GameObject legModel;
+
         public void Awake() 
         {
             state = WeaponState.SUBMACHINE;
@@ -73,6 +81,14 @@ namespace LeeHyperrealMod.Content.Controllers
                 snipeRoot = childLocator.FindChild("RifleMain").gameObject;
                 superCannonRoot = superCannonAnimator.gameObject;
                 guncaseRoot = childLocator.FindChild("WeaponCase").gameObject;
+
+                armModel = childLocator.FindChild("ArmModel").gameObject;
+                torsoModel = childLocator.FindChild("TorsoModel").gameObject;
+                faceModel = childLocator.FindChild("FaceModel").gameObject;
+                hairModel = childLocator.FindChild("HairModel").gameObject;
+                armourPlateModel = childLocator.FindChild("ArmourPlateModel").gameObject;
+                eyeModel = childLocator.FindChild("EyeModel").gameObject;
+                legModel = childLocator.FindChild("LegModel").gameObject;
             }
 
             superCannonEffect.gameObject.SetActive(false);
@@ -149,6 +165,24 @@ namespace LeeHyperrealMod.Content.Controllers
                     superCannonEffect.gameObject.SetActive(false);
                     superCannonAnimator.ResetTrigger("Ultimate");
                 }
+            }
+        }
+
+        public void SetStateForModelAndSubmachine(bool state) 
+        {
+            if (armModel) 
+            {
+                armModel.SetActive(state);
+                torsoModel.SetActive(state);
+                faceModel.SetActive(state);
+                hairModel.SetActive(state);
+                armourPlateModel.SetActive(state);
+                eyeModel.SetActive(state);
+                legModel.SetActive(state);
+
+                //Disable the submachine gun.
+                guncaseModel.SetActive(state);
+                submachineModel.SetActive(state);
             }
         }
 

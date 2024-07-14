@@ -18,6 +18,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public float start = 0;
         public float earlyEnd = 0.41f;
         public float fireTime = 0.01f;
+        public float returnModelTime = 0.23f;
         public float fireEndTime = 0.25f;
         public float baseFireInterval = 0.07f;
         public float fireInterval;
@@ -30,6 +31,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         internal BlastAttack blastAttack;
         internal OrbController orbController;
         internal LeeHyperrealDomainController domainController;
+        internal WeaponModelHandler weaponModelHandler;
 
         internal bool isStrong;
         internal float procCoefficient = Modules.StaticValues.yellowOrbDomainProcCoefficient;
@@ -55,6 +57,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             midmoveVFXrepeatplayed = false;
             domainController = gameObject.GetComponent<LeeHyperrealDomainController>();
             orbController = gameObject.GetComponent<OrbController>();
+            weaponModelHandler = gameObject.GetComponent<WeaponModelHandler>(); 
             if (orbController)
             {
                 orbController.isExecutingSkill = true;
@@ -120,6 +123,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
             baseTransform = childLocator.FindChild("BaseTransform");
 
+            if (domainController) 
+            {
+                GameObject cloneObject = UnityEngine.Object.Instantiate(Modules.ParticleAssets.yellowOrbDomainClone, baseTransform.transform.position, Quaternion.LookRotation(characterDirection.forward));
+                domainController.yellowCloneObjects.Add(cloneObject);
+            }
+
             if (base.isAuthority) 
             {
                 EffectData effectData = new EffectData
@@ -149,6 +158,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             {
                 new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_atk_ex_1").Send(R2API.Networking.NetworkDestination.Clients);
             }
+
+            if (weaponModelHandler) 
+            {
+                weaponModelHandler.SetStateForModelAndSubmachine(false);
+            }
         }
 
         protected void PlayAttackAnimation()
@@ -168,8 +182,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             if (NetworkServer.active)
             {
-                //Set Invincibility cause fuck you.
                 characterBody.ClearTimedBuffs(Modules.Buffs.invincibilityBuff.buffIndex);
+            }
+
+            if (weaponModelHandler)
+            {
+                weaponModelHandler.SetStateForModelAndSubmachine(true);
             }
         }
 
@@ -179,6 +197,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             if (base.inputBank.skill3.down && base.inputBank.skill4.down && base.isAuthority)
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
+            }
+
+            if (age >= duration * returnModelTime) 
+            {
+                if (weaponModelHandler)
+                {
+                    weaponModelHandler.SetStateForModelAndSubmachine(true);
+                }
             }
 
             if (age >= duration * earlyEnd && base.isAuthority)

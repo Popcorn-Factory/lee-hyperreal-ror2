@@ -33,7 +33,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             }
 
             //Continue with straight down attack
-            base.PlayAnimation("Body", "Midair Attack Start", "attack.playbackRate", duration);
+            base.PlayAnimation("Body", "DomainMidairStart", "attack.playbackRate", duration);
 
             Util.PlaySound("Play_c_liRk4_atk_nml_5_xuli", base.gameObject);
             //Automatically leads into Midair Attack Loop
