@@ -53,6 +53,7 @@ namespace LeeHyperrealMod.Modules
         public static GameObject redOrbDomainHit;
         public static GameObject redOrbDomainFloorImpact;
         public static GameObject redOrbDomainClone;
+        public static GameObject redOrbDomainCloneStart;
         #endregion
 
         #region Blue Orb
@@ -97,6 +98,9 @@ namespace LeeHyperrealMod.Modules
         public static GameObject UltimateDomainCEASEYOUREXISTANCE;
         public static GameObject DomainOverlayEffect;
         public static GameObject UltimateDomainBulletFinisher;
+        public static GameObject UltimateDomainClone1;
+        public static GameObject UltimateDomainClone2;
+        public static GameObject UltimateDomainClone3;
         #endregion
 
         #region Domain/Transition Effects
@@ -288,6 +292,15 @@ namespace LeeHyperrealMod.Modules
 
             UltimateDomainBulletFinisher = GetGameObjectFromBundle("fxr4liangatk42zhongjie01");
             UltimateDomainBulletFinisher = ModifyEffect(UltimateDomainBulletFinisher, "", true, 10f);
+
+            UltimateDomainClone1 = GetGameObjectFromBundle("DomainUltClone1");
+            UltimateDomainClone1 = ModifyEffect(UltimateDomainClone1, "", true, 2f, VFXAttributes.VFXPriority.Always);
+
+            UltimateDomainClone2 = GetGameObjectFromBundle("DomainUltClone2");
+            UltimateDomainClone2 = ModifyEffect(UltimateDomainClone2, "", true, 2f, VFXAttributes.VFXPriority.Always);
+
+            UltimateDomainClone3 = GetGameObjectFromBundle("DomainUltClone3");
+            UltimateDomainClone3 = ModifyEffect(UltimateDomainClone3, "", true, 2f, VFXAttributes.VFXPriority.Always);
         }
 
         private static void PopulateDomainTransitionAssets()
@@ -501,9 +514,10 @@ namespace LeeHyperrealMod.Modules
             yellowOrbMultishotHit = ModifyEffect(yellowOrbMultishotHit, "", true);
 
             yellowOrbDomainBulletLeftovers = GetGameObjectFromBundle("fxr4liangatk35dandao");
-            yellowOrbDomainBulletLeftovers.AddComponent<DestroyOnTimer>().duration = 100f;
+            yellowOrbDomainBulletLeftovers.AddComponent<DestroyOnTimer>().duration = 150f;
 
             yellowOrbDomainClone = GetGameObjectFromBundle("YellowOrbDomainClone");
+            LeeHyperrealCloneFlicker flicker = yellowOrbDomainClone.AddComponent<LeeHyperrealCloneFlicker>();
         }
 
         private static void PopulateBlueOrbAssets()
@@ -649,6 +663,10 @@ namespace LeeHyperrealMod.Modules
             redOrbDomainHit = ModifyEffect(redOrbDomainHit, "Play_c_liRk4_imp_ex_2_2", false);
 
             redOrbDomainClone = GetGameObjectFromBundle("RedOrbDomainClone");
+            redOrbDomainClone.AddComponent<LeeHyperrealCloneFlicker>();
+
+            redOrbDomainCloneStart = GetGameObjectFromBundle("RedOrbDomainCloneStart");
+            redOrbDomainCloneStart.AddComponent<LeeHyperrealCloneFlicker>();
         }
 
         private static void PopulatePrimary5Assets()

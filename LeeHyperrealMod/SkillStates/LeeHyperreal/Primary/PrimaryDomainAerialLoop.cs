@@ -24,11 +24,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 return;
             }
 
-            if (base.isAuthority) 
-            {
-                base.characterBody.ApplyBuff(Modules.Buffs.fallDamageNegateBuff.buffIndex, 1);
-            }
-
             base.characterMotor.velocity = Vector3.SmoothDamp(base.characterMotor.velocity, ((Vector3.down + base.characterDirection.forward).normalized * Modules.StaticValues.primaryAerialSlamSpeed), ref velocity, 0.02f);
         }
 

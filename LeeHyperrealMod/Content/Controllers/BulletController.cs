@@ -174,7 +174,7 @@ namespace LeeHyperrealMod.Content.Controllers
                     CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
                     {
                         cameraParamsData = cameraParamsData,
-                        priority = 0,
+                        priority = 0.2f,
                     };
 
                     handle = cameraTargetParams.AddParamsOverride(request, 0.4f);

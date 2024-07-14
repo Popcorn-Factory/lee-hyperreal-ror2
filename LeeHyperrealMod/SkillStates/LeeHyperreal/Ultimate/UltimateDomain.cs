@@ -169,6 +169,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                     scale = 1.25f,
                 };
                 EffectManager.SpawnEffect(Modules.ParticleAssets.UltimateDomainBulletFinisher, effectData, true);
+
+                EffectData effectData2 = new EffectData
+                {
+                    origin = gameObject.transform.position,
+                    rotation = Quaternion.LookRotation(targetDir.normalized, Vector3.up),
+                };
+                effectData2.SetChildLocatorTransformReference(base.gameObject, childLocator.FindChildIndex("BaseTransform"));
+
+                EffectManager.SpawnEffect(Modules.ParticleAssets.UltimateDomainClone1, effectData2, true);
+                EffectManager.SpawnEffect(Modules.ParticleAssets.UltimateDomainClone2, effectData2, true);
+                EffectManager.SpawnEffect(Modules.ParticleAssets.UltimateDomainClone3, effectData2, true);
             }
 
             if (NetworkServer.active)
@@ -176,8 +187,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 //Set Invincibility cause fuck you.
                 characterBody.SetBuffCount(Modules.Buffs.invincibilityBuff.buffIndex, 1);
             }
-
-
         }
 
         public void Freeze()

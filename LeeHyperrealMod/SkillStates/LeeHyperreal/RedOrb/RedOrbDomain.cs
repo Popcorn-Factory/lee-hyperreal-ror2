@@ -36,6 +36,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         internal float procCoefficient = Modules.StaticValues.redOrbDomainProcCoefficient;
         internal float damageCoefficient = Modules.StaticValues.redOrbDomainDamageCoefficient;
 
+        Transform baseTransform;
+        internal Vector3 positionToSpawnClone;
+        internal bool spawnedClone;
 
         CharacterGravityParameters gravParams;
         CharacterGravityParameters oldGravParams;
@@ -83,16 +86,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             ChildLocator childLocator = base.GetModelTransform().GetComponent<ChildLocator>();
 
             boxGunTransform = childLocator.FindChild("GunCasePos");
-
-            Transform baseTransform = childLocator.FindChild("BaseTransform");
+            baseTransform = childLocator.FindChild("BaseTransform");
+            positionToSpawnClone = baseTransform.position;
 
             PlayAttackAnimation();
-
-            if (domainController)
-            {
-                GameObject domainClone = UnityEngine.Object.Instantiate(Modules.ParticleAssets.redOrbDomainClone, baseTransform.position, Quaternion.LookRotation(characterDirection.forward));
-                domainController.redCloneObjects.Add(domainClone);
-            }
 
             blastAttack = new BlastAttack
             {
@@ -112,6 +109,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 procChainMask = new ProcChainMask(),
                 procCoefficient = procCoefficient,
             };
+
+            if (domainController)
+            {
+                GameObject domainClone = UnityEngine.Object.Instantiate(Modules.ParticleAssets.redOrbDomainCloneStart, baseTransform.position, Quaternion.LookRotation(characterDirection.forward));
+                domainController.redCloneObjects.Add(domainClone);
+            }
 
         }
 
@@ -176,6 +179,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public override void FixedUpdate()
         {
             base.FixedUpdate();
+
+            if (fixedAge >= duration * fireTime && !spawnedClone) 
+            {
+                if (domainController)
+                {
+                    spawnedClone = true;
+                    GameObject domainClone = UnityEngine.Object.Instantiate(Modules.ParticleAssets.redOrbDomainClone, positionToSpawnClone, Quaternion.LookRotation(characterDirection.forward));
+                    domainController.redCloneObjects.Add(domainClone);
+                }
+            }
 
             if (fixedAge >= duration * fireTime && isAuthority)
             {

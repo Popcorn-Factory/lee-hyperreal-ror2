@@ -1,11 +1,13 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.SkillStates.BaseStates;
+using R2API.Networking;
 using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 {
@@ -16,6 +18,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         private float duration = 0.8f;
 
         private float ungroundFrac = 0.33f;
+
+        private Vector3 velocity;
 
         public override void OnEnter()
         {
@@ -32,11 +36,19 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             }
 
+            if (NetworkServer.active)
+            {
+                base.characterBody.ApplyBuff(Modules.Buffs.fallDamageNegateBuff.buffIndex, 1);
+            }
+
             //Continue with straight down attack
             base.PlayAnimation("Body", "DomainMidairStart", "attack.playbackRate", duration);
 
             Util.PlaySound("Play_c_liRk4_atk_nml_5_xuli", base.gameObject);
             //Automatically leads into Midair Attack Loop
+
+
+            base.characterMotor.velocity = Vector3.SmoothDamp(base.characterMotor.velocity, ((Vector3.down + base.characterDirection.forward).normalized * Modules.StaticValues.primaryAerialSlamSpeed), ref velocity, 0.02f);
 
             if (base.isAuthority) 
             {
@@ -72,6 +84,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void OnExit()
         {
             base.OnExit();
+        }
+
+        public override void Update()
+        {
+            base.Update();
+
+            base.characterMotor.velocity = Vector3.SmoothDamp(base.characterMotor.velocity, ((Vector3.down + base.characterDirection.forward).normalized * Modules.StaticValues.primaryAerialSlamSpeed), ref velocity, 0.05f);
         }
 
         public override void FixedUpdate()
