@@ -59,9 +59,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             animator.SetFloat("attack.playbackRate", 1f);
             moveVector = inputBank.moveVector;
             rmaMultiplier = movementMultiplier;
-            if (isAuthority)
+            if (NetworkServer.active)
             {
-                characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, duration * disableInvincibility);
+                characterBody.AddTimedBuff(Modules.Buffs.invincibilityBuff.buffIndex, duration * disableInvincibility);
             }
 
             ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();

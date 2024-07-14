@@ -59,9 +59,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
             //Receive the var from the previous state, run animation.
 
+            if (NetworkServer.active) 
+            {
+                characterBody.AddTimedBuff(Modules.Buffs.invincibilityBuff.buffIndex, duration * disableInvincibility);
+            }
+
             if (isAuthority)
             {
-                characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, duration * disableInvincibility);
                 EffectManager.SpawnEffect(Modules.ParticleAssets.snipeDodge,
                     new EffectData
                     {

@@ -199,7 +199,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             if (NetworkServer.active) 
             {
                 //Set Invincibility cause fuck you.
-                characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, -1);
+                characterBody.SetBuffCount(Modules.Buffs.invincibilityBuff.buffIndex, 1);
             }
         }
 
@@ -214,7 +214,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             if (NetworkServer.active)
             {
                 //Set Invincibility cause fuck you.
-                characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 0, -1);
+                characterBody.SetBuffCount(Modules.Buffs.invincibilityBuff.buffIndex, 0);
             }
 
             if (base.isAuthority)

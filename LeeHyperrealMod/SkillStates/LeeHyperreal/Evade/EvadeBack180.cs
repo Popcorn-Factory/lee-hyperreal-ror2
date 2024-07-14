@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Networking;
 using UnityEngine.UIElements.UIR;
 using static LeeHyperrealMod.Content.Controllers.BulletController;
 
@@ -69,9 +70,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
             //Receive the var from the previous state, run animation.
 
-            if (isAuthority)
+            if (NetworkServer.active)
             {
-                characterBody.ApplyBuff(Modules.Buffs.invincibilityBuff.buffIndex, 1, duration * disableInvincibility);
+                characterBody.AddTimedBuff(Modules.Buffs.invincibilityBuff.buffIndex, duration * disableInvincibility);
             }
             Ray aimRay = base.GetAimRay();
             base.characterDirection.forward = aimRay.direction;
