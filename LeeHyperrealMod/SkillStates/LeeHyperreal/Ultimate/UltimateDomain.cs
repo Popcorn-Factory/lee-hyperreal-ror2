@@ -134,7 +134,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 position = gameObject.transform.position,
                 radius = Modules.StaticValues.ultimateDomainBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.None,
-                baseDamage = damageStat * Modules.StaticValues.ultimateDomainMiniDamageCoefficient * sightStacks, //multiply by anschauung stacks
+                baseDamage = damageStat * Modules.StaticValues.ultimateDomainMiniDamageCoefficient, //multiply by anschauung stacks //no do not
                 baseForce = 0f,
                 bonusForce = Vector3.zero,
                 crit = RollCrit(),
