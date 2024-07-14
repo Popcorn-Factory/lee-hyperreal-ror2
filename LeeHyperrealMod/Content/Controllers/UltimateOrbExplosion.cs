@@ -15,11 +15,15 @@ namespace LeeHyperrealMod.Content.Controllers
         public float timer;
         public float pullTimer;
         public float duration;
-        public bool triggeredExplosion;
+        public bool triggeredExplosionVisual;
         public Vector3 position;
         public BlastAttack blastAttack;
         public GameObject leeObject;
         public CharacterBody leeBody;
+
+        public float NumberOfExplosionHits = Modules.StaticValues.ultimateFinalBlastHitCount;
+        public float NumberOfExplosionHitsFired = 0f;
+        public float TimeOfLastExplosionHit = 0f;
 
         public float numberOfHits = 10;
         public float currentNumber;
@@ -30,7 +34,8 @@ namespace LeeHyperrealMod.Content.Controllers
             timer = 0f;
             pullTimer = 0f;
             duration = 1.6f;
-            triggeredExplosion = false;
+            triggeredExplosionVisual = false;
+            NumberOfExplosionHitsFired = 0f;
 
             leeBody = leeObject.GetComponent<CharacterBody>();
 
@@ -81,31 +86,35 @@ namespace LeeHyperrealMod.Content.Controllers
                 new PerformForceNetworkRequest(leeBody.masterObjectId, position, Vector3.up, Modules.StaticValues.ultimateBlastRadius, 10f, 0f, 360f).Send(NetworkDestination.Clients);
             }
 
-            if (!triggeredExplosion && timer >= duration)
+            if (timer >= duration)
             {
-                triggeredExplosion = true;
-                //Trigger blast
-
                 if (leeBody.hasEffectiveAuthority)
                 {
-                    for (int i = 0; i < Modules.StaticValues.ultimateFinalBlastHitCount; i++) 
+                    if(NumberOfExplosionHitsFired <= NumberOfExplosionHits && TimeOfLastExplosionHit <= Time.time - 0.06f)
                     {
                         blastAttack.Fire();
+                        NumberOfExplosionHitsFired = NumberOfExplosionHitsFired + 1f;
+                        TimeOfLastExplosionHit = Time.time;
                     }
 
-                    //Trigger effect.
-                    EffectManager.SpawnEffect(
-                        Modules.ParticleAssets.ultExplosion,
-                        new EffectData
-                        {
-                            origin = position,
-                            rotation = Quaternion.identity,
-                            scale = 1.25f,
-                        },
-                        true);
+                    if (!triggeredExplosionVisual)//Trigger effect.
+                    {
+                        EffectManager.SpawnEffect(
+                            Modules.ParticleAssets.ultExplosion,
+                            new EffectData
+                            {
+                                origin = position,
+                                rotation = Quaternion.identity,
+                                scale = 1.25f,
+                            },
+                            true);
+                        triggeredExplosionVisual = true;
+                    }
                 }
-
-                Destroy(this.gameObject);
+                if( NumberOfExplosionHitsFired >= NumberOfExplosionHits) 
+                {
+                    Destroy(this.gameObject);
+                }
             }
         }
 

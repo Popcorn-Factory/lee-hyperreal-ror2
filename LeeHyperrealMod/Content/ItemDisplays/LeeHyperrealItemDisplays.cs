@@ -2341,10 +2341,10 @@ localScale = new Vector3(0.12316F, 0.12316F, 0.12316F),
                         {
                             ruleType = ItemDisplayRuleType.ParentedPrefab,
                             followerPrefab = ItemDisplays.LoadDisplay("DisplayBatteryArray"),
-childName = "FootL",
-localPos = new Vector3(0F, 0.2584F, -0.0987F),
-localAngles = new Vector3(0F, 0F, 0F),
-localScale = new Vector3(0.2188F, 0.2188F, 0.2188F),
+childName = "Chest",
+localPos = new Vector3(0.13421F, 0.10307F, 0.00798F),
+localAngles = new Vector3(351.9008F, 90.22952F, 358.2563F),
+localScale = new Vector3(0.08832F, 0.08832F, 0.08832F),
                             limbMask = LimbFlags.None
                         }
                     }

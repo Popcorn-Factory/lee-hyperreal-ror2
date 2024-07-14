@@ -109,7 +109,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 {
                     cameraTargetParams.RemoveParamsOverride(handle);
                     CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
-                    cameraParamsData.fov = 130f;
+                    cameraParamsData.fov = 160f;
 
                     CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
                     {
