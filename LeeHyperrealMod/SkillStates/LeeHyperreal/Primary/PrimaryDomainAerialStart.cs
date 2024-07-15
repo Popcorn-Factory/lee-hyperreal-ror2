@@ -48,7 +48,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             //Automatically leads into Midair Attack Loop
 
 
-            base.characterMotor.velocity = Vector3.SmoothDamp(base.characterMotor.velocity, ((Vector3.down + base.characterDirection.forward).normalized * Modules.StaticValues.primaryAerialSlamSpeed), ref velocity, 0.02f);
+            base.characterMotor.velocity = Vector3.SmoothDamp(base.characterMotor.velocity, ((Vector3.down + base.characterDirection.forward).normalized * Modules.StaticValues.primaryAerialSlamSpeed), ref velocity, 0.1f);
 
             if (base.isAuthority) 
             {
@@ -90,7 +90,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         {
             base.Update();
 
-            base.characterMotor.velocity = Vector3.SmoothDamp(base.characterMotor.velocity, ((Vector3.down + base.characterDirection.forward).normalized * Modules.StaticValues.primaryAerialSlamSpeed), ref velocity, 0.05f);
+            base.characterMotor.velocity = Vector3.SmoothDamp(base.characterMotor.velocity, ((Vector3.down + base.characterDirection.forward).normalized * Modules.StaticValues.primaryAerialSlamSpeed), ref velocity, 0.1f);
         }
 
         public override void FixedUpdate()

@@ -28,6 +28,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         {
             base.OnEnter();
 
+            base.characterMotor.velocity = Vector3.zero;
+
             if (airTime <= 1f) 
             {
                 airTime = 1f;
