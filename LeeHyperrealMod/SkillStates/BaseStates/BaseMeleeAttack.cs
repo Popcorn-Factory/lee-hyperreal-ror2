@@ -148,7 +148,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                     if (pc.owner != gameObject)
                     {
                         Ray aimRay = base.GetAimRay();
-
+                        resetComboOnParry = true;
                         pc.owner = gameObject;
 
                         FireProjectileInfo info = new FireProjectileInfo()
@@ -378,9 +378,8 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
 
             if (enableParry)
             {
-                if (this.stopwatch >= duration * parryProjectileTiming && base.isAuthority && this.stopwatch <= this.duration * parryProjectileTimingEnd) 
+                if (this.stopwatch >= duration * parryProjectileTiming && base.isAuthority && this.stopwatch <= this.duration * parryProjectileTimingEnd)
                 {
-                    resetComboOnParry = true;
                     Deflect();
                 }
                 if (this.stopwatch >= this.duration * parryTiming && base.isAuthority && !parryTriggered) 
