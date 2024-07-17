@@ -14,6 +14,11 @@ namespace LeeHyperrealMod.Modules
             return "\n<color=#d299ff>SCEPTER: " + desc + "</color>";
         }
 
+        internal static string SubDesc(string desc) 
+        {
+            return $"<style=cSub>{desc}</style>";
+        }
+
         internal static string UtilDesc(string desc)
         {
             return $"<style=cIsUtility>{desc}</style>";

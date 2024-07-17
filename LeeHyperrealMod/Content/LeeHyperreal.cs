@@ -35,7 +35,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             subtitleNameToken = PLUGIN_PREFIX + "SUBTITLE",
 
             characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("texHenryIcon"),
-            bodyColor = Color.white,
+            bodyColor = new Color(0.4f, 1f, 1f),
 
             crosshair = Modules.Assets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
@@ -391,7 +391,8 @@ namespace LeeHyperrealMod.Modules.Survivors
                 cancelSprintingOnActivation = true,
                 rechargeStock = 1,
                 requiredStock = 1,
-                stockToConsume = 1
+                stockToConsume = 1,
+                keywordTokens = new string[] { $"{prefix}KEYWORD_DOMAIN_ULT" }
             });
 
             domainUltimateSkill = Modules.Skills.CreateSkillDef(new SkillDefInfo

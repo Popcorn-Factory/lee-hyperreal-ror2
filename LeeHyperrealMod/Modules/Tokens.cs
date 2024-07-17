@@ -15,14 +15,13 @@ namespace LeeHyperrealMod.Modules
             #region Lee: Hyperreal
             string prefix = LeeHyperrealPlugin.DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_";
 
-            string desc = "Lee: Hyperreal is a highly technical mobile grounded Character with hard to master gameplay. He entirely focusses on damage to the detriment of his survivability." +
-                Environment.NewLine + Environment.NewLine + $"<!> {UtilDesc("[3-ping]s")} do {DmgDesc("4 times")} the damage of only a single or 2 orbs of the same color so always try to manipulate the orb list to do 3-pings." +
-                Environment.NewLine + Environment.NewLine + $"<!> {UtilDesc("[Armament Barrage]")} attack 1 and 3 parries, if you successfully parry you can immediately parry again. With decent timing, you can reduce, or entirely negate incoming damage. Projectiles parried will be sent back with their damage multiplied." +
+            string desc = "Lee: Hyperreal is a highly technical grounded character with hard to master gameplay. He entirely focuses on damage to the detriment of his survivability." +
+                Environment.NewLine + Environment.NewLine + $"<!> {UtilDesc("[3-ping]s")} do {DmgDesc("4 times")} the damage compared to 1 or 2-pings of the same color so always try to manipulate the orb list to do {UtilDesc("[3-ping]s")}." +
+                Environment.NewLine + Environment.NewLine + $"<!> On a successful parry with {UtilDesc("[Armament Barrage]")}, you can instantly parry again. With decent timing, you can reduce/entirely negate damage." +
+                $" Projectiles parried will be reflected with their damage multiplied. Hitting enemies with this ability will regen orbs faster." +
                 Environment.NewLine + Environment.NewLine + $"<!> Entering the {UtilDesc("[Hypermatrix]")} is your time to shine. Delete those bosses but watch out for the end-lag on orb skills in Hypermatrix." +
-                Environment.NewLine + Environment.NewLine + $"<!> Try to keep your ammo counters filled, as it is the key to maintain your high damage. Get {UtilDesc("[Outlined Bullets]")} from parrying, and {UtilDesc("[Coloured Bullets]")} from {UtilDesc("[3-ping]s")} " +
-                Environment.NewLine + Environment.NewLine + $"<!> {UtilDesc("[Armament Barrage]")} allows Lee to deal damage while increasing his Orb gain rate - Tap your primary to get the most out of your attacks!" +
-                Environment.NewLine + Environment.NewLine + $"<!> {UtilDesc("[Snipe Stance]")} is your highest damaging tool, even more so with {UtilDesc("[Outlined Bullets]")} that multiply snipe damage. However, you’re vulnerable in this stance, so use this skill wisely." +
-                Environment.NewLine + Environment.NewLine + $"<!> Reality Travel is your most important survivability tool, as it can cancel most moves early. Ensure you time your dodges right and watch out for the unsafe endlag." +
+                Environment.NewLine + Environment.NewLine + $"<!> Try to keep your ammo counters filled. Get {UtilDesc("[Outlined Bullets]")} from parrying, and {UtilDesc("[Coloured Bullets]")} from {UtilDesc("[3-ping]s")} " +
+                Environment.NewLine + Environment.NewLine + $"<!> {UtilDesc("[Snipe Stance]")} is your highest damaging tool, even more so with {UtilDesc("[Outlined Bullets]")}. However, you’re vulnerable in this stance, so use this skill wisely." +
                 Environment.NewLine + Environment.NewLine + $"<!> {UtilDesc("[End of Time]")} can decimate a huge radius of enemies with its unlimited range and huge radius. But be mindful of its long cooldown.";
 
             string outro = "..and so he left, still no closer to his true reality.";
@@ -50,7 +49,7 @@ namespace LeeHyperrealMod.Modules
             LanguageAPI.Add(prefix + "PASSIVE_DOMAIN_DESCRIPTION", "" +
                 $"Lee has access to the {UtilDesc("[Hypermatrix]")}, by holding the Primary button" +
                 $" down with a full {UtilDesc("[Power Gauge]")}." +
-                $" Lee gains damage in place of attack speed, however {UtilDesc("[ Snipe Stance ]")} scales normally.");
+                $" Lee gains damage in place of attack speed, however {UtilDesc("[Snipe Stance]")} scales normally.");
             #endregion
 
             #region Primary
@@ -119,14 +118,19 @@ namespace LeeHyperrealMod.Modules
             LanguageAPI.Add(prefix + "KEYWORD_PARRY",
                 $"{Keyword("Parry")}" +
                 Environment.NewLine + $"Upon a successful parry, stun the enemy that dealt the damage, if they can be stunned. Any projectile parried will be shot back in the direction you aim at. A successful parry resets {UtilDesc("[Armament Barrage]")}, starting from the first hit again.");
-            LanguageAPI.Add(prefix + "KEYWORD_DOMAIN", 
+            LanguageAPI.Add(prefix + "KEYWORD_DOMAIN",
                 $"{Keyword("Hypermatrix System")}" +
-                Environment.NewLine + 
+                Environment.NewLine +
                 $"Above your Health is the {UtilDesc("[Hypermatrix System Gauge]")}. When the gauge is full, holding {UserSetting("Primary Skill")} at any time in {UtilDesc("[Armament Barrage]")} will transition him into the {UtilDesc("[Hypermatrix]")}. " +
                 Environment.NewLine +
                 $"While in this state, {RedOrb()} and {YellowOrb()} orbs change entirely, and your Special becomes {UtilDesc("[Collapsing Realm]")}." +
                 Environment.NewLine +
                 $"If the gauge runs out while in this state, {UtilDesc("[Collapsing Realm]")} will trigger automatically, exiting you out of the {UtilDesc("[Hypermatrix]")}.");
+
+            LanguageAPI.Add(prefix + "KEYWORD_DOMAIN_ULT",
+                $"{Keyword("Collapsing Realm")}" +
+                Environment.NewLine + 
+                $"Collapse the {UtilDesc("[Hypermatrix]")}, turning invincible for a short time and dealing {DmgDesc($"{ultimateDomainDamageCoefficient * 100f}% damage")} in your wake.");
 
             #endregion
 
