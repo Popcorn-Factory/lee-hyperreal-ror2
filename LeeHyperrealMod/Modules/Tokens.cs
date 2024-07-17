@@ -4,6 +4,7 @@ using static LeeHyperrealMod.Modules.Helpers;
 using static LeeHyperrealMod.Modules.StaticValues;
 using static LeeHyperrealMod.Modules.Config;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.Primary;
+using UnityEngine.Diagnostics;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -14,11 +15,15 @@ namespace LeeHyperrealMod.Modules
             #region Lee: Hyperreal
             string prefix = LeeHyperrealPlugin.DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_";
 
-            string desc = "Henry is a skilled fighter who makes use of a wide arsenal of weaponry to take down his foes.<color=#CCD3E0>" + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Sword is a good all-rounder while Boxing Gloves are better for laying a beatdown on more powerful foes." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Pistol is a powerful anti air, with its low cooldown and high damage." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Roll has a lingering armor buff that helps to use it aggressively." + Environment.NewLine + Environment.NewLine;
-            desc = desc + "< ! > Bomb can be used to wipe crowds with ease." + Environment.NewLine + Environment.NewLine;
+            string desc = "Lee: Hyperreal is a highly technical mobile grounded Character with hard to master gameplay. He entirely focusses on damage to the detriment of his survivability." +
+                Environment.NewLine + Environment.NewLine + $"<!> {UtilDesc("[3-ping]s")} do {DmgDesc("4 times")} the damage of only a single or 2 orbs of the same color so always try to manipulate the orb list to do 3-pings." +
+                Environment.NewLine + Environment.NewLine + $"<!> {UtilDesc("[Armament Barrage]")} attack 1 and 3 parries, if you successfully parry you can immediately parry again. With decent timing, you can reduce, or entirely negate incoming damage. Projectiles parried will be sent back with their damage multiplied." +
+                Environment.NewLine + Environment.NewLine + $"<!> Entering the {UtilDesc("[Hypermatrix]")} is your time to shine. Delete those bosses but watch out for the end-lag on orb skills in Hypermatrix." +
+                Environment.NewLine + Environment.NewLine + $"<!> Try to keep your ammo counters filled, as it is the key to maintain your high damage. Get {UtilDesc("[Outlined Bullets]")} from parrying, and {UtilDesc("[Coloured Bullets]")} from {UtilDesc("[3-ping]s")} " +
+                Environment.NewLine + Environment.NewLine + $"<!> {UtilDesc("[Armament Barrage]")} allows Lee to deal damage while increasing his Orb gain rate - Tap your primary to get the most out of your attacks!" +
+                Environment.NewLine + Environment.NewLine + $"<!> {UtilDesc("[Snipe Stance]")} is your highest damaging tool, even more so with {UtilDesc("[Outlined Bullets]")} that multiply snipe damage. However, you’re vulnerable in this stance, so use this skill wisely." +
+                Environment.NewLine + Environment.NewLine + $"<!> Reality Travel is your most important survivability tool, as it can cancel most moves early. Ensure you time your dodges right and watch out for the unsafe endlag." +
+                Environment.NewLine + Environment.NewLine + $"<!> {UtilDesc("[End of Time]")} can decimate a huge radius of enemies with its unlimited range and huge radius. But be mindful of its long cooldown.";
 
             string outro = "..and so he left, still no closer to his true reality.";
             string outroFailure = "..and so he vanished, with a mission unfulfilled";
