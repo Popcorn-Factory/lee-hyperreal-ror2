@@ -95,6 +95,12 @@ namespace LeeHyperrealMod.Modules.Survivors
                     childName = "SubMachineGunModel",
                     material = Materials.CreateHopooMaterial("leeSubmachineMat"),
                 },
+                new CustomRendererInfo 
+                {
+                    childName = "SuperCannonModel",
+                    material = Materials.CreateHopooMaterial("Cannon"),
+                    ignoreOverlays = true,
+                },
                 new CustomRendererInfo
                 {
                     childName = "SuperRifleModel",
@@ -190,7 +196,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1,
-                keywordTokens = new string[] { $"{prefix}KEYWORD_ORBS", $"{prefix}KEYWORD_AMMO" }
+                keywordTokens = new string[] { $"{prefix}KEYWORD_ORBS", $"{prefix}KEYWORD_AMMO", $"{prefix}KEYWORD_POWER_GAUGE" }
             });
 
             passive.hypermatrixPassive = Modules.Skills.CreateSkillDef(new SkillDefInfo
@@ -215,7 +221,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1,
-                keywordTokens = new string[] { $"{prefix}KEYWORD_DOMAIN" }
+                keywordTokens = new string[] { $"{prefix}KEYWORD_DOMAIN", $"{prefix}KEYWORD_SNIPE_STANCE" }
             });
 
             Modules.Skills.AddPassiveSkills(passive.orbPassiveSkillSlot.skillFamily, new SkillDef[]{
@@ -228,13 +234,30 @@ namespace LeeHyperrealMod.Modules.Survivors
 
             #region Primary
             //Creates a skilldef for a typical primary 
-            SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo(prefix + "PRIMARY_NAME",
-                                                                                      prefix + "PRIMARY_DESCRIPTION",
-                                                                                      Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimary"),
-                                                                                      new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Primary.PrimaryEntry)),
-                                                                                      "Body",
-                                                                                      true));
-
+            SkillDef primarySkillDef = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = prefix + "PRIMARY_NAME",
+                skillNameToken = prefix + "PRIMARY_NAME",
+                skillDescriptionToken = prefix + "PRIMARY_DESCRIPTION",
+                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texPrimary"),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Primary.PrimaryEntry)),
+                activationStateMachineName = "Body",
+                baseMaxStock = 1,
+                baseRechargeInterval = 0f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = EntityStates.InterruptPriority.Skill,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = true,
+                mustKeyPress = false,
+                cancelSprintingOnActivation = false,
+                rechargeStock = 0,
+                requiredStock = 0,
+                stockToConsume = 0,
+                keywordTokens = new string[] { $"{prefix}KEYWORD_PARRY" }
+            });
 
             Modules.Skills.AddPrimarySkills(bodyPrefab, primarySkillDef);
             #endregion
@@ -262,7 +285,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1,
-                keywordTokens = new string[] { "KEYWORD_AGILE" }
+                keywordTokens = new string[] { $"{prefix}KEYWORD_SNIPE_STANCE" }
             });
 
             ExitSnipeSkill = Modules.Skills.CreateSkillDef(new SkillDefInfo
@@ -281,13 +304,13 @@ namespace LeeHyperrealMod.Modules.Survivors
                 fullRestockOnAssign = true,
                 interruptPriority = EntityStates.InterruptPriority.Skill,
                 resetCooldownTimerOnUse = false,
-                isCombatSkill = true,
+                isCombatSkill = false,
                 mustKeyPress = true,
                 cancelSprintingOnActivation = false,
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1,
-                keywordTokens = new string[] { "KEYWORD_AGILE" }
+                keywordTokens = new string[] { $"{prefix}KEYWORD_SNIPE_STANCE" }
             });
 
             EnterSnipeSkill = Modules.Skills.CreateSkillDef(new SkillDefInfo
@@ -306,13 +329,13 @@ namespace LeeHyperrealMod.Modules.Survivors
                 fullRestockOnAssign = true,
                 interruptPriority = EntityStates.InterruptPriority.Skill,
                 resetCooldownTimerOnUse = false,
-                isCombatSkill = true,
+                isCombatSkill = false,
                 mustKeyPress = true,
                 cancelSprintingOnActivation = false,
                 rechargeStock = 1,
                 requiredStock = 1,
                 stockToConsume = 1,
-                keywordTokens = new string[] { "KEYWORD_AGILE" }
+                keywordTokens = new string[] { $"{prefix}KEYWORD_SNIPE_STANCE" }
             });
 
             Modules.Skills.AddSecondarySkills(bodyPrefab, EnterSnipeSkill);
@@ -430,7 +453,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             #region MasterySkin
 
             //creating a new skindef as we did before
-            SkinDef masterySkin = Modules.Skins.CreateSkinDef(LeeHyperrealPlugin.DEVELOPER_PREFIX + "_HENRY_BODY_MASTERY_SKIN_NAME",
+            SkinDef masterySkin = Modules.Skins.CreateSkinDef(PLUGIN_PREFIX + "ALT_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("texMasteryAchievement"),
                 defaultRendererinfos,
                 prefabCharacterModel.gameObject,
@@ -440,21 +463,37 @@ namespace LeeHyperrealMod.Modules.Survivors
             //if you don't want to replace the mesh (for example, you only want to replace the material), pass in null so the order is preserved
             masterySkin.meshReplacements = Modules.Skins.getMeshReplacements(defaultRendererinfos,
                 null,
-                null,//no gun mesh replacement. use same gun mesh
                 null,
                 null,
-                null,//no gun mesh replacement. use same gun mesh
                 null,
                 null,
-                null,//no gun mesh replacement. use same gun mesh
                 null,
                 null,
-                null,//no gun mesh replacement. use same gun mesh
+                null,
+                null,
+                null,
+                null,
+                null,
                 null);
 
             //masterySkin has a new set of RendererInfos (based on default rendererinfos)
             //you can simply access the RendererInfos defaultMaterials and set them to the new materials for your skin.
-            string[] materialStrings = { "cloneBody", "cloneCloth", "cloneFace", "cloneHair", "cloneAlpha", "cloneEye", "cloneDown", "cloneSuperBox", "clonePistol", null, null, "clonePistol" };
+            string[] materialStrings = 
+                { 
+                    "skinCloneBody", 
+                    "skinCloneCloth", 
+                    "skinCloneFace", 
+                    "skinCloneHair", 
+                    "skinCloneAlpha", 
+                    "skinCloneEye", 
+                    "skinCloneDown", 
+                    "skinCloneSuperBox", 
+                    "skinClonePistol", 
+                    "skinCloneCannon",
+                    "skinCloneRifle", 
+                    null, 
+                    "skinClonePistol"
+                };
 
             for (int i = 0; i < materialStrings.Length; i++) 
             {

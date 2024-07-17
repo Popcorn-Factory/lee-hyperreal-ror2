@@ -31,7 +31,8 @@ namespace LeeHyperrealMod.Modules
             LanguageAPI.Add(prefix + "OUTRO_FAILURE", outroFailure);
 
             #region Skins
-            LanguageAPI.Add(prefix + "DEFAULT_SKIN_NAME", "Default");
+            LanguageAPI.Add(prefix + "DEFAULT_SKIN_NAME", "Lee: Hyperreal");
+            LanguageAPI.Add(prefix + "ALT_SKIN_NAME", "Lee: Real");
             #endregion
 
             #region Passive
@@ -105,13 +106,14 @@ namespace LeeHyperrealMod.Modules
                 $"Upon a successful {UtilDesc("[Parry]")}, {UtilDesc("[Outlined Bullet]'s")} are granted, increasing the damage of your next shot in {UtilDesc("[Snipe Stance]")} by {DmgDesc($"{empoweredBulletMultiplier}x times.  ")}");
             LanguageAPI.Add(prefix + "KEYWORD_SNIPE_STANCE",
                 $"{Keyword("Snipe Stance")}" +
-                Environment.NewLine + $"");
+                Environment.NewLine + $"Enter a stance which immobilises you, changing your {UserSetting("Primary Skill")} to a Sniping shot that deals {DmgDesc($"{snipeDamageCoefficient * 100f}% Damage")} per shot." +
+                Environment.NewLine + $"Using {UserSetting("Utility Skill")} without any directional input allows you to dodge backwards while firing a bullet that deals {DmgDesc($"{snipeDamageCoefficient * 100f}% Damage")}. Using this skill otherwise cancels the stance.");
             LanguageAPI.Add(prefix + "KEYWORD_POWER_GAUGE",
                 $"{Keyword("Power Gauge")}" +
-                Environment.NewLine + $"");
+                Environment.NewLine + $"The Power Gauge situated above the Health gauge determines when you can enter the {UtilDesc("[Hypermatrix]")}, and how long left before exiting. Hold the {UserSetting("Primary Skill")} to enter the {UtilDesc("[Hypermatrix]")}.");
             LanguageAPI.Add(prefix + "KEYWORD_PARRY",
                 $"{Keyword("Parry")}" +
-                Environment.NewLine + $"");
+                Environment.NewLine + $"Upon a successful parry, stun the enemy that dealt the damage, if they can be stunned. Any projectile parried will be shot back in the direction you aim at. A successful parry resets {UtilDesc("[Armament Barrage]")}, starting from the first hit again.");
             LanguageAPI.Add(prefix + "KEYWORD_DOMAIN", 
                 $"{Keyword("Hypermatrix System")}" +
                 Environment.NewLine + 
