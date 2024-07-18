@@ -19,8 +19,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
         public float start = 0;
         public float earlyEnd = 0.9f;
-        public float fireTime = 0.42f;
-        public float duration = 8.2f;
+        public float fireTime = 0.514f;
+        public float duration = 6.7f;
         public bool hasFired;
         public int moveStrength; //1-3
 
@@ -43,10 +43,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         private Vector3 velocity = Vector3.zero;
 
         private bool setCease = false;
-        private float playCeaseFrac = 0.255f;
+        private float playCeaseFrac = 0.312f;
         private bool hasCeased = false;
 
-        private float weaponTransitionFrac = 0.665f;
+        private float weaponTransitionFrac = 0.8138f;
         private bool hasTransitioned = false;
 
         public override void OnEnter()

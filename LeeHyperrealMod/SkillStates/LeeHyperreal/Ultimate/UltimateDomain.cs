@@ -335,7 +335,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 if (!finalBlastTriggered) 
                 {
                     finalBlastTriggered = true;
-                    blastAttack.baseDamage = damageStat * Modules.StaticValues.ultimateDomainDamageCoefficient * sightStacks;
+                    blastAttack.baseDamage = damageStat * Modules.StaticValues.ultimateDomainDamageCoefficient;
                     blastAttack.bonusForce = Vector3.up;
                     blastAttack.baseForce = 1000f;
                     blastAttack.Fire();

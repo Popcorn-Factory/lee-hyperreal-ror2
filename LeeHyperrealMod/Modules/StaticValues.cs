@@ -82,7 +82,7 @@ namespace LeeHyperrealMod.Modules
         internal const float bigParryFreezeDuration = 1.5f;
         internal const float bigParryLeeFreezeDuration = 0.6f;
         internal const float bigParryHealthFrac = 0.2f;
-        internal const float parryProjectileRadius = 5f;
+        internal const float parryProjectileRadius = 3f;
         internal const float parryProjectileDamageMultiplier = 5f;
         internal const int enhancedBulletGrantOnProjectileParry = 1;
         internal const int enhancedBulletGrantOnDamageParry = 1;
@@ -123,7 +123,7 @@ namespace LeeHyperrealMod.Modules
         internal const float yellowOrbFinisherProcCoefficient = 1f;
         internal const float yellowOrbFinisherPushForce = 300f;
 
-        internal const float yellowOrbDomainDamageCoefficient = 0.6f;
+        internal const float yellowOrbDomainDamageCoefficient = 0.5f;
         internal const float yellowOrbDomainProcCoefficient = 1f;
         internal const float yellowOrbDomainBlastForce = 200f;
         internal const float yellowOrbDomainBlastRadius = 20f;
