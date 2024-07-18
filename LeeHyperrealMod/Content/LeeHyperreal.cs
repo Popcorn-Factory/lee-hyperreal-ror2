@@ -27,6 +27,7 @@ namespace LeeHyperrealMod.Modules.Survivors
         public static SkillDef EnterSnipeSkill;
         public static SkillDef ultimateSkill;
         public static SkillDef domainUltimateSkill;
+        public static int glitchSkinIndex = 1;
 
         public override BodyInfo bodyInfo { get; set; } = new BodyInfo
         {
@@ -146,6 +147,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             bodyPrefab.AddComponent<BulletController>();
             bodyPrefab.AddComponent<WeaponModelHandler>();
             bodyPrefab.AddComponent<UltimateCameraController>();
+            bodyPrefab.AddComponent<GlitchOverlayController>();
         }
 
         public override void InitializeUnlockables()

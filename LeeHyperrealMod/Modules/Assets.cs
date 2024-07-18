@@ -13,7 +13,7 @@ namespace LeeHyperrealMod.Modules
 {
     internal static class Assets
     {
-        #region henry's stuff
+        #region Other Assets
         // particle effects
         internal static GameObject swordSwingEffect;
         internal static GameObject swordHitImpactEffect;
@@ -35,6 +35,9 @@ namespace LeeHyperrealMod.Modules
         internal static GameObject healthPrefabs;
         internal static GameObject orbsUIObject;
         internal static GameObject spinnyIconUIObject;
+
+        //Material
+        internal static Material glitchMaterial;
 
         // networked hit sounds
         internal static NetworkSoundEventDef swordHitSoundEvent;
@@ -159,6 +162,8 @@ namespace LeeHyperrealMod.Modules
 
             ultimateExplosionObject = mainAssetBundle.LoadAsset<GameObject>("fxr4liangatk51sound"); // LMAO empty object let's use it 
             ultimateExplosionObject.AddComponent<UltimateOrbExplosion>();
+
+            glitchMaterial = mainAssetBundle.LoadAsset<Material>("fxr4liang010011mdcanying703");
         }
 
         private static GameObject CreateTracer(string originalTracerName, string newTracerName)
