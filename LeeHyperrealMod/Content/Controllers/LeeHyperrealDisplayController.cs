@@ -22,11 +22,6 @@ namespace LeeHyperrealMod.Content.Controllers
 
             selectedNum = GenerateRandomNum();
             SetDisableClone();
-
-            if (AkSoundEngine.IsInitialized())
-            {
-                AkSoundEngine.SetRTPCValue("Volume_Lee_Voice", Modules.Config.voiceVolume.Value);
-            }
         }
 
         public void SetDisableClone() 
