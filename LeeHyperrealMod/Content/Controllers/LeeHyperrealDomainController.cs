@@ -361,6 +361,7 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             Destroy(loopDomainEffect);
             Destroy(despawnDomainEffect);
+            Destroy(domainAerialEffect);
         }
     }
 }
