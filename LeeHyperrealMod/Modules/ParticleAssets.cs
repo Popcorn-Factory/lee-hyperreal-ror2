@@ -15,6 +15,10 @@ namespace LeeHyperrealMod.Modules
         internal static List<Material> materialStorage = new List<Material>();
         #endregion
 
+        #region Primary Aerial
+        internal static GameObject primaryAerialDomainEffect;
+        #endregion
+
         #region Primary 1
         public static GameObject primary1Swing;
         public static GameObject primary1Hit;
@@ -208,6 +212,7 @@ namespace LeeHyperrealMod.Modules
         public static void PopulateAssets() 
         {
             #region Primary
+            PopulateAerialDomainAssets();
             PopulatePrimary1Assets();
             PopulatePrimary2Assets();
             PopulatePrimary3Assets();
@@ -254,6 +259,12 @@ namespace LeeHyperrealMod.Modules
             #region Display Particles
             PopulateDisplayParticleAssets();
             #endregion
+        }
+
+        private static void PopulateAerialDomainAssets()
+        {
+            primaryAerialDomainEffect = GetGameObjectFromBundle("DomainMidairLoop");
+            primaryAerialDomainEffect.AddComponent<DestroyPlatformOnDelay>().delay = 5f;
         }
 
         private static void PopulateDisplayParticleAssets()

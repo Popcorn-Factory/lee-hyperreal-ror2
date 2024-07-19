@@ -55,6 +55,9 @@ namespace LeeHyperrealMod.Content.Controllers
         public float ultCooldownBeforeSwitch;
         public int ultStockBeforeSwitch;
 
+        //Domain Aerial prefab
+        public GameObject domainAerialEffect;
+
         public void Start()
         {
             uiController = GetComponent<LeeHyperrealUIController>();
@@ -86,7 +89,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void Update()
         {
-            if (loopDomainEffect) 
+            if (loopDomainEffect)
             {
                 //Check each axis and determine how far they are away from the target point.
                 float xDiff = Math.Abs(loopDomainEffect.transform.position.x - baseTransform.position.x);
@@ -105,11 +108,16 @@ namespace LeeHyperrealMod.Content.Controllers
                 if (useX) { target = new Vector3(baseTransform.position.x, baseTransform.position.y, loopDomainEffect.transform.position.z); }
                 //if (useY) { target = new Vector3(loopDomainEffect.transform.position.x, baseTransform.position.y, loopDomainEffect.transform.position.z); }
                 if (useZ) { target = new Vector3(loopDomainEffect.transform.position.x, baseTransform.position.y, baseTransform.position.z); }
-                
+
                 loopDomainEffect.transform.position = Vector3.SmoothDamp(loopDomainEffect.transform.position, target, ref velocity, 0.5f);
             }
 
             ChangeIconState();
+
+            if (domainAerialEffect) 
+            {
+
+            }
 
             if (charBody.hasEffectiveAuthority)
             {
@@ -129,6 +137,18 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
                 UpdateUIController();
             }
+        }
+
+        public void SetupDomainAerialEffect() 
+        {
+            domainAerialEffect = UnityEngine.Object.Instantiate(Modules.ParticleAssets.primaryAerialDomainEffect, baseTransform);
+        }
+
+        public void DisposeDomainAerialEffect() 
+        {
+            domainAerialEffect.transform.SetParent(null, true);
+            domainAerialEffect.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+            domainAerialEffect = null;
         }
 
         private void ChangeIconState()

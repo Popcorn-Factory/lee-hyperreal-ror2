@@ -18,6 +18,7 @@ namespace LeeHyperrealMod.Content.Controllers
             animator = gameObject.GetComponent<Animator>();
             if (animator) 
             {
+                animator.SetBool("End", false);
                 animator.SetBool("Turn Off", false);
             }
         }
@@ -39,6 +40,7 @@ namespace LeeHyperrealMod.Content.Controllers
             startDestroy = true;
             if (animator)
             {
+                animator.SetBool("End", true);
                 animator.SetBool("Turn Off", true);
             }
         }

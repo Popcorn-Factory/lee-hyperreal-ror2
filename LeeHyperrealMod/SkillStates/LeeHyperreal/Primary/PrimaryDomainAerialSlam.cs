@@ -28,7 +28,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         {
             base.OnEnter();
 
+            domainController = GetComponent<LeeHyperrealDomainController>();
+
+            domainController.DisposeDomainAerialEffect();
+
             base.characterMotor.velocity = Vector3.zero;
+
+            base.rmaMultiplier = 1.4f;
 
             if (airTime <= 1f) 
             {
@@ -48,9 +54,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             }
 
             base.PlayAnimation("Body", "DomainMidairEnd", "attack.playbackRate", duration);
-
-
-
         }
 
         public void PlaySwing(string muzzleString, float swingScale, GameObject effectPrefab)
