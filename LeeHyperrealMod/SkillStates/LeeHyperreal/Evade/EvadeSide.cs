@@ -1,6 +1,7 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.SkillStates.BaseStates;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary;
 using R2API.Networking;
 using RoR2;
 using System;
@@ -119,6 +120,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             }
             if (age >= duration * earlyExitFrac && isAuthority)
             {
+                if (base.inputBank.skill2.down && Modules.Config.allowSnipeButtonHold.Value && base.isAuthority && base.skillLocator.secondary.skillNameToken == "POPCORN_LEE_HYPERREAL_BODY_ENTER_SNIPE_NAME")
+                {
+                    base.outer.SetState(new EnterSnipe());
+                    return;
+                }
+
                 if (base.inputBank.moveVector != new Vector3(0, 0, 0))
                 {
                     base.outer.SetNextStateToMain();

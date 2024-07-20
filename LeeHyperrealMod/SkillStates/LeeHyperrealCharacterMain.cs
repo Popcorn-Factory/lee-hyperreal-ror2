@@ -1,4 +1,5 @@
 ﻿using EntityStates;
+using LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -81,6 +82,11 @@ namespace LeeHyperrealMod.SkillStates
             else 
             {
                 this.useRootMotion = ((base.characterBody && base.characterBody.rootMotionInMainState && base.isGrounded) || base.railMotor);
+            }
+
+            if (base.inputBank.skill2.down && Modules.Config.allowSnipeButtonHold.Value && base.isAuthority && base.skillLocator.secondary.skillNameToken == "POPCORN_LEE_HYPERREAL_BODY_ENTER_SNIPE_NAME")
+            {
+                base.outer.SetState(new EnterSnipe());
             }
         }
     }
