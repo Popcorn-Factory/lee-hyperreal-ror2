@@ -21,6 +21,7 @@ namespace LeeHyperrealMod.Modules
         public static ConfigEntry<KeyboardShortcut> redOrbTrigger;
 
         public static ConfigEntry<bool> isSimple;
+        public static ConfigEntry<bool> allowSnipeButtonHold;
 
         public static ConfigEntry<bool> changeCameraPos;
         public static ConfigEntry<float> horizontalCameraPosition;
@@ -124,6 +125,13 @@ namespace LeeHyperrealMod.Modules
                 new ConfigDescription("Changes the the vertical position of the camera when scoped. Positive values is up, Negative values are down.")
             );
 
+            allowSnipeButtonHold = LeeHyperrealPlugin.instance.Config.Bind<bool>
+            (
+                new ConfigDefinition("03 - Snipe", "Hold to Snipe"),
+                false,
+                new ConfigDescription("Changes the Snipe stance skill to allow you to hold the button down to stay in snipe. To exit snipe, let go of the Snipe stance button.")
+            );
+
             voiceLanguageOption = LeeHyperrealPlugin.instance.Config.Bind
             (
                 "04 - Voice", 
@@ -205,6 +213,7 @@ namespace LeeHyperrealMod.Modules
                     }
                 )
             );
+            ModSettingsManager.AddOption(new CheckBoxOption(allowSnipeButtonHold));
 
             ModSettingsManager.AddOption(new ChoiceOption(voiceLanguageOption));
 

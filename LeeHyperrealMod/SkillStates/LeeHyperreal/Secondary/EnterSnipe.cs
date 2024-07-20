@@ -141,6 +141,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     return;
                 }
 
+                if (!base.inputBank.skill2.down && Modules.Config.allowSnipeButtonHold.Value && base.isAuthority)
+                {
+                    base.outer.SetState(new ExitSnipe());
+                }
+
                 if ((base.inputBank.skill2.down || base.inputBank.skill4.down) && base.isAuthority)
                 {
                     Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);

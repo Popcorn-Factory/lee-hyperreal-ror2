@@ -229,6 +229,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     return;
                 }
 
+                if (!base.inputBank.skill2.down && Modules.Config.allowSnipeButtonHold.Value && base.isAuthority)
+                {
+                    base.outer.SetState(new ExitSnipe());
+                }
+
                 //Check for dodging. Otherwise ignore.
                 if (base.inputBank.skill3.down && skillLocator.utility.stock >= 1)
                 {

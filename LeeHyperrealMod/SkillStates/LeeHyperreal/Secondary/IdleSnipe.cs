@@ -34,6 +34,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                 Transform baseTransform = childLocator.FindChild("BaseTransform");
                 bulletController.snipeAerialPlatform = UnityEngine.Object.Instantiate(Modules.ParticleAssets.snipeAerialFloor, baseTransform.position, Quaternion.identity);
             }
+
+            if (!base.inputBank.skill2.down && Modules.Config.allowSnipeButtonHold.Value && base.isAuthority)
+            {
+                base.outer.SetState(new ExitSnipe());
+                return;
+            }
         }
 
         public override void OnExit()
@@ -85,6 +91,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
                     return;
                 }
+
+                if (!base.inputBank.skill2.down && Modules.Config.allowSnipeButtonHold.Value && base.isAuthority) 
+                {
+                    base.outer.SetState(new ExitSnipe());
+                }
+
                 if ((base.inputBank.skill2.down || base.inputBank.skill4.down) && base.isAuthority)
                 {
                     Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
