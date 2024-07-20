@@ -248,8 +248,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             base.Update();
 
 
-            base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, aimRay.direction, ref velocity, 0.1f, 100f, Time.deltaTime);
-            base.characterDirection.moveVector = Vector3.SmoothDamp(base.characterDirection.moveVector, aimRay.direction, ref velocity, 0.1f, 100f, Time.deltaTime);
+            //base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, aimRay.direction, ref velocity, 0.1f, 100f, Time.deltaTime);
+            //base.characterDirection.moveVector = Vector3.SmoothDamp(base.characterDirection.moveVector, aimRay.direction, ref velocity, 0.1f, 100f, Time.deltaTime);
 
             if (age >= duration * playCeaseFrac && !hasCeased && base.isAuthority && setCease)
             {
