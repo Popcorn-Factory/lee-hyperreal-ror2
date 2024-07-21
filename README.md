@@ -62,7 +62,7 @@ Collapse the **\[Hypermatrix\]**, turning invincible for a short time and dealin
 There's no need for payment for mods, but a coffee would be nice once in awhile!
 
 <a href="https://ko-fi.com/popcornfactory" target="_blank">
-  <img width="400" src="https://raw.githubusercontent.com/Popcorn-Factory/Arsonist-RoR2/master/Thunderstorerelease/kofiImg.png"/>
+  <img width="400" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/kofiImg.png"/>
 </a>
 
 ## Known Issues
