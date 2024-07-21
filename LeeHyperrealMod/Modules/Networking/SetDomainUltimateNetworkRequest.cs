@@ -59,8 +59,11 @@ namespace LeeHyperrealMod.Modules.Networking
             {
                 if (stateMachine.customName == "Body")
                 {
-                    stateMachine.SetState(new UltimateDomain { } );
-                    return;
+                    if (stateMachine.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death) 
+                    {
+                        stateMachine.SetState(new UltimateDomain { });
+                        return;
+                    }
                 }
             }
         }

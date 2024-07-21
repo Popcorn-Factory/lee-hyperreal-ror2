@@ -226,11 +226,14 @@ namespace LeeHyperrealMod.Content.Controllers
                     return;
                 }
 
-                UpdateHealthUIObject();
-                UpdateMeterLevel();
-                SetAnimatorMeterValue();
-                HandleBulletUIChange();
-                UpdateGlyphPositions();
+                if (!baseAIPresent) 
+                {
+                    UpdateHealthUIObject();
+                    UpdateMeterLevel();
+                    SetAnimatorMeterValue();
+                    HandleBulletUIChange();
+                    UpdateGlyphPositions();
+                }
             }
         }
 
