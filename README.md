@@ -14,6 +14,8 @@ For any issues or bug reports, Contact the following:
 
 On either the RoR2 modding discord, or in the <a href="https://discord.gg/ahDsUF58g7">Lee Hyperreal RoR2 discord.</a>
 
+Use of Risk Of Options is highly recommended! If some options don't exist even after an update, please wipe your config and try check again.
+
 ## Latest Update
 - 1.0.0
     - Initial Release!
