@@ -2,6 +2,7 @@
 using LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb;
 using RoR2;
+using RoR2.CharacterAI;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -40,6 +41,8 @@ namespace LeeHyperrealMod.Content.Controllers
         LeeHyperrealUIController uiController;
 
         CharacterBody charBody;
+        CharacterMaster characterMaster;
+        bool baseAIPresent;
 
         EntityStateMachine[] stateMachines;
 
@@ -58,6 +61,17 @@ namespace LeeHyperrealMod.Content.Controllers
             uiController = gameObject.GetComponent<LeeHyperrealUIController>();
 
             stateMachines = charBody.gameObject.GetComponents<EntityStateMachine>();
+
+            characterMaster = charBody.master;
+            BaseAI baseAI = characterMaster.GetComponent<BaseAI>();
+            baseAIPresent = baseAI;
+
+
+            //For some reason on goboo's first spawn the master is just not there. However subsequent spawns work.
+            // Disable the UI in this event.
+            // Besides, there should never be a UI element related to a non-existant master on screen if the attached master/charbody does not exist.
+            if (!characterMaster) baseAIPresent = true; // Disable UI Just in case.
+
             RecalcUpdateRate();
         }
 
@@ -132,7 +146,7 @@ namespace LeeHyperrealMod.Content.Controllers
         public void Update()
         {
             //Check input
-            if (charBody.hasEffectiveAuthority && !PauseManager.isPaused)
+            if (charBody.hasEffectiveAuthority && !PauseManager.isPaused && !baseAIPresent)
             {
 
                 //If the orb list is greater than 8, it means that we don't need to update the glyph indicators cause there's nothing

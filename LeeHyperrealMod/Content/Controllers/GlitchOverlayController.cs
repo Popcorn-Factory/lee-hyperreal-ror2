@@ -114,7 +114,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 if (self.body)
                 {
                     GlitchOverlayController glitchOverlayController = self.body.GetComponent<GlitchOverlayController>();
-                    if (glitchOverlayController)
+                    if (glitchOverlayController && self.body.skinIndex == LeeHyperreal.glitchSkinIndex)
                     {
                         this.overlayFunction(Modules.Assets.glitchMaterial, isActive, self);
                     }

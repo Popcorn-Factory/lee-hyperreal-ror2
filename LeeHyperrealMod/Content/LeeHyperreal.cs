@@ -3,7 +3,9 @@ using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.Modules.Characters;
 using LeeHyperrealMod.SkillStates;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.Evade;
+using R2API;
 using RoR2;
+using RoR2.CharacterAI;
 using RoR2.Skills;
 using System;
 using System.Collections.Generic;
@@ -148,6 +150,149 @@ namespace LeeHyperrealMod.Modules.Survivors
             bodyPrefab.AddComponent<WeaponModelHandler>();
             bodyPrefab.AddComponent<UltimateCameraController>();
             bodyPrefab.AddComponent<GlitchOverlayController>();
+        }
+
+        public override void InitializeDoppelganger(string clone)
+        {
+            GameObject newMasterGameObject = PrefabAPI.InstantiateClone(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/CharacterMasters/" + clone + "MonsterMaster"), bodyName + "MonsterMaster", true);
+            CharacterMaster master = newMasterGameObject.GetComponent<CharacterMaster>();
+            master.bodyPrefab = bodyPrefab;
+
+            //Set AI Skill Drivers
+
+            AISkillDriver[] drivers = master.GetComponents<AISkillDriver>();
+            foreach (AISkillDriver driver in drivers)
+            {
+                UnityEngine.Object.DestroyImmediate(driver);
+            }
+
+            //Fire as much as possible in range.
+            AISkillDriver armamentBarrage = master.gameObject.AddComponent<AISkillDriver>();
+            armamentBarrage.customName = "Lee: Hyperreal - Armament Barrage";
+            armamentBarrage.skillSlot = SkillSlot.Primary;
+            armamentBarrage.requireSkillReady = true;
+            armamentBarrage.requireEquipmentReady = false;
+            armamentBarrage.minDistance = 0;
+            armamentBarrage.maxDistance = 10f;
+            armamentBarrage.selectionRequiresAimTarget = true;
+            armamentBarrage.selectionRequiresOnGround = false;
+            armamentBarrage.selectionRequiresAimTarget = true;
+            armamentBarrage.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;
+            armamentBarrage.activationRequiresTargetLoS = true;
+            armamentBarrage.activationRequiresAimTargetLoS = true;
+            armamentBarrage.activationRequiresAimConfirmation = true;
+            armamentBarrage.movementType = AISkillDriver.MovementType.ChaseMoveTarget;
+            armamentBarrage.buttonPressType = AISkillDriver.ButtonPressType.TapContinuous;
+            armamentBarrage.aimType = AISkillDriver.AimType.AtCurrentEnemy;
+            armamentBarrage.resetCurrentEnemyOnNextDriverSelection = false;
+
+            ////Always fire when at a distance away from the player.
+            //AISkillDriver flare = master.gameObject.AddComponent<AISkillDriver>();
+            //flare.customName = "Arsonist Secondary";
+            //flare.skillSlot = SkillSlot.Secondary;
+            //flare.requireSkillReady = true;
+            //flare.requireEquipmentReady = false;
+            //flare.minDistance = 30f;
+            //flare.maxDistance = 100f;
+            //flare.selectionRequiresAimTarget = true;
+            //flare.selectionRequiresOnGround = false;
+            //flare.selectionRequiresAimTarget = true;
+            //flare.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;
+            //flare.activationRequiresTargetLoS = true;
+            //flare.activationRequiresAimTargetLoS = true;
+            //flare.activationRequiresAimConfirmation = true;
+            //flare.movementType = AISkillDriver.MovementType.ChaseMoveTarget;
+            //flare.buttonPressType = AISkillDriver.ButtonPressType.TapContinuous;
+            //flare.aimType = AISkillDriver.AimType.AtCurrentEnemy;
+            //flare.resetCurrentEnemyOnNextDriverSelection = true;
+            //flare.noRepeat = true;
+
+            AISkillDriver dodge = master.gameObject.AddComponent<AISkillDriver>();
+            dodge.customName = "Lee: hyperreal dodge";
+            dodge.skillSlot = SkillSlot.Utility;
+            dodge.requireSkillReady = true;
+            dodge.requireEquipmentReady = false;
+            dodge.minDistance = 0f;
+            dodge.maxDistance = 20f;
+            dodge.selectionRequiresAimTarget = true;
+            dodge.selectionRequiresOnGround = false;
+            dodge.selectionRequiresAimTarget = true;
+            dodge.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;
+            dodge.activationRequiresTargetLoS = true;
+            dodge.activationRequiresAimTargetLoS = true;
+            dodge.activationRequiresAimConfirmation = true;
+            dodge.movementType = AISkillDriver.MovementType.StrafeMovetarget;
+            dodge.aimType = AISkillDriver.AimType.AtCurrentEnemy;
+            dodge.buttonPressType = AISkillDriver.ButtonPressType.TapContinuous;
+            dodge.resetCurrentEnemyOnNextDriverSelection = false;
+            dodge.resetCurrentEnemyOnNextDriverSelection = true;
+            //cleanse.noRepeat = true;
+
+            //AISkillDriver maso = master.gameObject.AddComponent<AISkillDriver>();
+            //maso.customName = "Arsonist Masochism";
+            //maso.skillSlot = SkillSlot.Special;
+            //maso.requireSkillReady = true;
+            //maso.requireEquipmentReady = false;
+            //maso.minDistance = 10f;
+            //maso.maxDistance = 15f;
+            //maso.minTargetHealthFraction = 50f;
+            //maso.maxTargetHealthFraction = float.PositiveInfinity;
+            //maso.selectionRequiresAimTarget = true;
+            //maso.selectionRequiresOnGround = false;
+            //maso.selectionRequiresAimTarget = true;
+            //maso.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;
+            //maso.activationRequiresTargetLoS = true;
+            //maso.activationRequiresAimTargetLoS = true;
+            //maso.activationRequiresAimConfirmation = true;
+            //maso.movementType = AISkillDriver.MovementType.StrafeMovetarget;
+            //maso.buttonPressType = AISkillDriver.ButtonPressType.TapContinuous;
+            //maso.resetCurrentEnemyOnNextDriverSelection = false;
+            //maso.aimType = AISkillDriver.AimType.AtCurrentEnemy;
+            //maso.noRepeat = true;
+
+            ////Setup AI
+            //AISkillDriver flee = master.gameObject.AddComponent<AISkillDriver>();
+            //flee.customName = "Arsonist Flee if too close";
+            //flee.skillSlot = SkillSlot.None;
+            //flee.requireSkillReady = false;
+            //flee.requireEquipmentReady = false;
+            //flee.minDistance = 5f;
+            //flee.shouldSprint = true;
+            //flee.maxDistance = 20f;
+            //flee.minDistance = 0f;
+            //flee.selectionRequiresAimTarget = false;
+            //flee.selectionRequiresOnGround = false;
+            //flee.selectionRequiresAimTarget = false;
+            //flee.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;
+            //flee.moveInputScale = 1f;
+            //flee.activationRequiresTargetLoS = true;
+            //flee.activationRequiresAimTargetLoS = true;
+            //flee.activationRequiresAimConfirmation = true;
+            //flee.movementType = AISkillDriver.MovementType.FleeMoveTarget;
+            //flee.buttonPressType = AISkillDriver.ButtonPressType.Abstain;
+            //flee.resetCurrentEnemyOnNextDriverSelection = true;
+
+            //AISkillDriver FIND = master.gameObject.AddComponent<AISkillDriver>();
+            //FIND.customName = "Arsonist Flee if too close";
+            //FIND.skillSlot = SkillSlot.None;
+            //FIND.requireSkillReady = false;
+            //FIND.requireEquipmentReady = false;
+            //FIND.minDistance = 0f;
+            //FIND.maxDistance = float.PositiveInfinity;
+            //FIND.shouldSprint = true;
+            //FIND.selectionRequiresAimTarget = false;
+            //FIND.selectionRequiresOnGround = false;
+            //FIND.selectionRequiresAimTarget = false;
+            //FIND.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;
+            //FIND.moveInputScale = 1f;
+            //FIND.activationRequiresTargetLoS = false;
+            //FIND.activationRequiresAimTargetLoS = false;
+            //FIND.activationRequiresAimConfirmation = false;
+            //FIND.movementType = AISkillDriver.MovementType.ChaseMoveTarget;
+            //FIND.buttonPressType = AISkillDriver.ButtonPressType.Abstain;
+            //FIND.resetCurrentEnemyOnNextDriverSelection = false;
+
+            Modules.Content.AddMasterPrefab(newMasterGameObject);
         }
 
         public override void InitializeUnlockables()

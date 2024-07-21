@@ -543,6 +543,11 @@ namespace LeeHyperrealMod.Content.Controllers
                 return;
             }
 
+            if (blueSimpleGlyph == null || redSimpleGlyph == null || yellowSimpleGlyph == null) 
+            {
+                return;
+            }
+
             if (!blueSimpleGlyph.bracketContainer || !redSimpleGlyph.bracketContainer || !yellowSimpleGlyph.bracketContainer)
             {
                 return;
