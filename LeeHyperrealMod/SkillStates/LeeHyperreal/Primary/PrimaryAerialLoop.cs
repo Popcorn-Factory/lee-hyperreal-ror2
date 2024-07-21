@@ -25,9 +25,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             //Do nothing until you hit the ground.
             if (base.isAuthority && isGrounded)
             {
-                //Send instantly to end state
-                base.outer.SetState(new PrimaryAerialSlam { airTime = fixedAge });
-                return;
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    //Send instantly to end state
+                    base.outer.SetState(new PrimaryAerialSlam { airTime = fixedAge });
+                    return;
+                }
             }
 
             if (base.isAuthority)
@@ -60,16 +63,22 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             if (base.isAuthority && heldStopwatch >= heldLengthToTrigger && domainController.DomainEntryAllowed())
             {
-                //Cancel out into Domain shift skill state
-                base.outer.SetState(new DomainEnterState { shouldForceUpwards = true });
-                return;
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    //Cancel out into Domain shift skill state
+                    base.outer.SetState(new DomainEnterState { shouldForceUpwards = true });
+                    return;
+                }
             }
 
             if (base.isAuthority && isGrounded)
             {
-                //Send instantly to end state
-                base.outer.SetState(new PrimaryAerialSlam { airTime = fixedAge });
-                return;
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    //Send instantly to end state
+                    base.outer.SetState(new PrimaryAerialSlam { airTime = fixedAge });
+                    return;
+                }
             }
         }
 
@@ -82,11 +91,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
 
             //Only transition on grounded.
-            if (base.isAuthority && isGrounded) 
+            if (base.isAuthority && isGrounded)
             {
-                //Send instantly to end state
-                base.outer.SetState(new PrimaryAerialSlam { airTime = fixedAge });
-                return;
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    //Send instantly to end state
+                    base.outer.SetState(new PrimaryAerialSlam { airTime = fixedAge });
+                    return;
+                }
             }
         }
 

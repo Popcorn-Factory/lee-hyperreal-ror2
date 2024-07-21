@@ -223,51 +223,63 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
             if (age >= duration * earlyExitFrac && base.isAuthority) 
             {
-                if (inputBank.skill1.down) 
+                if (inputBank.skill1.down)
                 {
-                    base.outer.SetState(new Snipe { });
-                    return;
+                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                    {
+                        base.outer.SetState(new Snipe { });
+                        return;
+                    }
                 }
 
                 if (!base.inputBank.skill2.down && Modules.Config.allowSnipeButtonHold.Value && base.isAuthority)
                 {
-                    base.outer.SetState(new ExitSnipe());
+                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                    {
+                        base.outer.SetState(new ExitSnipe());
+                    }
                 }
 
                 //Check for dodging. Otherwise ignore.
                 if (base.inputBank.skill3.down && skillLocator.utility.stock >= 1)
                 {
-                    skillLocator.utility.stock -= 1;
-                    Vector3 result = Modules.StaticValues.CheckDirection(inputBank.moveVector, GetAimRay());
-                    if (result == new Vector3(0, 0, 1))
+                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                     {
-                        base.outer.SetState(new Evade.Evade { unsetSnipe = true });
-                        return;
-                    }
-                    if (result == new Vector3(0, 0, 0))
-                    {
-                        base.outer.SetState(new EvadeBack180 { });
-                        return;
-                    }
-                    if (result == new Vector3(1, 0, 0))
-                    {
-                        base.outer.SetState(new EvadeSide { isLeftRoll = false });
-                        return;
-                    }
-                    if (result == new Vector3(-1, 0, 0))
-                    {
-                        base.outer.SetState(new EvadeSide { isLeftRoll = true });
-                        return;
-                    }
+                        skillLocator.utility.stock -= 1;
+                        Vector3 result = Modules.StaticValues.CheckDirection(inputBank.moveVector, GetAimRay());
+                        if (result == new Vector3(0, 0, 1))
+                        {
+                            base.outer.SetState(new Evade.Evade { unsetSnipe = true });
+                            return;
+                        }
+                        if (result == new Vector3(0, 0, 0))
+                        {
+                            base.outer.SetState(new EvadeBack180 { });
+                            return;
+                        }
+                        if (result == new Vector3(1, 0, 0))
+                        {
+                            base.outer.SetState(new EvadeSide { isLeftRoll = false });
+                            return;
+                        }
+                        if (result == new Vector3(-1, 0, 0))
+                        {
+                            base.outer.SetState(new EvadeSide { isLeftRoll = true });
+                            return;
+                        }
 
-                    return;
+                        return;
+                    }
                 }
             }
 
-            if (age >= duration && base.isAuthority) 
+            if (age >= duration && base.isAuthority)
             {
-                base.outer.SetState(new IdleSnipe { });
-                return;
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    base.outer.SetState(new IdleSnipe { });
+                    return;
+                }
             }
         }
 

@@ -86,7 +86,10 @@ namespace LeeHyperrealMod.SkillStates
 
             if (base.inputBank.skill2.down && Modules.Config.allowSnipeButtonHold.Value && base.isAuthority && base.skillLocator.secondary.skillNameToken == "POPCORN_LEE_HYPERREAL_BODY_ENTER_SNIPE_NAME")
             {
-                base.outer.SetState(new EnterSnipe());
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    base.outer.SetState(new EnterSnipe());
+                }
             }
         }
     }

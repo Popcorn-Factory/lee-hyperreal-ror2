@@ -203,8 +203,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             if (!ifButtonLifted && base.isAuthority && base.age >= duration * heldButtonThreshold && domainController.DomainEntryAllowed())
             {
-                //Cancel out into Domain shift skill state
-                base.outer.SetState(new DomainEnterState {shouldForceUpwards = true });
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    //Cancel out into Domain shift skill state
+                    base.outer.SetState(new DomainEnterState { shouldForceUpwards = true });
+                }
             }
 
             base.Update();
@@ -297,15 +300,24 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             {
                 if (domainController && domainController.GetDomainState())
                 {
-                    base.outer.SetState(new PrimaryDomainAerialStart { });
-                    return;
+                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                    {
+                        base.outer.SetState(new PrimaryDomainAerialStart { });
+                        return;
+                    }
                 }
 
-                base.outer.SetState(new PrimaryAerialStart { });
-                return;
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    base.outer.SetState(new PrimaryAerialStart { });
+                    return;
+                }
             }
 
-            base.outer.SetState(new Primary5 { });
+            if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+            {
+                base.outer.SetState(new Primary5 { });
+            }
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

@@ -99,18 +99,24 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         {
             base.FixedUpdate();
 
-            if (fixedAge >= duration && base.isAuthority) 
+            if (fixedAge >= duration && base.isAuthority)
             {
-                //Send to loop state.
-                base.outer.SetState(new PrimaryDomainAerialLoop { });
-                return;
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    //Send to loop state.
+                    base.outer.SetState(new PrimaryDomainAerialLoop { });
+                    return;
+                }
             }
 
-            if (base.isAuthority && isGrounded) 
+            if (base.isAuthority && isGrounded)
             {
-                //Send instantly to end state
-                base.outer.SetState(new PrimaryDomainAerialSlam { });
-                return;
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    //Send instantly to end state
+                    base.outer.SetState(new PrimaryDomainAerialSlam { });
+                    return;
+                }
             }
         }
 

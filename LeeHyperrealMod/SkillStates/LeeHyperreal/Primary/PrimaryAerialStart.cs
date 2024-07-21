@@ -77,19 +77,25 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             {
                 ifButtonLifted = true;
             }
-                
+
             if (!ifButtonLifted && base.isAuthority && base.age >= duration * heldButtonThreshold && domainController.DomainEntryAllowed())
             {
-                //Cancel out into Domain shift skill state
-                base.outer.SetState(new DomainEnterState { shouldForceUpwards = true });
-                return;
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    //Cancel out into Domain shift skill state
+                    base.outer.SetState(new DomainEnterState { shouldForceUpwards = true });
+                    return;
+                }
             }
 
             if (base.isAuthority && isGrounded)
             {
-                //Send instantly to end state
-                base.outer.SetState(new PrimaryAerialSlam { });
-                return;
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    //Send instantly to end state
+                    base.outer.SetState(new PrimaryAerialSlam { });
+                    return;
+                }
             }
         }
 
@@ -98,16 +104,22 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             base.FixedUpdate();
             if (base.isAuthority && isGrounded)
             {
-                //Send instantly to end state
-                base.outer.SetState(new PrimaryAerialSlam { });
-                return;
-            } 
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    //Send instantly to end state
+                    base.outer.SetState(new PrimaryAerialSlam { });
+                    return;
+                }
+            }
 
-            if (fixedAge >= duration && base.isAuthority) 
+            if (fixedAge >= duration && base.isAuthority)
             {
-                //Send to loop state.
-                base.outer.SetState(new PrimaryAerialLoop { });
-                return;
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    //Send to loop state.
+                    base.outer.SetState(new PrimaryAerialLoop { });
+                    return;
+                }
             }
         }
 

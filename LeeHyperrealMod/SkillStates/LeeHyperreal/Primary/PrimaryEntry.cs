@@ -16,22 +16,30 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             LeeHyperrealDomainController domainController = base.gameObject.GetComponent<LeeHyperrealDomainController>();
 
-            if (base.isAuthority) 
+            if (base.isAuthority)
             {
-                if (!characterMotor.isGrounded) 
+                if (!characterMotor.isGrounded)
                 {
-                    if (domainController && domainController.GetDomainState()) 
+                    if (domainController && domainController.GetDomainState())
                     {
-                        base.outer.SetState(new PrimaryDomainAerialStart { });
+                        if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                        {
+                            base.outer.SetState(new PrimaryDomainAerialStart { });
+                            return;
+                        }
+                    }
+                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                    {
+                        base.outer.SetState(new PrimaryAerialStart { });
                         return;
                     }
-
-                    base.outer.SetState(new PrimaryAerialStart { });
-                    return;
                 }
 
-                base.outer.SetState(new Primary1 { });
-                return;
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    base.outer.SetState(new Primary1 { });
+                    return;
+                }
             }
         }
 

@@ -182,14 +182,20 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 if (isStrong)
                 {
                     //Exit earlier to the Strong ender.
-                    this.outer.SetState(new YellowOrbFinisher { });
-                    return;
+                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                    {
+                        this.outer.SetState(new YellowOrbFinisher { });
+                        return;
+                    }
                 }
 
                 if (base.inputBank.moveVector != Vector3.zero)
                 {
-                    base.outer.SetNextStateToMain();
-                    return;
+                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                    {
+                        base.outer.SetNextStateToMain();
+                        return;
+                    }
                 }
             }
         }

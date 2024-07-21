@@ -188,8 +188,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                 if (base.inputBank.skill1.down)
                 {
                     //Fire Snipe
-                    base.outer.SetState(new Snipe { });
-                    return;
+                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                    {
+                        base.outer.SetState(new Snipe { });
+                        return;
+                    }
                 }
 
                 if (base.inputBank.skill3.down && skillLocator.utility.stock >= 1)
@@ -199,20 +202,29 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
                     if (result == new Vector3(1, 0, 0))
                     {
-                        base.outer.SetState(new EvadeSide { isLeftRoll = false });
-                        return;
+                        if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                        {
+                            base.outer.SetState(new EvadeSide { isLeftRoll = false });
+                            return;
+                        }
                     }
                     if (result == new Vector3(-1, 0, 0))
                     {
-                        base.outer.SetState(new EvadeSide { isLeftRoll = true });
-                        return;
+                        if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                        {
+                            base.outer.SetState(new EvadeSide { isLeftRoll = true });
+                            return;
+                        }
                     }
                 }
             }
             if (age >= duration && isAuthority)
             {
-                base.outer.SetState(new IdleSnipe{ });
-                return;
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    base.outer.SetState(new IdleSnipe { });
+                    return;
+                }
             }
         }
 

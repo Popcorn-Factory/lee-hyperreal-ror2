@@ -114,8 +114,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             if (!ifButtonLifted && base.isAuthority && base.stopwatch >= duration * heldButtonThreshold && domainController.DomainEntryAllowed())
             {
-                //Cancel out into Domain shift skill state
-                base.outer.SetState(new DomainEnterState { shouldForceUpwards = true });
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    //Cancel out into Domain shift skill state
+                    base.outer.SetState(new DomainEnterState { shouldForceUpwards = true });
+                }
             }
 
 

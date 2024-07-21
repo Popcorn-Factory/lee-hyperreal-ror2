@@ -140,8 +140,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                     if (inputBank.skill1.down)
                     {
                         //Go to Primary 3.
-                        outer.SetState(new Primary.Primary3 { xzMovementMultiplier = movementMultiplierPrimary3 });
-                        return;
+                        if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                        {
+                            outer.SetState(new Primary.Primary3 { xzMovementMultiplier = movementMultiplierPrimary3 });
+                            return;
+                        }
                     }
                 }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
@@ -154,8 +157,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                     if (inputBank.skill1.down)
                     {
                         //Go to Primary 3.
-                        outer.SetState(new Primary.Primary3 { xzMovementMultiplier = movementMultiplierPrimary3 });
-                        return;
+                        if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                        {
+                            outer.SetState(new Primary.Primary3 { xzMovementMultiplier = movementMultiplierPrimary3 });
+                            return;
+                        }
                     }
                 }
             }
@@ -166,9 +172,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                 {
                     if (inputBank.skill1.down)
                     {
-                        //Go to Primary 3.
-                        outer.SetState(new Primary.Primary3 { xzMovementMultiplier = movementMultiplierPrimary3 });
-                        return;
+                        if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                        {
+                            //Go to Primary 3.
+                            outer.SetState(new Primary.Primary3 { xzMovementMultiplier = movementMultiplierPrimary3 });
+                            return;
+                        }
                     }
                 }
                 if (inputBank.moveVector != Vector3.zero) 

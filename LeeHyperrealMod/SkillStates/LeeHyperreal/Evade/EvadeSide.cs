@@ -122,20 +122,29 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             {
                 if (base.inputBank.skill2.down && Modules.Config.allowSnipeButtonHold.Value && base.isAuthority && base.skillLocator.secondary.skillNameToken == "POPCORN_LEE_HYPERREAL_BODY_ENTER_SNIPE_NAME")
                 {
-                    base.outer.SetState(new EnterSnipe());
-                    return;
+                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                    {
+                        base.outer.SetState(new EnterSnipe());
+                        return;
+                    }
                 }
 
                 if (base.inputBank.moveVector != new Vector3(0, 0, 0))
                 {
-                    base.outer.SetNextStateToMain();
-                    return;
+                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                    {
+                        base.outer.SetNextStateToMain();
+                        return;
+                    }
                 }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
             if (age >= duration && isAuthority) 
             {
-                base.outer.SetNextStateToMain();
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    base.outer.SetNextStateToMain();
+                }
             }
         }
 

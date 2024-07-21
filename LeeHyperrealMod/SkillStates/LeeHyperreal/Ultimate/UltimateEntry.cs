@@ -18,13 +18,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
             if (base.isAuthority)
             {
-                if (domainController.GetDomainState())
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                 {
-                    this.outer.SetState(new UltimateDomain());                        
-                }
-                else
-                {
-                    this.outer.SetState(new Ultimate());
+                    if (domainController.GetDomainState())
+                    {
+                        this.outer.SetState(new UltimateDomain());
+                    }
+                    else
+                    {
+                        this.outer.SetState(new Ultimate());
+                    }
                 }
             }
         }

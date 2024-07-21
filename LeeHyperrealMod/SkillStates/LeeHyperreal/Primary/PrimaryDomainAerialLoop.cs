@@ -19,9 +19,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             //Do nothing until you hit the ground.
             if (base.isAuthority && isGrounded)
             {
-                //Send instantly to end state
-                base.outer.SetState(new PrimaryDomainAerialSlam { airTime = fixedAge });
-                return;
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    //Send instantly to end state
+                    base.outer.SetState(new PrimaryDomainAerialSlam { airTime = fixedAge });
+                    return;
+                }
             }
 
             base.characterMotor.velocity = Vector3.SmoothDamp(base.characterMotor.velocity, ((Vector3.down + base.characterDirection.forward).normalized * Modules.StaticValues.primaryAerialSlamSpeed), ref velocity, 0.1f);
@@ -38,9 +41,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             base.Update();
             if (base.isAuthority && isGrounded)
             {
-                //Send instantly to end state
-                base.outer.SetState(new PrimaryDomainAerialSlam { airTime = fixedAge });
-                return;
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    //Send instantly to end state
+                    base.outer.SetState(new PrimaryDomainAerialSlam { airTime = fixedAge });
+                    return;
+                }
             }
         }
 
@@ -52,11 +58,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             base.characterMotor.velocity = Vector3.SmoothDamp(base.characterMotor.velocity, ((Vector3.down + base.characterDirection.forward).normalized * Modules.StaticValues.primaryAerialSlamSpeed), ref velocity, 0.1f);
 
             //Only transition on grounded.
-            if (base.isAuthority && isGrounded) 
+            if (base.isAuthority && isGrounded)
             {
-                //Send instantly to end state
-                base.outer.SetState(new PrimaryDomainAerialSlam { airTime = fixedAge });
-                return;
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    //Send instantly to end state
+                    base.outer.SetState(new PrimaryDomainAerialSlam { airTime = fixedAge });
+                    return;
+                }
             }
         }
 

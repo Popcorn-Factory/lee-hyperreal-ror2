@@ -170,11 +170,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 {
                     orbController.isExecutingSkill = false;
                 }
-                if (isStrong) 
+                if (isStrong)
                 {
-                    //Exit earlier to the Strong ender.
-                    this.outer.SetState(new RedOrbFinisher { });
-                    return;
+                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                    {
+                        //Exit earlier to the Strong ender.
+                        this.outer.SetState(new RedOrbFinisher { });
+                        return;
+                    }
                 }
 
                 if (inputBank.moveVector != Vector3.zero) 

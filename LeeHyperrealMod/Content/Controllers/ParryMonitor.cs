@@ -124,7 +124,10 @@ namespace LeeHyperrealMod.Content.Controllers
 
             Vector3 point = aimRay.GetPoint(1000);
             Vector3 laserDirection = point - transform.position;
-            weaponESM.SetState(new EntityStates.GolemMonster.FireLaser {laserDirection = laserDirection });
+            if (weaponESM.state.GetMinimumInterruptPriority() != InterruptPriority.Death) 
+            {
+                weaponESM.SetState(new EntityStates.GolemMonster.FireLaser { laserDirection = laserDirection });
+            }
         }
 
 

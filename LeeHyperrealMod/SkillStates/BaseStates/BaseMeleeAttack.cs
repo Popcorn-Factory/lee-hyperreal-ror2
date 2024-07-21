@@ -473,12 +473,15 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             }
         }
 
-        public virtual void SetNextStateOnParry() 
+        public virtual void SetNextStateOnParry()
         {
-            this.outer.SetState(new Primary1{ });
-            return;
-        }
+            if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+            {
+                this.outer.SetState(new Primary1 { });
+                return;
 
+            }
+        }
 
         public override void Update()
         {
