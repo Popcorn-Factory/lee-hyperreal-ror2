@@ -16,6 +16,10 @@ On either the RoR2 modding discord, or in the <a href="https://discord.gg/ahDsUF
 
 Use of Risk Of Options is highly recommended! If some options don't exist even after an update, please wipe your config and try check again.
 
+## Mod Interoperability List:
+- EmoteAPI / CustomEmotesAPI
+- RiskOfOptions
+
 ## Latest Update
 - 1.0.0
     - Initial Release!
@@ -51,10 +55,6 @@ Turn invincible, pulling out a cannon that blasts enemies in a wide radius for *
 <img src=""/> ADD ICON HERE
 
 Collapse the **\[Hypermatrix\]**, turning invincible for a short time and dealing **2000% damage** in your wake.
-
-## Mod Interoperability List:
-- EmoteAPI / CustomEmotesAPI
-- RiskOfOptions`
 
 ## Trailer
 
