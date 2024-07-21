@@ -55,8 +55,9 @@ namespace LeeHyperrealMod.Modules
             #region Primary
             LanguageAPI.Add(prefix + "PRIMARY_NAME", "Armament Barrage");
             LanguageAPI.Add(prefix + "PRIMARY_DESCRIPTION", "Launch a 5-hit-combo attack. On hit 1 and 3, " +
-                $"peform a {UtilDesc("[Parry]")} active for a short time. " +
-                $"In the air, slam down, dealing {DmgDesc($"{primaryAerialDamageCoefficient * 100}% damage")}, increasing up to {DmgDesc($"{primaryAerialMaxDamageMultiplier}x times,")} dependant on vertical distance travelled.");
+                $"perform a {UtilDesc("[Parry]")} active for a short time. " +
+                $"In the air, slam down, dealing {DmgDesc($"{primaryAerialDamageCoefficient * 100}% damage")}, increasing up to {DmgDesc($"{primaryAerialMaxDamageMultiplier}x times,")} dependant on vertical distance travelled. " +
+                $"Hold down at anytime in the combo with a full {UtilDesc("[Power Gauge]")} to enter the {UtilDesc("[Hypermatrix]")}");
             #endregion
 
             #region Secondary

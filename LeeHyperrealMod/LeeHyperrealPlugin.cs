@@ -35,7 +35,7 @@ namespace LeeHyperrealMod
     {
         public const string MODUID = "com.PopcornFactory.LeeHyperrealMod";
         public const string MODNAME = "LeeHyperrealMod";
-        public const string MODVERSION = "0.0.17";
+        public const string MODVERSION = "1.0.0";
         
         public const string DEVELOPER_PREFIX = "POPCORN";
 
