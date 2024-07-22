@@ -24,13 +24,37 @@ namespace LeeHyperrealMod.Modules
                 Environment.NewLine + Environment.NewLine + $"<!> {UtilDesc("[Snipe Stance]")} is your highest damaging tool, even more so with {UtilDesc("[Outlined Bullets]")}. However, you’re vulnerable in this stance, so use this skill wisely." +
                 Environment.NewLine + Environment.NewLine + $"<!> {UtilDesc("[End of Time]")} can decimate a huge radius of enemies with its unlimited range and huge radius. But be mindful of its long cooldown.";
 
+            string lore = "\"The tests are going well?\"" +
+                Environment.NewLine + Environment.NewLine + "Crisp footsteps from expensive shoes sounded too loud in the medically sterile chambers." +
+                Environment.NewLine + Environment.NewLine + "\"Yes, sir. Did you feel that just now?\"" +
+                Environment.NewLine + Environment.NewLine + "The deep hum of energy that swept through the disinfected floors vibrated against the shoes, the expensive pair and the worn-down pair." +
+                Environment.NewLine + Environment.NewLine + "\"That was a weapons test, sir. Handheld weapon.\"" +
+                Environment.NewLine + Environment.NewLine + "That put a falter in the footsteps. \"Handheld?\"" +
+                Environment.NewLine + Environment.NewLine + "\"Yes sir. It’s come a long way since you were here last.\"" +
+                Environment.NewLine + Environment.NewLine + "\"Hrm. Well, the weapons won’t mean much if the subject is another defect. Are we close?\"" +
+                Environment.NewLine + Environment.NewLine + "\"Yes sir, right this way.\"" +
+                Environment.NewLine + Environment.NewLine + "The shabby, chemical-stained and malfunction-burnt shoes pulled ahead, and fumbling hands reached for a card he’d been gifted for the day. " +
+                "They knew he’d be a nervous wreck, but it fed their guest’s ego, which meant he had a happier visit." +
+                Environment.NewLine + Environment.NewLine + "A single swipe, a retinal scan he’d just been given access to, and they were in a room neither of them had seen before." +
+                Environment.NewLine + Environment.NewLine + "\"It’s… is it an it? Or a he?\"" +
+                Environment.NewLine + Environment.NewLine + "Words from a memorized infographic filled his head. \"It’s both, sir. The biosynthesis worked perfectly, unlike previous tests. It’s a perfect combination.\"" +
+                Environment.NewLine + Environment.NewLine + "\"I see. So it is organic?\"" +
+                Environment.NewLine + Environment.NewLine + "\"It’s cybernetic, but you are correct. And it wasn’t easy, sir. Like growing a square watermelon with natural selection.\"" +
+                Environment.NewLine + Environment.NewLine + "\"Yes yes, I get your point. The funds will be transferred on my return.\"" +
+                Environment.NewLine + Environment.NewLine + "\"Thank you, sir.\"" +
+                Environment.NewLine + Environment.NewLine + "The expensive shoes turned to leave, but were stopped by a sudden thought. \"Say… you’ve tested it, right?\"" +
+                Environment.NewLine + Environment.NewLine + "A nervous swallow, an unexpected question. \"Hm? Oh, uh— no, I guess we haven’t.\"" +
+                Environment.NewLine + Environment.NewLine + "\"Hm. Well fix that, or else I’ll have to view it as a liability. You don’t want to repeat the last mistake, do you?\"" +
+                Environment.NewLine + Environment.NewLine + "The bitter words made the shabby shoes falter, and an access card trembled inside an acid-burned hand. \"No, Mr. Wade. No we don’t. We’ll send you footage of the live testing, for your decision.\"" +
+                Environment.NewLine + Environment.NewLine + "An hour later, a large case was stowed in the loading bay, and a UES high priority boarding card let a pair of shabby shoes and acrid burns onto the Safe Travels.";
+
             string outro = "..and so he left, still no closer to his true reality.";
             string outroFailure = "..and so he vanished, with a mission unfulfilled";
 
             LanguageAPI.Add(prefix + "NAME", "Lee: Hyperreal");
             LanguageAPI.Add(prefix + "DESCRIPTION", desc);
             LanguageAPI.Add(prefix + "SUBTITLE", "Hypermatrix Traverser");
-            LanguageAPI.Add(prefix + "LORE", "sample lore");
+            LanguageAPI.Add(prefix + "LORE", lore);
             LanguageAPI.Add(prefix + "OUTRO_FLAVOR", outro);
             LanguageAPI.Add(prefix + "OUTRO_FAILURE", outroFailure);
 

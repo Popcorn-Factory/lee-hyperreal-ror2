@@ -154,7 +154,7 @@ namespace LeeHyperrealMod.Modules.Survivors
 
         public override void InitializeDoppelganger(string clone)
         {
-            GameObject newMasterGameObject = PrefabAPI.InstantiateClone(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/CharacterMasters/" + clone + "MonsterMaster"), bodyName + "MonsterMaster", true);
+            GameObject newMasterGameObject = PrefabAPI.InstantiateClone(RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/CharacterMasters/" + clone + "MonsterMaster"), bodyInfo.bodyName + "MonsterMaster", true);
             CharacterMaster master = newMasterGameObject.GetComponent<CharacterMaster>();
             master.bodyPrefab = bodyPrefab;
 

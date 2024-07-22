@@ -99,5 +99,6 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
     - nunchuck - Helping with Emotes
     - groove_salad - Shader Swapper
     - UnsavedTrash - Helping with model and vfx
+    - SockpuppetSalesman (orien85) - Lore
     - Those on the RoR2 Modding discord having to put up with my cryptic programming issues, thanks for helping!
     - Whoever tested during development and found issues, Thanks!
