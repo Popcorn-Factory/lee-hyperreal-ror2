@@ -75,7 +75,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 superCannonEffect = childLocator.FindChild("CannonEffect").gameObject;
                 rifleFlashEffect = childLocator.FindChild("RifleFlashEffect").gameObject.GetComponent<ParticleSystem>();
                 boxFlashEffect = childLocator.FindChild("BoxFlashEffect").gameObject.GetComponent<ParticleSystem>();
-                rifleLaser = childLocator.FindChild("RifleLaser").gameObject;
+                rifleLaser = childLocator.FindChild("RifleLaser").gameObject;   
 
                 submachineRoot = childLocator.FindChild("SubmachineMain").gameObject;
                 snipeRoot = childLocator.FindChild("RifleMain").gameObject;

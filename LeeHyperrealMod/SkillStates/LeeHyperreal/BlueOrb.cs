@@ -197,7 +197,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             base.characterMotor.gravityParameters = oldGravParams;
             if (NetworkServer.active)
             {
-                base.characterBody.RemoveBuff(Modules.Buffs.invincibilityBuff);
+                base.characterBody.ClearTimedBuffs(Modules.Buffs.invincibilityBuff);
             }
             PlayAnimation("Body", "BufferEmpty");
             base.OnExit();
