@@ -61,16 +61,19 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 animator.SetInteger("SelectSpawnTrigger", selectedNum);
             }
-            if (!playedSound && Modules.Config.voiceEnabled.Value) 
+            if (!playedSound) 
             {
                 playedSound = true;
-                if (Modules.Config.voiceLanguageOption.Value == Modules.Config.VoiceLanguage.ENG)
+                if (Modules.Config.voiceEnabled.Value) 
                 {
-                    Util.PlaySound("Play_Lee_Intro_Voice_EN", this.gameObject);
-                }
-                else 
-                {
-                    Util.PlaySound("Play_Lee_Intro_Voice_JP", this.gameObject);
+                    if (Modules.Config.voiceLanguageOption.Value == Modules.Config.VoiceLanguage.ENG)
+                    {
+                        Util.PlaySound("Play_Lee_Intro_Voice_EN", this.gameObject);
+                    }
+                    else
+                    {
+                        Util.PlaySound("Play_Lee_Intro_Voice_JP", this.gameObject);
+                    }
                 }
 
                 Util.PlaySound("Play_c_liRk4_act_born", this.gameObject);

@@ -30,7 +30,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             domainController = GetComponent<LeeHyperrealDomainController>();
 
-            domainController.DisposeDomainAerialEffect();
+            domainController.DisableLoopEffect();
 
             base.characterMotor.velocity = Vector3.zero;
 
@@ -50,7 +50,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             if (base.isAuthority) 
             {
                 FireAttack();
-                //PlaySwing("BaseTransform", 1.25f, Modules.ParticleAssets.primary5Floor);
+                PlaySwing("BaseTransform", 1.25f, Modules.ParticleAssets.primaryAerialEffectEnd);
             }
 
             base.PlayAnimation("Body", "DomainMidairEnd", "attack.playbackRate", duration);

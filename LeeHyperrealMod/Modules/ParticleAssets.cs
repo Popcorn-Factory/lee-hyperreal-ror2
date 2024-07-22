@@ -16,7 +16,8 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Primary Aerial
-        internal static GameObject primaryAerialDomainEffect;
+        internal static GameObject primaryAerialEffectLoop;
+        internal static GameObject primaryAerialEffectEnd;
         #endregion
 
         #region Primary 1
@@ -263,8 +264,10 @@ namespace LeeHyperrealMod.Modules
 
         private static void PopulateAerialDomainAssets()
         {
-            primaryAerialDomainEffect = GetGameObjectFromBundle("DomainMidairLoop");
-            primaryAerialDomainEffect.AddComponent<DestroyPlatformOnDelay>().delay = 5f;
+            primaryAerialEffectLoop = GetGameObjectFromBundle("DomainMidairLoop");
+
+            primaryAerialEffectEnd = GetGameObjectFromBundle("DomainMidairEnd");
+            primaryAerialEffectEnd = ModifyEffect(primaryAerialEffectEnd, "", true, 1f);
         }
 
         private static void PopulateDisplayParticleAssets()
@@ -364,39 +367,39 @@ namespace LeeHyperrealMod.Modules
             SnipeStart = ModifyEffect(SnipeStart, "", true);
 
             Snipe = GetGameObjectFromBundle("fxr4liangatk24");
-            AddLightIntensityCurveWithCurve(
-                Snipe.transform.GetChild(0).GetChild(1).gameObject,
-                new LightIntensityProps 
-                {
-                    timeMax = 0.5f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "fxr4liangatk24-lightSC1"
-                );
-            AddLightIntensityCurveWithCurve(
-                Snipe.transform.GetChild(1).GetChild(1).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.4f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "fxr4liangatk24-spjere"
-                );
-            AddLightIntensityCurveWithCurve(
-                Snipe.transform.GetChild(2).GetChild(11).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.45f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "fxr4liangatk24-lightSC2"
-                );
+            //AddLightIntensityCurveWithCurve(
+            //    Snipe.transform.GetChild(0).GetChild(1).gameObject,
+            //    new LightIntensityProps 
+            //    {
+            //        timeMax = 0.5f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    },
+            //    "fxr4liangatk24-lightSC1"
+            //    );
+            //AddLightIntensityCurveWithCurve(
+            //    Snipe.transform.GetChild(1).GetChild(1).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.4f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    },
+            //    "fxr4liangatk24-spjere"
+            //    );
+            //AddLightIntensityCurveWithCurve(
+            //    Snipe.transform.GetChild(2).GetChild(11).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.45f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    },
+            //    "fxr4liangatk24-lightSC2"
+            //    );
 
             Snipe = ModifyEffect(Snipe, "Play_c_liRk4_atk_ex_3", true, 1f, VFXAttributes.VFXPriority.Medium);
 

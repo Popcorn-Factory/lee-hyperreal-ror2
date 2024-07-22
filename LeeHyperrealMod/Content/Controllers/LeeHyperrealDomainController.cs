@@ -56,7 +56,8 @@ namespace LeeHyperrealMod.Content.Controllers
         public int ultStockBeforeSwitch;
 
         //Domain Aerial prefab
-        public GameObject domainAerialEffect;
+        public GameObject domainAerialEffectLoop;
+        public ParticleSystem domainAerialEffectLoopParticleSystem;
 
         public void Start()
         {
@@ -85,6 +86,10 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 AkSoundEngine.SetRTPCValue("Volume_Lee_Voice", Modules.Config.voiceVolume.Value);
             }
+
+            domainAerialEffectLoop = UnityEngine.Object.Instantiate(Modules.ParticleAssets.primaryAerialEffectLoop, baseTransform);
+            domainAerialEffectLoopParticleSystem = domainAerialEffectLoop.transform.GetChild(0).GetChild(0).GetComponent<ParticleSystem>();
+            domainAerialEffectLoopParticleSystem.Stop();
         }
 
         public void Update()
@@ -114,11 +119,6 @@ namespace LeeHyperrealMod.Content.Controllers
 
             ChangeIconState();
 
-            if (domainAerialEffect) 
-            {
-
-            }
-
             if (charBody.hasEffectiveAuthority)
             {
                 // Normal stuff.
@@ -139,16 +139,18 @@ namespace LeeHyperrealMod.Content.Controllers
             }
         }
 
-        public void SetupDomainAerialEffect() 
+        public void EnableLoopEffect() 
         {
-            domainAerialEffect = UnityEngine.Object.Instantiate(Modules.ParticleAssets.primaryAerialDomainEffect, baseTransform);
+            //domainAerialEffect = UnityEngine.Object.Instantiate(Modules.ParticleAssets.primaryAerialDomainEffect, baseTransform);
+            domainAerialEffectLoopParticleSystem.Play();
         }
 
-        public void DisposeDomainAerialEffect() 
+        public void DisableLoopEffect() 
         {
-            domainAerialEffect.transform.SetParent(null, true);
-            domainAerialEffect.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
-            domainAerialEffect = null;
+            //domainAerialEffect.transform.SetParent(null, true);
+            //domainAerialEffect.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
+            //domainAerialEffect = null;
+            domainAerialEffectLoopParticleSystem.Stop();
         }
 
         private void ChangeIconState()
@@ -361,7 +363,7 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             Destroy(loopDomainEffect);
             Destroy(despawnDomainEffect);
-            Destroy(domainAerialEffect);
+            Destroy(domainAerialEffectLoop);
         }
     }
 }

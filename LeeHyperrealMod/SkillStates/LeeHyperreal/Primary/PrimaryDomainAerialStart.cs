@@ -28,7 +28,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             //There are no attacks on this until you hit the ground.
             domainController = gameObject.GetComponent<LeeHyperrealDomainController>();
 
-            domainController.SetupDomainAerialEffect();
+            domainController.EnableLoopEffect();
 
             isDomain = domainController.GetDomainState();
 

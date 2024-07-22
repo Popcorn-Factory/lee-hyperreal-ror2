@@ -129,6 +129,8 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             if (mapper != CustomEmotesAPI.localMapper) 
             {
+                isEmoting = false;
+                TransitionState(state);
                 return;
             }
 

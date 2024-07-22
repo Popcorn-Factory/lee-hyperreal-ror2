@@ -226,6 +226,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             dodge.buttonPressType = AISkillDriver.ButtonPressType.TapContinuous;
             dodge.resetCurrentEnemyOnNextDriverSelection = false;
             dodge.resetCurrentEnemyOnNextDriverSelection = true;
+            dodge.maxTimesSelected = 2;
             //cleanse.noRepeat = true;
 
             //AISkillDriver maso = master.gameObject.AddComponent<AISkillDriver>();

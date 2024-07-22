@@ -438,7 +438,7 @@ namespace LeeHyperrealMod.Content.Controllers
         //Logic
         public void FixedUpdate()
         {
-            if (charBody.hasEffectiveAuthority)
+            if (charBody.hasEffectiveAuthority && !PauseManager.isPaused && baseAIPresent)
             {
                 orbIncrementor += Modules.StaticValues.flatIncreaseOrbIncrementor * Time.fixedDeltaTime;
 
@@ -451,23 +451,23 @@ namespace LeeHyperrealMod.Content.Controllers
                 RecalcUpdateRate();
             }
 
-            string output = "";
+            //string output = "";
 
-            foreach (OrbType type in orbList)
-            {
-                switch (type)
-                {
-                    case OrbType.BLUE:
-                        output += "B";
-                        break;
-                    case OrbType.RED:
-                        output += "R";
-                        break;
-                    case OrbType.YELLOW:
-                        output += "Y";
-                        break;
-                }
-            }
+            //foreach (OrbType type in orbList)
+            //{
+            //    switch (type)
+            //    {
+            //        case OrbType.BLUE:
+            //            output += "B";
+            //            break;
+            //        case OrbType.RED:
+            //            output += "R";
+            //            break;
+            //        case OrbType.YELLOW:
+            //            output += "Y";
+            //            break;
+            //    }
+            //}
 
             //Chat.AddMessage($"{orbIncrementor}");
             //Chat.AddMessage($"{output}");
