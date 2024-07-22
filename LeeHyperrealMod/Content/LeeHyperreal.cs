@@ -37,7 +37,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             bodyNameToken = PLUGIN_PREFIX + "NAME",
             subtitleNameToken = PLUGIN_PREFIX + "SUBTITLE",
 
-            characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("texHenryIcon"),
+            characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("LeeCharacterIcon"),
             bodyColor = new Color(0.4f, 1f, 1f),
 
             crosshair = Modules.Assets.LoadCrosshair("Standard"),
