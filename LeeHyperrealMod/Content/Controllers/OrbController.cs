@@ -438,7 +438,7 @@ namespace LeeHyperrealMod.Content.Controllers
         //Logic
         public void FixedUpdate()
         {
-            if (charBody.hasEffectiveAuthority && !PauseManager.isPaused && baseAIPresent)
+            if (charBody.hasEffectiveAuthority && !PauseManager.isPaused && !baseAIPresent)
             {
                 orbIncrementor += Modules.StaticValues.flatIncreaseOrbIncrementor * Time.fixedDeltaTime;
 
