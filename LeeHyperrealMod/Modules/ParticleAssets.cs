@@ -267,7 +267,7 @@ namespace LeeHyperrealMod.Modules
             primaryAerialEffectLoop = GetGameObjectFromBundle("DomainMidairLoop");
 
             primaryAerialEffectEnd = GetGameObjectFromBundle("DomainMidairEnd");
-            primaryAerialEffectEnd = ModifyEffect(primaryAerialEffectEnd, "", true, 1f);
+            primaryAerialEffectEnd = ModifyEffect(primaryAerialEffectEnd, "Play_c_liRk4_skill_yellow_dilie", true, 1f);
         }
 
         private static void PopulateDisplayParticleAssets()
