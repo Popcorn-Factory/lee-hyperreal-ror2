@@ -10,6 +10,7 @@ namespace LeeHyperrealMod.Modules
         internal static BuffDef invincibilityBuff;
         internal static BuffDef parryBuff;
         internal static BuffDef fallDamageNegateBuff;
+        internal static BuffDef glitchEffectBuff;
 
         internal static void RegisterBuffs()
         {
@@ -26,6 +27,7 @@ namespace LeeHyperrealMod.Modules
                 false,
                 false);
             parryBuff = AddNewBuff("Parry Buff", LegacyResourcesAPI.Load<BuffDef>("BuffDefs/HiddenInvincibility").iconSprite, Color.magenta, false, false);
+            glitchEffectBuff = AddNewBuff("Glitch Effect", LegacyResourcesAPI.Load<BuffDef>("BuffDefs/TeslaField").iconSprite, Color.cyan, false, false);
         }
 
         // simple helper method

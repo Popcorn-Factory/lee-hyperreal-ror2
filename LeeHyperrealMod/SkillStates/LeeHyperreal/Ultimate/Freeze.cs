@@ -36,6 +36,11 @@ namespace LeeHyperrealMod.SkillStates
             {
                 base.characterDirection.moveVector = base.characterDirection.forward;
             }
+
+            if (NetworkServer.active) 
+            {
+                characterBody.AddTimedBuff(Modules.Buffs.glitchEffectBuff, duration + 1f);
+            }
         }
         public override void OnExit()
         {

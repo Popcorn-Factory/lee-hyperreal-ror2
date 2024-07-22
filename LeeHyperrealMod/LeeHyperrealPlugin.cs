@@ -95,6 +95,7 @@ namespace LeeHyperrealMod
             // run hooks here, disabling one is as simple as commenting out the line
             On.RoR2.CharacterModel.Start += CharacterModel_Start;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
+            On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
             //On.RoR2.CharacterBody.Update += CharacterBody_Update;
 
             if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
@@ -192,6 +193,37 @@ namespace LeeHyperrealMod
                 {
                     CustomEmotesAPI.ImportArmature(item.bodyPrefab, Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("humanoidLeeHyperreal"));
                 }
+            }
+        }
+
+
+        private void CharacterModel_UpdateOverlays(On.RoR2.CharacterModel.orig_UpdateOverlays orig, CharacterModel self)
+        {
+            orig(self);
+
+            if (self)
+            {
+                if (self.body)
+                {
+                    this.overlayFunction(Modules.Assets.glitchMaterial, self.body.HasBuff(Modules.Buffs.glitchEffectBuff), self);
+                }
+            }
+        }
+
+
+
+        private void overlayFunction(Material overlayMaterial, bool condition, CharacterModel model)
+        {
+            if (model.activeOverlayCount >= CharacterModel.maxOverlays)
+            {
+                return;
+            }
+            if (condition)
+            {
+                Material[] array = model.currentOverlays;
+                int num = model.activeOverlayCount;
+                model.activeOverlayCount = num + 1;
+                array[num] = overlayMaterial;
             }
         }
     }

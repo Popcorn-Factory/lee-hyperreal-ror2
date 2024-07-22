@@ -105,6 +105,17 @@ namespace LeeHyperrealMod.Content.Controllers
             Unhook();
         }
 
+
+        public void Hook()
+        {
+            On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
+        }
+
+        public void Unhook()
+        {
+            On.RoR2.CharacterModel.UpdateOverlays -= CharacterModel_UpdateOverlays;
+        }
+
         private void CharacterModel_UpdateOverlays(On.RoR2.CharacterModel.orig_UpdateOverlays orig, CharacterModel self)
         {
             orig(self);
@@ -123,15 +134,6 @@ namespace LeeHyperrealMod.Content.Controllers
         }
 
 
-        public void Hook() 
-        {
-            On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
-        }
-
-        public void Unhook() 
-        {
-            On.RoR2.CharacterModel.UpdateOverlays -= CharacterModel_UpdateOverlays;
-        }
 
         private void overlayFunction(Material overlayMaterial, bool condition, CharacterModel model)
         {
