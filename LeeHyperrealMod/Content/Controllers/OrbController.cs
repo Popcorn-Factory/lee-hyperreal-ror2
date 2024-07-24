@@ -172,7 +172,18 @@ namespace LeeHyperrealMod.Content.Controllers
                 if (!isExecutingSkill)
                 {
                     #region Controller Check
-                    Chat.AddMessage($"{extraInputBankTest.extraSkill1.down}");
+                    if (extraInputBankTest.extraSkill1.down)
+                    {
+                        ConsumeOrbsSimple(OrbType.BLUE);
+                    }
+                    else if (extraInputBankTest.extraSkill2.down)
+                    {
+                        ConsumeOrbsSimple(OrbType.RED);
+                    }
+                    else if (extraInputBankTest.extraSkill3.down)
+                    {
+                        ConsumeOrbsSimple(OrbType.YELLOW);
+                    }
                     #endregion
 
 
