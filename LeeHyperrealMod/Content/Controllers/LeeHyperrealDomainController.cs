@@ -32,6 +32,8 @@ namespace LeeHyperrealMod.Content.Controllers
         public List<GameObject> yellowCloneObjects;
         public List<GameObject> redCloneObjects;
 
+        public bool JustEnded = false;
+
 
         //UI Controller
         private LeeHyperrealUIController uiController;

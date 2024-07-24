@@ -234,7 +234,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 skillLocator.special.rechargeStopwatch = docon.ultCooldownBeforeSwitch;
                 skillLocator.special.stock = docon.ultStockBeforeSwitch;
             }
-            PlayAnimation("Body", "BufferEmpty");
+            PlayCrossfade("Body", "IdleEmptyHand", 0.05f);
+
+            docon.JustEnded = true;
             
             if (NetworkServer.active)
             {

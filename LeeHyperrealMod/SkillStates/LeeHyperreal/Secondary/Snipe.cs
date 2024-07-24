@@ -232,6 +232,17 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     }
                 }
 
+
+                //IF we're not in hold variant, then allow the transition if the skill is down.
+                if (inputBank.skill2.down && !Modules.Config.allowSnipeButtonHold.Value && base.isAuthority) 
+                {
+                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                    {
+                        base.outer.SetState(new ExitSnipe());
+                    }
+                }
+
+                //IF we ARE in the hold variant, then allow the transition if the skill is not pressed.
                 if (!base.inputBank.skill2.down && Modules.Config.allowSnipeButtonHold.Value && base.isAuthority)
                 {
                     if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)

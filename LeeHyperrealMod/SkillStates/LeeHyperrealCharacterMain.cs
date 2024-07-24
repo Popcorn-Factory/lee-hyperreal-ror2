@@ -1,4 +1,5 @@
 ﻿using EntityStates;
+using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary;
 using RoR2;
 using System;
@@ -10,6 +11,8 @@ namespace LeeHyperrealMod.SkillStates
 {
     internal class LeeHyperrealCharacterMain : GenericCharacterMain
     {
+        LeeHyperrealDomainController domainController;
+
         public override void OnEnter()
         {
             /*
@@ -31,6 +34,7 @@ namespace LeeHyperrealMod.SkillStates
              */
 
             useRootMotion = true;
+            domainController = base.gameObject.GetComponent<LeeHyperrealDomainController>();
             base.OnEnter();
             if (this.modelAnimator)
             {
@@ -64,6 +68,22 @@ namespace LeeHyperrealMod.SkillStates
                 {
                     this.modelAnimator.CrossFadeInFixedTime("AscendDescend", 0.1f, layerIndex);
                 }
+
+
+                //Fuck you stupid piece of shit goddamn it ASOIDJaegioanlwejirdvnfasdhu
+                //Decompile yourself NOW.
+                if (domainController) 
+                {
+                    if (domainController.JustEnded) 
+                    {
+                        domainController.JustEnded = false;
+                        if (base.isGrounded || !this.hasCharacterMotor)
+                        {
+                            this.modelAnimator.CrossFadeInFixedTime("IdleEmptyHand", 0.1f, layerIndex);
+                        }
+                    }
+                }
+
                 this.modelAnimator.Update(0f);
             }
         }

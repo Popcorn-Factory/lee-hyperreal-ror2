@@ -167,6 +167,11 @@ namespace LeeHyperrealMod.Content.Controllers
 
                 if (!isExecutingSkill)
                 {
+                    #region Controller Check
+                    
+                    #endregion
+
+
                     if (Modules.Config.isSimple.Value)
                     {
                         if (UnityEngine.Input.GetKeyDown(Modules.Config.blueOrbTrigger.Value.MainKey))
