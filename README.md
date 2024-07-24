@@ -59,6 +59,17 @@ Collapse the **\[Hypermatrix\]**, turning invincible for a short time and dealin
 ## Trailer
 
 ## Screenshots
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee1.png?token=GHSAT0AAAAAACSK2EMSPYFT3PQEKTIGE2MOZVAUPMA"/>
+
+<details>
+<summary>Click to expand for more screenshots:</summary>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee2.png"/>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee3.png"/>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee4.png"/>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee5.png"/>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee6.png"/>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee7.png"/>
+</details>
 
 ## Support us on Ko-fi! 
 There's no need for payment for mods, but a coffee would be nice once in awhile!
