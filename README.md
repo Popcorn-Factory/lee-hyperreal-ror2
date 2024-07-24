@@ -57,11 +57,19 @@ Turn invincible, pulling out a cannon that blasts enemies in a wide radius for *
 Collapse the **\[Hypermatrix\]**, turning invincible for a short time and dealing **2000% damage** in your wake.
 
 ### Orb Ability - Blue: Falling Blast
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/blueOrb.png"/>
+
+Throw your firearm case forward and unleash a blast where you last stood, dealing **600% damage** on blast, and **400% damage** on the Rifle shot. Movement can be modified by holding back or forward. 
 
 ### Orb Ability - Red: Bullet Raid
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/redOrb.png"/>
+
+Perform a slide, shooting 3 times for **150% damage**. On **\[3-ping\]**, an additional back-step will be performed, followed by a bullet spray dealing **600% damage**.
 
 ### Orb Ability - Yellow: Glimpse Maneuver
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/yellowOrb.png"/>
 
+Glide around an enemy while firing a torrent of bullets, hitting 3 times, **100% damage** each time. On **\[3-ping\]**, perform a wide upwards kick dealing **600% damage** while also performing a **\[Parry\]**.
 
 <img >
 
@@ -90,9 +98,9 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 ## Known Issues
 - Controller players have no way to currently trigger orbs. 
 - Sometimes the Ultimate Icon overlays on top of each other in the corner.
-- Usually in networking situations, emotes will still play while their weapons are floating around them.
+- In networked situations, if you emote, everyone playing Lee will have their weapons removed, this does not affect how he functions, purely visual.
 - AI controlled Lee: Hyperreals may spam Ultimate, stealing the camera, but only for the person hosting the game. 
-- In very rare cases, Lee: Hyperreal can move even after dying.
+- In very rare cases, Lee: Hyperreal can move even after dying. This is usually the case in networked situations where you perform a move and die in the same frame. 
 - Camera locks up if you change the settings to not move the camera while in snipe stance
 - When enemies are frozen during an ultimate, Golems may have bugged animators and their legs may go up into their torso, this effect is temporary and mostly just looks goofy that's all.
 
