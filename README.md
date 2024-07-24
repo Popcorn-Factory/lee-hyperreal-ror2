@@ -56,10 +56,19 @@ Turn invincible, pulling out a cannon that blasts enemies in a wide radius for *
 
 Collapse the **\[Hypermatrix\]**, turning invincible for a short time and dealing **2000% damage** in your wake.
 
+### Orb Ability - Blue: Falling Blast
+
+### Orb Ability - Red: Bullet Raid
+
+### Orb Ability - Yellow: Glimpse Maneuver
+
+
+<img >
+
 ## Trailer
 
 ## Screenshots
-<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee1.png?token=GHSAT0AAAAAACSK2EMSPYFT3PQEKTIGE2MOZVAUPMA"/>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee1.png"/>
 
 <details>
 <summary>Click to expand for more screenshots:</summary>
