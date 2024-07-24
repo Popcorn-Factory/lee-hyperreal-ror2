@@ -63,7 +63,10 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             charBody = gameObject.GetComponent<CharacterBody>();
             uiController = gameObject.GetComponent<LeeHyperrealUIController>();
-            extraInputBankTest = gameObject.GetComponent<ExtraInputBankTest>();
+            if (LeeHyperrealPlugin.isControllerCheck)
+            {
+                InitializeInputBank();
+            }
             stateMachines = charBody.gameObject.GetComponents<EntityStateMachine>();
 
             characterMaster = charBody.master;
@@ -77,6 +80,11 @@ namespace LeeHyperrealMod.Content.Controllers
             if (!characterMaster) baseAIPresent = true; // Disable UI Just in case.
 
             RecalcUpdateRate();
+        }
+
+        public void InitializeInputBank()
+        {
+            extraInputBankTest = gameObject.GetComponent<ExtraInputBankTest>();
         }
 
         public void Hook()
@@ -147,6 +155,25 @@ namespace LeeHyperrealMod.Content.Controllers
             }            
         }
 
+        public void ExtraSkillSlotControllerInputCheck()
+        {
+            if (charBody.hasEffectiveAuthority && extraInputBankTest)
+            {
+                if (extraInputBankTest.extraSkill1.down)
+                {
+                    ConsumeOrbsSimple(OrbType.BLUE);
+                }
+                else if (extraInputBankTest.extraSkill2.down)
+                {
+                    ConsumeOrbsSimple(OrbType.RED);
+                }
+                else if (extraInputBankTest.extraSkill3.down)
+                {
+                    ConsumeOrbsSimple(OrbType.YELLOW);
+                }
+            }
+        }
+
         public void Update()
         {
             //Check input
@@ -172,17 +199,9 @@ namespace LeeHyperrealMod.Content.Controllers
                 if (!isExecutingSkill)
                 {
                     #region Controller Check
-                    if (extraInputBankTest.extraSkill1.down)
+                    if (LeeHyperrealPlugin.isControllerCheck)
                     {
-                        ConsumeOrbsSimple(OrbType.BLUE);
-                    }
-                    else if (extraInputBankTest.extraSkill2.down)
-                    {
-                        ConsumeOrbsSimple(OrbType.RED);
-                    }
-                    else if (extraInputBankTest.extraSkill3.down)
-                    {
-                        ConsumeOrbsSimple(OrbType.YELLOW);
+                        ExtraSkillSlotControllerInputCheck();
                     }
                     #endregion
 

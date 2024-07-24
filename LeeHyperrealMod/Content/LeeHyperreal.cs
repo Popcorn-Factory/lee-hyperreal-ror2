@@ -319,7 +319,11 @@ namespace LeeHyperrealMod.Modules.Survivors
         {
             LeeHyperrealPassive passive = bodyPrefab.AddComponent<LeeHyperrealPassive>();
             Modules.Skills.CreateSkillFamilies(bodyPrefab, true);
-            Modules.Skills.CreateExtraSkillFamilies(bodyPrefab, false);
+
+            if (LeeHyperrealPlugin.isControllerCheck)
+            {
+                Modules.Skills.CreateExtraSkillFamilies(bodyPrefab, false);
+            }
             string prefix = LeeHyperrealPlugin.DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_";
 
             #region Passive

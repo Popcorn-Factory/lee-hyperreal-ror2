@@ -24,8 +24,8 @@ namespace LeeHyperrealMod
     [BepInDependency("com.bepis.r2api.sound", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.networking", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.unlockable", BepInDependency.DependencyFlags.HardDependency)]
-    [BepInDependency("com.KingEnderBrine.ExtraSkillSlots", BepInDependency.DependencyFlags.HardDependency)]
-    
+
+    [BepInDependency("com.KingEnderBrine.ExtraSkillSlots", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
@@ -42,12 +42,19 @@ namespace LeeHyperrealMod
 
         public static LeeHyperrealPlugin instance;
         public static PluginInfo PInfo { get; private set; }
+        public static bool isControllerCheck = false;
 
         private void Awake()
         {
             instance = this;
             PInfo = Info;
             Log.Init(Logger);
+
+            if (Chainloader.PluginInfos.ContainsKey("com.KingEnderBrine.ExtraSkillSlots"))
+            {
+                LeeHyperrealPlugin.isControllerCheck = true;
+            }
+
             Modules.Assets.Initialize(); // load assets and read config
             base.StartCoroutine(Modules.Assets.mainAssetBundle.UpgradeStubbedShadersAsync());
             Modules.ParticleAssets.Initialize();
@@ -131,7 +138,7 @@ namespace LeeHyperrealMod
                         damageInfo.damage = 0f;
                     }
 
-                    if (self.body.baseNameToken == DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_NAME") 
+                    if (self.body.baseNameToken == DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_NAME" && damageInfo.attacker) 
                     {
                         if (self.body.HasBuff(Modules.Buffs.parryBuff)) 
                         {
