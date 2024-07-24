@@ -14,6 +14,21 @@ namespace LeeHyperrealMod.Modules
     {
 
         #region genericskills
+        public static void CreateExtraSkillFamilies(GameObject targetPrefab, bool destroyExisting = true)
+        {
+            if (destroyExisting)
+            {
+                foreach (GenericSkill obj in targetPrefab.GetComponentsInChildren<GenericSkill>())
+                {
+                    UnityEngine.Object.DestroyImmediate(obj);
+                }
+            }
+
+            //Add ExtraSkillSlots to the prefab
+            ExtraSkillSlots.ExtraSkillLocator extraSkillLocator = targetPrefab.AddComponent<ExtraSkillSlots.ExtraSkillLocator>();
+        }
+
+
         public static void CreateSkillFamilies(GameObject targetPrefab, bool passiveEnabled, bool destroyExisting = true)
         {
             if (destroyExisting)

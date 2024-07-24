@@ -1,4 +1,5 @@
-﻿using LeeHyperrealMod.Modules;
+﻿using ExtraSkillSlots;
+using LeeHyperrealMod.Modules;
 using LeeHyperrealMod.SkillStates.LeeHyperreal;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb;
@@ -47,6 +48,8 @@ namespace LeeHyperrealMod.Content.Controllers
 
         EntityStateMachine[] stateMachines;
 
+        ExtraSkillSlots.ExtraInputBankTest extraInputBankTest;
+
         public bool isExecutingSkill = false;
 
 
@@ -60,7 +63,7 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             charBody = gameObject.GetComponent<CharacterBody>();
             uiController = gameObject.GetComponent<LeeHyperrealUIController>();
-
+            extraInputBankTest = gameObject.GetComponent<ExtraInputBankTest>();
             stateMachines = charBody.gameObject.GetComponents<EntityStateMachine>();
 
             characterMaster = charBody.master;
@@ -169,7 +172,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 if (!isExecutingSkill)
                 {
                     #region Controller Check
-
+                    Chat.AddMessage($"{extraInputBankTest.extraSkill1.down}");
                     #endregion
 
 
