@@ -19,6 +19,12 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
 ## Mod Interoperability List:
 - EmoteAPI / CustomEmotesAPI
 - RiskOfOptions
+- ExtraSkillSlots -> Limited Controller Support
+    - This is to facilitate controller inputs for Orbs, which is currently mapped to the following actions.
+        - Blue -> Extra Skill 1
+        - Red -> Extra Skill 2
+        - Yellow -> Extra Skill 3
+    - This can be changed in the in game controller settings menu option.
 
 ## Latest Update
 - 1.0.0
@@ -96,7 +102,6 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 </a>
 
 ## Known Issues
-- Controller players have no way to currently trigger orbs. 
 - Sometimes the Ultimate Icon overlays on top of each other in the corner.
 - In networked situations, if you emote, everyone playing Lee will have their weapons removed, this does not affect how he functions, purely visual.
 - AI controlled Lee: Hyperreals may spam Ultimate, stealing the camera, but only for the person hosting the game. 
