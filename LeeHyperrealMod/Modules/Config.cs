@@ -39,17 +39,6 @@ namespace LeeHyperrealMod.Modules
 
         public static ConfigEntry<float> ceaseChance;
 
-        public enum DPadDirection 
-        {
-            UP,
-            DOWN,
-            LEFT,
-            RIGHT,
-        }
-
-        public static ConfigEntry<DPadDirection> controllerBlueOrbTrigger;
-        public static ConfigEntry<DPadDirection> controllerRedOrbTrigger;
-        public static ConfigEntry<DPadDirection> controllerYellowOrbTrigger;
 
 
         public static void ReadConfig()
@@ -172,30 +161,6 @@ namespace LeeHyperrealMod.Modules
                 1f,
                 new ConfigDescription("Determines chance of cease event to occur. (Go figure out what this means yourself.)")
             );
-
-            controllerBlueOrbTrigger = LeeHyperrealPlugin.instance.Config.Bind<DPadDirection>
-            (
-                "06 - Controller Orb Activation Controls",
-                "Blue Orb Trigger",
-                DPadDirection.UP,
-                "Sets the D-Pad direction required to activate the first pattern instance of Blue Orbs."
-            );
-
-            controllerRedOrbTrigger = LeeHyperrealPlugin.instance.Config.Bind<DPadDirection>
-            (
-                "06 - Controller Orb Activation Controls",
-                "Red Orb Trigger",
-                DPadDirection.RIGHT,
-                "Sets the D-Pad direction required to activate the first pattern instance of Red Orbs."
-            );
-
-            controllerYellowOrbTrigger = LeeHyperrealPlugin.instance.Config.Bind<DPadDirection>
-            (
-                "06 - Controller Orb Activation Controls",
-                "Yellow Orb Trigger",
-                DPadDirection.DOWN,
-                "Sets the D-Pad direction required to activate the first pattern instance of Yellow Orbs."
-            );
         }
 
         public static void SetupRiskOfOptions() 
@@ -281,10 +246,6 @@ namespace LeeHyperrealMod.Modules
                       }
                   )
               );
-
-            ModSettingsManager.AddOption(new ChoiceOption(controllerBlueOrbTrigger));
-            ModSettingsManager.AddOption(new ChoiceOption(controllerRedOrbTrigger));
-            ModSettingsManager.AddOption(new ChoiceOption(controllerYellowOrbTrigger));
         }
 
         // this helper automatically makes config entries for disabling survivors

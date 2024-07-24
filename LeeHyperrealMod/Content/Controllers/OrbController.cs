@@ -1,4 +1,5 @@
-﻿using LeeHyperrealMod.SkillStates.LeeHyperreal;
+﻿using LeeHyperrealMod.Modules;
+using LeeHyperrealMod.SkillStates.LeeHyperreal;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb;
 using RoR2;
@@ -168,7 +169,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 if (!isExecutingSkill)
                 {
                     #region Controller Check
-                    
+
                     #endregion
 
 
