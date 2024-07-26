@@ -93,7 +93,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                 {
                     //Send instantly to end state
-                    base.outer.SetState(new PrimaryAerialSlam { });
+                    base.outer.SetState(new PrimaryAerialSlam { airTime = fixedAge });
                     return;
                 }
             }
@@ -107,7 +107,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                 {
                     //Send instantly to end state
-                    base.outer.SetState(new PrimaryAerialSlam { });
+                    base.outer.SetState(new PrimaryAerialSlam { airTime = fixedAge });
                     return;
                 }
             }
@@ -117,7 +117,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                 {
                     //Send to loop state.
-                    base.outer.SetState(new PrimaryAerialLoop { });
+                    base.outer.SetState(new PrimaryAerialLoop { initialAirTime = fixedAge });
                     return;
                 }
             }

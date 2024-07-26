@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 {
@@ -17,6 +18,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public float heldStopwatch;
         public static float heldLengthToTrigger = 0.5f;
+
+        public float initialAirTime;
 
         public override void OnEnter()
         {
@@ -76,7 +79,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                 {
                     //Send instantly to end state
-                    base.outer.SetState(new PrimaryAerialSlam { airTime = fixedAge });
+                    base.outer.SetState(new PrimaryAerialSlam { airTime = fixedAge + initialAirTime });
                     return;
                 }
             }
@@ -96,7 +99,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                 {
                     //Send instantly to end state
-                    base.outer.SetState(new PrimaryAerialSlam { airTime = fixedAge });
+                    base.outer.SetState(new PrimaryAerialSlam { airTime = fixedAge + initialAirTime });
                     return;
                 }
             }
@@ -105,6 +108,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override InterruptPriority GetMinimumInterruptPriority()
         {
             return InterruptPriority.PrioritySkill;
+        }
+
+        public override void OnSerialize(NetworkWriter writer)
+        {
+            base.OnSerialize(writer);
+            writer.Write(initialAirTime);
+        }
+
+        public override void OnDeserialize(NetworkReader reader)
+        {
+            base.OnDeserialize(reader);
+            initialAirTime = reader.ReadSingle();
         }
     }
 }

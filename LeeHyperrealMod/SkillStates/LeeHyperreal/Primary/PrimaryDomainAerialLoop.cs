@@ -13,6 +13,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
     internal class PrimaryDomainAerialLoop : BaseSkillState
     {
         public Vector3 velocity;
+
+        public float initialAirTime;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -44,7 +47,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                 {
                     //Send instantly to end state
-                    base.outer.SetState(new PrimaryDomainAerialSlam { airTime = fixedAge });
+                    base.outer.SetState(new PrimaryDomainAerialSlam { airTime = fixedAge + initialAirTime });
                     return;
                 }
             }
@@ -63,10 +66,22 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                 {
                     //Send instantly to end state
-                    base.outer.SetState(new PrimaryDomainAerialSlam { airTime = fixedAge });
+                    base.outer.SetState(new PrimaryDomainAerialSlam { airTime = fixedAge + initialAirTime });
                     return;
                 }
             }
+        }
+
+        public override void OnSerialize(NetworkWriter writer)
+        {
+            base.OnSerialize(writer);
+            writer.Write(initialAirTime);
+        }
+
+        public override void OnDeserialize(NetworkReader reader)
+        {
+            base.OnDeserialize(reader);
+            initialAirTime = reader.ReadSingle();
         }
 
         public override InterruptPriority GetMinimumInterruptPriority()

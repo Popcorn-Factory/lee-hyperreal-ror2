@@ -18,7 +18,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         private float moveCancelFrac = 0.3f;
         private float duration = 1.6666f;
         private bool hasFired = false;
-        public float airTime = 1f;
+        public float airTime = 0f;
         public float damageCoefficient = Modules.StaticValues.primaryAerialDamageCoefficient;
         public float procCoefficient = Modules.StaticValues.primaryAerialProcCoefficient;   
 
@@ -28,15 +28,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         {
             base.OnEnter();
 
-            if (airTime <= 1f) 
+            float maxAirTime = 2f;
+
+            if (airTime > maxAirTime) 
             {
-                airTime = 1f;
+                airTime = maxAirTime;
             }
 
-            if (airTime >= Modules.StaticValues.primaryAerialMaxDamageMultiplier) 
-            {
-                airTime = Modules.StaticValues.primaryAerialMaxDamageMultiplier;
-            }
+            airTime = Util.Remap(airTime, 0f, maxAirTime, 0.8f, Modules.StaticValues.primaryAerialMaxDamageMultiplier);
 
             //Fire as soon as this state is triggered.
 

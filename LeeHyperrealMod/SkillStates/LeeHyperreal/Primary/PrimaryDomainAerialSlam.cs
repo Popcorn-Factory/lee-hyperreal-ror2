@@ -36,15 +36,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             base.rmaMultiplier = 1.4f;
 
-            if (airTime <= 1f) 
+            float maxAirTime = 1.2f;
+
+            if (airTime > maxAirTime)
             {
-                airTime = 1f;
+                airTime = maxAirTime;
             }
 
-            if (airTime >= Modules.StaticValues.primaryAerialMaxDamageMultiplier) 
-            {
-                airTime = Modules.StaticValues.primaryAerialMaxDamageMultiplier;
-            }
+            airTime = Util.Remap(airTime, 0f, maxAirTime, 1f, Modules.StaticValues.primaryAerialMaxDamageMultiplier);
 
             //Fire as soon as this state is triggered.
             if (base.isAuthority) 
