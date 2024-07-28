@@ -47,6 +47,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                         if (moveStrength == 3)
                         {
                             domainController.GrantIntuitionStack(1);
+                            domainController.AddEnergy(Modules.StaticValues.energyReturnedPer3ping);
                         }
                         this.outer.SetNextState(new RedOrbDomain { moveStrength = moveStrength });
                         return;

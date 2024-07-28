@@ -250,6 +250,15 @@ namespace LeeHyperrealMod.Content.Controllers
             }
         }
 
+        public void AddEnergy(float energy) 
+        {
+            this.energy += energy;
+            if (this.energy >= maxEnergy) 
+            {
+                energy = maxEnergy;
+            }
+        }
+
         public void SpendEnergy(float energy)
         {
             this.energy -= energy;
@@ -366,6 +375,7 @@ namespace LeeHyperrealMod.Content.Controllers
             Destroy(loopDomainEffect);
             Destroy(despawnDomainEffect);
             Destroy(domainAerialEffectLoop);
+            DestroyAllClonesAndBullets();
         }
     }
 }

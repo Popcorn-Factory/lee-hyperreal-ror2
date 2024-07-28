@@ -306,6 +306,8 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                 {
                     this.PlaySwingEffect();
                     base.AddRecoil(-1f * this.attackRecoil, -2f * this.attackRecoil, -0.5f * this.attackRecoil, 0.5f * this.attackRecoil);
+                    int maxNumHit = 0;
+                    List<HurtBox> result = new List<HurtBox>();
                     for (int i = 0; i < attackAmount; i++)
                     {
                         // Create Attack, fire it, do the on hit enemy authority.
@@ -324,9 +326,10 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                         this.attack.impactSound = this.impactSound;
                         if (this.attack != null) 
                         {
-                            if (this.attack.Fire())
-                            {
-                                this.OnHitEnemyAuthority();
+                            this.attack.Fire(result);
+                            if (result.Count > maxNumHit) 
+                            { 
+                                maxNumHit = result.Count;
                             }
                         }
                     }
@@ -348,14 +351,26 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
                         this.attack.impactSound = this.impactSound;
                         if (this.attack != null)
                         {
-                            if (this.attack.Fire())
+                            this.attack.Fire(result);
+                            if (result.Count > maxNumHit)
                             {
-                                this.OnHitEnemyAuthority();
+                                maxNumHit = result.Count;
                             }
                         }
                     }
+
+                    if (maxNumHit > 0) 
+                    {
+                        this.OnHitEnemyAuthority();
+                        TriggerOrbIncrementor(maxNumHit);
+                    }
                 }
             }
+        }
+
+        protected virtual void TriggerOrbIncrementor(int timesHit) 
+        {
+            //for upper levels to implement.
         }
 
         protected virtual void SetNextState()

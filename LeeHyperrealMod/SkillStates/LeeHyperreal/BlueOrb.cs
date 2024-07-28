@@ -87,6 +87,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             if (moveStrength == 3 && domainController.GetDomainState())
             {
                 domainController.GrantIntuitionStack(1);
+                domainController.AddEnergy(Modules.StaticValues.energyReturnedPer3ping);
             }
 
             attackAmount = (int)this.attackSpeedStat;

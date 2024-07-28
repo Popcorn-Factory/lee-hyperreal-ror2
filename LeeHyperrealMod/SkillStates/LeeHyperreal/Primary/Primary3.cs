@@ -269,14 +269,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             }
         }
 
-        protected override void OnHitEnemyAuthority()
+        protected override void TriggerOrbIncrementor(int timesHit)
         {
-            base.OnHitEnemyAuthority();
-            //Increment the orb incrementor
-
             if (orbController)
             {
-                orbController.AddToIncrementor(0.2f / ((attackAmount <= 0) ? 1 : attackAmount));
+                orbController.AddToIncrementor(Modules.StaticValues.flatAmountToGrantOnPrimaryHit * timesHit);
             }
         }
         protected override void PlayAttackAnimation()

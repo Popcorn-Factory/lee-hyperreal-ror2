@@ -269,7 +269,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             {
                 if (orbController)
                 {
-                    orbController.AddToIncrementor(0.015f);
+                    orbController.AddToIncrementor(Modules.StaticValues.flatAmountToGrantOnPrimaryHit * result.hitCount);
                 }
 
             }

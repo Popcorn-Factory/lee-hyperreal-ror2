@@ -210,6 +210,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     weapon = null,
                     spreadPitchScale = 0f,
                     spreadYawScale = 0f,
+                    hitCallback = snipeHitCallback,
                     queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
                     hitEffectPrefab = Modules.ParticleAssets.snipeHit,
                 }.Fire();
@@ -292,6 +293,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     return;
                 }
             }
+        }
+
+        private bool snipeHitCallback(BulletAttack bulletAttack, ref BulletAttack.BulletHit hitInfo)
+        {
+            if (orbController)
+            {
+                orbController.AddToIncrementor(Modules.StaticValues.flatAmountToGrantOnPrimaryHit);
+            }
+            return BulletAttack.defaultHitCallback(bulletAttack, ref hitInfo);
         }
 
         public void PlayAttackAnimation()

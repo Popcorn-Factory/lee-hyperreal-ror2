@@ -14,6 +14,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
     internal class PrimaryDomainAerialSlam : BaseRootMotionMoverState
     {
         LeeHyperrealDomainController domainController;
+        OrbController orbController;
         private bool isDomain;
         private float moveCancelFrac = 0.3f;
         private float duration = 1.6666f;
@@ -27,7 +28,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public override void OnEnter()
         {
             base.OnEnter();
-
+            orbController = GetComponent<OrbController>();
             domainController = GetComponent<LeeHyperrealDomainController>();
 
             domainController.DisableLoopEffect();
@@ -131,7 +132,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 procCoefficient = procCoefficient,
                 //impactEffect = EffectCatalog.FindEffectIndexFromPrefab(Modules.ParticleAssets.primary4Hit)
             };
-            attack.Fire();
+            BlastAttack.Result result = attack.Fire();
+
+            if (result.hitCount > 0)
+            {
+                if (orbController)
+                {
+                    orbController.AddToIncrementor(Modules.StaticValues.flatAmountToGrantOnPrimaryHit * result.hitCount);
+                }
+            }
         }
 
         public override void OnSerialize(NetworkWriter writer)
