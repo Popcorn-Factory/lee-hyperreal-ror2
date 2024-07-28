@@ -5006,6 +5006,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Power Bar Empty
       objectReference: {fileID: 0}
+    - target: {fileID: 4755679786597559987, guid: 25f99f6cd9ef8884ca766b105913beb3,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25f99f6cd9ef8884ca766b105913beb3, type: 3}
 --- !u!1 &932334072
@@ -5743,7 +5748,7 @@ PrefabInstance:
     - target: {fileID: 3586202131533455742, guid: d31e276f9d274634e83415f55ef47b94,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3586202131661922669, guid: d31e276f9d274634e83415f55ef47b94,
         type: 3}
@@ -6063,7 +6068,7 @@ PrefabInstance:
     - target: {fileID: 9074975533963670213, guid: d31e276f9d274634e83415f55ef47b94,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9074975533965990003, guid: d31e276f9d274634e83415f55ef47b94,
         type: 3}
