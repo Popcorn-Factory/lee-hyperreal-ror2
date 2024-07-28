@@ -878,6 +878,11 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void SetBulletStates(List<BulletController.BulletType> bulletTypes) 
         {
+            if (baseAIPresent)
+            {
+                return;
+            }
+
             if (meterAnimator.GetCurrentAnimatorStateInfo(1).IsName("Fire Bullet"))
             {
                 return;
@@ -933,6 +938,10 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void SetEnhancedBulletState(int bulletCount)
         {
+            if (baseAIPresent) 
+            {
+                return;
+            }
             //if (meterAnimator.GetCurrentAnimatorStateInfo(2).IsName("Fire Enhanced Ammo"))
             //{
             //    Chat.AddMessage("Bruh");

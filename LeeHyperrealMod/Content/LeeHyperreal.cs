@@ -184,28 +184,46 @@ namespace LeeHyperrealMod.Modules.Survivors
             armamentBarrage.movementType = AISkillDriver.MovementType.ChaseMoveTarget;
             armamentBarrage.buttonPressType = AISkillDriver.ButtonPressType.TapContinuous;
             armamentBarrage.aimType = AISkillDriver.AimType.AtCurrentEnemy;
-            armamentBarrage.resetCurrentEnemyOnNextDriverSelection = false;
+            armamentBarrage.resetCurrentEnemyOnNextDriverSelection = true;
+
+            AISkillDriver snipeSkill = master.gameObject.AddComponent<AISkillDriver>();
+            snipeSkill.customName = "Lee: Hyperreal - Snipe";
+            snipeSkill.skillSlot = SkillSlot.Primary;
+            snipeSkill.requireSkillReady = true;
+            snipeSkill.requireEquipmentReady = false;
+            snipeSkill.minDistance = 50f;
+            snipeSkill.maxDistance = 150f;
+            snipeSkill.selectionRequiresAimTarget = true;
+            snipeSkill.selectionRequiresOnGround = false;
+            snipeSkill.selectionRequiresAimTarget = true;
+            snipeSkill.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;
+            snipeSkill.activationRequiresTargetLoS = true;
+            snipeSkill.activationRequiresAimTargetLoS = true;
+            snipeSkill.activationRequiresAimConfirmation = true;
+            snipeSkill.movementType = AISkillDriver.MovementType.ChaseMoveTarget;
+            snipeSkill.buttonPressType = AISkillDriver.ButtonPressType.TapContinuous;
+            snipeSkill.aimType = AISkillDriver.AimType.AtCurrentEnemy;
+            snipeSkill.resetCurrentEnemyOnNextDriverSelection = true;
 
             ////Always fire when at a distance away from the player.
-            //AISkillDriver flare = master.gameObject.AddComponent<AISkillDriver>();
-            //flare.customName = "Arsonist Secondary";
-            //flare.skillSlot = SkillSlot.Secondary;
-            //flare.requireSkillReady = true;
-            //flare.requireEquipmentReady = false;
-            //flare.minDistance = 30f;
-            //flare.maxDistance = 100f;
-            //flare.selectionRequiresAimTarget = true;
-            //flare.selectionRequiresOnGround = false;
-            //flare.selectionRequiresAimTarget = true;
-            //flare.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;
-            //flare.activationRequiresTargetLoS = true;
-            //flare.activationRequiresAimTargetLoS = true;
-            //flare.activationRequiresAimConfirmation = true;
-            //flare.movementType = AISkillDriver.MovementType.ChaseMoveTarget;
-            //flare.buttonPressType = AISkillDriver.ButtonPressType.TapContinuous;
-            //flare.aimType = AISkillDriver.AimType.AtCurrentEnemy;
-            //flare.resetCurrentEnemyOnNextDriverSelection = true;
-            //flare.noRepeat = true;
+            AISkillDriver snipeStance = master.gameObject.AddComponent<AISkillDriver>();
+            snipeStance.customName = "Lee: Snipe Stance";
+            snipeStance.skillSlot = SkillSlot.Secondary;
+            snipeStance.requireSkillReady = true;
+            snipeStance.requireEquipmentReady = false;
+            snipeStance.minDistance = 50f;
+            snipeStance.maxDistance = 150f;
+            snipeStance.selectionRequiresAimTarget = true;
+            snipeStance.selectionRequiresOnGround = false;
+            snipeStance.selectionRequiresAimTarget = true;
+            snipeStance.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;
+            snipeStance.activationRequiresTargetLoS = true;
+            snipeStance.activationRequiresAimTargetLoS = true;
+            snipeStance.activationRequiresAimConfirmation = true;
+            snipeStance.movementType = AISkillDriver.MovementType.Stop;
+            snipeStance.buttonPressType = AISkillDriver.ButtonPressType.Hold;
+            snipeStance.aimType = AISkillDriver.AimType.AtCurrentEnemy;
+            snipeStance.resetCurrentEnemyOnNextDriverSelection = true;
 
             AISkillDriver dodge = master.gameObject.AddComponent<AISkillDriver>();
             dodge.customName = "Lee: hyperreal dodge";
@@ -224,32 +242,28 @@ namespace LeeHyperrealMod.Modules.Survivors
             dodge.movementType = AISkillDriver.MovementType.StrafeMovetarget;
             dodge.aimType = AISkillDriver.AimType.AtCurrentEnemy;
             dodge.buttonPressType = AISkillDriver.ButtonPressType.TapContinuous;
-            dodge.resetCurrentEnemyOnNextDriverSelection = false;
             dodge.resetCurrentEnemyOnNextDriverSelection = true;
             dodge.maxTimesSelected = 2;
             //cleanse.noRepeat = true;
 
-            //AISkillDriver maso = master.gameObject.AddComponent<AISkillDriver>();
-            //maso.customName = "Arsonist Masochism";
-            //maso.skillSlot = SkillSlot.Special;
-            //maso.requireSkillReady = true;
-            //maso.requireEquipmentReady = false;
-            //maso.minDistance = 10f;
-            //maso.maxDistance = 15f;
-            //maso.minTargetHealthFraction = 50f;
-            //maso.maxTargetHealthFraction = float.PositiveInfinity;
-            //maso.selectionRequiresAimTarget = true;
-            //maso.selectionRequiresOnGround = false;
-            //maso.selectionRequiresAimTarget = true;
-            //maso.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;
-            //maso.activationRequiresTargetLoS = true;
-            //maso.activationRequiresAimTargetLoS = true;
-            //maso.activationRequiresAimConfirmation = true;
-            //maso.movementType = AISkillDriver.MovementType.StrafeMovetarget;
-            //maso.buttonPressType = AISkillDriver.ButtonPressType.TapContinuous;
-            //maso.resetCurrentEnemyOnNextDriverSelection = false;
-            //maso.aimType = AISkillDriver.AimType.AtCurrentEnemy;
-            //maso.noRepeat = true;
+            AISkillDriver ult = master.gameObject.AddComponent<AISkillDriver>();
+            ult.customName = "Lee: Fire Ult";
+            ult.skillSlot = SkillSlot.Special;
+            ult.requireSkillReady = true;
+            ult.requireEquipmentReady = false;
+            ult.minDistance = 2f;
+            ult.maxDistance = float.PositiveInfinity;
+            ult.selectionRequiresAimTarget = true;
+            ult.selectionRequiresOnGround = false;
+            ult.moveTargetType = AISkillDriver.TargetType.CurrentEnemy;
+            ult.activationRequiresTargetLoS = true;
+            ult.activationRequiresAimTargetLoS = true;
+            ult.activationRequiresAimConfirmation = true;
+            ult.movementType = AISkillDriver.MovementType.StrafeMovetarget;
+            ult.buttonPressType = AISkillDriver.ButtonPressType.TapContinuous;
+            ult.resetCurrentEnemyOnNextDriverSelection = true;
+            ult.aimType = AISkillDriver.AimType.AtCurrentEnemy;
+            ult.maxTimesSelected = 1;
 
             //Setup AI
             AISkillDriver flee = master.gameObject.AddComponent<AISkillDriver>();
@@ -257,7 +271,6 @@ namespace LeeHyperrealMod.Modules.Survivors
             flee.skillSlot = SkillSlot.None;
             flee.requireSkillReady = false;
             flee.requireEquipmentReady = false;
-            flee.minDistance = 5f;
             flee.shouldSprint = true;
             flee.maxDistance = 5f;
             flee.minDistance = 0f;
@@ -604,18 +617,17 @@ namespace LeeHyperrealMod.Modules.Survivors
             #endregion
 
             //uncomment this when you have a mastery skin
-            #region MasterySkin
+            #region BlueSkin
 
             //creating a new skindef as we did before
-            SkinDef masterySkin = Modules.Skins.CreateSkinDef(PLUGIN_PREFIX + "ALT_SKIN_NAME",
+            SkinDef blueSkin = Modules.Skins.CreateSkinDef(PLUGIN_PREFIX + "ALT_SKIN_NAME",
                 Assets.mainAssetBundle.LoadAsset<Sprite>("texMasteryAchievement"),
                 defaultRendererinfos,
-                prefabCharacterModel.gameObject,
-                masterySkinUnlockableDef);
+                prefabCharacterModel.gameObject);
 
             //adding the mesh replacements as above. 
             //if you don't want to replace the mesh (for example, you only want to replace the material), pass in null so the order is preserved
-            masterySkin.meshReplacements = Modules.Skins.getMeshReplacements(defaultRendererinfos,
+            blueSkin.meshReplacements = Modules.Skins.getMeshReplacements(defaultRendererinfos,
                 null,
                 null,
                 null,
@@ -653,11 +665,11 @@ namespace LeeHyperrealMod.Modules.Survivors
             {
                 if (materialStrings[i] == null)
                 {
-                    masterySkin.rendererInfos[i].defaultMaterial = defaultRendererinfos[i].defaultMaterial;
+                    blueSkin.rendererInfos[i].defaultMaterial = defaultRendererinfos[i].defaultMaterial;
                 }
                 else 
                 {
-                    masterySkin.rendererInfos[i].defaultMaterial = Modules.Assets.mainAssetBundle.LoadAsset<Material>(materialStrings[i]);
+                    blueSkin.rendererInfos[i].defaultMaterial = Modules.Assets.mainAssetBundle.LoadAsset<Material>(materialStrings[i]);
                 }
             }
 
@@ -672,7 +684,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             //};
             //simply find an object on your child locator you want to activate/deactivate and set if you want to activate/deacitvate it with this skin
 
-            skins.Add(masterySkin);
+            skins.Add(blueSkin);
 
             #endregion
 

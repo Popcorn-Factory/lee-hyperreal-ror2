@@ -1,5 +1,6 @@
 ﻿using LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate;
 using RoR2;
+using RoR2.CharacterAI;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,6 +16,7 @@ namespace LeeHyperrealMod.Content.Controllers
         public LeeHyperrealUIController uiController;
         public static string targetChild = "BaseTransform";
         public CharacterBody body;
+        public CharacterMaster characterMaster;
         public GameObject cameraObject;
         public Animator ultimateAnimator;
         public Transform ultimateCameraTransform;
@@ -36,6 +38,7 @@ namespace LeeHyperrealMod.Content.Controllers
         public bool cameraAlreadyDamping2 = false;
         public bool cameraAlreadyDamping = false;
         public float cameraTimeAtStart;
+        public bool baseAIPresent = false;
 
         public Vector3 previousCameraPosition;
         public Quaternion previousRotation;
@@ -78,6 +81,16 @@ namespace LeeHyperrealMod.Content.Controllers
 
             ultimateCameraTransform = ultimateCameraGameObject.transform.GetChild(0).GetChild(0);
             domainUltimateCameraTransform = domainUltimateCameraGameObject.transform.GetChild(0);
+
+            characterMaster = body.master;
+            BaseAI baseAI = characterMaster.GetComponent<BaseAI>();
+            baseAIPresent = baseAI;
+
+
+            //For some reason on goboo's first spawn the master is just not there. However subsequent spawns work.
+            // Disable the UI in this event.
+            // Besides, there should never be a UI element related to a non-existant master on screen if the attached master/charbody does not exist.
+            if (!characterMaster) baseAIPresent = true; // Disable UI Just in case.
 
             try
             {
@@ -152,6 +165,11 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void UnsetUltimate() 
         {
+            if (baseAIPresent)
+            {
+                return;
+            }
+
             cameraAlreadyDamping = false;
             cameraAlreadyDamping2 = false;
             smoothDampTime = 0.75f;
@@ -177,6 +195,11 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void UnsetDomainUltimate()
         {
+            if (baseAIPresent)
+            {
+                return;
+            }
+
             cameraAlreadyDamping = false ;
             cameraAlreadyDamping2 = false;
             smoothDampTime = 0.5f;
@@ -197,6 +220,11 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void TriggerDomainUlt()
         {
+            if (baseAIPresent)
+            {
+                return;
+            }
+
             smoothDampTime = 0.001f;
             maxSmoothDampSpeed = 9999999f;
             domainUltimateAnimator.SetTrigger("startUltimateDomain");
@@ -221,6 +249,11 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void TriggerUlt()
         {
+            if (baseAIPresent) 
+            {
+                return;
+            }
+
             smoothDampTime = 0.001f;
             maxSmoothDampSpeed = 9999999f;
             ultimateAnimator.SetTrigger("startUltimate");
