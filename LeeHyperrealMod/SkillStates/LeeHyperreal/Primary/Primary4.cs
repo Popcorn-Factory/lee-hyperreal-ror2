@@ -264,12 +264,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         {
             attack.position = this.gameObject.transform.position;
             BlastAttack.Result result = attack.Fire();
-            Util.PlayAttackSpeedSound("HenrySwordSwing", base.gameObject, this.attackSpeedStat);
+
             if (result.hitCount > 0) 
             {
                 if (orbController)
                 {
-                    orbController.AddToIncrementor(Modules.StaticValues.flatAmountToGrantOnPrimaryHit * result.hitCount);
+                    orbController.AddToIncrementor(Modules.StaticValues.flatAmountToGrantOnPrimaryHit * result.hitCount * basePulseRate);
                 }
 
             }
