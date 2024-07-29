@@ -30,6 +30,21 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
 - 1.0.0
     - Initial Release!
 
+## Video
+
+## Screenshots
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee1.png"/>
+
+<details>
+<summary>Click to expand for more screenshots:</summary>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee2.png"/>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee3.png"/>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee4.png"/>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee5.png"/>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee6.png"/>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee7.png"/>
+</details>
+
 ## Skills
 ### Primary: Armament Barrage
 <img src=""/> ADD ICON HERE
@@ -77,23 +92,6 @@ Perform a slide, shooting 3 times for **150% damage**. On **\[3-ping\]**, an add
 
 Glide around an enemy while firing a torrent of bullets, hitting 3 times, **100% damage** each time. On **\[3-ping\]**, perform a wide upwards kick dealing **600% damage** while also performing a **\[Parry\]**.
 
-<img >
-
-## Trailer
-
-## Screenshots
-<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee1.png"/>
-
-<details>
-<summary>Click to expand for more screenshots:</summary>
-<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee2.png"/>
-<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee3.png"/>
-<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee4.png"/>
-<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee5.png"/>
-<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee6.png"/>
-<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee7.png"/>
-</details>
-
 ## Support us on Ko-fi! 
 There's no need for payment for mods, but a coffee would be nice once in awhile!
 
@@ -102,9 +100,7 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 </a>
 
 ## Known Issues
-- Sometimes the Ultimate Icon overlays on top of each other in the corner.
 - In networked situations, if you emote, everyone playing Lee will have their weapons removed, this does not affect how he functions, purely visual.
-- AI controlled Lee: Hyperreals may spam Ultimate, stealing the camera, but only for the person hosting the game. 
 - In very rare cases, Lee: Hyperreal can move even after dying. This is usually the case in networked situations where you perform a move and die in the same frame. 
 - Camera locks up if you change the settings to not move the camera while in snipe stance
 - When enemies are frozen during an ultimate, Golems may have bugged animators and their legs may go up into their torso, this effect is temporary and mostly just looks goofy that's all.
@@ -117,15 +113,13 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
     - violetchaolan
 - Asset Ripping + Shader porting + Reverse Engineering scripts to port to unity
     - dgosling
-- Wwise setup
-    - violetchaolan
-- Extra Custom Animations
+- Wwise setup / UI design / Extra Custom Animations
     - violetchaolan
 - VFX 
     - violetchaolan
     - ethanol10 (Minor VFX creation)
 - Programming - Popcorn Factory team (Contact on Discord):
-    - ethanol10 (Most of the mod and networking)
+    - ethanol10 (Most of the mod programming and networking)
     - teal5571 (Ultimate, Yellow/Red orb base functionality)
 - Miscellaneous
     - Rob - Character template
