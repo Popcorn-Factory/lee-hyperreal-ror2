@@ -1,6 +1,7 @@
 Event	ID	Name			Wwise Object Path	Notes
 	115159920	Play_c_liRk4_imp_ex_3_2			\Default Work Unit\Lee\Play_c_liRk4_imp_ex_3_2	
 	115159923	Play_c_liRk4_imp_ex_3_1			\Default Work Unit\Lee\Play_c_liRk4_imp_ex_3_1	
+	124427114	Play_Lee_Death_Voice_EN			\Default Work Unit\Lee Voice\EN\Play_Lee_Death_Voice_EN	
 	204919163	Play_c_liRk4_imp_nml_2_2			\Default Work Unit\Lee\Play_c_liRk4_imp_nml_2_2	
 	205066193	Play_c_liRk4_imp_nml_3_1			\Default Work Unit\Lee\Play_c_liRk4_imp_nml_3_1	
 	205066194	Play_c_liRk4_imp_nml_3_2			\Default Work Unit\Lee\Play_c_liRk4_imp_nml_3_2	
@@ -14,6 +15,8 @@ Event	ID	Name			Wwise Object Path	Notes
 	537015926	Play_c_liRk4_act_win			\Default Work Unit\Lee\Play_c_liRk4_act_win	
 	557212474	Play_c_liRk4_skill_red_dilie			\Default Work Unit\Lee\Play_c_liRk4_skill_red_dilie	
 	627989872	Play_c_liRk4_atk_ex_2_end			\Default Work Unit\Lee\Play_c_liRk4_atk_ex_2_end	
+	638946289	Play_Lee_Near_Death_Voice_EN			\Default Work Unit\Lee Voice\EN\Play_Lee_Near_Death_Voice_EN	
+	722834190	Play_Lee_Near_Death_Voice_JP			\Default Work Unit\Lee Voice\JP\Play_Lee_Near_Death_Voice_JP	
 	724521351	Play_c_liRk4_atk_nml_5_dilie			\Default Work Unit\Lee\Play_c_liRk4_atk_nml_5_dilie	
 	754794421	Play_c_liRk4_skill_yellow_dilie			\Default Work Unit\Lee\Play_c_liRk4_skill_yellow_dilie	
 	818545753	Play_c_liRk4_atk_ex_1			\Default Work Unit\Lee\Play_c_liRk4_atk_ex_1	
@@ -69,6 +72,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	4004505031	Play_c_liRk4_skill_ex_timestop_loop			\Default Work Unit\Lee\Play_c_liRk4_skill_ex_timestop_loop	
 	4112844972	Play_Lee_Ult_Voice_JP			\Default Work Unit\Lee Voice\JP\Play_Lee_Ult_Voice_JP	
 	4230288271	Play_Lee_Ult_Voice_EN			\Default Work Unit\Lee Voice\EN\Play_Lee_Ult_Voice_EN	
+	4268395689	Play_Lee_Death_Voice_JP			\Default Work Unit\Lee Voice\JP\Play_Lee_Death_Voice_JP	
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	1917128131	Volume_Lee_Voice			\Default Work Unit\Volume_Lee_Voice	
@@ -140,6 +144,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	682933615	c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_imp_blue\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Blue Orb\c_liRk4_imp_blue\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)		6429
 	704611551	c_liRk4_imp_yellow_1_1	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_imp_yellow_1\c_liRk4_imp_yellow_1_1_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Yellow Orb\c_liRk4_imp_yellow_1\c_liRk4_imp_yellow_1_1		5387
 	710881964	c_liRk4_atk_ex_1_bullet_2	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_atk_ex_1_bullet_2_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Yellow Orb\Domain\c_liRk4_atk_ex_1_bullet_2		27514
+	730494363	Lee Near Death Voice JP	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\Lee Near Death Voice JP_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\Voice Mixxer\Lee Voice\JP\Lee Near Death Voice JP		35189
 	737136991	c_liRk4_imp_red_2_3	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_imp_red_2\c_liRk4_imp_red_2_3_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Red Orb\c_liRk4_imp_red_2\c_liRk4_imp_red_2_3		6280
 	755865838	c_liRk4_act_flash_1	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_act_flash_1_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\c_liRk4_act_flash_1		28565
 	757405617	c_liRk4_atk_nml_5_jump	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_atk_nml_5_jump_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Primary\c_liRk4_atk_nml_5_jump		36187
@@ -157,6 +162,8 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	866897723	c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_imp_nml_2_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Primary\c_liRk4_imp_nml_2_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)		5340
 	871673217	c_liRk4_atk_ex_1	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_atk_ex_1_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Yellow Orb\Domain\c_liRk4_atk_ex_1		54745
 	890307725	c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_imp_ex_2_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Red Orb\Domain\c_liRk4_imp_ex_2_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)		6530
+	890358610	Lee Death Voice JP	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\Lee Death Voice JP_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\Voice Mixxer\Lee Voice\JP\Lee Death Voice JP		36367
+	893674034	Lee Near Death Voice EN	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\Lee Near Death Voice EN_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\Voice Mixxer\Lee Voice\EN\Lee Near Death Voice EN		27977
 	899528540	c_liRk4_skill_red	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_skill_red_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Red Orb\c_liRk4_skill_red		30030
 	900217835	c_liRk4_skill_red_bullet	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_skill_red_bullet_A29DE668.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Red Orb\c_liRk4_skill_red_bullet		18117
 	901070402	c_liRk4_atk_ex_3_xuli	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_atk_ex_3_xuli_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Primary\Snipe\Snipe mix\c_liRk4_atk_ex_3_xuli		22084
@@ -180,4 +187,5 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1053120446	c_liRk4_skill_yellow	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_skill_yellow_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Yellow Orb\c_liRk4_skill_yellow		28776
 	1059560566	c_liRk4_atk_nml_2	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_atk_nml_2_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Primary\c_liRk4_atk_nml_2		27909
 	1063561195	c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\c_liRk4_imp_nml_3_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX Mixxer\Lee\Primary\c_liRk4_imp_nml_3_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)		5340
+	1068491608	Lee Death Voice EN	C:\Users\lucky\Documents\GitHub\lee-hyperreal-ror2\LeeHyerrealWWiseProject\Lee Hyperreal\.cache\Windows\SFX\Lee Death Voice EN_E686EB18.wem		\Actor-Mixer Hierarchy\Default Work Unit\Voice Mixxer\Lee Voice\EN\Lee Death Voice EN		77890
 

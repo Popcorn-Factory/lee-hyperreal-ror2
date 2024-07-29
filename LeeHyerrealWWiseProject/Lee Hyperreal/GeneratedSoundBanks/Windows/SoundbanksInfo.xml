@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="505873666" GUID="{8F1A8A27-C3E1-4938-8B10-4FB1FF6A3F19}" Language="SFX" Hash="3190836832">
+		<SoundBank Id="505873666" GUID="{8F1A8A27-C3E1-4938-8B10-4FB1FF6A3F19}" Language="SFX" Hash="3365829598">
 			<ObjectPath>\SoundBanks\Default Work Unit\Lee_Hyperreal</ObjectPath>
 			<ShortName>Lee_Hyperreal</ShortName>
 			<Path>Lee_Hyperreal.bnk</Path>
@@ -660,6 +660,22 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="124427114" Name="Play_Lee_Death_Voice_EN" ObjectPath="\Events\Default Work Unit\Lee Voice\EN\Play_Lee_Death_Voice_EN" GUID="{BDADB0BE-41E4-4432-AA67-208949349C3C}">
+					<IncludedMemoryFiles>
+						<File Id="1068491608" Language="SFX">
+							<ShortName>Lee Death Voice EN.wav</ShortName>
+							<Path>SFX\Lee Death Voice EN_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4268395689" Name="Play_Lee_Death_Voice_JP" ObjectPath="\Events\Default Work Unit\Lee Voice\JP\Play_Lee_Death_Voice_JP" GUID="{762FC7A5-3CC5-40FF-AB60-5C351FF34B8D}">
+					<IncludedMemoryFiles>
+						<File Id="890358610" Language="SFX">
+							<ShortName>Lee Death Voice JP.wav</ShortName>
+							<Path>SFX\Lee Death Voice JP_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="299803410" Name="Play_Lee_Domain_Ult_Voice_EN" ObjectPath="\Events\Default Work Unit\Lee Voice\EN\Play_Lee_Domain_Ult_Voice_EN" GUID="{60A9216B-4542-4A83-8F41-8886690BD0F7}">
 					<IncludedMemoryFiles>
 						<File Id="358197402" Language="SFX">
@@ -689,6 +705,22 @@
 						<File Id="626382630" Language="SFX">
 							<ShortName>Lee Intro Voice JP.wav</ShortName>
 							<Path>SFX\Lee Intro Voice JP_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="638946289" Name="Play_Lee_Near_Death_Voice_EN" ObjectPath="\Events\Default Work Unit\Lee Voice\EN\Play_Lee_Near_Death_Voice_EN" GUID="{19F46D72-99B2-480F-BE00-E4FE187C9D82}">
+					<IncludedMemoryFiles>
+						<File Id="893674034" Language="SFX">
+							<ShortName>Lee Near Death Voice EN.wav</ShortName>
+							<Path>SFX\Lee Near Death Voice EN_E686EB18.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="722834190" Name="Play_Lee_Near_Death_Voice_JP" ObjectPath="\Events\Default Work Unit\Lee Voice\JP\Play_Lee_Near_Death_Voice_JP" GUID="{43E28FF1-B51D-432B-984C-BEF5210038B1}">
+					<IncludedMemoryFiles>
+						<File Id="730494363" Language="SFX">
+							<ShortName>Lee Near Death Voice JP.wav</ShortName>
+							<Path>SFX\Lee Near Death Voice JP_E686EB18.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>

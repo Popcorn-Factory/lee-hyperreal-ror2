@@ -3088,6 +3088,57 @@
 												<ActiveSource Name="Lee Ult Voice EN" ID="{503B6743-54F9-40BC-9356-B6FD9DD95FF5}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
+										<Sound Name="Lee Death Voice EN" ID="{085ECCAC-30CD-44B7-AB19-046A47A2D1C1}" ShortID="376378931">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Death Voice EN" ID="{222FD3DD-3374-480C-9265-5B0856FBBA31}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Death Voice EN.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1068491608"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Death Voice EN" ID="{222FD3DD-3374-480C-9265-5B0856FBBA31}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Lee Near Death Voice EN" ID="{52BB1711-6F82-4CA8-9CEE-BACA535794A7}" ShortID="998286612">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-2</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Near Death Voice EN" ID="{9A18B002-5EF5-45AB-BE0A-9EC07DDDAD06}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Near Death Voice EN.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="893674034"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Near Death Voice EN" ID="{9A18B002-5EF5-45AB-BE0A-9EC07DDDAD06}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
 								</Folder>
 								<Folder Name="JP" ID="{09EB593C-9A99-4E24-91A4-3352AE7D1910}" ShortID="751855271">
@@ -3158,13 +3209,64 @@
 												<ActiveSource Name="Lee Ult Voice JP" ID="{581D75DF-C199-4F33-8BAA-65C3C7CB4210}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
+										<Sound Name="Lee Death Voice JP" ID="{C38BBDBE-FF9E-438A-B58A-27EF36BB6AE6}" ShortID="116595205">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Death Voice JP" ID="{E972D187-C80C-4C66-BE7B-DABB5D499B23}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Death Voice JP.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="890358610"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Death Voice JP" ID="{E972D187-C80C-4C66-BE7B-DABB5D499B23}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Lee Near Death Voice JP" ID="{F2710C9F-DEDF-48C1-B20D-9064B4420939}" ShortID="571706461">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-2</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Near Death Voice JP" ID="{8626CF69-1112-4311-A19E-6993B02C522F}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Near Death Voice JP.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="730494363"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Near Death Voice JP" ID="{8626CF69-1112-4311-A19E-6993B02C522F}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
 									</ChildrenList>
 								</Folder>
 								<Sound Name="cease_your_existance_NOW" ID="{ED802562-9F4C-4ACC-B0D9-DFB4563DD6F2}" ShortID="292767781">
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-1</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>

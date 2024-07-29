@@ -745,6 +745,28 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="Play_Lee_Near_Death_Voice_EN" ID="{19F46D72-99B2-480F-BE00-E4FE187C9D82}">
+									<ChildrenList>
+										<Action Name="" ID="{C57A81B7-5D8E-4C66-A2E5-1D6511979913}" ShortID="210270112">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lee Near Death Voice EN" ID="{52BB1711-6F82-4CA8-9CEE-BACA535794A7}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Lee_Death_Voice_EN" ID="{BDADB0BE-41E4-4432-AA67-208949349C3C}">
+									<ChildrenList>
+										<Action Name="" ID="{0001362D-6C08-4255-B95C-1F08983C5B9C}" ShortID="187444828">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lee Death Voice EN" ID="{085ECCAC-30CD-44B7-AB19-046A47A2D1C1}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="JP" ID="{04F7ED88-E21F-4760-BEF4-A5298245A2CD}" ShortID="354525793">
@@ -777,6 +799,28 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Lee Domain Ult Voice JP" ID="{43396369-A69F-4E34-B378-1030402103F1}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Lee_Death_Voice_JP" ID="{762FC7A5-3CC5-40FF-AB60-5C351FF34B8D}">
+									<ChildrenList>
+										<Action Name="" ID="{F54429F9-D1CA-4D4F-AE92-80E344384C34}" ShortID="965396239">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lee Death Voice JP" ID="{C38BBDBE-FF9E-438A-B58A-27EF36BB6AE6}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Play_Lee_Near_Death_Voice_JP" ID="{43E28FF1-B51D-432B-984C-BEF5210038B1}">
+									<ChildrenList>
+										<Action Name="" ID="{49FBE2EA-2D16-4027-B623-4A947493D96F}" ShortID="795676554">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Lee Near Death Voice JP" ID="{F2710C9F-DEDF-48C1-B20D-9064B4420939}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
