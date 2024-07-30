@@ -1,4 +1,6 @@
 ﻿using System;
+using LeeHyperrealMod.Modules.Networking;
+using R2API.Networking.Interfaces;
 using RoR2;
 using UnityEngine;
 
@@ -24,18 +26,12 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void Start()
         {
-            Hook();
             canPlayNextTime = false;
             hasRecoveredAboveRequiredFraction = false;
             isHealthLow = false;
             timerElapsed = true; // Can play the next time we hit
             timerSinceLowHealth = 0f;
             healthComponent = GetComponent<HealthComponent>();
-        }
-
-        public void OnDestroy()
-        {
-            Unhook();
         }
 
         public void Update()
@@ -63,6 +59,17 @@ namespace LeeHyperrealMod.Content.Controllers
                 canPlayNextTime = false;
 
                 //Play voice line here.
+                if (healthComponent.body.hasEffectiveAuthority && Modules.Config.voiceEnabled.Value) 
+                {
+                    if (Modules.Config.voiceLanguageOption.Value == Modules.Config.VoiceLanguage.ENG)
+                    {
+                        new PlaySoundNetworkRequest(healthComponent.body.netId, "Play_Lee_Near_Death_Voice_EN").Send(R2API.Networking.NetworkDestination.Clients);
+                    }
+                    else 
+                    {
+                        new PlaySoundNetworkRequest(healthComponent.body.netId, "Play_Lee_Near_Death_Voice_JP").Send(R2API.Networking.NetworkDestination.Clients);
+                    }
+                }
             }
         }
 
@@ -78,7 +85,7 @@ namespace LeeHyperrealMod.Content.Controllers
                         if (timerElapsed)
                         {
                             canPlayNextTime = true;
-                            timerStarted = false;
+                            timerStarted = true;
                             timerElapsed = false;
                         }
                     }
@@ -88,29 +95,6 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
             }
         }
-
-        public void Hook()
-        {
-            On.RoR2.CharacterBody.OnDeathStart += CharacterBody_OnDeathStart;
-        }
-
-        public void Unhook()
-        {
-            On.RoR2.CharacterBody.OnDeathStart -= CharacterBody_OnDeathStart;
-        }
-
-        private void CharacterBody_OnDeathStart(On.RoR2.CharacterBody.orig_OnDeathStart orig, CharacterBody self)
-        {
-            orig(self);
-            if (self)
-            {
-                if (self.baseNameToken == LeeHyperrealPlugin.DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_NAME")
-                {
-                    //Play death sound.
-                }
-            }
-        }
-
     }
 }
 

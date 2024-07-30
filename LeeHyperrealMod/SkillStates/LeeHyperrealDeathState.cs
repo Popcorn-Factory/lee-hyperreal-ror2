@@ -1,5 +1,6 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -23,11 +24,25 @@ namespace LeeHyperrealMod.SkillStates
 
             base.PlayAnimation("Death", "FullBody, Override", "attack.playbackRate", duration);
 
-            domainController.DisableDomain(false);
+            if (domainController.GetDomainState()) 
+            {
+                domainController.DisableDomain(false);
+            }
 
-            if (!isGrounded) 
+            if (!isGrounded)
             {
                 TriggerRagdoll(true);
+            }
+            else 
+            {
+                if (Modules.Config.voiceLanguageOption.Value == Modules.Config.VoiceLanguage.ENG)
+                {
+                    Util.PlaySound("Play_Lee_Death_Voice_EN", gameObject);
+                }
+                else
+                {
+                    Util.PlaySound("Play_Lee_Death_Voice_JP", gameObject);
+                }
             }
         }
 
