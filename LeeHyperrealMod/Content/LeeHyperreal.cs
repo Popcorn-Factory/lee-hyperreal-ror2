@@ -150,6 +150,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             bodyPrefab.AddComponent<WeaponModelHandler>();
             bodyPrefab.AddComponent<UltimateCameraController>();
             bodyPrefab.AddComponent<GlitchOverlayController>();
+            bodyPrefab.AddComponent<LeeHyperrealDeathMonitor>();
         }
 
         public override void InitializeDoppelganger(string clone)
