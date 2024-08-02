@@ -17,6 +17,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         WeaponModelHandler weaponModelHandler;
         LeeHyperrealDomainController domainController;
 
+        public static float force = 800f;
+        public static float range = 256f;
+
         public float start = 0;
         public float earlyEnd = 0.38f;
         public float fireFrac = 0.22f;
@@ -129,8 +132,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 damageColorIndex = DamageColorIndex.Default,
                 damageType = DamageType.Generic,
                 falloffModel = BulletAttack.FalloffModel.DefaultBullet,
-                maxDistance = Shoot.range,
-                force = Shoot.force,
+                maxDistance = range,
+                force = force,
                 hitMask = LayerIndex.CommonMasks.bullet,
                 minSpread = 0f,
                 maxSpread = 0f,
