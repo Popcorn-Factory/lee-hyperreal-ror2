@@ -57,6 +57,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
             base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
             base.characterDirection.moveVector = new Vector3(0, 0, 0);
+            base.characterMotor.velocity = new Vector3(0, 0, 0);
+
             if (base.isAuthority) 
             {
                 //Check for dodging. Otherwise ignore.

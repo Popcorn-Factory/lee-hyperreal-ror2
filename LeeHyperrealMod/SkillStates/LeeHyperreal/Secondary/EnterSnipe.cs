@@ -104,6 +104,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             base.Update();
             base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
             base.characterDirection.moveVector = Vector3.zero;
+            base.characterMotor.velocity = new Vector3(0, 0, 0);
+
             if (age >= duration * earlyExitFrac && base.isAuthority) 
             {
                 if (base.inputBank.skill1.down) 

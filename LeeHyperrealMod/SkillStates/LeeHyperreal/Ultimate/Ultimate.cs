@@ -251,6 +251,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             //base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, aimRay.direction, ref velocity, 0.1f, 100f, Time.deltaTime);
             //base.characterDirection.moveVector = Vector3.SmoothDamp(base.characterDirection.moveVector, aimRay.direction, ref velocity, 0.1f, 100f, Time.deltaTime);
 
+            base.characterMotor.velocity = new Vector3(0, 0, 0);
+
             if (age >= duration * playCeaseFrac && !hasCeased && base.isAuthority && setCease)
             {
                 //Play cease effect.
