@@ -89,7 +89,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             {
                 attacker = gameObject,
                 inflictor = null,
-                teamIndex = TeamIndex.Player,
+                teamIndex = base.GetTeam(),
                 position = gameObject.transform.position + GetAimRay().direction * 2.5f,
                 radius = (moveStrength == 3 ? Modules.StaticValues.yellowOrbTripleMultiplier : 1) * Modules.StaticValues.yellowOrbBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.None,
@@ -260,7 +260,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             {
                 attacker = gameObject,
                 inflictor = null,
-                teamIndex = TeamIndex.Player,
+                teamIndex = base.GetTeam(),
                 position = gameObject.transform.position + GetAimRay().direction * 2.5f,
                 radius = (moveStrength == 3 ? Modules.StaticValues.blueOrbTripleMultiplier : 1) * Modules.StaticValues.blueOrbBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.None,

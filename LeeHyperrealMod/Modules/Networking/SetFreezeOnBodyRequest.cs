@@ -73,11 +73,11 @@ namespace LeeHyperrealMod.Modules.Networking
 
             foreach (EntityStateMachine stateMachine in stateMachines)
             {
-                //if (stateMachine.customName == "Body")
-                //{
+                if (stateMachine.customName == "Body")
+                {
                     stateMachine.SetState(new Freeze { duration = this.duration});
                     return;
-                //}
+                }
             }
         }
     }

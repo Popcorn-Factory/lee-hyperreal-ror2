@@ -52,6 +52,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
         internal bool hasHit = false;
         internal bool hasHit2 = false;
+        internal bool hasHit3 = false;
 
         float invincibilityOnFrac = 0.05f;
         float invincibilityOffFrac = 0.2f;
@@ -213,15 +214,20 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                     fireStopwatch -= Time.fixedDeltaTime;
                 }
 
-                if (fixedAge >= duration * fireTime * 1.5f && !hasHit)
+                if (fixedAge >= duration * fireTime * 1.2f && !hasHit)
                 {
                     hasHit = true;
                     new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_ex_2_1").Send(R2API.Networking.NetworkDestination.Clients);
                 }
-                if (fixedAge >= duration * fireTime * 1.8f && !hasHit2)
+                if (fixedAge >= duration * fireTime * 1.5f && !hasHit2)
                 {
                     hasHit2 = true;
                     new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_ex_2_2").Send(R2API.Networking.NetworkDestination.Clients);
+                }
+                if (fixedAge >= duration * fireTime * 1.8f && !hasHit3)
+                {
+                    hasHit3 = true;
+                    new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_ex_2_1").Send(R2API.Networking.NetworkDestination.Clients);
                 }
             }
 

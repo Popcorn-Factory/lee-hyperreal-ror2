@@ -31,7 +31,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         CharacterGravityParameters oldGravParams;
         float turnOffGravityFrac = 0.23f;
         bool playedLandingEffect = false;
-        float slamEffectFrac = 0.32f;
+        float slamEffectFrac = 0.3f;
 
         public override void OnEnter()
         {

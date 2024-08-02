@@ -77,7 +77,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             {
                 attacker = base.gameObject,
                 inflictor = null,
-                teamIndex = TeamIndex.Player,
+                teamIndex = base.GetTeam(),
                 position = base.gameObject.transform.position,
                 radius = shootRadius,
                 falloffModel = BlastAttack.FalloffModel.SweetSpot,

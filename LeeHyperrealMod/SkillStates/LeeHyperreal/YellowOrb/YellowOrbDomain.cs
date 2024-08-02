@@ -79,7 +79,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             {
                 attacker = gameObject,
                 inflictor = null,
-                teamIndex = TeamIndex.Player,
+                teamIndex = base.GetTeam(),
                 position = gameObject.transform.position + GetAimRay().direction * 2.5f,
                 radius = Modules.StaticValues.yellowOrbDomainBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.None,
@@ -99,7 +99,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             { 
                 attacker = gameObject,
                 inflictor = null,
-                teamIndex = TeamIndex.Player,
+                teamIndex = base.GetTeam(),
                 position = gameObject.transform.position + GetAimRay().direction * 2.5f,
                 radius = Modules.StaticValues.yellowOrbDomainBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.None,

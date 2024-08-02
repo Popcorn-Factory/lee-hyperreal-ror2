@@ -130,7 +130,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             {
                 attacker = gameObject,
                 inflictor = null,
-                teamIndex = TeamIndex.Player,
+                teamIndex = base.GetTeam(),
                 position = gameObject.transform.position,
                 radius = Modules.StaticValues.ultimateDomainBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.None,
