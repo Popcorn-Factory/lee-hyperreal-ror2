@@ -41,7 +41,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material._EffectBrightness
+    attribute: material._opacity
     path: offset/Floor
     classID: 199
     script: {fileID: 0}
@@ -55,7 +55,7 @@ AnimationClip:
     genericBindings:
     - serializedVersion: 2
       path: 1138033017
-      attribute: 2194410242
+      attribute: 2276822043
       script: {fileID: 0}
       typeID: 199
       customType: 22
@@ -106,7 +106,7 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: material._EffectBrightness
+    attribute: material._opacity
     path: offset/Floor
     classID: 199
     script: {fileID: 0}
