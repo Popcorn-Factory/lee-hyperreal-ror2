@@ -163,7 +163,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 return;
             }
 
-            if (skillLocator.special.stock >= 1 && !GetDomainState()) 
+            if (skillLocator.special.stock >= 10 && !GetDomainState()) 
             {
                 SetIconState(UltimateIconState.ULTIMATE);
                 return;
