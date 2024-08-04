@@ -66,6 +66,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: d7b84a1217c42e04faee3ba4b13cacab, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _VertexMove1:
+        m_Texture: {fileID: 2800000, guid: d7b84a1217c42e04faee3ba4b13cacab, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _VertexOffset_Tex:
         m_Texture: {fileID: 2800000, guid: d7b84a1217c42e04faee3ba4b13cacab, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -84,6 +88,7 @@ Material:
     - IF_MaskFlowMapKeyword: 0
     - _AlphaTest: 0
     - _BlendMode: 3
+    - _ChromaticAberration: 0.1
     - _ColorMask: 15
     - _CullMode: 0
     - _CustomAlpha: 1
@@ -133,17 +138,18 @@ Material:
     - _VertexOffset_Speed_R: -0.072
     - _VertexOffset_Strength_G: 0.043
     - _VertexOffset_Strength_R: -0.064
-    - _VertexStrength: 0.1
+    - _VertexStrength: 0.002
     - _ZOffset: 0
     - _ZTest: 8
     - _ZWrite: 0
     - __dirty: 0
+    - _emitstrength: 1
     - _opacity: 1
     m_Colors:
     - _DissolutionColor: {r: 1, g: 1, b: 1, a: 0}
     - _DissolutionRotationParams: {r: 1, g: 0, b: 0, a: 1}
     - _FlowSpeed: {r: 0.1, g: 0.1, b: -0.1, a: 0.1}
-    - _MainColor: {r: 0, g: 1.2146596, b: 10.680627, a: 1}
+    - _MainColor: {r: 0, g: 1.3803922, b: 11.984314, a: 1}
     - _MainRotationParams: {r: 1, g: 0, b: 0, a: 1}
     - _MainTexColor: {r: 1, g: 1, b: 1, a: 1}
     - _MaskRotationParams: {r: 1, g: 0, b: 0, a: 1}
