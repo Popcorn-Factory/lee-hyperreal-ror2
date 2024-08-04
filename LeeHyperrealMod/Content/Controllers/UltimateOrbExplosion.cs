@@ -83,7 +83,7 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 currentNumber += 1;
                 pullTimer = 0f;
-                new PerformForceNetworkRequest(leeBody.masterObjectId, position, Vector3.up, Modules.StaticValues.ultimateBlastRadius, 10f, 0f, 360f).Send(NetworkDestination.Clients);
+                new PerformForceNetworkRequest(leeBody.masterObjectId, position, Vector3.up * 0.5f, Modules.StaticValues.ultimateBlastRadius, 10f, 0f, 360f).Send(NetworkDestination.Clients);
             }
 
             if (timer >= duration)
