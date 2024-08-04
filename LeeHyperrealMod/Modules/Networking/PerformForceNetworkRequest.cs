@@ -101,7 +101,7 @@ namespace LeeHyperrealMod.Modules.Networking
 
                     if (singularTarget.healthComponent && singularTarget.healthComponent.body)
                     {
-                        float Weight = 1f;
+                        float Weight = 0.5f;
                         if (singularTarget.healthComponent.body.isBoss)
                         {
                             if (singularTarget.healthComponent.body.characterMotor)
