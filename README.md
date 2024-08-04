@@ -104,7 +104,7 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 - In very rare cases, Lee: Hyperreal can move even after dying. This is usually the case in networked situations where you perform a move and die in the same frame. 
 - Camera locks up if you change the settings to not move the camera while in snipe stance
 - When enemies are frozen during an ultimate, Some enemies may have bugged animators and their legs may go up into their torso, this effect is temporary and mostly just looks goofy that's all.
-- Parrying a lot of Lee's at the same time will crash the game. Be careful!
+- Parrying a lot of Lee's attacks at the same time will crash the game. Be careful!
 
 ## Credits
 
