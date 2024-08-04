@@ -547,7 +547,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 activationStateMachineName = "Body",
                 baseMaxStock = 10,
                 baseRechargeInterval = 4f,
-                beginSkillCooldownOnSkillEnd = false,
+                beginSkillCooldownOnSkillEnd = true,
                 canceledFromSprinting = false,
                 forceSprintDuringState = false,
                 fullRestockOnAssign = true,
