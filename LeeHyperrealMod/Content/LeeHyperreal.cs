@@ -545,8 +545,8 @@ namespace LeeHyperrealMod.Modules.Survivors
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUltimate"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Ultimate.UltimateEntry)),
                 activationStateMachineName = "Body",
-                baseMaxStock = 1,
-                baseRechargeInterval = 40f,
+                baseMaxStock = 10,
+                baseRechargeInterval = 4f,
                 beginSkillCooldownOnSkillEnd = false,
                 canceledFromSprinting = false,
                 forceSprintDuringState = false,
@@ -557,8 +557,8 @@ namespace LeeHyperrealMod.Modules.Survivors
                 mustKeyPress = true,
                 cancelSprintingOnActivation = true,
                 rechargeStock = 1,
-                requiredStock = 1,
-                stockToConsume = 1,
+                requiredStock = 10,
+                stockToConsume = 10,
                 keywordTokens = new string[] { $"{prefix}KEYWORD_DOMAIN_ULT" }
             });
 

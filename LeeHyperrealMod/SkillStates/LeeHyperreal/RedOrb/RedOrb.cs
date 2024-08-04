@@ -103,7 +103,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 smartCollision = true,
                 procChainMask = default(ProcChainMask),
                 procCoefficient = procCoefficient,
-                radius = 1.4f,
+                radius = 2f,
                 sniper = false,
                 stopperMask = LayerIndex.CommonMasks.bullet,
                 weapon = null,
