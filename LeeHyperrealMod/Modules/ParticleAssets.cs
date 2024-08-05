@@ -81,6 +81,7 @@ namespace LeeHyperrealMod.Modules
         public static GameObject SnipeStart;
         public static GameObject Snipe;
         public static GameObject snipeHit;
+        public static GameObject snipeHitEnhanced;
         public static GameObject snipeGround;
         public static GameObject snipeBulletCasing;
         public static GameObject snipeDodge;
@@ -402,6 +403,9 @@ namespace LeeHyperrealMod.Modules
             //    );
 
             Snipe = ModifyEffect(Snipe, "Play_c_liRk4_atk_ex_3", true, 1f, VFXAttributes.VFXPriority.Medium);
+
+            snipeHitEnhanced = GetGameObjectFromBundle("fxr4liangatk24bao");
+            snipeHitEnhanced = ModifyEffect(snipeHitEnhanced, "", true);
 
             snipeHit = GetGameObjectFromBundle("fxr4liangatk24hit");
             //AddLightIntensityCurveWithCurve(
