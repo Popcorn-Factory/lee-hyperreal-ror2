@@ -404,28 +404,28 @@ namespace LeeHyperrealMod.Modules
             Snipe = ModifyEffect(Snipe, "Play_c_liRk4_atk_ex_3", true, 1f, VFXAttributes.VFXPriority.Medium);
 
             snipeHit = GetGameObjectFromBundle("fxr4liangatk24hit");
-            AddLightIntensityCurveWithCurve(
-                snipeHit.transform.GetChild(0).GetChild(1).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.15f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "fxr4liangatk24hit-lightSC"
-                );
-            AddLightIntensityCurveWithCurve(
-                snipeHit.transform.GetChild(1).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.18f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "fxr4liangatk24hit-spjere"
-                );
+            //AddLightIntensityCurveWithCurve(
+            //    snipeHit.transform.GetChild(0).GetChild(1).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.15f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    },
+            //    "fxr4liangatk24hit-lightSC"
+            //    );
+            //AddLightIntensityCurveWithCurve(
+            //    snipeHit.transform.GetChild(1).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.18f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    },
+            //    "fxr4liangatk24hit-spjere"
+            //    );
             snipeHit = ModifyEffect(snipeHit, "Play_c_liRk4_imp_ex_3_1", true);
 
             snipeGround = GetGameObjectFromBundle("fxr4liangatk24ground");
