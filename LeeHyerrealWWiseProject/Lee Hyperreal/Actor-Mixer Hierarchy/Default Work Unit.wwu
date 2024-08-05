@@ -1342,6 +1342,10 @@
 									</PropertyList>
 									<ChildrenList>
 										<Folder Name="Snipe" ID="{866F262C-E8C1-458A-965A-8CBF353CD0FE}" ShortID="806438698">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="4"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
 											<ChildrenList>
 												<ActorMixer Name="Snipe mix" ID="{77DF8B0D-588E-4836-8E87-777421E4B4D7}" ShortID="416508143">
 													<PropertyList>
@@ -3023,7 +3027,14 @@
 								<Folder Name="EN" ID="{4A18CD69-8D31-4D3B-ADCF-2BD08505B8FC}" ShortID="1068421186">
 									<ChildrenList>
 										<Sound Name="Lee Domain Ult Voice EN" ID="{7C575C1E-640F-4F25-8FF0-BCA319B0057F}" ShortID="149048320">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+											</PropertyList>
 											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Ultimate" ID="{CF08FAA3-3332-4E8A-969C-1486427BFFC5}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
 												</Reference>
@@ -3067,7 +3078,14 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Lee Ult Voice EN" ID="{07C5C1CF-A35B-474D-A698-0293A2BB21BD}" ShortID="73701567">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+											</PropertyList>
 											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Ultimate" ID="{CF08FAA3-3332-4E8A-969C-1486427BFFC5}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
 												</Reference>
@@ -3144,7 +3162,14 @@
 								<Folder Name="JP" ID="{09EB593C-9A99-4E24-91A4-3352AE7D1910}" ShortID="751855271">
 									<ChildrenList>
 										<Sound Name="Lee Domain Ult Voice JP" ID="{43396369-A69F-4E34-B378-1030402103F1}" ShortID="121783135">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+											</PropertyList>
 											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Ultimate" ID="{CF08FAA3-3332-4E8A-969C-1486427BFFC5}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
 												</Reference>
@@ -3188,7 +3213,14 @@
 											</ActiveSourceList>
 										</Sound>
 										<Sound Name="Lee Ult Voice JP" ID="{3B489203-DBE5-48D9-B4FB-903F2C75553A}" ShortID="860883271">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+											</PropertyList>
 											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Ultimate" ID="{CF08FAA3-3332-4E8A-969C-1486427BFFC5}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
 												</Reference>
