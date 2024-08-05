@@ -128,6 +128,10 @@ namespace LeeHyperrealMod.Content.Controllers
         private Animator ultimateIndicatorAnimator;
         #endregion
 
+        #region Hold OK tag
+        HGTextMeshProUGUI holdOKTag;
+        #endregion
+
         private bool isInitialized = false;
 
         private HGTextMeshProUGUI CreateLabel(Transform parent, string name, string text, Vector2 position, float textScale)
@@ -143,6 +147,7 @@ namespace LeeHyperrealMod.Content.Controllers
             hgtextMeshProUGUI.alignment = TextAlignmentOptions.Center;
             hgtextMeshProUGUI.enableWordWrapping = false;
             rectTransform.localPosition = Vector2.zero;
+            rectTransform.localRotation = Quaternion.identity;
             rectTransform.anchorMin = Vector2.zero;
             rectTransform.anchorMax = Vector2.one;
             rectTransform.localScale = Vector3.one;
@@ -195,10 +200,11 @@ namespace LeeHyperrealMod.Content.Controllers
                 InitializeHealthLayer();
                 InitializeBulletUI();
                 InitializeUltimateIndicator();
-                //Now we need to initialize everything inside the canvas to variables we can control.
                 InitializeOrbAnimatorArray();
+                //Now we need to initialize everything inside the canvas to variables we can control.
                 InitializeOrbAmountLabel();
                 InitializeOrbBrackets();
+                InitializeHoldOKTag();
 
                 if (orbController)
                 {
@@ -270,9 +276,19 @@ namespace LeeHyperrealMod.Content.Controllers
         #region Invincible Health layer
         public void InitializeHealthLayer()
         {
-            if (RoRHUDObject && !healthLayers) 
+            if (RoRHUDObject && !healthLayers)
             {
-                healthLayers = UnityEngine.GameObject.Instantiate(Modules.Assets.healthPrefabs, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(0).GetChild(1).GetChild(1));
+                if (LeeHyperrealPlugin.isRiskUIInstalled)
+                {
+                    healthLayers = UnityEngine.GameObject.Instantiate(Modules.Assets.healthPrefabs, RoRHUDObject.transform.GetChild(0).GetChild(4).GetChild(2).GetChild(0).GetChild(3).GetChild(1));
+                    healthLayers.transform.rotation = Quaternion.identity;
+                    healthLayers.transform.localScale = new Vector3(0.7891f, 0.4f, 1f);
+                    healthLayers.transform.position = new Vector3(-9.7021f, - 4.8843f, 12.6537f);
+                }
+                else 
+                {
+                    healthLayers = UnityEngine.GameObject.Instantiate(Modules.Assets.healthPrefabs, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(0).GetChild(1).GetChild(1));
+                }
             }
             layerInvincibilityHealthObject = healthLayers.transform.GetChild(0).gameObject;
             layerInvincibilityHazeObject = healthLayers.transform.GetChild(1).gameObject;
@@ -313,7 +329,17 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             if (RoRHUDObject && !powerMeterUIObject) 
             {
-                powerMeterUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.powerMeterObject, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(0));
+                if (LeeHyperrealPlugin.isRiskUIInstalled)
+                {
+                    powerMeterUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.powerMeterObject, RoRHUDObject.transform.GetChild(0).GetChild(4).GetChild(2).GetChild(0));
+                    powerMeterUIObject.transform.localScale = new Vector3(1, 1, 1);
+                    powerMeterUIObject.transform.localRotation = Quaternion.identity;
+                    powerMeterUIObject.transform.position = new Vector3(-9.6f, -5.6795f, 12.1f);
+                }
+                else 
+                {
+                    powerMeterUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.powerMeterObject, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(0));
+                }
             }
 
             meterAnimator = powerMeterUIObject.GetComponent<Animator>();
@@ -645,7 +671,15 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             if (RoRHUDObject && !orbUIObject) 
             {
-                orbUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.orbsUIObject, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(4));
+                if (LeeHyperrealPlugin.isRiskUIInstalled)
+                {
+                    orbUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.orbsUIObject, RoRHUDObject.transform.GetChild(0).GetChild(4).GetChild(2).GetChild(0));
+                    
+                }
+                else 
+                {
+                    orbUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.orbsUIObject, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(4));
+                }
             }
 
             // blegh not modular at all
@@ -1001,7 +1035,16 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             if (RoRHUDObject && !ultimateIndicatorObject)
             {
-                ultimateIndicatorObject = UnityEngine.GameObject.Instantiate(Modules.Assets.spinnyIconUIObject, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(2).GetChild(0));
+                if (LeeHyperrealPlugin.isRiskUIInstalled)
+                {
+                    ultimateIndicatorObject = UnityEngine.GameObject.Instantiate(Modules.Assets.spinnyIconUIObject, RoRHUDObject.transform.GetChild(0).GetChild(4).GetChild(2).GetChild(2).GetChild(3));
+                    ultimateIndicatorObject.transform.position = new Vector3(14.54f, -7.6146f, 12.6244f);
+                    ultimateIndicatorObject.transform.rotation = Quaternion.identity;
+                }
+                else 
+                {
+                    ultimateIndicatorObject = UnityEngine.GameObject.Instantiate(Modules.Assets.spinnyIconUIObject, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(2).GetChild(0));
+                }
             }
 
             ultimateIndicatorAnimator = ultimateIndicatorObject.GetComponent<Animator>();
@@ -1065,7 +1108,38 @@ namespace LeeHyperrealMod.Content.Controllers
         }
         #endregion
 
-        public void SetRORUIActiveState(bool state) 
+        #region Hold
+        public void InitializeHoldOKTag() 
+        {
+            if (RoRHUDObject && !holdOKTag)
+            {
+                if (LeeHyperrealPlugin.isRiskUIInstalled)
+                {
+                    Transform rootObject = RoRHUDObject.transform.GetChild(0).GetChild(4).GetChild(2).GetChild(2).GetChild(3).GetChild(0).GetChild(0).GetChild(3).GetChild(0);
+                    Transform stockText = rootObject.transform.GetChild(0);
+                    holdOKTag = CreateLabel(rootObject, "Hold OK Tag", "HOLD OK!", new Vector2(stockText.transform.position.x - 7.5f, stockText.transform.position.y + 20f), 13f);
+                    holdOKTag.color = Modules.StaticValues.blueInvincibility;
+                }
+                else 
+                {
+                    Transform rootObject = RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(2).GetChild(0).GetChild(3).GetChild(4);
+                    Transform stockText = rootObject.transform.GetChild(0);
+                    holdOKTag = CreateLabel(rootObject, "Hold OK Tag", "HOLD OK!", new Vector2(stockText.transform.position.x - 7.5f, stockText.transform.position.y + 18f), 12f);
+                    holdOKTag.color = Modules.StaticValues.blueInvincibility;
+                }
+            }
+        }
+
+        public void SetHoldTagState(bool state) 
+        {
+            if (holdOKTag) 
+            {
+                holdOKTag.gameObject.SetActive(state);
+            }
+        }
+        #endregion
+
+        public void SetRORUIActiveState(bool state)
         {
             if (RoRHUDObject) 
             {

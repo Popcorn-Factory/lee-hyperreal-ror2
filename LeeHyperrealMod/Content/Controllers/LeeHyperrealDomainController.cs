@@ -123,6 +123,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
             if (charBody.hasEffectiveAuthority)
             {
+                UpdateHoldTag();
                 // Normal stuff.
                 if (!isInDomain)
                 {
@@ -139,6 +140,11 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
                 UpdateUIController();
             }
+        }
+
+        private void UpdateHoldTag()
+        {
+            uiController.SetHoldTagState(energy >= maxEnergy);
         }
 
         public void EnableLoopEffect() 

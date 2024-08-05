@@ -24,8 +24,9 @@ namespace LeeHyperrealMod
     [BepInDependency("com.bepis.r2api.sound", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.networking", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.unlockable", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.KingEnderBrine.ExtraSkillSlots", BepInDependency.DependencyFlags.HardDependency)]
 
-    [BepInDependency("com.KingEnderBrine.ExtraSkillSlots", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("bubbet.riskui", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
@@ -43,6 +44,7 @@ namespace LeeHyperrealMod
         public static LeeHyperrealPlugin instance;
         public static PluginInfo PInfo { get; private set; }
         public static bool isControllerCheck = false;
+        public static bool isRiskUIInstalled = false;
 
         private void Awake()
         {
@@ -63,6 +65,10 @@ namespace LeeHyperrealMod
             if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions"))
             {
                 Modules.Config.SetupRiskOfOptions();
+            }
+            if (Chainloader.PluginInfos.ContainsKey("bubbet.riskui"))
+            {
+                isRiskUIInstalled = true;
             }
 
             Modules.States.RegisterStates(); // register states for networking
