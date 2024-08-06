@@ -55,7 +55,6 @@ namespace LeeHyperrealMod.Modules
             tempMat.SetColor("_Color", tempMat.GetColor("_Color"));
             tempMat.SetTexture("_MainTex", tempMat.GetTexture("_MainTex"));
             tempMat.SetTexture("_EmTex", tempMat.GetTexture("_EmissionMap"));
-            tempMat.EnableKeyword("DITHER");
 
             if (bumpScale != null)
             {

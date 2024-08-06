@@ -108,7 +108,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 inflictor = null,
                 teamIndex = base.GetTeam(),
                 position = base.gameObject.transform.position + (GetAimRay().direction * 2.5f),
-                radius = (moveStrength == 3 ? Modules.StaticValues.blueOrbTripleMultiplier : 1) * Modules.StaticValues.blueOrbBlastRadius,
+                radius = Modules.StaticValues.blueOrbBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.None,
                 baseDamage = this.damageStat * Modules.StaticValues.blueOrbBlastRadius * (moveStrength == 3 ? Modules.StaticValues.blueOrbTripleMultiplier : 1),
                 baseForce = 0f,
