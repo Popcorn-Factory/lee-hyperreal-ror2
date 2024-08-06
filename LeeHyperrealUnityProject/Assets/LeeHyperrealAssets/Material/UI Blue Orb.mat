@@ -10,7 +10,7 @@ Material:
   m_Name: UI Blue Orb
   m_Shader: {fileID: 4800000, guid: ba486b747af5426419dea905ea06743f, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 0
+  m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -83,6 +83,7 @@ Material:
     - _ASEOutlineWidth: 0
     - _BumpScale: 1
     - _ChromaticAberration: 0.1
+    - _ColorMask: 15
     - _Cutoff: 0.17
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -96,6 +97,11 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
     - _TransAmbient: 0.2
     - _TransDirect: 1
     - _TransNormalDistortion: 0.1
@@ -103,9 +109,10 @@ Material:
     - _TransShadow: 0.9
     - _Translucency: 1
     - _UVSec: 0
+    - _UseUIAlphaClip: 0
     - _ZWrite: 1
     - __dirty: 0
-    - _burnstrength: 1.02
+    - _burnstrength: 0
     - _emissionstrength: 1
     - _noisescale: 11.3
     m_Colors:
