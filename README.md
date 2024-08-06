@@ -25,6 +25,8 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
         - Red -> Extra Skill 2
         - Yellow -> Extra Skill 3
     - This can be changed in the in game controller settings menu option.
+- RiskUI
+    - NOTE: We've only made it such that it doesn't crash the main functionality, we recommend sticking to the default UI for this mod.
 
 ## Latest Update
 - 1.0.0

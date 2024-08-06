@@ -94,6 +94,7 @@ namespace LeeHyperrealMod.Modules
         internal const float LimitToGrantOrb = 10f; // Amount that determines when to give orb, smaller = faster.
         internal const float flatAmountToGrantOnPrimaryHit = 0.35f;
         internal const float yAxisPositionBrackets = -135f;
+        internal const float yAxisPositionBracketsRiskUI = -80f;
         #endregion
 
         #region Blue Orb

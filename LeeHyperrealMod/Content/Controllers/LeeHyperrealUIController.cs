@@ -37,6 +37,7 @@ namespace LeeHyperrealMod.Content.Controllers
         private int blueBracketIndex = 11;
         private int redBracketIndex = 12;
         private int yellowBracketIndex = 13;
+        private float yAxisBracketFloat;
 
         //REGRET
         internal class BracketContainerProps 
@@ -223,6 +224,8 @@ namespace LeeHyperrealMod.Content.Controllers
                     try
                     {
                         InitializeUI();
+
+                        LateUpdatePositions();
                     }
                     catch (NullReferenceException e)
                     {
@@ -240,6 +243,16 @@ namespace LeeHyperrealMod.Content.Controllers
                     HandleBulletUIChange();
                     UpdateGlyphPositions();
                 }
+            }
+        }
+
+        private void LateUpdatePositions()
+        {
+            if (LeeHyperrealPlugin.isRiskUIInstalled) 
+            {
+                orbUIObject.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+                orbUIObject.transform.position = new Vector3(-9.5764f, -3.2462f, 12.6537f);
+                orbUIObject.transform.localPosition = new Vector3(185f, 287.8038f, 0f);
             }
         }
 
@@ -283,7 +296,8 @@ namespace LeeHyperrealMod.Content.Controllers
                     healthLayers = UnityEngine.GameObject.Instantiate(Modules.Assets.healthPrefabs, RoRHUDObject.transform.GetChild(0).GetChild(4).GetChild(2).GetChild(0).GetChild(3).GetChild(1));
                     healthLayers.transform.rotation = Quaternion.identity;
                     healthLayers.transform.localScale = new Vector3(0.7891f, 0.4f, 1f);
-                    healthLayers.transform.position = new Vector3(-9.7021f, - 4.8843f, 12.6537f);
+                    healthLayers.transform.position = new Vector3(-9.7021f, -4.8843f, 12.6537f);
+                    healthLayers.transform.localPosition = new Vector3(2.3027f, 0.7998f, 0.0003f);
                 }
                 else 
                 {
@@ -452,9 +466,18 @@ namespace LeeHyperrealMod.Content.Controllers
                 yellowSimpleGlyph.animators[i - 1] = yellowSimpleGlyph.bracketContainer.transform.GetChild(i).GetChild(0).GetComponent<Animator>();
             }
 
-            blueSimpleGlyph.targetPosition = new Vector3(0, Modules.StaticValues.yAxisPositionBrackets, 0f);
-            redSimpleGlyph.targetPosition = new Vector3(0, Modules.StaticValues.yAxisPositionBrackets, 0f);
-            yellowSimpleGlyph.targetPosition = new Vector3(0, Modules.StaticValues.yAxisPositionBrackets, 0f);
+            if (LeeHyperrealPlugin.isRiskUIInstalled)
+            {
+                yAxisBracketFloat = Modules.StaticValues.yAxisPositionBracketsRiskUI;
+            }
+            else 
+            {
+                yAxisBracketFloat = Modules.StaticValues.yAxisPositionBrackets;
+            }
+
+            blueSimpleGlyph.targetPosition = new Vector3(0, yAxisBracketFloat, 0f);
+            redSimpleGlyph.targetPosition = new Vector3(0, yAxisBracketFloat, 0f);
+            yellowSimpleGlyph.targetPosition = new Vector3(0, yAxisBracketFloat, 0f);
         }
 
         private void ExitAllSimpleBrackets() 
@@ -634,7 +657,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
             //Set right under the orb.
             Vector3 newPosition = orbAnimators[position].transform.localPosition;
-            newPosition.y = Modules.StaticValues.yAxisPositionBrackets;
+            newPosition.y = yAxisBracketFloat;
             return newPosition;
         }
 
@@ -648,7 +671,7 @@ namespace LeeHyperrealMod.Content.Controllers
             //Set in between position and position + 1
             Vector3 newPosition = orbAnimators[position].transform.localPosition + orbAnimators[position + 1].transform.localPosition;
             newPosition = newPosition / 2f;
-            newPosition.y = Modules.StaticValues.yAxisPositionBrackets;
+            newPosition.y = yAxisBracketFloat;
             return newPosition;
         }
 
@@ -661,7 +684,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
             //Set in between position and position + 1
             Vector3 newPosition = orbAnimators[position + 1].transform.localPosition;
-            newPosition.y = Modules.StaticValues.yAxisPositionBrackets;
+            newPosition.y = yAxisBracketFloat;
 
             return newPosition;
         }
@@ -674,7 +697,9 @@ namespace LeeHyperrealMod.Content.Controllers
                 if (LeeHyperrealPlugin.isRiskUIInstalled)
                 {
                     orbUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.orbsUIObject, RoRHUDObject.transform.GetChild(0).GetChild(4).GetChild(2).GetChild(0));
-                    
+                    orbUIObject.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+                    orbUIObject.transform.position = new Vector3(-9.5764f, -3.2462f, 12.6537f);
+                    orbUIObject.transform.localPosition = new Vector3(185f, 287.8038f, 0f); 
                 }
                 else 
                 {
@@ -1038,8 +1063,10 @@ namespace LeeHyperrealMod.Content.Controllers
                 if (LeeHyperrealPlugin.isRiskUIInstalled)
                 {
                     ultimateIndicatorObject = UnityEngine.GameObject.Instantiate(Modules.Assets.spinnyIconUIObject, RoRHUDObject.transform.GetChild(0).GetChild(4).GetChild(2).GetChild(2).GetChild(3));
-                    ultimateIndicatorObject.transform.position = new Vector3(14.54f, -7.6146f, 12.6244f);
+                    ultimateIndicatorObject.transform.position = new Vector3(14.04f, -7.2146f, 12.6244f);
+                    ultimateIndicatorObject.transform.localPosition = new Vector3(199.0623f, -97.8483f, -2.9584f);
                     ultimateIndicatorObject.transform.rotation = Quaternion.identity;
+                    ultimateIndicatorObject.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
                 }
                 else 
                 {
