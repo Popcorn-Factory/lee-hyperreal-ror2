@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44904286, g: 0.49911058, b: 0.57571346, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -26643,6 +26643,18 @@ PrefabInstance:
     - target: {fileID: 1160816790693460, guid: 49e7cefa87736d448a8c3d8bce281465, type: 3}
       propertyPath: m_Name
       value: fxr4liangatk24hit
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294142950089409, guid: 49e7cefa87736d448a8c3d8bce281465, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294142950089409, guid: 49e7cefa87736d448a8c3d8bce281465, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4294142950089409, guid: 49e7cefa87736d448a8c3d8bce281465, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 4818540103725649, guid: 49e7cefa87736d448a8c3d8bce281465, type: 3}
       propertyPath: m_RootOrder
