@@ -121,6 +121,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
                     if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                     {
+                        inputBank.skill3.hasPressBeenClaimed = true;
                         if (result == new Vector3(0, 0, 1))
                         {
                             base.outer.SetState(new Evade.Evade { unsetSnipe = true });

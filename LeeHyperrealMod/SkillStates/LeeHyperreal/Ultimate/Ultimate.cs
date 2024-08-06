@@ -368,7 +368,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.Skill;
+            return InterruptPriority.Frozen;
         }
     }
 }
