@@ -72,7 +72,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                 }
 
                 //Check for dodging. Otherwise ignore.
-                if (base.inputBank.skill3.down && skillLocator.utility.stock >= 1) 
+                if (base.inputBank.skill3.justPressed && skillLocator.utility.stock >= 1) 
                 {
                     if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                     {

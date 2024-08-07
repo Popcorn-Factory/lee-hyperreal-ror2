@@ -209,11 +209,20 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                     }
                 }
 
-                if (base.inputBank.skill3.down && skillLocator.utility.stock >= 1)
+                if (base.inputBank.skill3.justPressed && skillLocator.utility.stock >= 1)
                 {
                     skillLocator.utility.stock -= 1;
                     Vector3 result = Modules.StaticValues.CheckDirection(inputBank.moveVector, GetAimRay());
-
+                    if (result == new Vector3(0, 0, 1))
+                    {
+                        base.outer.SetState(new Evade { unsetSnipe = true });
+                        return;
+                    }
+                    if (result == new Vector3(0, 0, 0))
+                    {
+                        base.outer.SetState(new EvadeBack180 { });
+                        return;
+                    }
                     if (result == new Vector3(1, 0, 0))
                     {
                         if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
