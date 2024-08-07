@@ -51,6 +51,8 @@ namespace LeeHyperrealMod.Content.Controllers
         float lerpPitch;
         float lerpPitchVelocity;
         Transform BaseTransform;
+        Transform RifleTip;
+        Transform Center;
         public GameObject snipeAerialPlatform;
 
         //Debug
@@ -75,6 +77,8 @@ namespace LeeHyperrealMod.Content.Controllers
 
             ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
             BaseTransform = childLocator.FindChild("BaseTransform");
+            RifleTip = childLocator.FindChild("RifleTip");
+            Center = childLocator.FindChild("Center");
         }
 
         public void Start() 
@@ -179,6 +183,8 @@ namespace LeeHyperrealMod.Content.Controllers
 
                     handle = cameraTargetParams.AddParamsOverride(request, 0.4f);
                 }
+
+                body.aimOriginTransform = RifleTip;
             }
 
             if (shouldTransition) 
@@ -211,6 +217,9 @@ namespace LeeHyperrealMod.Content.Controllers
                 {
                     cameraTargetParams.RemoveParamsOverride(handle);
                 }
+
+
+                body.aimOriginTransform = Center;
             }
 
 

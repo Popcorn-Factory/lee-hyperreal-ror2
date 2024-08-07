@@ -173,8 +173,11 @@ namespace LeeHyperrealMod.Modules {
             cameraPivot.transform.localPosition = bodyInfo.cameraPivotPosition;
             cameraPivot.transform.localRotation = Quaternion.identity;
 
+            // Aim origin shenanigans
+            ChildLocator childLocator = modelTransform.gameObject.GetComponent<ChildLocator>();
+            Transform centerChild = childLocator.FindChild("Center");
             GameObject aimOrigin = new GameObject("AimOrigin");
-            aimOrigin.transform.parent = bodyPrefab.transform;
+            aimOrigin.transform.parent = centerChild;
             aimOrigin.transform.localPosition = bodyInfo.aimOriginPosition;
             aimOrigin.transform.localRotation = Quaternion.identity;
             bodyPrefab.GetComponent<CharacterBody>().aimOriginTransform = aimOrigin.transform;
@@ -188,12 +191,15 @@ namespace LeeHyperrealMod.Modules {
             bool preattached = characterModel != null;
             if (!preattached)
                 characterModel = prefab.GetComponent<ModelLocator>().modelTransform.gameObject.AddComponent<CharacterModel>();
-
+            ChildLocator childLocator = characterModel.GetComponent<ChildLocator>();
             characterModel.body = prefab.GetComponent<CharacterBody>();
 
             characterModel.autoPopulateLightInfos = true;
             characterModel.invisibilityCount = 0;
             characterModel.temporaryOverlays = new List<TemporaryOverlay>();
+
+            characterModel.body.overrideCoreTransform = childLocator.FindChild("Center");
+            characterModel.body.coreTransform = childLocator.FindChild("Center");
 
             if (!preattached) {
                 SetupCustomRendererInfos(characterModel, customInfos);
