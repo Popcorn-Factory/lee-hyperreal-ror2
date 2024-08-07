@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657767, g: 0.4964127, b: 0.57481843, a: 1}
+  m_IndirectSpecularColor: {r: 0.44904286, g: 0.49911058, b: 0.57571346, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10324,7 +10324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1940267707515025, guid: fbb32878175bb6b40acd6b4dd72a0a09, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4675649798556574, guid: fbb32878175bb6b40acd6b4dd72a0a09, type: 3}
       propertyPath: m_RootOrder
@@ -25093,6 +25093,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: fxr4liangatk24bao
       objectReference: {fileID: 0}
+    - target: {fileID: 1772708451088624, guid: fac4e920353e9db40a4a0db11a3f9015, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4100659682097727, guid: fac4e920353e9db40a4a0db11a3f9015, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -26632,6 +26636,10 @@ PrefabInstance:
     - target: {fileID: 1160816790693460, guid: 49e7cefa87736d448a8c3d8bce281465, type: 3}
       propertyPath: m_Name
       value: fxr4liangatk24hit
+      objectReference: {fileID: 0}
+    - target: {fileID: 1160816790693460, guid: 49e7cefa87736d448a8c3d8bce281465, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4294142950089409, guid: 49e7cefa87736d448a8c3d8bce281465, type: 3}
       propertyPath: m_LocalScale.x
@@ -32371,6 +32379,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Snipe Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 83609785423104791, guid: be9f28902dc93f94f82bca2e97e34e7b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be9f28902dc93f94f82bca2e97e34e7b, type: 3}
 --- !u!1 &103556206532341850
@@ -35996,6 +36009,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Big Parry Parent
       objectReference: {fileID: 0}
+    - target: {fileID: 1616971455718067724, guid: 8a0993739904d4d43b221ad4c447be1e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1616971455718067726, guid: 8a0993739904d4d43b221ad4c447be1e,
         type: 3}
       propertyPath: m_RootOrder
@@ -37454,6 +37472,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Normal Parry Parent
       objectReference: {fileID: 0}
+    - target: {fileID: 2471418270507582510, guid: e2e1b9c8f90b5304eb4f3567a9acda04,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2471418270507582511, guid: e2e1b9c8f90b5304eb4f3567a9acda04,
         type: 3}
       propertyPath: m_RootOrder
@@ -37961,6 +37984,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DomainMidairEnd
+      objectReference: {fileID: 0}
+    - target: {fileID: 2770440349067622932, guid: c08816c7fd7fdc3478608353d1c7abec,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2770440349067622935, guid: c08816c7fd7fdc3478608353d1c7abec,
         type: 3}
@@ -46327,6 +46355,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DomainMidairLoop
+      objectReference: {fileID: 0}
+    - target: {fileID: 6787450112335792699, guid: ee18b08a89ec34d45ac04feed5244539,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee18b08a89ec34d45ac04feed5244539, type: 3}
