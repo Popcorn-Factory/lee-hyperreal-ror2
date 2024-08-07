@@ -39,7 +39,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
         public bool triggerBreakVFX = false;    
         public bool playBreakSFX = false;
-        public float playReloadSFXFrac = 0.505f;
+        public float playReloadSFXFrac = 0.475f;
         public bool hasPlayedReload = false;
 
         public override void OnEnter()
@@ -194,7 +194,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     spreadYawScale = 0f,
                     hitCallback = snipeHitCallback,
                     queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
-                    hitEffectPrefab = Modules.ParticleAssets.snipeHit,
+                    hitEffectPrefab = triggerBreakVFX ? Modules.ParticleAssets.snipeHitEnhanced : Modules.ParticleAssets.snipeHit,
                 }.Fire();
 
                 new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_atk_ex_3").Send(R2API.Networking.NetworkDestination.Clients);

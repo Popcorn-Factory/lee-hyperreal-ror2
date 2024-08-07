@@ -33,6 +33,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
         private float disableInvincibility = 0.45f;
 
+        public bool triggerBreakVFX = false;
         public bool playBreakSFX = false;
         public float playReloadSFXFrac = 0.5f;
         public bool hasPlayedReload = false;
@@ -62,7 +63,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             {
                 empoweredBulletMultiplier = 2.0f;
                 playBreakSFX = true;
-            }
+                triggerBreakVFX = true;
+    }
 
             if (domainController.GetDomainState())
             {
@@ -177,7 +179,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                     spreadPitchScale = 0f,
                     spreadYawScale = 0f,
                     queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
-                    hitEffectPrefab = Modules.ParticleAssets.snipeHit,
+                    hitEffectPrefab = triggerBreakVFX ? Modules.ParticleAssets.snipeHitEnhanced : Modules.ParticleAssets.snipeHit,
                 }.Fire();
 
                 //characterBody.SetAimTimer(duration + 1f);
