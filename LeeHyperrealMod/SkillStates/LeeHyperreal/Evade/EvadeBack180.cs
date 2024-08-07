@@ -1,8 +1,10 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary;
 using R2API.Networking;
+using R2API.Networking.Interfaces;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -31,6 +33,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
         private float disableInvincibility = 0.45f;
 
+        public bool playBreakSFX = false;
+        public float playReloadSFXFrac = 0.5f;
+        public bool hasPlayedReload = false;
+
         private float firingFrac = 0.42f;
         private bool hasFired = false;
         public static float procCoefficient = 1f;
@@ -55,6 +61,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             if (bulletController.ConsumeEnhancedBullet(1))
             {
                 empoweredBulletMultiplier = 2.0f;
+                playBreakSFX = true;
             }
 
             if (domainController.GetDomainState())
@@ -88,35 +95,28 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             }
         }
 
-        protected virtual void PlaySwingEffect(float scale, GameObject effectPrefab, bool aimRot = true)
+        public void PlaySwingEffect(float scale, GameObject effectPrefab, bool aimRot = true)
         {
-            ModelLocator component = gameObject.GetComponent<ModelLocator>();
-            if (component && component.modelTransform)
+            var modelTransform = GetModelTransform();
+            var muzzleTransform = modelTransform.Find("Rifle").transform;
+            var startPos = muzzleTransform.position;
+
+            var stupidOffset = scale == 1.25f ? 0.9f : 0.6f;
+            startPos.y -= stupidOffset;
+
+            PlayerCharacterMasterController.CanSendBodyInput(characterBody.master.playerCharacterMasterController.networkUser, out var _, out var _, out var cameraRigController);
+
+            var endPos = cameraRigController.crosshairWorldPosition;
+            endPos.y -= stupidOffset;
+
+            var effectData = new EffectData()
             {
-                ChildLocator component2 = component.modelTransform.GetComponent<ChildLocator>();
-                if (component2)
-                {
-                    int childIndex = component2.FindChildIndex(muzzleString);
-                    Transform transform = component2.FindChild(childIndex);
-                    if (transform)
-                    {
-                        Vector3 aimRotation = GetAimRay().direction;
-                        EffectData effectData = new EffectData
-                        {
-                            origin = transform.position,
-                            scale = scale,
-                            rotation = Quaternion.LookRotation(new Vector3(aimRotation.x, 0f, aimRotation.z), Vector3.up),
-                        };
-                        if (aimRot)
-                        {
-                            effectData.rotation = Quaternion.LookRotation(GetAimRay().direction, Vector3.up);
-                        }
-                        //effectData.SetChildLocatorTransformReference(gameObject, childIndex);
-                        EffectManager.SpawnEffect(effectPrefab, effectData, true);
-                    }
-                }
-            }
-            //EffectManager.SimpleMuzzleFlash(this.swingEffectPrefab, base.gameObject, this.muzzleString, true);
+                origin = startPos,
+                rotation = Quaternion.LookRotation(endPos - startPos),
+                scale = scale
+            };
+
+            EffectManager.SpawnEffect(effectPrefab, effectData, true);
         }
 
         public override void OnExit()
@@ -143,6 +143,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                     PlaySwingEffect(1.25f, Modules.ParticleAssets.snipeGround, false);
                 }
                 PlaySwingEffect(1.25f, Modules.ParticleAssets.Snipe);
+
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_atk_ex_3").Send(R2API.Networking.NetworkDestination.Clients);
+                if (playBreakSFX)
+                {
+                    new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_atk_ex_3_break").Send(R2API.Networking.NetworkDestination.Clients);
+                }
 
                 new BulletAttack
                 {
@@ -181,6 +187,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                     Transform baseTransform = childLocator.FindChild("BaseTransform");
                     bulletController.snipeAerialPlatform = UnityEngine.Object.Instantiate(Modules.ParticleAssets.snipeAerialFloor, baseTransform.position, Quaternion.identity);
                 }
+            }
+
+            if (age >= duration * playReloadSFXFrac && !hasPlayedReload)
+            {
+                hasPlayedReload = true;
+                AkSoundEngine.PostEvent("Play_c_liRk4_atk_ex_3_reload", base.gameObject);
             }
 
             if (age >= duration * earlyExitFrac && isAuthority)

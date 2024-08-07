@@ -37,6 +37,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
         public Vector3 velocity;
 
+        public bool triggerBreakVFX = false;    
         public bool playBreakSFX = false;
         public float playReloadSFXFrac = 0.505f;
         public bool hasPlayedReload = false;
@@ -58,16 +59,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
             duration = baseDuration / base.attackSpeedStat;
 
-            PlayAttackAnimation();
 
 
-            if (bulletController.ConsumeEnhancedBullet(1)) 
+            if (bulletController.ConsumeEnhancedBullet(1))
             {
                 empoweredBulletMultiplier = Modules.StaticValues.empoweredBulletMultiplier;
                 playBreakSFX = true;
+                triggerBreakVFX = true;
             }
 
-            if (domainController.GetDomainState()) 
+            if (domainController.GetDomainState())
             {
                 BulletType type = bulletController.ConsumeColouredBullet();
 
@@ -97,42 +98,35 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public override void OnExit()
         {
             base.OnExit();
-            if(!hasPlayedReload)
+            if (!hasPlayedReload)
             {
                 hasPlayedReload = true;
                 AkSoundEngine.PostEvent("Play_c_liRk4_atk_ex_3_reload", base.gameObject);
             }
         }
 
-        protected virtual void PlaySwingEffect(float scale, GameObject effectPrefab, bool aimRot = true)
+        public void PlaySwingEffect(float scale, GameObject effectPrefab, bool aimRot = true)
         {
-            ModelLocator component = gameObject.GetComponent<ModelLocator>();
-            if (component && component.modelTransform)
+            var modelTransform = GetModelTransform();
+            var muzzleTransform = modelTransform.Find("Rifle").transform;
+            var startPos = muzzleTransform.position;
+
+            var stupidOffset = scale == 1.25f ? 0.9f : 0.6f;
+            startPos.y -= stupidOffset;
+
+            PlayerCharacterMasterController.CanSendBodyInput(characterBody.master.playerCharacterMasterController.networkUser, out var _, out var _, out var cameraRigController);
+
+            var endPos = cameraRigController.crosshairWorldPosition;
+            endPos.y -= stupidOffset;
+
+            var effectData = new EffectData()
             {
-                ChildLocator component2 = component.modelTransform.GetComponent<ChildLocator>();
-                if (component2)
-                {
-                    int childIndex = component2.FindChildIndex(muzzleString);
-                    Transform transform = component2.FindChild(childIndex);
-                    if (transform)
-                    {
-                        Vector3 aimRotation = GetAimRay().direction;
-                        EffectData effectData = new EffectData 
-                        {
-                            origin = transform.position,
-                            scale = scale,
-                            rotation = Quaternion.LookRotation(new Vector3(aimRotation.x, 0f, aimRotation.z), Vector3.up),
-                        };
-                        if (aimRot) 
-                        {
-                            effectData.rotation = Quaternion.LookRotation(GetAimRay().direction, Vector3.up);
-                        }
-                        //effectData.SetChildLocatorTransformReference(gameObject, childIndex);
-                        EffectManager.SpawnEffect(effectPrefab, effectData, true);
-                    }
-                }
-            }
-            //EffectManager.SimpleMuzzleFlash(this.swingEffectPrefab, base.gameObject, this.muzzleString, true);
+                origin = startPos,
+                rotation = Quaternion.LookRotation(endPos - startPos),
+                scale = scale
+            };
+
+            EffectManager.SpawnEffect(effectPrefab, effectData, true);
         }
 
         public override void Update()
@@ -142,40 +136,27 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             base.characterMotor.velocity = new Vector3(0, 0, 0);
             base.characterDirection.moveVector = new Vector3(0, 0, 0);
 
-
             if ((base.inputBank.skill4.down || base.inputBank.skill2.down))
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
 
-            Ray aimRay = base.GetAimRay();
-
-            if (age >= duration * playReloadSFXFrac && !hasPlayedReload) 
+            if (age >= duration * playReloadSFXFrac && !hasPlayedReload)
             {
                 hasPlayedReload = true;
                 AkSoundEngine.PostEvent("Play_c_liRk4_atk_ex_3_reload", base.gameObject);
             }
 
             base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
-            if (age >= duration * firingFrac && base.isAuthority && !hasFired) 
+            if (age >= duration * firingFrac && base.isAuthority && !hasFired)
             {
+                PlayAttackAnimation();
+
                 this.hasFired = true;
 
                 base.characterBody.AddSpreadBloom(1.5f);
-                EffectData effectData = new EffectData
-                {
-                    origin = gameObject.transform.position,
-                    scale = 1.25f,
-                    rotation = Quaternion.LookRotation(GetAimRay().direction, Vector3.up),
-                };
-                EffectData groundData = new EffectData
-                {
-                    origin = gameObject.transform.position,
-                    scale = 1.25f,
 
-                };
-
-                if (isGrounded) 
+                if (isGrounded)
                 {
                     PlaySwingEffect(1.25f, Modules.ParticleAssets.snipeGround);
                 }
@@ -184,6 +165,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
                 base.AddRecoil(-1f * recoil, -2f * recoil, -0.5f * recoil, 0.5f * recoil);
 
+                var aimRay = GetAimRay();
                 new BulletAttack
                 {
                     bulletCount = 1,
@@ -215,14 +197,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     hitEffectPrefab = Modules.ParticleAssets.snipeHit,
                 }.Fire();
 
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_atk_ex_3").Send(R2API.Networking.NetworkDestination.Clients);
                 if (playBreakSFX)
                 {
                     new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_atk_ex_3_break").Send(R2API.Networking.NetworkDestination.Clients);
                 }
-                
+
             }
 
-            if (age >= duration * earlyExitFrac && base.isAuthority) 
+            if (age >= duration * earlyExitFrac && base.isAuthority)
             {
                 if (inputBank.skill1.down)
                 {
@@ -235,7 +218,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
 
                 //IF we're not in hold variant, then allow the transition if the skill is down.
-                if (inputBank.skill2.down && !Modules.Config.allowSnipeButtonHold.Value && base.isAuthority) 
+                if (inputBank.skill2.down && !Modules.Config.allowSnipeButtonHold.Value && base.isAuthority)
                 {
                     if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                     {

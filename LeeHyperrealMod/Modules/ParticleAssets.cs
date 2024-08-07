@@ -402,10 +402,10 @@ namespace LeeHyperrealMod.Modules
             //    "fxr4liangatk24-lightSC2"
             //    );
 
-            Snipe = ModifyEffect(Snipe, "Play_c_liRk4_atk_ex_3", true, 1f, VFXAttributes.VFXPriority.Medium);
+            Snipe = ModifyEffect(Snipe, "", false, 1f, VFXAttributes.VFXPriority.Medium);
 
             snipeHitEnhanced = GetGameObjectFromBundle("fxr4liangatk24bao");
-            snipeHitEnhanced = ModifyEffect(snipeHitEnhanced, "", true);
+            snipeHitEnhanced = ModifyEffect(snipeHitEnhanced, "Play_c_liRk4_atk_ex_3_break", true, 2f);
 
             snipeHit = GetGameObjectFromBundle("fxr4liangatk24hit");
             //AddLightIntensityCurveWithCurve(
@@ -430,10 +430,10 @@ namespace LeeHyperrealMod.Modules
             //    },
             //    "fxr4liangatk24hit-spjere"
             //    );
-            snipeHit = ModifyEffect(snipeHit, "Play_c_liRk4_imp_ex_3_1", true);
+            snipeHit = ModifyEffect(snipeHit, "Play_c_liRk4_imp_ex_3_1", true, 2f);
 
             snipeGround = GetGameObjectFromBundle("fxr4liangatk24ground");
-            snipeGround = ModifyEffect(snipeGround, "", true);
+            snipeGround = ModifyEffect(snipeGround, "", true, 2f);
 
             snipeBulletCasing = GetGameObjectFromBundle("fxr4liangatk24bulletcasing");
             snipeBulletCasing = ModifyEffect(snipeBulletCasing, "", true, 2f, VFXAttributes.VFXPriority.Low);
