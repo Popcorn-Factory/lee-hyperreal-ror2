@@ -136,7 +136,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             base.characterMotor.velocity = new Vector3(0, 0, 0);
             base.characterDirection.moveVector = new Vector3(0, 0, 0);
 
-            if ((base.inputBank.skill4.down || base.inputBank.skill2.down))
+            if ((base.inputBank.skill4.justPressed || base.inputBank.skill2.justPressed) && isAuthority)
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
@@ -236,7 +236,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                 }
 
                 //Check for dodging. Otherwise ignore.
-                if (base.inputBank.skill3.down && skillLocator.utility.stock >= 1)
+                if (base.inputBank.skill3.justPressed && skillLocator.utility.stock >= 1)
                 {
                     if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                     {

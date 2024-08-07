@@ -240,6 +240,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                         }
                     }
                 }
+
+                if ((base.inputBank.skill4.justPressed) && base.isAuthority)
+                {
+                    Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
+                }
             }
             if (age >= duration && isAuthority)
             {
