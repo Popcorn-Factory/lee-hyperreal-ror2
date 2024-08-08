@@ -111,7 +111,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             var muzzleTransform = modelTransform.Find("Rifle").transform;
             var startPos = muzzleTransform.position;
 
-            var stupidOffset = scale == 1.25f ? 0.9f : 0.6f;
+            var stupidOffset = scale == 1.25f ? 0.85f : 0.6f;
             startPos.y -= stupidOffset;
 
             PlayerCharacterMasterController.CanSendBodyInput(characterBody.master.playerCharacterMasterController.networkUser, out var _, out var _, out var cameraRigController);
