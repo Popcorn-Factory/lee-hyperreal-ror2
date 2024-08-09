@@ -112,11 +112,9 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 
 - Game assets (VFX/SFX/Models)
     - Kuro games (All credits)
-- Commissioner
-    - violetchaolan
 - Asset Ripping + Shader porting + Reverse Engineering scripts to port to unity
     - dgosling
-- Wwise setup / UI design / Extra Custom Animations / Trailer Creation
+- Commissioner / Wwise setup / UI design / Extra Custom Animations / Trailer Creation
     - violetchaolan
 - VFX 
     - violetchaolan
@@ -130,5 +128,6 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
     - groove_salad - Shader Swapper
     - UnsavedTrash - Helping with model and vfx
     - SockpuppetSalesman (orien85) - Lore
+    - iDeathHD (xiaoxiao921) - Fixing some bugs with snipe aim
     - Those on the RoR2 Modding discord having to put up with my cryptic programming issues, thanks for helping!
     - Whoever tested during development and found issues, Thanks!
