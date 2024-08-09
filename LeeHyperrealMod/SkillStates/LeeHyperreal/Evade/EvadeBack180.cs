@@ -1,4 +1,4 @@
-﻿using EntityStates;
+using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.Modules.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
@@ -41,7 +41,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         private float firingFrac = 0.42f;
         private bool hasFired = false;
         public static float procCoefficient = 1f;
-        public string muzzleString = "BaseTransform";
 
         public OrbController orbController;
         public BulletController bulletController;
@@ -64,7 +63,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                 empoweredBulletMultiplier = 2.0f;
                 playBreakSFX = true;
                 triggerBreakVFX = true;
-    }
+            }
 
             if (domainController.GetDomainState())
             {
@@ -89,7 +88,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
             StartAimMode(duration, false);
 
-            if (bulletController.snipeAerialPlatform) 
+            if (bulletController.snipeAerialPlatform)
             {
                 bulletController.snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
 
@@ -97,24 +96,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             }
         }
 
-        public void PlaySwingEffect(float scale, GameObject effectPrefab, bool aimRot = true)
+        public void PlaySwingEffect(float scale, GameObject effectPrefab, Vector3 startPos, Vector3 aimVector)
         {
-            var modelTransform = GetModelTransform();
-            var muzzleTransform = modelTransform.Find("Rifle").transform;
-            var startPos = muzzleTransform.position;
-
-            var stupidOffset = scale == 1.25f ? 0.85f : 0.6f;
-            startPos.y -= stupidOffset;
-
-            PlayerCharacterMasterController.CanSendBodyInput(characterBody.master.playerCharacterMasterController.networkUser, out var _, out var _, out var cameraRigController);
-
-            var endPos = cameraRigController.crosshairWorldPosition;
-            endPos.y -= stupidOffset;
-
             var effectData = new EffectData()
             {
                 origin = startPos,
-                rotation = Quaternion.LookRotation(endPos - startPos),
+                rotation = Quaternion.LookRotation(aimVector),
                 scale = scale
             };
 
@@ -129,10 +116,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         public override void Update()
         {
             base.Update();
-            if (age >= duration * firingFrac && isAuthority && !hasFired) 
+            if (age >= duration * firingFrac && isAuthority && !hasFired)
             {
                 hasFired = true;
-                Ray aimRay = base.GetAimRay();
                 base.AddRecoil(-1f * Modules.StaticValues.snipeRecoil, -2f * Modules.StaticValues.snipeRecoil, -0.5f * Modules.StaticValues.snipeRecoil, 0.5f * Modules.StaticValues.snipeRecoil);
 
                 if (base.inputBank.skill4.down || base.inputBank.skill2.down)
@@ -140,11 +126,26 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                     Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
                 }
 
+                var modelTransform = GetModelTransform();
+                var muzzleTransform = modelTransform.Find("Rifle").transform;
+                var startPos = muzzleTransform.position;
+
+                const float scale = 1.25f;
+                var stupidOffset = scale == 1.25f ? 0.85f : 0.6f;
+                startPos.y -= stupidOffset;
+
+                PlayerCharacterMasterController.CanSendBodyInput(characterBody.master.playerCharacterMasterController.networkUser, out var _, out var _, out var cameraRigController);
+
+                var endPos = cameraRigController.crosshairWorldPosition;
+                endPos.y -= stupidOffset;
+
+                var aimVector = (endPos - startPos).normalized;
+
                 if (isGrounded)
                 {
-                    PlaySwingEffect(1.25f, Modules.ParticleAssets.snipeGround, false);
+                    PlaySwingEffect(scale, Modules.ParticleAssets.snipeGround, startPos, aimVector);
                 }
-                PlaySwingEffect(1.25f, Modules.ParticleAssets.Snipe);
+                PlaySwingEffect(scale, Modules.ParticleAssets.Snipe, startPos, aimVector);
 
                 new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_atk_ex_3").Send(R2API.Networking.NetworkDestination.Clients);
                 if (playBreakSFX)
@@ -155,8 +156,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                 new BulletAttack
                 {
                     bulletCount = 1,
-                    aimVector = aimRay.direction,
-                    origin = aimRay.origin,
+                    aimVector = aimVector,
+                    origin = startPos,
                     damage = Modules.StaticValues.snipeDamageCoefficient * this.damageStat * empoweredBulletMultiplier,
                     damageColorIndex = DamageColorIndex.Default,
                     damageType = DamageType.Generic,
@@ -168,7 +169,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                     maxSpread = 0f,
                     isCrit = base.RollCrit(),
                     owner = base.gameObject,
-                    muzzleName = muzzleString,
                     smartCollision = true,
                     procChainMask = default(ProcChainMask),
                     procCoefficient = procCoefficient,
@@ -256,7 +256,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             }
         }
 
-        public void PlayDodgeAnimation() 
+        public void PlayDodgeAnimation()
         {
             PlayAnimation("Body", "SnipeEvade180", "attack.playbackRate", duration);
         }
