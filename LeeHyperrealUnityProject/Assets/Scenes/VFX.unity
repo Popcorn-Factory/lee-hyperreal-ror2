@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44904286, g: 0.49911058, b: 0.57571346, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657767, g: 0.4964127, b: 0.57481843, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10324,7 +10324,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1940267707515025, guid: fbb32878175bb6b40acd6b4dd72a0a09, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4675649798556574, guid: fbb32878175bb6b40acd6b4dd72a0a09, type: 3}
       propertyPath: m_RootOrder
@@ -10371,8 +10371,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2600425202982128008, guid: fbb32878175bb6b40acd6b4dd72a0a09,
         type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].inSlope
+      value: -2.9588537
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600425202982128008, guid: fbb32878175bb6b40acd6b4dd72a0a09,
+        type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
-      value: -0.77387226
+      value: -0.37254274
       objectReference: {fileID: 0}
     - target: {fileID: 2600425202982128008, guid: fbb32878175bb6b40acd6b4dd72a0a09,
         type: 3}
@@ -10381,13 +10386,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2600425202982128008, guid: fbb32878175bb6b40acd6b4dd72a0a09,
         type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outSlope
+      value: -2.9588537
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600425202982128008, guid: fbb32878175bb6b40acd6b4dd72a0a09,
+        type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inWeight
-      value: 0.080234826
+      value: 0.087020755
       objectReference: {fileID: 0}
     - target: {fileID: 2600425202982128008, guid: fbb32878175bb6b40acd6b4dd72a0a09,
         type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
-      value: -0.77387226
+      value: -0.37254274
       objectReference: {fileID: 0}
     - target: {fileID: 2600425202982128008, guid: fbb32878175bb6b40acd6b4dd72a0a09,
         type: 3}
@@ -10398,6 +10408,11 @@ PrefabInstance:
         type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[2].outSlope
       value: -0.102240905
+      objectReference: {fileID: 0}
+    - target: {fileID: 2600425202982128008, guid: fbb32878175bb6b40acd6b4dd72a0a09,
+        type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outWeight
+      value: 0.035398226
       objectReference: {fileID: 0}
     - target: {fileID: 2600425202982128008, guid: fbb32878175bb6b40acd6b4dd72a0a09,
         type: 3}
