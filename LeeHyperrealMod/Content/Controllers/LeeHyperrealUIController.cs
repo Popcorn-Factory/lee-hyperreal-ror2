@@ -357,9 +357,9 @@ namespace LeeHyperrealMod.Content.Controllers
                     powerMeterUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.powerMeterObject, RoRHUDObject.transform.GetChild(0).GetChild(4).GetChild(2).GetChild(0));
                     powerMeterUIObject.transform.localScale = new Vector3(1, 1, 1);
                     powerMeterUIObject.transform.localRotation = Quaternion.identity;
-                    powerMeterUIObject.transform.position = new Vector3(-9.6f, -5.6795f, 12.1f);
+                    powerMeterUIObject.transform.position = new Vector3(-9.6f, -5.4795f, 12.1f);
                     powerMeterUIObjectBullet = powerMeterUIObject.transform.GetChild(1);
-                    powerMeterUIObjectBullet.transform.position = new Vector3(-9.15f, -5.6f, 12f);
+                    powerMeterUIObjectBullet.transform.localPosition = new Vector3(-30f, -4f, 11f);
 
                 }
                 else 
