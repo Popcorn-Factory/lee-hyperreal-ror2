@@ -256,12 +256,12 @@ namespace LeeHyperrealMod.Content.Controllers
             }
         }
 
-        public void AddEnergy(float energy) 
+        public void AddEnergy(float incomingEnergy) 
         {
-            this.energy += energy;
+            this.energy += incomingEnergy;
             if (this.energy >= maxEnergy) 
             {
-                energy = maxEnergy;
+                this.energy = maxEnergy;
             }
         }
 
