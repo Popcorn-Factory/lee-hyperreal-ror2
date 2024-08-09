@@ -129,23 +129,26 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                 var modelTransform = GetModelTransform();
                 var muzzleTransform = modelTransform.Find("Rifle").transform;
                 var startPos = muzzleTransform.position;
+                var startEffectPos = startPos;
 
                 const float scale = 1.25f;
                 var stupidOffset = scale == 1.25f ? 0.85f : 0.6f;
-                startPos.y -= stupidOffset;
+                startEffectPos.y -= stupidOffset;
 
                 PlayerCharacterMasterController.CanSendBodyInput(characterBody.master.playerCharacterMasterController.networkUser, out var _, out var _, out var cameraRigController);
 
                 var endPos = cameraRigController.crosshairWorldPosition;
-                endPos.y -= stupidOffset;
+                var endEffectPos = endPos;
+                endEffectPos.y -= stupidOffset;
 
                 var aimVector = (endPos - startPos).normalized;
+                var aimEffectVector = (endEffectPos - startEffectPos).normalized;
 
                 if (isGrounded)
                 {
-                    PlaySwingEffect(scale, Modules.ParticleAssets.snipeGround, startPos, aimVector);
+                    PlaySwingEffect(scale, Modules.ParticleAssets.snipeGround, startEffectPos, aimEffectVector);
                 }
-                PlaySwingEffect(scale, Modules.ParticleAssets.Snipe, startPos, aimVector);
+                PlaySwingEffect(scale, Modules.ParticleAssets.Snipe, startEffectPos, aimEffectVector);
 
                 new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_atk_ex_3").Send(R2API.Networking.NetworkDestination.Clients);
                 if (playBreakSFX)
