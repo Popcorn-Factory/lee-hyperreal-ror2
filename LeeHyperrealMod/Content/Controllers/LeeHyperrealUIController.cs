@@ -66,6 +66,7 @@ namespace LeeHyperrealMod.Content.Controllers
         #region Power Meter
         private int meterindex = 15;
         private GameObject powerMeterUIObject;
+        private Transform powerMeterUIObjectBullet;
         private Animator meterAnimator;
         private bool isLerpingBetweenValues;
         private const float lerpSpeed = 10f;
@@ -83,14 +84,14 @@ namespace LeeHyperrealMod.Content.Controllers
         #endregion
 
         #region Ammo Management
-        private int bulletIndex = 1; //Starts at 1 in the power meter section
-        private int endBulletIndex = 5;
-        private int parryPoweredIndex = 6; // Starts at 6 in the power meter section
-        private int endParryPoweredIndex = 10; // Starts at 6 in the power meter section
-        private int incomingParryBulletIndex = 11;
-        private int extraParryPoweredIndex = 12; // Starts at 12 in the power meter section
-        private int endExtraParryPoweredIndex = 26; // Starts at 12 in the power meter section
-        private int incomingExtraParryPoweredIndex = 27; // Starts at 27 in the power meter section
+        private int bulletIndex = 0; //Starts at 0 in the Bullet Parent section
+        private int endBulletIndex = 4;
+        private int parryPoweredIndex = 5; // Starts at 5 in the Bullet Parent section
+        private int endParryPoweredIndex = 9; // Starts at 5 in the Bullet Parent section
+        private int incomingParryBulletIndex = 10;
+        private int extraParryPoweredIndex = 11; // Starts at 11 in the Bullet Parent section
+        private int endExtraParryPoweredIndex = 25; // Starts at 11 in the Bullet Parent section
+        private int incomingExtraParryPoweredIndex = 26; // Starts at 26 in the Bullet Parent section
         List<GameObject> bulletObjects;
         List<GameObject> parryBullets;
         List<GameObject> extraParryBullets;
@@ -357,6 +358,9 @@ namespace LeeHyperrealMod.Content.Controllers
                     powerMeterUIObject.transform.localScale = new Vector3(1, 1, 1);
                     powerMeterUIObject.transform.localRotation = Quaternion.identity;
                     powerMeterUIObject.transform.position = new Vector3(-9.6f, -5.6795f, 12.1f);
+                    powerMeterUIObjectBullet = powerMeterUIObject.transform.GetChild(1);
+                    powerMeterUIObjectBullet.transform.position = new Vector3(-9.15f, -5.6f, 12f);
+
                 }
                 else 
                 {
@@ -883,23 +887,23 @@ namespace LeeHyperrealMod.Content.Controllers
             bulletObjects = new List<GameObject>();
             for (int i = bulletIndex; i <= endBulletIndex; i++) 
             {
-                bulletObjects.Add(powerMeter.GetChild(i).gameObject);
+                bulletObjects.Add(powerMeter.GetChild(1).GetChild(i).gameObject);
             }
 
             parryBullets = new List<GameObject>();
             for (int i = parryPoweredIndex; i <= endParryPoweredIndex; i++) 
             {
-                parryBullets.Add(powerMeter.GetChild(i).gameObject);
+                parryBullets.Add(powerMeter.GetChild(1).GetChild(i).gameObject);
             }
 
             extraParryBullets = new List<GameObject>();
             for (int i = extraParryPoweredIndex; i <= endExtraParryPoweredIndex; i++) 
             {
-                extraParryBullets.Add(powerMeter.GetChild(i).gameObject);
+                extraParryBullets.Add(powerMeter.GetChild(1).GetChild(i).gameObject);
             }
 
-            IncomingExtraParryBullet = powerMeter.GetChild(incomingExtraParryPoweredIndex).gameObject;
-            IncomingParryBullet = powerMeter.GetChild(incomingParryBulletIndex).gameObject;
+            IncomingExtraParryBullet = powerMeter.GetChild(1).GetChild(incomingExtraParryPoweredIndex).gameObject;
+            IncomingParryBullet = powerMeter.GetChild(1).GetChild(incomingParryBulletIndex).gameObject;
 
             //Disable all UI elements as there are no bullets.
             foreach (GameObject bullet in bulletObjects) 
