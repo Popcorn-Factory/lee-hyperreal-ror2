@@ -1,4 +1,4 @@
-﻿using EntityStates;
+using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
 using LeeHyperrealMod.Modules.Networking;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.Evade;
@@ -20,7 +20,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public float firingFrac = 0.08f;
         public bool hasFired;
         public float duration = 1.3f;
-        public string muzzleString = "BaseTransform";
 
         public static float damageCoefficient = Modules.StaticValues.snipeDamageCoefficient;
         public static float procCoefficient = 1f;
@@ -28,7 +27,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public static float force = 800f;
         public static float recoil = 3f;
         public static float range = 256f;
-        public static GameObject tracerEffectPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/Effects/Tracers/TracerGoldGat");
 
         public OrbController orbController;
         public BulletController bulletController;
@@ -37,7 +35,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
         public Vector3 velocity;
 
-        public bool triggerBreakVFX = false;    
+        public bool triggerBreakVFX = false;
         public bool playBreakSFX = false;
         public float playReloadSFXFrac = 0.475f;
         public bool hasPlayedReload = false;
@@ -105,24 +103,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             }
         }
 
-        public void PlaySwingEffect(float scale, GameObject effectPrefab, bool aimRot = true)
+        public void PlaySwingEffect(float scale, GameObject effectPrefab, Vector3 startPos, Vector3 aimVector)
         {
-            var modelTransform = GetModelTransform();
-            var muzzleTransform = modelTransform.Find("Rifle").transform;
-            var startPos = muzzleTransform.position;
-
-            var stupidOffset = scale == 1.25f ? 0.85f : 0.6f;
-            startPos.y -= stupidOffset;
-
-            PlayerCharacterMasterController.CanSendBodyInput(characterBody.master.playerCharacterMasterController.networkUser, out var _, out var _, out var cameraRigController);
-
-            var endPos = cameraRigController.crosshairWorldPosition;
-            endPos.y -= stupidOffset;
-
             var effectData = new EffectData()
             {
                 origin = startPos,
-                rotation = Quaternion.LookRotation(endPos - startPos),
+                rotation = Quaternion.LookRotation(aimVector),
                 scale = scale
             };
 
@@ -156,21 +142,35 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
                 base.characterBody.AddSpreadBloom(1.5f);
 
+                var modelTransform = GetModelTransform();
+                var muzzleTransform = modelTransform.Find("Rifle").transform;
+                var startPos = muzzleTransform.position;
+
+                const float scale = 1.25f;
+                var stupidOffset = scale == 1.25f ? 0.85f : 0.6f;
+                startPos.y -= stupidOffset;
+
+                PlayerCharacterMasterController.CanSendBodyInput(characterBody.master.playerCharacterMasterController.networkUser, out var _, out var _, out var cameraRigController);
+
+                var endPos = cameraRigController.crosshairWorldPosition;
+                endPos.y -= stupidOffset;
+
+                var aimVector = (endPos - startPos).normalized;
+
                 if (isGrounded)
                 {
-                    PlaySwingEffect(1.25f, Modules.ParticleAssets.snipeGround);
+                    PlaySwingEffect(scale, Modules.ParticleAssets.snipeGround, startPos, aimVector);
                 }
-                PlaySwingEffect(1.25f, Modules.ParticleAssets.Snipe);
-                PlaySwingEffect(1.25f, Modules.ParticleAssets.snipeBulletCasing);
+                PlaySwingEffect(scale, Modules.ParticleAssets.Snipe, startPos, aimVector);
+                PlaySwingEffect(scale, Modules.ParticleAssets.snipeBulletCasing, startPos, aimVector);
 
                 base.AddRecoil(-1f * recoil, -2f * recoil, -0.5f * recoil, 0.5f * recoil);
 
-                var aimRay = GetAimRay();
                 new BulletAttack
                 {
                     bulletCount = 1,
-                    aimVector = aimRay.direction,
-                    origin = aimRay.origin,
+                    aimVector = aimVector,
+                    origin = startPos,
                     damage = damageCoefficient * this.damageStat * empoweredBulletMultiplier,
                     damageColorIndex = DamageColorIndex.Default,
                     damageType = DamageType.Generic,
@@ -182,7 +182,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     maxSpread = 0f,
                     isCrit = base.RollCrit(),
                     owner = base.gameObject,
-                    muzzleName = muzzleString,
                     smartCollision = true,
                     procChainMask = default(ProcChainMask),
                     procCoefficient = Modules.StaticValues.snipeProcCoefficient,
