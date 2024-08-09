@@ -248,11 +248,19 @@ namespace LeeHyperrealMod.Content.Controllers
 
         private void LateUpdatePositions()
         {
-            if (LeeHyperrealPlugin.isRiskUIInstalled) 
+            if (LeeHyperrealPlugin.isRiskUIInstalled)
             {
                 orbUIObject.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
                 orbUIObject.transform.position = new Vector3(-9.5764f, -3.2462f, 12.6537f);
                 orbUIObject.transform.localPosition = new Vector3(185f, 287.8038f, 0f);
+            }
+            else // DEFAULT UI 
+            {
+                if (RoRHUDObject) 
+                {
+                    //Move Chatbox up a little bit to not collide with the energy bar.
+                    RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(0).GetChild(0).position = new Vector3(-11.4084f, - 4.3756f, 12.6537f);
+                }
             }
         }
 
