@@ -91,7 +91,7 @@ namespace LeeHyperrealMod.Modules
 
         #region Orb Controller Values
         internal const float flatIncreaseOrbIncrementor = 0.5f;
-        internal const float LimitToGrantOrb = 10f; // Amount that determines when to give orb, smaller = faster.
+        internal const float LimitToGrantOrb = 5f; // Amount that determines when to give orb, smaller = faster.
         internal const float flatAmountToGrantOnPrimaryHit = 0.35f;
         internal const float yAxisPositionBrackets = -135f;
         internal const float yAxisPositionBracketsRiskUI = -80f;
@@ -110,8 +110,8 @@ namespace LeeHyperrealMod.Modules
         internal const float domainShiftCoefficient = 8f;
         internal const float domainShiftBulletDamageCoefficient = 4.5f;
         internal const float energyRechargeSpeed = 1f; // Unit per second
-        internal const float energyConsumptionSpeed = 10f; // Unit per second
-        internal const float energyReturnedPer3ping = 20f; 
+        internal const float energyConsumptionSpeed = 7f; // Unit per second
+        internal const float energyReturnedPer3ping = 35f; 
         internal const int maxIntuitionStocks = 4;
         #endregion
 
