@@ -168,6 +168,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             if (age >= duration * earlyEnd && base.isAuthority)
             {
+                if (isStrong)
+                {
+                    //Exit earlier to the Strong ender.
+                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                    {
+                        this.outer.SetNextState(new YellowOrbFinisher { });
+                        return;
+                    }
+                }
+
                 //Check any move to cancel into.
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
                 characterMotor.gravityParameters = oldGravParams;
@@ -177,19 +187,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                     hasPlayedBulletCasingSFX = true;
                     new PlaySoundNetworkRequest(characterBody.netId, "c_liRk4_skill_yellow_bullet").Send(NetworkDestination.Clients);
                 }
-                if (orbController && !hasUnsetOrbController)
+                if (orbController && !hasUnsetOrbController && !isStrong)
                 {
                     hasUnsetOrbController = true;
                     orbController.isExecutingSkill = false;
-                }
-                if (isStrong)
-                {
-                    //Exit earlier to the Strong ender.
-                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
-                    {
-                        this.outer.SetNextState(new YellowOrbFinisher { });
-                        return;
-                    }
                 }
 
                 if (base.inputBank.moveVector != Vector3.zero)
