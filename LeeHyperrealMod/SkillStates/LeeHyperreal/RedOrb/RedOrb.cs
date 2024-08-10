@@ -169,11 +169,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             }
             if (age >= duration * earlyEnd && base.isAuthority)
             {
-                if (orbController && !hasUnsetOrbController)
-                {
-                    hasUnsetOrbController = true;
-                    orbController.isExecutingSkill = false;
-                }
                 if (isStrong)
                 {
                     if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
@@ -182,6 +177,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                         this.outer.SetNextState(new RedOrbFinisher { });
                         return;
                     }
+                }
+
+                if (orbController && !hasUnsetOrbController && !isStrong)
+                {
+                    hasUnsetOrbController = true;
+                    orbController.isExecutingSkill = false;
                 }
 
                 if (inputBank.moveVector != Vector3.zero && !hasCancelledWithMovement) 
