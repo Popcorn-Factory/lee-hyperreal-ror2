@@ -181,7 +181,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 {
                     hasUnsetOrbController = true;
                     orbController.isExecutingSkill = false;
-                    Debug.Log("is executingskill yellow false");
                 }
                 if (isStrong)
                 {
@@ -198,7 +197,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                     if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death && !hasCancelledWithMovement)
                     {
                         base.outer.SetNextStateToMain();
-                        Debug.Log("movement has cancelled yellow");
                         hasCancelledWithMovement = true;
                         return;
                     }
@@ -235,7 +233,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             if (fixedAge >= duration)
             {
                 outer.SetNextStateToMain();
-                Debug.Log("yellow duration ended");
                 return;
             }
         }

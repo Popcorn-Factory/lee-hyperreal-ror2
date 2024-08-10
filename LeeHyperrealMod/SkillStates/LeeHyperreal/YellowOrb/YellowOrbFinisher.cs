@@ -27,6 +27,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         internal float playSoundFrac = 0.12f;
         internal bool hasPlayedSound = false;
         bool hasUnsetOrbController;
+        public bool hasCancelledWithMovement;
         public override void OnEnter()
         {
 
@@ -148,9 +149,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                     orbController.isExecutingSkill = false;
                     hasUnsetOrbController = true;
                 }
-                if (base.inputBank.moveVector != Vector3.zero) 
+                if (base.inputBank.moveVector != Vector3.zero && !hasCancelledWithMovement) 
                 {
                     base.outer.SetNextStateToMain();
+                    hasCancelledWithMovement = true;
                     return;
                 }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);

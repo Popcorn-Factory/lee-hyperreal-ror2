@@ -171,7 +171,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 {
                     hasUnsetOrbController = true;
                     orbController.isExecutingSkill = false;
-                    Debug.Log("is executing red off");
                 }
                 if (isStrong)
                 {
@@ -186,7 +185,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 if (inputBank.moveVector != Vector3.zero && !hasCancelledWithMovement) 
                 {
                     this.outer.SetNextStateToMain();
-                    Debug.Log("movement has cancelled red");
                     hasCancelledWithMovement = true;
                     return;
                 }
@@ -223,7 +221,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             if (fixedAge >= duration)
             {
                 outer.SetNextStateToMain();
-                Debug.Log("duration ran out red orb");
                 return;
             }
         }

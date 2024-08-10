@@ -47,6 +47,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         internal float pushForce = 100f;
         private bool hasFiredOverlap;
         bool hasUnsetOrbController;
+        public bool hasCancelledWithMovement;
         public override void OnEnter()
         {
             base.OnEnter();
@@ -153,9 +154,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                     hasUnsetOrbController = true;
                     orbController.isExecutingSkill = false;
                 }
-                if (inputBank.moveVector != Vector3.zero) 
+                if (inputBank.moveVector != Vector3.zero && !hasCancelledWithMovement) 
                 {
                     this.outer.SetNextStateToMain();
+                    hasCancelledWithMovement = true;
                     return;
                 }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);
