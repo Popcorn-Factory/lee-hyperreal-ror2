@@ -26,6 +26,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         public float duration = 3.83f;
         public int moveStrength; //1-3
         public bool hasFired;
+        public bool hasCancelledWithMovement;
 
         internal BlastAttack blastAttack;
         internal int attackAmount;
@@ -283,10 +284,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             }
             if (base.age >= duration * earlyEnd && base.isAuthority)
             {
-                if (inputBank.moveVector != new Vector3()) 
+                if (inputBank.moveVector != new Vector3() && !hasCancelledWithMovement) 
                 {
                     //Cancel
                     base.outer.SetNextStateToMain();
+                    hasCancelledWithMovement = true;
                     return;
                 }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);

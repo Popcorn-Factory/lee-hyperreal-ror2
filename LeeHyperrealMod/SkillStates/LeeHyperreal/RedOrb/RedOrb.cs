@@ -41,6 +41,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         private bool invincibilitySet = false;
 
         float movespeedScalingCap = 25f;
+        private bool hasCancelledWithMovement = false;
 
         float disableInvincibility = 0.42f;
         public OrbController orbController;
@@ -168,7 +169,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             {
                 if (orbController && !hasUnsetOrbController)
                 {
+                    hasUnsetOrbController = true;
                     orbController.isExecutingSkill = false;
+                    Debug.Log("is executing red off");
                 }
                 if (isStrong)
                 {
@@ -180,9 +183,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                     }
                 }
 
-                if (inputBank.moveVector != Vector3.zero) 
+                if (inputBank.moveVector != Vector3.zero && !hasCancelledWithMovement) 
                 {
                     this.outer.SetNextStateToMain();
+                    Debug.Log("movement has cancelled red");
+                    hasCancelledWithMovement = true;
                     return;
                 }
 
@@ -218,6 +223,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             if (fixedAge >= duration)
             {
                 outer.SetNextStateToMain();
+                Debug.Log("duration ran out red orb");
                 return;
             }
         }
