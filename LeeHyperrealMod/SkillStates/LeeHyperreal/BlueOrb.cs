@@ -46,7 +46,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         float movespeedScalingCap = 15f;
 
-        float disableInvincibility = 0.43f;
+        float disableInvincibility = 0.2f;
 
         float orbCancelFrac = 0.24f;
 
@@ -143,7 +143,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 maxSpread = 0f,
                 isCrit = base.RollCrit(),
                 owner = base.gameObject,
-                muzzleName = "RifleEnd",
+                muzzleName = "RifleTip",
                 smartCollision = true,
                 procChainMask = default(ProcChainMask),
                 procCoefficient = Modules.StaticValues.blueOrbProcCoefficient,
@@ -349,14 +349,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 }
             }
 
-            bulletAttack.aimVector = ((OriginalPosition - muzzlePos.position).normalized + Vector3.down * 0.4f).normalized;
+            bulletAttack.aimVector = ((OriginalPosition - muzzlePos.position).normalized + Vector3.down * 0.35f).normalized;
             bulletAttack.origin = muzzlePos.position;
             bulletAttack.Fire();
 
             EffectData effectData = new EffectData
             {
-                origin = muzzlePos.position + Vector3.down * 2f,
-                rotation = Quaternion.LookRotation(((OriginalPosition - muzzlePos.position).normalized + Vector3.down * 0.4f).normalized, Vector3.up),
+                origin = muzzlePos.position,
+                rotation = Quaternion.LookRotation(((OriginalPosition - muzzlePos.position).normalized + Vector3.down * 0.35f).normalized, Vector3.up),
             };
             EffectManager.SpawnEffect(Modules.ParticleAssets.blueOrbShot, effectData, true);
 
@@ -366,7 +366,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             {
                 EffectData BlueOrbGroundEffectData = new EffectData
                 {
-                    scale = 2f
+                    scale = 4f
                 };
                 EffectManager.SimpleEffect(Modules.ParticleAssets.blueOrbGroundHit, hit.point, Quaternion.identity, true);
             }

@@ -591,7 +591,7 @@ namespace LeeHyperrealMod.Modules
             blueOrbHit = ModifyEffect(blueOrbHit, "Play_c_liRk4_imp_blue", true);
 
             blueOrbGroundHit = GetGameObjectFromBundle("fxr4liangatk20bao");
-            blueOrbGroundHit = ModifyEffect(blueOrbGroundHit, "Play_c_liRk4_skill_blue_dilie", true);
+            blueOrbGroundHit = ModifyEffect(blueOrbGroundHit, "Play_c_liRk4_skill_blue_dilie", true, 3f);
         }
 
         private static void PopulateRedOrbAssets()

@@ -137,7 +137,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
             if (base.isAuthority) 
             {
-                Modules.Helpers.PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.redOrbSwing, gameObject);
+                Modules.Helpers.PlaySwingEffect("BaseTransform", 1f, Modules.ParticleAssets.redOrbSwing, gameObject);
             }
         }
 
