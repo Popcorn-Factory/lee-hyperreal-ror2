@@ -177,7 +177,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                     }
                 }
 
-                if (orbController && !hasUnsetOrbController)
+                if (orbController && !hasUnsetOrbController && !isStrong)
                 {
                     hasUnsetOrbController = true;
                     orbController.isExecutingSkill = false;
