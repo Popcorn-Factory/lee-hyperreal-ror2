@@ -16,6 +16,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
         public float start = 0;
         public float earlyEnd = 0.35f;
+        public float rmaEnd = 0.44f;
         public float fireFrac = 0.20f;
         public float endFireFrac = 0.3f;
         public int baseFireAmount = Modules.StaticValues.redOrbBaseHitAmount;
@@ -39,6 +40,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         private float invincibilityStartFrac = 0.16f;
         private float invincibilityEndFrac = 0.4f;
         private bool invincibilitySet = false;
+        private bool hasResetRMA = false;
 
         float movespeedScalingCap = 25f;
         private bool hasCancelledWithMovement = false;
@@ -216,8 +218,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 invincibilitySet = true;
                 base.characterBody.AddTimedBuff(Modules.Buffs.invincibilityBuff.buffIndex, (duration * invincibilityEndFrac) - (duration * invincibilityStartFrac));
             }
-
-
+            if (fixedAge >= duration * rmaEnd && !hasResetRMA)
+            {
+                rmaMultiplier = 1f;
+                hasResetRMA = true;
+            }
             if (fixedAge >= duration)
             {
                 outer.SetNextStateToMain();

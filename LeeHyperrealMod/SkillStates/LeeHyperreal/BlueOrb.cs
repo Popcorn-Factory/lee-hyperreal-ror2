@@ -22,11 +22,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         public float start = 0;
         public float earlyEnd = 0.38f;
+        public float rmaEnd = 0.44f;
         public float fireFrac = 0.22f;
         public float duration = 3.83f;
         public int moveStrength; //1-3
         public bool hasFired;
         public bool hasCancelledWithMovement;
+        private bool hasResetRMA = false;
 
         internal BlastAttack blastAttack;
         internal int attackAmount;
@@ -248,7 +250,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
                 weaponModelHandler.SetLaserState(false);
             }
-
+            if (fixedAge >= duration * rmaEnd && !hasResetRMA)
+            {
+                rmaMultiplier = 1f;
+                hasResetRMA = true;
+            }
             if (base.inputBank.skill1.down && base.isAuthority && base.age <= duration * disallowTransition)
             {
                 heldDownTimer += Time.deltaTime;
