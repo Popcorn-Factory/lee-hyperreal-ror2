@@ -54,6 +54,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         internal bool hasHit2 = false;
         internal bool hasHit3 = false;
 
+        private bool hasCancelledWithMovement = false;
+
         float invincibilityOnFrac = 0.05f;
         float invincibilityOffFrac = 0.2f;
         bool invincibilityApplied = false;
@@ -165,9 +167,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 {
                     orbController.isExecutingSkill = false;
                 }
-                if (inputBank.moveVector != Vector3.zero) 
+                if (inputBank.moveVector != Vector3.zero && !hasCancelledWithMovement) 
                 {
                     base.outer.SetNextStateToMain();
+                    hasCancelledWithMovement = true;
                     return;
                 }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
