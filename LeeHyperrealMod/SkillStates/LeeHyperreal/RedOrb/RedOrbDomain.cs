@@ -59,6 +59,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         bool invincibilityApplied = false;
         LeeHyperrealDomainController domainController;
 
+        bool hasUnsetOrbController;
+
         public override void OnEnter()
         {
             base.OnEnter();
@@ -129,7 +131,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             base.OnExit();
             characterMotor.gravityParameters = oldGravParams;
             PlayAnimation("Body", "BufferEmpty");
-            if (orbController)
+            if (orbController && !hasUnsetOrbController)
             {
                 orbController.isExecutingSkill = false;
             }
@@ -159,7 +161,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             //Able to be cancelled after this.
             if (age >= duration * earlyEnd && base.isAuthority)
             {
-                if (orbController)
+                if (orbController && !hasUnsetOrbController)
                 {
                     orbController.isExecutingSkill = false;
                 }

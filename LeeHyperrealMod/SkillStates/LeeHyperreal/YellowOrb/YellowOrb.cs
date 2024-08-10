@@ -45,6 +45,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
         CharacterGravityParameters gravParams;
         CharacterGravityParameters oldGravParams;
+        private bool hasUnsetOrbController;
 
         public override void OnEnter()
         {
@@ -126,7 +127,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void OnExit()
         {
             base.OnExit();
-            if (orbController)
+            if (orbController && !hasUnsetOrbController)
             {
                 orbController.isExecutingSkill = false;
             }
@@ -175,8 +176,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                     hasPlayedBulletCasingSFX = true;
                     new PlaySoundNetworkRequest(characterBody.netId, "c_liRk4_skill_yellow_bullet").Send(NetworkDestination.Clients);
                 }
-                if (orbController)
+                if (orbController && !hasUnsetOrbController)
                 {
+                    hasUnsetOrbController = true;
                     orbController.isExecutingSkill = false;
                 }
                 if (isStrong)

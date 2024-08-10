@@ -45,7 +45,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         float disableInvincibility = 0.42f;
         public OrbController orbController;
         public BulletController bulletController;
-
+        bool hasUnsetOrbController;
         public override void OnEnter()
         {
             base.OnEnter();
@@ -146,7 +146,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public override void OnExit()
         {
             base.OnExit();
-            if (orbController)
+            if (orbController && !hasUnsetOrbController)
             {
                 orbController.isExecutingSkill = false;
             }
@@ -166,7 +166,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             }
             if (age >= duration * earlyEnd && base.isAuthority)
             {
-                if (orbController)
+                if (orbController && !hasUnsetOrbController)
                 {
                     orbController.isExecutingSkill = false;
                 }

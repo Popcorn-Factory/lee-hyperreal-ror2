@@ -26,6 +26,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
         internal float playSoundFrac = 0.12f;
         internal bool hasPlayedSound = false;
+        bool hasUnsetOrbController;
         public override void OnEnter()
         {
 
@@ -124,7 +125,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void OnExit()
         {
             base.OnExit();
-            if (orbController)
+            if (orbController && !hasUnsetOrbController)
             {
                 orbController.isExecutingSkill = false;
             }
@@ -142,9 +143,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             if (base.age >= duration * exitEarlyFrac && base.isAuthority) 
             {
-                if (orbController)
+                if (orbController && !hasUnsetOrbController)
                 {
                     orbController.isExecutingSkill = false;
+                    hasUnsetOrbController = true;
                 }
                 if (base.inputBank.moveVector != Vector3.zero) 
                 {

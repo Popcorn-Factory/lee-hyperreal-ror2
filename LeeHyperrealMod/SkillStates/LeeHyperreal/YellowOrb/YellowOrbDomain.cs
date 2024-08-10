@@ -50,6 +50,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         float invincibilityOnFrac = 0.05f;
         float invincibilityOffFrac = 0.25f;
         bool invincibilityApplied = false;
+        bool hasUnsetOrbController;
 
         public override void OnEnter()
         {
@@ -174,7 +175,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         {
             base.OnExit();
             characterMotor.gravityParameters = oldGravParams;
-            if (orbController)
+            if (orbController && !hasUnsetOrbController)
             {
                 orbController.isExecutingSkill = false;
             }
@@ -209,8 +210,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             if (age >= duration * earlyEnd && base.isAuthority)
             {
-                if (orbController)
+                if (orbController && !hasUnsetOrbController)
                 {
+                    hasUnsetOrbController = true;
                     orbController.isExecutingSkill = false;
                 }
                 if (inputBank.moveVector != Vector3.zero)

@@ -474,7 +474,10 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void TriggerOrbState(int strength, OrbType orbType) 
         {
-            //Debug.Log($"Triggered: {orbType} with {strength} at {Time.time} with {orbList.Count} orbs left");
+            
+
+            //Force this to true, preventing other states from running on top of this.
+            isExecutingSkill = true;
 
             EntityStateMachine bodyMachine = null;
             

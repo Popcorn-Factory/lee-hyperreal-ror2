@@ -46,7 +46,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         internal Vector3 bonusForce = Vector3.zero;
         internal float pushForce = 100f;
         private bool hasFiredOverlap;
-
+        bool hasUnsetOrbController;
         public override void OnEnter()
         {
             base.OnEnter();
@@ -121,7 +121,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         {
             PlayAnimation("Body", "BufferEmpty");
             base.OnExit();
-            if (orbController)
+            if (orbController && !hasUnsetOrbController)
             {
                 orbController.isExecutingSkill = false;
             }
@@ -148,8 +148,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
             if (base.age >= duration * exitEarlyFrac && base.isAuthority) 
             {
-                if (orbController)
+                if (orbController && !hasUnsetOrbController)
                 {
+                    hasUnsetOrbController = true;
                     orbController.isExecutingSkill = false;
                 }
                 if (inputBank.moveVector != Vector3.zero) 

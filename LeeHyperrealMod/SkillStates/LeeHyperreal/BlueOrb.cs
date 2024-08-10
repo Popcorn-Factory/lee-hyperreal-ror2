@@ -58,6 +58,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         float transitionWeaponFrac = 0.35f;
         bool hasTransitioned = false;
 
+        bool hasUnsetOrbController;
         public override void OnEnter()
         {
             base.OnEnter();
@@ -194,7 +195,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         public override void OnExit()
         {
-            if (orbController)
+            if (orbController && !hasUnsetOrbController)
             {
                 orbController.isExecutingSkill = false;
             }
@@ -275,7 +276,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
             if (base.age >= duration * orbCancelFrac && base.isAuthority) 
             {
-                if (orbController)
+                if (orbController && !hasUnsetOrbController)
                 {
                     orbController.isExecutingSkill = false;
                 }
