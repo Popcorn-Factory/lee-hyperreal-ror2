@@ -108,7 +108,7 @@ namespace LeeHyperrealMod.SkillStates
             {
                 if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                 {
-                    base.outer.SetState(new EnterSnipe());
+                    base.outer.SetNextState(new EnterSnipe());
                 }
             }
         }

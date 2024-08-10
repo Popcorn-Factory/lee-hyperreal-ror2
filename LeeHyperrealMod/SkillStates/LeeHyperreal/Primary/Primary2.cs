@@ -122,7 +122,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 //Cancel out into Domain shift skill state
                 if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                 {
-                    base.outer.SetState(new DomainEnterState { shouldForceUpwards = true });
+                    base.outer.SetNextState(new DomainEnterState { shouldForceUpwards = true });
                 }
             }
 
@@ -288,7 +288,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             // Move to Primary3
             if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
             {
-                base.outer.SetState(new Primary3 { });
+                base.outer.SetNextState(new Primary3 { });
             }
         }
 

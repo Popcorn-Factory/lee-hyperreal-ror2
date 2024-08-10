@@ -75,7 +75,7 @@ namespace LeeHyperrealMod.Modules.Networking
             {
                 if (stateMachine.customName == "Body")
                 {
-                    stateMachine.SetState(new Freeze { duration = this.duration});
+                    stateMachine.SetNextState(new Freeze { duration = this.duration});
                     return;
                 }
             }

@@ -141,7 +141,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                         //Go to Primary 3.
                         if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                         {
-                            outer.SetState(new Primary.Primary3 { xzMovementMultiplier = movementMultiplierPrimary3 });
+                            outer.SetNextState(new Primary.Primary3 { xzMovementMultiplier = movementMultiplierPrimary3 });
                             return;
                         }
                     }
@@ -157,7 +157,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                         if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                         {
                             //Go to Primary 3.
-                            outer.SetState(new Primary.Primary3 { xzMovementMultiplier = movementMultiplierPrimary3 });
+                            outer.SetNextState(new Primary.Primary3 { xzMovementMultiplier = movementMultiplierPrimary3 });
                             return;
                         }
                     }

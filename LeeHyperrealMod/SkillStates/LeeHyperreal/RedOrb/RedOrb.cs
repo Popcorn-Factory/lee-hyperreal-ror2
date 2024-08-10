@@ -175,7 +175,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                     if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                     {
                         //Exit earlier to the Strong ender.
-                        this.outer.SetState(new RedOrbFinisher { });
+                        this.outer.SetNextState(new RedOrbFinisher { });
                         return;
                     }
                 }

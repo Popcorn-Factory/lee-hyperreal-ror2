@@ -61,7 +61,7 @@ namespace LeeHyperrealMod.Modules.Networking
                 {
                     if (stateMachine.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death) 
                     {
-                        stateMachine.SetState(new UltimateDomain { });
+                        stateMachine.SetNextState(new UltimateDomain { });
                         return;
                     }
                 }
