@@ -66,6 +66,7 @@ namespace LeeHyperrealMod
             if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions"))
             {
                 Modules.Config.SetupRiskOfOptions();
+                Modules.Config.OnChangeHooks();
             }
             if (Chainloader.PluginInfos.ContainsKey("bubbet.riskui"))
             {
