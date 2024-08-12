@@ -1195,6 +1195,8 @@ namespace LeeHyperrealMod.Content.Controllers
                 crosshairObject = UnityEngine.Object.Instantiate(Modules.ParticleAssets.customCrosshair, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(1));
             }
 
+            crosshairObject.transform.localScale = new Vector3(Modules.Config.crosshairSize.Value, Modules.Config.crosshairSize.Value, 0f);
+
             crosshairAnimator = crosshairObject.GetComponent<Animator>();
         }
 
@@ -1249,6 +1251,15 @@ namespace LeeHyperrealMod.Content.Controllers
             Modules.Config.blueOrbTrigger.SettingChanged += SimpleKeyChanged;
             Modules.Config.redOrbTrigger.SettingChanged += SimpleKeyChanged;
             Modules.Config.yellowOrbTrigger.SettingChanged += SimpleKeyChanged;
+            Modules.Config.crosshairSize.SettingChanged += CrosshairSize_SettingChanged;
+        }
+
+        private void CrosshairSize_SettingChanged(object sender, EventArgs e)
+        {
+            if (crosshairObject) 
+            {
+                crosshairObject.transform.localScale = new Vector3(Modules.Config.crosshairSize.Value, Modules.Config.crosshairSize.Value, 0f);
+            }
         }
 
         private void SimpleKeyChanged(object sender, EventArgs e)
@@ -1284,26 +1295,6 @@ namespace LeeHyperrealMod.Content.Controllers
             if (!RoRHUDObject) 
             {
                 RoRHUDObject = self.gameObject;
-            }
-        }
-
-        private void CameraRigController_Update(On.RoR2.CameraRigController.orig_Update orig, CameraRigController self)
-        {
-            orig(self);
-            //Perform a check to see if the hud is disabled and enable/disable our hud if necessary.
-            if (self.hud.mainUIPanel.activeInHierarchy)
-            {
-                if (canvasObject && characterBody.hasEffectiveAuthority && !baseAIPresent)
-                {
-
-                }
-            }
-            else
-            {
-                if (canvasObject && characterBody.hasEffectiveAuthority)
-                {
-                
-                }
             }
         }
         #endregion
