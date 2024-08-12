@@ -1192,7 +1192,14 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             if (RoRHUDObject) 
             {
-                crosshairObject = UnityEngine.Object.Instantiate(Modules.ParticleAssets.customCrosshair, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(1));
+                if (LeeHyperrealPlugin.isRiskUIInstalled)
+                {
+                    crosshairObject = UnityEngine.Object.Instantiate(Modules.ParticleAssets.customCrosshair, RoRHUDObject.transform.GetChild(0).GetChild(4).GetChild(1));
+                }
+                else 
+                {
+                    crosshairObject = UnityEngine.Object.Instantiate(Modules.ParticleAssets.customCrosshair, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(1));
+                }
             }
 
             crosshairObject.transform.localScale = new Vector3(Modules.Config.crosshairSize.Value, Modules.Config.crosshairSize.Value, 0f);
