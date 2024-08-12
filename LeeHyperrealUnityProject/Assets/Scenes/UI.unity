@@ -5363,7 +5363,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0, g: 0.4716981, b: 0.002016099, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -6012,7 +6012,7 @@ PrefabInstance:
     - target: {fileID: 928130849880969292, guid: 98f3cab108419e149b38b2f823820fc4,
         type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 928130850126530241, guid: 98f3cab108419e149b38b2f823820fc4,
         type: 3}
@@ -6052,12 +6052,12 @@ PrefabInstance:
     - target: {fileID: 928130850243562969, guid: 98f3cab108419e149b38b2f823820fc4,
         type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 928130850478015546, guid: 98f3cab108419e149b38b2f823820fc4,
         type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 928130850616352768, guid: 98f3cab108419e149b38b2f823820fc4,
         type: 3}
@@ -6209,11 +6209,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Lee Crosshair
       objectReference: {fileID: 0}
-    - target: {fileID: 928130850755103473, guid: 98f3cab108419e149b38b2f823820fc4,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 928130850755103474, guid: 98f3cab108419e149b38b2f823820fc4,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -6252,7 +6247,7 @@ PrefabInstance:
     - target: {fileID: 928130851074858108, guid: 98f3cab108419e149b38b2f823820fc4,
         type: 3}
       propertyPath: m_Color.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 928130851110490390, guid: 98f3cab108419e149b38b2f823820fc4,
         type: 3}
