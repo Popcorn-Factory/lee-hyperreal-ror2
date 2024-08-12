@@ -134,7 +134,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             }
 
             base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
-            if (age >= duration * firingFrac && base.isAuthority && !hasFired)
+            if (age >= duration * firingFrac && !hasFired)
             {
                 PlayAttackAnimation();
 
@@ -142,69 +142,71 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
                 base.characterBody.AddSpreadBloom(1.5f);
 
-                var modelTransform = GetModelTransform();
-                var muzzleTransform = modelTransform.Find("Rifle").transform;
-                var startPos = muzzleTransform.position;
-                var startEffectPos = startPos;
-
-                const float scale = 1.25f;
-                var stupidOffset = scale == 1.25f ? 0.89f : 0.6f;
-                startEffectPos.y -= stupidOffset;
-
-                PlayerCharacterMasterController.CanSendBodyInput(characterBody.master.playerCharacterMasterController.networkUser, out var _, out var _, out var cameraRigController);
-
-                var endPos = cameraRigController.crosshairWorldPosition;
-                var endEffectPos = endPos;
-                endEffectPos.y -= stupidOffset;
-
-                var aimVector = (endPos - startPos).normalized;
-                var aimEffectVector = (endEffectPos - startEffectPos).normalized;
-
-                if (isGrounded)
+                if (base.isAuthority) 
                 {
-                    PlaySwingEffect(scale, Modules.ParticleAssets.snipeGround, startEffectPos, aimEffectVector);
+                    var modelTransform = GetModelTransform();
+                    var muzzleTransform = modelTransform.Find("Rifle").transform;
+                    var startPos = muzzleTransform.position;
+                    var startEffectPos = startPos;
+
+                    const float scale = 1.25f;
+                    var stupidOffset = scale == 1.25f ? 0.89f : 0.6f;
+                    startEffectPos.y -= stupidOffset;
+
+                    PlayerCharacterMasterController.CanSendBodyInput(characterBody.master.playerCharacterMasterController.networkUser, out var _, out var _, out var cameraRigController);
+
+                    var endPos = cameraRigController.crosshairWorldPosition;
+                    var endEffectPos = endPos;
+                    endEffectPos.y -= stupidOffset;
+
+                    var aimVector = (endPos - startPos).normalized;
+                    var aimEffectVector = (endEffectPos - startEffectPos).normalized;
+
+                    if (isGrounded)
+                    {
+                        PlaySwingEffect(scale, Modules.ParticleAssets.snipeGround, startEffectPos, aimEffectVector);
+                    }
+                    PlaySwingEffect(scale, Modules.ParticleAssets.Snipe, startEffectPos, aimEffectVector);
+                    PlaySwingEffect(scale, Modules.ParticleAssets.snipeBulletCasing, startEffectPos, aimEffectVector);
+
+                    base.AddRecoil(-1f * recoil, -2f * recoil, -0.5f * recoil, 0.5f * recoil);
+
+                    new BulletAttack
+                    {
+                        bulletCount = 1,
+                        aimVector = aimVector,
+                        origin = startPos,
+                        damage = damageCoefficient * this.damageStat * empoweredBulletMultiplier,
+                        damageColorIndex = DamageColorIndex.Default,
+                        damageType = DamageType.Generic,
+                        falloffModel = BulletAttack.FalloffModel.None,
+                        maxDistance = Modules.StaticValues.snipeRange,
+                        force = Modules.StaticValues.snipeForce,
+                        hitMask = LayerIndex.CommonMasks.bullet,
+                        minSpread = 0f,
+                        maxSpread = 0f,
+                        isCrit = base.RollCrit(),
+                        owner = base.gameObject,
+                        smartCollision = true,
+                        procChainMask = default(ProcChainMask),
+                        procCoefficient = Modules.StaticValues.snipeProcCoefficient,
+                        radius = 0.75f,
+                        sniper = false,
+                        stopperMask = LayerIndex.world.mask,
+                        weapon = null,
+                        spreadPitchScale = 0f,
+                        spreadYawScale = 0f,
+                        hitCallback = snipeHitCallback,
+                        queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
+                        hitEffectPrefab = triggerBreakVFX ? Modules.ParticleAssets.snipeHitEnhanced : Modules.ParticleAssets.snipeHit,
+                    }.Fire();
+
+                    new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_atk_ex_3").Send(R2API.Networking.NetworkDestination.Clients);
+                    if (playBreakSFX)
+                    {
+                        new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_atk_ex_3_break").Send(R2API.Networking.NetworkDestination.Clients);
+                    }
                 }
-                PlaySwingEffect(scale, Modules.ParticleAssets.Snipe, startEffectPos, aimEffectVector);
-                PlaySwingEffect(scale, Modules.ParticleAssets.snipeBulletCasing, startEffectPos, aimEffectVector);
-
-                base.AddRecoil(-1f * recoil, -2f * recoil, -0.5f * recoil, 0.5f * recoil);
-
-                new BulletAttack
-                {
-                    bulletCount = 1,
-                    aimVector = aimVector,
-                    origin = startPos,
-                    damage = damageCoefficient * this.damageStat * empoweredBulletMultiplier,
-                    damageColorIndex = DamageColorIndex.Default,
-                    damageType = DamageType.Generic,
-                    falloffModel = BulletAttack.FalloffModel.None,
-                    maxDistance = Modules.StaticValues.snipeRange,
-                    force = Modules.StaticValues.snipeForce,
-                    hitMask = LayerIndex.CommonMasks.bullet,
-                    minSpread = 0f,
-                    maxSpread = 0f,
-                    isCrit = base.RollCrit(),
-                    owner = base.gameObject,
-                    smartCollision = true,
-                    procChainMask = default(ProcChainMask),
-                    procCoefficient = Modules.StaticValues.snipeProcCoefficient,
-                    radius = 0.75f,
-                    sniper = false,
-                    stopperMask = LayerIndex.world.mask,
-                    weapon = null,
-                    spreadPitchScale = 0f,
-                    spreadYawScale = 0f,
-                    hitCallback = snipeHitCallback,
-                    queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
-                    hitEffectPrefab = triggerBreakVFX ? Modules.ParticleAssets.snipeHitEnhanced : Modules.ParticleAssets.snipeHit,
-                }.Fire();
-
-                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_atk_ex_3").Send(R2API.Networking.NetworkDestination.Clients);
-                if (playBreakSFX)
-                {
-                    new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_atk_ex_3_break").Send(R2API.Networking.NetworkDestination.Clients);
-                }
-
             }
 
             if (age >= duration * earlyExitFrac && base.isAuthority)
