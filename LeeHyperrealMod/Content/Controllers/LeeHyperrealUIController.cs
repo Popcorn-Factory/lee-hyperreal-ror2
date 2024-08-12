@@ -233,8 +233,6 @@ namespace LeeHyperrealMod.Content.Controllers
                     try
                     {
                         InitializeUI();
-
-                        LateUpdatePositions();
                     }
                     catch (NullReferenceException e)
                     {
@@ -252,6 +250,7 @@ namespace LeeHyperrealMod.Content.Controllers
                     HandleBulletUIChange();
                     UpdateGlyphPositions();
                     UpdateSprintingCrosshairState();
+                    LateUpdatePositions();
                 }
             }
         }
@@ -261,7 +260,6 @@ namespace LeeHyperrealMod.Content.Controllers
             if (LeeHyperrealPlugin.isRiskUIInstalled)
             {
                 orbUIObject.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
-                orbUIObject.transform.position = new Vector3(-9.5764f, -3.2462f, 12.6537f);
                 orbUIObject.transform.localPosition = new Vector3(185f, 287.8038f, 0f);
             }
             else // DEFAULT UI 
