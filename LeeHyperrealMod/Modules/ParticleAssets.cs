@@ -131,6 +131,10 @@ namespace LeeHyperrealMod.Modules
         public static GameObject displayLandingEffect;
         #endregion
 
+        #region Misc
+        public static GameObject jumpEffect;
+        #endregion
+
         public struct LightIntensityProps 
         {
             public float timeMax;
@@ -261,6 +265,18 @@ namespace LeeHyperrealMod.Modules
             #region Display Particles
             PopulateDisplayParticleAssets();
             #endregion
+
+            #region Misc
+            PopulateMiscAssets();
+            #endregion
+        }
+
+        private static void PopulateMiscAssets()
+        {
+            jumpEffect = GetGameObjectFromBundle("Extra Jump Floor");
+            EffectUnparenter effectUnparenter = jumpEffect.AddComponent<EffectUnparenter>();
+            effectUnparenter.duration = 0.175f;
+            jumpEffect = ModifyEffect(jumpEffect, "", true, 1.5f);
         }
 
         private static void PopulateAerialDomainAssets()
@@ -268,7 +284,7 @@ namespace LeeHyperrealMod.Modules
             primaryAerialEffectLoop = GetGameObjectFromBundle("DomainMidairLoop");
 
             primaryAerialEffectEnd = GetGameObjectFromBundle("DomainMidairEnd");
-            primaryAerialEffectEnd = ModifyEffect(primaryAerialEffectEnd, "Play_c_liRk4_skill_yellow_dilie", true, 1f);
+            primaryAerialEffectEnd = ModifyEffect(primaryAerialEffectEnd, "Play_c_liRk4_skill_yellow_dilie", true, 2f);
         }
 
         private static void PopulateDisplayParticleAssets()
