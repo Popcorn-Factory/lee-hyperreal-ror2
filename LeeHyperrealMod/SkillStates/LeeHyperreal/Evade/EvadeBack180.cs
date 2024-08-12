@@ -45,6 +45,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         public OrbController orbController;
         public BulletController bulletController;
         public LeeHyperrealDomainController domainController;
+        public LeeHyperrealUIController uiController;
         public float empoweredBulletMultiplier = 1f;
 
 
@@ -52,6 +53,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         {
             base.OnEnter();
             animator = GetModelAnimator();
+            uiController = gameObject.GetComponent<LeeHyperrealUIController>();
             animator.SetFloat("attack.playbackRate", 1f);
             rmaMultiplier = movementMultiplier;
             bulletController = gameObject.GetComponent<BulletController>();
@@ -118,6 +120,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             base.Update();
             if (age >= duration * firingFrac && isAuthority && !hasFired)
             {
+                uiController.TriggerFireCrosshair();
                 hasFired = true;
                 base.AddRecoil(-1f * Modules.StaticValues.snipeRecoil, -2f * Modules.StaticValues.snipeRecoil, -0.5f * Modules.StaticValues.snipeRecoil, 0.5f * Modules.StaticValues.snipeRecoil);
 
