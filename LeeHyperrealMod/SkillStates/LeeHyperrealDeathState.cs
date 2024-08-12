@@ -16,18 +16,21 @@ namespace LeeHyperrealMod.SkillStates
         internal bool triggeredRagdoll = false;
         internal float duration = 3.66f;
         LeeHyperrealDomainController domainController;
+        OrbController orbController;
 
         public override void OnEnter()
         {
             base.OnEnter();
             domainController = gameObject.GetComponent<LeeHyperrealDomainController>();
-
+            orbController = gameObject.GetComponent<OrbController>();
             base.PlayAnimation("Death", "FullBody, Override", "attack.playbackRate", duration);
-
+            
             if (domainController.GetDomainState()) 
             {
                 domainController.DisableDomain(false);
             }
+
+            orbController.isExecutingSkill = true;
 
             if (!isGrounded)
             {
