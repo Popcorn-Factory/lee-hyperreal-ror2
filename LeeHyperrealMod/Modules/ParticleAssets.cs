@@ -133,6 +133,7 @@ namespace LeeHyperrealMod.Modules
 
         #region Misc
         public static GameObject jumpEffect;
+        public static GameObject customCrosshair;
         #endregion
 
         public struct LightIntensityProps 
@@ -277,6 +278,9 @@ namespace LeeHyperrealMod.Modules
             EffectUnparenter effectUnparenter = jumpEffect.AddComponent<EffectUnparenter>();
             effectUnparenter.duration = 0.175f;
             jumpEffect = ModifyEffect(jumpEffect, "", true, 1.5f);
+
+
+            customCrosshair = GetGameObjectFromBundle("Lee Crosshair");
         }
 
         private static void PopulateAerialDomainAssets()

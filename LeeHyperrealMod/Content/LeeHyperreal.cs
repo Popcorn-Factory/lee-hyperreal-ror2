@@ -41,7 +41,6 @@ namespace LeeHyperrealMod.Modules.Survivors
             bodyColor = new Color(0.4f, 1f, 1f),
             aimOriginPosition = new Vector3(0f, 0f ,0f),
 
-            crosshair = Modules.Assets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
 
             maxHealth = 110f,

@@ -134,6 +134,12 @@ namespace LeeHyperrealMod.Content.Controllers
         HGTextMeshProUGUI holdOKTag;
         #endregion
 
+        #region Crosshair
+        private GameObject crosshairObject;
+        private Animator crosshairAnimator;
+        public bool shouldOverrideAutoSprintingStateCrosshair;
+        #endregion
+
         private bool isInitialized = false;
 
         private HGTextMeshProUGUI CreateLabel(Transform parent, string name, string text, Vector2 position, float textScale)
@@ -198,6 +204,7 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             if (!isInitialized && !baseAIPresent)
             {
+                //Initialize stuff that's custom.
                 InitializePowerMeter();
                 InitializeHealthLayer();
                 InitializeBulletUI();
@@ -207,6 +214,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 InitializeOrbAmountLabel();
                 InitializeOrbBrackets();
                 InitializeHoldOKTag();
+                InitializeCrosshair();
 
                 if (orbController)
                 {
@@ -243,6 +251,7 @@ namespace LeeHyperrealMod.Content.Controllers
                     SetAnimatorMeterValue();
                     HandleBulletUIChange();
                     UpdateGlyphPositions();
+                    UpdateSprintingCrosshairState();
                 }
             }
         }
@@ -1175,6 +1184,52 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 holdOKTag.gameObject.SetActive(state);
             }
+        }
+        #endregion
+
+        #region Crosshair
+        public void InitializeCrosshair() 
+        {
+            if (RoRHUDObject) 
+            {
+                crosshairObject = UnityEngine.Object.Instantiate(Modules.ParticleAssets.customCrosshair, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(1));
+            }
+
+            crosshairAnimator = crosshairObject.GetComponent<Animator>();
+        }
+
+        public void TriggerFireCrosshair() 
+        {
+            if (crosshairAnimator) 
+            {
+                crosshairAnimator.SetTrigger("Fire");
+            }
+        }
+
+        public void SetSnipeStateCrosshair(bool state) 
+        {
+            if (crosshairAnimator) 
+            {
+                crosshairAnimator.SetBool("isSnipe", state);
+            }
+        }
+
+        public void SetSprintingStateCrosshair(bool state) 
+        {
+            if (crosshairAnimator) 
+            {
+                crosshairAnimator.SetBool("isSprinting", state);
+            }
+        }
+
+        public void UpdateSprintingCrosshairState() 
+        {
+            if (shouldOverrideAutoSprintingStateCrosshair) 
+            {
+                return;
+            }
+            
+            SetSprintingStateCrosshair(characterBody.isSprinting);
         }
         #endregion
 

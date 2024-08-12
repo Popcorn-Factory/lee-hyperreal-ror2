@@ -282,6 +282,7 @@ namespace LeeHyperrealMod
                 if (item.bodyPrefab.name == "LeeHyperrealBody")
                 {
                     CustomEmotesAPI.ImportArmature(item.bodyPrefab, Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("humanoidLeeHyperreal"));
+                    CustomEmotesAPI.CreateNameTokenSpritePair(DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_NAME", Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("LeeEmotesIcon"));
                 }
             }
         }

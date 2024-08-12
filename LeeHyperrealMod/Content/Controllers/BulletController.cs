@@ -160,6 +160,7 @@ namespace LeeHyperrealMod.Content.Controllers
             inSnipeStance = true;
             if (body.hasEffectiveAuthority) 
             {
+                uiController.SetSnipeStateCrosshair(true);
                 skillLocator.primary.SetSkillOverride(skillLocator.primary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.SnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
                 skillLocator.secondary.SetSkillOverride(skillLocator.secondary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.ExitSnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
 
@@ -205,6 +206,7 @@ namespace LeeHyperrealMod.Content.Controllers
             inSnipeStance = false;
             if (body.hasEffectiveAuthority)
             {
+                uiController.SetSnipeStateCrosshair(false);
                 skillLocator.primary.UnsetSkillOverride(skillLocator.primary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.SnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
                 skillLocator.secondary.UnsetSkillOverride(skillLocator.secondary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.ExitSnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
 

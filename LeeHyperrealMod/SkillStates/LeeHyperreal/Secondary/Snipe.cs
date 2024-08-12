@@ -31,6 +31,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public OrbController orbController;
         public BulletController bulletController;
         public LeeHyperrealDomainController domainController;
+        public LeeHyperrealUIController uiController;
         public float empoweredBulletMultiplier = 1f;
 
         public Vector3 velocity;
@@ -45,6 +46,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             bulletController = gameObject.GetComponent<BulletController>();
             orbController = gameObject.GetComponent<OrbController>();
             domainController = gameObject.GetComponent<LeeHyperrealDomainController>();
+            uiController = gameObject.GetComponent<LeeHyperrealUIController>();
 
             base.characterMotor.velocity = new Vector3(0, 0, 0);
             base.characterDirection.moveVector = new Vector3(0, 0, 0);
@@ -144,6 +146,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
                 if (base.isAuthority) 
                 {
+                    uiController.TriggerFireCrosshair();
                     var modelTransform = GetModelTransform();
                     var muzzleTransform = modelTransform.Find("Rifle").transform;
                     var startPos = muzzleTransform.position;
