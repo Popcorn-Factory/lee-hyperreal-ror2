@@ -16,7 +16,7 @@ using static LeeHyperrealMod.Content.Controllers.BulletController;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 {
-    internal class EvadeBack180 : BaseRootMotionMoverState
+    internal class EvadeBack360 : BaseRootMotionMoverState
     {
         public static float duration = 0.566f;
 
@@ -226,7 +226,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                     }
                     if (result == new Vector3(0, 0, 0))
                     {
-                        base.outer.SetNextState(new EvadeBack180 { });
+                        base.outer.SetNextState(new EvadeBack360 { });
                         return;
                     }
                     if (result == new Vector3(1, 0, 0))

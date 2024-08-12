@@ -256,7 +256,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                         }
                         if (result == new Vector3(0, 0, 0))
                         {
-                            base.outer.SetNextState(new EvadeBack180 { });
+                            base.outer.SetNextState(new EvadeBack360 { });
                             return;
                         }
                         if (result == new Vector3(1, 0, 0))

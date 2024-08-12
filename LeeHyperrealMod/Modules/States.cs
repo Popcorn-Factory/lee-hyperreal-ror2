@@ -77,7 +77,7 @@ namespace LeeHyperrealMod.Modules
             #region Evade
             Modules.Content.AddEntityState(typeof(Evade));
             Modules.Content.AddEntityState(typeof(EvadeSide));
-            Modules.Content.AddEntityState(typeof(EvadeBack180));
+            Modules.Content.AddEntityState(typeof(EvadeBack360));
             #endregion
 
             #region Domain Enter State
