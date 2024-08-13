@@ -7,50 +7,105 @@ using UnityEngine.Networking;
 
 namespace LeeHyperrealMod.Content.Observers
 {
-    public class LeeHyperrealParryDamageObserver : MonoBehaviour
+    public class ParryDamageObserver : MonoBehaviour
     {
         //Need pair object to setup network connections to measure ping and apply damage after x time.
-        public class LeeHyperrealDamageContainer
+        public class ModifiedDamageInfo
         {
-            public NetworkConnection connection; // To player.
             public DamageInfo damageInfo;
-            public float timer;
-        }
+            public double timestamp;
 
-        public static LeeHyperrealParryDamageObserver instance { get; private set; }
-        public static GameObject instanceContainer { get; private set; }
-        public List<LeeHyperrealDamageContainer> damageBuffer = new List<LeeHyperrealDamageContainer>();
-
-        public static void CreateInstance() 
-        {
-            if (!instance) 
+            public ModifiedDamageInfo(DamageInfo damageInfo, double timestamp)
             {
-                instanceContainer = new GameObject("__ParryDamageBufferObserver(Singleton)");
-                instance = instanceContainer.AddComponent<LeeHyperrealParryDamageObserver>();
+                this.damageInfo = damageInfo;
+                this.timestamp = timestamp;
             }
         }
 
-        public static void DestroyInstance() 
+        public class PlayerDamageContainers
         {
-            if (instance) 
+            public NetworkClient connection; // To player.
+            public int connectionRTT; // Round trip time to player.
+            public List<ModifiedDamageInfo> modifiedDamageInfos;
+
+            public PlayerDamageContainers(NetworkClient newConnection)
+            {
+                connection = newConnection;
+                modifiedDamageInfos = new List<ModifiedDamageInfo>();
+            }
+
+            public int GetEstimatedRTT()
+            {
+                if (connection == null)
+                {
+                    return -1;
+                }
+
+                connectionRTT = connection.GetRTT();
+                return connectionRTT;
+            }
+        }
+
+        public static ParryDamageObserver instance { get; private set; }
+        public static GameObject instanceContainer { get; private set; }
+        public List<PlayerDamageContainers> playerList = new List<PlayerDamageContainers>();
+
+        public static void CreateInstance()
+        {
+            if (!instance)
+            {
+                instanceContainer = new GameObject("__ParryDamageBufferObserver(Singleton)");
+                instance = instanceContainer.AddComponent<ParryDamageObserver>();
+            }
+        }
+
+        public static void DestroyInstance()
+        {
+            if (instance)
             {
                 Destroy(instanceContainer);
             }
         }
 
-        public void OnDestroy() 
+        public void OnDestroy()
         {
             DestroyInstance();
         }
 
-        public void Awake() 
+        public void Awake()
         {
-            
+
         }
 
-        public void Update() 
+        public void Start()
         {
-            
+            if (NetworkServer.active)
+            {
+                foreach (NetworkClient client in NetworkClient.allClients)
+                {
+                    playerList.Add(new PlayerDamageContainers(client));
+                }
+            }
+        }
+
+        public void Update()
+        {
+
+        }
+
+        public void Hook()
+        {
+            On.RoR2.Networking.NetworkManagerSystem.OnClientConnect += NetworkManagerSystem_OnClientConnect;
+        }
+
+        private void NetworkManagerSystem_OnClientConnect(On.RoR2.Networking.NetworkManagerSystem.orig_OnClientConnect orig, RoR2.Networking.NetworkManagerSystem self, NetworkConnection conn)
+        {
+            orig(self, conn);
+        }
+
+        public void Unhook()
+        {
+            On.RoR2.Networking.NetworkManagerSystem.OnClientConnect -= NetworkManagerSystem_OnClientConnect;
         }
     }
 }
