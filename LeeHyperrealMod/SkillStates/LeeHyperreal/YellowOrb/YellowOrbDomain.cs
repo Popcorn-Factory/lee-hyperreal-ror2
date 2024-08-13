@@ -46,10 +46,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         float turnOnGravityFrac = 0.3f;
         float midmoveVFXrepeatFrac = 0.2f;
         bool midmoveVFXrepeatplayed = false;
+        private bool hasCancelledWithMovement = false;
 
         float invincibilityOnFrac = 0.05f;
         float invincibilityOffFrac = 0.25f;
         bool invincibilityApplied = false;
+        bool hasUnsetOrbController;
 
         public override void OnEnter()
         {
@@ -174,7 +176,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         {
             base.OnExit();
             characterMotor.gravityParameters = oldGravParams;
-            if (orbController)
+            if (orbController && !hasUnsetOrbController)
             {
                 orbController.isExecutingSkill = false;
             }
@@ -194,7 +196,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void Update()
         {
             base.Update();
-            if (base.inputBank.skill3.down && base.inputBank.skill4.down && base.isAuthority)
+            if ((base.inputBank.skill3.down || base.inputBank.skill4.down) && base.isAuthority)
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
@@ -209,13 +211,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             if (age >= duration * earlyEnd && base.isAuthority)
             {
-                if (orbController)
+                if (orbController && !hasUnsetOrbController)
                 {
+                    hasUnsetOrbController = true;
                     orbController.isExecutingSkill = false;
                 }
-                if (inputBank.moveVector != Vector3.zero)
+                if (inputBank.moveVector != Vector3.zero && !hasCancelledWithMovement)
                 {
                     base.outer.SetNextStateToMain();
+                    hasCancelledWithMovement = true;
                     return;
                 }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);

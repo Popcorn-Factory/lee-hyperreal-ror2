@@ -45,6 +45,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
         CharacterGravityParameters gravParams;
         CharacterGravityParameters oldGravParams;
+        private bool hasUnsetOrbController;
+        private bool hasCancelledWithMovement;
 
         public override void OnEnter()
         {
@@ -91,7 +93,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 inflictor = null,
                 teamIndex = base.GetTeam(),
                 position = gameObject.transform.position + GetAimRay().direction * 2.5f,
-                radius = (moveStrength == 3 ? Modules.StaticValues.yellowOrbTripleMultiplier : 1) * Modules.StaticValues.yellowOrbBlastRadius,
+                radius =  Modules.StaticValues.yellowOrbBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.None,
                 baseDamage = damageStat * Modules.StaticValues.yellowOrbDamageCoefficient * (moveStrength == 3 ? Modules.StaticValues.yellowOrbTripleMultiplier : 1),
                 baseForce = 0f,
@@ -126,7 +128,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void OnExit()
         {
             base.OnExit();
-            if (orbController)
+            if (orbController && !hasUnsetOrbController)
             {
                 orbController.isExecutingSkill = false;
             }
@@ -142,7 +144,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void Update()
         {
             base.Update();
-            if (base.inputBank.skill3.down && base.inputBank.skill4.down && base.isAuthority)
+            if ((base.inputBank.skill3.down || base.inputBank.skill4.down) && base.isAuthority)
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
@@ -166,6 +168,16 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             if (age >= duration * earlyEnd && base.isAuthority)
             {
+                if (isStrong)
+                {
+                    //Exit earlier to the Strong ender.
+                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                    {
+                        this.outer.SetNextState(new YellowOrbFinisher { });
+                        return;
+                    }
+                }
+
                 //Check any move to cancel into.
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
                 characterMotor.gravityParameters = oldGravParams;
@@ -175,25 +187,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                     hasPlayedBulletCasingSFX = true;
                     new PlaySoundNetworkRequest(characterBody.netId, "c_liRk4_skill_yellow_bullet").Send(NetworkDestination.Clients);
                 }
-                if (orbController)
+                if (orbController && !hasUnsetOrbController && !isStrong)
                 {
+                    hasUnsetOrbController = true;
                     orbController.isExecutingSkill = false;
-                }
-                if (isStrong)
-                {
-                    //Exit earlier to the Strong ender.
-                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
-                    {
-                        this.outer.SetState(new YellowOrbFinisher { });
-                        return;
-                    }
                 }
 
                 if (base.inputBank.moveVector != Vector3.zero)
                 {
-                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death && !hasCancelledWithMovement)
                     {
                         base.outer.SetNextStateToMain();
+                        hasCancelledWithMovement = true;
                         return;
                     }
                 }

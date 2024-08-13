@@ -51,7 +51,11 @@ namespace LeeHyperrealMod.Content.Controllers
         ExtraSkillSlots.ExtraInputBankTest extraInputBankTest;
 
         public bool isExecutingSkill = false;
+        public bool isCheckingInput = false;
 
+        public bool blueInputConsumed = false;
+        public bool redInputConsumed = false;
+        public bool yellowInputConsumed = false;
 
         public void Awake()
         {
@@ -159,15 +163,15 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             if (charBody.hasEffectiveAuthority && extraInputBankTest)
             {
-                if (extraInputBankTest.extraSkill1.down)
+                if (extraInputBankTest.extraSkill1.justPressed)
                 {
                     ConsumeOrbsSimple(OrbType.BLUE);
                 }
-                else if (extraInputBankTest.extraSkill2.down)
+                else if (extraInputBankTest.extraSkill2.justPressed)
                 {
                     ConsumeOrbsSimple(OrbType.RED);
                 }
-                else if (extraInputBankTest.extraSkill3.down)
+                else if (extraInputBankTest.extraSkill3.justPressed)
                 {
                     ConsumeOrbsSimple(OrbType.YELLOW);
                 }
@@ -196,66 +200,31 @@ namespace LeeHyperrealMod.Content.Controllers
                     uiController.DisableBracket(OrbType.YELLOW);
                 }
 
-                if (!isExecutingSkill)
+                if (!isExecutingSkill && !isCheckingInput)
                 {
-                    #region Controller Check
-                    if (LeeHyperrealPlugin.isControllerCheck)
-                    {
-                        ExtraSkillSlotControllerInputCheck();
-                    }
-                    #endregion
-
-
+                    bool triggeredSomething = false;
                     if (Modules.Config.isSimple.Value)
                     {
-                        if (UnityEngine.Input.GetKeyDown(Modules.Config.blueOrbTrigger.Value.MainKey))
-                        {
-                            ConsumeOrbsSimple(OrbType.BLUE);
-                        }
-                        else if (UnityEngine.Input.GetKeyDown(Modules.Config.redOrbTrigger.Value.MainKey))
-                        {
-                            ConsumeOrbsSimple(OrbType.RED);
-                        }
-                        else if (UnityEngine.Input.GetKeyDown(Modules.Config.yellowOrbTrigger.Value.MainKey))
-                        {
-                            ConsumeOrbsSimple(OrbType.YELLOW);
-                        }
+                         triggeredSomething = CheckSimpleInput();
                     }
                     else
                     {
-                        int SelectedIndex = -1;
-                        bool isAltPressed = UnityEngine.Input.GetKey(Modules.Config.orbAltTrigger.Value.MainKey);
-                        if (UnityEngine.Input.GetKeyDown(Modules.Config.orb1Trigger.Value.MainKey))
-                        {
-                            SelectedIndex = 1;
-                        }
-                        else if (UnityEngine.Input.GetKeyDown(Modules.Config.orb2Trigger.Value.MainKey))
-                        {
-                            SelectedIndex = 2;
-                        }
-                        else if (UnityEngine.Input.GetKeyDown(Modules.Config.orb3Trigger.Value.MainKey))
-                        {
-                            SelectedIndex = 3;
-                        }
-                        else if (UnityEngine.Input.GetKeyDown(Modules.Config.orb4Trigger.Value.MainKey))
-                        {
-                            SelectedIndex = 4;
-                        }
+                        CheckNonSimpleInput();
+                    }
 
-                        if (isAltPressed && SelectedIndex != -1)
+                    if (!triggeredSomething)
+                    {
+                        #region Controller Check
+                        if (LeeHyperrealPlugin.isControllerCheck)
                         {
-                            SelectedIndex += 4;
+                            ExtraSkillSlotControllerInputCheck();
                         }
-
-                        if (SelectedIndex != -1)
-                        {
-                            ConsumeOrbsFromSlot(SelectedIndex);
-                        }
+                        #endregion
                     }
                 }
 
 
-                if (uiController && !PauseManager.isPaused)
+                if (uiController)
                 {
                     orbUIStopwatch += Time.deltaTime;
                     if (orbUIStopwatch >= updateRate)
@@ -265,6 +234,61 @@ namespace LeeHyperrealMod.Content.Controllers
                         uiController.UpdateOrbAmount(orbList.Count, OrbLimit);
                     }
                 }
+            }
+        }
+
+        private bool CheckSimpleInput()
+        {
+            bool triggeredSomething = false;
+            if (UnityEngine.Input.GetKeyDown(Modules.Config.blueOrbTrigger.Value.MainKey))
+            {
+                //Debug.Log($"blue key down: {UnityEngine.Input.GetKeyDown(Modules.Config.blueOrbTrigger.Value.MainKey)}");
+                ConsumeOrbsSimple(OrbType.BLUE);
+                triggeredSomething = true;
+            }
+            else if (UnityEngine.Input.GetKeyDown(Modules.Config.redOrbTrigger.Value.MainKey))
+            {
+                ConsumeOrbsSimple(OrbType.RED);
+                triggeredSomething = true;
+            }
+            else if (UnityEngine.Input.GetKeyDown(Modules.Config.yellowOrbTrigger.Value.MainKey))
+            {
+                ConsumeOrbsSimple(OrbType.YELLOW);
+                triggeredSomething = true;
+            }
+
+            return triggeredSomething;
+        }
+
+        private void CheckNonSimpleInput()
+        {
+            int SelectedIndex = -1;
+            bool isAltPressed = UnityEngine.Input.GetKey(Modules.Config.orbAltTrigger.Value.MainKey);
+            if (UnityEngine.Input.GetKeyDown(Modules.Config.orb1Trigger.Value.MainKey))
+            {
+                SelectedIndex = 1;
+            }
+            else if (UnityEngine.Input.GetKeyDown(Modules.Config.orb2Trigger.Value.MainKey))
+            {
+                SelectedIndex = 2;
+            }
+            else if (UnityEngine.Input.GetKeyDown(Modules.Config.orb3Trigger.Value.MainKey))
+            {
+                SelectedIndex = 3;
+            }
+            else if (UnityEngine.Input.GetKeyDown(Modules.Config.orb4Trigger.Value.MainKey))
+            {
+                SelectedIndex = 4;
+            }
+
+            if (isAltPressed && SelectedIndex != -1)
+            {
+                SelectedIndex += 4;
+            }
+
+            if (SelectedIndex != -1)
+            {
+                ConsumeOrbsFromSlot(SelectedIndex);
             }
         }
 
@@ -322,12 +346,14 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             // Uses the CheckMoveValidity() and attempts to remove.     
 
+            isCheckingInput = true;
             int[] moveValidity = CheckMoveValidity(type);
             int[] failedCheck = { -1, -1, -1 };
 
             if (failedCheck[0] == moveValidity[0] && failedCheck[1] == moveValidity[1] && failedCheck[2] == moveValidity[2]) 
             {
                 // Disallowed from running.
+                isCheckingInput = false;
                 return 0;
             }
 
@@ -356,6 +382,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
             TriggerOrbState(strength, type);
             //Success.
+            isCheckingInput = false;
             return strength;
         }
 
@@ -368,6 +395,7 @@ namespace LeeHyperrealMod.Content.Controllers
             // count strength
             // Trigger state associated with that.
 
+            isCheckingInput = true;
             List<Tuple<OrbType, Nullable<int>>> typeList = new List<Tuple<OrbType, Nullable<int>>>();
             for (int i = 0; i < orbList.Count; i++) 
             {
@@ -425,6 +453,8 @@ namespace LeeHyperrealMod.Content.Controllers
                     TriggerOrbState((int)typeList[i].Item2, typeList[i].Item1);
                 }
             }
+
+            isCheckingInput = false;
         }
 
         private void ClearSuggestedOrbs(int[] indexes)
@@ -444,6 +474,11 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void TriggerOrbState(int strength, OrbType orbType) 
         {
+            
+
+            //Force this to true, preventing other states from running on top of this.
+            isExecutingSkill = true;
+
             EntityStateMachine bodyMachine = null;
             
             foreach (EntityStateMachine esm in stateMachines) 

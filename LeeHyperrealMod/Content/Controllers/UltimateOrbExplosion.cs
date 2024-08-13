@@ -33,7 +33,7 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             timer = 0f;
             pullTimer = 0f;
-            duration = 1.6f;
+            duration = 1.65f;
             triggeredExplosionVisual = false;
             NumberOfExplosionHitsFired = 0f;
 

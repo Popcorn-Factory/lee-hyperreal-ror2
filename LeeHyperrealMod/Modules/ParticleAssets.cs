@@ -81,6 +81,7 @@ namespace LeeHyperrealMod.Modules
         public static GameObject SnipeStart;
         public static GameObject Snipe;
         public static GameObject snipeHit;
+        public static GameObject snipeHitEnhanced;
         public static GameObject snipeGround;
         public static GameObject snipeBulletCasing;
         public static GameObject snipeDodge;
@@ -128,6 +129,11 @@ namespace LeeHyperrealMod.Modules
 
         #region Display particles
         public static GameObject displayLandingEffect;
+        #endregion
+
+        #region Misc
+        public static GameObject jumpEffect;
+        public static GameObject customCrosshair;
         #endregion
 
         public struct LightIntensityProps 
@@ -260,6 +266,21 @@ namespace LeeHyperrealMod.Modules
             #region Display Particles
             PopulateDisplayParticleAssets();
             #endregion
+
+            #region Misc
+            PopulateMiscAssets();
+            #endregion
+        }
+
+        private static void PopulateMiscAssets()
+        {
+            jumpEffect = GetGameObjectFromBundle("Extra Jump Floor");
+            EffectUnparenter effectUnparenter = jumpEffect.AddComponent<EffectUnparenter>();
+            effectUnparenter.duration = 0.175f;
+            jumpEffect = ModifyEffect(jumpEffect, "", true, 1.5f);
+
+
+            customCrosshair = GetGameObjectFromBundle("Lee Crosshair");
         }
 
         private static void PopulateAerialDomainAssets()
@@ -267,7 +288,7 @@ namespace LeeHyperrealMod.Modules
             primaryAerialEffectLoop = GetGameObjectFromBundle("DomainMidairLoop");
 
             primaryAerialEffectEnd = GetGameObjectFromBundle("DomainMidairEnd");
-            primaryAerialEffectEnd = ModifyEffect(primaryAerialEffectEnd, "Play_c_liRk4_skill_yellow_dilie", true, 1f);
+            primaryAerialEffectEnd = ModifyEffect(primaryAerialEffectEnd, "Play_c_liRk4_skill_yellow_dilie", true, 2f);
         }
 
         private static void PopulateDisplayParticleAssets()
@@ -401,35 +422,38 @@ namespace LeeHyperrealMod.Modules
             //    "fxr4liangatk24-lightSC2"
             //    );
 
-            Snipe = ModifyEffect(Snipe, "Play_c_liRk4_atk_ex_3", true, 1f, VFXAttributes.VFXPriority.Medium);
+            Snipe = ModifyEffect(Snipe, "", false, 1f, VFXAttributes.VFXPriority.Medium);
+
+            snipeHitEnhanced = GetGameObjectFromBundle("fxr4liangatk24bao");
+            snipeHitEnhanced = ModifyEffect(snipeHitEnhanced, "Play_c_liRk4_atk_ex_3_break", true, 2f);
 
             snipeHit = GetGameObjectFromBundle("fxr4liangatk24hit");
-            AddLightIntensityCurveWithCurve(
-                snipeHit.transform.GetChild(0).GetChild(1).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.15f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "fxr4liangatk24hit-lightSC"
-                );
-            AddLightIntensityCurveWithCurve(
-                snipeHit.transform.GetChild(1).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.18f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "fxr4liangatk24hit-spjere"
-                );
-            snipeHit = ModifyEffect(snipeHit, "Play_c_liRk4_imp_ex_3_1", true);
+            //AddLightIntensityCurveWithCurve(
+            //    snipeHit.transform.GetChild(0).GetChild(1).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.15f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    },
+            //    "fxr4liangatk24hit-lightSC"
+            //    );
+            //AddLightIntensityCurveWithCurve(
+            //    snipeHit.transform.GetChild(1).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.18f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    },
+            //    "fxr4liangatk24hit-spjere"
+            //    );
+            snipeHit = ModifyEffect(snipeHit, "Play_c_liRk4_imp_ex_3_1", true, 2f);
 
             snipeGround = GetGameObjectFromBundle("fxr4liangatk24ground");
-            snipeGround = ModifyEffect(snipeGround, "", true);
+            snipeGround = ModifyEffect(snipeGround, "", true, 2f);
 
             snipeBulletCasing = GetGameObjectFromBundle("fxr4liangatk24bulletcasing");
             snipeBulletCasing = ModifyEffect(snipeBulletCasing, "", true, 2f, VFXAttributes.VFXPriority.Low);
@@ -587,7 +611,7 @@ namespace LeeHyperrealMod.Modules
             blueOrbHit = ModifyEffect(blueOrbHit, "Play_c_liRk4_imp_blue", true);
 
             blueOrbGroundHit = GetGameObjectFromBundle("fxr4liangatk20bao");
-            blueOrbGroundHit = ModifyEffect(blueOrbGroundHit, "Play_c_liRk4_skill_blue_dilie", true);
+            blueOrbGroundHit = ModifyEffect(blueOrbGroundHit, "Play_c_liRk4_skill_blue_dilie", true, 3f);
         }
 
         private static void PopulateRedOrbAssets()

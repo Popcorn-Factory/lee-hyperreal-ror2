@@ -37,6 +37,7 @@ namespace LeeHyperrealMod.Content.Controllers
         private int blueBracketIndex = 11;
         private int redBracketIndex = 12;
         private int yellowBracketIndex = 13;
+        private float yAxisBracketFloat;
 
         //REGRET
         internal class BracketContainerProps 
@@ -65,6 +66,7 @@ namespace LeeHyperrealMod.Content.Controllers
         #region Power Meter
         private int meterindex = 15;
         private GameObject powerMeterUIObject;
+        private Transform powerMeterUIObjectBullet;
         private Animator meterAnimator;
         private bool isLerpingBetweenValues;
         private const float lerpSpeed = 10f;
@@ -82,14 +84,14 @@ namespace LeeHyperrealMod.Content.Controllers
         #endregion
 
         #region Ammo Management
-        private int bulletIndex = 1; //Starts at 1 in the power meter section
-        private int endBulletIndex = 5;
-        private int parryPoweredIndex = 6; // Starts at 6 in the power meter section
-        private int endParryPoweredIndex = 10; // Starts at 6 in the power meter section
-        private int incomingParryBulletIndex = 11;
-        private int extraParryPoweredIndex = 12; // Starts at 12 in the power meter section
-        private int endExtraParryPoweredIndex = 26; // Starts at 12 in the power meter section
-        private int incomingExtraParryPoweredIndex = 27; // Starts at 27 in the power meter section
+        private int bulletIndex = 0; //Starts at 0 in the Bullet Parent section
+        private int endBulletIndex = 4;
+        private int parryPoweredIndex = 5; // Starts at 5 in the Bullet Parent section
+        private int endParryPoweredIndex = 9; // Starts at 5 in the Bullet Parent section
+        private int incomingParryBulletIndex = 10;
+        private int extraParryPoweredIndex = 11; // Starts at 11 in the Bullet Parent section
+        private int endExtraParryPoweredIndex = 25; // Starts at 11 in the Bullet Parent section
+        private int incomingExtraParryPoweredIndex = 26; // Starts at 26 in the Bullet Parent section
         List<GameObject> bulletObjects;
         List<GameObject> parryBullets;
         List<GameObject> extraParryBullets;
@@ -128,6 +130,16 @@ namespace LeeHyperrealMod.Content.Controllers
         private Animator ultimateIndicatorAnimator;
         #endregion
 
+        #region Hold OK tag
+        HGTextMeshProUGUI holdOKTag;
+        #endregion
+
+        #region Crosshair
+        private GameObject crosshairObject;
+        private Animator crosshairAnimator;
+        public bool shouldOverrideAutoSprintingStateCrosshair;
+        #endregion
+
         private bool isInitialized = false;
 
         private HGTextMeshProUGUI CreateLabel(Transform parent, string name, string text, Vector2 position, float textScale)
@@ -143,6 +155,7 @@ namespace LeeHyperrealMod.Content.Controllers
             hgtextMeshProUGUI.alignment = TextAlignmentOptions.Center;
             hgtextMeshProUGUI.enableWordWrapping = false;
             rectTransform.localPosition = Vector2.zero;
+            rectTransform.localRotation = Quaternion.identity;
             rectTransform.anchorMin = Vector2.zero;
             rectTransform.anchorMax = Vector2.one;
             rectTransform.localScale = Vector3.one;
@@ -191,14 +204,17 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             if (!isInitialized && !baseAIPresent)
             {
+                //Initialize stuff that's custom.
                 InitializePowerMeter();
                 InitializeHealthLayer();
                 InitializeBulletUI();
                 InitializeUltimateIndicator();
-                //Now we need to initialize everything inside the canvas to variables we can control.
                 InitializeOrbAnimatorArray();
+                //Now we need to initialize everything inside the canvas to variables we can control.
                 InitializeOrbAmountLabel();
                 InitializeOrbBrackets();
+                InitializeHoldOKTag();
+                InitializeCrosshair();
 
                 if (orbController)
                 {
@@ -233,6 +249,25 @@ namespace LeeHyperrealMod.Content.Controllers
                     SetAnimatorMeterValue();
                     HandleBulletUIChange();
                     UpdateGlyphPositions();
+                    UpdateSprintingCrosshairState();
+                    LateUpdatePositions();
+                }
+            }
+        }
+
+        private void LateUpdatePositions()
+        {
+            if (LeeHyperrealPlugin.isRiskUIInstalled)
+            {
+                orbUIObject.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+                orbUIObject.transform.localPosition = new Vector3(185f, 287.8038f, 0f);
+            }
+            else // DEFAULT UI 
+            {
+                if (RoRHUDObject) 
+                {
+                    //Move Chatbox up a little bit to not collide with the energy bar.
+                    RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(0).GetChild(0).position = new Vector3(-11.4084f, - 4.3756f, 12.6537f);
                 }
             }
         }
@@ -270,9 +305,20 @@ namespace LeeHyperrealMod.Content.Controllers
         #region Invincible Health layer
         public void InitializeHealthLayer()
         {
-            if (RoRHUDObject && !healthLayers) 
+            if (RoRHUDObject && !healthLayers)
             {
-                healthLayers = UnityEngine.GameObject.Instantiate(Modules.Assets.healthPrefabs, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(0).GetChild(1).GetChild(1));
+                if (LeeHyperrealPlugin.isRiskUIInstalled)
+                {
+                    healthLayers = UnityEngine.GameObject.Instantiate(Modules.Assets.healthPrefabs, RoRHUDObject.transform.GetChild(0).GetChild(4).GetChild(2).GetChild(0).GetChild(3).GetChild(1));
+                    healthLayers.transform.rotation = Quaternion.identity;
+                    healthLayers.transform.localScale = new Vector3(0.7891f, 0.4f, 1f);
+                    healthLayers.transform.position = new Vector3(-9.7021f, -4.8843f, 12.6537f);
+                    healthLayers.transform.localPosition = new Vector3(2.3027f, 0.7998f, 0.0003f);
+                }
+                else 
+                {
+                    healthLayers = UnityEngine.GameObject.Instantiate(Modules.Assets.healthPrefabs, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(0).GetChild(1).GetChild(1));
+                }
             }
             layerInvincibilityHealthObject = healthLayers.transform.GetChild(0).gameObject;
             layerInvincibilityHazeObject = healthLayers.transform.GetChild(1).gameObject;
@@ -313,7 +359,20 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             if (RoRHUDObject && !powerMeterUIObject) 
             {
-                powerMeterUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.powerMeterObject, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(0));
+                if (LeeHyperrealPlugin.isRiskUIInstalled)
+                {
+                    powerMeterUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.powerMeterObject, RoRHUDObject.transform.GetChild(0).GetChild(4).GetChild(2).GetChild(0));
+                    powerMeterUIObject.transform.localScale = new Vector3(1, 1, 1);
+                    powerMeterUIObject.transform.localRotation = Quaternion.identity;
+                    powerMeterUIObject.transform.localPosition = new Vector3(200f, 220f, -42f);
+                    powerMeterUIObjectBullet = powerMeterUIObject.transform.GetChild(1);
+                    powerMeterUIObjectBullet.transform.localPosition = new Vector3(-30f, -4f, 11f);
+
+                }
+                else 
+                {
+                    powerMeterUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.powerMeterObject, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(0));
+                }
             }
 
             meterAnimator = powerMeterUIObject.GetComponent<Animator>();
@@ -426,9 +485,18 @@ namespace LeeHyperrealMod.Content.Controllers
                 yellowSimpleGlyph.animators[i - 1] = yellowSimpleGlyph.bracketContainer.transform.GetChild(i).GetChild(0).GetComponent<Animator>();
             }
 
-            blueSimpleGlyph.targetPosition = new Vector3(0, Modules.StaticValues.yAxisPositionBrackets, 0f);
-            redSimpleGlyph.targetPosition = new Vector3(0, Modules.StaticValues.yAxisPositionBrackets, 0f);
-            yellowSimpleGlyph.targetPosition = new Vector3(0, Modules.StaticValues.yAxisPositionBrackets, 0f);
+            if (LeeHyperrealPlugin.isRiskUIInstalled)
+            {
+                yAxisBracketFloat = Modules.StaticValues.yAxisPositionBracketsRiskUI;
+            }
+            else 
+            {
+                yAxisBracketFloat = Modules.StaticValues.yAxisPositionBrackets;
+            }
+
+            blueSimpleGlyph.targetPosition = new Vector3(0, yAxisBracketFloat, 0f);
+            redSimpleGlyph.targetPosition = new Vector3(0, yAxisBracketFloat, 0f);
+            yellowSimpleGlyph.targetPosition = new Vector3(0, yAxisBracketFloat, 0f);
         }
 
         private void ExitAllSimpleBrackets() 
@@ -608,7 +676,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
             //Set right under the orb.
             Vector3 newPosition = orbAnimators[position].transform.localPosition;
-            newPosition.y = Modules.StaticValues.yAxisPositionBrackets;
+            newPosition.y = yAxisBracketFloat;
             return newPosition;
         }
 
@@ -622,7 +690,7 @@ namespace LeeHyperrealMod.Content.Controllers
             //Set in between position and position + 1
             Vector3 newPosition = orbAnimators[position].transform.localPosition + orbAnimators[position + 1].transform.localPosition;
             newPosition = newPosition / 2f;
-            newPosition.y = Modules.StaticValues.yAxisPositionBrackets;
+            newPosition.y = yAxisBracketFloat;
             return newPosition;
         }
 
@@ -635,7 +703,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
             //Set in between position and position + 1
             Vector3 newPosition = orbAnimators[position + 1].transform.localPosition;
-            newPosition.y = Modules.StaticValues.yAxisPositionBrackets;
+            newPosition.y = yAxisBracketFloat;
 
             return newPosition;
         }
@@ -645,7 +713,17 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             if (RoRHUDObject && !orbUIObject) 
             {
-                orbUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.orbsUIObject, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(4));
+                if (LeeHyperrealPlugin.isRiskUIInstalled)
+                {
+                    orbUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.orbsUIObject, RoRHUDObject.transform.GetChild(0).GetChild(4).GetChild(2).GetChild(0));
+                    orbUIObject.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+                    orbUIObject.transform.position = new Vector3(-9.5764f, -3.2462f, 12.6537f);
+                    orbUIObject.transform.localPosition = new Vector3(185f, 287.8038f, 0f); 
+                }
+                else 
+                {
+                    orbUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.orbsUIObject, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(4));
+                }
             }
 
             // blegh not modular at all
@@ -816,23 +894,23 @@ namespace LeeHyperrealMod.Content.Controllers
             bulletObjects = new List<GameObject>();
             for (int i = bulletIndex; i <= endBulletIndex; i++) 
             {
-                bulletObjects.Add(powerMeter.GetChild(i).gameObject);
+                bulletObjects.Add(powerMeter.GetChild(1).GetChild(i).gameObject);
             }
 
             parryBullets = new List<GameObject>();
             for (int i = parryPoweredIndex; i <= endParryPoweredIndex; i++) 
             {
-                parryBullets.Add(powerMeter.GetChild(i).gameObject);
+                parryBullets.Add(powerMeter.GetChild(1).GetChild(i).gameObject);
             }
 
             extraParryBullets = new List<GameObject>();
             for (int i = extraParryPoweredIndex; i <= endExtraParryPoweredIndex; i++) 
             {
-                extraParryBullets.Add(powerMeter.GetChild(i).gameObject);
+                extraParryBullets.Add(powerMeter.GetChild(1).GetChild(i).gameObject);
             }
 
-            IncomingExtraParryBullet = powerMeter.GetChild(incomingExtraParryPoweredIndex).gameObject;
-            IncomingParryBullet = powerMeter.GetChild(incomingParryBulletIndex).gameObject;
+            IncomingExtraParryBullet = powerMeter.GetChild(1).GetChild(incomingExtraParryPoweredIndex).gameObject;
+            IncomingParryBullet = powerMeter.GetChild(1).GetChild(incomingParryBulletIndex).gameObject;
 
             //Disable all UI elements as there are no bullets.
             foreach (GameObject bullet in bulletObjects) 
@@ -1001,7 +1079,18 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             if (RoRHUDObject && !ultimateIndicatorObject)
             {
-                ultimateIndicatorObject = UnityEngine.GameObject.Instantiate(Modules.Assets.spinnyIconUIObject, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(2).GetChild(0));
+                if (LeeHyperrealPlugin.isRiskUIInstalled)
+                {
+                    ultimateIndicatorObject = UnityEngine.GameObject.Instantiate(Modules.Assets.spinnyIconUIObject, RoRHUDObject.transform.GetChild(0).GetChild(4).GetChild(2).GetChild(2).GetChild(3));
+                    ultimateIndicatorObject.transform.position = new Vector3(14.04f, -7.2146f, 12.6244f);
+                    ultimateIndicatorObject.transform.localPosition = new Vector3(199.0623f, -97.8483f, -2.9584f);
+                    ultimateIndicatorObject.transform.rotation = Quaternion.identity;
+                    ultimateIndicatorObject.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
+                }
+                else 
+                {
+                    ultimateIndicatorObject = UnityEngine.GameObject.Instantiate(Modules.Assets.spinnyIconUIObject, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(2).GetChild(0));
+                }
             }
 
             ultimateIndicatorAnimator = ultimateIndicatorObject.GetComponent<Animator>();
@@ -1065,7 +1154,93 @@ namespace LeeHyperrealMod.Content.Controllers
         }
         #endregion
 
-        public void SetRORUIActiveState(bool state) 
+        #region Hold
+        public void InitializeHoldOKTag() 
+        {
+            if (RoRHUDObject && !holdOKTag)
+            {
+                if (LeeHyperrealPlugin.isRiskUIInstalled)
+                {
+                    Transform rootObject = RoRHUDObject.transform.GetChild(0).GetChild(4).GetChild(2).GetChild(2).GetChild(3).GetChild(0).GetChild(0).GetChild(3).GetChild(0);
+                    Transform stockText = rootObject.transform.GetChild(0);
+                    holdOKTag = CreateLabel(rootObject, "Hold OK Tag", "HOLD OK!", new Vector2(stockText.transform.position.x - 7.5f, stockText.transform.position.y + 20f), 13f);
+                    holdOKTag.color = Modules.StaticValues.blueInvincibility;
+                }
+                else 
+                {
+                    Transform rootObject = RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(2).GetChild(0).GetChild(3).GetChild(4);
+                    Transform stockText = rootObject.transform.GetChild(0);
+                    holdOKTag = CreateLabel(rootObject, "Hold OK Tag", "HOLD OK!", new Vector2(stockText.transform.position.x - 7.5f, stockText.transform.position.y + 18f), 12f);
+                    holdOKTag.color = Modules.StaticValues.blueInvincibility;
+                }
+            }
+        }
+
+        public void SetHoldTagState(bool state) 
+        {
+            if (holdOKTag) 
+            {
+                holdOKTag.gameObject.SetActive(state);
+            }
+        }
+        #endregion
+
+        #region Crosshair
+        public void InitializeCrosshair() 
+        {
+            if (RoRHUDObject) 
+            {
+                if (LeeHyperrealPlugin.isRiskUIInstalled)
+                {
+                    crosshairObject = UnityEngine.Object.Instantiate(Modules.ParticleAssets.customCrosshair, RoRHUDObject.transform.GetChild(0).GetChild(4).GetChild(1));
+                }
+                else 
+                {
+                    crosshairObject = UnityEngine.Object.Instantiate(Modules.ParticleAssets.customCrosshair, RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(1));
+                }
+            }
+
+            crosshairObject.transform.localScale = new Vector3(Modules.Config.crosshairSize.Value, Modules.Config.crosshairSize.Value, 0f);
+
+            crosshairAnimator = crosshairObject.GetComponent<Animator>();
+        }
+
+        public void TriggerFireCrosshair() 
+        {
+            if (crosshairAnimator) 
+            {
+                crosshairAnimator.SetTrigger("Fire");
+            }
+        }
+
+        public void SetSnipeStateCrosshair(bool state) 
+        {
+            if (crosshairAnimator) 
+            {
+                crosshairAnimator.SetBool("isSnipe", state);
+            }
+        }
+
+        public void SetSprintingStateCrosshair(bool state) 
+        {
+            if (crosshairAnimator) 
+            {
+                crosshairAnimator.SetBool("isSprinting", state);
+            }
+        }
+
+        public void UpdateSprintingCrosshairState() 
+        {
+            if (shouldOverrideAutoSprintingStateCrosshair) 
+            {
+                return;
+            }
+            
+            SetSprintingStateCrosshair(characterBody.isSprinting);
+        }
+        #endregion
+
+        public void SetRORUIActiveState(bool state)
         {
             if (RoRHUDObject) 
             {
@@ -1081,6 +1256,15 @@ namespace LeeHyperrealMod.Content.Controllers
             Modules.Config.blueOrbTrigger.SettingChanged += SimpleKeyChanged;
             Modules.Config.redOrbTrigger.SettingChanged += SimpleKeyChanged;
             Modules.Config.yellowOrbTrigger.SettingChanged += SimpleKeyChanged;
+            Modules.Config.crosshairSize.SettingChanged += CrosshairSize_SettingChanged;
+        }
+
+        private void CrosshairSize_SettingChanged(object sender, EventArgs e)
+        {
+            if (crosshairObject) 
+            {
+                crosshairObject.transform.localScale = new Vector3(Modules.Config.crosshairSize.Value, Modules.Config.crosshairSize.Value, 0f);
+            }
         }
 
         private void SimpleKeyChanged(object sender, EventArgs e)
@@ -1116,26 +1300,6 @@ namespace LeeHyperrealMod.Content.Controllers
             if (!RoRHUDObject) 
             {
                 RoRHUDObject = self.gameObject;
-            }
-        }
-
-        private void CameraRigController_Update(On.RoR2.CameraRigController.orig_Update orig, CameraRigController self)
-        {
-            orig(self);
-            //Perform a check to see if the hud is disabled and enable/disable our hud if necessary.
-            if (self.hud.mainUIPanel.activeInHierarchy)
-            {
-                if (canvasObject && characterBody.hasEffectiveAuthority && !baseAIPresent)
-                {
-
-                }
-            }
-            else
-            {
-                if (canvasObject && characterBody.hasEffectiveAuthority)
-                {
-                
-                }
             }
         }
         #endregion

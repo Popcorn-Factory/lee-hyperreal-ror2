@@ -160,7 +160,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
         public override void Update()
         {
-            if (base.inputBank.skill3.down && base.inputBank.skill4.down && base.isAuthority)
+            if ((base.inputBank.skill3.justPressed || base.inputBank.skill4.justPressed) && base.isAuthority)
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
@@ -206,7 +206,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                 {
                     //Cancel out into Domain shift skill state
-                    base.outer.SetState(new DomainEnterState { shouldForceUpwards = true });
+                    base.outer.SetNextState(new DomainEnterState { shouldForceUpwards = true });
                 }
             }
 
@@ -302,21 +302,21 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 {
                     if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                     {
-                        base.outer.SetState(new PrimaryDomainAerialStart { });
+                        base.outer.SetNextState(new PrimaryDomainAerialStart { });
                         return;
                     }
                 }
 
                 if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                 {
-                    base.outer.SetState(new PrimaryAerialStart { });
+                    base.outer.SetNextState(new PrimaryAerialStart { });
                     return;
                 }
             }
 
             if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
             {
-                base.outer.SetState(new Primary5 { });
+                base.outer.SetNextState(new Primary5 { });
             }
         }
 

@@ -12,6 +12,8 @@ namespace LeeHyperrealMod.SkillStates
     internal class LeeHyperrealCharacterMain : GenericCharacterMain
     {
         LeeHyperrealDomainController domainController;
+        Transform baseTransform;
+        int baseTransformIndex;
 
         public override void OnEnter()
         {
@@ -86,6 +88,30 @@ namespace LeeHyperrealMod.SkillStates
 
                 this.modelAnimator.Update(0f);
             }
+
+
+            ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
+            baseTransform = childLocator.FindChild("BaseTransform");
+            baseTransformIndex = childLocator.FindChildIndex("BaseTransform");
+        }
+
+        public override void ProcessJump()
+        {
+            int beforeJumpCount = base.characterMotor.jumpCount;
+            base.ProcessJump();
+            int afterJumpCount = base.characterMotor.jumpCount;
+            if (beforeJumpCount < afterJumpCount && base.characterMotor.jumpCount != 1)
+            {
+                EffectData data = new EffectData
+                {
+                    origin = baseTransform.position,
+                    scale = 1f,
+                    rotation = baseTransform.rotation,
+                };
+
+                data.SetChildLocatorTransformReference(gameObject, baseTransformIndex);
+                EffectManager.SpawnEffect(Modules.ParticleAssets.jumpEffect, data, true);
+            }
         }
 
         public override void Update()
@@ -108,7 +134,7 @@ namespace LeeHyperrealMod.SkillStates
             {
                 if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                 {
-                    base.outer.SetState(new EnterSnipe());
+                    base.outer.SetNextState(new EnterSnipe());
                 }
             }
         }

@@ -142,7 +142,7 @@ namespace LeeHyperrealMod.Modules.Networking
 
                         };
 
-                        singularTarget.healthComponent.TakeDamageForce(a2 * (Weight), true, true);
+                        singularTarget.healthComponent.TakeDamageForce(a2 * (Weight) * 0.5f, true, true);
                         singularTarget.healthComponent.TakeDamage(damageInfo);
                         GlobalEventManager.instance.OnHitEnemy(damageInfo, singularTarget.healthComponent.gameObject);
 

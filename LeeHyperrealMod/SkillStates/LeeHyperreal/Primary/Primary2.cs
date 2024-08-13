@@ -19,8 +19,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public static float initialSpeedCoefficient = 3f;
         public static float finalSpeedCoefficient = 0f;
 
-        public static float moveStartFrac = 0.25f;
-        public static float moveEndFrac = 0.35f;
+        public static float moveStartFrac = 0.125f;
+        public static float moveEndFrac = 0.175f;
         private Ray aimRay;
 
         public RootMotionAccumulator rma;
@@ -28,12 +28,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public static float heldButtonThreshold = 0.25f;
         public bool ifButtonLifted = false;
 
-        public float attack2StartFrac = 0.35f;
-        public float attack2EndFrac = 0.40f;
+        public float attack2StartFrac = 0.175f;
+        public float attack2EndFrac = 0.2f;
         public bool hasFired2 = false;
 
-        public float attack3StartFrac = 0.45f;
-        public float attack3EndFrac = 0.50f;
+        public float attack3StartFrac = 0.225f;
+        public float attack3EndFrac = 0.25f;
         public bool hasFired3 = false;
 
         private LeeHyperrealDomainController domainController;
@@ -51,8 +51,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.baseDuration = 2.366f;
             this.attackStartTime = 0.25f;
             this.attackEndTime = 0.35f;
-            this.moveCancelEndTime = 0.6f;
-            this.baseEarlyExitTime = 0.5f;
+            this.moveCancelEndTime = 0.3f;
+            this.baseEarlyExitTime = 0.225f;
 
             this.bufferActiveTime = 0.15f;
             this.hitStopDuration = 0.012f;
@@ -122,7 +122,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 //Cancel out into Domain shift skill state
                 if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                 {
-                    base.outer.SetState(new DomainEnterState { shouldForceUpwards = true });
+                    base.outer.SetNextState(new DomainEnterState { shouldForceUpwards = true });
                 }
             }
 
@@ -137,7 +137,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             {
                 FireSecondAttack();
             }
-            base.FixedUpdate();
             if (base.stopwatch >= duration * attack3StartFrac && base.stopwatch <= duration * attack3EndFrac && base.isAuthority && !hasFired3)
             {
                 FireThirdAttack();
@@ -289,7 +288,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             // Move to Primary3
             if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
             {
-                base.outer.SetState(new Primary3 { });
+                base.outer.SetNextState(new Primary3 { });
             }
         }
 

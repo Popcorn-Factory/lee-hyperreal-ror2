@@ -118,7 +118,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                 {
                     //Cancel out into Domain shift skill state
-                    base.outer.SetState(new DomainEnterState { shouldForceUpwards = true });
+                    base.outer.SetNextState(new DomainEnterState { shouldForceUpwards = true });
                 }
             }
 

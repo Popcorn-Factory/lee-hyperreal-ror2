@@ -12,6 +12,9 @@ namespace LeeHyperrealMod.Content.Controllers
         int selectedNum;
         bool playedSound;
 
+        float duration = 6f;
+        float timer = 0f;
+
         public void Awake() 
         {
             animator = GetComponent<Animator>();
@@ -21,6 +24,7 @@ namespace LeeHyperrealMod.Content.Controllers
             baseTransform = childLocator.FindChild("BaseTransform"); 
 
             selectedNum = GenerateRandomNum();
+            timer = 0f;
             SetDisableClone();
         }
 
@@ -46,6 +50,11 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             selectedNum = GenerateRandomNum();
             playedSound = false;
+            timer = 0f;
+            if (animator) 
+            {
+                animator.SetBool("StartBlinking", false);
+            }
             SetDisableClone();
         }
 
@@ -57,6 +66,18 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void Update() 
         {
+
+            if (timer >= duration)
+            {
+                if (animator)
+                {
+                    animator.SetBool("StartBlinking", true);
+                }
+            }
+            else 
+            {
+                timer += Time.deltaTime;
+            }
             if (animator) 
             {
                 animator.SetInteger("SelectSpawnTrigger", selectedNum);

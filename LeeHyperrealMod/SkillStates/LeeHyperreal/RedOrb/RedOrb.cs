@@ -16,6 +16,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
         public float start = 0;
         public float earlyEnd = 0.35f;
+        public float rmaEnd = 0.44f;
         public float fireFrac = 0.20f;
         public float endFireFrac = 0.3f;
         public int baseFireAmount = Modules.StaticValues.redOrbBaseHitAmount;
@@ -39,13 +40,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         private float invincibilityStartFrac = 0.16f;
         private float invincibilityEndFrac = 0.4f;
         private bool invincibilitySet = false;
+        private bool hasResetRMA = false;
 
         float movespeedScalingCap = 25f;
+        private bool hasCancelledWithMovement = false;
 
         float disableInvincibility = 0.42f;
         public OrbController orbController;
         public BulletController bulletController;
-
+        bool hasUnsetOrbController;
         public override void OnEnter()
         {
             base.OnEnter();
@@ -103,7 +106,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 smartCollision = true,
                 procChainMask = default(ProcChainMask),
                 procCoefficient = procCoefficient,
-                radius = 1.4f,
+                radius = 2f,
                 sniper = false,
                 stopperMask = LayerIndex.CommonMasks.bullet,
                 weapon = null,
@@ -134,7 +137,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
             if (base.isAuthority) 
             {
-                Modules.Helpers.PlaySwingEffect("BaseTransform", 1.25f, Modules.ParticleAssets.redOrbSwing, gameObject);
+                Modules.Helpers.PlaySwingEffect("BaseTransform", 1f, Modules.ParticleAssets.redOrbSwing, gameObject);
             }
         }
 
@@ -146,7 +149,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public override void OnExit()
         {
             base.OnExit();
-            if (orbController)
+            if (orbController && !hasUnsetOrbController)
             {
                 orbController.isExecutingSkill = false;
             }
@@ -160,29 +163,32 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public override void Update()
         {
             base.Update();
-            if (base.inputBank.skill3.down && base.inputBank.skill4.down && base.isAuthority)
+            if ((base.inputBank.skill3.down || base.inputBank.skill4.down) && base.isAuthority)
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
             if (age >= duration * earlyEnd && base.isAuthority)
             {
-                if (orbController)
-                {
-                    orbController.isExecutingSkill = false;
-                }
                 if (isStrong)
                 {
                     if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                     {
                         //Exit earlier to the Strong ender.
-                        this.outer.SetState(new RedOrbFinisher { });
+                        this.outer.SetNextState(new RedOrbFinisher { });
                         return;
                     }
                 }
 
-                if (inputBank.moveVector != Vector3.zero) 
+                if (orbController && !hasUnsetOrbController && !isStrong)
+                {
+                    hasUnsetOrbController = true;
+                    orbController.isExecutingSkill = false;
+                }
+
+                if (inputBank.moveVector != Vector3.zero && !hasCancelledWithMovement) 
                 {
                     this.outer.SetNextStateToMain();
+                    hasCancelledWithMovement = true;
                     return;
                 }
 
@@ -213,8 +219,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 invincibilitySet = true;
                 base.characterBody.AddTimedBuff(Modules.Buffs.invincibilityBuff.buffIndex, (duration * invincibilityEndFrac) - (duration * invincibilityStartFrac));
             }
-
-
+            if (fixedAge >= duration * rmaEnd && !hasResetRMA)
+            {
+                rmaMultiplier = 1f;
+                hasResetRMA = true;
+            }
             if (fixedAge >= duration)
             {
                 outer.SetNextStateToMain();

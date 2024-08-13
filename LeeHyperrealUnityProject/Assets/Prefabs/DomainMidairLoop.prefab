@@ -2076,7 +2076,7 @@ ParticleSystem:
     speedModifier:
       serializedVersion: 2
       minMaxState: 1
-      scalar: 5
+      scalar: 10
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -2091,8 +2091,8 @@ ParticleSystem:
           inWeight: 0.33333334
           outWeight: 0.33333334
         - serializedVersion: 3
-          time: 0.1495285
-          value: 0.2027497
+          time: 0.071926825
+          value: 0.0994477
           inSlope: 0
           outSlope: 0
           tangentMode: 0

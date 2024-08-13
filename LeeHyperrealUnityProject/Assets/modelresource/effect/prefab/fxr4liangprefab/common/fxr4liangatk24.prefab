@@ -49779,7 +49779,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.3803922, g: 0.5372549, b: 1, a: 1}
-  m_Intensity: 1.6
+  m_Intensity: 4
   m_Range: 80
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -49907,7 +49907,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.45
+      scalar: 0.25
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -49924,7 +49924,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -6
+      scalar: -1
       minScalar: 5
       maxCurve:
         serializedVersion: 2

@@ -46,7 +46,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         internal Vector3 bonusForce = Vector3.zero;
         internal float pushForce = 100f;
         private bool hasFiredOverlap;
-
+        bool hasUnsetOrbController;
+        public bool hasCancelledWithMovement;
         public override void OnEnter()
         {
             base.OnEnter();
@@ -121,7 +122,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         {
             PlayAnimation("Body", "BufferEmpty");
             base.OnExit();
-            if (orbController)
+            if (orbController && !hasUnsetOrbController)
             {
                 orbController.isExecutingSkill = false;
             }
@@ -130,7 +131,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public override void Update()
         {
             base.Update();
-            if (base.inputBank.skill3.down && base.inputBank.skill4.down && base.isAuthority)
+            if ((base.inputBank.skill3.down || base.inputBank.skill4.down) && base.isAuthority)
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
@@ -148,13 +149,15 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
 
             if (base.age >= duration * exitEarlyFrac && base.isAuthority) 
             {
-                if (orbController)
+                if (orbController && !hasUnsetOrbController)
                 {
+                    hasUnsetOrbController = true;
                     orbController.isExecutingSkill = false;
                 }
-                if (inputBank.moveVector != Vector3.zero) 
+                if (inputBank.moveVector != Vector3.zero && !hasCancelledWithMovement) 
                 {
                     this.outer.SetNextStateToMain();
+                    hasCancelledWithMovement = true;
                     return;
                 }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);

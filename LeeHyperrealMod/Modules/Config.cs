@@ -37,6 +37,8 @@ namespace LeeHyperrealMod.Modules
         public static ConfigEntry<bool> voiceEnabled;
         public static ConfigEntry<float> voiceVolume;
 
+        public static ConfigEntry<float> crosshairSize;
+        
         public static ConfigEntry<float> ceaseChance;
 
 
@@ -155,9 +157,16 @@ namespace LeeHyperrealMod.Modules
                 new ConfigDescription("Determines the volume of voice lines")
             );
 
+            crosshairSize = LeeHyperrealPlugin.instance.Config.Bind<float>
+            (
+                new ConfigDefinition("05 - Crosshair", "Crosshair Size"),
+                0.6f,
+                new ConfigDescription("Determines the crosshair size on both axes. (e.g 1 = 1x1, 0.5 = 0.5x0.5, you get the idea.)")
+            );
+
             ceaseChance = LeeHyperrealPlugin.instance.Config.Bind<float>
             (
-                new ConfigDefinition("05 - Cease", "Cease chance"),
+                new ConfigDefinition("06 - Cease", "Cease chance"),
                 1f,
                 new ConfigDescription("Determines chance of cease event to occur. (Go figure out what this means yourself.)")
             );
@@ -234,6 +243,17 @@ namespace LeeHyperrealMod.Modules
                     }
                 )
             );
+
+            ModSettingsManager.AddOption(
+               new StepSliderOption(
+                      crosshairSize,
+                      new StepSliderConfig
+                      {
+                          min = 0f,
+                          max = 1.5f,
+                          increment = 0.01f
+                      }
+                  ));
 
             ModSettingsManager.AddOption(
                   new StepSliderOption(

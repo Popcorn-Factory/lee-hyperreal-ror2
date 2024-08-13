@@ -8,12 +8,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Snipe Floor
-  m_Shader: {fileID: 4800000, guid: 9ad199a191cef8344a941e549d87ac59, type: 3}
+  m_Shader: {fileID: 4800000, guid: 120411215daf8f6469d05880636cf70c, type: 3}
   m_ShaderKeywords: _ALPHABLEND_ON _MAINTEX_DISABLE _MASKUV0 _VERTEX_OFFSET
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
+  m_CustomRenderQueue: -1
   stringTagMap:
     DebugOverDraw: Off
     DisableBatching: true
@@ -25,6 +25,10 @@ Material:
     - _DissolutionTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 2, y: 15}
+        m_Offset: {x: 0, y: 0}
+    - _ExtraBright:
+        m_Texture: {fileID: 2800000, guid: b38ff4e4130c0e04fb5a79198fd1e4b8, type: 3}
+        m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FireNoise:
         m_Texture: {fileID: 0}
@@ -58,8 +62,24 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _VertexMove:
+        m_Texture: {fileID: 2800000, guid: d7b84a1217c42e04faee3ba4b13cacab, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _VertexMove1:
+        m_Texture: {fileID: 2800000, guid: d7b84a1217c42e04faee3ba4b13cacab, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _VertexOffset_Tex:
         m_Texture: {fileID: 2800000, guid: d7b84a1217c42e04faee3ba4b13cacab, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _flooralpha:
+        m_Texture: {fileID: 2800000, guid: d24d4a0b43b0f174c8f5e0005b393b2b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -68,9 +88,11 @@ Material:
     - IF_MaskFlowMapKeyword: 0
     - _AlphaTest: 0
     - _BlendMode: 3
+    - _ChromaticAberration: 0.1
     - _ColorMask: 15
     - _CullMode: 0
     - _CustomAlpha: 1
+    - _Cutoff: 0.5
     - _DissolutionRotation: 0
     - _DissolutionSoftness: 0
     - _DissolutionThreshold: 1
@@ -79,6 +101,7 @@ Material:
     - _EffectBrightnessB: 8.2
     - _EffectBrightnessG: 2
     - _EffectBrightnessR: 2
+    - _Float2: 0
     - _FlowIntensity: 10
     - _HideDistance: 2
     - _MainRotation: 0
@@ -99,6 +122,12 @@ Material:
     - _SpecialEffectIntensity: 0
     - _SrcBlend: 5
     - _StencilReadMask: 6
+    - _TransAmbient: 0.2
+    - _TransDirect: 1
+    - _TransNormalDistortion: 0.1
+    - _TransScattering: 2
+    - _TransShadow: 0.9
+    - _Translucency: 1
     - _VAT_Blend: 1
     - _VAT_Frame: 0
     - _VAT_FrameCount: 0
@@ -109,13 +138,19 @@ Material:
     - _VertexOffset_Speed_R: -0.072
     - _VertexOffset_Strength_G: 0.043
     - _VertexOffset_Strength_R: -0.064
+    - _VertexStrength: 0.06
+    - _YVertexMoveOfsset: 0.03
     - _ZOffset: 0
     - _ZTest: 8
     - _ZWrite: 0
+    - __dirty: 0
+    - _emitstrength: 1
+    - _opacity: 1
     m_Colors:
     - _DissolutionColor: {r: 1, g: 1, b: 1, a: 0}
     - _DissolutionRotationParams: {r: 1, g: 0, b: 0, a: 1}
     - _FlowSpeed: {r: 0.1, g: 0.1, b: -0.1, a: 0.1}
+    - _MainColor: {r: 0, g: 1.8429337, b: 16, a: 1}
     - _MainRotationParams: {r: 1, g: 0, b: 0, a: 1}
     - _MainTexColor: {r: 1, g: 1, b: 1, a: 1}
     - _MaskRotationParams: {r: 1, g: 0, b: 0, a: 1}
@@ -126,3 +161,5 @@ Material:
     - _TintColor: {r: 0.29792628, g: 0.40664405, b: 0.6132076, a: 1}
     - _VAT_MaxBound: {r: 0, g: 0, b: 0, a: 1}
     - _VAT_MinBound: {r: 0, g: 0, b: 0, a: 1}
+    - _offsetalpha: {r: 1, g: 1, b: 0, a: 0}
+    - _zoom: {r: 1, g: 1, b: 0, a: 0}

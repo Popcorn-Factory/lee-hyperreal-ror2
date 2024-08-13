@@ -121,24 +121,25 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
                     if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                     {
+                        inputBank.skill3.hasPressBeenClaimed = true;
                         if (result == new Vector3(0, 0, 1))
                         {
-                            base.outer.SetState(new Evade.Evade { unsetSnipe = true });
+                            base.outer.SetNextState(new Evade.Evade { unsetSnipe = true });
                             return;
                         }
                         if (result == new Vector3(0, 0, 0))
                         {
-                            base.outer.SetState(new EvadeBack180 { });
+                            base.outer.SetNextState(new EvadeBack360 { });
                             return;
                         }
                         if (result == new Vector3(1, 0, 0))
                         {
-                            base.outer.SetState(new EvadeSide { isLeftRoll = false });
+                            base.outer.SetNextState(new EvadeSide { isLeftRoll = false });
                             return;
                         }
                         if (result == new Vector3(-1, 0, 0))
                         {
-                            base.outer.SetState(new EvadeSide { isLeftRoll = true });
+                            base.outer.SetNextState(new EvadeSide { isLeftRoll = true });
                             return;
                         }
 
@@ -150,7 +151,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                 {
                     if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                     {
-                        base.outer.SetState(new ExitSnipe());
+                        base.outer.SetNextState(new ExitSnipe());
                     }
                 }
 

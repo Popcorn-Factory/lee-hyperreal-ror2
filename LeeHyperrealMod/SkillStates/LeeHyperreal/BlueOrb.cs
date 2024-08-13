@@ -17,12 +17,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         WeaponModelHandler weaponModelHandler;
         LeeHyperrealDomainController domainController;
 
+        public static float force = 800f;
+        public static float range = 256f;
+
         public float start = 0;
         public float earlyEnd = 0.38f;
+        public float rmaEnd = 0.44f;
         public float fireFrac = 0.22f;
         public float duration = 3.83f;
         public int moveStrength; //1-3
         public bool hasFired;
+        public bool hasCancelledWithMovement;
+        private bool hasResetRMA = false;
 
         internal BlastAttack blastAttack;
         internal int attackAmount;
@@ -40,7 +46,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         float movespeedScalingCap = 15f;
 
-        float disableInvincibility = 0.43f;
+        float disableInvincibility = 0.2f;
 
         float orbCancelFrac = 0.24f;
 
@@ -55,6 +61,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
         float transitionWeaponFrac = 0.35f;
         bool hasTransitioned = false;
 
+        bool hasUnsetOrbController;
         public override void OnEnter()
         {
             base.OnEnter();
@@ -105,7 +112,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 inflictor = null,
                 teamIndex = base.GetTeam(),
                 position = base.gameObject.transform.position + (GetAimRay().direction * 2.5f),
-                radius = (moveStrength == 3 ? Modules.StaticValues.blueOrbTripleMultiplier : 1) * Modules.StaticValues.blueOrbBlastRadius,
+                radius = Modules.StaticValues.blueOrbBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.None,
                 baseDamage = this.damageStat * Modules.StaticValues.blueOrbBlastRadius * (moveStrength == 3 ? Modules.StaticValues.blueOrbTripleMultiplier : 1),
                 baseForce = 0f,
@@ -129,20 +136,20 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 damageColorIndex = DamageColorIndex.Default,
                 damageType = DamageType.Generic,
                 falloffModel = BulletAttack.FalloffModel.DefaultBullet,
-                maxDistance = Shoot.range,
-                force = Shoot.force,
+                maxDistance = range,
+                force = force,
                 hitMask = LayerIndex.CommonMasks.bullet,
                 minSpread = 0f,
                 maxSpread = 0f,
                 isCrit = base.RollCrit(),
                 owner = base.gameObject,
-                muzzleName = "RifleEnd",
-                smartCollision = false,
+                muzzleName = "RifleTip",
+                smartCollision = true,
                 procChainMask = default(ProcChainMask),
                 procCoefficient = Modules.StaticValues.blueOrbProcCoefficient,
                 radius = 0.75f,
                 sniper = false,
-                stopperMask = LayerIndex.CommonMasks.bullet,
+                stopperMask = LayerIndex.world.mask,
                 weapon = null,
                 spreadPitchScale = 0f,
                 spreadYawScale = 0f,
@@ -191,7 +198,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
         public override void OnExit()
         {
-            if (orbController)
+            if (orbController && !hasUnsetOrbController)
             {
                 orbController.isExecutingSkill = false;
             }
@@ -243,7 +250,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
                 weaponModelHandler.SetLaserState(false);
             }
-
+            if (fixedAge >= duration * rmaEnd && !hasResetRMA)
+            {
+                rmaMultiplier = 1f;
+                hasResetRMA = true;
+            }
             if (base.inputBank.skill1.down && base.isAuthority && base.age <= duration * disallowTransition)
             {
                 heldDownTimer += Time.deltaTime;
@@ -265,24 +276,25 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             }
 
 
-            if (base.inputBank.skill3.down && base.inputBank.skill4.down && base.isAuthority)
+            if ((base.inputBank.skill3.down || base.inputBank.skill4.down) && base.isAuthority)
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
 
             if (base.age >= duration * orbCancelFrac && base.isAuthority) 
             {
-                if (orbController)
+                if (orbController && !hasUnsetOrbController)
                 {
                     orbController.isExecutingSkill = false;
                 }
             }
             if (base.age >= duration * earlyEnd && base.isAuthority)
             {
-                if (inputBank.moveVector != new Vector3()) 
+                if (inputBank.moveVector != new Vector3() && !hasCancelledWithMovement) 
                 {
                     //Cancel
                     base.outer.SetNextStateToMain();
+                    hasCancelledWithMovement = true;
                     return;
                 }
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(base.skillLocator, isAuthority, base.inputBank);
@@ -337,14 +349,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 }
             }
 
-            bulletAttack.aimVector = ((OriginalPosition - muzzlePos.position).normalized + Vector3.down * 0.4f).normalized;
+            bulletAttack.aimVector = ((OriginalPosition - muzzlePos.position).normalized + Vector3.down * 0.35f).normalized;
             bulletAttack.origin = muzzlePos.position;
             bulletAttack.Fire();
 
             EffectData effectData = new EffectData
             {
-                origin = muzzlePos.position + Vector3.down * 2f,
-                rotation = Quaternion.LookRotation(((OriginalPosition - muzzlePos.position).normalized + Vector3.down * 0.4f).normalized, Vector3.up),
+                origin = muzzlePos.position,
+                rotation = Quaternion.LookRotation(((OriginalPosition - muzzlePos.position).normalized + Vector3.down * 0.35f).normalized, Vector3.up),
             };
             EffectManager.SpawnEffect(Modules.ParticleAssets.blueOrbShot, effectData, true);
 
@@ -354,7 +366,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             {
                 EffectData BlueOrbGroundEffectData = new EffectData
                 {
-                    scale = 2f
+                    scale = 4f
                 };
                 EffectManager.SimpleEffect(Modules.ParticleAssets.blueOrbGroundHit, hit.point, Quaternion.identity, true);
             }

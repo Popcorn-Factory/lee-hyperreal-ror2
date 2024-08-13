@@ -20,6 +20,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         public float start = 0;
         public float earlyEnd = 0.9f;
         public float fireTime = 0.514f;
+        public float cannonAimTime = 0.4f;
+        public float cannonAimStopTime = 0.65f;
         public float duration = 6.7f;
         public bool hasFired;
         public int moveStrength; //1-3
@@ -139,8 +141,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                     TriggerFreezeAtPoint(aimRay.origin + (aimRay.direction * 20f));
                 }
             }
-
-            GetModelAnimator().SetBool("isUltimate", true);
 
             if (base.isAuthority) 
             {
@@ -262,12 +262,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 UnityEngine.Object.Instantiate(Modules.ParticleAssets.UltimateDomainCEASEYOUREXISTANCE, Camera.main.transform);
             }
 
-            if (age >= duration * weaponTransitionFrac && !hasTransitioned) 
+            if (age >= duration * weaponTransitionFrac && !hasTransitioned)
             {
                 hasTransitioned = true;
                 weaponModelHandler.TransitionState(WeaponModelHandler.WeaponState.SUBMACHINE);
             }
 
+            GetModelAnimator().SetBool("isUltimate", (age >= duration * cannonAimTime && age <= duration * cannonAimStopTime));
 
             if (age >= duration * earlyEnd && base.isAuthority)
             {
@@ -368,7 +369,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.Skill;
+            return InterruptPriority.Frozen;
         }
     }
 }

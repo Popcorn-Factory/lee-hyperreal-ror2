@@ -39,8 +39,8 @@ namespace LeeHyperrealMod.Modules.Survivors
 
             characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("LeeCharacterIcon"),
             bodyColor = new Color(0.4f, 1f, 1f),
+            aimOriginPosition = new Vector3(0f, 0f ,0f),
 
-            crosshair = Modules.Assets.LoadCrosshair("Standard"),
             podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
 
             maxHealth = 110f,
@@ -418,7 +418,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 interruptPriority = EntityStates.InterruptPriority.Skill,
                 resetCooldownTimerOnUse = false,
                 isCombatSkill = true,
-                mustKeyPress = false,
+                mustKeyPress = true,
                 cancelSprintingOnActivation = false,
                 rechargeStock = 0,
                 requiredStock = 0,
@@ -518,7 +518,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 activationState = new EntityStates.SerializableEntityStateType(typeof(Evade)),
                 activationStateMachineName = "Body",
                 baseMaxStock = 5,
-                baseRechargeInterval = 3f,
+                baseRechargeInterval = 6f,
                 beginSkillCooldownOnSkillEnd = false,
                 canceledFromSprinting = false,
                 forceSprintDuringState = true,
@@ -545,9 +545,9 @@ namespace LeeHyperrealMod.Modules.Survivors
                 skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("texUltimate"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Ultimate.UltimateEntry)),
                 activationStateMachineName = "Body",
-                baseMaxStock = 1,
-                baseRechargeInterval = 40f,
-                beginSkillCooldownOnSkillEnd = false,
+                baseMaxStock = 10,
+                baseRechargeInterval = 4f,
+                beginSkillCooldownOnSkillEnd = true,
                 canceledFromSprinting = false,
                 forceSprintDuringState = false,
                 fullRestockOnAssign = true,
@@ -557,8 +557,8 @@ namespace LeeHyperrealMod.Modules.Survivors
                 mustKeyPress = true,
                 cancelSprintingOnActivation = true,
                 rechargeStock = 1,
-                requiredStock = 1,
-                stockToConsume = 1,
+                requiredStock = 10,
+                stockToConsume = 10,
                 keywordTokens = new string[] { $"{prefix}KEYWORD_DOMAIN_ULT" }
             });
 

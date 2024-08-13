@@ -123,6 +123,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
             if (charBody.hasEffectiveAuthority)
             {
+                UpdateHoldTag();
                 // Normal stuff.
                 if (!isInDomain)
                 {
@@ -139,6 +140,11 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
                 UpdateUIController();
             }
+        }
+
+        private void UpdateHoldTag()
+        {
+            uiController.SetHoldTagState(energy >= maxEnergy);
         }
 
         public void EnableLoopEffect() 
@@ -163,7 +169,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 return;
             }
 
-            if (skillLocator.special.stock >= 1 && !GetDomainState()) 
+            if (skillLocator.special.stock >= 10 && !GetDomainState()) 
             {
                 SetIconState(UltimateIconState.ULTIMATE);
                 return;
@@ -250,12 +256,12 @@ namespace LeeHyperrealMod.Content.Controllers
             }
         }
 
-        public void AddEnergy(float energy) 
+        public void AddEnergy(float incomingEnergy) 
         {
-            this.energy += energy;
+            this.energy += incomingEnergy;
             if (this.energy >= maxEnergy) 
             {
-                energy = maxEnergy;
+                this.energy = maxEnergy;
             }
         }
 

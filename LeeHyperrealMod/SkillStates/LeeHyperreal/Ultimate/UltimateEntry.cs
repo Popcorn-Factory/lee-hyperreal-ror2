@@ -22,11 +22,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 {
                     if (domainController.GetDomainState())
                     {
-                        this.outer.SetState(new UltimateDomain());
+                        this.outer.SetNextState(new UltimateDomain());
                     }
                     else
                     {
-                        this.outer.SetState(new Ultimate());
+                        this.outer.SetNextState(new Ultimate());
                     }
                 }
             }

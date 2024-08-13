@@ -51,6 +51,8 @@ namespace LeeHyperrealMod.Content.Controllers
         float lerpPitch;
         float lerpPitchVelocity;
         Transform BaseTransform;
+        Transform RifleTip;
+        Transform Center;
         public GameObject snipeAerialPlatform;
 
         //Debug
@@ -75,6 +77,8 @@ namespace LeeHyperrealMod.Content.Controllers
 
             ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
             BaseTransform = childLocator.FindChild("BaseTransform");
+            RifleTip = childLocator.FindChild("RifleTip");
+            Center = childLocator.FindChild("Center");
         }
 
         public void Start() 
@@ -156,6 +160,7 @@ namespace LeeHyperrealMod.Content.Controllers
             inSnipeStance = true;
             if (body.hasEffectiveAuthority) 
             {
+                uiController.SetSnipeStateCrosshair(true);
                 skillLocator.primary.SetSkillOverride(skillLocator.primary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.SnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
                 skillLocator.secondary.SetSkillOverride(skillLocator.secondary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.ExitSnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
 
@@ -179,6 +184,8 @@ namespace LeeHyperrealMod.Content.Controllers
 
                     handle = cameraTargetParams.AddParamsOverride(request, 0.4f);
                 }
+
+                body.aimOriginTransform = RifleTip;
             }
 
             if (shouldTransition) 
@@ -199,6 +206,7 @@ namespace LeeHyperrealMod.Content.Controllers
             inSnipeStance = false;
             if (body.hasEffectiveAuthority)
             {
+                uiController.SetSnipeStateCrosshair(false);
                 skillLocator.primary.UnsetSkillOverride(skillLocator.primary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.SnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
                 skillLocator.secondary.UnsetSkillOverride(skillLocator.secondary, LeeHyperrealMod.Modules.Survivors.LeeHyperreal.ExitSnipeSkill, RoR2.GenericSkill.SkillOverridePriority.Contextual);
 
@@ -211,6 +219,9 @@ namespace LeeHyperrealMod.Content.Controllers
                 {
                     cameraTargetParams.RemoveParamsOverride(handle);
                 }
+
+
+                body.aimOriginTransform = Center;
             }
 
 

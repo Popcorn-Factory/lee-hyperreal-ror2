@@ -13,6 +13,7 @@ using LeeHyperrealMod.Modules.Networking;
 using R2API.Networking;
 using R2API.Networking.Interfaces;
 using ShaderSwapper;
+using System.Collections.ObjectModel;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -24,8 +25,9 @@ namespace LeeHyperrealMod
     [BepInDependency("com.bepis.r2api.sound", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.networking", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.unlockable", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.KingEnderBrine.ExtraSkillSlots", BepInDependency.DependencyFlags.HardDependency)]
 
-    [BepInDependency("com.KingEnderBrine.ExtraSkillSlots", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("bubbet.riskui", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
@@ -43,6 +45,7 @@ namespace LeeHyperrealMod
         public static LeeHyperrealPlugin instance;
         public static PluginInfo PInfo { get; private set; }
         public static bool isControllerCheck = false;
+        public static bool isRiskUIInstalled = false;
 
         private void Awake()
         {
@@ -63,6 +66,11 @@ namespace LeeHyperrealMod
             if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions"))
             {
                 Modules.Config.SetupRiskOfOptions();
+                Modules.Config.OnChangeHooks();
+            }
+            if (Chainloader.PluginInfos.ContainsKey("bubbet.riskui"))
+            {
+                isRiskUIInstalled = true;
             }
 
             Modules.States.RegisterStates(); // register states for networking
@@ -104,12 +112,86 @@ namespace LeeHyperrealMod
             On.RoR2.CharacterModel.Start += CharacterModel_Start;
             On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
+            On.RoR2.CharacterSpeech.BrotherSpeechDriver.OnBodyKill += BrotherSpeechDriver_OnBodyKill;
+            On.RoR2.CharacterSpeech.BrotherSpeechDriver.DoInitialSightResponse += BrotherSpeechDriver_DoInitialSightResponse;
             //On.RoR2.CharacterBody.Update += CharacterBody_Update;
 
             if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
             {
                 On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
             }
+        }
+
+        private void BrotherSpeechDriver_DoInitialSightResponse(On.RoR2.CharacterSpeech.BrotherSpeechDriver.orig_DoInitialSightResponse orig, RoR2.CharacterSpeech.BrotherSpeechDriver self)
+        {
+            bool leeFound = false;
+
+            ReadOnlyCollection<CharacterBody> characterBodies = CharacterBody.readOnlyInstancesList;
+            for (int i = 0; i < characterBodies.Count; i++)
+            {
+                BodyIndex bodyIndex = characterBodies[i].bodyIndex;
+                leeFound |= (bodyIndex == BodyCatalog.FindBodyIndex("LeeHyperrealBody"));
+            }
+
+            if (leeFound)
+            {
+                RoR2.CharacterSpeech.CharacterSpeechController.SpeechInfo[] responsePool = new RoR2.CharacterSpeech.CharacterSpeechController.SpeechInfo[]
+                {
+                    new RoR2.CharacterSpeech.CharacterSpeechController.SpeechInfo
+                    {
+                        duration = 1f,
+                        maxWait = 4f,
+                        mustPlay = true,
+                        priority = 0f,
+                        token = "LEE_HYPERREAL_BODY_BROTHER_RESPONSE_ENTRY"
+                    },
+                };
+
+                self.SendReponseFromPool(responsePool);
+            }
+
+            orig(self);
+        }
+
+        private void BrotherSpeechDriver_OnBodyKill(On.RoR2.CharacterSpeech.BrotherSpeechDriver.orig_OnBodyKill orig, RoR2.CharacterSpeech.BrotherSpeechDriver self, DamageReport damageReport)
+        {
+            if (damageReport.victimBody)
+            {
+                if (damageReport.victimBodyIndex == BodyCatalog.FindBodyIndex("LeeHyperrealBody"))
+                {
+                    RoR2.CharacterSpeech.CharacterSpeechController.SpeechInfo[] responsePool = new RoR2.CharacterSpeech.CharacterSpeechController.SpeechInfo[]
+                    {
+                    new RoR2.CharacterSpeech.CharacterSpeechController.SpeechInfo
+                    {
+                        duration = 1f,
+                        maxWait = 4f,
+                        mustPlay = true,
+                        priority = 0f,
+                        token = "LEE_HYPERREAL_BODY_BROTHER_RESPONSE_ON_DEATH_1"
+                    },
+                    new RoR2.CharacterSpeech.CharacterSpeechController.SpeechInfo
+                    {
+                        duration = 1f,
+                        maxWait = 4f,
+                        mustPlay = true,
+                        priority = 0f,
+                        token = "LEE_HYPERREAL_BODY_BROTHER_RESPONSE_ON_DEATH_2"
+                    },
+                    new RoR2.CharacterSpeech.CharacterSpeechController.SpeechInfo
+                    {
+                        duration = 1f,
+                        maxWait = 4f,
+                        mustPlay = true,
+                        priority = 0f,
+                        token = "LEE_HYPERREAL_BODY_BROTHER_RESPONSE_ON_DEATH_3"
+                    }
+                    };
+
+                    self.SendReponseFromPool(responsePool);
+                }
+            }
+
+            orig(self, damageReport);
         }
 
         private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
@@ -200,6 +282,7 @@ namespace LeeHyperrealMod
                 if (item.bodyPrefab.name == "LeeHyperrealBody")
                 {
                     CustomEmotesAPI.ImportArmature(item.bodyPrefab, Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("humanoidLeeHyperreal"));
+                    CustomEmotesAPI.CreateNameTokenSpritePair(DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_NAME", Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("LeeEmotesIcon"));
                 }
             }
         }

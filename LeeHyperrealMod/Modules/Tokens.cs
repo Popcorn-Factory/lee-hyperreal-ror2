@@ -159,6 +159,13 @@ namespace LeeHyperrealMod.Modules
 
             #endregion
 
+            #region Mithrix Response
+            LanguageAPI.Add("LEE_HYPERREAL_BODY_BROTHER_RESPONSE_ENTRY", "How did you get here?");
+            LanguageAPI.Add("LEE_HYPERREAL_BODY_BROTHER_RESPONSE_ON_DEATH_1", "Pray in your own dimension.");
+            LanguageAPI.Add("LEE_HYPERREAL_BODY_BROTHER_RESPONSE_ON_DEATH_2", "Another reality won't save you from me.");
+            LanguageAPI.Add("LEE_HYPERREAL_BODY_BROTHER_RESPONSE_ON_DEATH_3", "I'll crush every copy of you.");
+            #endregion
+
             #region Achievements
             LanguageAPI.Add(prefix + "MASTERYUNLOCKABLE_ACHIEVEMENT_NAME", "Lee: Hyperreal: Mastery");
             LanguageAPI.Add(prefix + "MASTERYUNLOCKABLE_ACHIEVEMENT_DESC", "As Lee: Hyperreal, beat the game or obliterate on Monsoon.");
