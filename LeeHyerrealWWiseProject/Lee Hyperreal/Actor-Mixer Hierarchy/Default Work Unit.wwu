@@ -2939,6 +2939,32 @@
 										<ActiveSource Name="c_liRk4_skill_ultimate_start" ID="{1C51FA17-80C2-4F27-8534-C3F3D3273032}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
+								<Sound Name="Stage Intro" ID="{4327BA3D-5CB9-4D03-87B5-B8EB1E2C2570}" ShortID="219145207">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="17"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Stage Intro" ID="{6A0BCF5F-CF2F-4AD7-BC2C-B372E18D90AF}">
+											<Language>SFX</Language>
+											<AudioFile>Stage Intro.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="299006532"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Stage Intro" ID="{6A0BCF5F-CF2F-4AD7-BC2C-B372E18D90AF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>

@@ -4,23 +4,29 @@ Shader "Broken_Twist particle"
 {
 	Properties
 	{
-		_intensityscale("intensity scale", Range( 1 , 1000)) = 0
+		[HideInInspector] _texcoord2( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1
 	}
 
 	SubShader
 	{
-		Tags{ "RenderType" = "Transparent"  "Queue" = "Transparent+0" "IgnoreProjector" = "True" }
+		Tags{ "RenderType" = "Transparent"  "Queue" = "Transparent+0" "IgnoreProjector" = "True" "IsEmissive" = "true"  }
 		Cull Back
+		GrabPass{ }
 		CGPROGRAM
 		#include "UnityPBSLighting.cginc"
-		#include "UnityShaderVariables.cginc"
 		#pragma target 4.6
 		#pragma multi_compile_instancing
-		#pragma surface surf StandardCustomLighting alpha:fade keepalpha addshadow fullforwardshadows noforwardadd exclude_path:deferred 
+		#if defined(UNITY_STEREO_INSTANCING_ENABLED) || defined(UNITY_STEREO_MULTIVIEW_ENABLED)
+		#define ASE_DECLARE_SCREENSPACE_TEXTURE(tex) UNITY_DECLARE_SCREENSPACE_TEXTURE(tex);
+		#else
+		#define ASE_DECLARE_SCREENSPACE_TEXTURE(tex) UNITY_DECLARE_SCREENSPACE_TEXTURE(tex)
+		#endif
+		#pragma surface surf StandardCustomLighting alpha:fade keepalpha addshadow fullforwardshadows exclude_path:deferred 
 		struct Input
 		{
-			float3 worldPos;
+			float2 uv2_texcoord2;
+			float4 screenPos;
 		};
 
 		struct SurfaceOutputCustomLightingCustom
@@ -36,18 +42,29 @@ Shader "Broken_Twist particle"
 			UnityGIInput GIData;
 		};
 
-		uniform float _intensityscale;
+		ASE_DECLARE_SCREENSPACE_TEXTURE( _GrabTexture )
+
+
+		inline float4 ASE_ComputeGrabScreenPos( float4 pos )
+		{
+			#if UNITY_UV_STARTS_AT_TOP
+			float scale = -1.0;
+			#else
+			float scale = 1.0;
+			#endif
+			float4 o = pos;
+			o.y = pos.w * 0.5f;
+			o.y = ( pos.y - o.y ) * _ProjectionParams.x * scale + o.y;
+			return o;
+		}
+
 
 		inline half4 LightingStandardCustomLighting( inout SurfaceOutputCustomLightingCustom s, half3 viewDir, UnityGI gi )
 		{
 			UnityGIInput data = s.GIData;
 			Input i = s.SurfInput;
 			half4 c = 0;
-			float3 ase_worldPos = i.worldPos;
-			float3 temp_cast_0 = (500.0).xxx;
-			float3 temp_cast_1 = (-500.0).xxx;
-			float3 temp_output_117_0 = ( float3( 0,0,0 ) + (float3( 0,0,0 ) + (( ( _WorldSpaceCameraPos - ase_worldPos ) / _intensityscale ) - float3( 0,0,0 )) * (temp_cast_1 - float3( 0,0,0 )) / (temp_cast_0 - float3( 0,0,0 ))) );
-			c.rgb = temp_output_117_0;
+			c.rgb = 0;
 			c.a = 1;
 			return c;
 		}
@@ -60,7 +77,13 @@ Shader "Broken_Twist particle"
 		void surf( Input i , inout SurfaceOutputCustomLightingCustom o )
 		{
 			o.SurfInput = i;
-			o.Normal = float3(0,0,1);
+			float4 ase_screenPos = float4( i.screenPos.xyz , i.screenPos.w + 0.00000000001 );
+			float4 ase_grabScreenPos = ASE_ComputeGrabScreenPos( ase_screenPos );
+			float4 ase_grabScreenPosNorm = ase_grabScreenPos / ase_grabScreenPos.w;
+			float4 ScreenUV16 = ase_grabScreenPosNorm;
+			float2 appendResult44 = (float2((ScreenUV16).x , (ScreenUV16).y));
+			float4 screenColor2 = UNITY_SAMPLE_SCREENSPACE_TEXTURE(_GrabTexture,( i.uv2_texcoord2 * appendResult44 ));
+			o.Emission = screenColor2.rgb;
 		}
 
 		ENDCG
@@ -179,6 +202,5 @@ WireConnection;120;0;104;0
 WireConnection;120;2;121;0
 WireConnection;120;4;122;0
 WireConnection;0;2;2;0
-WireConnection;0;15;117;0
 ASEEND*/
-//CHKSM=37A0AA7CCF4156577B2DBF31258BA726590604D3
+//CHKSM=87625AC9FC7DC22FD1B4FE5301C6298CC50F2A69
