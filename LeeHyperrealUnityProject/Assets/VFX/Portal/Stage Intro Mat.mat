@@ -75,6 +75,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 0dad9e7949ffefd48954a1359652102c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _VertexMove:
+        m_Texture: {fileID: 2800000, guid: d7b84a1217c42e04faee3ba4b13cacab, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _texcoord:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -107,6 +111,8 @@ Material:
     - _TransShadow: 0.9
     - _Translucency: 1
     - _UVSec: 0
+    - _VertexStrength: 0.1
+    - _YVertexMoveOfsset: 0
     - _ZWrite: 1
     - __dirty: 0
     - _emissionmult: 2.1178381
@@ -119,6 +125,9 @@ Material:
     - _speedparalax: 0.3
     - _speedportal: -0.3
     - _speedportal1: 0.02
+    - _strengthX: 0.1
+    - _strengthY: 0.2
+    - _strengthZ: 2
     m_Colors:
     - _CURVATURE: {r: 17.3, g: 6.45, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
