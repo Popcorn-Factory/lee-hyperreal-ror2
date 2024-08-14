@@ -26,6 +26,7 @@ namespace LeeHyperrealMod.Modules
         public static List<BuffDef> buffDefs = new List<BuffDef>();
         public static List<EffectDef> effectDefs = new List<EffectDef>();
 
+        public static List<GameObject> networkedObjectPrefabs = new List<GameObject>();
         public static List<NetworkSoundEventDef> networkSoundEventDefs = new List<NetworkSoundEventDef>();
 
         public void Initialize()

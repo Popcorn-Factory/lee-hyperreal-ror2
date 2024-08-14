@@ -57,6 +57,7 @@ namespace LeeHyperrealMod.Modules
             LanguageAPI.Add(prefix + "LORE", lore);
             LanguageAPI.Add(prefix + "OUTRO_FLAVOR", outro);
             LanguageAPI.Add(prefix + "OUTRO_FAILURE", outroFailure);
+            LanguageAPI.Add(prefix + "SURVIVOR_POD_EXIT", "Traverse Dimension");
 
             #region Skins
             LanguageAPI.Add(prefix + "DEFAULT_SKIN_NAME", "Lee: Hyperreal");

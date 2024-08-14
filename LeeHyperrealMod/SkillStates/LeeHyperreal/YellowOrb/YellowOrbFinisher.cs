@@ -54,8 +54,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             this.swingEffectPrefab = Modules.ParticleAssets.yellowOrbKick;
             this.hitEffectPrefab = Modules.ParticleAssets.yellowOrbSwingHit;
 
-            this.impactSound = Modules.Assets.swordHitSoundEvent.index;
-
             enableParry = true;
             parryLength = Modules.StaticValues.yellowOrbFinisherParryLength;
             parryTiming = Modules.StaticValues.yellowOrbFinisherParryTiming;

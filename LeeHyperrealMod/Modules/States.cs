@@ -85,6 +85,11 @@ namespace LeeHyperrealMod.Modules
             #region Domain Enter State
             Modules.Content.AddEntityState(typeof(DomainEnterState));
             #endregion
+
+            #region Survivor Pod
+            Modules.Content.AddEntityState(typeof(LeeHyperrealMod.SkillStates.LeeHyperrealSurvivorPod.Idle));
+            Modules.Content.AddEntityState(typeof(LeeHyperrealMod.SkillStates.LeeHyperrealSurvivorPod.ExitPortal));
+            #endregion
         }
     }
 }

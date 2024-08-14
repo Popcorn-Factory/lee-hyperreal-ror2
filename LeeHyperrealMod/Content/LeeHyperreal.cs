@@ -15,13 +15,10 @@ namespace LeeHyperrealMod.Modules.Survivors
 {
     internal class LeeHyperreal : SurvivorBase
     {
-        //used when building your character using the prefabs you set up in unity
-        //don't upload to thunderstore without changing this
         public override string prefabBodyName => "LeeHyperreal";
 
         public const string PLUGIN_PREFIX = LeeHyperrealPlugin.DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_";
 
-        //used when registering your survivor's language tokens
         public override string survivorTokenPrefix => PLUGIN_PREFIX;
 
         public static SkillDef SnipeSkill;
@@ -41,7 +38,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             bodyColor = new Color(0.4f, 1f, 1f),
             aimOriginPosition = new Vector3(0f, 0f ,0f),
 
-            podPrefab = RoR2.LegacyResourcesAPI.Load<GameObject>("Prefabs/NetworkedObjects/SurvivorPod"),
+            podPrefab = Modules.Assets.leeSurvivorPod,
 
             maxHealth = 110f,
             healthRegen = 1.5f,

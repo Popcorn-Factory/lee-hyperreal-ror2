@@ -64,8 +64,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.muzzleString = "BaseTransform";
             this.swingEffectPrefab = null;
             this.hitEffectPrefab = Modules.ParticleAssets.primary2hit1;
-
-            this.impactSound = Modules.Assets.swordHitSoundEvent.index;
             base.OnEnter();
 
             InitMeleeRootMotion();

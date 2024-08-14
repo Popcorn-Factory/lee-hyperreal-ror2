@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using RoR2.UI;
 using System;
 using LeeHyperrealMod.Content.Controllers;
+using EntityStates;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -15,11 +16,6 @@ namespace LeeHyperrealMod.Modules
     {
         #region Other Assets
         // particle effects
-        internal static GameObject swordSwingEffect;
-        internal static GameObject swordHitImpactEffect;
-
-        internal static GameObject bombExplosionEffect;
-
         internal static GameObject uiObject;
         internal static Material blueOrbMat;
         internal static Material yellowOrbMat;
@@ -39,8 +35,8 @@ namespace LeeHyperrealMod.Modules
         //Material
         internal static Material glitchMaterial;
 
-        // networked hit sounds
-        internal static NetworkSoundEventDef swordHitSoundEvent;
+        //Lee "Survivor Pod"
+        internal static GameObject leeSurvivorPod;
         #endregion
 
         // the assetbundle to load assets from
@@ -142,11 +138,6 @@ namespace LeeHyperrealMod.Modules
                 return;
             }
 
-            // feel free to delete everything in here and load in your own assets instead
-            // it should work fine even if left as is- even if the assets aren't in the bundle
-            
-            swordHitSoundEvent = CreateNetworkSoundEventDef("HenrySwordHit");
-
             uiObject = mainAssetBundle.LoadAsset<GameObject>("LeeHyperrealUI");
             powerMeterObject = mainAssetBundle.LoadAsset<GameObject>("Power Bar Empty");
             healthPrefabs = mainAssetBundle.LoadAsset<GameObject>("LeeHealth");
@@ -164,6 +155,32 @@ namespace LeeHyperrealMod.Modules
             ultimateExplosionObject.AddComponent<UltimateOrbExplosion>();
 
             glitchMaterial = mainAssetBundle.LoadAsset<Material>("fxr4liang010011mdcanying703");
+
+            leeSurvivorPod = mainAssetBundle.LoadAsset<GameObject>("stageIntroPrefab");
+
+            //Time to setup the prefab:
+            leeSurvivorPod.AddComponent<NetworkIdentity>();
+            SurvivorPodController podController = leeSurvivorPod.AddComponent<SurvivorPodController>();
+            podController.cameraBone = leeSurvivorPod.transform.GetChild(4);
+
+            ////Setup the ESM/NSM
+            EntityStateMachine podESM = leeSurvivorPod.AddComponent<EntityStateMachine>();
+            podESM.customName = "Main";
+            podESM.initialStateType = new SerializableEntityStateType(typeof(SkillStates.LeeHyperrealSurvivorPod.Idle));
+            podESM.mainStateType = new SerializableEntityStateType(typeof(SkillStates.LeeHyperrealSurvivorPod.Idle));
+            NetworkStateMachine podNSM = leeSurvivorPod.AddComponent<NetworkStateMachine>();
+            EntityStateMachine[] stateMachines = new EntityStateMachine[1];
+            stateMachines[0] = podESM;
+            podNSM.stateMachines = stateMachines;
+
+            leeSurvivorPod.AddComponent<EntityLocator>();
+            VehicleSeat vehicleSeat = leeSurvivorPod.GetComponent<VehicleSeat>(); // Added with SurvivorPodController
+            vehicleSeat.seatPosition = leeSurvivorPod.transform;
+            vehicleSeat.exitVehicleContextString = $"{LeeHyperrealPlugin.DEVELOPER_PREFIX}_LEE_HYPERREAL_BODY_SURVIVOR_POD_EXIT";
+
+            BuffPassengerWhileSeated buffPass = leeSurvivorPod.AddComponent<BuffPassengerWhileSeated>();
+            buffPass.buff = RoR2Content.Buffs.HiddenInvincibility;
+            buffPass.vehicleSeat = vehicleSeat;
         }
 
         private static GameObject CreateTracer(string originalTracerName, string newTracerName)

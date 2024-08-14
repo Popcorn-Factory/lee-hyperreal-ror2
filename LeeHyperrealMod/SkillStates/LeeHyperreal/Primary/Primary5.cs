@@ -58,8 +58,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
             this.swingEffectPrefab = Modules.ParticleAssets.primary5Swing;
             this.hitEffectPrefab = Modules.ParticleAssets.primary4Hit;
-
-            this.impactSound = Modules.Assets.swordHitSoundEvent.index;
             base.OnEnter();
             InitMeleeRootMotion();
 

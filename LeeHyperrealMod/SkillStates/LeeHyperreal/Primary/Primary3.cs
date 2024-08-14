@@ -73,8 +73,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.swingEffectPrefab = null;
             this.hitEffectPrefab = Modules.ParticleAssets.primary3hit;
 
-            this.impactSound = Modules.Assets.swordHitSoundEvent.index;
-
             enableParry = true;
             parryLength = Modules.StaticValues.primary3ParryLength;
             parryTiming = Modules.StaticValues.primary3ParryTiming;
