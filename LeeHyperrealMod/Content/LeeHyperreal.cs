@@ -126,6 +126,8 @@ namespace LeeHyperrealMod.Modules.Survivors
 
         public override Type characterDeathState => typeof(LeeHyperrealDeathState);
 
+        public override Type characterSpawnState => base.characterSpawnState;
+
         public override ItemDisplaysBase itemDisplays => new LeeHyperrealItemDisplays();
 
                                                                           //if you have more than one character, easily create a config to enable/disable them like this
