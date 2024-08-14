@@ -702,6 +702,17 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Stage_Intro" ID="{927D85AE-9749-4E3A-A4CF-6DAC6730E930}">
+							<ChildrenList>
+								<Action Name="" ID="{0C84DC40-B37D-471C-BA99-D5D61841C044}" ShortID="963174847">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Stage Intro" ID="{4327BA3D-5CB9-4D03-87B5-B8EB1E2C2570}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Lee Voice" ID="{BD9BEE8B-1DF9-4CEE-A79C-B0F6FD89A428}" ShortID="44920354">
