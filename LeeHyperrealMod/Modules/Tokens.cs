@@ -74,7 +74,7 @@ namespace LeeHyperrealMod.Modules
             LanguageAPI.Add(prefix + "PASSIVE_DOMAIN_DESCRIPTION", "" +
                 $"Lee has access to the {UtilDesc("[Hypermatrix]")}, by holding the Primary button" +
                 $" down with a full {UtilDesc("[Power Gauge]")}." +
-                $" Lee gains damage in place of attack speed, however {UtilDesc("[Snipe Stance]")} scales normally.");
+                $" Lee gains damage in place of attack speed, however {UtilDesc("[`Snipe Stance´]")} scales normally.");
             #endregion
 
             #region Primary
@@ -112,7 +112,8 @@ namespace LeeHyperrealMod.Modules
 
             LanguageAPI.Add(prefix + "ULTIMATE_DOMAIN_NAME", "Collapsing Realm");
             LanguageAPI.Add(prefix + "ULTIMATE_DOMAIN_DESCRIPTION", "" +
-                $"Collapse the {UtilDesc("[Hypermatrix]")}, turning invincible for a short time and dealing {DmgDesc($"{ultimateDomainDamageCoefficient * 100f}% damage")} in your wake.");
+                $"Collapse the {UtilDesc("[Hypermatrix]")}, turning invincible for a short time and dealing {DmgDesc($"{ultimateDomainDamageCoefficient * 100f}% damage")} in your wake." +
+                $"Each 3-Ping during hypermatrix adds 3 hits of 200% damage to {UtilDesc("[Collapsing Realm]")}");
             #endregion
 
             #region Keywords

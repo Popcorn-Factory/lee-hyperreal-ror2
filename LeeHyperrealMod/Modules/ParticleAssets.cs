@@ -724,7 +724,7 @@ namespace LeeHyperrealMod.Modules
                 },
                 "fxr4liangatk05dilie"
                 );
-            primary5Floor = ModifyEffect(primary5Floor, "Play_c_liRk4_atk_nml_5_dilie", true, 1.5f);
+            primary5Floor = ModifyEffect(primary5Floor, "Play_c_liRk4_atk_nml_5_dilie", false, 1.5f);
         }
 
         private static void PopulatePrimary4Assets()
