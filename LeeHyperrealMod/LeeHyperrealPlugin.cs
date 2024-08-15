@@ -3,7 +3,6 @@ using BepInEx.Bootstrap;
 using LeeHyperrealMod.Modules.Survivors;
 using R2API.Utils;
 using RoR2;
-using System.Collections.Generic;
 using System.Security;
 using System.Security.Permissions;
 using UnityEngine;
@@ -14,6 +13,7 @@ using R2API.Networking;
 using R2API.Networking.Interfaces;
 using ShaderSwapper;
 using System.Collections.ObjectModel;
+using R2API;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -25,6 +25,7 @@ namespace LeeHyperrealMod
     [BepInDependency("com.bepis.r2api.sound", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.networking", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.unlockable", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.bepis.r2api.damagetype", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.KingEnderBrine.ExtraSkillSlots", BepInDependency.DependencyFlags.HardDependency)]
 
     [BepInDependency("bubbet.riskui", BepInDependency.DependencyFlags.SoftDependency)]
@@ -62,6 +63,7 @@ namespace LeeHyperrealMod
             base.StartCoroutine(Modules.Assets.mainAssetBundle.UpgradeStubbedShadersAsync());
             Modules.ParticleAssets.Initialize();
             Modules.Config.ReadConfig();
+            Modules.Damage.SetupModdedDamageTypes();
 
             if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions"))
             {
@@ -237,7 +239,7 @@ namespace LeeHyperrealMod
                             new SetPauseTriggerNetworkRequest(self.body.master.netId, true, doBigParry).Send(NetworkDestination.Clients);
 
                             //Stun the attacker
-                            if (damageInfo.attacker) 
+                            if (damageInfo.attacker && !damageInfo.HasModdedDamageType(Modules.Damage.leeHyperrealParryDamage)) 
                             {
                                 HealthComponent attackerHealthComp = damageInfo.attacker.GetComponent<HealthComponent>();
                                 if (attackerHealthComp) 
@@ -250,6 +252,8 @@ namespace LeeHyperrealMod
                                         damageType = DamageType.Stun1s,
                                         damageColorIndex = DamageColorIndex.Default
                                     };
+
+                                    DamageAPI.AddModdedDamageType(stunInfo, Modules.Damage.leeHyperrealParryDamage);
                                     attackerHealthComp.TakeDamage(stunInfo);
                                 }
                             }
