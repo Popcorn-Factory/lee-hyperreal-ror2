@@ -246,14 +246,17 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void TransitionState(WeaponState newState, bool playFlashEffect = true)
         {
-            if (state == WeaponState.SUBMACHINE) 
+            if (playFlashEffect) 
             {
-                boxFlashEffect.Play();
-            }
+                if (state == WeaponState.SUBMACHINE)
+                {
+                    boxFlashEffect.Play();
+                }
 
-            if (state == WeaponState.RIFLE)
-            {
-                rifleFlashEffect.Play();
+                if (state == WeaponState.RIFLE)
+                {
+                    rifleFlashEffect.Play();
+                }
             }
 
             state = newState;
@@ -280,7 +283,7 @@ namespace LeeHyperrealMod.Content.Controllers
                     submachineModel.SetActive(true);
                     //submachine2Model.SetActive(true);
                     guncaseModel.SetActive(true);
-                    if (boxFlashEffect) 
+                    if (playFlashEffect) 
                     {
                         boxFlashEffect.Play();
                     }
@@ -293,7 +296,7 @@ namespace LeeHyperrealMod.Content.Controllers
                     snipeRoot.SetActive(true);
                     sniperRifleAlphaModel.SetActive(true);
                     sniperRifleModel.SetActive(true);
-                    if (boxFlashEffect) 
+                    if (playFlashEffect) 
                     {
                         rifleFlashEffect.Play();
                     }
