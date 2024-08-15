@@ -16,7 +16,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         BulletController bulletController;
         Animator animator;
         public float duration = 2.133f;
-        public float earlyExitFrac = 0.28f;
+        public float earlyExitFrac = 0.22f;
         Vector3 velocity;
         GameObject platform;
         public string muzzleString = "BaseTransform";

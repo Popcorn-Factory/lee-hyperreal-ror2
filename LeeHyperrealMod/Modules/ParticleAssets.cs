@@ -288,7 +288,7 @@ namespace LeeHyperrealMod.Modules
             primaryAerialEffectLoop = GetGameObjectFromBundle("DomainMidairLoop");
 
             primaryAerialEffectEnd = GetGameObjectFromBundle("DomainMidairEnd");
-            primaryAerialEffectEnd = ModifyEffect(primaryAerialEffectEnd, "Play_c_liRk4_skill_yellow_dilie", true, 2f);
+            primaryAerialEffectEnd = ModifyEffect(primaryAerialEffectEnd, "Play_c_liRk4_skill_yellow_dilie", false, 2f);
         }
 
         private static void PopulateDisplayParticleAssets()
@@ -747,28 +747,6 @@ namespace LeeHyperrealMod.Modules
             primary4AfterImage = ModifyEffect(primary4AfterImage, "", true);
 
             primary4Hit = GetGameObjectFromBundle("fxr4liangatk04hit");
-            AddLightIntensityCurveWithCurve(
-                primary4Hit.transform.GetChild(1).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.18f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "fxr4liangatk04hit-spjere"
-                );
-            AddLightIntensityCurveWithCurve(
-                primary4Hit.transform.GetChild(0).GetChild(1).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.18f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "fxr4liangatk04hit-lightSC"
-                );
             primary4Hit = ModifyEffect(primary4Hit, "", true);
         }
 

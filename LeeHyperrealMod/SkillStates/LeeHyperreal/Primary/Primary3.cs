@@ -68,7 +68,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.hitHopVelocity = Modules.StaticValues.primary3HitHopVelocity;
 
             this.swingSoundString = "";
-            this.hitSoundString = "";
+            this.hitSoundString = "Play_c_liRk4_imp_nml_3_2";
             this.muzzleString = "BaseTransform";
             this.swingEffectPrefab = null;
             this.hitEffectPrefab = Modules.ParticleAssets.primary3hit;

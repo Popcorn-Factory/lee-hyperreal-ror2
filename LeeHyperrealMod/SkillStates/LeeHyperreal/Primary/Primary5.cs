@@ -54,7 +54,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.hitHopVelocity = Modules.StaticValues.primary5HitHopVelocity;
 
             this.swingSoundString = "";
-            this.hitSoundString = "";
+            this.hitSoundString = "Play_c_liRk4_imp_blue";
             this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
             this.swingEffectPrefab = Modules.ParticleAssets.primary5Swing;
             this.hitEffectPrefab = Modules.ParticleAssets.primary4Hit;
