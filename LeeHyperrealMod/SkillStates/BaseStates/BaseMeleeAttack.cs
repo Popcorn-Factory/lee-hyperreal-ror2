@@ -83,7 +83,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
 
         public float xzMovementMultiplier = 1f;
 
-        internal float swingScale = 1.25f;
+        internal float swingScale = 1f;
 
         public Transform ParryTransform = null;
 
