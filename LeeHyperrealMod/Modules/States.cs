@@ -21,6 +21,7 @@ namespace LeeHyperrealMod.Modules
             //Modules.Content.AddEntityState(typeof(LeeHyperrealCharacterMain));
             
             Modules.Content.AddEntityState(typeof(LeeHyperrealDeathState));
+            Modules.Content.AddEntityState(typeof(LeeHyperrealSpawnState));
 
             #region Primary
             Modules.Content.AddEntityState(typeof(PrimaryEntry));

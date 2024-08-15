@@ -130,6 +130,14 @@ namespace LeeHyperrealMod.Modules
             }
         }
 
+        internal static void LatePopulateAssets() 
+        {
+            BuffPassengerWhileSeated buffPass = leeSurvivorPod.GetComponent<BuffPassengerWhileSeated>();
+            VehicleSeat vehicleSeat = leeSurvivorPod.GetComponent<VehicleSeat>();
+            buffPass.buff = Modules.Buffs.invincibilityBuff;
+            buffPass.vehicleSeat = vehicleSeat;
+        }
+
         internal static void PopulateAssets()
         {
             if (!mainAssetBundle)
@@ -177,10 +185,10 @@ namespace LeeHyperrealMod.Modules
             VehicleSeat vehicleSeat = leeSurvivorPod.GetComponent<VehicleSeat>(); // Added with SurvivorPodController
             vehicleSeat.seatPosition = leeSurvivorPod.transform;
             vehicleSeat.exitVehicleContextString = $"{LeeHyperrealPlugin.DEVELOPER_PREFIX}_LEE_HYPERREAL_BODY_SURVIVOR_POD_EXIT";
+            vehicleSeat.passengerState = new SerializableEntityStateType(typeof(EntityStates.Idle));
 
-            BuffPassengerWhileSeated buffPass = leeSurvivorPod.AddComponent<BuffPassengerWhileSeated>();
-            buffPass.buff = RoR2Content.Buffs.HiddenInvincibility;
-            buffPass.vehicleSeat = vehicleSeat;
+            leeSurvivorPod.AddComponent<BuffPassengerWhileSeated>();
+
         }
 
         private static GameObject CreateTracer(string originalTracerName, string newTracerName)

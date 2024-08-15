@@ -172,7 +172,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void SetStateForModelAndSubmachine(bool state) 
         {
-            if (armModel) 
+            if (armModel)
             {
                 armModel.SetActive(state);
                 torsoModel.SetActive(state);
@@ -185,6 +185,20 @@ namespace LeeHyperrealMod.Content.Controllers
                 //Disable the submachine gun.
                 guncaseModel.SetActive(state);
                 submachineModel.SetActive(state);
+            }
+        }
+
+        public void SetStateForModel(bool state) 
+        {
+            if (armModel) 
+            {
+                armModel.SetActive(state);
+                torsoModel.SetActive(state);
+                faceModel.SetActive(state);
+                hairModel.SetActive(state);
+                armourPlateModel.SetActive(state);
+                eyeModel.SetActive(state);
+                legModel.SetActive(state);
             }
         }
 
@@ -230,7 +244,7 @@ namespace LeeHyperrealMod.Content.Controllers
             superCannonRoot.SetActive(false);
         }
 
-        public void TransitionState(WeaponState newState)
+        public void TransitionState(WeaponState newState, bool playFlashEffect = true)
         {
             if (state == WeaponState.SUBMACHINE) 
             {
@@ -266,7 +280,10 @@ namespace LeeHyperrealMod.Content.Controllers
                     submachineModel.SetActive(true);
                     //submachine2Model.SetActive(true);
                     guncaseModel.SetActive(true);
-                    boxFlashEffect.Play();
+                    if (boxFlashEffect) 
+                    {
+                        boxFlashEffect.Play();
+                    }
                     break;
                 case WeaponState.CANNON:
                     superCannonRoot.SetActive(true);
@@ -276,7 +293,10 @@ namespace LeeHyperrealMod.Content.Controllers
                     snipeRoot.SetActive(true);
                     sniperRifleAlphaModel.SetActive(true);
                     sniperRifleModel.SetActive(true);
-                    rifleFlashEffect.Play();
+                    if (boxFlashEffect) 
+                    {
+                        rifleFlashEffect.Play();
+                    }
                     break;
             }
         }

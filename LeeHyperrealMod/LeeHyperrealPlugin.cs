@@ -78,7 +78,7 @@ namespace LeeHyperrealMod
             Modules.Projectiles.RegisterProjectiles(); // add and register custom projectiles
             Modules.Tokens.AddTokens(); // register name tokens
             Modules.ItemDisplays.PopulateDisplays(); // collect item display prefabs for use in our display rules
-
+            Modules.Assets.LatePopulateAssets();
             // survivor initialization
             new LeeHyperreal().Initialize();
 
