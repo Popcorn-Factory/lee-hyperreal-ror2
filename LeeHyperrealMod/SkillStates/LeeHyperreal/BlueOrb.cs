@@ -393,6 +393,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
 
                 if (result.hitCount > 0)
                 {
+                    new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_blue").Send(R2API.Networking.NetworkDestination.Clients);
                     OnHitEnemyAuthority();
                 }
             }

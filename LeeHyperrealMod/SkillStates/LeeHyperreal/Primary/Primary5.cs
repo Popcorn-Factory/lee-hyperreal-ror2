@@ -1,7 +1,9 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift;
+using R2API.Networking.Interfaces;
 using RoR2;
 using UnityEngine;
 
@@ -54,7 +56,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.hitHopVelocity = Modules.StaticValues.primary5HitHopVelocity;
 
             this.swingSoundString = "";
-            this.hitSoundString = "Play_c_liRk4_imp_blue";
+            this.hitSoundString = "";
             this.muzzleString = swingIndex % 2 == 0 ? "SwingLeft" : "SwingRight";
             this.swingEffectPrefab = Modules.ParticleAssets.primary5Swing;
             this.hitEffectPrefab = Modules.ParticleAssets.primary4Hit;
@@ -183,6 +185,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             base.OnExit();
 
             base.PlayAnimation("Body", "BufferEmpty");
+        }
+
+        protected override void HitSoundCallback()
+        {
+            new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_blue").Send(R2API.Networking.NetworkDestination.Clients);
         }
 
         protected override void TriggerOrbIncrementor(int timesHit)

@@ -1,7 +1,9 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift;
+using R2API.Networking.Interfaces;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -43,7 +45,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         internal float moveCancelEndTime = 0.7f;
         public RootMotionAccumulator rma;
         public OrbController orbController;
-
+        private int hitConfirmResult;
 
         public static float heldButtonThreshold = 0.46f;
         public bool ifButtonLifted = false;
@@ -91,7 +93,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 procChainMask = new ProcChainMask(),
                 procCoefficient = Modules.StaticValues.primary4ProcCoefficient,
                 impactEffect = EffectCatalog.FindEffectIndexFromPrefab(Modules.ParticleAssets.primary4Hit)
-            };
+        };
 
             stopwatch = 0f;
             InitMeleeRootMotion();
@@ -267,6 +269,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             if (result.hitCount > 0) 
             {
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_nml_4").Send(R2API.Networking.NetworkDestination.Clients);
                 if (orbController)
                 {
                     orbController.AddToIncrementor(Modules.StaticValues.flatAmountToGrantOnPrimaryHit * result.hitCount * basePulseRate);

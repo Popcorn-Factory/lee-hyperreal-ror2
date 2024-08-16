@@ -1,7 +1,9 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift;
+using R2API.Networking.Interfaces;
 using RoR2;
 using UnityEngine;
 
@@ -56,8 +58,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.attackRecoil = 0.5f;
             this.hitHopVelocity = Modules.StaticValues.primary1HitHopVelocity;
 
-            this.swingSoundString = "HenrySwordSwing";
-            this.hitSoundString = "Play_c_liRk4_imp_nml_1";
+            this.swingSoundString = "";
+            this.hitSoundString = "";
             this.muzzleString = "BaseTransform";
             this.swingScale = 1.25f;
             this.swingEffectPrefab = Modules.ParticleAssets.primary1Swing;
@@ -157,6 +159,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         protected override void PlayAttackAnimation()
         {
             base.PlayAnimation("Body", "primary1", "attack.playbackRate", duration);
+        }
+
+        protected override void HitSoundCallback()
+        {
+            new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_nml_1").Send(R2API.Networking.NetworkDestination.Clients);
         }
 
         protected override void TriggerOrbIncrementor(int timesHit) 

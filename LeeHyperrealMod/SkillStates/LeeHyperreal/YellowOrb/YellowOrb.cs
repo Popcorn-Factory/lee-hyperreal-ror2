@@ -283,6 +283,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
 
             if (result1.hitCount > 0)
             {
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_yellow_1").Send(R2API.Networking.NetworkDestination.Clients);
                 OnHitEnemyAuthority(result1);
             }
         }

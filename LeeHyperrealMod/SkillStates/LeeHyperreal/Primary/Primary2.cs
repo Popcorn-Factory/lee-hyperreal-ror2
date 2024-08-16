@@ -1,8 +1,11 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift;
+using R2API.Networking.Interfaces;
 using RoR2;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Security.Cryptography;
 using UnityEngine;
@@ -19,8 +22,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public static float initialSpeedCoefficient = 3f;
         public static float finalSpeedCoefficient = 0f;
 
-        public static float moveStartFrac = 0.125f;
-        public static float moveEndFrac = 0.175f;
+        public static float moveStartFrac = 0.1f;
+        public static float moveEndFrac = 0.15f;
         private Ray aimRay;
 
         public RootMotionAccumulator rma;
@@ -28,12 +31,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public static float heldButtonThreshold = 0.25f;
         public bool ifButtonLifted = false;
 
-        public float attack2StartFrac = 0.175f;
-        public float attack2EndFrac = 0.2f;
+        public float attack2StartFrac = 0.166f;
+        public float attack2EndFrac = 0.213f;
         public bool hasFired2 = false;
 
         public float attack3StartFrac = 0.225f;
-        public float attack3EndFrac = 0.25f;
+        public float attack3EndFrac = 0.275f;
         public bool hasFired3 = false;
 
         private LeeHyperrealDomainController domainController;
@@ -150,6 +153,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 if (base.isAuthority)
                 {
                     base.AddRecoil(-1f * this.attackRecoil, -2f * this.attackRecoil, -0.5f * this.attackRecoil, 0.5f * this.attackRecoil);
+                    int maxNumHit = 0;
+                    List<HurtBox> result = new List<HurtBox>();
                     for (int i = 0; i < attackAmount; i++)
                     {
                         // Create Attack, fire it, do the on hit enemy authority.
@@ -168,9 +173,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                         this.attack.impactSound = this.impactSound;
                         if (this.attack != null)
                         {
-                            if (this.attack.Fire())
+                            this.attack.Fire(result);
+                            if (result.Count > maxNumHit)
                             {
-                                this.OnHitEnemyAuthority();
+                                maxNumHit = result.Count;
                             }
                         }
                     }
@@ -192,11 +198,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                         this.attack.impactSound = this.impactSound;
                         if (this.attack != null)
                         {
-                            if (this.attack.Fire())
+                            this.attack.Fire(result);
+                            if (result.Count > maxNumHit)
                             {
-                                this.OnHitEnemyAuthority();
+                                maxNumHit = result.Count;
                             }
                         }
+                    }
+
+                    if (maxNumHit > 0)
+                    {
+                        HitSoundCallback();
+                        this.OnHitEnemyAuthority();
                     }
                 }
             }
@@ -210,6 +223,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 if (base.isAuthority)
                 {
                     base.AddRecoil(-1f * this.attackRecoil, -2f * this.attackRecoil, -0.5f * this.attackRecoil, 0.5f * this.attackRecoil);
+                    int maxNumHit = 0;
+                    List<HurtBox> result = new List<HurtBox>();
                     for (int i = 0; i < attackAmount; i++)
                     {
                         // Create Attack, fire it, do the on hit enemy authority.
@@ -228,9 +243,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                         this.attack.impactSound = this.impactSound;
                         if (this.attack != null)
                         {
-                            if (this.attack.Fire())
+                            this.attack.Fire(result);
+                            if (result.Count > maxNumHit)
                             {
-                                this.OnHitEnemyAuthority();
+                                maxNumHit = result.Count;
                             }
                         }
                     }
@@ -252,16 +268,22 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                         this.attack.impactSound = this.impactSound;
                         if (this.attack != null)
                         {
-                            if (this.attack.Fire())
+                            this.attack.Fire(result);
+                            if (result.Count > maxNumHit)
                             {
-                                this.OnHitEnemyAuthority();
+                                maxNumHit = result.Count;
                             }
                         }
+                    }
+
+                    if (maxNumHit > 0)
+                    {
+                        HitSoundCallback();
+                        this.OnHitEnemyAuthority();
                     }
                 }
             }
         }
-
         public override void OnExit()
         {
             base.OnExit();
@@ -279,6 +301,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             {
                 orbController.AddToIncrementor(Modules.StaticValues.flatAmountToGrantOnPrimaryHit * timesHit);
             }
+        }
+        protected override void HitSoundCallback()
+        {
+            new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_nml_2_2").Send(R2API.Networking.NetworkDestination.Clients);
         }
 
         protected override void SetNextState()

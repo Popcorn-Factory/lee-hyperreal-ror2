@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using R2API.Networking.Interfaces;
 using LeeHyperrealMod.Content.Controllers;
+using System.Collections;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 {
@@ -301,13 +302,19 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             //Able to be cancelled after this.
             if (fixedAge >= duration * fireTime && base.isAuthority)
             {
-                if(fireStopwatch <= 0f && fireCount < domainHitCount)
+                if (fireStopwatch <= 0f && fireCount < domainHitCount)
                 {
                     //mini hits
                     fireStopwatch = fireInterval;
                     blastAttack.Fire();
                     fireCount++;
+                    BlastAttack.Result result = blastAttack.Fire();
 
+                    if (result.hitCount > 0)
+                    {
+                        new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_ex_3_2").Send(R2API.Networking.NetworkDestination.Clients);
+
+                    }
                 }
                 else if (fireStopwatch > 0f && fireCount < domainHitCount)
                 {

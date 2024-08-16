@@ -1,7 +1,9 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using R2API.Networking;
+using R2API.Networking.Interfaces;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -132,6 +134,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             if (result.hitCount > 0)
             {
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_blue").Send(R2API.Networking.NetworkDestination.Clients);
                 if (orbController)
                 {
                     orbController.AddToIncrementor(Modules.StaticValues.flatAmountToGrantOnPrimaryHit * result.hitCount);

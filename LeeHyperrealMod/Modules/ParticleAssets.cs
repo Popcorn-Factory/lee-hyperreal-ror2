@@ -422,7 +422,7 @@ namespace LeeHyperrealMod.Modules
             //    "fxr4liangatk24-lightSC2"
             //    );
 
-            Snipe = ModifyEffect(Snipe, "", false, 1f, VFXAttributes.VFXPriority.Medium);
+            Snipe = ModifyEffect(Snipe, "", false, 1.25f, VFXAttributes.VFXPriority.Medium);
 
             snipeHitEnhanced = GetGameObjectFromBundle("fxr4liangatk24bao");
             snipeHitEnhanced = ModifyEffect(snipeHitEnhanced, "Play_c_liRk4_atk_ex_3_break", true, 2f);
@@ -781,7 +781,7 @@ namespace LeeHyperrealMod.Modules
                 },
                 "fxr4liangatk03hit01-spjere"
                 );
-            primary3hit = ModifyEffect(primary3hit, "", true);
+            primary3hit = ModifyEffect(primary3hit, "", false, 1.5f);
         }
 
         public static void PopulatePrimary2Assets()

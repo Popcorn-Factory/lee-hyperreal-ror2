@@ -44,7 +44,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         protected string muzzleString = "SwingCenter";
         protected GameObject swingEffectPrefab;
         protected GameObject hitEffectPrefab;
-        protected NetworkSoundEventIndex impactSound;
+        protected NetworkSoundEventIndex impactSound = NetworkSoundEventIndex.Invalid;
 
         private float earlyExitTime;
         public float bufferActiveTime;
@@ -361,6 +361,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
 
                     if (maxNumHit > 0) 
                     {
+                        HitSoundCallback();
                         this.OnHitEnemyAuthority();
                         TriggerOrbIncrementor(maxNumHit);
                     }
@@ -369,6 +370,10 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         }
 
         protected virtual void TriggerOrbIncrementor(int timesHit) 
+        {
+            //for upper levels to implement.
+        }
+        protected virtual void HitSoundCallback()
         {
             //for upper levels to implement.
         }

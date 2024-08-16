@@ -389,16 +389,10 @@
 												<RandomSequenceContainer Name="c_liRk4_imp_ex_2_1" ID="{0499B555-2DA0-4BF3-85AF-CC1881833013}" ShortID="488705527">
 													<PropertyList>
 														<Property Name="3DSpatialization" Type="int16" Value="1"/>
-														<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 														<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 														<Property Name="MaxSoundPerInstance" Type="int16">
 															<ValueList>
 																<Value>3</Value>
-															</ValueList>
-														</Property>
-														<Property Name="UseMaxSoundPerInstance" Type="bool">
-															<ValueList>
-																<Value>True</Value>
 															</ValueList>
 														</Property>
 													</PropertyList>
@@ -485,16 +479,10 @@
 												<RandomSequenceContainer Name="c_liRk4_imp_ex_2_2" ID="{665CDE15-40D9-4B18-B022-FC51029683CE}" ShortID="105788555">
 													<PropertyList>
 														<Property Name="3DSpatialization" Type="int16" Value="1"/>
-														<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 														<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 														<Property Name="MaxSoundPerInstance" Type="int16">
 															<ValueList>
 																<Value>3</Value>
-															</ValueList>
-														</Property>
-														<Property Name="UseMaxSoundPerInstance" Type="bool">
-															<ValueList>
-																<Value>True</Value>
 															</ValueList>
 														</Property>
 													</PropertyList>
@@ -676,16 +664,10 @@
 										<RandomSequenceContainer Name="c_liRk4_imp_red_2" ID="{090216AD-D374-42B1-8BB8-BE7820CF37F7}" ShortID="815834300">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="1"/>
-												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 												<Property Name="MaxSoundPerInstance" Type="int16">
 													<ValueList>
 														<Value>3</Value>
-													</ValueList>
-												</Property>
-												<Property Name="UseMaxSoundPerInstance" Type="bool">
-													<ValueList>
-														<Value>True</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -772,16 +754,10 @@
 										<RandomSequenceContainer Name="c_liRk4_imp_red_1" ID="{65F6BDFD-78D3-433F-913B-4154C2E140A8}" ShortID="892586556">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="1"/>
-												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 												<Property Name="MaxSoundPerInstance" Type="int16">
 													<ValueList>
 														<Value>3</Value>
-													</ValueList>
-												</Property>
-												<Property Name="UseMaxSoundPerInstance" Type="bool">
-													<ValueList>
-														<Value>True</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -990,16 +966,15 @@
 												<RandomSequenceContainer Name="c_liRk4_imp_ex_1" ID="{FC7046C1-E13F-4309-B6D4-EECB5E0E662E}" ShortID="650415891">
 													<PropertyList>
 														<Property Name="3DSpatialization" Type="int16" Value="1"/>
-														<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 														<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 														<Property Name="MaxSoundPerInstance" Type="int16">
 															<ValueList>
 																<Value>3</Value>
 															</ValueList>
 														</Property>
-														<Property Name="UseMaxSoundPerInstance" Type="bool">
+														<Property Name="Volume" Type="Real64">
 															<ValueList>
-																<Value>True</Value>
+																<Value>-1</Value>
 															</ValueList>
 														</Property>
 													</PropertyList>
@@ -1228,16 +1203,10 @@
 										<RandomSequenceContainer Name="c_liRk4_imp_yellow_2" ID="{34C5DBFE-3FAB-48B8-A649-7F2C099C73F7}" ShortID="482177003">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="1"/>
-												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 												<Property Name="MaxSoundPerInstance" Type="int16">
 													<ValueList>
 														<Value>3</Value>
-													</ValueList>
-												</Property>
-												<Property Name="UseMaxSoundPerInstance" Type="bool">
-													<ValueList>
-														<Value>True</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1324,16 +1293,10 @@
 										<RandomSequenceContainer Name="c_liRk4_imp_yellow_1" ID="{F57B110F-CAB9-4A91-9DB1-1FF960F30097}" ShortID="41094901">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="1"/>
-												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 												<Property Name="MaxSoundPerInstance" Type="int16">
 													<ValueList>
 														<Value>3</Value>
-													</ValueList>
-												</Property>
-												<Property Name="UseMaxSoundPerInstance" Type="bool">
-													<ValueList>
-														<Value>True</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -1512,16 +1475,10 @@
 														<RandomSequenceContainer Name="c_liRk4_imp_ex_3_1" ID="{A2E18244-EBA7-400A-B834-A83AC2B2CFEA}" ShortID="48788915">
 															<PropertyList>
 																<Property Name="3DSpatialization" Type="int16" Value="1"/>
-																<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 																<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 																<Property Name="MaxSoundPerInstance" Type="int16">
 																	<ValueList>
 																		<Value>3</Value>
-																	</ValueList>
-																</Property>
-																<Property Name="UseMaxSoundPerInstance" Type="bool">
-																	<ValueList>
-																		<Value>True</Value>
 																	</ValueList>
 																</Property>
 																<Property Name="Volume" Type="Real64">
@@ -2021,16 +1978,15 @@
 										<RandomSequenceContainer Name="c_liRk4_imp_nml_4" ID="{C02AE5A3-A2C7-4B5F-90F9-2C949FF7C35D}" ShortID="849150167">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="1"/>
-												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 												<Property Name="MaxSoundPerInstance" Type="int16">
 													<ValueList>
 														<Value>3</Value>
 													</ValueList>
 												</Property>
-												<Property Name="UseMaxSoundPerInstance" Type="bool">
+												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>True</Value>
+														<Value>-1</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2117,16 +2073,15 @@
 										<RandomSequenceContainer Name="c_liRk4_imp_nml_3_2" ID="{C709AE33-693B-496C-B9C3-1E0B2E0B5B70}" ShortID="928398867">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="1"/>
-												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 												<Property Name="MaxSoundPerInstance" Type="int16">
 													<ValueList>
 														<Value>3</Value>
 													</ValueList>
 												</Property>
-												<Property Name="UseMaxSoundPerInstance" Type="bool">
+												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>True</Value>
+														<Value>1</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2213,16 +2168,15 @@
 										<RandomSequenceContainer Name="c_liRk4_imp_nml_3_1" ID="{FE7AAA59-CDF4-483A-91F5-B69FBAF3E51D}" ShortID="584217135">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="1"/>
-												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 												<Property Name="MaxSoundPerInstance" Type="int16">
 													<ValueList>
 														<Value>3</Value>
 													</ValueList>
 												</Property>
-												<Property Name="UseMaxSoundPerInstance" Type="bool">
+												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>True</Value>
+														<Value>1</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2309,16 +2263,15 @@
 										<RandomSequenceContainer Name="c_liRk4_imp_nml_1" ID="{11666591-49B3-4871-AAE4-AC440167C5CB}" ShortID="802435639">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="1"/>
-												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 												<Property Name="MaxSoundPerInstance" Type="int16">
 													<ValueList>
 														<Value>3</Value>
 													</ValueList>
 												</Property>
-												<Property Name="UseMaxSoundPerInstance" Type="bool">
+												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>True</Value>
+														<Value>1</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2405,16 +2358,15 @@
 										<RandomSequenceContainer Name="c_liRk4_imp_nml_2_2" ID="{EC4B6B92-AA2E-47FA-97C8-889108EB2892}" ShortID="498566319">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="1"/>
-												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 												<Property Name="MaxSoundPerInstance" Type="int16">
 													<ValueList>
 														<Value>3</Value>
 													</ValueList>
 												</Property>
-												<Property Name="UseMaxSoundPerInstance" Type="bool">
+												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>True</Value>
+														<Value>-1</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -2652,16 +2604,10 @@
 										<RandomSequenceContainer Name="c_liRk4_imp_ex_3_2" ID="{D8DEA026-E4D6-4367-902B-9386196EB197}" ShortID="396323216">
 											<PropertyList>
 												<Property Name="3DSpatialization" Type="int16" Value="1"/>
-												<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 												<Property Name="MaxSoundPerInstance" Type="int16">
 													<ValueList>
 														<Value>3</Value>
-													</ValueList>
-												</Property>
-												<Property Name="UseMaxSoundPerInstance" Type="bool">
-													<ValueList>
-														<Value>True</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>

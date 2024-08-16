@@ -175,6 +175,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             }
         }
 
+        protected override void HitSoundCallback()
+        {
+            new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_yellow_2").Send(R2API.Networking.NetworkDestination.Clients);
+        }
+
         protected override void SetNextState()
         {
             return;
