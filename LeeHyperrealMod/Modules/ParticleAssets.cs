@@ -347,17 +347,17 @@ namespace LeeHyperrealMod.Modules
             transitionEffectGround = ModifyEffect(transitionEffectGround, "", true);
 
             transitionEffectHit = GetGameObjectFromBundle("fxr4liangatk41hit");
-            AddLightIntensityCurveWithCurve(
-                transitionEffectHit.transform.GetChild(1).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.18f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "fxr4liangatk41hit"
-            );
+            //AddLightIntensityCurveWithCurve(
+            //    transitionEffectHit.transform.GetChild(1).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.18f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    },
+            //    "fxr4liangatk41hit"
+            //);
             transitionEffectHit = ModifyEffect(transitionEffectHit, "", true);
 
             domainFieldLoopEffect = GetGameObjectFromBundle("fxr4liangatk41loop");
@@ -471,30 +471,30 @@ namespace LeeHyperrealMod.Modules
             yellowOrbSwing = ModifyEffect(yellowOrbSwing, "Play_c_liRk4_skill_yellow", true);
 
             yellowOrbSwingHit = GetGameObjectFromBundle("fxr4liangatk34hit");
-            AddLightIntensityCurveWithCurve(
-                yellowOrbSwingHit.transform.GetChild(0).GetChild(1).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.18f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false
+            //AddLightIntensityCurveWithCurve(
+            //    yellowOrbSwingHit.transform.GetChild(0).GetChild(1).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.18f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false
 
-                },
-                "fxr4liangatk34hit-spjere"
-                );
-            AddLightIntensityCurveWithCurve(
-                yellowOrbSwingHit.transform.GetChild(1).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.12f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false
+            //    },
+            //    "fxr4liangatk34hit-spjere"
+            //    );
+            //AddLightIntensityCurveWithCurve(
+            //    yellowOrbSwingHit.transform.GetChild(1).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.12f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false
 
-                },
-                "fxr4liangatk34hit-lightSC"
-                );
+            //    },
+            //    "fxr4liangatk34hit-lightSC"
+            //    );
             yellowOrbSwingHit = ModifyEffect(yellowOrbSwingHit, "Play_c_liRk4_imp_yellow_1", true);
 
             yellowOrbKick = GetGameObjectFromBundle("fxr4liangatk32");
@@ -527,28 +527,28 @@ namespace LeeHyperrealMod.Modules
             yellowOrbMultishot = ModifyEffect(yellowOrbMultishot, "", true);
 
             yellowOrbMultishotHit = GetGameObjectFromBundle("fxr4liangatk35hit");
-            AddLightIntensityCurveWithCurve(
-                yellowOrbMultishotHit.transform.GetChild(0).GetChild(1).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 1.6f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false
-                },
-                "fxr4liangatk35hit-lightSC"
-                );
-            AddLightIntensityCurveWithCurve(
-                yellowOrbMultishotHit.transform.GetChild(1).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 1.6f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false
-                },
-                "fxr4liangatk35hit-spjere"
-                );
+            //AddLightIntensityCurveWithCurve(
+            //    yellowOrbMultishotHit.transform.GetChild(0).GetChild(1).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 1.6f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false
+            //    },
+            //    "fxr4liangatk35hit-lightSC"
+            //    );
+            //AddLightIntensityCurveWithCurve(
+            //    yellowOrbMultishotHit.transform.GetChild(1).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 1.6f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false
+            //    },
+            //    "fxr4liangatk35hit-spjere"
+            //    );
             yellowOrbMultishotHit = ModifyEffect(yellowOrbMultishotHit, "", true);
 
             yellowOrbDomainBulletLeftovers = GetGameObjectFromBundle("fxr4liangatk35dandao");
@@ -561,53 +561,53 @@ namespace LeeHyperrealMod.Modules
         private static void PopulateBlueOrbAssets()
         {
             blueOrbShot = GetGameObjectFromBundle("fxr4liangatk20");
-            AddLightIntensityCurveWithCurve(
-                blueOrbShot.transform.GetChild(0).GetChild(1).GetChild(1).gameObject,
-                new LightIntensityProps 
-                {
-                    timeMax = 0.15f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false
-                },
-                "fxr4liangatk20-spjere"
-                );
-            AddLightIntensityCurveWithCurve(
-                blueOrbShot.transform.GetChild(0).GetChild(1).GetChild(0).gameObject,
-                new LightIntensityProps 
-                {
-                    timeMax = 0.35f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false
-                },
-                "fxr4liangatk20-lightSC"
-                );
+            //AddLightIntensityCurveWithCurve(
+            //    blueOrbShot.transform.GetChild(0).GetChild(1).GetChild(1).gameObject,
+            //    new LightIntensityProps 
+            //    {
+            //        timeMax = 0.15f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false
+            //    },
+            //    "fxr4liangatk20-spjere"
+            //    );
+            //AddLightIntensityCurveWithCurve(
+            //    blueOrbShot.transform.GetChild(0).GetChild(1).GetChild(0).gameObject,
+            //    new LightIntensityProps 
+            //    {
+            //        timeMax = 0.35f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false
+            //    },
+            //    "fxr4liangatk20-lightSC"
+            //    );
             blueOrbShot = ModifyEffect(blueOrbShot, "Play_c_liRk4_skill_blue", true);
 
             blueOrbHit = GetGameObjectFromBundle("fxr4liangatk20hit");
-            AddLightIntensityCurveWithCurve(
-                blueOrbHit.transform.GetChild(1).gameObject,
-                new LightIntensityProps 
-                {
-                    timeMax = 0.18f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false
-                },
-                "fxr4liangatk20hit-spjere"
-                );
-            AddLightIntensityCurveWithCurve(
-                blueOrbHit.transform.GetChild(0).GetChild(1).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.12f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false
-                },
-                "fxr4liangatk20hit-lightSC"
-                );
+            //AddLightIntensityCurveWithCurve(
+            //    blueOrbHit.transform.GetChild(1).gameObject,
+            //    new LightIntensityProps 
+            //    {
+            //        timeMax = 0.18f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false
+            //    },
+            //    "fxr4liangatk20hit-spjere"
+            //    );
+            //AddLightIntensityCurveWithCurve(
+            //    blueOrbHit.transform.GetChild(0).GetChild(1).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.12f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false
+            //    },
+            //    "fxr4liangatk20hit-lightSC"
+            //    );
             blueOrbHit = ModifyEffect(blueOrbHit, "Play_c_liRk4_imp_blue", true);
 
             blueOrbGroundHit = GetGameObjectFromBundle("fxr4liangatk20bao");
@@ -631,28 +631,28 @@ namespace LeeHyperrealMod.Modules
             redOrbSwing = ModifyEffect(redOrbSwing, "Play_c_liRk4_skill_red", true);
 
             redOrbHit = GetGameObjectFromBundle("fxr4liangatk10hit02");
-            AddLightIntensityCurveWithCurve(
-                redOrbHit.transform.GetChild(1).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.5f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "fxr4liangatk10hit02-spjere"
-                );
-            AddLightIntensityCurveWithCurve(
-                redOrbHit.transform.GetChild(0).GetChild(2).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.5f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "fxr4liangatk10hit02-lightSC"
-                );
+            //AddLightIntensityCurveWithCurve(
+            //    redOrbHit.transform.GetChild(1).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.5f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    },
+            //    "fxr4liangatk10hit02-spjere"
+            //    );
+            //AddLightIntensityCurveWithCurve(
+            //    redOrbHit.transform.GetChild(0).GetChild(2).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.5f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    },
+            //    "fxr4liangatk10hit02-lightSC"
+            //    );
             redOrbHit = ModifyEffect(redOrbHit, "Play_c_liRk4_imp_red_1", false);
 
             redOrbPingSwing = GetGameObjectFromBundle("fxr4liangatk11");
@@ -687,17 +687,17 @@ namespace LeeHyperrealMod.Modules
             redOrbDomainFloorImpact = ModifyEffect(redOrbDomainFloorImpact, "Play_c_liRk4_atk_ex_2", false);
 
             redOrbDomainHit = GetGameObjectFromBundle("fxr4liangatk14fshit01");
-            AddLightIntensityCurveWithCurve(
-                redOrbDomainHit.transform.GetChild(0).GetChild(4).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.5f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "fxr4liangatk14fshit01"
-                );
+            //AddLightIntensityCurveWithCurve(
+            //    redOrbDomainHit.transform.GetChild(0).GetChild(4).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.5f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    },
+            //    "fxr4liangatk14fshit01"
+            //    );
             redOrbDomainHit = ModifyEffect(redOrbDomainHit, "Play_c_liRk4_imp_ex_2_2", false);
 
             redOrbDomainClone = GetGameObjectFromBundle("RedOrbDomainClone");
@@ -713,34 +713,34 @@ namespace LeeHyperrealMod.Modules
             primary5Swing = ModifyEffect(primary5Swing, "Play_c_liRk4_atk_nml_5_jump", true, 1.5f);
 
             primary5Floor = GetGameObjectFromBundle("fxr4liangatk05dilie");
-            AddLightIntensityCurveWithCurve(
-                primary5Floor.transform.GetChild(0).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 1f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "fxr4liangatk05dilie"
-                );
+            //AddLightIntensityCurveWithCurve(
+            //    primary5Floor.transform.GetChild(0).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 1f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    },
+            //    "fxr4liangatk05dilie"
+            //    );
             primary5Floor = ModifyEffect(primary5Floor, "Play_c_liRk4_atk_nml_5_dilie", false, 1.5f);
         }
 
         private static void PopulatePrimary4Assets()
         {
             primary4Swing = GetGameObjectFromBundle("fxr4liangatk04");
-            AddLightIntensityCurveWithCurve(
-               primary4Swing.transform.GetChild(1).GetChild(0).gameObject,
-               new LightIntensityProps
-               {
-                   timeMax = 1f,
-                   loop = false,
-                   randomStart = false,
-                   enableNegativeLights = false,
-               },
-               "fxr4liangatk04"
-               );
+            //AddLightIntensityCurveWithCurve(
+            //   primary4Swing.transform.GetChild(1).GetChild(0).gameObject,
+            //   new LightIntensityProps
+            //   {
+            //       timeMax = 1f,
+            //       loop = false,
+            //       randomStart = false,
+            //       enableNegativeLights = false,
+            //   },
+            //   "fxr4liangatk04"
+            //   );
             primary4Swing = ModifyEffect(primary4Swing, "Play_c_liRk4_atk_nml_4", true);
 
             primary4AfterImage = GetGameObjectFromBundle("fxr4liangatk04canying");
@@ -759,84 +759,84 @@ namespace LeeHyperrealMod.Modules
             primary3Swing2 = ModifyEffect(primary3Swing2, "Play_c_liRk4_atk_nml_3_dilie_2", true);
 
             primary3hit = GetGameObjectFromBundle("fxr4liangatk03hit01");
-            AddLightIntensityCurveWithCurve(
-                primary3hit.transform.GetChild(0).GetChild(1).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.12f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "Fxr4liangatk03hit01-lightSC"
-                );
-            AddLightIntensityCurveWithCurve(
-                primary3hit.transform.GetChild(1).gameObject,
-                new LightIntensityProps 
-                {
-                    timeMax = 0.18f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "fxr4liangatk03hit01-spjere"
-                );
-            primary3hit = ModifyEffect(primary3hit, "", false, 1.5f);
+            //AddLightIntensityCurveWithCurve(
+            //    primary3hit.transform.GetChild(0).GetChild(1).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.12f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    },
+            //    "Fxr4liangatk03hit01-lightSC"
+            //    );
+            //AddLightIntensityCurveWithCurve(
+            //    primary3hit.transform.GetChild(1).gameObject,
+            //    new LightIntensityProps 
+            //    {
+            //        timeMax = 0.18f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    },
+            //    "fxr4liangatk03hit01-spjere"
+            //    );
+            //primary3hit = ModifyEffect(primary3hit, "", false, 1.5f);
         }
 
         public static void PopulatePrimary2Assets()
         {
             primary2Shot = GetGameObjectFromBundle("fxr4liangatk02");
-            AddLightIntensityCurveWithCurve(
-                primary2Shot.transform.GetChild(2).GetChild(0).gameObject,
-                new LightIntensityProps 
-                {
-                    timeMax = 0.15f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "Fxr4liangatk02"
-                );
+            //AddLightIntensityCurveWithCurve(
+            //    primary2Shot.transform.GetChild(2).GetChild(0).gameObject,
+            //    new LightIntensityProps 
+            //    {
+            //        timeMax = 0.15f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    },
+            //    "Fxr4liangatk02"
+            //    );
             primary2Shot = ModifyEffect(primary2Shot, "Play_c_liRk4_atk_nml_2", true);
 
             primary2hit1 = GetGameObjectFromBundle("fxr4liangatk02hit01");
-            AddLightIntensityCurveWithCurve(
-                primary2hit1.transform.GetChild(1).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.18f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false
-                },
-                "fxr4liangatk02hit01"
-                );
+            //AddLightIntensityCurveWithCurve(
+            //    primary2hit1.transform.GetChild(1).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.18f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false
+            //    },
+            //    "fxr4liangatk02hit01"
+            //    );
             primary2hit1 = ModifyEffect(primary2hit1, "", true);
 
             primary2hit2 = GetGameObjectFromBundle("fxr4liangatk02hit02");
-            AddLightIntensityCurveWithCurve(
-                primary2hit2.transform.GetChild(1).gameObject,
-                new LightIntensityProps 
-                {
-                    timeMax = 0.18f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false
-                },
-                "fxr4liangatk02hit02-spjere"
-                );
-            AddLightIntensityCurveWithCurve(
-                primary2hit2.transform.GetChild(0).GetChild(1).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.12f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false
-                },
-                "fxr4liangatk02hit02-lightSC"
-                );
+            //AddLightIntensityCurveWithCurve(
+            //    primary2hit2.transform.GetChild(1).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.18f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false
+            //    },
+            //    "fxr4liangatk02hit02-spjere"
+            //    );
+            //AddLightIntensityCurveWithCurve(
+            //    primary2hit2.transform.GetChild(0).GetChild(1).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.12f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false
+            //    },
+            //    "fxr4liangatk02hit02-lightSC"
+            //    );
             primary2hit2 = ModifyEffect(primary2hit2, "", true);
         }
 
@@ -846,16 +846,16 @@ namespace LeeHyperrealMod.Modules
             primary1Swing = ModifyEffect(primary1Swing, "Play_c_liRk4_atk_nml_1", true);
 
             primary1Hit = GetGameObjectFromBundle("fxr4liangatk01hit");
-            AddLightIntensityCurveWithCurve(
-                primary1Hit.transform.GetChild(1).gameObject, 
-                new LightIntensityProps 
-                {
-                    timeMax = 0.18f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                }, 
-                "Fxr4liangatk01hit");
+            //AddLightIntensityCurveWithCurve(
+            //    primary1Hit.transform.GetChild(1).gameObject, 
+            //    new LightIntensityProps 
+            //    {
+            //        timeMax = 0.18f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    }, 
+            //    "Fxr4liangatk01hit");
             primary1Hit = ModifyEffect(primary1Hit, "", true);
 
             primary1Floor = GetGameObjectFromBundle("fxr4liangatk01dilie");
