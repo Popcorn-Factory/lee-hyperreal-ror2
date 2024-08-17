@@ -79,6 +79,44 @@ namespace LeeHyperrealMod.Content.Controllers
             BaseTransform = childLocator.FindChild("BaseTransform");
             RifleTip = childLocator.FindChild("RifleTip");
             Center = childLocator.FindChild("Center");
+
+            Hook();
+        }
+
+        private void Hook()
+        {
+            Modules.Config.changeCameraPos.SettingChanged += ChangeCameraPos_SettingChanged;
+        }
+
+        private void ChangeCameraPos_SettingChanged(object sender, EventArgs e)
+        {
+            if (inSnipeStance && body.hasEffectiveAuthority) 
+            {
+                if (Modules.Config.changeCameraPos.Value)
+                {
+                    CharacterCameraParamsData cameraParamsData = cameraTargetParams.currentCameraParamsData;
+                    cameraParamsData.maxPitch = maxPitch;
+                    cameraParamsData.minPitch = -maxPitch;
+                    cameraParamsData.idealLocalCameraPos = new Vector3(Modules.Config.horizontalCameraPosition.Value, Modules.Config.verticalCameraPosition.Value, Modules.Config.depthCameraPosition.Value);
+
+                    CameraTargetParams.CameraParamsOverrideRequest request = new CameraTargetParams.CameraParamsOverrideRequest
+                    {
+                        cameraParamsData = cameraParamsData,
+                        priority = 0.2f,
+                    };
+
+                    handle = cameraTargetParams.AddParamsOverride(request, 0.4f);
+                }
+                else
+                {
+                    cameraTargetParams.RemoveParamsOverride(handle);
+                }
+            }
+        }
+
+        private void Unhook()
+        {
+            Modules.Config.changeCameraPos.SettingChanged -= ChangeCameraPos_SettingChanged;
         }
 
         public void Start() 
@@ -324,6 +362,7 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 snipeAerialPlatform.GetComponent<DestroyPlatformOnDelay>().StartDestroying();
             }
+            Unhook();
         }
     }
 }
