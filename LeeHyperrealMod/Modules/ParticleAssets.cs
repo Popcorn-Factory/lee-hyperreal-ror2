@@ -741,10 +741,10 @@ namespace LeeHyperrealMod.Modules
             //   },
             //   "fxr4liangatk04"
             //   );
-            primary4Swing = ModifyEffect(primary4Swing, "Play_c_liRk4_atk_nml_4", true);
+            primary4Swing = ModifyEffect(primary4Swing, "Play_c_liRk4_atk_nml_4", true, 2f);
 
             primary4AfterImage = GetGameObjectFromBundle("fxr4liangatk04canying");
-            primary4AfterImage = ModifyEffect(primary4AfterImage, "", true);
+            primary4AfterImage = ModifyEffect(primary4AfterImage, "", true, 2f);
 
             primary4Hit = GetGameObjectFromBundle("fxr4liangatk04hit");
             primary4Hit = ModifyEffect(primary4Hit, "", true);

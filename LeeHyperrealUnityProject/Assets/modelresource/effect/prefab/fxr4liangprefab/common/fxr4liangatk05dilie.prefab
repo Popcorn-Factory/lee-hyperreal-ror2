@@ -9799,7 +9799,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: d7e091e542205964f9cb5402e0853d44, type: 2}
-  - {fileID: 2100000, guid: d7e091e542205964f9cb5402e0853d44, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14558,7 +14557,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: c9aa03a79b6c0d14cb3a8f58b067a905, type: 2}
-  - {fileID: 2100000, guid: c9aa03a79b6c0d14cb3a8f58b067a905, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14681,8 +14679,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.29803923, g: 0.52156866, b: 1, a: 1}
-  m_Intensity: 4
-  m_Range: 10.5
+  m_Intensity: 6
+  m_Range: 40
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -17050,7 +17048,6 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b3468200243ce1d4e8c5820bee9fe20c, type: 2}
   - {fileID: 2100000, guid: b3468200243ce1d4e8c5820bee9fe20c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -21772,7 +21769,6 @@ ParticleSystemRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 8289313d09c76404db6f6ea108f19481, type: 2}
-  - {fileID: 2100000, guid: 8289313d09c76404db6f6ea108f19481, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -21936,7 +21932,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8657771110287386694}
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 0, y: 0.811, z: 0}
+  m_LocalPosition: {x: 0, y: 1.009, z: 0}
   m_LocalScale: {x: 1.1999999, y: 1.1999999, z: 0.81197}
   m_Children: []
   m_Father: {fileID: 4331071730764603}
@@ -21988,8 +21984,8 @@ ParticleSystem:
     enabled: 1
     startLifetime:
       serializedVersion: 2
-      minMaxState: 3
-      scalar: 1
+      minMaxState: 0
+      scalar: 0.7
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -22579,7 +22575,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 0.15528193}
+        key1: {r: 0.4528302, g: 0.4528302, b: 0.4528302, a: 0.3764706}
         key2: {r: 0.3584906, g: 0.34665364, b: 0.34665364, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}

@@ -2526,7 +2526,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.45937166, g: 0.5651912, b: 0.8773585, a: 1}
-  m_Intensity: 3
+  m_Intensity: 5
   m_Range: 40
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -20544,7 +20544,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
       cycleCount: 3
-      repeatInterval: 0.11
+      repeatInterval: 0.125
       probability: 1
   SizeModule:
     enabled: 0
