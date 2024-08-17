@@ -15,6 +15,7 @@ namespace LeeHyperrealMod.Modules.Survivors
 {
     internal class LeeHyperreal : SurvivorBase
     {
+        public static GameObject staticBodyPrefab;
         public override string prefabBodyName => "LeeHyperreal";
 
         public const string PLUGIN_PREFIX = LeeHyperrealPlugin.DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_";
@@ -150,6 +151,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             bodyPrefab.AddComponent<UltimateCameraController>();
             bodyPrefab.AddComponent<GlitchOverlayController>();
             bodyPrefab.AddComponent<LeeHyperrealDeathMonitor>();
+            staticBodyPrefab = bodyPrefab;
         }
 
         public override void InitializeDoppelganger(string clone)
