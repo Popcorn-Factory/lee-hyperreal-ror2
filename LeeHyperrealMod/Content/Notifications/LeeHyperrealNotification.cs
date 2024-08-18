@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace LeeHyperrealMod.Content.Notifications
 {
+    //Shamelessly stolen from HUNK: thank you for making my job easier ROB
     internal class LeeHyperrealNotification : GenericNotification
     {
         public void SetText(string newToken)
@@ -13,7 +14,7 @@ namespace LeeHyperrealMod.Content.Notifications
 
             this.iconImage.texture = LeeHyperrealMod.Modules.Survivors.LeeHyperreal.staticBodyPrefab.GetComponent<CharacterBody>().portraitIcon;
 
-            this.titleTMP.color = new Color(0.4f, 1f, 1f);
+            this.titleTMP.color = Modules.StaticValues.bodyColor;
         }
     }
 }

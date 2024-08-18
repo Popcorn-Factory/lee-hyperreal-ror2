@@ -10,11 +10,7 @@ namespace LeeHyperrealMod.Modules
 {
     internal static class StaticValues
     {        
-        internal const float swordDamageCoefficient = 2.8f;
-
-        internal const float gunDamageCoefficient = 4.2f;
-
-        internal const float bombDamageCoefficient = 16f;
+        internal static Color bodyColor = new Color(0.4f, 1f, 1f);
 
         #region Character Stats
         internal const float baseMoveSpeed = 7f;

@@ -36,7 +36,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             subtitleNameToken = PLUGIN_PREFIX + "SUBTITLE",
 
             characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("LeeCharacterIcon"),
-            bodyColor = new Color(0.4f, 1f, 1f),
+            bodyColor = Modules.StaticValues.bodyColor,
             aimOriginPosition = new Vector3(0f, 0f ,0f),
 
             podPrefab = Modules.Assets.leeSurvivorPod,
