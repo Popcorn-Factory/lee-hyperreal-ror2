@@ -513,17 +513,17 @@ namespace LeeHyperrealMod.Modules
             yellowOrbKick = ModifyEffect(yellowOrbKick, "Play_c_liRk4_skill_yellow_fire", true);
 
             yellowOrbMultishot = GetGameObjectFromBundle("fxr4liangatk35");
-            AddLightIntensityCurveWithCurve(
-                yellowOrbMultishot.transform.GetChild(8).GetChild(3).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.15f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false
-                },
-                "fxr4liangatk35"
-                );
+            //AddLightIntensityCurveWithCurve(
+            //    yellowOrbMultishot.transform.GetChild(8).GetChild(3).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.15f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false
+            //    },
+            //    "fxr4liangatk35"
+            //    );
             yellowOrbMultishot = ModifyEffect(yellowOrbMultishot, "", true);
 
             yellowOrbMultishotHit = GetGameObjectFromBundle("fxr4liangatk35hit");
@@ -617,17 +617,17 @@ namespace LeeHyperrealMod.Modules
         private static void PopulateRedOrbAssets()
         {
             redOrbSwing = GetGameObjectFromBundle("fxr4liangatk10");
-            AddLightIntensityCurveWithCurve(
-                redOrbSwing.transform.GetChild(1).GetChild(0).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.5f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "fxr4liangatk10"
-                );
+            //AddLightIntensityCurveWithCurve(
+            //    redOrbSwing.transform.GetChild(1).GetChild(0).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.5f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    },
+            //    "fxr4liangatk10"
+            //    );
             redOrbSwing = ModifyEffect(redOrbSwing, "Play_c_liRk4_skill_red", true);
 
             redOrbHit = GetGameObjectFromBundle("fxr4liangatk10hit02");
@@ -659,31 +659,31 @@ namespace LeeHyperrealMod.Modules
             redOrbPingSwing = ModifyEffect(redOrbPingSwing, "", false);
 
             redOrbPingGround = GetGameObjectFromBundle("fxr4liangatk11dilie");
-            AddLightIntensityCurveWithCurve(
-                redOrbPingGround.transform.GetChild(0).gameObject,
-                new LightIntensityProps
-                {
-                    timeMax = 0.5f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "fxr4liangatk11dilie"
-                );
+            //AddLightIntensityCurveWithCurve(
+            //    redOrbPingGround.transform.GetChild(0).gameObject,
+            //    new LightIntensityProps
+            //    {
+            //        timeMax = 0.5f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    },
+            //    "fxr4liangatk11dilie"
+            //    );
             redOrbPingGround = ModifyEffect(redOrbPingGround, "", false);
 
             redOrbDomainFloorImpact = GetGameObjectFromBundle("fxr4liangatk14dilie");
-            AddLightIntensityCurveWithCurve(
-                redOrbDomainFloorImpact.transform.GetChild(0).gameObject,
-                new LightIntensityProps 
-                {
-                    timeMax = 0.5f,
-                    loop = false,
-                    randomStart = false,
-                    enableNegativeLights = false,
-                },
-                "fxr4liangatk14dilie"
-                );
+            //AddLightIntensityCurveWithCurve(
+            //    redOrbDomainFloorImpact.transform.GetChild(0).gameObject,
+            //    new LightIntensityProps 
+            //    {
+            //        timeMax = 0.5f,
+            //        loop = false,
+            //        randomStart = false,
+            //        enableNegativeLights = false,
+            //    },
+            //    "fxr4liangatk14dilie"
+            //    );
             redOrbDomainFloorImpact = ModifyEffect(redOrbDomainFloorImpact, "Play_c_liRk4_atk_ex_2", false);
 
             redOrbDomainHit = GetGameObjectFromBundle("fxr4liangatk14fshit01");
