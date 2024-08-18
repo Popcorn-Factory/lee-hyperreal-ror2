@@ -36,7 +36,7 @@ namespace LeeHyperrealMod.Content.Notifications
                 return;
             }
 
-            LeeHyperrealNotificationQueue notificationQueueForMaster = LeeHyperrealNotificationQueue.GetNotificationQueueForMaster(characterMaster);
+            LeeHyperrealNotificationQueue notificationQueueForMaster = GetNotificationQueueForMaster(characterMaster);
             if (notificationQueueForMaster)
             {
                 notificationQueueForMaster.PushNotification(new CharacterMasterNotificationQueue.NotificationInfo(token, null), 6f);

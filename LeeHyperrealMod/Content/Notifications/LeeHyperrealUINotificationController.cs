@@ -4,10 +4,10 @@ using RoR2;
 using RoR2.UI;
 using LeeHyperrealMod.Content.Notifications;
 
-namespace LeeHyperrealMod.Modules.Components
+namespace LeeHyperrealMod.Modules.Notifications
 {
     // ROB how the fuck does this shit work, this controller is never referenced anywhere else in code.
-    internal class LeeHyperrealUIController : MonoBehaviour
+    internal class LeeHyperrealUINotificationController : MonoBehaviour
     {
         public HUD hud;
         public GameObject genericNotificationPrefab;
