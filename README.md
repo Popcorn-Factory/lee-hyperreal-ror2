@@ -49,33 +49,33 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
 
 ## Skills
 ### Primary: Armament Barrage
-<img src=""/> ADD ICON HERE
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/Primary.bmp"/>
 
 Launch a 5-hit-combo attack. On hit 1 and 3, perform a **\[Parry\]** active for a short time.
 In the air, slam down, dealing **500% damage**, increasing up to **3x times** dependant on vertical distance travelled. Hold down at anytime with a full **\[Power Gauge\]** to enter the **\[Hypermatrix\]**.
 
 ### Primary - Snipe Stance: Snipe
-<img src=""/> ADD ICON HERE
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/Snipe Primary.bmp"/>
 
 Shoot a bullet for **400% damage**.
 
 ### Secondary: Snipe Stance
-<img src=""/> ADD ICON HERE
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/Snipe Shot.bmp"/>
 
 Enter **\[Snipe Stance\]**, locking you in place, allowing you to Snipe using Primary for **400% damage**.
 
 ### Utility: Reality Travel
-<img src=""/> ADD ICON HERE
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/Dodge.bmp"/>
 
 Dodge, turning invincible for a short time.
 
 ### Special: End of Time
-<img src=""/> ADD ICON HERE
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/Ultimate.bmp"/>
 
 Turn invincible, pulling out a cannon that blasts enemies in a wide radius for **6000% damage** after a short windup. This move changes while in the **\[Hypermatrix.\]**
 
 ### Special - Hypermatrix: Collapsing Realm:
-<img src=""/> ADD ICON HERE
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/Domain Ultimate.bmp"/>
 
 Collapse the **\[Hypermatrix\]**, turning invincible for a short time and dealing **2000% damage** in your wake.
 
