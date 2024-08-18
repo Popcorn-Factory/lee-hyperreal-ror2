@@ -49,7 +49,7 @@ namespace LeeHyperrealMod.Modules
                 Environment.NewLine + Environment.NewLine + "An hour later, a large case was stowed in the loading bay, and a UES high priority boarding card let a pair of shabby shoes and acrid burns onto the Safe Travels.";
 
             string outro = "..and so he left, still no closer to his true reality.";
-            string outroFailure = "..and so he vanished, with a mission unfulfilled";
+            string outroFailure = "..and so he vanished, with a mission unfulfilled.";
 
             LanguageAPI.Add(prefix + "NAME", "Lee: Hyperreal");
             LanguageAPI.Add(prefix + "DESCRIPTION", desc);
@@ -74,7 +74,7 @@ namespace LeeHyperrealMod.Modules
             LanguageAPI.Add(prefix + "PASSIVE_DOMAIN_DESCRIPTION", "" +
                 $"Lee has access to the {UtilDesc("[Hypermatrix]")}, by holding the Primary button" +
                 $" down with a full {UtilDesc("[Power Gauge]")}." +
-                $" Lee gains damage in place of attack speed, however {UtilDesc("[`Snipe Stance´]")} scales normally.");
+                $" Lee gains damage in place of attack speed, however {UtilDesc("[Snipe Stance]")} scales normally.");
             #endregion
 
             #region Primary

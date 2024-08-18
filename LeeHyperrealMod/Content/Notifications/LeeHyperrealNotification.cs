@@ -1,6 +1,5 @@
 ﻿using RoR2;
 using RoR2.UI;
-using UnityEngine;
 
 namespace LeeHyperrealMod.Content.Notifications
 {
