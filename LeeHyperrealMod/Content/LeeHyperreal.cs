@@ -623,7 +623,7 @@ namespace LeeHyperrealMod.Modules.Survivors
 
             //creating a new skindef as we did before
             SkinDef blueSkin = Modules.Skins.CreateSkinDef(PLUGIN_PREFIX + "ALT_SKIN_NAME",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("texCloneSkin"),
+                Assets.mainAssetBundle.LoadAsset<Sprite>("texCloneSkin3"),
                 defaultRendererinfos,
                 prefabCharacterModel.gameObject);
 
