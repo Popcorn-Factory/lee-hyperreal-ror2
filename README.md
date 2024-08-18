@@ -35,16 +35,16 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
 ## Video
 
 ## Screenshots
-<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee1.png"/>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/lee1.png"/>
 
 <details>
 <summary>Click to expand for more screenshots:</summary>
-<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee2.png"/>
-<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee3.png"/>
-<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee4.png"/>
-<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee5.png"/>
-<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee6.png"/>
-<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/lee7.png"/>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/lee2.png"/>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/lee3.png"/>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/lee4.png"/>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/lee5.png"/>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/lee6.png"/>
+<img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/lee7.png"/>
 </details>
 
 ## Skills
@@ -80,17 +80,17 @@ Turn invincible, pulling out a cannon that blasts enemies in a wide radius for *
 Collapse the **\[Hypermatrix\]**, turning invincible for a short time and dealing **2000% damage** in your wake.
 
 ### Orb Ability - Blue: Falling Blast
-<img src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/blueOrb.png"/>
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/blueOrb.png"/>
 
 Throw your firearm case forward and unleash a blast where you last stood, dealing **600% damage** on blast, and **400% damage** on the Rifle shot. Movement can be modified by holding back or forward. 
 
 ### Orb Ability - Red: Bullet Raid
-<img src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/redOrb.png"/>
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/redOrb.png"/>
 
 Perform a slide, shooting 3 times for **150% damage**. On **\[3-ping\]**, an additional back-step will be performed, followed by a bullet spray dealing **600% damage**.
 
 ### Orb Ability - Yellow: Glimpse Maneuver
-<img src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/yellowOrb.png"/>
+<img src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/yellowOrb.png"/>
 
 Glide around an enemy while firing a torrent of bullets, hitting 3 times, **100% damage** each time. On **\[3-ping\]**, perform a wide upwards kick dealing **600% damage** while also performing a **\[Parry\]**.
 
@@ -98,7 +98,7 @@ Glide around an enemy while firing a torrent of bullets, hitting 3 times, **100%
 There's no need for payment for mods, but a coffee would be nice once in awhile!
 
 <a href="https://ko-fi.com/popcornfactory" target="_blank">
-  <img width="400" src="https://raw.githubusercontent.com/Popcorn-Factory/lee-hyperreal-ror2/master/ThunderstoreRelease/kofiImg.png"/>
+  <img width="400" src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/kofiImg.png"/>
 </a>
 
 ## Known Issues
