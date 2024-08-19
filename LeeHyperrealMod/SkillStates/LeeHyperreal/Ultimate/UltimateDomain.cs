@@ -26,12 +26,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         public float earlyEnd = 0.65f;
         public float effectPlay = 0.55f;
         public bool hasPlayedEffect = false;
-        public float fireTime = 0.01f;
+        public float fireTime = 0.2f;
         public float fireEndTime = 0.35f;
-        public float fireInterval = 0.1f;
+        public double fireInterval;
         public float finalInterval = 0.2f;
         public float duration = StaticValues.ultimateDomainDuration;
-        public float fireStopwatch;
+        public double fireStopwatch;
         public float finalStopwatch;
         public bool preFinalBlastTriggered = false;
         public bool finalBlastTriggered = false;
@@ -77,6 +77,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             sightStacks = docon.GetIntuitionStacks();
 
             domainHitCount = StaticValues.ultimateDomainFireCount + (sightStacks * StaticValues.ultimateDomainFireCount);
+
+            fireInterval = (fireTime - fireEndTime) / (float)domainHitCount;
 
             if (sightStacks == 0) 
             {
@@ -300,8 +302,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             base.FixedUpdate();
 
             //Able to be cancelled after this.
-            if (fixedAge >= duration * fireTime && base.isAuthority)
+            if (fixedAge >= duration * fireTime && fixedAge <= duration * fireEndTime && base.isAuthority)
             {
+                // Take the time between start and end, space each hit accordingly and smash all the hits within a small timeframe.
                 if (fireStopwatch <= 0f && fireCount < domainHitCount)
                 {
                     //mini hits
@@ -320,23 +323,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 {
                     fireStopwatch -= Time.fixedDeltaTime;
                 }
-
-                //if (fireCount >= domainHitCount)
-                //{
-                //    if(finalStopwatch > finalInterval && !preFinalBlastTriggered)
-                //    {
-                //        preFinalBlastTriggered = true;
-                //        //final hit
-                //        blastAttack.baseDamage = damageStat * Modules.StaticValues.ultimateDomainDamageCoefficient * sightStacks; //multiple by anschauung stacks
-                //        blastAttack.Fire();
-
-                //    }
-                //    else
-                //    {
-                //        finalStopwatch += Time.fixedDeltaTime;
-                //    }
-
-                //}
             }
 
             if (fixedAge >= duration * effectPlay && base.isAuthority) 
