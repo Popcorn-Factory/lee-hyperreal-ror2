@@ -314,7 +314,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 {
                     //mini hits
                     fireStopwatch = fireInterval;
-                    blastAttack.Fire();
                     fireCount++;
                     BlastAttack.Result result = blastAttack.Fire();
 
