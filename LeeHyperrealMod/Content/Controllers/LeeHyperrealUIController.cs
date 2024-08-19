@@ -1308,6 +1308,15 @@ namespace LeeHyperrealMod.Content.Controllers
                                 LeeHyperrealNotificationQueue.PushNotification(notificationQueue.gameObject.GetComponent<CharacterMaster>(), Modules.StaticValues.itemKeyValueNotificationPairs[key]);
                             }
                         }
+
+                        EquipmentDef equipmentDef = currentNotification.data as EquipmentDef;
+                        if (equipmentDef != null) 
+                        {
+                            if (Modules.StaticValues.equipmentKeyValueNotificationPairs.ContainsKey(equipmentDef)) 
+                            {
+                                LeeHyperrealNotificationQueue.PushNotification(notificationQueue.gameObject.GetComponent<CharacterMaster>(), Modules.StaticValues.equipmentKeyValueNotificationPairs[equipmentDef]);
+                            }
+                        }
                     }
                 }
             }

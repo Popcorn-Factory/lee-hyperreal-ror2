@@ -189,6 +189,7 @@ namespace LeeHyperrealMod.Modules
 
         #region Custom Item Notifications
         internal static Dictionary<ItemDef, CustomItemEffect> itemKeyValueNotificationPairs;
+        internal static Dictionary<EquipmentDef, CustomItemEffect> equipmentKeyValueNotificationPairs;
 
         public class CustomItemEffect 
         {
@@ -206,7 +207,16 @@ namespace LeeHyperrealMod.Modules
         {
             string prefix = LeeHyperrealPlugin.DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_";
             itemKeyValueNotificationPairs = new Dictionary<ItemDef, CustomItemEffect>();
-            itemKeyValueNotificationPairs.Add(RoR2Content.Items.SecondarySkillMagazine, new CustomItemEffect($"{prefix}ITEM_EFFECT_BACKUPMAG_TITLE", $"{prefix}ITEM_EFFECT_BACKUPMAG_DESC"));
+            itemKeyValueNotificationPairs.Add(RoR2Content.Items.SecondarySkillMagazine, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_BACKUPMAG_DESC"));
+            itemKeyValueNotificationPairs.Add(RoR2Content.Items.AlienHead, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ALIEN_HEAD_DESC"));
+            itemKeyValueNotificationPairs.Add(RoR2Content.Items.LunarBadLuck, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_PURITY_DESC"));
+            itemKeyValueNotificationPairs.Add(RoR2Content.Items.Syringe, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
+            itemKeyValueNotificationPairs.Add(DLC1Content.Items.AttackSpeedAndMoveSpeed, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
+            itemKeyValueNotificationPairs.Add(RoR2Content.Items.EnergizedOnEquipmentUse, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
+            itemKeyValueNotificationPairs.Add(RoR2Content.Items.AttackSpeedOnCrit, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
+
+            equipmentKeyValueNotificationPairs = new Dictionary<EquipmentDef, CustomItemEffect>();
+            equipmentKeyValueNotificationPairs.Add(RoR2Content.Equipment.TeamWarCry, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
         }
         #endregion
 

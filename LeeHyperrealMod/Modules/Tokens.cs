@@ -117,8 +117,11 @@ namespace LeeHyperrealMod.Modules
             #endregion
 
             #region Item Effects
-            LanguageAPI.Add(prefix + "ITEM_EFFECT_BACKUPMAG_TITLE", $"Hyper effect");
+            LanguageAPI.Add(prefix + "ITEM_EFFECT_TITLE", "Hyper effect");
             LanguageAPI.Add(prefix + "ITEM_EFFECT_BACKUPMAG_DESC", $"{Lee("Lee: Hyperreal")} gains {UtilDesc("+1")} {Stack("(+1 per stack)")} outline bullet(s) on each successful {UtilDesc("[Parry]")}");
+            LanguageAPI.Add(prefix + "ITEM_EFFECT_ALIEN_HEAD_DESC", $"{Lee("Lee: Hyperreal's")} orbs charge {UtilDesc("25% faster")}.");
+            LanguageAPI.Add(prefix + "ITEM_EFFECT_PURITY_DESC", $"{Lee("Lee: Hyperreal's")} orb recharge rate is reduced by {UtilDesc("2")} {Stack("(+1 per stack)")} seconds");
+            LanguageAPI.Add(prefix + "ITEM_EFFECT_ATTACK_SPEED_DESC", $"{Lee("Lee: Hyperreal")} gains {UtilDesc("+1 hit")} for most moves, every 100% attack speed. The damage of extra hits is multiplied by the missing % towards next 100% attack speed");
             #endregion
 
             #region Keywords
