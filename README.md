@@ -33,7 +33,7 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
     - Initial Release!
 
 ## Video
-[![Risk of Rain 2 - Lee Hyperreal Mod Showcase](http://img.youtube.com/vi/W47iABVeZWM/0.jpg)](http://www.youtube.com/watch?v=W47iABVeZWM "Risk of Rain 2 - Lee Hyperreal Mod Showcase")
+[![Risk of Rain 2 - Lee Hyperreal Mod Showcase](http://img.youtube.com/vi/DP7mswsHHZ0/0.jpg)](http://www.youtube.com/watch?v=DP7mswsHHZ0 "Risk of Rain 2 - Lee Hyperreal Mod Showcase")
 
 ## Screenshots
 <img width="720" src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/lee1.png"/>
