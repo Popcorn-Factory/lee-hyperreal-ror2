@@ -27,7 +27,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         public float effectPlay = 0.55f;
         public bool hasPlayedEffect = false;
         public float fireTime = 0.2f;
-        public float fireEndTime = 0.35f;
+        public float fireEndTime = 0.31f;
         public double fireInterval;
         public float finalInterval = 0.2f;
         public float duration = StaticValues.ultimateDomainDuration;
@@ -307,7 +307,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             base.FixedUpdate();
 
             //Able to be cancelled after this.
-            if (fixedAge >= duration * fireTime && fixedAge <= duration * fireEndTime && base.isAuthority)
+            if (fixedAge >= duration * fireTime && fixedAge <= duration * (fireEndTime + 0.1f) && base.isAuthority)
             {
                 // Take the time between start and end, space each hit accordingly and smash all the hits within a small timeframe.
                 if (fireStopwatch <= 0f && fireCount < domainHitCount)
