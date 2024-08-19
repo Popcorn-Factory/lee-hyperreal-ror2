@@ -36,7 +36,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         private float bufferActiveTime;
         private float earlyExitTime;
         public float duration;
-        private bool hasFired;
         private float hitPauseTimer;
         private BlastAttack attack;
         protected bool inHitPause;
@@ -70,7 +69,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             earlyExitTime = 0.48f;
 
             bufferActiveTime = 0.42f;
-            hasFired = false;
             aimRay = base.GetAimRay();
             PlayAttackAnimation();
 
@@ -235,7 +233,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 //Check this first.
                 if (base.inputBank.skill1.down || bufferNextMove)
                 {
-                    if (!this.hasFired) this.FireAttack();
                     this.SetNextState();
                     return;
                 }
