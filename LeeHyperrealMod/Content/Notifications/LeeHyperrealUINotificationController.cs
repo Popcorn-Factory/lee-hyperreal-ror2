@@ -43,10 +43,11 @@ namespace LeeHyperrealMod.Modules.Notifications
         {
             this.currentNotification = UnityEngine.Object.Instantiate<GameObject>(this.genericNotificationPrefab).GetComponent<LeeHyperrealNotification>();
 
-            var obj = notificationInfo.data;
+            //The horror, an Object!
+            var obj = (Modules.StaticValues.CustomItemEffect)notificationInfo.data;
             if (obj != null)
             {
-                this.currentNotification.SetText((string)obj);
+                this.currentNotification.SetText(obj.titleToken, obj.descToken);
             }
 
             this.currentNotification.GetComponent<RectTransform>().SetParent(base.GetComponent<RectTransform>(), false);

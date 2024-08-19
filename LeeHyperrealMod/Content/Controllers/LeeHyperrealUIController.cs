@@ -1,4 +1,6 @@
-﻿using RoR2;
+﻿using LeeHyperrealMod.Content.Notifications;
+using LeeHyperrealMod.Modules.Notifications;
+using RoR2;
 using RoR2.CharacterAI;
 using RoR2.ConVar;
 using RoR2.UI;
@@ -19,6 +21,8 @@ namespace LeeHyperrealMod.Content.Controllers
         private CharacterMaster characterMaster;
         private GameObject canvasObject;
         private GameObject RoRHUDObject;
+        private Transform RoRHUDSpringCanvasTransform;
+        private GameObject LeeHyperrealNotifcationControllerObject;
         private OrbController orbController;
         public bool baseAIPresent;
         public bool enabledUI;
@@ -204,6 +208,7 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             if (!isInitialized && !baseAIPresent)
             {
+                InitializeRoRHUD();
                 //Initialize stuff that's custom.
                 InitializePowerMeter();
                 InitializeHealthLayer();
@@ -222,6 +227,31 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
                 isInitialized = true;
             }
+        }
+
+        private void InitializeRoRHUD()
+        {
+            if (RoRHUDObject) 
+            {
+                // Get this transform for easier reference.
+                RoRHUDSpringCanvasTransform = RoRHUDObject.transform.Find("MainContainer").Find("MainUIArea").Find("SpringCanvas");
+
+                //Add a clone of the notification area object to use to show the Notification controller.
+                HUD rorHUD = RoRHUDObject.GetComponent<HUD>();
+                GameObject notificationAreaClone = UnityEngine.Object.Instantiate<GameObject>(RoRHUDObject.transform.Find("MainContainer").Find("NotificationArea").gameObject);
+                notificationAreaClone.transform.SetParent(RoRHUDObject.transform.Find("MainContainer"), true);
+                notificationAreaClone.GetComponent<RectTransform>().localPosition = new Vector3(0f, -265f, -150f);
+                notificationAreaClone.transform.localScale = Vector3.one;
+                NotificationUIController genericNotif = notificationAreaClone.GetComponent<NotificationUIController>();
+
+                LeeHyperrealUINotificationController leeUINotifController = notificationAreaClone.AddComponent<LeeHyperrealUINotificationController>();
+                leeUINotifController.hud = genericNotif.hud;
+                leeUINotifController.genericNotificationPrefab = Modules.Assets.customNotificationPrefab;
+                leeUINotifController.notificationQueue = rorHUD.targetMaster.gameObject.AddComponent<LeeHyperrealNotificationQueue>();
+                genericNotif.enabled = false;
+                return;    
+            }
+            throw new NullReferenceException();
         }
 
         public void Update()
@@ -1253,10 +1283,35 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             //On.RoR2.CameraRigController.Update += CameraRigController_Update;
             On.RoR2.UI.HUD.Update += HUD_Update;
+            On.RoR2.UI.NotificationUIController.ShowCurrentNotification += NotificationUIController_ShowCurrentNotification;
             Modules.Config.blueOrbTrigger.SettingChanged += SimpleKeyChanged;
             Modules.Config.redOrbTrigger.SettingChanged += SimpleKeyChanged;
             Modules.Config.yellowOrbTrigger.SettingChanged += SimpleKeyChanged;
             Modules.Config.crosshairSize.SettingChanged += CrosshairSize_SettingChanged;
+        }
+
+        private void NotificationUIController_ShowCurrentNotification(On.RoR2.UI.NotificationUIController.orig_ShowCurrentNotification orig, NotificationUIController self, CharacterMasterNotificationQueue notificationQueue)
+        {
+            if (self && notificationQueue)
+            {
+                CharacterMasterNotificationQueue.NotificationInfo currentNotification = notificationQueue.GetCurrentNotification();
+                if (currentNotification != null)
+                {
+                    LeeHyperrealNotificationQueue notifQueue = notificationQueue.gameObject.GetComponent<LeeHyperrealNotificationQueue>();
+                    if (notifQueue)
+                    {
+                        ItemDef key = currentNotification.data as ItemDef;
+                        if (key != null)
+                        {
+                            if (Modules.StaticValues.itemKeyValueNotificationPairs.ContainsKey(key))
+                            {
+                                LeeHyperrealNotificationQueue.PushNotification(notificationQueue.gameObject.GetComponent<CharacterMaster>(), Modules.StaticValues.itemKeyValueNotificationPairs[key]);
+                            }
+                        }
+                    }
+                }
+            }
+            orig.Invoke(self, notificationQueue);
         }
 
         private void CrosshairSize_SettingChanged(object sender, EventArgs e)
@@ -1289,6 +1344,7 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             //On.RoR2.CameraRigController.Update -= CameraRigController_Update;
             On.RoR2.UI.HUD.Update -= HUD_Update;
+            On.RoR2.UI.NotificationUIController.ShowCurrentNotification -= NotificationUIController_ShowCurrentNotification;
             Modules.Config.blueOrbTrigger.SettingChanged -= SimpleKeyChanged;
             Modules.Config.redOrbTrigger.SettingChanged -= SimpleKeyChanged;
             Modules.Config.yellowOrbTrigger.SettingChanged -= SimpleKeyChanged;

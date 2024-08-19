@@ -9,6 +9,8 @@ using RoR2.UI;
 using System;
 using LeeHyperrealMod.Content.Controllers;
 using EntityStates;
+using UnityEngine.AddressableAssets;
+using LeeHyperrealMod.Content.Notifications;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -37,6 +39,9 @@ namespace LeeHyperrealMod.Modules
 
         //Lee "Survivor Pod"
         internal static GameObject leeSurvivorPod;
+
+        //Lee Custom Notification Panel stolen from HUNK
+        internal static GameObject customNotificationPrefab;
         #endregion
 
         // the assetbundle to load assets from
@@ -188,6 +193,19 @@ namespace LeeHyperrealMod.Modules
             vehicleSeat.passengerState = new SerializableEntityStateType(typeof(EntityStates.Idle));
 
             leeSurvivorPod.AddComponent<BuffPassengerWhileSeated>();
+
+
+            customNotificationPrefab = PrefabAPI.InstantiateClone(Addressables.LoadAssetAsync<GameObject>("RoR2/Base/UI/NotificationPanel2.prefab").WaitForCompletion(), "LeeHyperrealNotification", false);
+            LeeHyperrealNotification leeNotif = Assets.customNotificationPrefab.AddComponent<LeeHyperrealNotification>();
+            GenericNotification genericComponent = Assets.customNotificationPrefab.GetComponent<GenericNotification>();
+            leeNotif.titleText = genericComponent.titleText;
+            leeNotif.titleTMP = genericComponent.titleTMP;
+            leeNotif.descriptionText = genericComponent.descriptionText;
+            leeNotif.iconImage = genericComponent.iconImage;
+            leeNotif.previousIconImage = genericComponent.previousIconImage;
+            leeNotif.canvasGroup = genericComponent.canvasGroup;
+            leeNotif.fadeOutT = genericComponent.fadeOutT;
+            genericComponent.enabled = false;
 
         }
 

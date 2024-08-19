@@ -116,6 +116,11 @@ namespace LeeHyperrealMod.Modules
                 $"Each 3-Ping during hypermatrix adds 3 hits of 200% damage to {UtilDesc("[Collapsing Realm]")}");
             #endregion
 
+            #region Item Effects
+            LanguageAPI.Add(prefix + "ITEM_EFFECT_BACKUPMAG_TITLE", $"Hyper effect");
+            LanguageAPI.Add(prefix + "ITEM_EFFECT_BACKUPMAG_DESC", $"{Lee("Lee: Hyperreal")} gains {UtilDesc("+1")} {Stack("(+1 per stack)")} outline bullet(s) on each successful {UtilDesc("[Parry]")}");
+            #endregion
+
             #region Keywords
             LanguageAPI.Add(prefix + "KEYWORD_ORBS",
                 $"{Keyword("Orb System")}" +

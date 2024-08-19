@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using EntityStates;
 using TMPro;
+using System.Collections.Generic;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -186,8 +187,30 @@ namespace LeeHyperrealMod.Modules
         internal const float empoweredBulletMultiplier = 2f;
         #endregion
 
-        #region Static functions
+        #region Custom Item Notifications
+        internal static Dictionary<ItemDef, CustomItemEffect> itemKeyValueNotificationPairs;
 
+        public class CustomItemEffect 
+        {
+            public string titleToken;
+            public string descToken;
+
+            public CustomItemEffect(string titleToken, string descToken) 
+            {
+                this.titleToken = titleToken;
+                this.descToken = descToken;
+            }
+        }
+
+        public static void AddNotificationItemPairs()
+        {
+            string prefix = LeeHyperrealPlugin.DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_";
+            itemKeyValueNotificationPairs = new Dictionary<ItemDef, CustomItemEffect>();
+            itemKeyValueNotificationPairs.Add(RoR2Content.Items.SecondarySkillMagazine, new CustomItemEffect($"{prefix}ITEM_EFFECT_BACKUPMAG_TITLE", $"{prefix}ITEM_EFFECT_BACKUPMAG_DESC"));
+        }
+        #endregion
+
+        #region Static functions
         public static float c(int val) 
         {
             return (float)val / 255f;

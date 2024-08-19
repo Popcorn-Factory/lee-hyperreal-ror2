@@ -27,7 +27,7 @@ namespace LeeHyperrealMod.Content.Notifications
             return null;
         }
 
-        public static void PushNotification(CharacterMaster characterMaster, string token)
+        public static void PushNotification(CharacterMaster characterMaster, Modules.StaticValues.CustomItemEffect tokenPair)
         {
             // I trust this works only for the client player.
             if (!characterMaster.hasAuthority)
@@ -39,7 +39,7 @@ namespace LeeHyperrealMod.Content.Notifications
             LeeHyperrealNotificationQueue notificationQueueForMaster = GetNotificationQueueForMaster(characterMaster);
             if (notificationQueueForMaster)
             {
-                notificationQueueForMaster.PushNotification(new CharacterMasterNotificationQueue.NotificationInfo(token, null), 6f);
+                notificationQueueForMaster.PushNotification(new CharacterMasterNotificationQueue.NotificationInfo(tokenPair, null), 6f);
             }
         }
 
