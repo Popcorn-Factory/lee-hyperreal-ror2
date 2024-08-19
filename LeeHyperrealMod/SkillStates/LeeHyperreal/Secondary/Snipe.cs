@@ -28,6 +28,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public static float recoil = 3f;
         public static float range = 256f;
 
+        public bool stockTaken;
+
         public OrbController orbController;
         public BulletController bulletController;
         public LeeHyperrealDomainController domainController;
@@ -243,11 +245,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                 }
 
                 //Check for dodging. Otherwise ignore.
-                if (base.inputBank.skill3.justPressed && skillLocator.utility.stock >= 1)
+                if (base.inputBank.skill3.justPressed && skillLocator.utility.stock >= 1 && !stockTaken) 
                 {
                     if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                     {
                         skillLocator.utility.stock -= 1;
+                        stockTaken = true;
                         Vector3 result = Modules.StaticValues.CheckDirection(inputBank.moveVector, GetAimRay());
                         if (result == new Vector3(0, 0, 1))
                         {

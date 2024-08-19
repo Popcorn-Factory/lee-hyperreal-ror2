@@ -17,6 +17,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         Animator animator;
         public float duration = 2.133f;
         public float earlyExitFrac = 0.22f;
+        public bool consumedStocks = false;
         Vector3 velocity;
         GameObject platform;
         public string muzzleString = "BaseTransform";
@@ -114,9 +115,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     return;
                 }
 
-                if (base.inputBank.skill3.down && skillLocator.utility.stock >= 1)
+                if (base.inputBank.skill3.down && skillLocator.utility.stock >= 1 && !consumedStocks)
                 {
                     skillLocator.utility.stock -= 1;
+                    consumedStocks = true;
                     Vector3 result = Modules.StaticValues.CheckDirection(inputBank.moveVector, GetAimRay());
 
                     if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
