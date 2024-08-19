@@ -781,7 +781,7 @@ namespace LeeHyperrealMod.Modules
             //    },
             //    "fxr4liangatk03hit01-spjere"
             //    );
-            //primary3hit = ModifyEffect(primary3hit, "", false, 1.5f);
+            primary3hit = ModifyEffect(primary3hit, "", false, 1.5f);
         }
 
         public static void PopulatePrimary2Assets()
