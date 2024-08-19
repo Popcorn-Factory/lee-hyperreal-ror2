@@ -76,7 +76,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
             sightStacks = docon.GetIntuitionStacks();
 
-            domainHitCount = StaticValues.ultimateDomainFireCount + (sightStacks * StaticValues.ultimateDomainFireCount);
+            domainHitCount = (sightStacks * StaticValues.ultimateDomainFireCount);
+
+            if (domainHitCount == 0) 
+            {
+                domainHitCount = StaticValues.ultimateDomainFireCount;
+            }
 
             fireInterval = (fireTime - fireEndTime) / (float)domainHitCount;
 
