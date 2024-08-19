@@ -83,7 +83,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 domainHitCount = StaticValues.ultimateDomainFireCount;
             }
 
-            fireInterval = (fireTime - fireEndTime) / (float)domainHitCount;
+            fireInterval = (duration * fireEndTime - duration * fireTime) / (float)domainHitCount;
 
             if (sightStacks == 0) 
             {
