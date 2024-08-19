@@ -146,7 +146,7 @@ namespace LeeHyperrealMod.SkillStates
             base.OnExit();
             base.characterMotor.gravityParameters = oldGravParams;
             characterBody.SetBuffCount(Modules.Buffs.invincibilityBuff.buffIndex, 0);
-            if (weaponModelHandler) 
+            if (weaponModelHandler && !hasWeaponTransitioned) 
             {
                 weaponModelHandler.TransitionState(WeaponState.SUBMACHINE);
             }
