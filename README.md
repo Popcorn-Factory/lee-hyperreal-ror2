@@ -118,11 +118,13 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 - VFX 
     - violetchaolan
     - ethanol10 (Minor VFX creation)
-- Programming - Popcorn Factory team (Contact on Discord):
+- Programming - Popcorn Factory team:
     - ethanol10 (Most of the mod programming and networking)
     - teal5571 (Ultimate, Yellow/Red orb base functionality)
 - Miscellaneous
-    - Rob - Character template
+    - Rob 
+        - Character template
+        - Notification style for bonus effects
     - nunchuck - Helping with Emotes
     - groove_salad - Shader Swapper
     - UnsavedTrash 
