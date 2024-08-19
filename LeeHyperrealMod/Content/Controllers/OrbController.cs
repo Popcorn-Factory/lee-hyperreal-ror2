@@ -119,7 +119,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 flatCooldownReduction += 2f + 1f * (float)(purityCount - 1);
             }
 
-            orbGrantRate = Mathf.Min(this.baseOrbGrantRate, Mathf.Max(1f, this.baseOrbGrantRate * cooldownScale - flatCooldownReduction));
+            orbGrantRate = Mathf.Min(this.baseOrbGrantRate, Mathf.Max(Modules.StaticValues.MinimumOrbGrantSpeed, this.baseOrbGrantRate * cooldownScale - flatCooldownReduction));
         }
 
         public void UpdateBracketPositionFromIntArr(int[] ints, OrbType orbType) 
