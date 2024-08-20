@@ -29,6 +29,8 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
     - NOTE: We've only made it such that it doesn't crash the main functionality, we recommend sticking to the default UI for this mod.
 
 ## Latest Update
+- 1.0.1
+    - Fixing soundbank from not loading. 
 - 1.0.0
     - Initial Release!
 

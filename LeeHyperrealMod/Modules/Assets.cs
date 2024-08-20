@@ -69,7 +69,7 @@ namespace LeeHyperrealMod.Modules
         {
             get
             {
-                return System.IO.Path.Combine(System.IO.Path.GetDirectoryName(LeeHyperrealPlugin.PInfo.Location), soundbankFolder);
+                return System.IO.Path.Combine(System.IO.Path.GetDirectoryName(LeeHyperrealPlugin.PInfo.Location), "");
             }
         }
 
