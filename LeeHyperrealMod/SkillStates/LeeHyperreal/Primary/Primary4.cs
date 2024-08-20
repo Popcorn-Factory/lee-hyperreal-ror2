@@ -176,7 +176,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             if (this.age >= waitSwingTimer * duration && !playedSwing && base.isAuthority) 
             {
                 playedSwing = true;
-
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_atk_nml_4").Send(R2API.Networking.NetworkDestination.Clients);
                 PlaySwingEffect("BaseTransform", 1f, Modules.ParticleAssets.primary4Swing);
             }
 
