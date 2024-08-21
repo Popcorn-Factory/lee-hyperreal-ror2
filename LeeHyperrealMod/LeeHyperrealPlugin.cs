@@ -39,7 +39,7 @@ namespace LeeHyperrealMod
     {
         public const string MODUID = "com.PopcornFactory.LeeHyperrealMod";
         public const string MODNAME = "LeeHyperrealMod";
-        public const string MODVERSION = "1.0.1";
+        public const string MODVERSION = "1.0.2";
         
         public const string DEVELOPER_PREFIX = "POPCORN";
 
@@ -206,6 +206,9 @@ namespace LeeHyperrealMod
         private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
 
+            DamageType HealthCostShrineDamageType = DamageType.NonLethal | DamageType.BypassArmor;
+            float damageWouldReceive = damageInfo.damage;
+            
             if (self)
             {
                 if (self.body)
@@ -223,14 +226,15 @@ namespace LeeHyperrealMod
                         }
                     }
 
-                    if (self.body.HasBuff(Modules.Buffs.invincibilityBuff)) 
+                    if (self.body.HasBuff(Modules.Buffs.invincibilityBuff) && damageInfo.damageType != HealthCostShrineDamageType) 
                     {
                         damageInfo.rejected = true;
                         damageInfo.damage = 0f;
                     }
 
+
                     if (self.body.baseNameToken == DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_NAME" && damageInfo.attacker) 
-                    {
+                    {   
                         if (self.body.HasBuff(Modules.Buffs.parryBuff)) 
                         {
                             bool doBigParry = false;
@@ -239,9 +243,18 @@ namespace LeeHyperrealMod
                                 doBigParry = true;
                             }
 
-                            //Reject damage, return to ~~monke~~ pause in state.
-                            damageInfo.rejected = true;
-                            damageInfo.damage = 0f;
+
+                            if (damageInfo.damageType == HealthCostShrineDamageType)
+                            {
+                                damageInfo.damage = damageWouldReceive * 0.5f;
+                                damageInfo.rejected = false;
+                            }
+                            else 
+                            {
+                                //Reject damage, return to ~~monke~~ pause in state.
+                                damageInfo.rejected = true;
+                                damageInfo.damage = 0f;
+                            }
 
                             new SetPauseTriggerNetworkRequest(self.body.master.netId, true, doBigParry).Send(NetworkDestination.Clients);
 
@@ -253,7 +266,7 @@ namespace LeeHyperrealMod
                                 {
                                     DamageInfo stunInfo = new DamageInfo
                                     {
-                                        damage = damageInfo.damage / 2f,
+                                        damage = damageWouldReceive * 0.25f,
                                         attacker = self.body.gameObject,
                                         crit = self.body.RollCrit(),
                                         damageType = DamageType.Stun1s,
