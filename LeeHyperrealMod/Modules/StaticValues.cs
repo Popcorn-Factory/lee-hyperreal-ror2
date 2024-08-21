@@ -146,7 +146,7 @@ namespace LeeHyperrealMod.Modules
         internal const float redOrbBulletForce = 800f;
         internal const float redOrbTripleMultiplier = 4f;
 
-        internal const float redOrbFinisherDamageCoefficient = 6f;
+        internal const float redOrbFinisherDamageCoefficient = 5f;
         internal const float redOrbFinisherProcCoefficient = 1f;
         internal const float redOrbFinisherBulletRange = 256f;
         internal const float redOrbFinisherBulletForce = 800f;
