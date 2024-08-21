@@ -56,7 +56,7 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Primary 5
-        internal const float primary5DamageCoefficient = 7.5f;
+        internal const float primary5DamageCoefficient = 6f;
         internal const float primary5ProcCoefficient = 1f;
         internal const float primary5PushForce = 300f;
         internal const float primary5HitHopVelocity = 4f;
