@@ -18,7 +18,7 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Primary 1
-        internal const float primary1DamageCoefficient = 1.5f;
+        internal const float primary1DamageCoefficient = 1f;
         internal const float primary1ProcCoefficient = 1f;
         internal const float primary1PushForce = 300f;
         internal const float primary1HitHopVelocity = 4f;
@@ -30,14 +30,14 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Primary 2
-        internal const float primary2DamageCoefficient = 2f;
+        internal const float primary2DamageCoefficient = 1.25f;
         internal const float primary2ProcCoefficient = 1f;
         internal const float primary2PushForce = 300f;
         internal const float primary2HitHopVelocity = 4f;
         #endregion
 
         #region Primary 3
-        internal const float primary3DamageCoefficient = 3f;
+        internal const float primary3DamageCoefficient = 2.25f;
         internal const float primary3ProcCoefficient = 1f;
         internal const float primary3PushForce = 300f;
         internal const float primary3HitHopVelocity = 4f;
@@ -49,14 +49,14 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Primary 4
-        internal const float primary4DamageCoefficient = 1f; // This is per tick!
+        internal const float primary4DamageCoefficient = 0.7f; // This is per tick!
         internal const float primary4ProcCoefficient = 1f;
         internal const float primary4BasePulseRate = 0.2f;
-        internal const float primary4BlastRadius = 20f;
+        internal const float primary4BlastRadius = 25f;
         #endregion
 
         #region Primary 5
-        internal const float primary5DamageCoefficient = 10f;
+        internal const float primary5DamageCoefficient = 7.5f;
         internal const float primary5ProcCoefficient = 1f;
         internal const float primary5PushForce = 300f;
         internal const float primary5HitHopVelocity = 4f;
@@ -65,7 +65,7 @@ namespace LeeHyperrealMod.Modules
         #region Primary Aerial
         internal const float primaryAerialSlamRadius = 5f;
         internal const float primaryAerialMaxDamageMultiplier = 3f;
-        internal const float primaryAerialDamageCoefficient = 5f;
+        internal const float primaryAerialDamageCoefficient = 4f;
         internal const float primaryAerialProcCoefficient = 1f;
         internal const float primaryAerialSlamSpeed = 75f;
         #endregion
@@ -96,10 +96,10 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Blue Orb
-        internal const float blueOrbCoefficient = 3f;
+        internal const float blueOrbCoefficient = 2.25f;
         internal const float blueOrbBlastRadius = 8f;
         internal const float blueOrbTripleMultiplier = 4f;
-        internal const float blueOrbShotCoefficient = 4f;
+        internal const float blueOrbShotCoefficient = 3f;
         internal const float blueOrbProcCoefficient = 1f;
         #endregion
 
@@ -114,17 +114,17 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Yellow Orb
-        internal const float yellowOrbDamageCoefficient = 1f;
+        internal const float yellowOrbDamageCoefficient = 0.75f;
         internal const int yellowOrbBaseHitAmount = 3;
         internal const float yellowOrbProcCoefficient = 1f;
         internal const float yellowOrbTripleMultiplier = 4f;
         internal const float yellowOrbBlastRadius = 8f;
 
-        internal const float yellowOrbFinisherDamageCoefficient = 10f;
+        internal const float yellowOrbFinisherDamageCoefficient = 8f;
         internal const float yellowOrbFinisherProcCoefficient = 1f;
         internal const float yellowOrbFinisherPushForce = 300f;
 
-        internal const float yellowOrbDomainDamageCoefficient = 0.5f;
+        internal const float yellowOrbDomainDamageCoefficient = 0.45f;
         internal const float yellowOrbDomainProcCoefficient = 1f;
         internal const float yellowOrbDomainBlastForce = 200f;
         internal const float yellowOrbDomainBlastRadius = 20f;
@@ -139,7 +139,7 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Red Orb
-        internal const float redOrbDamageCoefficient = 1.5f;
+        internal const float redOrbDamageCoefficient = 1.25f;
         internal const int redOrbBaseHitAmount = 3; // Amount of shots at 1 attack speed
         internal const float redOrbProcCoefficient = 1f;
         internal const float redOrbBulletRange = 256f;
@@ -151,7 +151,7 @@ namespace LeeHyperrealMod.Modules
         internal const float redOrbFinisherBulletRange = 256f;
         internal const float redOrbFinisherBulletForce = 800f;
 
-        internal const float redOrbDomainDamageCoefficient = 2f;
+        internal const float redOrbDomainDamageCoefficient = 1.75f;
         internal const float redOrbDomainBlastRadius = 10f;
         internal const int redOrbDomainFireCount = 3;
         internal const float redOrbDomainProcCoefficient = 1f;
@@ -161,14 +161,14 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Ultimate
-        internal const float ultimateDamageCoefficient = 60f;
+        internal const float ultimateDamageCoefficient = 50f;
         internal const float ultimateProcCoefficient = 1f;
         internal const float ultimateBlastRadius = 22f;
         internal const float ultimateFreezeDuration = 8f;
         internal const int ultimateFinalBlastHitCount = 12;
 
         internal const float ultimateDomainMiniDamageCoefficient = 2f;
-        internal const float ultimateDomainDamageCoefficient = 20f;
+        internal const float ultimateDomainDamageCoefficient = 15f;
         internal const float ultimateDomainBlastRadius = 40f;
         internal const int ultimateDomainFireCount = 3;
         internal const float ultimateDomainDuration = 4f;
