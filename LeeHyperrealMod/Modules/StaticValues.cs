@@ -135,7 +135,7 @@ namespace LeeHyperrealMod.Modules
         internal const float yellowOrbFinisherParryTiming = 0.0f; // A percentage of the duration in which the parry starts
         internal const float yellowOrbFinisherParryPauseLength = 0.2f; // How long YOU are stuck in hit pause when a parry is triggered
         internal const float yellowOrbFinisherParryProjectileTimingStart = 0.0f; // Percentage of the duration of the move where a projectile parry can be triggered
-        internal const float yellowOrbFinisherParryProjectileTimingEnd = 0.5f; // Percentage of the duration of the move when a projectile parry can be triggered. In this case it's ranging from 5% to 10% of the move, this value should never be higher than 1f
+        internal const float yellowOrbFinisherParryProjectileTimingEnd = 0.5f; // Percentage of the duration of the move when a projectile parry can be triggered. In this case it's ranging from 0% to 50% of the move, this value should never be higher than 1f
         #endregion
 
         #region Red Orb

@@ -57,7 +57,7 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
 <img src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/Primary.bmp"/>
 
 Launch a 5-hit-combo attack. On hit 1 and 3, perform a **\[Parry\]** active for a short time.
-In the air, slam down, dealing **500% damage**, increasing up to **3x times** dependant on vertical distance travelled. Hold down at anytime with a full **\[Power Gauge\]** to enter the **\[Hypermatrix\]**.
+In the air, slam down, dealing **400% damage**, increasing up to **3x times** dependant on vertical distance travelled. Hold down at anytime with a full **\[Power Gauge\]** to enter the **\[Hypermatrix\]**.
 
 ### Primary - Snipe Stance: Snipe
 <img src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/Snipe Primary.bmp"/>
@@ -77,27 +77,27 @@ Dodge, turning invincible for a short time.
 ### Special: End of Time
 <img src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/Ultimate.bmp"/>
 
-Turn invincible, pulling out a cannon that blasts enemies in a wide radius for **6000% damage** after a short windup. This move changes while in the **\[Hypermatrix.\]**
+Turn invincible, pulling out a cannon that blasts enemies in a wide radius for **5000% damage** after a short windup. This move changes while in the **\[Hypermatrix.\]**
 
 ### Special - Hypermatrix: Collapsing Realm:
 <img src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/Domain Ultimate.bmp"/>
 
-Collapse the **\[Hypermatrix\]**, turning invincible for a short time and dealing **2000% damage** in your wake.
+Collapse the **\[Hypermatrix\]**, turning invincible for a short time and dealing **1500% damage** in your wake.
 
 ### Orb Ability - Blue: Falling Blast
 <img src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/blueOrb.png"/>
 
-Throw your firearm case forward and unleash a blast where you last stood, dealing **600% damage** on blast, and **400% damage** on the Rifle shot. Movement can be modified by holding back or forward. 
+Throw your firearm case forward and unleash a blast where you last stood, dealing **225% damage** on blast, and **300% damage** on the Rifle shot. Movement can be modified by holding back or forward. 
 
 ### Orb Ability - Red: Bullet Raid
 <img src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/redOrb.png"/>
 
-Perform a slide, shooting 3 times for **150% damage**. On **\[3-ping\]**, an additional back-step will be performed, followed by a bullet spray dealing **600% damage**.
+Perform a slide, shooting 3 times for **125% damage**. On **\[3-ping\]**, an additional back-step will be performed, followed by a bullet spray dealing **500% damage**.
 
 ### Orb Ability - Yellow: Glimpse Maneuver
 <img src="https://raw.githubusercontent.com/Popcorn-Factory/PopcornFactoryModMediaFiles/main/LeeHyperreal/yellowOrb.png"/>
 
-Glide around an enemy while firing a torrent of bullets, hitting 3 times, **100% damage** each time. On **\[3-ping\]**, perform a wide upwards kick dealing **600% damage** while also performing a **\[Parry\]**.
+Glide around an enemy while firing a torrent of bullets, hitting 3 times, **75% damage** each time. On **\[3-ping\]**, perform a wide upwards kick dealing **800% damage** while also performing a **\[Parry\]**.
 
 ## Support us on Ko-fi! 
 There's no need for payment for mods, but a coffee would be nice once in awhile!
