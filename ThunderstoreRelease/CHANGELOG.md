@@ -1,5 +1,7 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
+- 1.0.3
+    - Removing Debug Chat output that was left in accidentally.
 - 1.0.2
     - Following changes have been added to Invincibility and Parry:
         - Invincibility granted from Utility and Orbs now do not allow you to bypass shrines that cost health.

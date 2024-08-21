@@ -29,29 +29,8 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
     - NOTE: We've only made it such that it doesn't crash the main functionality, we recommend sticking to the default UI for this mod.
 
 ## Latest Update
-- 1.0.2
-    - Following changes have been added to Invincibility and Parry:
-        - Invincibility granted from Utility and Orbs now do not allow you to bypass shrines that cost health.
-        - Parrying a shrine that costs health now inflicts half the damage it would normally do. 
-        - Parrying now returns 25% of the damage that would've been inflicted if you didn't parry.
-    - Changed the values on the following moves:
-        - Armament Barrage 1 damage -> 150% to 100%
-        - Armament Barrage 2 damage -> 200% to 125%
-        - Armament Barrage 3 damage -> 300% to 225%
-        - Armament Barrage 4 damage -> 100% to 70% per tick
-        - Armament Barrage 4 Hit Radius -> 20m to 25m
-        - Armament Barrage 5 damage -> 1000% to 600%
-        - Armament Barrage Aerial (Non-Hypermatrix) damage -> 500% to 400%
-        - Blue Orb Blast damage -> 300% to 225%
-        - Blue Orb Shot damage -> 400% to 300%
-        - Yellow Orb damage -> 100% to 45%
-        - Yellow Orb 3-ping damage -> 1000% to 800%
-        - Yellow Orb Hypermatrix damage -> 50% to 45% per hit
-        - Red Orb damage -> 150% to 125% per shot
-        - Red Orb 3-ping damage -> 600% to 500%
-        - Red Orb Hypermatrix damage -> 200% to 175%
-        - End of time damage -> 6000% to 5000%
-        - Collapsing Realm damage -> 2000% to 1500%
+- 1.0.3
+    - Removing Debug Chat output that was left in accidentally.
 - 1.0.0
     - Initial Release!
 
