@@ -150,7 +150,7 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
     - Rob 
         - Character template
         - Notification style for bonus effects
-    - nunchuck - Helping with Emotes
+    - nunchuk - Helping with Emotes
     - groove_salad - Shader Swapper
     - UnsavedTrash 
         - Helping with model and vfx
