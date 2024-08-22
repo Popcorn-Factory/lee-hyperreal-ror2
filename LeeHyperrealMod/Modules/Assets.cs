@@ -141,6 +141,8 @@ namespace LeeHyperrealMod.Modules
             VehicleSeat vehicleSeat = leeSurvivorPod.GetComponent<VehicleSeat>();
             buffPass.buff = Modules.Buffs.invincibilityBuff;
             buffPass.vehicleSeat = vehicleSeat;
+
+            Modules.Content.AddNetworkObjectPrefabs(leeSurvivorPod);
         }
 
         internal static void PopulateAssets()

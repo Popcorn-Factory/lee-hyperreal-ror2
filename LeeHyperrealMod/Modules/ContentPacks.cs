@@ -58,6 +58,7 @@ namespace LeeHyperrealMod.Modules
             contentPack.effectDefs.Add(effectDefs.ToArray());
 
             contentPack.networkSoundEventDefs.Add(networkSoundEventDefs.ToArray());
+            contentPack.networkedObjectPrefabs.Add(networkedObjectPrefabs.ToArray());
 
             args.ReportProgress(1f);
             yield break;
@@ -136,6 +137,11 @@ namespace LeeHyperrealMod.Modules
         {
 
             ContentPacks.networkSoundEventDefs.Add(networkSoundEventDef);
+        }
+
+        public static void AddNetworkObjectPrefabs(GameObject networkObject) 
+        {
+            ContentPacks.networkedObjectPrefabs.Add(networkObject);
         }
     }
 }
