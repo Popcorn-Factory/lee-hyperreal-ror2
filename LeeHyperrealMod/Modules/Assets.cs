@@ -11,6 +11,9 @@ using LeeHyperrealMod.Content.Controllers;
 using EntityStates;
 using UnityEngine.AddressableAssets;
 using LeeHyperrealMod.Content.Notifications;
+using R2API.Utils;
+using System.Security.Cryptography;
+using System.Text;
 
 namespace LeeHyperrealMod.Modules
 {
@@ -174,7 +177,8 @@ namespace LeeHyperrealMod.Modules
             leeSurvivorPod = mainAssetBundle.LoadAsset<GameObject>("stageIntroPrefab");
 
             //Time to setup the prefab:
-            leeSurvivorPod.AddComponent<NetworkIdentity>();
+            NetworkIdentity netID = leeSurvivorPod.AddComponent<NetworkIdentity>();
+            netID.SetDynamicAssetId(NetworkHash128.Parse(HashString("Lee Hyperreal Survivor Pod GameObject")));
             SurvivorPodController podController = leeSurvivorPod.AddComponent<SurvivorPodController>();
             podController.cameraBone = leeSurvivorPod.transform.GetChild(4);
 
@@ -209,6 +213,15 @@ namespace LeeHyperrealMod.Modules
             leeNotif.fadeOutT = genericComponent.fadeOutT;
             genericComponent.enabled = false;
 
+        }
+
+        private static string HashString(string str) 
+        {
+            MD5 md5 = MD5.Create();
+            byte[] computedHash = md5.ComputeHash(Encoding.UTF8.GetBytes(str));
+            md5.Dispose();
+
+            return computedHash.ToString();    
         }
 
         private static GameObject CreateTracer(string originalTracerName, string newTracerName)
