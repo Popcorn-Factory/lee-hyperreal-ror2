@@ -29,8 +29,11 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
     - NOTE: We've only made it such that it doesn't crash the main functionality, we recommend sticking to the default UI for this mod.
 
 ## Latest Update
-- 1.0.3
-    - Removing Debug Chat output that was left in accidentally.
+- 1.0.4
+    - Fixed the pod from not being registered on the Network properly.
+    - Fixed an issue regarding client's getting spawned in without a pod, causing the server and clients to desync from what would be expected.
+    - Fixed the wrong dependency from being compiled in the mod, should work with the suggest mods in the Thunderstore manifest.
+    - Changed the UI Instantiation to use Find when navigating the RoR HUD, instead of indexes. Should be more compatible with mods that modify the UI.
 - 1.0.0
     - Initial Release!
 
@@ -129,7 +132,7 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
     - Rob 
         - Character template
         - Notification style for bonus effects
-    - nunchuck - Helping with Emotes
+    - nunchuk - Helping with Emotes
     - groove_salad - Shader Swapper
     - UnsavedTrash 
         - Helping with model and vfx
