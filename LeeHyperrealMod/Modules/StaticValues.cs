@@ -30,7 +30,7 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Primary 2
-        internal const float primary2DamageCoefficient = 1.25f;
+        internal const float primary2DamageCoefficient = 0.7f;
         internal const float primary2ProcCoefficient = 1f;
         internal const float primary2PushForce = 300f;
         internal const float primary2HitHopVelocity = 4f;
