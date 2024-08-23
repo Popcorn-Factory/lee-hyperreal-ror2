@@ -32,8 +32,13 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
 - 1.0.4
     - Fixed the pod from not being registered on the Network properly.
     - Fixed an issue regarding client's getting spawned in without a pod, causing the server and clients to desync from what would be expected.
-    - Fixed the wrong dependency from being compiled in the mod, should work with the suggest mods in the Thunderstore manifest.
+    - Fixed the wrong dependency from being compiled in the mod, should now work with the suggest mods in the Thunderstore manifest.
     - Changed the UI Instantiation to use Find when navigating the RoR HUD, instead of indexes. Should be more compatible with mods that modify the UI.
+    - Changed the values on the following moves:
+        - End of Time cooldown -> 4s to 6s per stack. (Total 60s for 10 stacks)
+        - End of Time damage -> 5000% to 6500%
+        - End of Time enemy freeze duration -> 8s to 6.9s (This should allow the enemies to start moving 0.2s after the move has ended.)
+        - Red Orb Hypermatrix damage -> 175% to 155%
 - 1.0.0
     - Initial Release!
 
