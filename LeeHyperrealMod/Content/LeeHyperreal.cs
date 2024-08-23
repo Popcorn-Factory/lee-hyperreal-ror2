@@ -547,7 +547,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Ultimate.UltimateEntry)),
                 activationStateMachineName = "Body",
                 baseMaxStock = 10,
-                baseRechargeInterval = 4f,
+                baseRechargeInterval = 6f,
                 beginSkillCooldownOnSkillEnd = true,
                 canceledFromSprinting = false,
                 forceSprintDuringState = false,

@@ -151,7 +151,7 @@ namespace LeeHyperrealMod.Modules
         internal const float redOrbFinisherBulletRange = 256f;
         internal const float redOrbFinisherBulletForce = 800f;
 
-        internal const float redOrbDomainDamageCoefficient = 1.75f;
+        internal const float redOrbDomainDamageCoefficient = 1.55f;
         internal const float redOrbDomainBlastRadius = 10f;
         internal const int redOrbDomainFireCount = 3;
         internal const float redOrbDomainProcCoefficient = 1f;
@@ -161,10 +161,10 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Ultimate
-        internal const float ultimateDamageCoefficient = 50f;
+        internal const float ultimateDamageCoefficient = 65f;
         internal const float ultimateProcCoefficient = 1f;
         internal const float ultimateBlastRadius = 22f;
-        internal const float ultimateFreezeDuration = 8f;
+        internal const float ultimateFreezeDuration = 6.9f;
         internal const int ultimateFinalBlastHitCount = 12;
 
         internal const float ultimateDomainMiniDamageCoefficient = 2f;
