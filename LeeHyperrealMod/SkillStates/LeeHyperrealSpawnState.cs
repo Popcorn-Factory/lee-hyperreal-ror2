@@ -145,10 +145,19 @@ namespace LeeHyperrealMod.SkillStates
         {
             base.OnExit();
             base.characterMotor.gravityParameters = oldGravParams;
-            characterBody.SetBuffCount(Modules.Buffs.invincibilityBuff.buffIndex, 0);
+            if (NetworkServer.active) 
+            {
+                characterBody.SetBuffCount(Modules.Buffs.invincibilityBuff.buffIndex, 0);
+            }
+
             if (weaponModelHandler && !hasWeaponTransitioned) 
             {
                 weaponModelHandler.TransitionState(WeaponState.SUBMACHINE);
+            }
+
+            if (weaponModelHandler && !modelSpawned) 
+            {
+                weaponModelHandler.SetStateForModelAndSubmachine(true);
             }
         }
         public override InterruptPriority GetMinimumInterruptPriority()

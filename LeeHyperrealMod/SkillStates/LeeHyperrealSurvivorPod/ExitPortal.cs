@@ -1,11 +1,9 @@
-﻿using EntityStates;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using UnityEngine.Networking;
+﻿using UnityEngine.Networking;
 using UnityEngine;
 using RoR2;
 using EntityStates.SurvivorPod;
+using LeeHyperrealMod.Modules.Networking;
+using R2API.Networking.Interfaces;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperrealSurvivorPod
 {
@@ -22,6 +20,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperrealSurvivorPod
             portalAnimator = GetComponent<Animator>();
             currentPassengerBody = base.vehicleSeat.currentPassengerBody;
 
+            base.vehicleSeat.onPassengerExitUnityEvent.AddListener(PassengerExitUnityEvent);
+
             if (!base.survivorPodController)
             {
                 return;
@@ -33,18 +33,24 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperrealSurvivorPod
 
             portalAnimator.SetTrigger("Transition");
 
+            PassengerExitUnityEvent();
+        }
+
+        private void PassengerExitUnityEvent()
+        {
             if (currentPassengerBody.hasEffectiveAuthority) 
             {
-                currentPassengerBody.GetComponent<EntityStateMachine>().SetNextState(new LeeHyperrealSpawnState { });
+                new ForceSpawnStateNetworkRequest(currentPassengerBody.netId).Send(R2API.Networking.NetworkDestination.Clients);
             }
         }
-        
+
         public override void FixedUpdate()
         {
             base.FixedUpdate();
             if (NetworkServer.active && (!base.vehicleSeat || !base.vehicleSeat.currentPassengerBody))
             {
                 this.outer.SetNextStateToMain();
+                base.vehicleSeat.onPassengerExitUnityEvent.RemoveListener(PassengerExitUnityEvent);
             }
         }
     }
