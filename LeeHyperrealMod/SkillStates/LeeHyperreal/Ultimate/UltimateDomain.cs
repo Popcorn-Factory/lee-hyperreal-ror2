@@ -91,6 +91,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             }
             docon.DisableDomain(false);
             docon.SetTapped();
+            docon.DisableLoopEffect();
 
             characterMotor.velocity.y = 0f;
             oldGravParams = base.characterMotor.gravityParameters;

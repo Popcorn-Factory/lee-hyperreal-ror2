@@ -16,29 +16,36 @@ On either the RoR2 modding discord, or in the <a href="https://discord.gg/ahDsUF
 
 Use of Risk Of Options is highly recommended! If some options don't exist even after an update, please wipe your config and try check again.
 
+# WARNING:
+Due to the Seekers of the Storm update changing how often the game updates certain functions in code, timings for a lot of things have gone out of wack. 
+This means that if your FPS goes under 60, you may experience a more than unpleasant experience playing this mod. Similarly if you exceed 60FPS, you may find that a lot of your moves cancel a lot faster, and your distance travelled is shortened. This is due to the aforementioned issues brought from SotS.
+
+Once this issue has been fixed on Gearbox's side, I will take this WARNING down as a sign that this mod should be fully playable at all framerates.
+
 ## Mod Interoperability List:
 - EmoteAPI / CustomEmotesAPI
 - RiskOfOptions
+- RiskUI
+    - NOTE: We've only made it such that it doesn't crash the main functionality, we recommend sticking to the default UI for this mod.
+
+## CURRENTLY NOT SUPPORTED, WILL ADD LATER.
 - ExtraSkillSlots -> Limited Controller Support
     - This is to facilitate controller inputs for Orbs, which is currently mapped to the following actions.
         - Blue -> Extra Skill 1
         - Red -> Extra Skill 2
         - Yellow -> Extra Skill 3
     - This can be changed in the in game controller settings menu option.
-- RiskUI
-    - NOTE: We've only made it such that it doesn't crash the main functionality, we recommend sticking to the default UI for this mod.
 
 ## Latest Update
-- 1.0.4
-    - Fixed the pod from not being registered on the Network properly.
-    - Fixed an issue regarding client's getting spawned in without a pod, causing the server and clients to desync from what would be expected.
-    - Fixed the wrong dependency from being compiled in the mod, should now work with the suggest mods in the Thunderstore manifest.
-    - Changed the UI Instantiation to use Find when navigating the RoR HUD, instead of indexes. Should be more compatible with mods that modify the UI.
-    - Changed the values on the following moves:
-        - End of Time cooldown -> 4s to 6s per stack. (Total 60s for 10 stacks)
-        - End of Time damage -> 5000% to 6500%
-        - End of Time enemy freeze duration -> 8s to 6.9s (This should allow the enemies to start moving 0.2s after the move has ended.)
-        - Red Orb Hypermatrix damage -> 175% to 155%
+- 1.1.0
+    - Updated Dependencies to support SotS
+        - Unfortunately, controller players will not be able to use orbs as we have removed the dependency on ExtraSkillSlots until further notice.
+    - Removed dependency on R2API.Sound
+    - Fixed an edge case where Hypermatrix Aerial Attacks play the particle stream infinitely due to Hypermatrix ending while in an aerial dive.
+	- Fixed the pod from blowing out your eyes on some maps.
+	- P2 now behaves more closely to source material
+	    - 3 -> 5 hits 
+        - 125% -> 70% damage
 - 1.0.0
     - Initial Release!
 

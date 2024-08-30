@@ -1,9 +1,14 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
-- 1.0.5
-	 - Fixed the pod from blowing out your eyes on some maps.
-	 - P2 now behaves more closely to source material
-		- 3 -> 5 hits and 125% -> 70% damage
+- 1.1.0
+    - Updated Dependencies to support SotS
+        - Unfortunately, controller players will not be able to use orbs as we have removed the dependency on ExtraSkillSlots until further notice.
+    - Removed dependency on R2API.Sound, was not being used.
+    - Fixed an edge case where Hypermatrix Aerial Attacks play the particle stream infinitely due to Hypermatrix ending while in an aerial dive.
+	- Fixed the pod from blowing out your eyes on some maps.
+	- P2 now behaves more closely to source material
+	    - 3 -> 5 hits 
+        - 125% -> 70% damage
 - 1.0.4
     - Fixed the pod from not being registered on the Network properly.
     - Fixed an issue regarding client's getting spawned in without a pod, causing the server and clients to desync from what would be expected.
