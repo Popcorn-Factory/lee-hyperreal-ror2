@@ -15,6 +15,7 @@ using ShaderSwapper;
 using System.Collections.ObjectModel;
 using R2API;
 using System;
+using MonoMod.RuntimeDetour;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -48,6 +49,7 @@ namespace LeeHyperrealMod
         public static PluginInfo PInfo { get; private set; }
         public static bool isControllerCheck = false;
         public static bool isRiskUIInstalled = false;
+        private static Hook AddBankAfterAKSoundEngineInit;
 
         private void Awake()
         {
@@ -60,8 +62,8 @@ namespace LeeHyperrealMod
                 LeeHyperrealPlugin.isControllerCheck = true;
             }
 
-            Modules.Assets.Initialize(); // load assets and read config
-            base.StartCoroutine(Modules.Assets.mainAssetBundle.UpgradeStubbedShadersAsync());
+            Modules.LeeHyperrealAssets.Initialize(); // load assets and read config
+            base.StartCoroutine(Modules.LeeHyperrealAssets.mainAssetBundle.UpgradeStubbedShadersAsync());
             Modules.ParticleAssets.Initialize();
             Modules.Config.ReadConfig();
             Modules.Damage.SetupModdedDamageTypes();
@@ -81,7 +83,7 @@ namespace LeeHyperrealMod
             Modules.Projectiles.RegisterProjectiles(); // add and register custom projectiles
             Modules.Tokens.AddTokens(); // register name tokens
             Modules.ItemDisplays.PopulateDisplays(); // collect item display prefabs for use in our display rules
-            Modules.Assets.LatePopulateAssets();
+            Modules.LeeHyperrealAssets.LatePopulateAssets();
             // survivor initialization
             new LeeHyperreal().Initialize();
 
@@ -95,12 +97,10 @@ namespace LeeHyperrealMod
 
         private void Start() 
         {
-            //Load Soundbanks in.
-            Modules.Assets.LoadSoundbank();
-            if (AkSoundEngine.IsInitialized())
-            {
-                AkSoundEngine.SetRTPCValue("Volume_Lee_Voice", Modules.Config.voiceVolume.Value);
-            }
+            AddBankAfterAKSoundEngineInit = new Hook(
+                typeof(AkSoundEngineInitialization).GetMethodCached(nameof(AkSoundEngineInitialization.InitializeSoundEngine)),
+                typeof(LeeHyperrealPlugin).GetMethodCached(nameof(AddBank)));
+
         }
 
         private void SetupNetworkMessages()
@@ -114,6 +114,20 @@ namespace LeeHyperrealMod
             NetworkingAPI.RegisterMessageType<ForceSpawnStateNetworkRequest>();
         }
 
+        private static bool AddBank(Func<AkSoundEngineInitialization, bool> orig, AkSoundEngineInitialization self)
+        {
+            var res = orig(self);
+
+            //Load Soundbanks in.
+            Modules.LeeHyperrealAssets.LoadSoundbank();
+            if (AkSoundEngine.IsInitialized())
+            {
+                AkSoundEngine.SetRTPCValue("Volume_Lee_Voice", Modules.Config.voiceVolume.Value);
+            }
+
+            return res;
+        }
+
         private void Hook()
         {
             // run hooks here, disabling one is as simple as commenting out the line
@@ -123,6 +137,7 @@ namespace LeeHyperrealMod
             On.RoR2.CharacterSpeech.BrotherSpeechDriver.OnBodyKill += BrotherSpeechDriver_OnBodyKill;
             On.RoR2.CharacterSpeech.BrotherSpeechDriver.DoInitialSightResponse += BrotherSpeechDriver_DoInitialSightResponse;
             On.RoR2.UI.MainMenu.BaseMainMenuScreen.Awake += BaseMainMenuScreen_Awake;
+            
             //On.RoR2.CharacterBody.Update += CharacterBody_Update;
 
             if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
@@ -311,9 +326,9 @@ namespace LeeHyperrealMod
             {
                 if (item.bodyPrefab.name == "LeeHyperrealBody")
                 {
-                    CustomEmotesAPI.ImportArmature(item.bodyPrefab, Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("humanoidLeeHyperreal"));
+                    CustomEmotesAPI.ImportArmature(item.bodyPrefab, Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<GameObject>("humanoidLeeHyperreal"));
                     item.bodyPrefab.GetComponentInChildren<BoneMapper>().scale = 1.05f;
-                    CustomEmotesAPI.CreateNameTokenSpritePair(DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_NAME", Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("LeeEmotesIcon"));
+                    CustomEmotesAPI.CreateNameTokenSpritePair(DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_NAME", Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("LeeEmotesIcon"));
                 }
             }
         }
@@ -327,7 +342,7 @@ namespace LeeHyperrealMod
             {
                 if (self.body)
                 {
-                    this.overlayFunction(Modules.Assets.glitchMaterial, self.body.HasBuff(Modules.Buffs.glitchEffectBuff), self);
+                    this.overlayFunction(Modules.LeeHyperrealAssets.glitchMaterial, self.body.HasBuff(Modules.Buffs.glitchEffectBuff), self);
                 }
             }
         }

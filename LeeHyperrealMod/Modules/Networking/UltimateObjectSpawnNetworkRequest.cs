@@ -28,7 +28,7 @@ namespace LeeHyperrealMod.Modules.Networking
         public void OnReceived()
         {
             //Do for all machines
-            GameObject explosionObject = UnityEngine.Object.Instantiate(Modules.Assets.ultimateExplosionObject);
+            GameObject explosionObject = UnityEngine.Object.Instantiate(Modules.LeeHyperrealAssets.ultimateExplosionObject);
             UltimateOrbExplosion ultOrb = explosionObject.GetComponent<UltimateOrbExplosion>();
             ultOrb.position = position;
             ultOrb.leeObject = Util.FindNetworkObject(leeNetID);

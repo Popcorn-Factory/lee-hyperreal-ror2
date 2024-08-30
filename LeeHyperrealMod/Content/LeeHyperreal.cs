@@ -35,11 +35,11 @@ namespace LeeHyperrealMod.Modules.Survivors
             bodyNameToken = PLUGIN_PREFIX + "NAME",
             subtitleNameToken = PLUGIN_PREFIX + "SUBTITLE",
 
-            characterPortrait = Assets.mainAssetBundle.LoadAsset<Texture>("LeeCharacterIcon"),
+            characterPortrait = LeeHyperrealAssets.mainAssetBundle.LoadAsset<Texture>("LeeCharacterIcon"),
             bodyColor = Modules.StaticValues.bodyColor,
             aimOriginPosition = new Vector3(0f, 0f ,0f),
 
-            podPrefab = Modules.Assets.leeSurvivorPod,
+            podPrefab = Modules.LeeHyperrealAssets.leeSurvivorPod,
 
             maxHealth = 110f,
             healthRegen = 1.5f,
@@ -347,7 +347,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 skillName = prefix + "PASSIVE_ORB_AND_AMMO_NAME",
                 skillNameToken = prefix + "PASSIVE_ORB_AND_AMMO_NAME",
                 skillDescriptionToken = prefix + "PASSIVE_ORB_AND_AMMO_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("Passive Orb Bullets"),
+                skillIcon = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("Passive Orb Bullets"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Primary.PrimaryEntry)),
                 activationStateMachineName = "Body",
                 baseMaxStock = 1,
@@ -372,7 +372,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 skillName = prefix + "PASSIVE_DOMAIN_NAME",
                 skillNameToken = prefix + "PASSIVE_DOMAIN_NAME",
                 skillDescriptionToken = prefix + "PASSIVE_DOMAIN_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("Passive Hypermatrix"),
+                skillIcon = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("Passive Hypermatrix"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Primary.PrimaryEntry)),
                 activationStateMachineName = "Body",
                 baseMaxStock = 1,
@@ -407,7 +407,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 skillName = prefix + "PRIMARY_NAME",
                 skillNameToken = prefix + "PRIMARY_NAME",
                 skillDescriptionToken = prefix + "PRIMARY_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("Primary"),
+                skillIcon = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("Primary"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Primary.PrimaryEntry)),
                 activationStateMachineName = "Body",
                 baseMaxStock = 1,
@@ -436,7 +436,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 skillName = prefix + "SECONDARY_SNIPE_NAME",
                 skillNameToken = prefix + "SECONDARY_SNIPE_NAME",
                 skillDescriptionToken = prefix + "SECONDARY_SNIPE_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("Snipe Primary"),
+                skillIcon = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("Snipe Primary"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Secondary.Snipe)),
                 activationStateMachineName = "Body",
                 baseMaxStock = 1,
@@ -461,7 +461,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 skillName = prefix + "EXIT_SNIPE_NAME",
                 skillNameToken = prefix + "EXIT_SNIPE_NAME",
                 skillDescriptionToken = prefix + "EXIT_SNIPE_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("Exit Snipe"),
+                skillIcon = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("Exit Snipe"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Secondary.ExitSnipe)),
                 activationStateMachineName = "Body",
                 baseMaxStock = 1,
@@ -486,7 +486,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 skillName = prefix + "ENTER_SNIPE_NAME",
                 skillNameToken = prefix + "ENTER_SNIPE_NAME",
                 skillDescriptionToken = prefix + "ENTER_SNIPE_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("Snipe Shot"),                
+                skillIcon = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("Snipe Shot"),                
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Secondary.EnterSnipe)),
                 activationStateMachineName = "Body",
                 baseMaxStock = 1,
@@ -515,7 +515,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 skillName = prefix + "DASH_NAME",
                 skillNameToken = prefix + "DASH_NAME",
                 skillDescriptionToken = prefix + "DASH_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("Dodge"),
+                skillIcon = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("Dodge"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(Evade)),
                 activationStateMachineName = "Body",
                 baseMaxStock = 5,
@@ -543,7 +543,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 skillName = prefix + "ULTIMATE_NAME",
                 skillNameToken = prefix + "ULTIMATE_NAME",
                 skillDescriptionToken = prefix + "ULTIMATE_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("Ultimate"),
+                skillIcon = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("Ultimate"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Ultimate.UltimateEntry)),
                 activationStateMachineName = "Body",
                 baseMaxStock = 10,
@@ -568,7 +568,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 skillName = prefix + "ULTIMATE_DOMAIN_NAME",
                 skillNameToken = prefix + "ULTIMATE_DOMAIN_NAME",
                 skillDescriptionToken = prefix + "ULTIMATE_DOMAIN_DESCRIPTION",
-                skillIcon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("Domain Ultimate"),
+                skillIcon = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("Domain Ultimate"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Ultimate.UltimateEntry)),
                 activationStateMachineName = "Body",
                 baseMaxStock = 1,
@@ -603,7 +603,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             #region DefaultSkin
             //this creates a SkinDef with all default fields
             SkinDef defaultSkin = Modules.Skins.CreateSkinDef(PLUGIN_PREFIX + "DEFAULT_SKIN_NAME",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
+                LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("texMainSkin"),
                 defaultRendererinfos,
                 prefabCharacterModel.gameObject);
 
@@ -623,7 +623,7 @@ namespace LeeHyperrealMod.Modules.Survivors
 
             //creating a new skindef as we did before
             SkinDef blueSkin = Modules.Skins.CreateSkinDef(PLUGIN_PREFIX + "ALT_SKIN_NAME",
-                Assets.mainAssetBundle.LoadAsset<Sprite>("texCloneSkin"),
+                LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("texCloneSkin"),
                 defaultRendererinfos,
                 prefabCharacterModel.gameObject);
 
@@ -671,7 +671,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 }
                 else 
                 {
-                    blueSkin.rendererInfos[i].defaultMaterial = Modules.Assets.mainAssetBundle.LoadAsset<Material>(materialStrings[i]);
+                    blueSkin.rendererInfos[i].defaultMaterial = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Material>(materialStrings[i]);
                 }
             }
 

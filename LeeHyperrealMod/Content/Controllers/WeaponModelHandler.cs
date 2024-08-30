@@ -62,7 +62,8 @@ namespace LeeHyperrealMod.Content.Controllers
         public void Start() 
         {
             characterBody = GetComponent<CharacterBody>();
-            childLocator = GetComponentInChildren<ChildLocator>();
+            childLocator = characterBody.modelLocator.modelTransform.GetComponent<ChildLocator>();
+            Debug.Log("childLocator " + childLocator);
             if (childLocator)
             {
                 submachineModel = childLocator.FindChild("PistolModel").gameObject;

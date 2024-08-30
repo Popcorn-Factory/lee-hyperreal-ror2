@@ -45,11 +45,11 @@ namespace LeeHyperrealMod.Modules
 
         private static GameObject CreateGhostPrefab(string ghostName)
         {
-            GameObject ghostPrefab = Modules.Assets.mainAssetBundle.LoadAsset<GameObject>(ghostName);
+            GameObject ghostPrefab = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<GameObject>(ghostName);
             if (!ghostPrefab.GetComponent<NetworkIdentity>()) ghostPrefab.AddComponent<NetworkIdentity>();
             if (!ghostPrefab.GetComponent<ProjectileGhostController>()) ghostPrefab.AddComponent<ProjectileGhostController>();
 
-            Modules.Assets.ConvertAllRenderersToHopooShader(ghostPrefab);
+            Modules.LeeHyperrealAssets.ConvertAllRenderersToHopooShader(ghostPrefab);
 
             return ghostPrefab;
         }

@@ -16,7 +16,7 @@ namespace LeeHyperrealMod.Modules
         public override string AchievementDescToken { get => AchievementTokenPrefix + "UNLOCKABLE_ACHIEVEMENT_DESC"; }
         public override string UnlockableNameToken { get => AchievementTokenPrefix + "UNLOCKABLE_UNLOCKABLE_NAME"; }
 
-        public override Sprite Sprite => Assets.mainAssetBundle.LoadAsset<Sprite>(AchievementSpriteName);
+        public override Sprite Sprite => LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>(AchievementSpriteName);
 
         public override Func<string> GetHowToUnlock
         {

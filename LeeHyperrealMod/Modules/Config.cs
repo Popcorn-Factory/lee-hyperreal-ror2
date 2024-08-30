@@ -174,7 +174,7 @@ namespace LeeHyperrealMod.Modules
 
         public static void SetupRiskOfOptions() 
         {
-            Sprite icon = Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("LeeCharacterIcon");
+            Sprite icon = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("LeeCharacterIcon");
             ModSettingsManager.SetModIcon(icon);
             ModSettingsManager.SetModDescription("Hypermatrix Traverser");
 

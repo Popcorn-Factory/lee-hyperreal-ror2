@@ -1,0 +1,3506 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}" SchemaVersion="119">
+	<AudioObjects>
+		<WorkUnit Name="Default Work Unit" ID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="SFX Mixxer" ID="{AD091057-663E-4D9A-96E7-187F87ED8759}" ShortID="912006192">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+						<Property Name="Pitch" Type="int32">
+							<ModifierList>
+								<ModifierInfo>
+									<Modifier Name="" ID="{AA4202AF-C9AD-4F98-9ECF-CCF8E5A1A9CE}">
+										<PropertyList>
+											<Property Name="Enabled" Type="bool" Value="True"/>
+											<Property Name="Max" Type="Real64" Value="30"/>
+											<Property Name="Min" Type="Real64" Value="-30"/>
+										</PropertyList>
+									</Modifier>
+								</ModifierInfo>
+							</ModifierList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Folder Name="Lee" ID="{8F5231F5-1C28-4329-BDB6-32474D646D16}" ShortID="213192849">
+							<ChildrenList>
+								<Folder Name="Blue Orb" ID="{E0BB3E29-9DDD-4A4D-9103-39BE28E82034}" ShortID="295892574">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="1"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<Sound Name="c_liRk4_skill_blue" ID="{72630612-C571-463E-90A3-0BBA0CEF241E}" ShortID="359267064">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_blue" ID="{96FF40C7-91CE-4573-9FAD-F03CD566E05B}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_blue.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="416830284"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_blue" ID="{96FF40C7-91CE-4573-9FAD-F03CD566E05B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_skill_blue_dilie" ID="{AD19F1A9-AF4E-4B7B-B438-972C4A32E30E}" ShortID="155637165">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_blue_dilie" ID="{0E943640-8D88-47CB-A598-0300924F070C}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_blue_dilie.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="643156080"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_blue_dilie" ID="{0E943640-8D88-47CB-A598-0300924F070C}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_skill_blue_shine" ID="{0CAA099D-3BEA-48EA-8D59-1E361D1681E1}" ShortID="96942302">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_blue_shine" ID="{670A6D90-FBC6-427E-88F5-30C047AC1CAE}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_blue_shine.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="80743712"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_blue_shine" ID="{670A6D90-FBC6-427E-88F5-30C047AC1CAE}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<RandomSequenceContainer Name="c_liRk4_imp_blue" ID="{0BA1B3A4-ADE6-4AB7-9CE3-5B88C8687683}" ShortID="207648226">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)" ID="{49B8E201-2119-4660-B56C-F01D64F337C4}" ShortID="843636142">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)" ID="{9FB504E2-995F-445C-8F2C-A2323410F913}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_blue\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1).wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="161444163"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)" ID="{9FB504E2-995F-445C-8F2C-A2323410F913}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)" ID="{A57C4869-A734-4C79-9A54-A59E77AE8775}" ShortID="858305465">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)" ID="{3AE28311-8969-42A6-AC2C-8363ED56A10F}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_blue\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2).wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="682933615"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)" ID="{3AE28311-8969-42A6-AC2C-8363ED56A10F}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2" ID="{96D94AC6-4CC9-4ABE-BFDA-93121A295A8E}" ShortID="673243760">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2" ID="{AA0B99D0-79C6-4FDC-A4E6-2D20D38F92F1}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_blue\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1030020862"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2" ID="{AA0B99D0-79C6-4FDC-A4E6-2D20D38F92F1}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+								</Folder>
+								<Folder Name="Red Orb" ID="{F4F6BFCD-5060-4977-8A26-E63478CC49CB}" ShortID="670007223">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="10"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<Folder Name="Domain" ID="{5F6C4DEE-4567-44D9-A358-2B1CE5DA3A03}" ShortID="162785210">
+											<ChildrenList>
+												<Sound Name="c_liRk4_atk_ex_2" ID="{2E4BD41A-7878-459E-B9C3-1902CAD8219E}" ShortID="756740630">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_atk_ex_2" ID="{08B260D3-215F-4129-B095-7CD285338C17}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_atk_ex_2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="946628785"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_atk_ex_2" ID="{08B260D3-215F-4129-B095-7CD285338C17}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_atk_ex_2_exp_2" ID="{11D44DF4-292A-4ADC-833B-010B6C136485}" ShortID="134271724">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_atk_ex_2_exp_2" ID="{DCB97AEF-0510-4318-B527-DB296C339C5D}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_atk_ex_2_exp_2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="924024604"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_atk_ex_2_exp_2" ID="{DCB97AEF-0510-4318-B527-DB296C339C5D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_atk_ex_2_end" ID="{08163B43-912E-428F-B07E-1B902E7EE344}" ShortID="54560952">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_atk_ex_2_end" ID="{3CD28AA1-323D-4EDA-90F9-87EFB50DF7D5}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_atk_ex_2_end.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="380294237"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_atk_ex_2_end" ID="{3CD28AA1-323D-4EDA-90F9-87EFB50DF7D5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_atk_ex_2_xuli" ID="{54A67F41-D5C5-43D4-ADAD-AA4A438CA08C}" ShortID="1011728874">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_atk_ex_2_xuli" ID="{CDA48DB1-E2DC-4AC0-8C3D-EF1119E804E0}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_atk_ex_2_xuli.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="59519468"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_atk_ex_2_xuli" ID="{CDA48DB1-E2DC-4AC0-8C3D-EF1119E804E0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_atk_ex_2_exp_1" ID="{37AAF870-86FF-490E-A5BE-935D80ECB7DB}" ShortID="778819985">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_atk_ex_2_exp_1" ID="{07FC9D11-6AEC-4982-8580-FB9EA5F63D5B}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_atk_ex_2_exp_1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="281418111"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_atk_ex_2_exp_1" ID="{07FC9D11-6AEC-4982-8580-FB9EA5F63D5B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<RandomSequenceContainer Name="c_liRk4_imp_ex_2_1" ID="{0499B555-2DA0-4BF3-85AF-CC1881833013}" ShortID="488705527">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+														<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+														<Property Name="MaxSoundPerInstance" Type="int16">
+															<ValueList>
+																<Value>3</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)" ID="{88B70AEE-6B76-4A52-AF3A-B5F5E6DEEDEB}" ShortID="358690478">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)" ID="{D380BEF2-A27B-4EFD-B521-7708DA008934}">
+																	<Language>SFX</Language>
+																	<AudioFile>c_liRk4_imp_ex_2_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1).wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="890307725"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)" ID="{D380BEF2-A27B-4EFD-B521-7708DA008934}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)" ID="{10E7076D-064C-414E-A603-4FAEDF6588BB}" ShortID="160629964">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)" ID="{D14F5430-CD5C-4135-B1A4-15D62AD2B880}">
+																	<Language>SFX</Language>
+																	<AudioFile>c_liRk4_imp_ex_2_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2).wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="378777401"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)" ID="{D14F5430-CD5C-4135-B1A4-15D62AD2B880}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2" ID="{C7753DD7-2626-4CAA-A11E-B5CE12094A9B}" ShortID="558143458">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2" ID="{3F3DEE6B-DA33-48F6-9517-50808E65235C}">
+																	<Language>SFX</Language>
+																	<AudioFile>c_liRk4_imp_ex_2_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="948319211"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2" ID="{3F3DEE6B-DA33-48F6-9517-50808E65235C}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+												<RandomSequenceContainer Name="c_liRk4_imp_ex_2_2" ID="{665CDE15-40D9-4B18-B022-FC51029683CE}" ShortID="105788555">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+														<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+														<Property Name="MaxSoundPerInstance" Type="int16">
+															<ValueList>
+																<Value>3</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)" ID="{2758D414-8D17-4424-BBDE-2C056040F4C3}" ShortID="1053578074">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)" ID="{74DEC2D0-980D-49CC-B224-81AA2ACA1DAF}">
+																	<Language>SFX</Language>
+																	<AudioFile>c_liRk4_imp_ex_2_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1).wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="944148654"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)" ID="{74DEC2D0-980D-49CC-B224-81AA2ACA1DAF}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)" ID="{8DBD6586-8C2D-45A2-A92B-F89D78D6B741}" ShortID="898447111">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)" ID="{7C41C3F5-49C6-45C9-8530-4B1BC347B0F7}">
+																	<Language>SFX</Language>
+																	<AudioFile>c_liRk4_imp_ex_2_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2).wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="817573197"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)" ID="{7C41C3F5-49C6-45C9-8530-4B1BC347B0F7}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2" ID="{093A73D7-617C-4300-B56F-56B56DA10CD3}" ShortID="1023574066">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2" ID="{91C5FC5C-5870-4878-B3B7-3FF3C71EF36D}">
+																	<Language>SFX</Language>
+																	<AudioFile>c_liRk4_imp_ex_2_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="1396545"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2" ID="{91C5FC5C-5870-4878-B3B7-3FF3C71EF36D}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+											</ChildrenList>
+										</Folder>
+										<Sound Name="c_liRk4_skill_red_dilie" ID="{5C72CE33-47F4-49CB-9931-D306238F1401}" ShortID="588931860">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_red_dilie" ID="{90C6515E-29B2-4B71-B3E3-51662E4449F9}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0.387991383952611"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.387991383952611"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_red_dilie.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="289054489"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_red_dilie" ID="{90C6515E-29B2-4B71-B3E3-51662E4449F9}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_skill_red_bullet" ID="{44CAD387-8014-44BA-818D-99C7E68A63D5}" ShortID="999545507">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_red_bullet" ID="{C18BCB35-1881-4859-853F-5F2D893A0FA2}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.384275713516424"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_red_bullet.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="900217835"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_red_bullet" ID="{C18BCB35-1881-4859-853F-5F2D893A0FA2}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_skill_red" ID="{07D32879-A0CC-4BCD-93DC-D6184DE020C0}" ShortID="1024713734">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_red" ID="{75304694-C051-41F5-8635-1A068E4E402E}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_red.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="899528540"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_red" ID="{75304694-C051-41F5-8635-1A068E4E402E}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<RandomSequenceContainer Name="c_liRk4_imp_red_2" ID="{090216AD-D374-42B1-8BB8-BE7820CF37F7}" ShortID="815834300">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="c_liRk4_imp_red_2_1" ID="{18039F5A-C45C-47DA-A5F7-AEA0BB7F8A43}" ShortID="550316361">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_red_2_1" ID="{F204F0B5-A97B-4FD0-A21D-41D5EA879E8E}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_red_2\c_liRk4_imp_red_2_1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="809281621"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_red_2_1" ID="{F204F0B5-A97B-4FD0-A21D-41D5EA879E8E}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_red_2_2" ID="{D706CC1D-5BD9-43C1-B6DB-9064BCC29B02}" ShortID="882803072">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_red_2_2" ID="{1E302BF1-9C52-46C3-9C3F-D1C412982BA1}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_red_2\c_liRk4_imp_red_2_2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="461658121"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_red_2_2" ID="{1E302BF1-9C52-46C3-9C3F-D1C412982BA1}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_red_2_3" ID="{181C5425-C615-41FB-84A6-93D31F1CD3D3}" ShortID="518973380">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_red_2_3" ID="{85588A2E-5EE5-4B59-9A95-7194E57B6726}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_red_2\c_liRk4_imp_red_2_3.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="737136991"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_red_2_3" ID="{85588A2E-5EE5-4B59-9A95-7194E57B6726}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="c_liRk4_imp_red_1" ID="{65F6BDFD-78D3-433F-913B-4154C2E140A8}" ShortID="892586556">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="c_liRk4_imp_red_1_1" ID="{056F9D0B-23E9-4420-B5BC-D2F36B4DE818}" ShortID="971151147">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_red_1_1" ID="{DE63C31F-77C8-4FAF-B7D8-A64FC83B9AC7}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_red_1\c_liRk4_imp_red_1_1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="320681491"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_red_1_1" ID="{DE63C31F-77C8-4FAF-B7D8-A64FC83B9AC7}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_red_1_2" ID="{129B20EA-CD28-4DFA-88F2-64171CC1A57D}" ShortID="867347522">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_red_1_2" ID="{A1B5CD91-8C30-43E3-8F0D-975C611B8BBB}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_red_1\c_liRk4_imp_red_1_2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="855479919"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_red_1_2" ID="{A1B5CD91-8C30-43E3-8F0D-975C611B8BBB}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_red_1_3" ID="{AE99B1B9-145F-4F0C-AA7B-595D83AD0D2A}" ShortID="499087754">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_red_1_3" ID="{E1BFD740-EAD2-4A7B-9E5D-406C3968CC9A}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_red_1\c_liRk4_imp_red_1_3.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="758116972"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_red_1_3" ID="{E1BFD740-EAD2-4A7B-9E5D-406C3968CC9A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+								</Folder>
+								<Folder Name="Yellow Orb" ID="{704B70DC-34F9-4FCA-BBB3-0F7019097CAB}" ShortID="1069707971">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="19"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<Folder Name="Domain" ID="{D3FC6E7C-94D1-40EB-A89D-17BD1888D30C}" ShortID="154985955">
+											<ChildrenList>
+												<Sound Name="c_liRk4_atk_ex_1_bullet_1" ID="{1C04990B-6665-4272-93DC-5EAB1EE5F01C}" ShortID="451131741">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_atk_ex_1_bullet_1" ID="{711440C6-4F89-4580-BB25-8D52F71F160A}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_atk_ex_1_bullet_1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="296343842"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_atk_ex_1_bullet_1" ID="{711440C6-4F89-4580-BB25-8D52F71F160A}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_atk_ex_1_bullet_2" ID="{B6AB972B-E15A-4BEB-BA44-E883CA142A74}" ShortID="287796180">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_atk_ex_1_bullet_2" ID="{19C728C9-172C-495F-A65B-3BBDBD11F8BE}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_atk_ex_1_bullet_2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="710881964"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_atk_ex_1_bullet_2" ID="{19C728C9-172C-495F-A65B-3BBDBD11F8BE}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_atk_ex_1" ID="{29BAE79A-EF03-4D92-A168-021CCF6513C5}" ShortID="886245855">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_atk_ex_1" ID="{2A38F680-9F97-4D30-9DE4-89754221B6C2}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_atk_ex_1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="871673217"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_atk_ex_1" ID="{2A38F680-9F97-4D30-9DE4-89754221B6C2}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_atk_ex_1_bullet_3" ID="{C0CFA6CB-9B78-4067-A09B-57FC19A12B60}" ShortID="827415858">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_atk_ex_1_bullet_3" ID="{E78EF823-9003-4C02-B696-91F2EB53F5FB}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_atk_ex_1_bullet_3.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="139035548"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_atk_ex_1_bullet_3" ID="{E78EF823-9003-4C02-B696-91F2EB53F5FB}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<RandomSequenceContainer Name="c_liRk4_imp_ex_1" ID="{FC7046C1-E13F-4309-B6D4-EECB5E0E662E}" ShortID="650415891">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+														<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+														<Property Name="MaxSoundPerInstance" Type="int16">
+															<ValueList>
+																<Value>3</Value>
+															</ValueList>
+														</Property>
+														<Property Name="Volume" Type="Real64">
+															<ValueList>
+																<Value>-1</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (1)" ID="{7CF7FBF8-F20F-47EF-860C-C607295FB326}" ShortID="406161126">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (1)" ID="{023875A7-F654-452A-8CA7-B19814C66FE1}">
+																	<Language>SFX</Language>
+																	<AudioFile>c_liRk4_imp_ex_1\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (1).wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="170013626"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (1)" ID="{023875A7-F654-452A-8CA7-B19814C66FE1}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (2)" ID="{3CA3DD9C-D63C-4B5E-B40E-FE8BFFD0D334}" ShortID="353989517">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (2)" ID="{DA0A6508-7C20-4D13-949D-238BE6561A87}">
+																	<Language>SFX</Language>
+																	<AudioFile>c_liRk4_imp_ex_1\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (2).wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="995027618"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (2)" ID="{DA0A6508-7C20-4D13-949D-238BE6561A87}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="c_liRk4_imp_ex_1; c_liRk4_imp_nml_4" ID="{8AED1BD2-C002-4E3C-98D7-BE10B51142F1}" ShortID="920149734">
+															<ReferenceList>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="c_liRk4_imp_ex_1; c_liRk4_imp_nml_4" ID="{3B174EB7-8736-492F-8586-92E226858366}">
+																	<Language>SFX</Language>
+																	<AudioFile>c_liRk4_imp_ex_1\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="129245162"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="c_liRk4_imp_ex_1; c_liRk4_imp_nml_4" ID="{3B174EB7-8736-492F-8586-92E226858366}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+													</ChildrenList>
+												</RandomSequenceContainer>
+											</ChildrenList>
+										</Folder>
+										<Sound Name="c_liRk4_skill_yellow_kick" ID="{0E2DAEEE-BFFC-4FCF-91D8-0B2184336B68}" ShortID="951709474">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_yellow_kick" ID="{0AA655F1-6BA8-43DE-920F-6C4D0856A87F}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_yellow_kick.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="34461911"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_yellow_kick" ID="{0AA655F1-6BA8-43DE-920F-6C4D0856A87F}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_skill_yellow_dilie" ID="{38813DD4-AC59-498D-8A9D-6981EF2F0DA1}" ShortID="831468492">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_yellow_dilie" ID="{47A199C2-9BE5-4ED8-AB2D-8E6D7F2AEEEC}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_yellow_dilie.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="319272980"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_yellow_dilie" ID="{47A199C2-9BE5-4ED8-AB2D-8E6D7F2AEEEC}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_skill_yellow_tuijin" ID="{6AC0B1EB-51A2-4587-BB74-5E548432BAE9}" ShortID="585167292">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_yellow_tuijin" ID="{345C3706-E5C4-4582-B182-8976DACE6ADA}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_yellow_tuijin.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="224120806"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_yellow_tuijin" ID="{345C3706-E5C4-4582-B182-8976DACE6ADA}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_skill_yellow" ID="{7002872A-107E-4215-9723-549438E80A6B}" ShortID="4643812">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_yellow" ID="{DA9C19CA-43B8-4E3C-96D6-A97107504FA2}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_yellow.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1053120446"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_yellow" ID="{DA9C19CA-43B8-4E3C-96D6-A97107504FA2}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_skill_yellow_fire" ID="{78C0856E-CC7E-4BB7-84BE-E14DFC12D574}" ShortID="911095228">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_yellow_fire" ID="{88282A56-967A-4769-BA66-5FBD77BD0F16}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_yellow_fire.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="862434096"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_yellow_fire" ID="{88282A56-967A-4769-BA66-5FBD77BD0F16}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<RandomSequenceContainer Name="c_liRk4_imp_yellow_2" ID="{34C5DBFE-3FAB-48B8-A649-7F2C099C73F7}" ShortID="482177003">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="c_liRk4_imp_yellow_2" ID="{26E019E0-EF11-4CF8-A83B-6C7369D1A75A}" ShortID="235575987">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_yellow_2" ID="{5F2FA18E-B673-4016-AD4B-81BEF811A3A2}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_yellow_2\c_liRk4_imp_yellow_2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="943555381"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_yellow_2" ID="{5F2FA18E-B673-4016-AD4B-81BEF811A3A2}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_yellow_2_1" ID="{860F1599-4381-4D18-8B9F-DA53C883C891}" ShortID="547301866">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_yellow_2_1" ID="{53673363-E910-469A-9C69-9F82AA4519B8}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_yellow_2\c_liRk4_imp_yellow_2_1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1044607273"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_yellow_2_1" ID="{53673363-E910-469A-9C69-9F82AA4519B8}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_yellow_2_2" ID="{818DEB30-52D1-4AA7-8502-9D8338BE6108}" ShortID="676141359">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_yellow_2_2" ID="{CBDC3326-1566-4051-9AFE-50A074F24714}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_yellow_2\c_liRk4_imp_yellow_2_2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="256789244"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_yellow_2_2" ID="{CBDC3326-1566-4051-9AFE-50A074F24714}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="c_liRk4_imp_yellow_1" ID="{F57B110F-CAB9-4A91-9DB1-1FF960F30097}" ShortID="41094901">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="c_liRk4_imp_yellow_1" ID="{EE728FEC-03D8-4767-83DC-0664524C3922}" ShortID="44166141">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_yellow_1" ID="{B4DA0AFD-64E2-4378-BB36-11F0857ACEC2}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_yellow_1\c_liRk4_imp_yellow_1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="207881368"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_yellow_1" ID="{B4DA0AFD-64E2-4378-BB36-11F0857ACEC2}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_yellow_1_1" ID="{E0E13A62-9170-4C61-A052-148ECFC38164}" ShortID="317048977">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_yellow_1_1" ID="{1F464127-BD53-49CA-947E-B059178B03BD}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_yellow_1\c_liRk4_imp_yellow_1_1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="704611551"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_yellow_1_1" ID="{1F464127-BD53-49CA-947E-B059178B03BD}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_yellow_1_2" ID="{EF2CA139-39E9-4CB2-83B8-9CB79CC46BB6}" ShortID="548877009">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_yellow_1_2" ID="{D2E09217-81EC-41A9-A42F-2596B950D02D}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_yellow_1\c_liRk4_imp_yellow_1_2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="788771435"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_yellow_1_2" ID="{D2E09217-81EC-41A9-A42F-2596B950D02D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+								</Folder>
+								<Folder Name="Primary" ID="{AF12959E-0532-4D49-BAB9-78D2A264D2E8}" ShortID="314473078">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="14"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<Folder Name="Snipe" ID="{866F262C-E8C1-458A-965A-8CBF353CD0FE}" ShortID="806438698">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="4"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+											</PropertyList>
+											<ChildrenList>
+												<ActorMixer Name="Snipe mix" ID="{77DF8B0D-588E-4836-8E87-777421E4B4D7}" ShortID="416508143">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+														<Property Name="OverridePositioning" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Snipe" ID="{9E9A6EB5-D4A0-447F-AF07-38CAE041295A}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<Sound Name="c_liRk4_atk_ex_3_xuli" ID="{024E9965-A0E3-419A-BD8C-4FB1F761A763}" ShortID="114766277">
+															<PropertyList>
+																<Property Name="3DSpatialization" Type="int16" Value="1"/>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Attenuation">
+																	<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+																</Reference>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="c_liRk4_atk_ex_3_xuli" ID="{B8273517-B092-401F-B4A6-CB0BC6F120E1}">
+																	<Language>SFX</Language>
+																	<AudioFile>c_liRk4_atk_ex_3_xuli.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="901070402"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="c_liRk4_atk_ex_3_xuli" ID="{B8273517-B092-401F-B4A6-CB0BC6F120E1}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<Sound Name="c_liRk4_atk_ex_3" ID="{844260F1-903D-4E78-8D61-08303EAEC1A0}" ShortID="784258451">
+															<PropertyList>
+																<Property Name="3DSpatialization" Type="int16" Value="1"/>
+																<Property Name="Volume" Type="Real64">
+																	<ValueList>
+																		<Value>-3</Value>
+																	</ValueList>
+																</Property>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Attenuation">
+																	<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+																</Reference>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<AudioFileSource Name="c_liRk4_atk_ex_3" ID="{726F397F-F7B3-4C7E-90A3-5288D42B707E}">
+																	<Language>SFX</Language>
+																	<AudioFile>c_liRk4_atk_ex_3.wav</AudioFile>
+																	<MediaIDList>
+																		<MediaID ID="302064712"/>
+																	</MediaIDList>
+																</AudioFileSource>
+															</ChildrenList>
+															<ActiveSourceList>
+																<ActiveSource Name="c_liRk4_atk_ex_3" ID="{726F397F-F7B3-4C7E-90A3-5288D42B707E}" Platform="Linked"/>
+															</ActiveSourceList>
+														</Sound>
+														<RandomSequenceContainer Name="c_liRk4_imp_ex_3_1" ID="{A2E18244-EBA7-400A-B834-A83AC2B2CFEA}" ShortID="48788915">
+															<PropertyList>
+																<Property Name="3DSpatialization" Type="int16" Value="1"/>
+																<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+																<Property Name="MaxSoundPerInstance" Type="int16">
+																	<ValueList>
+																		<Value>3</Value>
+																	</ValueList>
+																</Property>
+																<Property Name="Volume" Type="Real64">
+																	<ValueList>
+																		<Value>-3</Value>
+																	</ValueList>
+																</Property>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Attenuation">
+																	<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+																</Reference>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<Sound Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)" ID="{F5B05161-926F-4087-81C3-9E7CBBC28FBC}" ShortID="780303241">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)" ID="{9FD511F5-EA79-4446-A8D8-E99353BABFDA}">
+																			<Language>SFX</Language>
+																			<AudioFile>c_liRk4_imp_ex_3_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1).wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="326180979"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)" ID="{9FD511F5-EA79-4446-A8D8-E99353BABFDA}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)" ID="{8CA0DBD6-B664-48B3-804D-FE7B07FD6505}" ShortID="19790554">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)" ID="{E6A64D41-1DFA-44B5-AED8-76EAD76AEED0}">
+																			<Language>SFX</Language>
+																			<AudioFile>c_liRk4_imp_ex_3_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2).wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="996844285"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)" ID="{E6A64D41-1DFA-44B5-AED8-76EAD76AEED0}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2" ID="{6B5E6DEA-1D4D-44C3-93E0-9854C25B2DFE}" ShortID="707443688">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2" ID="{DE80BCBC-FADE-4894-A3F0-942B56E8809A}">
+																			<Language>SFX</Language>
+																			<AudioFile>c_liRk4_imp_ex_3_1\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="674149620"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2" ID="{DE80BCBC-FADE-4894-A3F0-942B56E8809A}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+															</ChildrenList>
+														</RandomSequenceContainer>
+														<RandomSequenceContainer Name="c_liRk4_atk_ex_3_reload" ID="{B97B39AF-A237-4CD3-A078-3D36214A5E34}" ShortID="996424080">
+															<PropertyList>
+																<Property Name="3DSpatialization" Type="int16" Value="1"/>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Attenuation">
+																	<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+																</Reference>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<Sound Name="c_liRk4_atk_ex_3_reload (1)" ID="{DBF0748F-2DFD-4A49-B530-0B2E3F068DF6}" ShortID="743119662">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="c_liRk4_atk_ex_3_reload (1)" ID="{F296234D-AFD1-4743-AAB2-92D9AA3A136F}">
+																			<Language>SFX</Language>
+																			<AudioFile>c_liRk4_atk_ex_3_reload\c_liRk4_atk_ex_3_reload (1).wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="188305038"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="c_liRk4_atk_ex_3_reload (1)" ID="{F296234D-AFD1-4743-AAB2-92D9AA3A136F}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="c_liRk4_atk_ex_3_reload (2)" ID="{1342D235-B783-4E92-BB30-2980BF3ED843}" ShortID="712025339">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="c_liRk4_atk_ex_3_reload (2)" ID="{C1779116-5C3B-46EA-9949-3B2592E71A11}">
+																			<Language>SFX</Language>
+																			<AudioFile>c_liRk4_atk_ex_3_reload\c_liRk4_atk_ex_3_reload (2).wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="798538570"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="c_liRk4_atk_ex_3_reload (2)" ID="{C1779116-5C3B-46EA-9949-3B2592E71A11}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="c_liRk4_atk_ex_3_reload" ID="{EC72EC31-DC02-4947-9E1A-C0F8DFF3F408}" ShortID="841401402">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="c_liRk4_atk_ex_3_reload" ID="{6C0AE801-44D3-4341-A48A-6F82CA00A875}">
+																			<Language>SFX</Language>
+																			<AudioFile>c_liRk4_atk_ex_3_reload\c_liRk4_atk_ex_3_reload.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="214333572"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="c_liRk4_atk_ex_3_reload" ID="{6C0AE801-44D3-4341-A48A-6F82CA00A875}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+															</ChildrenList>
+														</RandomSequenceContainer>
+														<RandomSequenceContainer Name="c_liRk4_atk_ex_3_break" ID="{F9DE43C4-3028-43D7-9DAE-1627E0934D82}" ShortID="181047167">
+															<PropertyList>
+																<Property Name="3DSpatialization" Type="int16" Value="1"/>
+																<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
+																<Property Name="Volume" Type="Real64">
+																	<ValueList>
+																		<Value>2</Value>
+																	</ValueList>
+																</Property>
+															</PropertyList>
+															<ReferenceList>
+																<Reference Name="Attenuation">
+																	<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+																</Reference>
+																<Reference Name="Conversion">
+																	<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																</Reference>
+																<Reference Name="OutputBus">
+																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																</Reference>
+															</ReferenceList>
+															<ChildrenList>
+																<Sound Name="c_liRk4_atk_ex_3_break" ID="{BD113200-AA61-467E-A717-C2637096A111}" ShortID="900709142">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="c_liRk4_atk_ex_3_break" ID="{782B5293-4BBD-4586-B58A-7A9BD1072077}">
+																			<Language>SFX</Language>
+																			<AudioFile>c_liRk4_atk_ex_3_break\c_liRk4_atk_ex_3_break.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="284328041"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="c_liRk4_atk_ex_3_break" ID="{782B5293-4BBD-4586-B58A-7A9BD1072077}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+																<Sound Name="c_liRk4_atk_ex_3_break_2" ID="{7B3E7598-3F56-4B05-9314-A462001C096F}" ShortID="209766999">
+																	<ReferenceList>
+																		<Reference Name="Conversion">
+																			<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+																		</Reference>
+																		<Reference Name="OutputBus">
+																			<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+																		</Reference>
+																	</ReferenceList>
+																	<ChildrenList>
+																		<AudioFileSource Name="c_liRk4_atk_ex_3_break_2" ID="{84A44284-C5AD-4035-A2D7-8E9AED6C614C}">
+																			<Language>SFX</Language>
+																			<AudioFile>c_liRk4_atk_ex_3_break\c_liRk4_atk_ex_3_break_2.wav</AudioFile>
+																			<MediaIDList>
+																				<MediaID ID="321158048"/>
+																			</MediaIDList>
+																		</AudioFileSource>
+																	</ChildrenList>
+																	<ActiveSourceList>
+																		<ActiveSource Name="c_liRk4_atk_ex_3_break_2" ID="{84A44284-C5AD-4035-A2D7-8E9AED6C614C}" Platform="Linked"/>
+																	</ActiveSourceList>
+																</Sound>
+															</ChildrenList>
+														</RandomSequenceContainer>
+													</ChildrenList>
+												</ActorMixer>
+											</ChildrenList>
+										</Folder>
+										<Sound Name="c_liRk4_atk_nml_3_xuli" ID="{6FE399A8-5EEC-449F-A486-5171CF4A8593}" ShortID="730314614">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_atk_nml_3_xuli" ID="{CC474869-BEC4-4F1A-9DE6-C6750A32E0DF}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_atk_nml_3_xuli.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="501065259"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_atk_nml_3_xuli" ID="{CC474869-BEC4-4F1A-9DE6-C6750A32E0DF}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_atk_nml_4" ID="{B2D44964-560B-4CB3-94EC-4A9FDB5DFB96}" ShortID="545672155">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_atk_nml_4" ID="{5E726034-175A-4A34-BE10-E41CF5AD4352}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_atk_nml_4.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="202418353"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_atk_nml_4" ID="{5E726034-175A-4A34-BE10-E41CF5AD4352}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_atk_nml_5_xuli" ID="{FA3A8AE6-83E9-4D74-9A90-FED25C7694FE}" ShortID="975008192">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_atk_nml_5_xuli" ID="{4492B621-553C-40AB-A3EC-CAEC31B02C5F}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_atk_nml_5_xuli.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="855613689"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_atk_nml_5_xuli" ID="{4492B621-553C-40AB-A3EC-CAEC31B02C5F}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_atk_nml_3_dilie_2" ID="{8E56A47E-1CC9-4719-83A7-5D1EE15190F8}" ShortID="326850479">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_atk_nml_3_dilie_2" ID="{BE54C055-B9ED-4D35-91C4-422F79009FFA}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_atk_nml_3_dilie_2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="931955726"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_atk_nml_3_dilie_2" ID="{BE54C055-B9ED-4D35-91C4-422F79009FFA}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_atk_nml_3_dilie_1" ID="{174BC735-FE2E-4C6D-8C37-E60AB71DE954}" ShortID="79264539">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_atk_nml_3_dilie_1" ID="{C9F39039-A13F-4804-998F-5F6A13727BA1}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_atk_nml_3_dilie_1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="989273389"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_atk_nml_3_dilie_1" ID="{C9F39039-A13F-4804-998F-5F6A13727BA1}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_atk_nml_5_jump" ID="{A8D75977-895A-4A65-B579-9FC2885307E8}" ShortID="789344350">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_atk_nml_5_jump" ID="{2DF1D911-438C-443E-89F4-62EA325DAB2C}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_atk_nml_5_jump.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="757405617"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_atk_nml_5_jump" ID="{2DF1D911-438C-443E-89F4-62EA325DAB2C}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_atk_nml_5_dilie" ID="{34BACDCC-4237-4775-9642-C7A5739FFDC5}" ShortID="1019347664">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_atk_nml_5_dilie" ID="{C1D8E442-5012-4CBC-A055-00DF97C5FA9E}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_atk_nml_5_dilie.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1036429009"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_atk_nml_5_dilie" ID="{C1D8E442-5012-4CBC-A055-00DF97C5FA9E}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_atk_nml_1" ID="{AB3B9F66-EA5D-4878-BF58-26AE0D174F79}" ShortID="968067820">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_atk_nml_1" ID="{FE1581AE-0948-46E9-AB15-05CDC5CB7227}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_atk_nml_1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="246019913"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_atk_nml_1" ID="{FE1581AE-0948-46E9-AB15-05CDC5CB7227}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_atk_nml_2" ID="{32D4C499-C1ED-4F56-ADF7-5A484ACB002D}" ShortID="1047698854">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_atk_nml_2" ID="{90D97037-E9E8-498C-BAB7-728E07D70CA4}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_atk_nml_2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1059560566"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_atk_nml_2" ID="{90D97037-E9E8-498C-BAB7-728E07D70CA4}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<RandomSequenceContainer Name="c_liRk4_imp_nml_4" ID="{C02AE5A3-A2C7-4B5F-90F9-2C949FF7C35D}" ShortID="849150167">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-1</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (1)" ID="{B0D41893-6FF4-47ED-A843-4F41818650FC}" ShortID="411638757">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (1)" ID="{81556EA7-FD28-4D08-B177-421EA3F821F5}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_nml_4\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (1).wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="435832049"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (1)" ID="{81556EA7-FD28-4D08-B177-421EA3F821F5}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (2)" ID="{188F6005-8B61-444A-9611-23ECCEEBF927}" ShortID="816233544">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (2)" ID="{B80C1B47-C7BC-4552-87F9-3281A63217B9}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_nml_4\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (2).wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="441886937"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_ex_1; c_liRk4_imp_nml_4 (2)" ID="{B80C1B47-C7BC-4552-87F9-3281A63217B9}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_ex_1; c_liRk4_imp_nml_4" ID="{F6D19F8B-C2E1-458E-BE8C-401585B84B76}" ShortID="938171257">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_ex_1; c_liRk4_imp_nml_4" ID="{BD4F7028-5BA5-41EC-9EC4-B1B2686A9EB7}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_nml_4\c_liRk4_imp_ex_1; c_liRk4_imp_nml_4.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="575534491"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_ex_1; c_liRk4_imp_nml_4" ID="{BD4F7028-5BA5-41EC-9EC4-B1B2686A9EB7}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="c_liRk4_imp_nml_3_2" ID="{C709AE33-693B-496C-B9C3-1E0B2E0B5B70}" ShortID="928398867">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)" ID="{FEB53F2D-7A55-4B3B-975D-2E6ED837DAC8}" ShortID="896540604">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)" ID="{63D39F5E-9941-4865-83B6-B7E92E8EAF49}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_nml_3_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1).wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="1063561195"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)" ID="{63D39F5E-9941-4865-83B6-B7E92E8EAF49}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2)" ID="{B172975F-8EEE-4048-8970-DEAA29177334}" ShortID="380392922">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2)" ID="{7323A186-A71C-42FA-ACAA-100619023FC0}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_nml_3_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2).wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="104895574"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2)" ID="{7323A186-A71C-42FA-ACAA-100619023FC0}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2" ID="{77B8C185-CC51-466E-B081-BA8A1D206C26}" ShortID="297605107">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2" ID="{5D1DBFA4-2C50-430E-9E68-D5AAB972F7CC}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_nml_3_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="387445783"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2" ID="{5D1DBFA4-2C50-430E-9E68-D5AAB972F7CC}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="c_liRk4_imp_nml_3_1" ID="{FE7AAA59-CDF4-483A-91F5-B69FBAF3E51D}" ShortID="584217135">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)" ID="{7F5957CF-4474-46CB-9061-F191CB460B72}" ShortID="670933447">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)" ID="{C2EFD6AD-B34F-4724-8FB4-ED9F2AC333EB}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_nml_3_1\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1).wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="261054111"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)" ID="{C2EFD6AD-B34F-4724-8FB4-ED9F2AC333EB}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2)" ID="{38B50D5D-6A6B-4523-BCFB-F8F86E1AD130}" ShortID="270179675">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2)" ID="{A0914377-DF3E-4973-8084-79B3BA3A53D9}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_nml_3_1\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2).wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="87757044"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2)" ID="{A0914377-DF3E-4973-8084-79B3BA3A53D9}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2" ID="{B1F46EC2-93D1-4C28-B6E8-DE82DD8A47E0}" ShortID="525234346">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2" ID="{C805C859-BFE6-40DE-B9C7-0D4448D2A2CE}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_nml_3_1\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="137388048"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2" ID="{C805C859-BFE6-40DE-B9C7-0D4448D2A2CE}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="c_liRk4_imp_nml_1" ID="{11666591-49B3-4871-AAE4-AC440167C5CB}" ShortID="802435639">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)" ID="{9F70FD39-1781-49FC-868A-6E8B77968FA4}" ShortID="537855612">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)" ID="{011B4664-9B50-46D7-B24B-C7888FD16550}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_nml_1\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1).wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="786620844"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)" ID="{011B4664-9B50-46D7-B24B-C7888FD16550}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2)" ID="{72357B88-8A61-4358-BD8C-1470032A6DE4}" ShortID="235706573">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2)" ID="{E84740BC-9D32-4B23-8FFA-52E4FA86439B}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_nml_1\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2).wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="666297213"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2)" ID="{E84740BC-9D32-4B23-8FFA-52E4FA86439B}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2" ID="{AE8705E2-3927-44FB-8346-FEBB625FA07D}" ShortID="250207018">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2" ID="{3100EC0E-588F-40C7-82C9-E90393CDA35D}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_nml_1\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="193571582"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2" ID="{3100EC0E-588F-40C7-82C9-E90393CDA35D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+										<RandomSequenceContainer Name="c_liRk4_imp_nml_2_2" ID="{EC4B6B92-AA2E-47FA-97C8-889108EB2892}" ShortID="498566319">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-1</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)" ID="{54683E20-7E32-4ABF-B105-3F0EFF7D8AF0}" ShortID="168106648">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)" ID="{491B3E14-D8F5-4DFE-8412-6822C3A0EBE6}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_nml_2_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1).wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="866897723"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (1)" ID="{491B3E14-D8F5-4DFE-8412-6822C3A0EBE6}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2)" ID="{F9BCC06C-CF9C-4E18-8688-BE1524558517}" ShortID="822525115">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2)" ID="{0E63D086-DCF1-4A69-B42F-536BA1581F80}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_nml_2_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2).wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="262097937"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2 (2)" ID="{0E63D086-DCF1-4A69-B42F-536BA1581F80}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2" ID="{CEA608C1-2D4D-4ED9-8E1D-2CAF61343BBC}" ShortID="690579854">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2" ID="{C72A5EDC-4FEA-4FC5-82A8-CD3EE893F71D}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_nml_2_2\c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="477325665"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_nml_1; c_liRk4_imp_nml_2_2; c_liRk4_imp_nml_3_1; c_liRk4_imp_nml_3_2" ID="{C72A5EDC-4FEA-4FC5-82A8-CD3EE893F71D}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+								</Folder>
+								<Folder Name="Domain" ID="{E1D5C1E6-EF7C-43C0-BBD1-D10D8F6FAB5C}" ShortID="875251613">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="13"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<Sound Name="c_liRk4_skill_ex_timestop" ID="{26F023C6-AF13-4D6E-898B-54F35C394301}" ShortID="51801450">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_ex_timestop" ID="{FA3F4C84-0469-47A8-BA5F-67BF4002A3BB}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_ex_timestop.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="772691935"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_ex_timestop" ID="{FA3F4C84-0469-47A8-BA5F-67BF4002A3BB}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_skill_ex_timestop_loop" ID="{8DCD0E80-5090-41E3-BD3D-C736A95E6740}" ShortID="901330656">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_ex_timestop_loop" ID="{59B2AD38-701D-4BBD-966B-22348D806FDD}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_ex_timestop_loop.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="393490892"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_ex_timestop_loop" ID="{59B2AD38-701D-4BBD-966B-22348D806FDD}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_skill_ex_ultimate" ID="{04000794-923C-44CD-9636-696FA9DED7E5}" ShortID="517447128">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Ultimate" ID="{CF08FAA3-3332-4E8A-969C-1486427BFFC5}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_ex_ultimate" ID="{536A1363-3493-4B34-A159-98D04443535B}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_ex_ultimate.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="6098750"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_ex_ultimate" ID="{536A1363-3493-4B34-A159-98D04443535B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_skill_ex_timestop_break" ID="{9D925066-EA82-46F2-9A4C-5EDA31B8B2F5}" ShortID="919146218">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Ultimate" ID="{CF08FAA3-3332-4E8A-969C-1486427BFFC5}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_ex_timestop_break" ID="{A22401C0-0D95-44B7-B782-3BDE1CEAAE61}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_ex_timestop_break.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="305233683"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_ex_timestop_break" ID="{A22401C0-0D95-44B7-B782-3BDE1CEAAE61}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_skill_ex_timestop_end" ID="{25F54133-BD8F-4B43-8849-7DCED585AB7A}" ShortID="834699803">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Ultimate" ID="{CF08FAA3-3332-4E8A-969C-1486427BFFC5}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_ex_timestop_end" ID="{0F34B0A6-ED92-4622-AA37-2D7EE880B9DD}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_ex_timestop_end.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="987461456"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_ex_timestop_end" ID="{0F34B0A6-ED92-4622-AA37-2D7EE880B9DD}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<RandomSequenceContainer Name="c_liRk4_imp_ex_3_2" ID="{D8DEA026-E4D6-4367-902B-9386196EB197}" ShortID="396323216">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)" ID="{79431A3B-C512-4ABF-B9B5-BDF850F3B9FA}" ShortID="790601000">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)" ID="{91F11362-16E1-485E-B05D-98E4A017B298}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_ex_3_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1).wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="390164007"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (1)" ID="{91F11362-16E1-485E-B05D-98E4A017B298}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)" ID="{F4625CBC-3E99-483E-97AF-178D3D3F12FC}" ShortID="644318764">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)" ID="{54194CBB-0B01-488C-B37B-40EDB8521FC1}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_ex_3_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2).wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="166158650"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2 (2)" ID="{54194CBB-0B01-488C-B37B-40EDB8521FC1}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2" ID="{EE738D8C-6058-429E-AE7E-A6B44DCFCC6A}" ShortID="238810271">
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2" ID="{C83EA95F-15A6-4D7E-A910-DB4E7532C8A9}">
+															<Language>SFX</Language>
+															<AudioFile>c_liRk4_imp_ex_3_2\c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="762680264"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="c_liRk4_imp_blue; c_liRk4_imp_ex_2_1; c_liRk4_imp_ex_2_2; c_liRk4_imp_ex_3_1; c_liRk4_imp_ex_3_2" ID="{C83EA95F-15A6-4D7E-A910-DB4E7532C8A9}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+										</RandomSequenceContainer>
+									</ChildrenList>
+								</Folder>
+								<Sound Name="c_liRk4_act_born" ID="{5D437C0B-1217-4896-914C-7B16B8C7CEEB}" ShortID="250972763">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="17"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="c_liRk4_act_born" ID="{4F468538-3977-4B7E-BCCF-325C47D6C2F6}">
+											<Language>SFX</Language>
+											<AudioFile>c_liRk4_act_born.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="975369106"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="c_liRk4_act_born" ID="{4F468538-3977-4B7E-BCCF-325C47D6C2F6}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="c_liRk4_act_flash_1" ID="{FF53F77C-0CD9-4F1B-A955-BC1AA470D7D9}" ShortID="1042650871">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="17"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="c_liRk4_act_flash_1" ID="{EC6BB676-44F7-4985-9444-B4B4E8BE1E95}">
+											<Language>SFX</Language>
+											<AudioFile>c_liRk4_act_flash_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="755865838"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="c_liRk4_act_flash_1" ID="{EC6BB676-44F7-4985-9444-B4B4E8BE1E95}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="c_liRk4_act_flash_2" ID="{6301DAA8-45A2-493F-BD81-04FE26C0D68A}" ShortID="531283904">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="17"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="c_liRk4_act_flash_2" ID="{23941EA5-85DA-4103-A81F-9AB8133A0410}">
+											<Language>SFX</Language>
+											<AudioFile>c_liRk4_act_flash_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="506608001"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="c_liRk4_act_flash_2" ID="{23941EA5-85DA-4103-A81F-9AB8133A0410}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="c_liRk4_act_flash_3" ID="{29920A73-95D9-44BC-96DB-2596130880E6}" ShortID="479055026">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="17"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="c_liRk4_act_flash_3" ID="{2AD9C808-5D2C-4C98-9E1F-7C1F7855EEFF}">
+											<Language>SFX</Language>
+											<AudioFile>c_liRk4_act_flash_3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="34671558"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="c_liRk4_act_flash_3" ID="{2AD9C808-5D2C-4C98-9E1F-7C1F7855EEFF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="c_liRk4_act_win" ID="{22B926B4-24E9-489F-9518-40788665C67E}" ShortID="612014096">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="17"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="c_liRk4_act_win" ID="{870048CE-7791-40A8-8453-94A1D4DD6367}">
+											<Language>SFX</Language>
+											<AudioFile>c_liRk4_act_win.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="55420370"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="c_liRk4_act_win" ID="{870048CE-7791-40A8-8453-94A1D4DD6367}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<RandomSequenceContainer Name="c_liRk4_skill_yellow_bullet" ID="{3F2BF87C-C9A7-46E7-830F-CB461E56A510}" ShortID="603851548">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="17"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="c_liRk4_skill_yellow_bullet (1)" ID="{12F03C19-727E-45AD-B807-44F202657025}" ShortID="710302791">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_yellow_bullet (1)" ID="{3A5CDFFE-E7E3-4214-961A-3A9D64C9CA27}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_yellow_bullet\c_liRk4_skill_yellow_bullet (1).wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="62858627"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_yellow_bullet (1)" ID="{3A5CDFFE-E7E3-4214-961A-3A9D64C9CA27}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_skill_yellow_bullet (2)" ID="{97FCF085-62F7-414E-85ED-2F75EE391C3A}" ShortID="740129234">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_yellow_bullet (2)" ID="{CDA55C33-E4E5-4D56-9C92-797348F28340}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_yellow_bullet\c_liRk4_skill_yellow_bullet (2).wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="326545286"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_yellow_bullet (2)" ID="{CDA55C33-E4E5-4D56-9C92-797348F28340}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="c_liRk4_skill_yellow_bullet" ID="{7576E910-CF93-4546-85CE-DEE4C3391C1D}" ShortID="710847053">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_skill_yellow_bullet" ID="{6F73D717-31EF-4AA1-BF1C-F4EB2591FBF1}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_skill_yellow_bullet\c_liRk4_skill_yellow_bullet.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="166687003"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_skill_yellow_bullet" ID="{6F73D717-31EF-4AA1-BF1C-F4EB2591FBF1}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<Sound Name="Normal parry" ID="{5C2B03C3-5B3C-4644-89C7-5BE0E7BD753C}" ShortID="927311547">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="17"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{6A9ABDDC-1B18-4C04-9560-0ED9E3AF7880}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-100"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Normal parry" ID="{29A9FA34-8326-4D23-8578-24C3572EBB12}">
+											<Language>SFX</Language>
+											<AudioFile>Normal parry.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="408586629"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Normal parry" ID="{29A9FA34-8326-4D23-8578-24C3572EBB12}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Big parry" ID="{EA6EFF9B-71B7-4B35-8562-85BB45D74002}" ShortID="142033050">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="17"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Pitch" Type="int32">
+											<ModifierList>
+												<ModifierInfo>
+													<Modifier Name="" ID="{E4966226-5978-414D-A489-BF6950333305}">
+														<PropertyList>
+															<Property Name="Enabled" Type="bool" Value="True"/>
+															<Property Name="Max" Type="Real64" Value="100"/>
+															<Property Name="Min" Type="Real64" Value="-100"/>
+														</PropertyList>
+													</Modifier>
+												</ModifierInfo>
+											</ModifierList>
+										</Property>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="big parry" ID="{CC3EF3BC-5C35-4288-AAFA-121961CD7B4D}">
+											<Language>SFX</Language>
+											<AudioFile>big parry.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="928078392"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="big parry" ID="{CC3EF3BC-5C35-4288-AAFA-121961CD7B4D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="c_liRk4_skill_ultimate_blast" ID="{18ADB59D-BD2C-40DC-BF90-551BB6794B0F}" ShortID="1066173074">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="17"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Ultimate" ID="{CF08FAA3-3332-4E8A-969C-1486427BFFC5}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="c_liRk4_skill_ultimate_blast" ID="{294C2AC7-AC9D-419D-8C7D-B21FB95877B0}">
+											<Language>SFX</Language>
+											<AudioFile>c_liRk4_skill_ultimate_blast.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1030896477"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="c_liRk4_skill_ultimate_blast" ID="{294C2AC7-AC9D-419D-8C7D-B21FB95877B0}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="c_liRk4_skill_ultimate_start" ID="{DDA27FCD-C1D4-4B81-974E-19EA94A275D0}" ShortID="197077188">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="17"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="OverridePositioning" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Attenuation">
+											<ObjectRef Name="Ultimate" ID="{CF08FAA3-3332-4E8A-969C-1486427BFFC5}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+										</Reference>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="c_liRk4_skill_ultimate_start" ID="{1C51FA17-80C2-4F27-8534-C3F3D3273032}">
+											<Language>SFX</Language>
+											<AudioFile>c_liRk4_skill_ultimate_start.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="209203937"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="c_liRk4_skill_ultimate_start" ID="{1C51FA17-80C2-4F27-8534-C3F3D3273032}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Stage Intro" ID="{4327BA3D-5CB9-4D03-87B5-B8EB1E2C2570}" ShortID="219145207">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="17"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Stage Intro" ID="{6A0BCF5F-CF2F-4AD7-BC2C-B372E18D90AF}">
+											<Language>SFX</Language>
+											<AudioFile>Stage Intro.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="299006532"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Stage Intro" ID="{6A0BCF5F-CF2F-4AD7-BC2C-B372E18D90AF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="RTPC">
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{E391E20F-91F3-4691-9504-90D76E5ACD2C}" ShortID="384651561">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="Volume"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="Volume_SFX" ID="{53CAC302-8159-435B-B9E8-E4869EAC3995}" WorkUnitID="{6295A856-9B33-4897-94CD-E7B7C423ADF4}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{E0B8237F-DC0D-40E4-9A22-8E37D5042B3D}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</ActorMixer>
+				<ActorMixer Name="Voice Mixxer" ID="{0240A367-BF98-4092-9FF7-989BBC15F701}" ShortID="15342479">
+					<PropertyList>
+						<Property Name="3DSpatialization" Type="int16" Value="1"/>
+						<Property Name="Color" Type="int16" Value="11"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Attenuation">
+							<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+						</Reference>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Folder Name="Lee Voice" ID="{10ABD9C9-068C-4758-B5AF-911CC233CF39}" ShortID="648009959">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="11"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Folder Name="EN" ID="{4A18CD69-8D31-4D3B-ADCF-2BD08505B8FC}" ShortID="1068421186">
+									<ChildrenList>
+										<Sound Name="Lee Domain Ult Voice EN" ID="{7C575C1E-640F-4F25-8FF0-BCA319B0057F}" ShortID="149048320">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Ultimate" ID="{CF08FAA3-3332-4E8A-969C-1486427BFFC5}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Domain Ult Voice EN" ID="{A2948571-C185-4D86-A851-CE541D699B74}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Domain Ult Voice EN.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="358197402"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Domain Ult Voice EN" ID="{A2948571-C185-4D86-A851-CE541D699B74}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Lee Intro Voice EN" ID="{65C1EB6F-5B27-4471-9B84-3629F60732A2}" ShortID="183856321">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Intro Voice EN" ID="{1E0DF3BB-A813-4F05-A72B-2E291439B659}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Intro Voice EN.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1026042879"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Intro Voice EN" ID="{1E0DF3BB-A813-4F05-A72B-2E291439B659}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Lee Ult Voice EN" ID="{07C5C1CF-A35B-474D-A698-0293A2BB21BD}" ShortID="73701567">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Ultimate" ID="{CF08FAA3-3332-4E8A-969C-1486427BFFC5}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Ult Voice EN" ID="{503B6743-54F9-40BC-9356-B6FD9DD95FF5}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Ult Voice EN.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="414203180"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Ult Voice EN" ID="{503B6743-54F9-40BC-9356-B6FD9DD95FF5}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Lee Death Voice EN" ID="{085ECCAC-30CD-44B7-AB19-046A47A2D1C1}" ShortID="376378931">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Death Voice EN" ID="{222FD3DD-3374-480C-9265-5B0856FBBA31}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Death Voice EN.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1068491608"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Death Voice EN" ID="{222FD3DD-3374-480C-9265-5B0856FBBA31}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Lee Near Death Voice EN" ID="{52BB1711-6F82-4CA8-9CEE-BACA535794A7}" ShortID="998286612">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-2</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Near Death Voice EN" ID="{9A18B002-5EF5-45AB-BE0A-9EC07DDDAD06}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Near Death Voice EN.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="893674034"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Near Death Voice EN" ID="{9A18B002-5EF5-45AB-BE0A-9EC07DDDAD06}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</Folder>
+								<Folder Name="JP" ID="{09EB593C-9A99-4E24-91A4-3352AE7D1910}" ShortID="751855271">
+									<ChildrenList>
+										<Sound Name="Lee Domain Ult Voice JP" ID="{43396369-A69F-4E34-B378-1030402103F1}" ShortID="121783135">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Ultimate" ID="{CF08FAA3-3332-4E8A-969C-1486427BFFC5}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Domain Ult Voice JP" ID="{7EB9C65C-C722-4FF4-B1DC-205932101FB9}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Domain Ult Voice JP.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="277465116"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Domain Ult Voice JP" ID="{7EB9C65C-C722-4FF4-B1DC-205932101FB9}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Lee Intro Voice JP" ID="{61EB32B5-9C5A-4F01-A3C1-26F625575333}" ShortID="233952222">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Intro Voice JP" ID="{18D8545B-997A-4877-BBB1-23BFA8EAB230}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Intro Voice JP.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="626382630"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Intro Voice JP" ID="{18D8545B-997A-4877-BBB1-23BFA8EAB230}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Lee Ult Voice JP" ID="{3B489203-DBE5-48D9-B4FB-903F2C75553A}" ShortID="860883271">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="OverridePositioning" Type="bool" Value="True"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Ultimate" ID="{CF08FAA3-3332-4E8A-969C-1486427BFFC5}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Ult Voice JP" ID="{581D75DF-C199-4F33-8BAA-65C3C7CB4210}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Ult Voice JP.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="657177854"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Ult Voice JP" ID="{581D75DF-C199-4F33-8BAA-65C3C7CB4210}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Lee Death Voice JP" ID="{C38BBDBE-FF9E-438A-B58A-27EF36BB6AE6}" ShortID="116595205">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Death Voice JP" ID="{E972D187-C80C-4C66-BE7B-DABB5D499B23}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Death Voice JP.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="890358610"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Death Voice JP" ID="{E972D187-C80C-4C66-BE7B-DABB5D499B23}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Lee Near Death Voice JP" ID="{F2710C9F-DEDF-48C1-B20D-9064B4420939}" ShortID="571706461">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-2</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Lee Near Death Voice JP" ID="{8626CF69-1112-4311-A19E-6993B02C522F}">
+													<Language>SFX</Language>
+													<AudioFile>Lee Near Death Voice JP.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="730494363"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Lee Near Death Voice JP" ID="{8626CF69-1112-4311-A19E-6993B02C522F}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</Folder>
+								<Sound Name="cease_your_existance_NOW" ID="{ED802562-9F4C-4ACC-B0D9-DFB4563DD6F2}" ShortID="292767781">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="cease_your_existance_NOW" ID="{6361DFA5-5A13-4B98-BAEB-4503F5ADA495}">
+											<Language>SFX</Language>
+											<AudioFile>cease_your_existance_NOW.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="276511089"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="cease_your_existance_NOW" ID="{6361DFA5-5A13-4B98-BAEB-4503F5ADA495}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</Folder>
+					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="RTPC">
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{61D0448F-D78C-4208-B317-A14B29313D9A}" ShortID="365222732">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="Volume"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="Volume_Lee_Voice" ID="{45C3F420-295C-4C38-B91F-4CEAB4F1272A}" WorkUnitID="{6295A856-9B33-4897-94CD-E7B7C423ADF4}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{E3B89C09-9ACF-4634-8194-A9513B136E8D}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>50</XPos>
+																<YPos>0</YPos>
+																<Flags>0</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>9</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+							<Reference>
+								<Local>
+									<RTPC Name="" ID="{423127E2-AA43-4D92-B15F-1057C4CA3080}" ShortID="689374416">
+										<PropertyList>
+											<Property Name="PropertyName" Type="string" Value="Volume"/>
+										</PropertyList>
+										<ReferenceList>
+											<Reference Name="ControlInput">
+												<ObjectRef Name="Volume_SFX" ID="{53CAC302-8159-435B-B9E8-E4869EAC3995}" WorkUnitID="{6295A856-9B33-4897-94CD-E7B7C423ADF4}"/>
+											</Reference>
+											<Reference Name="Curve">
+												<Custom>
+													<Curve Name="" ID="{08CA9C71-F7B7-4482-80EF-34864FB1EA62}">
+														<PropertyList>
+															<Property Name="Flags" Type="int32" Value="3"/>
+														</PropertyList>
+														<PointList>
+															<Point>
+																<XPos>0</XPos>
+																<YPos>-200</YPos>
+																<Flags>5</Flags>
+															</Point>
+															<Point>
+																<XPos>100</XPos>
+																<YPos>0</YPos>
+																<Flags>37</Flags>
+															</Point>
+														</PointList>
+													</Curve>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</RTPC>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="505873666" Type="User" GUID="{8F1A8A27-C3E1-4938-8B10-4FB1FF6A3F19}" Language="SFX" Hash="{CDA98728-FEE5-7EE7-798A-FC52BC3C1103}">
+		<SoundBank Id="505873666" Type="User" Language="SFX" Hash="{CDA98728-FEE5-7EE7-798A-FC52BC3C1103}">
 			<ShortName>Lee_Hyperreal</ShortName>
 			<Path>Lee_Hyperreal.bnk</Path>
 			<Media>
@@ -455,442 +455,442 @@
 				</File>
 			</Media>
 			<Events>
-				<Event Id="2985300151" Name="Play_Big_parry" GUID="{D4765A80-9D86-4DD7-A38C-A7A7ACFBFB6D}">
+				<Event Id="2985300151" Name="Play_Big_parry">
 					<MediaRefs>
 						<MediaRef Id="928078392"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1336279353" Name="Play_c_liRk4_act_born" GUID="{8D1EC622-9586-4F8B-AFFA-7A365D4A5C6B}">
+				<Event Id="1336279353" Name="Play_c_liRk4_act_born">
 					<MediaRefs>
 						<MediaRef Id="975369106"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="355832146" Name="Play_c_liRk4_act_flash_1" GUID="{46E8F8C2-4B24-4F62-8797-A6542FF0D3F1}">
+				<Event Id="355832146" Name="Play_c_liRk4_act_flash_1">
 					<MediaRefs>
 						<MediaRef Id="755865838"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="355832145" Name="Play_c_liRk4_act_flash_2" GUID="{9C901ABB-4BDA-4E22-B41D-A0679DCAD1D0}">
+				<Event Id="355832145" Name="Play_c_liRk4_act_flash_2">
 					<MediaRefs>
 						<MediaRef Id="506608001"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="355832144" Name="Play_c_liRk4_act_flash_3" GUID="{0966BD68-2E55-4550-8750-6648D2138793}">
+				<Event Id="355832144" Name="Play_c_liRk4_act_flash_3">
 					<MediaRefs>
 						<MediaRef Id="34671558"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="537015926" Name="Play_c_liRk4_act_win" GUID="{5BED0659-4FAC-483E-BC33-A710C63CD318}">
+				<Event Id="537015926" Name="Play_c_liRk4_act_win">
 					<MediaRefs>
 						<MediaRef Id="55420370"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="818545753" Name="Play_c_liRk4_atk_ex_1" GUID="{0E7117E9-B161-49BC-BF81-453CF23B3B8C}">
+				<Event Id="818545753" Name="Play_c_liRk4_atk_ex_1">
 					<MediaRefs>
 						<MediaRef Id="871673217"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1641104144" Name="Play_c_liRk4_atk_ex_1_bullet_1" GUID="{0571A008-5CF1-4226-9F8F-D40BBDA24979}">
+				<Event Id="1641104144" Name="Play_c_liRk4_atk_ex_1_bullet_1">
 					<MediaRefs>
 						<MediaRef Id="296343842"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1641104147" Name="Play_c_liRk4_atk_ex_1_bullet_2" GUID="{5D8576C9-5773-4E13-8A06-26BFDF09A4FB}">
+				<Event Id="1641104147" Name="Play_c_liRk4_atk_ex_1_bullet_2">
 					<MediaRefs>
 						<MediaRef Id="710881964"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1641104146" Name="Play_c_liRk4_atk_ex_1_bullet_3" GUID="{80D056EE-CEEC-42E4-9267-4DA95FE7F59E}">
+				<Event Id="1641104146" Name="Play_c_liRk4_atk_ex_1_bullet_3">
 					<MediaRefs>
 						<MediaRef Id="139035548"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="818545754" Name="Play_c_liRk4_atk_ex_2" GUID="{AB5F7685-06B2-4719-A71D-ACD0BCBF6B14}">
+				<Event Id="818545754" Name="Play_c_liRk4_atk_ex_2">
 					<MediaRefs>
 						<MediaRef Id="946628785"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="627989872" Name="Play_c_liRk4_atk_ex_2_end" GUID="{251F6AC4-00F2-49C9-B9E1-B726CA557467}">
+				<Event Id="627989872" Name="Play_c_liRk4_atk_ex_2_end">
 					<MediaRefs>
 						<MediaRef Id="380294237"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1672899902" Name="Play_c_liRk4_atk_ex_2_exp_1" GUID="{F7F4D284-4984-44BD-8828-F9E99EFC784D}">
+				<Event Id="1672899902" Name="Play_c_liRk4_atk_ex_2_exp_1">
 					<MediaRefs>
 						<MediaRef Id="281418111"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1672899901" Name="Play_c_liRk4_atk_ex_2_exp_2" GUID="{3216D20C-1E49-4EAE-A3E0-FD6C47A9C96D}">
+				<Event Id="1672899901" Name="Play_c_liRk4_atk_ex_2_exp_2">
 					<MediaRefs>
 						<MediaRef Id="924024604"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1436277817" Name="Play_c_liRk4_atk_ex_2_xuli" GUID="{92B0BA51-9A64-42AD-8CB8-6F90834187C4}">
+				<Event Id="1436277817" Name="Play_c_liRk4_atk_ex_2_xuli">
 					<MediaRefs>
 						<MediaRef Id="59519468"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="818545755" Name="Play_c_liRk4_atk_ex_3" GUID="{0497E750-03A4-4C75-9CD5-762B55E9870D}">
+				<Event Id="818545755" Name="Play_c_liRk4_atk_ex_3">
 					<MediaRefs>
 						<MediaRef Id="302064712"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2447070427" Name="Play_c_liRk4_atk_ex_3_break" GUID="{CFD5C204-6ACF-47FA-AFA9-8C5A0A1F758E}">
+				<Event Id="2447070427" Name="Play_c_liRk4_atk_ex_3_break">
 					<MediaRefs>
 						<MediaRef Id="284328041"/>
 						<MediaRef Id="321158048"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2800018725" Name="Play_c_liRk4_atk_ex_3_reload" GUID="{97D10AD9-FF84-4BAB-9BD6-15FBEC994AF9}">
+				<Event Id="2800018725" Name="Play_c_liRk4_atk_ex_3_reload">
 					<MediaRefs>
 						<MediaRef Id="188305038"/>
 						<MediaRef Id="214333572"/>
 						<MediaRef Id="798538570"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="885930934" Name="Play_c_liRk4_atk_ex_3_xuli" GUID="{CAA8ED22-59A1-44FB-A730-E694A9DFB12E}">
+				<Event Id="885930934" Name="Play_c_liRk4_atk_ex_3_xuli">
 					<MediaRefs>
 						<MediaRef Id="901070402"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3431692223" Name="Play_c_liRk4_atk_nml_1" GUID="{1B617BF3-2116-48E5-B683-81A89BB79B28}">
+				<Event Id="3431692223" Name="Play_c_liRk4_atk_nml_1">
 					<MediaRefs>
 						<MediaRef Id="246019913"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3431692220" Name="Play_c_liRk4_atk_nml_2" GUID="{5D728949-C50A-42B1-A4D8-E9E7254B8569}">
+				<Event Id="3431692220" Name="Play_c_liRk4_atk_nml_2">
 					<MediaRefs>
 						<MediaRef Id="1059560566"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2003162041" Name="Play_c_liRk4_atk_nml_3_dilie_1" GUID="{1A4801CA-BD3E-470F-AF5D-300900499C45}">
+				<Event Id="2003162041" Name="Play_c_liRk4_atk_nml_3_dilie_1">
 					<MediaRefs>
 						<MediaRef Id="989273389"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2003162042" Name="Play_c_liRk4_atk_nml_3_dilie_2" GUID="{D5DDD621-8EC2-4BD4-986E-4538FA37B6F0}">
+				<Event Id="2003162042" Name="Play_c_liRk4_atk_nml_3_dilie_2">
 					<MediaRefs>
 						<MediaRef Id="931955726"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3825924800" Name="Play_c_liRk4_atk_nml_3_xuli" GUID="{D8D757D5-B998-464C-ACE5-53A9B0A975BD}">
+				<Event Id="3825924800" Name="Play_c_liRk4_atk_nml_3_xuli">
 					<MediaRefs>
 						<MediaRef Id="501065259"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3431692218" Name="Play_c_liRk4_atk_nml_4" GUID="{EDAE3A14-81EB-46E0-8E2B-ED5162EB97B3}">
+				<Event Id="3431692218" Name="Play_c_liRk4_atk_nml_4">
 					<MediaRefs>
 						<MediaRef Id="202418353"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="724521351" Name="Play_c_liRk4_atk_nml_5_dilie" GUID="{80F7E4F2-612A-4EE5-8375-3077A048583B}">
+				<Event Id="724521351" Name="Play_c_liRk4_atk_nml_5_dilie">
 					<MediaRefs>
 						<MediaRef Id="1036429009"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2507619046" Name="Play_c_liRk4_atk_nml_5_jump" GUID="{E2DC9D60-2E49-4F82-9326-C7FE905D851A}">
+				<Event Id="2507619046" Name="Play_c_liRk4_atk_nml_5_jump">
 					<MediaRefs>
 						<MediaRef Id="757405617"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2115276758" Name="Play_c_liRk4_atk_nml_5_xuli" GUID="{2A4BAF46-C9C4-4EFD-9EBF-32754BDBA4D9}">
+				<Event Id="2115276758" Name="Play_c_liRk4_atk_nml_5_xuli">
 					<MediaRefs>
 						<MediaRef Id="855613689"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3451204142" Name="Play_c_liRk4_imp_blue" GUID="{E05FD575-231B-4572-839F-446354D5039D}">
+				<Event Id="3451204142" Name="Play_c_liRk4_imp_blue">
 					<MediaRefs>
 						<MediaRef Id="161444163"/>
 						<MediaRef Id="682933615"/>
 						<MediaRef Id="1030020862"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3788601937" Name="Play_c_liRk4_imp_ex_1" GUID="{7B9A7850-D7CF-4D29-9D5C-EDD019D58032}">
+				<Event Id="3788601937" Name="Play_c_liRk4_imp_ex_1">
 					<MediaRefs>
 						<MediaRef Id="129245162"/>
 						<MediaRef Id="170013626"/>
 						<MediaRef Id="995027618"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3336212442" Name="Play_c_liRk4_imp_ex_2_1" GUID="{A4F69DF2-80A9-4484-BD29-154AF19A3917}">
+				<Event Id="3336212442" Name="Play_c_liRk4_imp_ex_2_1">
 					<MediaRefs>
 						<MediaRef Id="378777401"/>
 						<MediaRef Id="890307725"/>
 						<MediaRef Id="948319211"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3336212441" Name="Play_c_liRk4_imp_ex_2_2" GUID="{1FFAB640-FFCB-41A0-84BB-54408073BF77}">
+				<Event Id="3336212441" Name="Play_c_liRk4_imp_ex_2_2">
 					<MediaRefs>
 						<MediaRef Id="1396545"/>
 						<MediaRef Id="817573197"/>
 						<MediaRef Id="944148654"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="115159923" Name="Play_c_liRk4_imp_ex_3_1" GUID="{049CEFEF-77F5-4BCF-9E8F-1E61DCB7FEE7}">
+				<Event Id="115159923" Name="Play_c_liRk4_imp_ex_3_1">
 					<MediaRefs>
 						<MediaRef Id="326180979"/>
 						<MediaRef Id="674149620"/>
 						<MediaRef Id="996844285"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="115159920" Name="Play_c_liRk4_imp_ex_3_2" GUID="{E1F8950D-3D2A-4B67-9FA7-4517A2AD1414}">
+				<Event Id="115159920" Name="Play_c_liRk4_imp_ex_3_2">
 					<MediaRefs>
 						<MediaRef Id="166158650"/>
 						<MediaRef Id="390164007"/>
 						<MediaRef Id="762680264"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2421508711" Name="Play_c_liRk4_imp_nml_1" GUID="{03DDF0BC-DAE5-470D-B622-D292D414FE1E}">
+				<Event Id="2421508711" Name="Play_c_liRk4_imp_nml_1">
 					<MediaRefs>
 						<MediaRef Id="193571582"/>
 						<MediaRef Id="666297213"/>
 						<MediaRef Id="786620844"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="204919163" Name="Play_c_liRk4_imp_nml_2_2" GUID="{99DC71A9-833A-4BFA-A6EC-A0C375AE62FD}">
+				<Event Id="204919163" Name="Play_c_liRk4_imp_nml_2_2">
 					<MediaRefs>
 						<MediaRef Id="262097937"/>
 						<MediaRef Id="477325665"/>
 						<MediaRef Id="866897723"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="205066193" Name="Play_c_liRk4_imp_nml_3_1" GUID="{2843799D-8E04-44BE-988F-16FFBFD366D8}">
+				<Event Id="205066193" Name="Play_c_liRk4_imp_nml_3_1">
 					<MediaRefs>
 						<MediaRef Id="87757044"/>
 						<MediaRef Id="137388048"/>
 						<MediaRef Id="261054111"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="205066194" Name="Play_c_liRk4_imp_nml_3_2" GUID="{5670FA4F-6CDE-40E8-A3D6-5749348A86A9}">
+				<Event Id="205066194" Name="Play_c_liRk4_imp_nml_3_2">
 					<MediaRefs>
 						<MediaRef Id="104895574"/>
 						<MediaRef Id="387445783"/>
 						<MediaRef Id="1063561195"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2421508706" Name="Play_c_liRk4_imp_nml_4" GUID="{1BAAF357-047F-49FF-9472-520115DB8F46}">
+				<Event Id="2421508706" Name="Play_c_liRk4_imp_nml_4">
 					<MediaRefs>
 						<MediaRef Id="435832049"/>
 						<MediaRef Id="441886937"/>
 						<MediaRef Id="575534491"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3937168531" Name="Play_c_liRk4_imp_red_1" GUID="{74482CA4-C222-4C24-9575-7EA397A96C4B}">
+				<Event Id="3937168531" Name="Play_c_liRk4_imp_red_1">
 					<MediaRefs>
 						<MediaRef Id="320681491"/>
 						<MediaRef Id="758116972"/>
 						<MediaRef Id="855479919"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3937168528" Name="Play_c_liRk4_imp_red_2" GUID="{640B0738-C93E-41A9-A623-3063299B3182}">
+				<Event Id="3937168528" Name="Play_c_liRk4_imp_red_2">
 					<MediaRefs>
 						<MediaRef Id="461658121"/>
 						<MediaRef Id="737136991"/>
 						<MediaRef Id="809281621"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3503832302" Name="Play_c_liRk4_imp_yellow_1" GUID="{140FCAD7-FF49-497E-8697-ADEA4A6DA538}">
+				<Event Id="3503832302" Name="Play_c_liRk4_imp_yellow_1">
 					<MediaRefs>
 						<MediaRef Id="207881368"/>
 						<MediaRef Id="704611551"/>
 						<MediaRef Id="788771435"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3503832301" Name="Play_c_liRk4_imp_yellow_2" GUID="{4766A4DA-5B11-4912-9EB4-F2533D4748B8}">
+				<Event Id="3503832301" Name="Play_c_liRk4_imp_yellow_2">
 					<MediaRefs>
 						<MediaRef Id="256789244"/>
 						<MediaRef Id="943555381"/>
 						<MediaRef Id="1044607273"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2335635877" Name="Play_c_liRk4_skill_blue" GUID="{7F9B6702-DC69-4B62-A246-97A2B1078BA6}">
+				<Event Id="2335635877" Name="Play_c_liRk4_skill_blue">
 					<MediaRefs>
 						<MediaRef Id="416830284"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2433822437" Name="Play_c_liRk4_skill_blue_dilie" GUID="{C2D297AB-80BF-4DD5-A27C-6E69B5E158A1}">
+				<Event Id="2433822437" Name="Play_c_liRk4_skill_blue_dilie">
 					<MediaRefs>
 						<MediaRef Id="643156080"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3638781701" Name="Play_c_liRk4_skill_blue_shine" GUID="{12085F99-CF62-44E4-B6B1-0731A72DF493}">
+				<Event Id="3638781701" Name="Play_c_liRk4_skill_blue_shine">
 					<MediaRefs>
 						<MediaRef Id="80743712"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3471199598" Name="Play_c_liRk4_skill_ex_timestop" GUID="{CC993C59-38CB-4913-8A7D-C35DDB628E71}">
+				<Event Id="3471199598" Name="Play_c_liRk4_skill_ex_timestop">
 					<MediaRefs>
 						<MediaRef Id="772691935"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3706570326" Name="Play_c_liRk4_skill_ex_timestop_break" GUID="{D772590A-2555-42A1-8DB9-CAB06906F12D}">
+				<Event Id="3706570326" Name="Play_c_liRk4_skill_ex_timestop_break">
 					<MediaRefs>
 						<MediaRef Id="305233683"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="454687060" Name="Play_c_liRk4_skill_ex_timestop_end" GUID="{8B74012B-0D5F-4AB8-9C53-69A93DF39EEF}">
+				<Event Id="454687060" Name="Play_c_liRk4_skill_ex_timestop_end">
 					<MediaRefs>
 						<MediaRef Id="987461456"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="4004505031" Name="Play_c_liRk4_skill_ex_timestop_loop" GUID="{D159FB38-6789-4BD6-9927-FD1313D7B600}">
+				<Event Id="4004505031" Name="Play_c_liRk4_skill_ex_timestop_loop">
 					<MediaRefs>
 						<MediaRef Id="393490892"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="435488756" Name="Play_c_liRk4_skill_ex_ultimate" GUID="{71604546-9E96-4CB1-A773-E03BDFBC7668}">
+				<Event Id="435488756" Name="Play_c_liRk4_skill_ex_ultimate">
 					<MediaRefs>
 						<MediaRef Id="6098750"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3162046478" Name="Play_c_liRk4_skill_red" GUID="{D43A897D-572B-4001-9188-760DF39D7BF6}">
+				<Event Id="3162046478" Name="Play_c_liRk4_skill_red">
 					<MediaRefs>
 						<MediaRef Id="899528540"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1003377245" Name="Play_c_liRk4_skill_red_bullet" GUID="{C71461EA-7947-45FC-BBCF-C9B9FD31058C}">
+				<Event Id="1003377245" Name="Play_c_liRk4_skill_red_bullet">
 					<MediaRefs>
 						<MediaRef Id="900217835"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="557212474" Name="Play_c_liRk4_skill_red_dilie" GUID="{7C33BC44-14BA-469F-B7A5-962A7AEF0DF6}">
+				<Event Id="557212474" Name="Play_c_liRk4_skill_red_dilie">
 					<MediaRefs>
 						<MediaRef Id="289054489"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2588682071" Name="Play_c_liRk4_skill_ultimate_blast" GUID="{5D3828E7-CA88-4B28-B17F-5EF45A361349}">
+				<Event Id="2588682071" Name="Play_c_liRk4_skill_ultimate_blast">
 					<MediaRefs>
 						<MediaRef Id="1030896477"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2114053593" Name="Play_c_liRk4_skill_ultimate_start" GUID="{7F77A349-3203-42EA-8953-75FB97E36D5B}">
+				<Event Id="2114053593" Name="Play_c_liRk4_skill_ultimate_start">
 					<MediaRefs>
 						<MediaRef Id="209203937"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1047932885" Name="Play_c_liRk4_skill_yellow" GUID="{7A81EB2C-DDDE-4D58-A175-81E70A1383BF}">
+				<Event Id="1047932885" Name="Play_c_liRk4_skill_yellow">
 					<MediaRefs>
 						<MediaRef Id="1053120446"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2225883040" Name="Play_c_liRk4_skill_yellow_bullet" GUID="{39C53816-7D8E-4C7B-B977-4D9FA92404E5}">
+				<Event Id="2225883040" Name="Play_c_liRk4_skill_yellow_bullet">
 					<MediaRefs>
 						<MediaRef Id="62858627"/>
 						<MediaRef Id="166687003"/>
 						<MediaRef Id="326545286"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="754794421" Name="Play_c_liRk4_skill_yellow_dilie" GUID="{E0892B41-0747-47C9-9F32-C7CCD05F5886}">
+				<Event Id="754794421" Name="Play_c_liRk4_skill_yellow_dilie">
 					<MediaRefs>
 						<MediaRef Id="319272980"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1338030204" Name="Play_c_liRk4_skill_yellow_fire" GUID="{D84273A9-23E6-46AC-9E32-AC24459C883E}">
+				<Event Id="1338030204" Name="Play_c_liRk4_skill_yellow_fire">
 					<MediaRefs>
 						<MediaRef Id="862434096"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2413532266" Name="Play_c_liRk4_skill_yellow_kick" GUID="{B6812F58-980A-4CA4-BA35-88C639271173}">
+				<Event Id="2413532266" Name="Play_c_liRk4_skill_yellow_kick">
 					<MediaRefs>
 						<MediaRef Id="34461911"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1806327753" Name="Play_c_liRk4_skill_yellow_tuijin" GUID="{CD95AF26-D8D4-45A1-B9C6-3DE5D37A816C}">
+				<Event Id="1806327753" Name="Play_c_liRk4_skill_yellow_tuijin">
 					<MediaRefs>
 						<MediaRef Id="224120806"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3985604687" Name="Play_cease_your_existance_NOW" GUID="{DEAFE3E4-AAD8-4639-9179-9D6175BF5A53}">
+				<Event Id="3985604687" Name="Play_cease_your_existance_NOW">
 					<MediaRefs>
 						<MediaRef Id="276511089"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="124427114" Name="Play_Lee_Death_Voice_EN" GUID="{BDADB0BE-41E4-4432-AA67-208949349C3C}">
+				<Event Id="124427114" Name="Play_Lee_Death_Voice_EN">
 					<MediaRefs>
 						<MediaRef Id="1068491608"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="4268395689" Name="Play_Lee_Death_Voice_JP" GUID="{762FC7A5-3CC5-40FF-AB60-5C351FF34B8D}">
+				<Event Id="4268395689" Name="Play_Lee_Death_Voice_JP">
 					<MediaRefs>
 						<MediaRef Id="890358610"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="299803410" Name="Play_Lee_Domain_Ult_Voice_EN" GUID="{60A9216B-4542-4A83-8F41-8886690BD0F7}">
+				<Event Id="299803410" Name="Play_Lee_Domain_Ult_Voice_EN">
 					<MediaRefs>
 						<MediaRef Id="358197402"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="417246961" Name="Play_Lee_Domain_Ult_Voice_JP" GUID="{CD1204F3-8778-495E-BB3B-8869724EFD39}">
+				<Event Id="417246961" Name="Play_Lee_Domain_Ult_Voice_JP">
 					<MediaRefs>
 						<MediaRef Id="277465116"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2035664118" Name="Play_Lee_Intro_Voice_EN" GUID="{05122C2F-E332-48CF-B8B5-C18B38246436}">
+				<Event Id="2035664118" Name="Play_Lee_Intro_Voice_EN">
 					<MediaRefs>
 						<MediaRef Id="1026042879"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2018886517" Name="Play_Lee_Intro_Voice_JP" GUID="{66E208B0-A0EA-41EB-B0F4-2FDF091470D9}">
+				<Event Id="2018886517" Name="Play_Lee_Intro_Voice_JP">
 					<MediaRefs>
 						<MediaRef Id="626382630"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="638946289" Name="Play_Lee_Near_Death_Voice_EN" GUID="{19F46D72-99B2-480F-BE00-E4FE187C9D82}">
+				<Event Id="638946289" Name="Play_Lee_Near_Death_Voice_EN">
 					<MediaRefs>
 						<MediaRef Id="893674034"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="722834190" Name="Play_Lee_Near_Death_Voice_JP" GUID="{43E28FF1-B51D-432B-984C-BEF5210038B1}">
+				<Event Id="722834190" Name="Play_Lee_Near_Death_Voice_JP">
 					<MediaRefs>
 						<MediaRef Id="730494363"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="4230288271" Name="Play_Lee_Ult_Voice_EN" GUID="{E52196A1-7951-49EA-9ABB-66B9160506FF}">
+				<Event Id="4230288271" Name="Play_Lee_Ult_Voice_EN">
 					<MediaRefs>
 						<MediaRef Id="414203180"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="4112844972" Name="Play_Lee_Ult_Voice_JP" GUID="{632F9990-4038-4285-B7B3-18B713C85733}">
+				<Event Id="4112844972" Name="Play_Lee_Ult_Voice_JP">
 					<MediaRefs>
 						<MediaRef Id="657177854"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="1499659704" Name="Play_Normal_parry" GUID="{84DC700D-9341-40EE-BC24-A3E77D5C85B0}">
+				<Event Id="1499659704" Name="Play_Normal_parry">
 					<MediaRefs>
 						<MediaRef Id="408586629"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="4091398899" Name="Play_Stage_Intro" GUID="{927D85AE-9749-4E3A-A4CF-6DAC6730E930}">
+				<Event Id="4091398899" Name="Play_Stage_Intro">
 					<MediaRefs>
 						<MediaRef Id="299006532"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="2845253499" Name="Stop_Lee_Near_Death_Voice_EN" GUID="{BBC19E85-1DB6-45DF-8CE5-D87A1287EC89}"/>
-				<Event Id="2862031064" Name="Stop_Lee_Near_Death_Voice_JP" GUID="{C6553E1B-1159-42FF-95D0-1C5D0AFB13A4}"/>
+				<Event Id="2845253499" Name="Stop_Lee_Near_Death_Voice_EN"/>
+				<Event Id="2862031064" Name="Stop_Lee_Near_Death_Voice_JP"/>
 			</Events>
 			<GameParameters>
-				<GameParameter Id="1917128131" Name="Volume_Lee_Voice" GUID="{45C3F420-295C-4C38-B91F-4CEAB4F1272A}"/>
-				<GameParameter Id="3673881719" Name="Volume_SFX" GUID="{53CAC302-8159-435B-B9E8-E4869EAC3995}"/>
+				<GameParameter Id="1917128131" Name="Volume_Lee_Voice"/>
+				<GameParameter Id="3673881719" Name="Volume_SFX"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" GUID="{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}" Language="SFX" Hash="{303EEE51-1700-4BA7-FD4E-726A314CE88B}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{303EEE51-1700-4BA7-FD4E-726A314CE88B}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
 				<AudioDevices>
-					<Plugin Id="2317455096" Name="No_Output" GUID="{596FD978-F348-4C50-AFC5-DE384FA2C663}" LibName="No Output" LibId="11862023"/>
-					<Plugin Id="3859886410" Name="System" GUID="{0498B81C-AC59-4CA5-8E1B-4E4D994FBF2F}" LibName="System" LibId="11403271"/>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
 				</AudioDevices>
 			</Plugins>
 			<Busses>
-				<Bus Id="3803692087" Name="Master Audio Bus" GUID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"/>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
 			</Busses>
 			<GameParameters>
-				<GameParameter Id="1917128131" Name="Volume_Lee_Voice" GUID="{45C3F420-295C-4C38-B91F-4CEAB4F1272A}"/>
-				<GameParameter Id="3673881719" Name="Volume_SFX" GUID="{53CAC302-8159-435B-B9E8-E4869EAC3995}"/>
-				<GameParameter Id="3729143042" Name="Volume_MSX" GUID="{B7D0576C-F923-46BA-BFE3-E7FF5A6EDF9D}"/>
+				<GameParameter Id="1917128131" Name="Volume_Lee_Voice"/>
+				<GameParameter Id="3673881719" Name="Volume_SFX"/>
+				<GameParameter Id="3729143042" Name="Volume_MSX"/>
 			</GameParameters>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{F1B10B02-0030-8CA6-DF9F-EA0E24DA7337}</FileHash>
+	<FileHash>{80AE4B78-A2AA-F2D9-4121-642F3520EBCA}</FileHash>
 </SoundBanksInfo>

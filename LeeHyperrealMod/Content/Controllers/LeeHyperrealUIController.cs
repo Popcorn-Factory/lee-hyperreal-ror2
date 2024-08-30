@@ -246,7 +246,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
                 LeeHyperrealUINotificationController leeUINotifController = notificationAreaClone.AddComponent<LeeHyperrealUINotificationController>();
                 leeUINotifController.hud = genericNotif.hud;
-                leeUINotifController.genericNotificationPrefab = Modules.Assets.customNotificationPrefab;
+                leeUINotifController.genericNotificationPrefab = Modules.LeeHyperrealAssets.customNotificationPrefab;
                 leeUINotifController.notificationQueue = rorHUD.targetMaster.gameObject.AddComponent<LeeHyperrealNotificationQueue>();
                 genericNotif.enabled = false;
                 return;    
@@ -297,7 +297,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 if (RoRHUDObject) 
                 {
                     //Move Chatbox up a little bit to not collide with the energy bar.
-                    RoRHUDObject.transform.GetChild(0).GetChild(7).GetChild(2).GetChild(0).GetChild(0).position = new Vector3(-11.4084f, - 4.3756f, 12.6537f);
+                    RoRHUDSpringCanvasTransform.GetChild(0).GetChild(0).position = new Vector3(-11.4084f, - 4.3756f, 12.6537f);
                 }
             }
         }
@@ -339,7 +339,7 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 if (LeeHyperrealPlugin.isRiskUIInstalled)
                 {
-                    healthLayers = UnityEngine.GameObject.Instantiate(Modules.Assets.healthPrefabs, RoRHUDSpringCanvasTransform.Find("BottomLeftCluster/BarRoots/Healthbar"));
+                    healthLayers = UnityEngine.GameObject.Instantiate(Modules.LeeHyperrealAssets.healthPrefabs, RoRHUDSpringCanvasTransform.Find("BottomLeftCluster/BarRoots/Healthbar"));
                     healthLayers.transform.rotation = Quaternion.identity;
                     healthLayers.transform.localScale = new Vector3(0.7891f, 0.4f, 1f);
                     healthLayers.transform.position = new Vector3(-9.7021f, -4.8843f, 12.6537f);
@@ -347,7 +347,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
                 else 
                 {
-                    healthLayers = UnityEngine.GameObject.Instantiate(Modules.Assets.healthPrefabs, RoRHUDSpringCanvasTransform.Find("BottomLeftCluster/BarRoots/HealthbarRoot"));
+                    healthLayers = UnityEngine.GameObject.Instantiate(Modules.LeeHyperrealAssets.healthPrefabs, RoRHUDSpringCanvasTransform.Find("BottomLeftCluster/BarRoots/HealthbarRoot"));
                 }
             }
             layerInvincibilityHealthObject = healthLayers.transform.GetChild(0).gameObject;
@@ -391,7 +391,7 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 if (LeeHyperrealPlugin.isRiskUIInstalled)
                 {
-                    powerMeterUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.powerMeterObject, RoRHUDSpringCanvasTransform.Find("BottomLeftCluster"));
+                    powerMeterUIObject = UnityEngine.GameObject.Instantiate(Modules.LeeHyperrealAssets.powerMeterObject, RoRHUDSpringCanvasTransform.Find("BottomLeftCluster"));
                     powerMeterUIObject.transform.localScale = new Vector3(1, 1, 1);
                     powerMeterUIObject.transform.localRotation = Quaternion.identity;
                     powerMeterUIObject.transform.localPosition = new Vector3(200f, 220f, -42f);
@@ -401,7 +401,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
                 else 
                 {
-                    powerMeterUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.powerMeterObject, RoRHUDSpringCanvasTransform.Find("BottomLeftCluster"));
+                    powerMeterUIObject = UnityEngine.GameObject.Instantiate(Modules.LeeHyperrealAssets.powerMeterObject, RoRHUDSpringCanvasTransform.Find("BottomLeftCluster"));
                 }
             }
 
@@ -745,14 +745,14 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 if (LeeHyperrealPlugin.isRiskUIInstalled)
                 {
-                    orbUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.orbsUIObject, RoRHUDSpringCanvasTransform.Find("BottomLeftCluster"));
+                    orbUIObject = UnityEngine.GameObject.Instantiate(Modules.LeeHyperrealAssets.orbsUIObject, RoRHUDSpringCanvasTransform.Find("BottomLeftCluster"));
                     orbUIObject.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
                     orbUIObject.transform.position = new Vector3(-9.5764f, -3.2462f, 12.6537f);
                     orbUIObject.transform.localPosition = new Vector3(185f, 287.8038f, 0f); 
                 }
                 else 
                 {
-                    orbUIObject = UnityEngine.GameObject.Instantiate(Modules.Assets.orbsUIObject, RoRHUDSpringCanvasTransform.Find("BottomCenterCluster"));
+                    orbUIObject = UnityEngine.GameObject.Instantiate(Modules.LeeHyperrealAssets.orbsUIObject, RoRHUDSpringCanvasTransform.Find("BottomCenterCluster"));
                 }
             }
 
@@ -831,11 +831,11 @@ namespace LeeHyperrealMod.Content.Controllers
             switch (orb)
             {
                 case OrbController.OrbType.RED:
-                    return Modules.Assets.redOrbMat;
+                    return Modules.LeeHyperrealAssets.redOrbMat;
                 case OrbController.OrbType.YELLOW:
-                    return Modules.Assets.yellowOrbMat;
+                    return Modules.LeeHyperrealAssets.yellowOrbMat;
                 case OrbController.OrbType.BLUE:
-                    return Modules.Assets.blueOrbMat;
+                    return Modules.LeeHyperrealAssets.blueOrbMat;
                 default:
                     return null;
             }
@@ -1111,7 +1111,7 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 if (LeeHyperrealPlugin.isRiskUIInstalled)
                 {
-                    ultimateIndicatorObject = UnityEngine.GameObject.Instantiate(Modules.Assets.spinnyIconUIObject, RoRHUDSpringCanvasTransform.Find("BottomRightCluster/Scaler"));
+                    ultimateIndicatorObject = UnityEngine.GameObject.Instantiate(Modules.LeeHyperrealAssets.spinnyIconUIObject, RoRHUDSpringCanvasTransform.Find("BottomRightCluster/Scaler"));
                     ultimateIndicatorObject.transform.position = new Vector3(14.04f, -7.2146f, 12.6244f);
                     ultimateIndicatorObject.transform.localPosition = new Vector3(199.0623f, -97.8483f, -2.9584f);
                     ultimateIndicatorObject.transform.rotation = Quaternion.identity;
@@ -1119,7 +1119,7 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
                 else 
                 {
-                    ultimateIndicatorObject = UnityEngine.GameObject.Instantiate(Modules.Assets.spinnyIconUIObject, RoRHUDSpringCanvasTransform.Find("BottomRightCluster/Scaler"));
+                    ultimateIndicatorObject = UnityEngine.GameObject.Instantiate(Modules.LeeHyperrealAssets.spinnyIconUIObject, RoRHUDSpringCanvasTransform.Find("BottomRightCluster/Scaler"));
                 }
             }
 

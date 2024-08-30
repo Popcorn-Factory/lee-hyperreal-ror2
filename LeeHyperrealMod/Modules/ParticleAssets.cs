@@ -147,13 +147,13 @@ namespace LeeHyperrealMod.Modules
         public static void Initialize() 
         {
             //UpdateAllBundleMaterials();
-            CreateMaterialStorage(Modules.Assets.mainAssetBundle);
+            CreateMaterialStorage(Modules.LeeHyperrealAssets.mainAssetBundle);
             PopulateAssets();
         }
 
         private static void UpdateAllBundleMaterials()
         {
-            Material[] materials = Modules.Assets.mainAssetBundle.LoadAllAssets<Material>();
+            Material[] materials = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAllAssets<Material>();
 
             foreach (Material material in materials)
             {
@@ -169,7 +169,7 @@ namespace LeeHyperrealMod.Modules
 
         private static GameObject GetGameObjectFromBundle(string objectName) 
         {
-            return Modules.Assets.mainAssetBundle.LoadAsset<GameObject>(objectName);
+            return Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<GameObject>(objectName);
         }
 
         private static GameObject ModifyEffect(GameObject newEffect, string soundName, bool parentToTransform) 
@@ -207,7 +207,7 @@ namespace LeeHyperrealMod.Modules
 
         public static void AddLightIntensityCurveWithCurve(GameObject targetObject, LightIntensityProps liProps, string curveName) 
         {
-            AnimationCurveAsset curveAsset = Modules.Assets.mainAssetBundle.LoadAsset<AnimationCurveAsset>(curveName);
+            AnimationCurveAsset curveAsset = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<AnimationCurveAsset>(curveName);
             LightIntensityCurve lightIntensityCurveComponent = targetObject.AddComponent<LightIntensityCurve>();
             lightIntensityCurveComponent.timeMax = liProps.timeMax;
             lightIntensityCurveComponent.loop = liProps.loop;
