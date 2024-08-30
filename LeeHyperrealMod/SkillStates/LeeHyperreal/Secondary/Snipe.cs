@@ -158,7 +158,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     var stupidOffset = scale == 1.25f ? 0.89f : 0.6f;
                     startEffectPos.y -= stupidOffset;
 
-                    PlayerCharacterMasterController.CanSendBodyInput(characterBody.master.playerCharacterMasterController.networkUser, out var _, out var _, out var cameraRigController);
+                    bool canAllowMovement = false;
+                    PlayerCharacterMasterController.CanSendBodyInput(characterBody.master.playerCharacterMasterController.networkUser, out var _, out var _, out var cameraRigController, out canAllowMovement);
 
                     var endPos = cameraRigController.crosshairWorldPosition;
                     var endEffectPos = endPos;
