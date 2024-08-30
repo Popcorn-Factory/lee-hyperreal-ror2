@@ -14,6 +14,7 @@ using R2API.Networking.Interfaces;
 using ShaderSwapper;
 using System.Collections.ObjectModel;
 using R2API;
+using System;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -26,8 +27,8 @@ namespace LeeHyperrealMod
     [BepInDependency("com.bepis.r2api.networking", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.unlockable", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.damagetype", BepInDependency.DependencyFlags.HardDependency)]
-    [BepInDependency("com.KingEnderBrine.ExtraSkillSlots", BepInDependency.DependencyFlags.HardDependency)]
 
+    [BepInDependency("com.KingEnderBrine.ExtraSkillSlots", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("bubbet.riskui", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
@@ -39,7 +40,7 @@ namespace LeeHyperrealMod
     {
         public const string MODUID = "com.PopcornFactory.LeeHyperrealMod";
         public const string MODNAME = "LeeHyperrealMod";
-        public const string MODVERSION = "1.0.4";
+        public const string MODVERSION = "1.1.0";
         
         public const string DEVELOPER_PREFIX = "POPCORN";
 
@@ -84,18 +85,11 @@ namespace LeeHyperrealMod
             // survivor initialization
             new LeeHyperreal().Initialize();
 
-            //networking
-            NetworkingAPI.RegisterMessageType<PerformForceNetworkRequest>();
-            NetworkingAPI.RegisterMessageType<SetFreezeOnBodyRequest>();
-            NetworkingAPI.RegisterMessageType<SetPauseTriggerNetworkRequest>();
-            NetworkingAPI.RegisterMessageType<PlaySoundNetworkRequest>();
-            NetworkingAPI.RegisterMessageType<UltimateObjectSpawnNetworkRequest>();
-            NetworkingAPI.RegisterMessageType<SetDomainUltimateNetworkRequest>();
-            NetworkingAPI.RegisterMessageType<ForceSpawnStateNetworkRequest>();
-
             // now make a content pack and add it- this part will change with the next update
             new Modules.ContentPacks().Initialize();
 
+
+            SetupNetworkMessages();
             Hook();
         }
 
@@ -108,7 +102,18 @@ namespace LeeHyperrealMod
                 AkSoundEngine.SetRTPCValue("Volume_Lee_Voice", Modules.Config.voiceVolume.Value);
             }
         }
-        
+
+        private void SetupNetworkMessages()
+        {
+            NetworkingAPI.RegisterMessageType<PerformForceNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<SetFreezeOnBodyRequest>();
+            NetworkingAPI.RegisterMessageType<SetPauseTriggerNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<PlaySoundNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<UltimateObjectSpawnNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<SetDomainUltimateNetworkRequest>();
+            NetworkingAPI.RegisterMessageType<ForceSpawnStateNetworkRequest>();
+        }
+
         private void Hook()
         {
             // run hooks here, disabling one is as simple as commenting out the line
