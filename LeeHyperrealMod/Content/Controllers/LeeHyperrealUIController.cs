@@ -22,7 +22,7 @@ namespace LeeHyperrealMod.Content.Controllers
         private GameObject canvasObject;
         private GameObject RoRHUDObject;
         private Transform RoRHUDSpringCanvasTransform;
-        private GameObject LeeHyperrealNotifcationControllerObject;
+        private GameObject LeeHyperrealNotificationObject;
         private OrbController orbController;
         public bool baseAIPresent;
         public bool enabledUI;
@@ -238,13 +238,20 @@ namespace LeeHyperrealMod.Content.Controllers
 
                 //Add a clone of the notification area object to use to show the Notification controller.
                 HUD rorHUD = RoRHUDObject.GetComponent<HUD>();
-                GameObject notificationAreaClone = UnityEngine.Object.Instantiate<GameObject>(RoRHUDObject.transform.Find("MainContainer").Find("NotificationArea").gameObject);
-                notificationAreaClone.transform.SetParent(RoRHUDObject.transform.Find("MainContainer"), true);
-                notificationAreaClone.GetComponent<RectTransform>().localPosition = new Vector3(0f, -265f, -150f);
-                notificationAreaClone.transform.localScale = Vector3.one;
-                NotificationUIController genericNotif = notificationAreaClone.GetComponent<NotificationUIController>();
+                if (!LeeHyperrealNotificationObject) 
+                {
+                    LeeHyperrealNotificationObject = UnityEngine.Object.Instantiate<GameObject>(RoRHUDObject.transform.Find("MainContainer").Find("NotificationArea").gameObject);
+                }
+                LeeHyperrealNotificationObject.transform.SetParent(RoRHUDObject.transform.Find("MainContainer"), true);
+                LeeHyperrealNotificationObject.GetComponent<RectTransform>().localPosition = new Vector3(0f, -265f, -150f);
+                LeeHyperrealNotificationObject.transform.localScale = Vector3.one;
+                NotificationUIController genericNotif = LeeHyperrealNotificationObject.GetComponent<NotificationUIController>();
 
-                LeeHyperrealUINotificationController leeUINotifController = notificationAreaClone.AddComponent<LeeHyperrealUINotificationController>();
+                LeeHyperrealUINotificationController leeUINotifController = LeeHyperrealNotificationObject.GetComponent<LeeHyperrealUINotificationController>();
+                if (!leeUINotifController) 
+                {
+                    leeUINotifController = LeeHyperrealNotificationObject.AddComponent<LeeHyperrealUINotificationController>();
+                }
                 leeUINotifController.hud = genericNotif.hud;
                 leeUINotifController.genericNotificationPrefab = Modules.LeeHyperrealAssets.customNotificationPrefab;
                 leeUINotifController.notificationQueue = rorHUD.targetMaster.gameObject.AddComponent<LeeHyperrealNotificationQueue>();
