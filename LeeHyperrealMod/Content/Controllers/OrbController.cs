@@ -7,6 +7,7 @@ using RoR2;
 using RoR2.CharacterAI;
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 using UnityEngine;
 using static LeeHyperrealMod.Content.Controllers.BulletController;
@@ -48,7 +49,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         EntityStateMachine[] stateMachines;
 
-        //ExtraSkillSlots.ExtraInputBankTest extraInputBankTest;
+        InputContainer inputContainer;
 
         public bool isExecutingSkill = false;
         public bool isCheckingInput = false;
@@ -67,10 +68,10 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             charBody = gameObject.GetComponent<CharacterBody>();
             uiController = gameObject.GetComponent<LeeHyperrealUIController>();
-            //if (LeeHyperrealPlugin.isControllerCheck)
-            //{
-            //    InitializeInputBank();
-            //}
+            if (LeeHyperrealPlugin.isControllerCheck)
+            {
+                InitializeInputBank();
+            }
             stateMachines = charBody.gameObject.GetComponents<EntityStateMachine>();
 
             characterMaster = charBody.master;
@@ -86,10 +87,12 @@ namespace LeeHyperrealMod.Content.Controllers
             RecalcUpdateRate();
         }
 
-        //public void InitializeInputBank()
-        //{
-        //    extraInputBankTest = gameObject.GetComponent<ExtraInputBankTest>();
-        //}
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public void InitializeInputBank()
+        {
+            inputContainer = new InputContainer(gameObject, this);
+        }
 
         public void Hook()
         {
@@ -159,25 +162,6 @@ namespace LeeHyperrealMod.Content.Controllers
             }            
         }
 
-        //public void ExtraSkillSlotControllerInputCheck()
-        //{
-        //    if (charBody.hasEffectiveAuthority && extraInputBankTest)
-        //    {
-        //        if (extraInputBankTest.extraSkill1.justPressed)
-        //        {
-        //            ConsumeOrbsSimple(OrbType.BLUE);
-        //        }
-        //        else if (extraInputBankTest.extraSkill2.justPressed)
-        //        {
-        //            ConsumeOrbsSimple(OrbType.RED);
-        //        }
-        //        else if (extraInputBankTest.extraSkill3.justPressed)
-        //        {
-        //            ConsumeOrbsSimple(OrbType.YELLOW);
-        //        }
-        //    }
-        //}
-
         public void Update()
         {
             //Check input
@@ -215,10 +199,10 @@ namespace LeeHyperrealMod.Content.Controllers
                     if (!triggeredSomething)
                     {
                         #region Controller Check
-                        //if (LeeHyperrealPlugin.isControllerCheck)
-                        //{
-                        //    ExtraSkillSlotControllerInputCheck();
-                        //}
+                        if (LeeHyperrealPlugin.isControllerCheck)
+                        {
+                            inputContainer.ExtraSkillSlotControllerInputCheck();
+                        }
                         #endregion
                     }
                 }

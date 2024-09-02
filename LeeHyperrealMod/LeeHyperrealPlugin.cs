@@ -16,6 +16,8 @@ using System.Collections.ObjectModel;
 using R2API;
 using System;
 using MonoMod.RuntimeDetour;
+using static RoR2.MasterSpawnSlotController;
+using RoR2.UI;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -136,13 +138,39 @@ namespace LeeHyperrealMod
             On.RoR2.CharacterSpeech.BrotherSpeechDriver.OnBodyKill += BrotherSpeechDriver_OnBodyKill;
             On.RoR2.CharacterSpeech.BrotherSpeechDriver.DoInitialSightResponse += BrotherSpeechDriver_DoInitialSightResponse;
             On.RoR2.UI.MainMenu.BaseMainMenuScreen.Awake += BaseMainMenuScreen_Awake;
-            
+            On.RoR2.UI.LoadoutPanelController.Row.FromSkillSlot += Row_FromSkillSlot;
+
             //On.RoR2.CharacterBody.Update += CharacterBody_Update;
 
             if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
             {
                 On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
             }
+        }
+
+        private object Row_FromSkillSlot(On.RoR2.UI.LoadoutPanelController.Row.orig_FromSkillSlot orig, RoR2.UI.LoadoutPanelController owner, BodyIndex bodyIndex, int skillSlotIndex, GenericSkill skillSlot)
+        {
+            LoadoutPanelController.Row row = (LoadoutPanelController.Row)orig(owner, bodyIndex, skillSlotIndex, skillSlot);
+            string newToken = "";
+            if ((skillSlot.skillFamily as ScriptableObject).name.Contains("Lee: Hyperreal - Orbs and Ammo")) 
+            {
+                newToken = DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_PASSIVE_ORB_AND_AMMO_NAME";
+            }
+            if ((skillSlot.skillFamily as ScriptableObject).name.Contains("Lee: Hyperreal - Hypermatrix")) 
+            {
+                newToken = DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_PASSIVE_DOMAIN_NAME";    
+            }
+            if (newToken != "") 
+            {
+                Transform label = row.rowPanelTransform.Find("SlotLabel") ?? row.rowPanelTransform.Find("LabelContainer").Find("SlotLabel");
+                if (label)
+                {
+                    label.GetComponent<LanguageTextMeshController>().token = newToken;
+                }
+            }
+
+
+            return row;
         }
 
         private void BaseMainMenuScreen_Awake(On.RoR2.UI.MainMenu.BaseMainMenuScreen.orig_Awake orig, RoR2.UI.MainMenu.BaseMainMenuScreen self)

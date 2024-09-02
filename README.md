@@ -27,8 +27,6 @@ Once this issue has been fixed on Gearbox's side, I will take this WARNING down 
 - RiskOfOptions
 - RiskUI
     - NOTE: We've only made it such that it doesn't crash the main functionality, we recommend sticking to the default UI for this mod.
-
-## CURRENTLY NOT SUPPORTED, WILL ADD LATER.
 - ExtraSkillSlots -> Limited Controller Support
     - This is to facilitate controller inputs for Orbs, which is currently mapped to the following actions.
         - Blue -> Extra Skill 1
@@ -37,15 +35,10 @@ Once this issue has been fixed on Gearbox's side, I will take this WARNING down 
     - This can be changed in the in game controller settings menu option.
 
 ## Latest Update
-- 1.1.0
-    - Updated Dependencies to support SotS
-        - Unfortunately, controller players will not be able to use orbs as we have removed the dependency on ExtraSkillSlots until further notice.
-    - Removed dependency on R2API.Sound
-    - Fixed an edge case where Hypermatrix Aerial Attacks play the particle stream infinitely due to Hypermatrix ending while in an aerial dive.
-	- Fixed the pod from blowing out your eyes on some maps.
-	- P2 now behaves more closely to source material
-	    - 3 -> 5 hits 
-        - 125% -> 70% damage
+- 1.1.1
+    - Fixed the item notification popup from duplicating.
+    - Removed Extra skill slots as a Hard dependency, can be now included optionally if needed
+    - Renamed skill families appropriately.
 - 1.0.0
     - Initial Release!
 

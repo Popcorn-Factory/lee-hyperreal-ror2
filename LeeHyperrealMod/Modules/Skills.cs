@@ -45,8 +45,8 @@ namespace LeeHyperrealMod.Modules
                 LeeHyperrealPassive passive = targetPrefab.GetComponent<LeeHyperrealPassive>();
                 if (passive)
                 {
-                    passive.orbPassiveSkillSlot = CreateGenericSkillWithSkillFamily(targetPrefab, "Orbs and Ammo");
-                    passive.hypermatrixPassiveSkillSlot = CreateGenericSkillWithSkillFamily(targetPrefab, "Hypermatrix");
+                    passive.orbPassiveSkillSlot = CreateGenericSkillWithSkillFamily(targetPrefab, "Lee: Hyperreal - Orbs and Ammo");
+                    passive.hypermatrixPassiveSkillSlot = CreateGenericSkillWithSkillFamily(targetPrefab, "Lee: Hyperreal - Hypermatrix");
                 }
                 //if (Modules.Config.enableOldLoadout.Value) 
                 //{

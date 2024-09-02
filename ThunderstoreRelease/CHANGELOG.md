@@ -1,5 +1,9 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
+- 1.1.1
+    - Fixed the item notification popup from duplicating.
+    - Removed Extra skill slots as a Hard dependency, can be now included optionally if needed
+    - Renamed skill families appropriately.
 - 1.1.0
     - Updated Dependencies to support SotS
         - Unfortunately, controller players will not be able to use orbs as we have removed the dependency on ExtraSkillSlots until further notice.
