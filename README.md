@@ -25,7 +25,7 @@ Once this issue has been fixed on Gearbox's side, I will take this WARNING down 
 ## Mod Interoperability List:
 - EmoteAPI / CustomEmotesAPI
 - RiskOfOptions
-- RiskUI
+- RiskUI / Betterhudlite
     - NOTE: We've only made it such that it doesn't crash the main functionality, we recommend sticking to the default UI for this mod.
 - ExtraSkillSlots -> Limited Controller Support
     - This is to facilitate controller inputs for Orbs, which is currently mapped to the following actions.
@@ -35,10 +35,10 @@ Once this issue has been fixed on Gearbox's side, I will take this WARNING down 
     - This can be changed in the in game controller settings menu option.
 
 ## Latest Update
-- 1.1.1
-    - Fixed the item notification popup from duplicating.
-    - Removed Extra skill slots as a Hard dependency, can be now included optionally if needed
-    - Renamed skill families appropriately.
+
+- 1.1.2
+    - Fixed an issue making enemies become invincible if they were frozen during their death animation.
+    - Added support for Betterhudlite.
 - 1.0.0
     - Initial Release!
 

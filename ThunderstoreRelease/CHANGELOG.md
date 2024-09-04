@@ -1,5 +1,8 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
+- 1.1.2
+    - Fixed an issue making enemies become invincible if they were frozen during their death animation.
+    - Added support for Betterhudlite.
 - 1.1.1
     - Fixed the item notification popup from duplicating.
     - Removed Extra skill slots as a Hard dependency, can be now included optionally if needed

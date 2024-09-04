@@ -34,6 +34,7 @@ namespace LeeHyperrealMod
     [BepInDependency("bubbet.riskui", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("com.TheTimeSweeper.BetterHudLite", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
 
@@ -42,7 +43,7 @@ namespace LeeHyperrealMod
     {
         public const string MODUID = "com.PopcornFactory.LeeHyperrealMod";
         public const string MODNAME = "LeeHyperrealMod";
-        public const string MODVERSION = "1.1.1";
+        public const string MODVERSION = "1.1.2";
         
         public const string DEVELOPER_PREFIX = "POPCORN";
 
@@ -50,6 +51,7 @@ namespace LeeHyperrealMod
         public static PluginInfo PInfo { get; private set; }
         public static bool isControllerCheck = false;
         public static bool isRiskUIInstalled = false;
+        public static bool isBetterHudInstalled = false;
         private static Hook AddBankAfterAKSoundEngineInit;
 
         private void Awake()
@@ -77,6 +79,10 @@ namespace LeeHyperrealMod
             if (Chainloader.PluginInfos.ContainsKey("bubbet.riskui"))
             {
                 isRiskUIInstalled = true;
+            }
+            if (Chainloader.PluginInfos.ContainsKey("com.TheTimeSweeper.BetterHudLite")) 
+            {
+                isBetterHudInstalled = true;
             }
 
             Modules.States.RegisterStates(); // register states for networking

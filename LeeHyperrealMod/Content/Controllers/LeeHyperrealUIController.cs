@@ -200,7 +200,7 @@ namespace LeeHyperrealMod.Content.Controllers
             }
             catch (NullReferenceException e)
             {
-                Debug.Log($"Lee: Hyperreal - NRE on UI Initialization, trying again");
+                Debug.Log($"Lee: Hyperreal - NRE on UI Initialization, trying again: {e}");
             }
         }
 
@@ -215,10 +215,10 @@ namespace LeeHyperrealMod.Content.Controllers
                 InitializeBulletUI();
                 InitializeUltimateIndicator();
                 InitializeOrbAnimatorArray();
+                InitializeHoldOKTag();
                 //Now we need to initialize everything inside the canvas to variables we can control.
                 InitializeOrbAmountLabel();
                 InitializeOrbBrackets();
-                InitializeHoldOKTag();
                 InitializeCrosshair();
 
                 if (orbController)
@@ -273,7 +273,7 @@ namespace LeeHyperrealMod.Content.Controllers
                     }
                     catch (NullReferenceException e)
                     {
-                        Debug.Log($"Lee: Hyperreal - NRE on UI Initialization, trying again.");
+                        Debug.Log($"Lee: Hyperreal - NRE on UI Initialization, trying again: {e}");
                     }
 
                     return;
@@ -352,6 +352,10 @@ namespace LeeHyperrealMod.Content.Controllers
                     healthLayers.transform.position = new Vector3(-9.7021f, -4.8843f, 12.6537f);
                     healthLayers.transform.localPosition = new Vector3(2.3027f, 0.7998f, 0.0003f);
                 }
+                else if (LeeHyperrealPlugin.isBetterHudInstalled)
+                {
+                    healthLayers = UnityEngine.GameObject.Instantiate(Modules.LeeHyperrealAssets.healthPrefabs, RoRHUDSpringCanvasTransform.Find("BottomCenterCluster/BarRoots/HealthbarRoot"));
+                }
                 else 
                 {
                     healthLayers = UnityEngine.GameObject.Instantiate(Modules.LeeHyperrealAssets.healthPrefabs, RoRHUDSpringCanvasTransform.Find("BottomLeftCluster/BarRoots/HealthbarRoot"));
@@ -406,7 +410,14 @@ namespace LeeHyperrealMod.Content.Controllers
                     powerMeterUIObjectBullet.transform.localPosition = new Vector3(-30f, -4f, 11f);
 
                 }
-                else 
+                else if (LeeHyperrealPlugin.isBetterHudInstalled) 
+                {
+                    powerMeterUIObject = UnityEngine.GameObject.Instantiate(Modules.LeeHyperrealAssets.powerMeterObject, RoRHUDSpringCanvasTransform.Find("BottomCenterCluster"));
+                    powerMeterUIObject.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
+                    powerMeterUIObject.transform.localRotation = Quaternion.identity;
+                    powerMeterUIObject.transform.localPosition = new Vector3(-500f, 100.709f, - 47.7458f);
+                }
+                else
                 {
                     powerMeterUIObject = UnityEngine.GameObject.Instantiate(Modules.LeeHyperrealAssets.powerMeterObject, RoRHUDSpringCanvasTransform.Find("BottomLeftCluster"));
                 }
@@ -756,6 +767,13 @@ namespace LeeHyperrealMod.Content.Controllers
                     orbUIObject.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
                     orbUIObject.transform.position = new Vector3(-9.5764f, -3.2462f, 12.6537f);
                     orbUIObject.transform.localPosition = new Vector3(185f, 287.8038f, 0f); 
+                }
+                else if (LeeHyperrealPlugin.isBetterHudInstalled)
+                {
+                    orbUIObject = UnityEngine.GameObject.Instantiate(Modules.LeeHyperrealAssets.orbsUIObject, RoRHUDSpringCanvasTransform.Find("BottomCenterCluster"));
+                    orbUIObject.transform.localScale = new Vector3(0.6f, 0.6f, 0.6f);
+                    orbUIObject.transform.localRotation = Quaternion.identity;
+                    orbUIObject.transform.localPosition = new Vector3(-425f, 78.2634f, 0f);
                 }
                 else 
                 {
@@ -1124,6 +1142,13 @@ namespace LeeHyperrealMod.Content.Controllers
                     ultimateIndicatorObject.transform.rotation = Quaternion.identity;
                     ultimateIndicatorObject.transform.localScale = new Vector3(1.2f, 1.2f, 1.2f);
                 }
+                else if (LeeHyperrealPlugin.isBetterHudInstalled)
+                {
+                    ultimateIndicatorObject = UnityEngine.GameObject.Instantiate(Modules.LeeHyperrealAssets.spinnyIconUIObject, RoRHUDSpringCanvasTransform.Find("BottomCenterCluster/Scaler"));
+                    ultimateIndicatorObject.transform.localPosition = new Vector3(850.0032f, -375.0046f, 0f);
+                    ultimateIndicatorObject.transform.rotation = Quaternion.identity;
+                    ultimateIndicatorObject.transform.localScale = new Vector3(1.4674f, 1.4674f, 1.4674f);
+                }
                 else 
                 {
                     ultimateIndicatorObject = UnityEngine.GameObject.Instantiate(Modules.LeeHyperrealAssets.spinnyIconUIObject, RoRHUDSpringCanvasTransform.Find("BottomRightCluster/Scaler"));
@@ -1201,6 +1226,13 @@ namespace LeeHyperrealMod.Content.Controllers
                     Transform rootObject = RoRHUDSpringCanvasTransform.Find("BottomRightCluster/Scaler/SkillIconContainer/Skill1Root/BottomContainer");
                     Transform stockText = rootObject.transform.GetChild(0);
                     holdOKTag = CreateLabel(rootObject, "Hold OK Tag", "HOLD OK!", new Vector2(stockText.transform.position.x - 7.5f, stockText.transform.position.y + 20f), 13f);
+                    holdOKTag.color = Modules.StaticValues.blueInvincibility;
+                }
+                else if(LeeHyperrealPlugin.isBetterHudInstalled)
+                {
+                    Transform rootObject = RoRHUDSpringCanvasTransform.Find("BottomCenterCluster/Scaler/Skill1Root/Skill1StockRoot");
+                    Transform stockText = rootObject.transform.GetChild(0);
+                    holdOKTag = CreateLabel(rootObject, "Hold OK Tag", "HOLD OK!", new Vector2(stockText.transform.position.x, stockText.transform.position.y + 18f), 12f);
                     holdOKTag.color = Modules.StaticValues.blueInvincibility;
                 }
                 else 
