@@ -68,8 +68,8 @@ namespace LeeHyperrealMod.Content.Controllers
             rootTransform = childLocator.FindChild("BaseTransform");
 
             //Spawn object on toes.
-            ultimateCameraGameObject = UnityEngine.Object.Instantiate(Modules.Assets.ultimateCameraObject, rootTransform);
-            domainUltimateCameraGameObject = UnityEngine.Object.Instantiate(Modules.Assets.domainUltimateCameraObject, rootTransform);
+            ultimateCameraGameObject = UnityEngine.Object.Instantiate(Modules.LeeHyperrealAssets.ultimateCameraObject, rootTransform);
+            domainUltimateCameraGameObject = UnityEngine.Object.Instantiate(Modules.LeeHyperrealAssets.domainUltimateCameraObject, rootTransform);
 
             ultimateAnimator = ultimateCameraGameObject.transform.GetChild(0).GetComponent<Animator>();
             domainUltimateAnimator = domainUltimateCameraGameObject.GetComponent<Animator>();

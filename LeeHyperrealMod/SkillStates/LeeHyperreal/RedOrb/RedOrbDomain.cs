@@ -165,6 +165,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
             {
                 if (orbController && !hasUnsetOrbController)
                 {
+                    hasUnsetOrbController = true;
                     orbController.isExecutingSkill = false;
                 }
                 if (inputBank.moveVector != Vector3.zero && !hasCancelledWithMovement) 

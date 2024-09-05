@@ -19,7 +19,7 @@ namespace LeeHyperrealMod.Modules
             if (tempMat)
                 return tempMat;
 
-            tempMat = Assets.mainAssetBundle.LoadAsset<Material>(materialName);
+            tempMat = LeeHyperrealAssets.mainAssetBundle.LoadAsset<Material>(materialName);
 
             if (!tempMat)
             {

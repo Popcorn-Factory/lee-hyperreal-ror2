@@ -1,7 +1,9 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift;
+using R2API.Networking.Interfaces;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -34,7 +36,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         private float bufferActiveTime;
         private float earlyExitTime;
         public float duration;
-        private bool hasFired;
         private float hitPauseTimer;
         private BlastAttack attack;
         protected bool inHitPause;
@@ -43,7 +44,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         internal float moveCancelEndTime = 0.7f;
         public RootMotionAccumulator rma;
         public OrbController orbController;
-
+        private int hitConfirmResult;
 
         public static float heldButtonThreshold = 0.46f;
         public bool ifButtonLifted = false;
@@ -68,7 +69,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             earlyExitTime = 0.48f;
 
             bufferActiveTime = 0.42f;
-            hasFired = false;
             aimRay = base.GetAimRay();
             PlayAttackAnimation();
 
@@ -90,8 +90,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 canRejectForce = false,
                 procChainMask = new ProcChainMask(),
                 procCoefficient = Modules.StaticValues.primary4ProcCoefficient,
-                //impactEffect = EffectCatalog.FindEffectIndexFromPrefab(Modules.ParticleAssets.primary4Hit)
-            };
+                impactEffect = EffectCatalog.FindEffectIndexFromPrefab(Modules.ParticleAssets.primary4Hit)
+        };
 
             stopwatch = 0f;
             InitMeleeRootMotion();
@@ -176,7 +176,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             if (this.age >= waitSwingTimer * duration && !playedSwing && base.isAuthority) 
             {
                 playedSwing = true;
-
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_atk_nml_4").Send(R2API.Networking.NetworkDestination.Clients);
                 PlaySwingEffect("BaseTransform", 1f, Modules.ParticleAssets.primary4Swing);
             }
 
@@ -233,7 +233,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 //Check this first.
                 if (base.inputBank.skill1.down || bufferNextMove)
                 {
-                    if (!this.hasFired) this.FireAttack();
                     this.SetNextState();
                     return;
                 }
@@ -267,6 +266,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
             if (result.hitCount > 0) 
             {
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_nml_4").Send(R2API.Networking.NetworkDestination.Clients);
                 if (orbController)
                 {
                     orbController.AddToIncrementor(Modules.StaticValues.flatAmountToGrantOnPrimaryHit * result.hitCount * basePulseRate);

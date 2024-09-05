@@ -5,6 +5,7 @@ using LeeHyperrealMod.SkillStates.BaseStates;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift;
 using R2API.Networking.Interfaces;
 using RoR2;
+using System.Collections.Generic;
 using System.Security.Cryptography;
 using UnityEngine;
 
@@ -72,8 +73,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.muzzleString = "BaseTransform";
             this.swingEffectPrefab = null;
             this.hitEffectPrefab = Modules.ParticleAssets.primary3hit;
-
-            this.impactSound = Modules.Assets.swordHitSoundEvent.index;
 
             enableParry = true;
             parryLength = Modules.StaticValues.primary3ParryLength;
@@ -183,8 +182,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
 
                 if (base.isAuthority)
                 {
-                    this.PlaySwingEffect();
                     base.AddRecoil(-1f * this.attackRecoil, -2f * this.attackRecoil, -0.5f * this.attackRecoil, 0.5f * this.attackRecoil);
+                    int maxNumHit = 0;
+                    List<HurtBox> result = new List<HurtBox>();
                     for (int i = 0; i < attackAmount; i++)
                     {
                         // Create Attack, fire it, do the on hit enemy authority.
@@ -203,9 +203,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                         this.attack.impactSound = this.impactSound;
                         if (this.attack != null)
                         {
-                            if (this.attack.Fire())
+                            this.attack.Fire(result);
+                            if (result.Count > maxNumHit)
                             {
-                                this.OnHitEnemyAuthority();
+                                maxNumHit = result.Count;
                             }
                         }
                     }
@@ -227,16 +228,22 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                         this.attack.impactSound = this.impactSound;
                         if (this.attack != null)
                         {
-                            if (this.attack.Fire())
+                            this.attack.Fire(result);
+                            if (result.Count > maxNumHit)
                             {
-                                this.OnHitEnemyAuthority();
+                                maxNumHit = result.Count;
                             }
                         }
+                    }
+
+                    if (maxNumHit > 0)
+                    {
+                        HitSoundCallback();
+                        this.OnHitEnemyAuthority();
                     }
                 }
             }
         }
-
         public override void OnExit()
         {
             animator.SetBool("isGrounded", base.isGrounded);
@@ -276,6 +283,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 orbController.AddToIncrementor(Modules.StaticValues.flatAmountToGrantOnPrimaryHit * timesHit);
             }
         }
+
+        protected override void HitSoundCallback()
+        {
+            new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_nml_3_2").Send(R2API.Networking.NetworkDestination.Clients);
+        }
+
         protected override void PlayAttackAnimation()
         {
             base.PlayAnimation("Body", "primary3", "attack.playbackRate", duration);

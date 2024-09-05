@@ -5,23 +5,20 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using EntityStates;
 using TMPro;
+using System.Collections.Generic;
 
 namespace LeeHyperrealMod.Modules
 {
     internal static class StaticValues
     {        
-        internal const float swordDamageCoefficient = 2.8f;
-
-        internal const float gunDamageCoefficient = 4.2f;
-
-        internal const float bombDamageCoefficient = 16f;
+        internal static Color bodyColor = new Color(0.4f, 1f, 1f);
 
         #region Character Stats
         internal const float baseMoveSpeed = 7f;
         #endregion
 
         #region Primary 1
-        internal const float primary1DamageCoefficient = 1.5f;
+        internal const float primary1DamageCoefficient = 1f;
         internal const float primary1ProcCoefficient = 1f;
         internal const float primary1PushForce = 300f;
         internal const float primary1HitHopVelocity = 4f;
@@ -33,14 +30,14 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Primary 2
-        internal const float primary2DamageCoefficient = 2f;
+        internal const float primary2DamageCoefficient = 0.7f;
         internal const float primary2ProcCoefficient = 1f;
         internal const float primary2PushForce = 300f;
         internal const float primary2HitHopVelocity = 4f;
         #endregion
 
         #region Primary 3
-        internal const float primary3DamageCoefficient = 3f;
+        internal const float primary3DamageCoefficient = 2.25f;
         internal const float primary3ProcCoefficient = 1f;
         internal const float primary3PushForce = 300f;
         internal const float primary3HitHopVelocity = 4f;
@@ -52,14 +49,14 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Primary 4
-        internal const float primary4DamageCoefficient = 1f; // This is per tick!
+        internal const float primary4DamageCoefficient = 0.7f; // This is per tick!
         internal const float primary4ProcCoefficient = 1f;
         internal const float primary4BasePulseRate = 0.2f;
-        internal const float primary4BlastRadius = 20f;
+        internal const float primary4BlastRadius = 25f;
         #endregion
 
         #region Primary 5
-        internal const float primary5DamageCoefficient = 10f;
+        internal const float primary5DamageCoefficient = 6f;
         internal const float primary5ProcCoefficient = 1f;
         internal const float primary5PushForce = 300f;
         internal const float primary5HitHopVelocity = 4f;
@@ -68,7 +65,7 @@ namespace LeeHyperrealMod.Modules
         #region Primary Aerial
         internal const float primaryAerialSlamRadius = 5f;
         internal const float primaryAerialMaxDamageMultiplier = 3f;
-        internal const float primaryAerialDamageCoefficient = 5f;
+        internal const float primaryAerialDamageCoefficient = 4f;
         internal const float primaryAerialProcCoefficient = 1f;
         internal const float primaryAerialSlamSpeed = 75f;
         #endregion
@@ -92,16 +89,17 @@ namespace LeeHyperrealMod.Modules
         #region Orb Controller Values
         internal const float flatIncreaseOrbIncrementor = 0.5f;
         internal const float LimitToGrantOrb = 5f; // Amount that determines when to give orb, smaller = faster.
+        internal const float MinimumOrbGrantSpeed = 0.2f; // Cap on limit to grant orb. 0f = basically 1 every frame.
         internal const float flatAmountToGrantOnPrimaryHit = 0.35f;
         internal const float yAxisPositionBrackets = -135f;
         internal const float yAxisPositionBracketsRiskUI = -80f;
         #endregion
 
         #region Blue Orb
-        internal const float blueOrbCoefficient = 3f;
+        internal const float blueOrbCoefficient = 2.25f;
         internal const float blueOrbBlastRadius = 8f;
         internal const float blueOrbTripleMultiplier = 4f;
-        internal const float blueOrbShotCoefficient = 4f;
+        internal const float blueOrbShotCoefficient = 3f;
         internal const float blueOrbProcCoefficient = 1f;
         #endregion
 
@@ -116,17 +114,17 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Yellow Orb
-        internal const float yellowOrbDamageCoefficient = 1f;
+        internal const float yellowOrbDamageCoefficient = 0.75f;
         internal const int yellowOrbBaseHitAmount = 3;
         internal const float yellowOrbProcCoefficient = 1f;
         internal const float yellowOrbTripleMultiplier = 4f;
         internal const float yellowOrbBlastRadius = 8f;
 
-        internal const float yellowOrbFinisherDamageCoefficient = 10f;
+        internal const float yellowOrbFinisherDamageCoefficient = 8f;
         internal const float yellowOrbFinisherProcCoefficient = 1f;
         internal const float yellowOrbFinisherPushForce = 300f;
 
-        internal const float yellowOrbDomainDamageCoefficient = 0.5f;
+        internal const float yellowOrbDomainDamageCoefficient = 0.45f;
         internal const float yellowOrbDomainProcCoefficient = 1f;
         internal const float yellowOrbDomainBlastForce = 200f;
         internal const float yellowOrbDomainBlastRadius = 20f;
@@ -137,23 +135,23 @@ namespace LeeHyperrealMod.Modules
         internal const float yellowOrbFinisherParryTiming = 0.0f; // A percentage of the duration in which the parry starts
         internal const float yellowOrbFinisherParryPauseLength = 0.2f; // How long YOU are stuck in hit pause when a parry is triggered
         internal const float yellowOrbFinisherParryProjectileTimingStart = 0.0f; // Percentage of the duration of the move where a projectile parry can be triggered
-        internal const float yellowOrbFinisherParryProjectileTimingEnd = 0.5f; // Percentage of the duration of the move when a projectile parry can be triggered. In this case it's ranging from 5% to 10% of the move, this value should never be higher than 1f
+        internal const float yellowOrbFinisherParryProjectileTimingEnd = 0.5f; // Percentage of the duration of the move when a projectile parry can be triggered. In this case it's ranging from 0% to 50% of the move, this value should never be higher than 1f
         #endregion
 
         #region Red Orb
-        internal const float redOrbDamageCoefficient = 1.5f;
+        internal const float redOrbDamageCoefficient = 1.25f;
         internal const int redOrbBaseHitAmount = 3; // Amount of shots at 1 attack speed
         internal const float redOrbProcCoefficient = 1f;
         internal const float redOrbBulletRange = 256f;
         internal const float redOrbBulletForce = 800f;
         internal const float redOrbTripleMultiplier = 4f;
 
-        internal const float redOrbFinisherDamageCoefficient = 6f;
+        internal const float redOrbFinisherDamageCoefficient = 5f;
         internal const float redOrbFinisherProcCoefficient = 1f;
         internal const float redOrbFinisherBulletRange = 256f;
         internal const float redOrbFinisherBulletForce = 800f;
 
-        internal const float redOrbDomainDamageCoefficient = 2f;
+        internal const float redOrbDomainDamageCoefficient = 1.55f;
         internal const float redOrbDomainBlastRadius = 10f;
         internal const int redOrbDomainFireCount = 3;
         internal const float redOrbDomainProcCoefficient = 1f;
@@ -163,14 +161,14 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Ultimate
-        internal const float ultimateDamageCoefficient = 60f;
+        internal const float ultimateDamageCoefficient = 65f;
         internal const float ultimateProcCoefficient = 1f;
         internal const float ultimateBlastRadius = 22f;
-        internal const float ultimateFreezeDuration = 8f;
+        internal const float ultimateFreezeDuration = 6.9f;
         internal const int ultimateFinalBlastHitCount = 12;
 
         internal const float ultimateDomainMiniDamageCoefficient = 2f;
-        internal const float ultimateDomainDamageCoefficient = 20f;
+        internal const float ultimateDomainDamageCoefficient = 15f;
         internal const float ultimateDomainBlastRadius = 40f;
         internal const int ultimateDomainFireCount = 3;
         internal const float ultimateDomainDuration = 4f;
@@ -190,8 +188,40 @@ namespace LeeHyperrealMod.Modules
         internal const float empoweredBulletMultiplier = 2f;
         #endregion
 
-        #region Static functions
+        #region Custom Item Notifications
+        internal static Dictionary<ItemDef, CustomItemEffect> itemKeyValueNotificationPairs;
+        internal static Dictionary<EquipmentDef, CustomItemEffect> equipmentKeyValueNotificationPairs;
 
+        public class CustomItemEffect 
+        {
+            public string titleToken;
+            public string descToken;
+
+            public CustomItemEffect(string titleToken, string descToken) 
+            {
+                this.titleToken = titleToken;
+                this.descToken = descToken;
+            }
+        }
+
+        public static void AddNotificationItemPairs()
+        {
+            string prefix = LeeHyperrealPlugin.DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_";
+            itemKeyValueNotificationPairs = new Dictionary<ItemDef, CustomItemEffect>();
+            itemKeyValueNotificationPairs.Add(RoR2Content.Items.SecondarySkillMagazine, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_BACKUPMAG_DESC"));
+            itemKeyValueNotificationPairs.Add(RoR2Content.Items.AlienHead, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ALIEN_HEAD_DESC"));
+            itemKeyValueNotificationPairs.Add(RoR2Content.Items.LunarBadLuck, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_PURITY_DESC"));
+            itemKeyValueNotificationPairs.Add(RoR2Content.Items.Syringe, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
+            itemKeyValueNotificationPairs.Add(DLC1Content.Items.AttackSpeedAndMoveSpeed, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
+            itemKeyValueNotificationPairs.Add(RoR2Content.Items.EnergizedOnEquipmentUse, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
+            itemKeyValueNotificationPairs.Add(RoR2Content.Items.AttackSpeedOnCrit, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
+
+            equipmentKeyValueNotificationPairs = new Dictionary<EquipmentDef, CustomItemEffect>();
+            equipmentKeyValueNotificationPairs.Add(RoR2Content.Equipment.TeamWarCry, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
+        }
+        #endregion
+
+        #region Static functions
         public static float c(int val) 
         {
             return (float)val / 255f;

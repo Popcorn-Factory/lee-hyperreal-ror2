@@ -28,6 +28,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public static float recoil = 3f;
         public static float range = 256f;
 
+        public bool stockTaken;
+
         public OrbController orbController;
         public BulletController bulletController;
         public LeeHyperrealDomainController domainController;
@@ -124,7 +126,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             base.characterMotor.velocity = new Vector3(0, 0, 0);
             base.characterDirection.moveVector = new Vector3(0, 0, 0);
 
-            if ((base.inputBank.skill4.justPressed || base.inputBank.skill2.justPressed) && isAuthority)
+            if ((base.inputBank.skill4.justPressed || base.inputBank.skill3.justPressed || base.inputBank.skill2.justPressed) && isAuthority)
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
@@ -156,7 +158,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     var stupidOffset = scale == 1.25f ? 0.89f : 0.6f;
                     startEffectPos.y -= stupidOffset;
 
-                    PlayerCharacterMasterController.CanSendBodyInput(characterBody.master.playerCharacterMasterController.networkUser, out var _, out var _, out var cameraRigController);
+                    bool canAllowMovement = false;
+                    PlayerCharacterMasterController.CanSendBodyInput(characterBody.master.playerCharacterMasterController.networkUser, out var _, out var _, out var cameraRigController, out canAllowMovement);
 
                     var endPos = cameraRigController.crosshairWorldPosition;
                     var endEffectPos = endPos;
@@ -243,11 +246,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                 }
 
                 //Check for dodging. Otherwise ignore.
-                if (base.inputBank.skill3.justPressed && skillLocator.utility.stock >= 1)
+                if (base.inputBank.skill3.justPressed && skillLocator.utility.stock >= 1 && !stockTaken) 
                 {
                     if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                     {
                         skillLocator.utility.stock -= 1;
+                        stockTaken = true;
                         Vector3 result = Modules.StaticValues.CheckDirection(inputBank.moveVector, GetAimRay());
                         if (result == new Vector3(0, 0, 1))
                         {

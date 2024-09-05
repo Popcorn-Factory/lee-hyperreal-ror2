@@ -5,6 +5,7 @@ using LeeHyperrealMod.SkillStates.BaseStates;
 using R2API.Networking.Interfaces;
 using RoR2;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
@@ -200,6 +201,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 {
                     hasFiredOverlap = true;
                     new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_skill_red_bullet").Send(R2API.Networking.NetworkDestination.Clients);
+                    int maxNumHit = 0;
+                    List<HurtBox> result = new List<HurtBox>();
                     for (int i = 0; i < attackAmount; i++)
                     {
                         overlapAttack = new OverlapAttack();
@@ -217,6 +220,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                         overlapAttack.procChainMask = new ProcChainMask();
                         overlapAttack.hitBoxGroup = hitBoxGroup;
                         overlapAttack.Fire();
+                        if (this.overlapAttack != null)
+                        {
+                            this.overlapAttack.Fire(result);
+                            if (result.Count > maxNumHit)
+                            {
+                                maxNumHit = result.Count;
+                            }
+                        }
                     }
                     if (partialAttack > 0.0f)
                     {
@@ -235,6 +246,19 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                         overlapAttack.procCoefficient = procCoefficient;
                         overlapAttack.procChainMask = new ProcChainMask();
                         overlapAttack.Fire();
+                        if (this.overlapAttack != null)
+                        {
+                            this.overlapAttack.Fire(result);
+                            if (result.Count > maxNumHit)
+                            {
+                                maxNumHit = result.Count;
+                            }
+                        }
+                    }
+                    if (maxNumHit > 0)
+                    {
+                        new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_red_2").Send(R2API.Networking.NetworkDestination.Clients);
+                        this.OnHitEnemyAuthority();
                     }
                 }
             }
@@ -245,7 +269,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 return;
             }
         }
-
 
         public void OnHitEnemyAuthority()
         {

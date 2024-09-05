@@ -63,6 +63,7 @@ namespace LeeHyperrealMod.Modules.Networking
 
             GameObject bodyObject = charMaster.GetBodyObject();
 
+            HealthComponent healthComponent = bodyObject.GetComponent<HealthComponent>();
             EntityStateMachine[] stateMachines = bodyObject.GetComponents<EntityStateMachine>();
             //"No statemachines?"
             if (!stateMachines[0])
@@ -71,11 +72,19 @@ namespace LeeHyperrealMod.Modules.Networking
                 return;
             }
 
+            if (!healthComponent) 
+            {
+                return;
+            }
+
             foreach (EntityStateMachine stateMachine in stateMachines)
             {
                 if (stateMachine.customName == "Body")
                 {
-                    stateMachine.SetNextState(new Freeze { duration = this.duration});
+                    if (healthComponent.health > 0) //Fucking idiot.
+                    {
+                        stateMachine.SetNextState(new Freeze { duration = this.duration });
+                    }
                     return;
                 }
             }

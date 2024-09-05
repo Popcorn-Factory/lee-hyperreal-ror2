@@ -3,7 +3,6 @@ using BepInEx.Bootstrap;
 using LeeHyperrealMod.Modules.Survivors;
 using R2API.Utils;
 using RoR2;
-using System.Collections.Generic;
 using System.Security;
 using System.Security.Permissions;
 using UnityEngine;
@@ -14,6 +13,11 @@ using R2API.Networking;
 using R2API.Networking.Interfaces;
 using ShaderSwapper;
 using System.Collections.ObjectModel;
+using R2API;
+using System;
+using MonoMod.RuntimeDetour;
+using static RoR2.MasterSpawnSlotController;
+using RoR2.UI;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -22,14 +26,15 @@ namespace LeeHyperrealMod
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.prefab", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.language", BepInDependency.DependencyFlags.HardDependency)]
-    [BepInDependency("com.bepis.r2api.sound", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.networking", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.unlockable", BepInDependency.DependencyFlags.HardDependency)]
-    [BepInDependency("com.KingEnderBrine.ExtraSkillSlots", BepInDependency.DependencyFlags.HardDependency)]
+    [BepInDependency("com.bepis.r2api.damagetype", BepInDependency.DependencyFlags.HardDependency)]
 
+    [BepInDependency("com.KingEnderBrine.ExtraSkillSlots", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("bubbet.riskui", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.weliveinasociety.CustomEmotesAPI", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("com.TheTimeSweeper.BetterHudLite", BepInDependency.DependencyFlags.SoftDependency)]
     [NetworkCompatibility(CompatibilityLevel.EveryoneMustHaveMod, VersionStrictness.EveryoneNeedSameModVersion)]
     [BepInPlugin(MODUID, MODNAME, MODVERSION)]
 
@@ -38,7 +43,7 @@ namespace LeeHyperrealMod
     {
         public const string MODUID = "com.PopcornFactory.LeeHyperrealMod";
         public const string MODNAME = "LeeHyperrealMod";
-        public const string MODVERSION = "1.0.0";
+        public const string MODVERSION = "1.1.2";
         
         public const string DEVELOPER_PREFIX = "POPCORN";
 
@@ -46,6 +51,8 @@ namespace LeeHyperrealMod
         public static PluginInfo PInfo { get; private set; }
         public static bool isControllerCheck = false;
         public static bool isRiskUIInstalled = false;
+        public static bool isBetterHudInstalled = false;
+        private static Hook AddBankAfterAKSoundEngineInit;
 
         private void Awake()
         {
@@ -58,10 +65,11 @@ namespace LeeHyperrealMod
                 LeeHyperrealPlugin.isControllerCheck = true;
             }
 
-            Modules.Assets.Initialize(); // load assets and read config
-            base.StartCoroutine(Modules.Assets.mainAssetBundle.UpgradeStubbedShadersAsync());
+            Modules.LeeHyperrealAssets.Initialize(); // load assets and read config
+            base.StartCoroutine(Modules.LeeHyperrealAssets.mainAssetBundle.UpgradeStubbedShadersAsync());
             Modules.ParticleAssets.Initialize();
             Modules.Config.ReadConfig();
+            Modules.Damage.SetupModdedDamageTypes();
 
             if (Chainloader.PluginInfos.ContainsKey("com.rune580.riskofoptions"))
             {
@@ -72,38 +80,59 @@ namespace LeeHyperrealMod
             {
                 isRiskUIInstalled = true;
             }
+            if (Chainloader.PluginInfos.ContainsKey("com.TheTimeSweeper.BetterHudLite")) 
+            {
+                isBetterHudInstalled = true;
+            }
 
             Modules.States.RegisterStates(); // register states for networking
             Modules.Buffs.RegisterBuffs(); // add and register custom buffs/debuffs
             Modules.Projectiles.RegisterProjectiles(); // add and register custom projectiles
             Modules.Tokens.AddTokens(); // register name tokens
             Modules.ItemDisplays.PopulateDisplays(); // collect item display prefabs for use in our display rules
-
+            Modules.LeeHyperrealAssets.LatePopulateAssets();
             // survivor initialization
             new LeeHyperreal().Initialize();
 
-            //networking
+            // now make a content pack and add it- this part will change with the next update
+            new Modules.ContentPacks().Initialize();
+
+
+            SetupNetworkMessages();
+            Hook();
+        }
+
+        private void Start() 
+        {
+            AddBankAfterAKSoundEngineInit = new Hook(
+                typeof(AkSoundEngineInitialization).GetMethodCached(nameof(AkSoundEngineInitialization.InitializeSoundEngine)),
+                typeof(LeeHyperrealPlugin).GetMethodCached(nameof(AddBank)));
+
+        }
+
+        private void SetupNetworkMessages()
+        {
             NetworkingAPI.RegisterMessageType<PerformForceNetworkRequest>();
             NetworkingAPI.RegisterMessageType<SetFreezeOnBodyRequest>();
             NetworkingAPI.RegisterMessageType<SetPauseTriggerNetworkRequest>();
             NetworkingAPI.RegisterMessageType<PlaySoundNetworkRequest>();
             NetworkingAPI.RegisterMessageType<UltimateObjectSpawnNetworkRequest>();
             NetworkingAPI.RegisterMessageType<SetDomainUltimateNetworkRequest>();
-
-            // now make a content pack and add it- this part will change with the next update
-            new Modules.ContentPacks().Initialize();
-
-            Hook();
+            NetworkingAPI.RegisterMessageType<ForceSpawnStateNetworkRequest>();
         }
 
-        private void Start() 
+        private static bool AddBank(Func<AkSoundEngineInitialization, bool> orig, AkSoundEngineInitialization self)
         {
+            var res = orig(self);
+
             //Load Soundbanks in.
-            Modules.Assets.LoadSoundbank();
+            Modules.LeeHyperrealAssets.LoadSoundbank();
             if (AkSoundEngine.IsInitialized())
             {
                 AkSoundEngine.SetRTPCValue("Volume_Lee_Voice", Modules.Config.voiceVolume.Value);
             }
+
+            return res;
         }
 
         private void Hook()
@@ -114,12 +143,46 @@ namespace LeeHyperrealMod
             On.RoR2.CharacterModel.UpdateOverlays += CharacterModel_UpdateOverlays;
             On.RoR2.CharacterSpeech.BrotherSpeechDriver.OnBodyKill += BrotherSpeechDriver_OnBodyKill;
             On.RoR2.CharacterSpeech.BrotherSpeechDriver.DoInitialSightResponse += BrotherSpeechDriver_DoInitialSightResponse;
+            On.RoR2.UI.MainMenu.BaseMainMenuScreen.Awake += BaseMainMenuScreen_Awake;
+            On.RoR2.UI.LoadoutPanelController.Row.FromSkillSlot += Row_FromSkillSlot;
+
             //On.RoR2.CharacterBody.Update += CharacterBody_Update;
 
             if (Chainloader.PluginInfos.ContainsKey("com.weliveinasociety.CustomEmotesAPI"))
             {
                 On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
             }
+        }
+
+        private object Row_FromSkillSlot(On.RoR2.UI.LoadoutPanelController.Row.orig_FromSkillSlot orig, RoR2.UI.LoadoutPanelController owner, BodyIndex bodyIndex, int skillSlotIndex, GenericSkill skillSlot)
+        {
+            LoadoutPanelController.Row row = (LoadoutPanelController.Row)orig(owner, bodyIndex, skillSlotIndex, skillSlot);
+            string newToken = "";
+            if ((skillSlot.skillFamily as ScriptableObject).name.Contains("Lee: Hyperreal - Orbs and Ammo")) 
+            {
+                newToken = DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_PASSIVE_ORB_AND_AMMO_NAME";
+            }
+            if ((skillSlot.skillFamily as ScriptableObject).name.Contains("Lee: Hyperreal - Hypermatrix")) 
+            {
+                newToken = DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_PASSIVE_DOMAIN_NAME";    
+            }
+            if (newToken != "") 
+            {
+                Transform label = row.rowPanelTransform.Find("SlotLabel") ?? row.rowPanelTransform.Find("LabelContainer").Find("SlotLabel");
+                if (label)
+                {
+                    label.GetComponent<LanguageTextMeshController>().token = newToken;
+                }
+            }
+
+
+            return row;
+        }
+
+        private void BaseMainMenuScreen_Awake(On.RoR2.UI.MainMenu.BaseMainMenuScreen.orig_Awake orig, RoR2.UI.MainMenu.BaseMainMenuScreen self)
+        {
+            orig(self);
+            Modules.StaticValues.AddNotificationItemPairs();
         }
 
         private void BrotherSpeechDriver_DoInitialSightResponse(On.RoR2.CharacterSpeech.BrotherSpeechDriver.orig_DoInitialSightResponse orig, RoR2.CharacterSpeech.BrotherSpeechDriver self)
@@ -197,6 +260,9 @@ namespace LeeHyperrealMod
         private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, HealthComponent self, DamageInfo damageInfo)
         {
 
+            DamageType HealthCostShrineDamageType = DamageType.NonLethal | DamageType.BypassArmor;
+            float damageWouldReceive = damageInfo.damage;
+            
             if (self)
             {
                 if (self.body)
@@ -214,14 +280,15 @@ namespace LeeHyperrealMod
                         }
                     }
 
-                    if (self.body.HasBuff(Modules.Buffs.invincibilityBuff)) 
+                    if (self.body.HasBuff(Modules.Buffs.invincibilityBuff) && damageInfo.damageType != HealthCostShrineDamageType) 
                     {
                         damageInfo.rejected = true;
                         damageInfo.damage = 0f;
                     }
 
+
                     if (self.body.baseNameToken == DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_NAME" && damageInfo.attacker) 
-                    {
+                    {   
                         if (self.body.HasBuff(Modules.Buffs.parryBuff)) 
                         {
                             bool doBigParry = false;
@@ -230,26 +297,37 @@ namespace LeeHyperrealMod
                                 doBigParry = true;
                             }
 
-                            //Reject damage, return to ~~monke~~ pause in state.
-                            damageInfo.rejected = true;
-                            damageInfo.damage = 0f;
+
+                            if (damageInfo.damageType == HealthCostShrineDamageType)
+                            {
+                                damageInfo.damage = damageWouldReceive * 0.5f;
+                                damageInfo.rejected = false;
+                            }
+                            else 
+                            {
+                                //Reject damage, return to ~~monke~~ pause in state.
+                                damageInfo.rejected = true;
+                                damageInfo.damage = 0f;
+                            }
 
                             new SetPauseTriggerNetworkRequest(self.body.master.netId, true, doBigParry).Send(NetworkDestination.Clients);
 
                             //Stun the attacker
-                            if (damageInfo.attacker) 
+                            if (damageInfo.attacker && !damageInfo.HasModdedDamageType(Modules.Damage.leeHyperrealParryDamage)) 
                             {
                                 HealthComponent attackerHealthComp = damageInfo.attacker.GetComponent<HealthComponent>();
                                 if (attackerHealthComp) 
                                 {
                                     DamageInfo stunInfo = new DamageInfo
                                     {
-                                        damage = damageInfo.damage / 2f,
+                                        damage = damageWouldReceive * 0.25f,
                                         attacker = self.body.gameObject,
                                         crit = self.body.RollCrit(),
                                         damageType = DamageType.Stun1s,
                                         damageColorIndex = DamageColorIndex.Default
                                     };
+
+                                    DamageAPI.AddModdedDamageType(stunInfo, Modules.Damage.leeHyperrealParryDamage);
                                     attackerHealthComp.TakeDamage(stunInfo);
                                 }
                             }
@@ -281,8 +359,9 @@ namespace LeeHyperrealMod
             {
                 if (item.bodyPrefab.name == "LeeHyperrealBody")
                 {
-                    CustomEmotesAPI.ImportArmature(item.bodyPrefab, Modules.Assets.mainAssetBundle.LoadAsset<GameObject>("humanoidLeeHyperreal"));
-                    CustomEmotesAPI.CreateNameTokenSpritePair(DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_NAME", Modules.Assets.mainAssetBundle.LoadAsset<Sprite>("LeeEmotesIcon"));
+                    CustomEmotesAPI.ImportArmature(item.bodyPrefab, Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<GameObject>("humanoidLeeHyperreal"));
+                    item.bodyPrefab.GetComponentInChildren<BoneMapper>().scale = 1.05f;
+                    CustomEmotesAPI.CreateNameTokenSpritePair(DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_NAME", Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("LeeEmotesIcon"));
                 }
             }
         }
@@ -296,7 +375,7 @@ namespace LeeHyperrealMod
             {
                 if (self.body)
                 {
-                    this.overlayFunction(Modules.Assets.glitchMaterial, self.body.HasBuff(Modules.Buffs.glitchEffectBuff), self);
+                    this.overlayFunction(Modules.LeeHyperrealAssets.glitchMaterial, self.body.HasBuff(Modules.Buffs.glitchEffectBuff), self);
                 }
             }
         }

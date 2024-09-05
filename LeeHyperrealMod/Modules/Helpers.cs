@@ -29,6 +29,11 @@ namespace LeeHyperrealMod.Modules
             return $"<style=cIsDamage>{desc}</style>";
         }
 
+        internal static string Stack(string desc)
+        {
+            return $"<style=cStack>{desc}</style>";
+        }
+
         internal static string Keyword(string desc)
         {
             return $"<style=cKeywordName>{desc}</style>";
@@ -42,6 +47,11 @@ namespace LeeHyperrealMod.Modules
         internal static string UserSetting(string desc)
         {
             return $"<style=cUserSetting>{desc}</style>";
+        }
+
+        internal static string Lee(string desc) 
+        {
+            return $"<color=#{ColorUtility.ToHtmlStringRGB(Modules.StaticValues.bodyColor)}>{desc}</color>";
         }
 
         internal static string BlueOrb() 

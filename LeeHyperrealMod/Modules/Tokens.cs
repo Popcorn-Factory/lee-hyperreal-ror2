@@ -49,7 +49,7 @@ namespace LeeHyperrealMod.Modules
                 Environment.NewLine + Environment.NewLine + "An hour later, a large case was stowed in the loading bay, and a UES high priority boarding card let a pair of shabby shoes and acrid burns onto the Safe Travels.";
 
             string outro = "..and so he left, still no closer to his true reality.";
-            string outroFailure = "..and so he vanished, with a mission unfulfilled";
+            string outroFailure = "..and so he vanished, with a mission unfulfilled.";
 
             LanguageAPI.Add(prefix + "NAME", "Lee: Hyperreal");
             LanguageAPI.Add(prefix + "DESCRIPTION", desc);
@@ -57,6 +57,7 @@ namespace LeeHyperrealMod.Modules
             LanguageAPI.Add(prefix + "LORE", lore);
             LanguageAPI.Add(prefix + "OUTRO_FLAVOR", outro);
             LanguageAPI.Add(prefix + "OUTRO_FAILURE", outroFailure);
+            LanguageAPI.Add(prefix + "SURVIVOR_POD_EXIT", "Traverse Dimension");
 
             #region Skins
             LanguageAPI.Add(prefix + "DEFAULT_SKIN_NAME", "Lee: Hyperreal");
@@ -111,7 +112,16 @@ namespace LeeHyperrealMod.Modules
 
             LanguageAPI.Add(prefix + "ULTIMATE_DOMAIN_NAME", "Collapsing Realm");
             LanguageAPI.Add(prefix + "ULTIMATE_DOMAIN_DESCRIPTION", "" +
-                $"Collapse the {UtilDesc("[Hypermatrix]")}, turning invincible for a short time and dealing {DmgDesc($"{ultimateDomainDamageCoefficient * 100f}% damage")} in your wake.");
+                $"Collapse the {UtilDesc("[Hypermatrix]")}, turning invincible for a short time and dealing {DmgDesc($"{ultimateDomainDamageCoefficient * 100f}% damage")} in your wake." +
+                $"Each 3-Ping during hypermatrix adds 3 hits of 200% damage to {UtilDesc("[Collapsing Realm]")}");
+            #endregion
+
+            #region Item Effects
+            LanguageAPI.Add(prefix + "ITEM_EFFECT_TITLE", "Hyper effect");
+            LanguageAPI.Add(prefix + "ITEM_EFFECT_BACKUPMAG_DESC", $"{Lee("Lee: Hyperreal")} gains {UtilDesc("+1")} {Stack("(+1 per stack)")} outline bullet(s) on each successful {UtilDesc("[Parry]")}");
+            LanguageAPI.Add(prefix + "ITEM_EFFECT_ALIEN_HEAD_DESC", $"{Lee("Lee: Hyperreal's")} orbs charge {UtilDesc("25% faster")}.");
+            LanguageAPI.Add(prefix + "ITEM_EFFECT_PURITY_DESC", $"{Lee("Lee: Hyperreal's")} orb recharge rate is reduced by {UtilDesc("2")} {Stack("(+1 per stack)")} seconds");
+            LanguageAPI.Add(prefix + "ITEM_EFFECT_ATTACK_SPEED_DESC", $"{Lee("Lee: Hyperreal")} gains {UtilDesc("+1 hit")} for most moves, every 100% attack speed. The damage of extra hits is multiplied by the missing % towards next 100% attack speed");
             #endregion
 
             #region Keywords

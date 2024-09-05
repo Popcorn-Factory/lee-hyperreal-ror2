@@ -10,7 +10,7 @@ Material:
   m_Name: clonePistol
   m_Shader: {fileID: 4800000, guid: 7f3f5414a7a7a03478091a38c58581c8, type: 3}
   m_ShaderKeywords: 
-  m_LightmapFlags: 4
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -88,6 +88,7 @@ Material:
     - _Float4: 0
     - _FrenelMultiplier: 1.243413
     - _FresnelBias: 0
+    - _FresnelPosterize: 1
     - _FresnelPower: 1
     - _FresnelScale: 0.8
     - _GlossMapScale: 1

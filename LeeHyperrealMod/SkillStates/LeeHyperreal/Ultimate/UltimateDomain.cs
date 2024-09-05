@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using R2API.Networking.Interfaces;
 using LeeHyperrealMod.Content.Controllers;
+using System.Collections;
 
 namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 {
@@ -25,12 +26,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         public float earlyEnd = 0.65f;
         public float effectPlay = 0.55f;
         public bool hasPlayedEffect = false;
-        public float fireTime = 0.01f;
-        public float fireEndTime = 0.35f;
-        public float fireInterval = 0.1f;
+        public float fireTime = 0.2f;
+        public float fireEndTime = 0.31f;
+        public double fireInterval;
         public float finalInterval = 0.2f;
         public float duration = StaticValues.ultimateDomainDuration;
-        public float fireStopwatch;
+        public double fireStopwatch;
         public float finalStopwatch;
         public bool preFinalBlastTriggered = false;
         public bool finalBlastTriggered = false;
@@ -75,7 +76,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
             sightStacks = docon.GetIntuitionStacks();
 
-            domainHitCount = StaticValues.ultimateDomainFireCount + (sightStacks * StaticValues.ultimateDomainFireCount);
+            domainHitCount = (sightStacks * StaticValues.ultimateDomainFireCount);
+
+            if (domainHitCount == 0) 
+            {
+                domainHitCount = StaticValues.ultimateDomainFireCount;
+            }
+
+            fireInterval = (duration * fireEndTime - duration * fireTime) / (float)domainHitCount;
 
             if (sightStacks == 0) 
             {
@@ -83,6 +91,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             }
             docon.DisableDomain(false);
             docon.SetTapped();
+            docon.DisableLoopEffect();
 
             characterMotor.velocity.y = 0f;
             oldGravParams = base.characterMotor.gravityParameters;
@@ -299,37 +308,26 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             base.FixedUpdate();
 
             //Able to be cancelled after this.
-            if (fixedAge >= duration * fireTime && base.isAuthority)
+            if (fixedAge >= duration * fireTime && fixedAge <= duration * (fireEndTime + 0.1f) && base.isAuthority)
             {
-                if(fireStopwatch <= 0f && fireCount < domainHitCount)
+                // Take the time between start and end, space each hit accordingly and smash all the hits within a small timeframe.
+                if (fireStopwatch <= 0f && fireCount < domainHitCount)
                 {
                     //mini hits
                     fireStopwatch = fireInterval;
-                    blastAttack.Fire();
                     fireCount++;
+                    BlastAttack.Result result = blastAttack.Fire();
 
+                    if (result.hitCount > 0)
+                    {
+                        new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_ex_3_2").Send(R2API.Networking.NetworkDestination.Clients);
+
+                    }
                 }
                 else if (fireStopwatch > 0f && fireCount < domainHitCount)
                 {
                     fireStopwatch -= Time.fixedDeltaTime;
                 }
-
-                //if (fireCount >= domainHitCount)
-                //{
-                //    if(finalStopwatch > finalInterval && !preFinalBlastTriggered)
-                //    {
-                //        preFinalBlastTriggered = true;
-                //        //final hit
-                //        blastAttack.baseDamage = damageStat * Modules.StaticValues.ultimateDomainDamageCoefficient * sightStacks; //multiple by anschauung stacks
-                //        blastAttack.Fire();
-
-                //    }
-                //    else
-                //    {
-                //        finalStopwatch += Time.fixedDeltaTime;
-                //    }
-
-                //}
             }
 
             if (fixedAge >= duration * effectPlay && base.isAuthority) 

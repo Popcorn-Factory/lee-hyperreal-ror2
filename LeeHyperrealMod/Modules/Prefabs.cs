@@ -16,7 +16,7 @@ namespace LeeHyperrealMod.Modules {
 
         public static GameObject CreateDisplayPrefab(string displayModelName, GameObject prefab, BodyInfo bodyInfo)
         {
-            GameObject model = Assets.LoadSurvivorModel(displayModelName);
+            GameObject model = LeeHyperrealAssets.LoadSurvivorModel(displayModelName);
 
             CharacterModel characterModel = model.GetComponent<CharacterModel>();
             if (!characterModel) {
@@ -24,7 +24,7 @@ namespace LeeHyperrealMod.Modules {
             }
             characterModel.baseRendererInfos = prefab.GetComponentInChildren<CharacterModel>().baseRendererInfos;
 
-            Modules.Assets.ConvertAllRenderersToHopooShader(model);
+            Modules.LeeHyperrealAssets.ConvertAllRenderersToHopooShader(model);
 
             return model.gameObject;
         }
@@ -44,7 +44,7 @@ namespace LeeHyperrealMod.Modules {
             GameObject model = null;
             if (modelName != "mdl")
             {
-                model = Assets.LoadSurvivorModel(modelName);
+                model = LeeHyperrealAssets.LoadSurvivorModel(modelName);
                 if (model == null) model = newBodyPrefab.GetComponentInChildren<CharacterModel>().gameObject;
 
                     modelBaseTransform = AddCharacterModelToSurvivorBody(newBodyPrefab, model.transform, bodyInfo);
@@ -196,7 +196,7 @@ namespace LeeHyperrealMod.Modules {
 
             characterModel.autoPopulateLightInfos = true;
             characterModel.invisibilityCount = 0;
-            characterModel.temporaryOverlays = new List<TemporaryOverlay>();
+            characterModel.temporaryOverlays = new List<TemporaryOverlayInstance>();
 
             characterModel.body.overrideCoreTransform = childLocator.FindChild("Center");
             characterModel.body.coreTransform = childLocator.FindChild("Center");

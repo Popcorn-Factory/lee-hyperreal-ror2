@@ -62,7 +62,8 @@ namespace LeeHyperrealMod.Content.Controllers
         public void Start() 
         {
             characterBody = GetComponent<CharacterBody>();
-            childLocator = GetComponentInChildren<ChildLocator>();
+            childLocator = characterBody.modelLocator.modelTransform.GetComponent<ChildLocator>();
+            Debug.Log("childLocator " + childLocator);
             if (childLocator)
             {
                 submachineModel = childLocator.FindChild("PistolModel").gameObject;
@@ -172,7 +173,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void SetStateForModelAndSubmachine(bool state) 
         {
-            if (armModel) 
+            if (armModel)
             {
                 armModel.SetActive(state);
                 torsoModel.SetActive(state);
@@ -185,6 +186,20 @@ namespace LeeHyperrealMod.Content.Controllers
                 //Disable the submachine gun.
                 guncaseModel.SetActive(state);
                 submachineModel.SetActive(state);
+            }
+        }
+
+        public void SetStateForModel(bool state) 
+        {
+            if (armModel) 
+            {
+                armModel.SetActive(state);
+                torsoModel.SetActive(state);
+                faceModel.SetActive(state);
+                hairModel.SetActive(state);
+                armourPlateModel.SetActive(state);
+                eyeModel.SetActive(state);
+                legModel.SetActive(state);
             }
         }
 
@@ -230,16 +245,19 @@ namespace LeeHyperrealMod.Content.Controllers
             superCannonRoot.SetActive(false);
         }
 
-        public void TransitionState(WeaponState newState)
+        public void TransitionState(WeaponState newState, bool playFlashEffect = true)
         {
-            if (state == WeaponState.SUBMACHINE) 
+            if (playFlashEffect) 
             {
-                boxFlashEffect.Play();
-            }
+                if (state == WeaponState.SUBMACHINE)
+                {
+                    boxFlashEffect.Play();
+                }
 
-            if (state == WeaponState.RIFLE)
-            {
-                rifleFlashEffect.Play();
+                if (state == WeaponState.RIFLE)
+                {
+                    rifleFlashEffect.Play();
+                }
             }
 
             state = newState;
@@ -266,7 +284,10 @@ namespace LeeHyperrealMod.Content.Controllers
                     submachineModel.SetActive(true);
                     //submachine2Model.SetActive(true);
                     guncaseModel.SetActive(true);
-                    boxFlashEffect.Play();
+                    if (playFlashEffect) 
+                    {
+                        boxFlashEffect.Play();
+                    }
                     break;
                 case WeaponState.CANNON:
                     superCannonRoot.SetActive(true);
@@ -276,7 +297,10 @@ namespace LeeHyperrealMod.Content.Controllers
                     snipeRoot.SetActive(true);
                     sniperRifleAlphaModel.SetActive(true);
                     sniperRifleModel.SetActive(true);
-                    rifleFlashEffect.Play();
+                    if (playFlashEffect) 
+                    {
+                        rifleFlashEffect.Play();
+                    }
                     break;
             }
         }

@@ -17,7 +17,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         LeeHyperrealUIController uiController;
         BulletController bulletController;
         public float duration = 1.74f;
-        public float earlyExitFrac = 0.36f;
+        public float earlyExitFrac = 0.225f;
 
         Vector3 velocity;
 
@@ -57,6 +57,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public override void Update()
         {
             base.Update();
+            if ((base.inputBank.skill3.justPressed || base.inputBank.skill4.justPressed) && base.isAuthority)
+            {
+                Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
+            }
+
             base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
             if (age >= duration * earlyExitFrac && base.isAuthority)
             {

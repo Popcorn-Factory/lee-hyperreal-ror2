@@ -1,8 +1,11 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
 using LeeHyperrealMod.SkillStates.BaseStates;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift;
+using R2API.Networking.Interfaces;
 using RoR2;
+using System.Collections.Generic;
 using System.Reflection;
 using System.Security.Cryptography;
 using UnityEngine;
@@ -19,8 +22,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public static float initialSpeedCoefficient = 3f;
         public static float finalSpeedCoefficient = 0f;
 
-        public static float moveStartFrac = 0.125f;
-        public static float moveEndFrac = 0.175f;
+        public static float moveStartFrac = 0.1f;
+        public static float moveEndFrac = 0.15f;
         private Ray aimRay;
 
         public RootMotionAccumulator rma;
@@ -28,13 +31,21 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         public static float heldButtonThreshold = 0.25f;
         public bool ifButtonLifted = false;
 
-        public float attack2StartFrac = 0.175f;
-        public float attack2EndFrac = 0.2f;
+        public float attack2StartFrac = 0.125f;
+        public float attack2EndFrac = 0.150f;
         public bool hasFired2 = false;
 
-        public float attack3StartFrac = 0.225f;
-        public float attack3EndFrac = 0.25f;
+        public float attack3StartFrac = 0.14f;
+        public float attack3EndFrac = 0.170f;
         public bool hasFired3 = false;
+
+        public float attack4StartFrac = 0.216f;
+        public float attack4EndFrac = 0.25f;
+        public bool hasFired4 = false;
+
+        public float attack5StartFrac = 0.231f;
+        public float attack5EndFrac = 0.27f;
+        public bool hasFired5 = false;
 
         private LeeHyperrealDomainController domainController;
 
@@ -49,8 +60,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.pushForce = Modules.StaticValues.primary2PushForce;
             this.bonusForce = Vector3.zero;
             this.baseDuration = 2.366f;
-            this.attackStartTime = 0.25f;
-            this.attackEndTime = 0.35f;
+            this.attackStartTime = 0.067f;
+            this.attackEndTime = 0.1f;
             this.moveCancelEndTime = 0.3f;
             this.baseEarlyExitTime = 0.225f;
 
@@ -60,12 +71,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             this.hitHopVelocity = Modules.StaticValues.primary2HitHopVelocity;
 
             this.swingSoundString = "HenrySwordSwing";
-            this.hitSoundString = "";
+            this.hitSoundString = "Play_c_liRk4_imp_nml_2_2";
             this.muzzleString = "BaseTransform";
             this.swingEffectPrefab = null;
             this.hitEffectPrefab = Modules.ParticleAssets.primary2hit1;
-
-            this.impactSound = Modules.Assets.swordHitSoundEvent.index;
             base.OnEnter();
 
             InitMeleeRootMotion();
@@ -141,6 +150,14 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             {
                 FireThirdAttack();
             }
+            if (base.stopwatch >= duration * attack4StartFrac && base.stopwatch <= duration * attack4EndFrac && base.isAuthority && !hasFired4)
+            {
+                FireFourthAttack();
+            }
+            if (base.stopwatch >= duration * attack5StartFrac && base.stopwatch <= duration * attack5EndFrac && base.isAuthority && !hasFired5)
+            {
+                FireFifthAttack();
+            }
         }
 
         internal void FireSecondAttack()
@@ -152,6 +169,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 if (base.isAuthority)
                 {
                     base.AddRecoil(-1f * this.attackRecoil, -2f * this.attackRecoil, -0.5f * this.attackRecoil, 0.5f * this.attackRecoil);
+                    int maxNumHit = 0;
+                    List<HurtBox> result = new List<HurtBox>();
                     for (int i = 0; i < attackAmount; i++)
                     {
                         // Create Attack, fire it, do the on hit enemy authority.
@@ -170,9 +189,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                         this.attack.impactSound = this.impactSound;
                         if (this.attack != null)
                         {
-                            if (this.attack.Fire())
+                            this.attack.Fire(result);
+                            if (result.Count > maxNumHit)
                             {
-                                this.OnHitEnemyAuthority();
+                                maxNumHit = result.Count;
                             }
                         }
                     }
@@ -194,11 +214,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                         this.attack.impactSound = this.impactSound;
                         if (this.attack != null)
                         {
-                            if (this.attack.Fire())
+                            this.attack.Fire(result);
+                            if (result.Count > maxNumHit)
                             {
-                                this.OnHitEnemyAuthority();
+                                maxNumHit = result.Count;
                             }
                         }
+                    }
+
+                    if (maxNumHit > 0)
+                    {
+                        HitSoundCallback();
+                        this.OnHitEnemyAuthority();
                     }
                 }
             }
@@ -212,6 +239,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 if (base.isAuthority)
                 {
                     base.AddRecoil(-1f * this.attackRecoil, -2f * this.attackRecoil, -0.5f * this.attackRecoil, 0.5f * this.attackRecoil);
+                    int maxNumHit = 0;
+                    List<HurtBox> result = new List<HurtBox>();
                     for (int i = 0; i < attackAmount; i++)
                     {
                         // Create Attack, fire it, do the on hit enemy authority.
@@ -230,9 +259,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                         this.attack.impactSound = this.impactSound;
                         if (this.attack != null)
                         {
-                            if (this.attack.Fire())
+                            this.attack.Fire(result);
+                            if (result.Count > maxNumHit)
                             {
-                                this.OnHitEnemyAuthority();
+                                maxNumHit = result.Count;
                             }
                         }
                     }
@@ -254,16 +284,164 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                         this.attack.impactSound = this.impactSound;
                         if (this.attack != null)
                         {
-                            if (this.attack.Fire())
+                            this.attack.Fire(result);
+                            if (result.Count > maxNumHit)
                             {
-                                this.OnHitEnemyAuthority();
+                                maxNumHit = result.Count;
                             }
                         }
+                    }
+
+                    if (maxNumHit > 0)
+                    {
+                        HitSoundCallback();
+                        this.OnHitEnemyAuthority();
                     }
                 }
             }
         }
 
+        internal void FireFourthAttack()
+        {
+            if (!hasFired4)
+            {
+                this.hasFired4 = true;
+
+                if (base.isAuthority)
+                {
+                    base.AddRecoil(-1f * this.attackRecoil, -2f * this.attackRecoil, -0.5f * this.attackRecoil, 0.5f * this.attackRecoil);
+                    int maxNumHit = 0;
+                    List<HurtBox> result = new List<HurtBox>();
+                    for (int i = 0; i < attackAmount; i++)
+                    {
+                        // Create Attack, fire it, do the on hit enemy authority.
+                        this.attack = new OverlapAttack();
+                        this.attack.damageType = this.damageType;
+                        this.attack.attacker = base.gameObject;
+                        this.attack.inflictor = base.gameObject;
+                        this.attack.teamIndex = base.GetTeam();
+                        this.attack.damage = this.damageCoefficient * this.damageStat;
+                        this.attack.procCoefficient = this.procCoefficient;
+                        this.attack.hitEffectPrefab = this.hitEffectPrefab;
+                        this.attack.forceVector = this.bonusForce / attackAmount;
+                        this.attack.pushAwayForce = this.pushForce / attackAmount;
+                        this.attack.hitBoxGroup = hitBoxGroup;
+                        this.attack.isCrit = base.RollCrit();
+                        this.attack.impactSound = this.impactSound;
+                        if (this.attack != null)
+                        {
+                            this.attack.Fire(result);
+                            if (result.Count > maxNumHit)
+                            {
+                                maxNumHit = result.Count;
+                            }
+                        }
+                    }
+                    if (partialAttack > 0.0f)
+                    {
+                        // Create Attack, fire it, do the on hit enemy authority, partaial damage on final 
+                        this.attack = new OverlapAttack();
+                        this.attack.damageType = this.damageType;
+                        this.attack.attacker = base.gameObject;
+                        this.attack.inflictor = base.gameObject;
+                        this.attack.teamIndex = base.GetTeam();
+                        this.attack.damage = this.damageCoefficient * this.damageStat * partialAttack;
+                        this.attack.procCoefficient = this.procCoefficient * partialAttack;
+                        this.attack.hitEffectPrefab = this.hitEffectPrefab;
+                        this.attack.forceVector = this.bonusForce * partialAttack / attackAmount;
+                        this.attack.pushAwayForce = this.pushForce * partialAttack / attackAmount;
+                        this.attack.hitBoxGroup = hitBoxGroup;
+                        this.attack.isCrit = base.RollCrit();
+                        this.attack.impactSound = this.impactSound;
+                        if (this.attack != null)
+                        {
+                            this.attack.Fire(result);
+                            if (result.Count > maxNumHit)
+                            {
+                                maxNumHit = result.Count;
+                            }
+                        }
+                    }
+
+                    if (maxNumHit > 0)
+                    {
+                        HitSoundCallback();
+                        this.OnHitEnemyAuthority();
+                    }
+                }
+            }
+        }
+
+        internal void FireFifthAttack()
+        {
+            if (!hasFired5)
+            {
+                this.hasFired5 = true;
+
+                if (base.isAuthority)
+                {
+                    base.AddRecoil(-1f * this.attackRecoil, -2f * this.attackRecoil, -0.5f * this.attackRecoil, 0.5f * this.attackRecoil);
+                    int maxNumHit = 0;
+                    List<HurtBox> result = new List<HurtBox>();
+                    for (int i = 0; i < attackAmount; i++)
+                    {
+                        // Create Attack, fire it, do the on hit enemy authority.
+                        this.attack = new OverlapAttack();
+                        this.attack.damageType = this.damageType;
+                        this.attack.attacker = base.gameObject;
+                        this.attack.inflictor = base.gameObject;
+                        this.attack.teamIndex = base.GetTeam();
+                        this.attack.damage = this.damageCoefficient * this.damageStat;
+                        this.attack.procCoefficient = this.procCoefficient;
+                        this.attack.hitEffectPrefab = this.hitEffectPrefab;
+                        this.attack.forceVector = this.bonusForce / attackAmount;
+                        this.attack.pushAwayForce = this.pushForce / attackAmount;
+                        this.attack.hitBoxGroup = hitBoxGroup;
+                        this.attack.isCrit = base.RollCrit();
+                        this.attack.impactSound = this.impactSound;
+                        if (this.attack != null)
+                        {
+                            this.attack.Fire(result);
+                            if (result.Count > maxNumHit)
+                            {
+                                maxNumHit = result.Count;
+                            }
+                        }
+                    }
+                    if (partialAttack > 0.0f)
+                    {
+                        // Create Attack, fire it, do the on hit enemy authority, partaial damage on final 
+                        this.attack = new OverlapAttack();
+                        this.attack.damageType = this.damageType;
+                        this.attack.attacker = base.gameObject;
+                        this.attack.inflictor = base.gameObject;
+                        this.attack.teamIndex = base.GetTeam();
+                        this.attack.damage = this.damageCoefficient * this.damageStat * partialAttack;
+                        this.attack.procCoefficient = this.procCoefficient * partialAttack;
+                        this.attack.hitEffectPrefab = this.hitEffectPrefab;
+                        this.attack.forceVector = this.bonusForce * partialAttack / attackAmount;
+                        this.attack.pushAwayForce = this.pushForce * partialAttack / attackAmount;
+                        this.attack.hitBoxGroup = hitBoxGroup;
+                        this.attack.isCrit = base.RollCrit();
+                        this.attack.impactSound = this.impactSound;
+                        if (this.attack != null)
+                        {
+                            this.attack.Fire(result);
+                            if (result.Count > maxNumHit)
+                            {
+                                maxNumHit = result.Count;
+                            }
+                        }
+                    }
+
+                    if (maxNumHit > 0)
+                    {
+                        HitSoundCallback();
+                        this.OnHitEnemyAuthority();
+                    }
+                }
+            }
+        }
         public override void OnExit()
         {
             base.OnExit();
@@ -281,6 +459,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             {
                 orbController.AddToIncrementor(Modules.StaticValues.flatAmountToGrantOnPrimaryHit * timesHit);
             }
+        }
+        protected override void HitSoundCallback()
+        {
+            new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_nml_2_2").Send(R2API.Networking.NetworkDestination.Clients);
         }
 
         protected override void SetNextState()

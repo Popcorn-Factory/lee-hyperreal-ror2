@@ -114,7 +114,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 spreadYawScale = 0f,
                 queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
                 hitEffectPrefab = Modules.ParticleAssets.redOrbHit,
-                hitCallback = BulletAttack.defaultHitCallback,
+                hitCallback = redHitCallback,
             };
 
 
@@ -234,6 +234,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
         public void OnHitEnemyAuthority()
         {
             //Do something on hit.
+        }
+        private bool redHitCallback(BulletAttack bulletAttack, ref BulletAttack.BulletHit hitInfo)
+        {
+            new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_red_1").Send(R2API.Networking.NetworkDestination.Clients);
+            return BulletAttack.defaultHitCallback(bulletAttack, ref hitInfo);
         }
 
         public override void OnSerialize(NetworkWriter writer)

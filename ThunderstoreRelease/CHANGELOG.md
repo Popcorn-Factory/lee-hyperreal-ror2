@@ -1,5 +1,57 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
-
+- 1.1.2
+    - Fixed an issue making enemies become invincible if they were frozen during their death animation.
+    - Added support for Betterhudlite.
+- 1.1.1
+    - Fixed the item notification popup from duplicating.
+    - Removed Extra skill slots as a Hard dependency, can be now included optionally if needed
+    - Renamed skill families appropriately.
+- 1.1.0
+    - Updated Dependencies to support SotS
+        - Unfortunately, controller players will not be able to use orbs as we have removed the dependency on ExtraSkillSlots until further notice.
+    - Removed dependency on R2API.Sound, was not being used.
+    - Fixed an edge case where Hypermatrix Aerial Attacks play the particle stream infinitely due to Hypermatrix ending while in an aerial dive.
+	- Fixed the pod from blowing out your eyes on some maps.
+	- P2 now behaves more closely to source material
+	    - 3 -> 5 hits 
+        - 125% -> 70% damage
+- 1.0.4
+    - Fixed the pod from not being registered on the Network properly.
+    - Fixed an issue regarding client's getting spawned in without a pod, causing the server and clients to desync from what would be expected.
+    - Fixed the wrong dependency from being compiled in the mod, should now work with the suggest mods in the Thunderstore manifest.
+    - Changed the UI Instantiation to use Find when navigating the RoR HUD, instead of indexes. Should be more compatible with mods that modify the UI.
+    - Changed the values on the following moves:
+        - End of Time cooldown -> 4s to 6s per stack. (Total 60s for 10 stacks)
+        - End of Time damage -> 5000% to 6500%
+        - End of Time enemy freeze duration -> 8s to 6.9s (This should allow the enemies to start moving 0.2s after the move has ended.)
+        - Red Orb Hypermatrix damage -> 175% to 155%
+- 1.0.3
+    - Removing Debug Chat output that was left in accidentally.
+- 1.0.2
+    - Following changes have been added to Invincibility and Parry:
+        - Invincibility granted from Utility and Orbs now do not allow you to bypass shrines that cost health.
+        - Parrying a shrine that costs health now inflicts half the damage it would normally do. 
+        - Parrying now returns 25% of the damage that would've been inflicted if you didn't parry.
+    - Changed the values on the following moves:
+        - Armament Barrage 1 damage -> 150% to 100%
+        - Armament Barrage 2 damage -> 200% to 125%
+        - Armament Barrage 3 damage -> 300% to 225%
+        - Armament Barrage 4 damage -> 100% to 70% per tick
+        - Armament Barrage 4 Hit Radius -> 20m to 25m
+        - Armament Barrage 5 damage -> 1000% to 600%
+        - Armament Barrage Aerial (Non-Hypermatrix) damage -> 500% to 400%
+        - Blue Orb Blast damage -> 300% to 225%
+        - Blue Orb Shot damage -> 400% to 300%
+        - Yellow Orb damage -> 100% to 45%
+        - Yellow Orb 3-ping damage -> 1000% to 800%
+        - Yellow Orb Hypermatrix damage -> 50% to 45% per hit
+        - Red Orb damage -> 150% to 125% per shot
+        - Red Orb 3-ping damage -> 600% to 500%
+        - Red Orb Hypermatrix damage -> 200% to 175%
+        - End of time damage -> 6000% to 5000%
+        - Collapsing Realm damage -> 2000% to 1500%
+- 1.0.1
+    - Fixing soundbank from not loading. 
 - 1.0.0
     - Initial Release!

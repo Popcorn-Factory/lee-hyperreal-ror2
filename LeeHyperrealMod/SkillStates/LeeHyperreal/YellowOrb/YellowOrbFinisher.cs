@@ -54,8 +54,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
             this.swingEffectPrefab = Modules.ParticleAssets.yellowOrbKick;
             this.hitEffectPrefab = Modules.ParticleAssets.yellowOrbSwingHit;
 
-            this.impactSound = Modules.Assets.swordHitSoundEvent.index;
-
             enableParry = true;
             parryLength = Modules.StaticValues.yellowOrbFinisherParryLength;
             parryTiming = Modules.StaticValues.yellowOrbFinisherParryTiming;
@@ -175,6 +173,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 base.outer.SetNextStateToMain();
                 return;
             }
+        }
+
+        protected override void HitSoundCallback()
+        {
+            new PlaySoundNetworkRequest(characterBody.netId, "Play_c_liRk4_imp_yellow_2").Send(R2API.Networking.NetworkDestination.Clients);
         }
 
         protected override void SetNextState()

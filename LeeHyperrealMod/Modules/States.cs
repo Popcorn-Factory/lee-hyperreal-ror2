@@ -17,8 +17,11 @@ namespace LeeHyperrealMod.Modules
     {
         internal static void RegisterStates()
         {
-            Modules.Content.AddEntityState(typeof(LeeHyperrealCharacterMain));
+            //Initialized in character generation
+            //Modules.Content.AddEntityState(typeof(LeeHyperrealCharacterMain));
+            
             Modules.Content.AddEntityState(typeof(LeeHyperrealDeathState));
+            Modules.Content.AddEntityState(typeof(LeeHyperrealSpawnState));
 
             #region Primary
             Modules.Content.AddEntityState(typeof(PrimaryEntry));
@@ -82,6 +85,11 @@ namespace LeeHyperrealMod.Modules
 
             #region Domain Enter State
             Modules.Content.AddEntityState(typeof(DomainEnterState));
+            #endregion
+
+            #region Survivor Pod
+            Modules.Content.AddEntityState(typeof(LeeHyperrealMod.SkillStates.LeeHyperrealSurvivorPod.Idle));
+            Modules.Content.AddEntityState(typeof(LeeHyperrealMod.SkillStates.LeeHyperrealSurvivorPod.ExitPortal));
             #endregion
         }
     }

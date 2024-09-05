@@ -12,6 +12,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         public float duration = 2.133f;
         Vector3 velocity = Vector3.zero;
         BulletController bulletController;
+        public bool stocktaken;
 
         public override void OnEnter()
         {
@@ -72,11 +73,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                 }
 
                 //Check for dodging. Otherwise ignore.
-                if (base.inputBank.skill3.justPressed && skillLocator.utility.stock >= 1) 
+                if (base.inputBank.skill3.justPressed && skillLocator.utility.stock >= 1 && !stocktaken) 
                 {
                     if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                     {
                         skillLocator.utility.stock -= 1;
+                        stocktaken = true;
                         Vector3 result = Modules.StaticValues.CheckDirection(inputBank.moveVector, GetAimRay());
                         if (result == new Vector3(0, 0, 1))
                         {

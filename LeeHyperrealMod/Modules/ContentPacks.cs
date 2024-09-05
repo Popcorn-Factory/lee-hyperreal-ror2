@@ -26,6 +26,7 @@ namespace LeeHyperrealMod.Modules
         public static List<BuffDef> buffDefs = new List<BuffDef>();
         public static List<EffectDef> effectDefs = new List<EffectDef>();
 
+        public static List<GameObject> networkedObjectPrefabs = new List<GameObject>();
         public static List<NetworkSoundEventDef> networkSoundEventDefs = new List<NetworkSoundEventDef>();
 
         public void Initialize()
@@ -57,6 +58,7 @@ namespace LeeHyperrealMod.Modules
             contentPack.effectDefs.Add(effectDefs.ToArray());
 
             contentPack.networkSoundEventDefs.Add(networkSoundEventDefs.ToArray());
+            contentPack.networkedObjectPrefabs.Add(networkedObjectPrefabs.ToArray());
 
             args.ReportProgress(1f);
             yield break;
@@ -135,6 +137,11 @@ namespace LeeHyperrealMod.Modules
         {
 
             ContentPacks.networkSoundEventDefs.Add(networkSoundEventDef);
+        }
+
+        public static void AddNetworkObjectPrefabs(GameObject networkObject) 
+        {
+            ContentPacks.networkedObjectPrefabs.Add(networkObject);
         }
     }
 }

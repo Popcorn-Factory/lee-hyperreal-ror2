@@ -197,7 +197,7 @@ Node;AmplifyShaderEditor.SinTimeNode;59;-823.501,-691.916;Inherit;False;0;5;FLOA
 Node;AmplifyShaderEditor.SamplerNode;58;-134.3006,-751.9617;Inherit;True;Property;_TextureSample1;Texture Sample 1;6;0;Create;True;0;0;0;False;0;False;-1;None;65cb3e533a728e446bf24e500fbde44f;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;;False;1;FLOAT2;0,0;False;2;FLOAT;0;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.TFHCRemapNode;60;-350.501,-600.916;Inherit;False;5;0;FLOAT;0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;0;False;4;FLOAT;1;False;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;62;-628.501,-757.916;Inherit;False;Property;_minimumemission;minimum emission;7;0;Create;True;0;0;0;False;0;False;0;0.6;0;20;0;1;FLOAT;0
-Node;AmplifyShaderEditor.RangedFloatNode;63;-619.501,-640.916;Inherit;False;Property;_maximumemission;maximum emission;8;0;Create;True;0;0;0;False;0;False;0;2;0;20;0;1;FLOAT;0
+Node;AmplifyShaderEditor.RangedFloatNode;63;-619.501,-640.916;Inherit;False;Property;_maximumemission;maximum emission;8;0;Create;True;0;0;0;False;0;False;0;4;0;20;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;21;-471.8166,-170.6936;Inherit;False;3;3;0;FLOAT;0;False;1;COLOR;0,0,0,0;False;2;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.RangedFloatNode;37;-353.1617,112.9713;Inherit;False;Constant;_Float0;Float 0;5;0;Create;True;0;0;0;False;0;False;1;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;91;-1105.82,-190.766;Inherit;False;2;2;0;FLOAT2;0,0;False;1;FLOAT2;0,0;False;1;FLOAT2;0
@@ -301,4 +301,4 @@ WireConnection;11;1;10;0
 WireConnection;5;0;33;0
 WireConnection;5;1;13;0
 ASEEND*/
-//CHKSM=8625B57CD52A87AB5A58035FA205A4817AD7C983
+//CHKSM=686C87C156DEB14F1727A9122A5BD721268DD4D8

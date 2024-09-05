@@ -15,6 +15,7 @@ Shader "ASESampleShaders/DitheringFadeModify"
 		_FresnelBias("FresnelBias", Float) = 0
 		_FresnelScale("FresnelScale", Float) = 0
 		_FresnelPower("FresnelPower", Float) = 0
+		_FresnelPosterize("FresnelPosterize", Range( 1 , 128)) = 5
 		[HideInInspector] _texcoord( "", 2D ) = "white" {}
 		[HideInInspector] __dirty( "", Int ) = 1
 	}
@@ -48,6 +49,7 @@ Shader "ASESampleShaders/DitheringFadeModify"
 		uniform sampler2D _Normal;
 		uniform sampler2D _Albedo;
 		uniform float4 _Albedo_ST;
+		uniform half _FresnelPosterize;
 		uniform half4 _Tint;
 		uniform half _FresnelBias;
 		uniform half _FresnelScale;
@@ -91,7 +93,9 @@ Shader "ASESampleShaders/DitheringFadeModify"
 			half3 ase_worldNormal = WorldNormalVector( i, half3( 0, 0, 1 ) );
 			half fresnelNdotV70 = dot( ase_worldNormal, ase_worldViewDir );
 			half fresnelNode70 = ( _FresnelBias + _FresnelScale * pow( 1.0 - fresnelNdotV70, _FresnelPower ) );
-			o.Albedo = ( ( _Tint * fresnelNode70 ) + ( ( 1.0 - fresnelNode70 ) * tex2D( _Albedo, uv_Albedo ) ) ).rgb;
+			float div112=256.0/float((int)_FresnelPosterize);
+			half4 posterize112 = ( floor( ( ( _Tint * fresnelNode70 ) + ( ( 1.0 - fresnelNode70 ) * tex2D( _Albedo, uv_Albedo ) ) ) * div112 ) / div112 );
+			o.Albedo = posterize112.rgb;
 			o.Emission = tex2D( _Emission, uv_Albedo ).rgb;
 			o.Occlusion = tex2D( _Occlusion, uv_Albedo ).r;
 			o.Alpha = 1;
@@ -205,7 +209,6 @@ Node;AmplifyShaderEditor.ColorNode;68;279.1932,-902.1395;Inherit;False;Property;
 Node;AmplifyShaderEditor.OneMinusNode;71;546.1425,-1039.4;Inherit;False;1;0;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SimpleMultiplyOpNode;72;721.1335,-647.0543;Inherit;False;2;2;0;FLOAT;0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
 Node;AmplifyShaderEditor.SimpleAddOpNode;74;932.9241,-685.4803;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR;0
-Node;AmplifyShaderEditor.SimpleMultiplyOpNode;69;712.4033,-812.0782;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
 Node;AmplifyShaderEditor.RangedFloatNode;75;8.10022,-1047.419;Inherit;False;Property;_FresnelBias;FresnelBias;9;0;Create;True;0;0;0;False;0;False;0;0;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.RangedFloatNode;77;0.1002197,-891.4186;Inherit;False;Property;_FresnelPower;FresnelPower;11;0;Create;True;0;0;0;False;0;False;0;1;0;0;0;1;FLOAT;0
 Node;AmplifyShaderEditor.FresnelNode;70;278.2296,-1084.806;Inherit;False;Standard;WorldNormal;ViewDir;False;False;5;0;FLOAT3;0,0,1;False;4;FLOAT3;0,0,0;False;1;FLOAT;0;False;2;FLOAT;1;False;3;FLOAT;0.5;False;1;FLOAT;0
@@ -226,6 +229,9 @@ Node;AmplifyShaderEditor.RangedFloatNode;31;-369.6263,524.4674;Float;False;Prope
 Node;AmplifyShaderEditor.SimpleSubtractOpNode;27;726,143;Inherit;False;2;0;FLOAT;0;False;1;FLOAT;0;False;1;FLOAT;0
 Node;AmplifyShaderEditor.SamplerNode;48;388.6638,-134.4956;Inherit;True;Property;_Occlusion;Occlusion;4;1;[NoScaleOffset];Create;True;0;0;0;False;0;False;-1;None;None;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;0,0;False;1;FLOAT2;1,0;False;2;FLOAT;1;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.SamplerNode;111;390.0795,65.27579;Inherit;True;Property;_Emission;Emission;5;1;[NoScaleOffset];Create;True;0;0;0;False;0;False;-1;None;df56067d2ec809744bf2489f638a44f5;True;0;False;white;Auto;False;Object;-1;Auto;Texture2D;8;0;SAMPLER2D;0,0;False;1;FLOAT2;1,0;False;2;FLOAT;1;False;3;FLOAT2;0,0;False;4;FLOAT2;0,0;False;5;FLOAT;1;False;6;FLOAT;0;False;7;SAMPLERSTATE;;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.SimpleMultiplyOpNode;69;722.4033,-826.0782;Inherit;False;2;2;0;COLOR;0,0,0,0;False;1;FLOAT;0;False;1;COLOR;0
+Node;AmplifyShaderEditor.PosterizeNode;112;1114.511,-648.1465;Inherit;False;1;2;1;COLOR;0,0,0,0;False;0;INT;0;False;1;COLOR;0
+Node;AmplifyShaderEditor.RangedFloatNode;116;813.5114,-446.1465;Inherit;False;Property;_FresnelPosterize;FresnelPosterize;12;0;Create;True;0;0;0;False;0;False;5;0;1;128;0;1;FLOAT;0
 WireConnection;51;0;45;0
 WireConnection;44;1;47;0
 WireConnection;71;0;70;0
@@ -233,12 +239,10 @@ WireConnection;72;0;71;0
 WireConnection;72;1;44;0
 WireConnection;74;0;69;0
 WireConnection;74;1;72;0
-WireConnection;69;0;68;0
-WireConnection;69;1;70;0
 WireConnection;70;1;75;0
 WireConnection;70;2;76;0
 WireConnection;70;3;77;0
-WireConnection;0;0;74;0
+WireConnection;0;0;112;0
 WireConnection;0;1;51;0
 WireConnection;0;2;111;0
 WireConnection;0;5;48;1
@@ -258,5 +262,9 @@ WireConnection;27;0;34;0
 WireConnection;27;1;26;0
 WireConnection;48;1;47;0
 WireConnection;111;1;47;0
+WireConnection;69;0;68;0
+WireConnection;69;1;70;0
+WireConnection;112;1;74;0
+WireConnection;112;0;116;0
 ASEEND*/
-//CHKSM=E869F82C908646CB9AC3FA614F340EB7233FCA05
+//CHKSM=E88165563EC8553099528CCDAE5986FE139DAB35

@@ -18,7 +18,6 @@ namespace LeeHyperrealMod.Modules.Networking
         private float pullRange;
         private float damage;
         private float angle;
-        private bool playEffect;
         
         //Don't network these.
         GameObject bodyObj;
@@ -61,7 +60,6 @@ namespace LeeHyperrealMod.Modules.Networking
             writer.Write(searchRange);
             writer.Write(damage);
             writer.Write(angle);
-            writer.Write(playEffect);
         }
 
         public void OnReceived()
