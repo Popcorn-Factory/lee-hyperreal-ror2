@@ -9,43 +9,6 @@ namespace LeeHyperrealMod.Content.Observers
 {
     public class ParryDamageObserver : MonoBehaviour
     {
-        //Need pair object to setup network connections to measure ping and apply damage after x time.
-        public class ModifiedDamageInfo
-        {
-            public DamageInfo damageInfo;
-            public double timestamp;
-
-            public ModifiedDamageInfo(DamageInfo damageInfo, double timestamp)
-            {
-                this.damageInfo = damageInfo;
-                this.timestamp = timestamp;
-            }
-        }
-
-        public class PlayerDamageContainers
-        {
-            public NetworkClient connection; // To player.
-            public int connectionRTT; // Round trip time to player.
-            public List<ModifiedDamageInfo> modifiedDamageInfos;
-
-            public PlayerDamageContainers(NetworkClient newConnection)
-            {
-                connection = newConnection;
-                modifiedDamageInfos = new List<ModifiedDamageInfo>();
-            }
-
-            public int GetEstimatedRTT()
-            {
-                if (connection == null)
-                {
-                    return -1;
-                }
-
-                connectionRTT = connection.GetRTT();
-                return connectionRTT;
-            }
-        }
-
         public static ParryDamageObserver instance { get; private set; }
         public static GameObject instanceContainer { get; private set; }
         public List<PlayerDamageContainers> playerList = new List<PlayerDamageContainers>();
@@ -55,20 +18,42 @@ namespace LeeHyperrealMod.Content.Observers
             if (!instance)
             {
                 instanceContainer = new GameObject("__ParryDamageBufferObserver(Singleton)");
+                DontDestroyOnLoad(instanceContainer);
                 instance = instanceContainer.AddComponent<ParryDamageObserver>();
+
+                Debug.Log("I have been born!");
             }
+            else 
+            {
+                Debug.Log("Singleton instance has already been created! Instance has not been changed.");
+            }
+        }
+
+        public static bool InstanceExists()
+        {
+            return instance != null;
+        }
+
+        public static bool CanDoDamageDelay() 
+        {
+            if (!instance) { return false; }
+            if (instance.playerList.Count == 0) { return false; }
+
+            return true;
         }
 
         public static void DestroyInstance()
         {
             if (instance)
             {
+                Debug.Log("Goodbye world.");
                 Destroy(instanceContainer);
             }
         }
 
         public void OnDestroy()
         {
+            Unhook();
             DestroyInstance();
         }
 
@@ -79,6 +64,14 @@ namespace LeeHyperrealMod.Content.Observers
 
         public void Start()
         {
+            Hook();
+        }
+
+        public void UpdateListOfPlayers() 
+        {
+            playerList.Clear();
+
+            //Repopulate the list of players.
             if (NetworkServer.active)
             {
                 foreach (NetworkClient client in NetworkClient.allClients)
@@ -86,11 +79,13 @@ namespace LeeHyperrealMod.Content.Observers
                     playerList.Add(new PlayerDamageContainers(client));
                 }
             }
+
+            Debug.Log("Player list updated!");
         }
 
         public void Update()
         {
-
+            Debug.Log("Listening");
         }
 
         public void Hook()
@@ -101,6 +96,7 @@ namespace LeeHyperrealMod.Content.Observers
         private void NetworkManagerSystem_OnClientConnect(On.RoR2.Networking.NetworkManagerSystem.orig_OnClientConnect orig, RoR2.Networking.NetworkManagerSystem self, NetworkConnection conn)
         {
             orig(self, conn);
+            UpdateListOfPlayers();
         }
 
         public void Unhook()

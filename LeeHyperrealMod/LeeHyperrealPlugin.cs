@@ -18,6 +18,7 @@ using System;
 using MonoMod.RuntimeDetour;
 using static RoR2.MasterSpawnSlotController;
 using RoR2.UI;
+using LeeHyperrealMod.Content.Observers;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -145,6 +146,8 @@ namespace LeeHyperrealMod
             On.RoR2.CharacterSpeech.BrotherSpeechDriver.DoInitialSightResponse += BrotherSpeechDriver_DoInitialSightResponse;
             On.RoR2.UI.MainMenu.BaseMainMenuScreen.Awake += BaseMainMenuScreen_Awake;
             On.RoR2.UI.LoadoutPanelController.Row.FromSkillSlot += Row_FromSkillSlot;
+            On.RoR2.Run.Start += Run_Start;
+            On.RoR2.Run.BeginGameOver += Run_BeginGameOver;
 
             //On.RoR2.CharacterBody.Update += CharacterBody_Update;
 
@@ -152,6 +155,24 @@ namespace LeeHyperrealMod
             {
                 On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
             }
+        }
+
+        private void Run_BeginGameOver(On.RoR2.Run.orig_BeginGameOver orig, Run self, GameEndingDef gameEndingDef)
+        {
+            orig(self, gameEndingDef);
+            if (!RoR2Application.isInSinglePlayer)
+            {
+                ParryDamageObserver.DestroyInstance();
+            }
+        }
+
+        private void Run_Start(On.RoR2.Run.orig_Start orig, Run self)
+        {
+            orig(self);
+            if (!RoR2Application.isInSinglePlayer) 
+            {
+                ParryDamageObserver.CreateInstance();
+            }   
         }
 
         private object Row_FromSkillSlot(On.RoR2.UI.LoadoutPanelController.Row.orig_FromSkillSlot orig, RoR2.UI.LoadoutPanelController owner, BodyIndex bodyIndex, int skillSlotIndex, GenericSkill skillSlot)
