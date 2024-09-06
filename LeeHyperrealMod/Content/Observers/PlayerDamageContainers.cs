@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RoR2;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine.Networking;
@@ -10,6 +11,7 @@ namespace LeeHyperrealMod.Content.Observers
         public NetworkClient connection; // To player.
         public int connectionRTT; // Round trip time to player in milliseconds ( divide by 1000 to get seconds )
         public List<ModifiedDamageInfo> modifiedDamageInfos;
+        public HealthComponent healthComponent;
 
         public PlayerDamageContainers(NetworkClient newConnection)
         {

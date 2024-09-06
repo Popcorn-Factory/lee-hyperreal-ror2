@@ -19,6 +19,7 @@ using MonoMod.RuntimeDetour;
 using static RoR2.MasterSpawnSlotController;
 using RoR2.UI;
 using LeeHyperrealMod.Content.Observers;
+using UnityEngine.Networking;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -156,22 +157,21 @@ namespace LeeHyperrealMod
                 On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
             }
         }
-
-        private void Run_onRunDestroyGlobal(Run obj)
-        {
-            if (!RoR2Application.isInSinglePlayer)
-            {
-                ParryDamageObserver.DestroyInstance();
-            }
-        }
-
         private void Run_Start(On.RoR2.Run.orig_Start orig, Run self)
         {
             orig(self);
-            if (!RoR2Application.isInSinglePlayer) 
+            if (!RoR2Application.isInSinglePlayer && NetworkServer.active)
             {
                 ParryDamageObserver.CreateInstance();
-            }   
+            }
+        }
+
+        private void Run_onRunDestroyGlobal(Run obj)
+        {
+            if (!RoR2Application.isInSinglePlayer && NetworkServer.active)
+            {
+                ParryDamageObserver.DestroyInstance();
+            }
         }
 
         private object Row_FromSkillSlot(On.RoR2.UI.LoadoutPanelController.Row.orig_FromSkillSlot orig, RoR2.UI.LoadoutPanelController owner, BodyIndex bodyIndex, int skillSlotIndex, GenericSkill skillSlot)
