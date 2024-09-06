@@ -147,7 +147,7 @@ namespace LeeHyperrealMod
             On.RoR2.UI.MainMenu.BaseMainMenuScreen.Awake += BaseMainMenuScreen_Awake;
             On.RoR2.UI.LoadoutPanelController.Row.FromSkillSlot += Row_FromSkillSlot;
             On.RoR2.Run.Start += Run_Start;
-            On.RoR2.Run.BeginGameOver += Run_BeginGameOver;
+            RoR2.Run.onRunDestroyGlobal += Run_onRunDestroyGlobal;
 
             //On.RoR2.CharacterBody.Update += CharacterBody_Update;
 
@@ -157,9 +157,8 @@ namespace LeeHyperrealMod
             }
         }
 
-        private void Run_BeginGameOver(On.RoR2.Run.orig_BeginGameOver orig, Run self, GameEndingDef gameEndingDef)
+        private void Run_onRunDestroyGlobal(Run obj)
         {
-            orig(self, gameEndingDef);
             if (!RoR2Application.isInSinglePlayer)
             {
                 ParryDamageObserver.DestroyInstance();

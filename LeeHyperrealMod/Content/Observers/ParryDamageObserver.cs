@@ -11,6 +11,7 @@ namespace LeeHyperrealMod.Content.Observers
     {
         public static ParryDamageObserver instance { get; private set; }
         public static GameObject instanceContainer { get; private set; }
+        public static List<BuffDef> buffsToTriggerOn = new List<BuffDef>();
         public List<PlayerDamageContainers> playerList = new List<PlayerDamageContainers>();
 
         public static void CreateInstance()
@@ -91,6 +92,12 @@ namespace LeeHyperrealMod.Content.Observers
         public void Hook()
         {
             On.RoR2.Networking.NetworkManagerSystem.OnClientConnect += NetworkManagerSystem_OnClientConnect;
+            On.RoR2.HealthComponent.TakeDamage += HealthComponent_TakeDamage;
+        }
+
+        private void HealthComponent_TakeDamage(On.RoR2.HealthComponent.orig_TakeDamage orig, RoR2.HealthComponent self, RoR2.DamageInfo damageInfo)
+        {
+            orig(self, damageInfo);
         }
 
         private void NetworkManagerSystem_OnClientConnect(On.RoR2.Networking.NetworkManagerSystem.orig_OnClientConnect orig, RoR2.Networking.NetworkManagerSystem self, NetworkConnection conn)
@@ -102,6 +109,7 @@ namespace LeeHyperrealMod.Content.Observers
         public void Unhook()
         {
             On.RoR2.Networking.NetworkManagerSystem.OnClientConnect -= NetworkManagerSystem_OnClientConnect;
+            On.RoR2.HealthComponent.TakeDamage -= HealthComponent_TakeDamage;
         }
     }
 }
