@@ -36,9 +36,8 @@ Once this issue has been fixed on Gearbox's side, I will take this WARNING down 
 
 ## Latest Update
 
-- 1.1.2
-    - Fixed an issue making enemies become invincible if they were frozen during their death animation.
-    - Added support for Betterhudlite.
+- 1.1.3
+    - Removing warning on README. (LITERAL README UPDATE AAAGH)
 - 1.0.0
     - Initial Release!
 

@@ -1,5 +1,7 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
+- 1.1.3
+    - Removing warning on README. (LITERAL README UPDATE AAAGH)
 - 1.1.2
     - Fixed an issue making enemies become invincible if they were frozen during their death animation.
     - Added support for Betterhudlite.
