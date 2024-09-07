@@ -1,4 +1,5 @@
-﻿using RoR2;
+﻿using R2API;
+using RoR2;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -15,11 +16,17 @@ namespace LeeHyperrealMod.Content.Observers
             This component is a singleton that listens for damage events and stores them in a buffer.
             Damage events are stored in a buffer for a certain amount of time before being applied.
             If a buff that signifies a parry is active on a body, force the player state to be in a parry state, and do custom stuff on top of that.
+
+            Character Body -> character Master -> NetworkIdentity -> NetworkConnection
+
+            Get List of NetworkClients and store their ping.
+            
          */
 
         public static ParryDamageObserver instance { get; private set; }
         public static GameObject instanceContainer { get; private set; }
         public static List<BuffDef> buffsToTriggerOn = new List<BuffDef>();
+        public static List<string> bodyNamesToFocusOn = new List<string>{ $"{LeeHyperrealPlugin.DEVELOPER_PREFIX}_LEE_HYPERREAL_BODY_NAME", };
         public List<PlayerDamageContainers> playerList = new List<PlayerDamageContainers>();
 
         public static void CreateInstance()
@@ -74,6 +81,7 @@ namespace LeeHyperrealMod.Content.Observers
         public void Start()
         {
             Hook();
+            UpdateListOfPlayers();
         }
 
         public void UpdateListOfPlayers() 
@@ -88,8 +96,6 @@ namespace LeeHyperrealMod.Content.Observers
                     playerList.Add(new PlayerDamageContainers(client));
                 }
             }
-
-            Debug.Log("Player list updated!");
         }
 
         public void Update()
@@ -116,7 +122,9 @@ namespace LeeHyperrealMod.Content.Observers
 
                 for (int i = 0; i < damageToApply.Count; i++)
                 {
-                    
+                    DamageInfo dmgInfo = damageToApply[i].damageInfo;
+                    DamageAPI.AddModdedDamageType(dmgInfo, Modules.Damage.unparryable);
+                    damageToApply[i].healthComponent.TakeDamage(damageToApply[i].damageInfo);
                 }
             }
         }
@@ -137,11 +145,11 @@ namespace LeeHyperrealMod.Content.Observers
             bool applyDamage = true;
 
             //Grab Damage on body.
-            if (self?.body) 
+            if (self?.body && !damageInfo.HasModdedDamageType(Modules.Damage.unparryable)) 
             {
                 CharacterBody characterBody = self.body;
                 //Check if the body is a player
-                if (characterBody.isPlayerControlled) 
+                if (characterBody.isPlayerControlled && bodyNamesToFocusOn.Contains(characterBody.baseNameToken)) 
                 {
                     // Grab the damage and store it in a buffer.
                     // Need to match the NetworkClient to the player controlled object somehow.
@@ -151,7 +159,7 @@ namespace LeeHyperrealMod.Content.Observers
 
                         if (currentConnection == characterBody.master.GetComponent<NetworkIdentity>().clientAuthorityOwner) 
                         {
-                            playerList[i].modifiedDamageInfos.Add(new ModifiedDamageInfo(damageInfo, Time.time, playerList[i].connectionRTT));
+                            playerList[i].modifiedDamageInfos.Add(new ModifiedDamageInfo(damageInfo, Time.time, playerList[i].connectionRTT, self));
                             applyDamage = false;                 
                         }
                     }

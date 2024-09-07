@@ -11,12 +11,14 @@ namespace LeeHyperrealMod.Content.Observers
         public DamageInfo damageInfo;
         public double timestamp;
         public int rttAtTimeOfDamage; // Round trip time to player in milliseconds ( divide by 1000 to get seconds )
+        public HealthComponent healthComponent;
 
-        public ModifiedDamageInfo(DamageInfo damageInfo, double timestamp, int rttAtTimeOfDamage)
+        public ModifiedDamageInfo(DamageInfo damageInfo, double timestamp, int rttAtTimeOfDamage, HealthComponent healthComponent)
         {
             this.damageInfo = damageInfo;
             this.timestamp = timestamp;
             this.rttAtTimeOfDamage = rttAtTimeOfDamage;
+            this.healthComponent = healthComponent;
         }
     }
 }

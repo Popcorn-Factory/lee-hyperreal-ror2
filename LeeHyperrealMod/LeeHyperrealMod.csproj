@@ -30,6 +30,7 @@
         <PackageReference Include="R2API.Networking" Version="1.0.2" />
         <PackageReference Include="R2API.Language" Version="1.0.1" />
 		<PackageReference Include="R2API.DamageType" Version="1.1.1" />
+		<PackageReference Include="Rune580.Mods.RiskOfRain2.RiskOfOptions" Version="2.8.2" />
 	</ItemGroup>
 
   <ItemGroup>
@@ -41,9 +42,6 @@
     </Reference>
     <Reference Include="MMHOOK_RoR2">
       <HintPath>..\libs\MMHOOK_RoR2.dll</HintPath>
-    </Reference>
-    <Reference Include="RiskOfOptions">
-      <HintPath>..\libs\RiskOfOptions.dll</HintPath>
     </Reference>
   </ItemGroup>
 
