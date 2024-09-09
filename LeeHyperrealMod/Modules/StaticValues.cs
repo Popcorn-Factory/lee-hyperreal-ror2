@@ -15,6 +15,8 @@ namespace LeeHyperrealMod.Modules
 
         #region Character Stats
         internal const float baseMoveSpeed = 7f;
+        internal const float maxAttackSpeedScaling = 1.5f; // The maximum speedup allowed on moves.
+        internal const float inputMaxAttackSpeedOnBody = 5f; // The maximum input attack speed that scales with the aforementioned value.
         #endregion
 
         #region Primary 1
@@ -49,7 +51,7 @@ namespace LeeHyperrealMod.Modules
         #endregion
 
         #region Primary 4
-        internal const float primary4DamageCoefficient = 0.7f; // This is per tick!
+        internal const float primary4DamageCoefficient = 0.8f; // This is per tick!
         internal const float primary4ProcCoefficient = 1f;
         internal const float primary4BasePulseRate = 0.2f;
         internal const float primary4BlastRadius = 25f;
@@ -264,6 +266,12 @@ namespace LeeHyperrealMod.Modules
             }
 
             return outputVector;
+        }
+
+        public static float ScaleAttackSpeed(float inputAttackSpeed) 
+        {
+            float rangeBeforeConversion = Mathf.InverseLerp(1f, inputMaxAttackSpeedOnBody, inputAttackSpeed);
+            return Mathf.Lerp(1f, maxAttackSpeedScaling, rangeBeforeConversion);     
         }
         #endregion
     }

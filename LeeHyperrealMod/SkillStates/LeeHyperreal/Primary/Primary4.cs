@@ -36,6 +36,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
         private float bufferActiveTime;
         private float earlyExitTime;
         public float duration;
+        public float baseDuration = 3f;
         private float hitPauseTimer;
         private BlastAttack attack;
         protected bool inHitPause;
@@ -64,7 +65,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
             base.OnEnter();
             orbController = base.gameObject.GetComponent<OrbController>();
             domainController = this.GetComponent<LeeHyperrealDomainController>();
-            duration = 3f;
+            duration = baseDuration / Modules.StaticValues.ScaleAttackSpeed(attackSpeedStat);
             pulseRate = basePulseRate / this.attackSpeedStat;
             earlyExitTime = 0.48f;
 

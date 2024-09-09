@@ -93,13 +93,16 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
             parryMonitor = base.gameObject.GetComponent<ParryMonitor>();
             orbController = base.gameObject.GetComponent<OrbController>();
             bulletController = base.gameObject.GetComponent<BulletController>();
-            this.duration = this.baseDuration / 1f; //this.attackSpeedStat;
-            this.earlyExitTime = this.baseEarlyExitTime / 1f; //this.attackSpeedStat;
+
+            float modifiedAttackSpeedStat = Modules.StaticValues.ScaleAttackSpeed(attackSpeedStat);
+
+            this.duration = this.baseDuration / modifiedAttackSpeedStat; //this.attackSpeedStat;
+            this.earlyExitTime = this.baseEarlyExitTime / 1f; //this.attackSpeedStat; 
             this.hasFired = false;
             this.animator = base.GetModelAnimator();
             base.characterBody.outOfCombatStopwatch = 0f;
             this.animator.SetBool("attacking", true);
-            this.animator.SetFloat("attack.playbackRate", 1f);
+            this.animator.SetFloat("attack.playbackRate", modifiedAttackSpeedStat);
 
             attackAmount = (int)this.attackSpeedStat;
             if (attackAmount < 1) 

@@ -10,7 +10,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 {
     internal class Evade : BaseRootMotionMoverState
     {
+        public static float baseDuration = 2.0f;
         public static float duration = 2.0f;
+        public static float minimumDuration = 1.0f;
         public BulletController bulletController;
 
         public static float dodgeFOV = EntityStates.Commando.DodgeState.dodgeFOV;
@@ -26,7 +28,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
         private float movementMultiplier = 1.6f;
 
-        private float disableInvincibility = 0.15f;
+        private float disableInvincibility = 0.25f;
         public bool unsetSnipe = false;
         private float movementMultiplierPrimary3 = 3.0f;
 
@@ -50,17 +52,24 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                 }
             }
 
+            duration = baseDuration / attackSpeedStat;
+
+            if (duration < minimumDuration) 
+            {
+                duration = minimumDuration;
+            }
+
             previousMovementVector = characterMotor.velocity;
 
             animator = GetModelAnimator();
             forwardDirection = GetAimRay().direction;
             Vector3 backwardsDirection = forwardDirection * -1f;
-            animator.SetFloat("attack.playbackRate", 1f);
+            animator.SetFloat("attack.playbackRate", baseDuration/duration);
             moveVector = inputBank.moveVector;
             rmaMultiplier = movementMultiplier;
             if (NetworkServer.active)
             {
-                characterBody.AddTimedBuff(Modules.Buffs.invincibilityBuff.buffIndex, duration * disableInvincibility);
+                characterBody.AddTimedBuff(Modules.Buffs.invincibilityBuff.buffIndex, baseDuration * disableInvincibility);
             }
 
             ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
