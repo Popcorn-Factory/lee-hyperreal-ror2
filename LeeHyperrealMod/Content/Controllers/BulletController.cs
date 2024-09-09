@@ -121,7 +121,13 @@ namespace LeeHyperrealMod.Content.Controllers
                 priority = 0.2f,
             };
 
-            handle = cameraTargetParams.AddParamsOverride(request, 0.4f);
+            float transitionSpeed = 0.4f;
+            if (body) 
+            {
+                transitionSpeed /= body.attackSpeed;
+            }
+
+            handle = cameraTargetParams.AddParamsOverride(request, transitionSpeed);
         }
 
         public void Start() 

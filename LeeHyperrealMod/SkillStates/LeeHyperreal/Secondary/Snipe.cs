@@ -126,7 +126,40 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             base.characterMotor.velocity = new Vector3(0, 0, 0);
             base.characterDirection.moveVector = new Vector3(0, 0, 0);
 
-            if ((base.inputBank.skill4.justPressed || base.inputBank.skill3.justPressed || base.inputBank.skill2.justPressed) && isAuthority)
+            //Check for dodging. Otherwise ignore.
+            if (base.inputBank.skill3.justPressed && skillLocator.utility.stock >= 1 && !stockTaken)
+            {
+                if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
+                {
+                    skillLocator.utility.stock -= 1;
+                    stockTaken = true;
+                    Vector3 result = Modules.StaticValues.CheckDirection(inputBank.moveVector, GetAimRay());
+                    if (result == new Vector3(0, 0, 1))
+                    {
+                        base.outer.SetNextState(new Evade.Evade { unsetSnipe = true });
+                        return;
+                    }
+                    if (result == new Vector3(0, 0, 0))
+                    {
+                        base.outer.SetNextState(new EvadeBack360 { });
+                        return;
+                    }
+                    if (result == new Vector3(1, 0, 0))
+                    {
+                        base.outer.SetNextState(new EvadeSide { isLeftRoll = false });
+                        return;
+                    }
+                    if (result == new Vector3(-1, 0, 0))
+                    {
+                        base.outer.SetNextState(new EvadeSide { isLeftRoll = true });
+                        return;
+                    }
+
+                    return;
+                }
+            }
+
+            if ((base.inputBank.skill4.justPressed || base.inputBank.skill2.justPressed) && isAuthority)
             {
                 Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
             }
@@ -244,39 +277,6 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                         base.outer.SetNextState(new ExitSnipe());
                     }
                 }
-
-                //Check for dodging. Otherwise ignore.
-                if (base.inputBank.skill3.justPressed && skillLocator.utility.stock >= 1 && !stockTaken) 
-                {
-                    if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
-                    {
-                        skillLocator.utility.stock -= 1;
-                        stockTaken = true;
-                        Vector3 result = Modules.StaticValues.CheckDirection(inputBank.moveVector, GetAimRay());
-                        if (result == new Vector3(0, 0, 1))
-                        {
-                            base.outer.SetNextState(new Evade.Evade { unsetSnipe = true });
-                            return;
-                        }
-                        if (result == new Vector3(0, 0, 0))
-                        {
-                            base.outer.SetNextState(new EvadeBack360 { });
-                            return;
-                        }
-                        if (result == new Vector3(1, 0, 0))
-                        {
-                            base.outer.SetNextState(new EvadeSide { isLeftRoll = false });
-                            return;
-                        }
-                        if (result == new Vector3(-1, 0, 0))
-                        {
-                            base.outer.SetNextState(new EvadeSide { isLeftRoll = true });
-                            return;
-                        }
-
-                        return;
-                    }
-                }
             }
 
             if (age >= duration && base.isAuthority)
@@ -305,7 +305,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
         public override InterruptPriority GetMinimumInterruptPriority()
         {
-            return InterruptPriority.Frozen;
+            return InterruptPriority.PrioritySkill;
         }
     }
 }

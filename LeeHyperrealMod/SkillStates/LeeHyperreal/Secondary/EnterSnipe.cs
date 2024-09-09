@@ -15,7 +15,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         LeeHyperrealUIController uiController;
         BulletController bulletController;
         Animator animator;
-        public float duration = 2.133f;
+        public float baseDuration = 2.133f;
+        public float duration;
         public float earlyExitFrac = 0.22f;
         public bool consumedStocks = false;
         Vector3 velocity;
@@ -30,6 +31,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             base.characterBody.isSprinting = false;
             base.characterMotor.velocity = new Vector3(0, 0, 0);
             base.characterDirection.moveVector = new Vector3(0, 0, 0);
+
+            duration = baseDuration / base.attackSpeedStat;
 
             //Override the M1 skill with snipe.
             bulletController.SetSnipeStance();
@@ -157,7 +160,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     }
                 }
 
-                if ((base.inputBank.skill2.down || base.inputBank.skill4.down) && base.isAuthority)
+                if ((base.inputBank.skill2.justPressed || base.inputBank.skill3.justPressed || base.inputBank.skill4.justPressed) && base.isAuthority)
                 {
                     Modules.BodyInputCheckHelper.CheckForOtherInputs(skillLocator, isAuthority, inputBank);
                 }

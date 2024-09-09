@@ -16,7 +16,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         Animator animator;
         LeeHyperrealUIController uiController;
         BulletController bulletController;
-        public float duration = 1.74f;
+        public float baseDuration = 1.74f;
+        public float duration;
         public float earlyExitFrac = 0.225f;
 
         Vector3 velocity;
@@ -26,6 +27,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             base.OnEnter();
             uiController = gameObject.GetComponent<LeeHyperrealUIController>();
             bulletController = gameObject.GetComponent<BulletController>();
+
+            duration = baseDuration / base.attackSpeedStat;
 
             base.characterBody.isSprinting = false;
             //Enter the snipe stance, move to IdleSnipe
