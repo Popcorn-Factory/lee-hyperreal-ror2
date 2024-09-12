@@ -18,6 +18,7 @@ using System;
 using MonoMod.RuntimeDetour;
 using static RoR2.MasterSpawnSlotController;
 using RoR2.UI;
+using System.Runtime.CompilerServices;
 
 [module: UnverifiableCode]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
@@ -30,6 +31,7 @@ namespace LeeHyperrealMod
     [BepInDependency("com.bepis.r2api.unlockable", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("com.bepis.r2api.damagetype", BepInDependency.DependencyFlags.HardDependency)]
 
+    [BepInDependency("com.johnedwa.RTAutoSprintEx", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.KingEnderBrine.ExtraSkillSlots", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("bubbet.riskui", BepInDependency.DependencyFlags.SoftDependency)]
     [BepInDependency("com.rune580.riskofoptions", BepInDependency.DependencyFlags.SoftDependency)]
@@ -43,7 +45,7 @@ namespace LeeHyperrealMod
     {
         public const string MODUID = "com.PopcornFactory.LeeHyperrealMod";
         public const string MODNAME = "LeeHyperrealMod";
-        public const string MODVERSION = "1.1.3";
+        public const string MODVERSION = "1.1.4";
         
         public const string DEVELOPER_PREFIX = "POPCORN";
 
@@ -52,6 +54,7 @@ namespace LeeHyperrealMod
         public static bool isControllerCheck = false;
         public static bool isRiskUIInstalled = false;
         public static bool isBetterHudInstalled = false;
+        public static bool isAutoSprintActive = false;
         private static Hook AddBankAfterAKSoundEngineInit;
 
         private void Awake()
@@ -83,6 +86,10 @@ namespace LeeHyperrealMod
             if (Chainloader.PluginInfos.ContainsKey("com.TheTimeSweeper.BetterHudLite")) 
             {
                 isBetterHudInstalled = true;
+            }
+            if (Chainloader.PluginInfos.ContainsKey("com.johnedwa.RTAutoSprintEx")) 
+            {
+                isAutoSprintActive = true;
             }
 
             Modules.States.RegisterStates(); // register states for networking
@@ -152,6 +159,20 @@ namespace LeeHyperrealMod
             {
                 On.RoR2.SurvivorCatalog.Init += SurvivorCatalog_Init;
             }
+
+            if (isAutoSprintActive) 
+            {
+                SetupAutoSprintBlacklist();
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.NoInlining)]
+        public void SetupAutoSprintBlacklist() 
+        {
+            SendMessage("RT_SprintDisableMessage", "LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary.Snipe");
+            SendMessage("RT_SprintDisableMessage", "LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary.IdleSnipe");
+            SendMessage("RT_SprintDisableMessage", "LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary.ExitSnipe");
+            SendMessage("RT_SprintDisableMessage", "LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary.EnterSnipe");
         }
 
         private object Row_FromSkillSlot(On.RoR2.UI.LoadoutPanelController.Row.orig_FromSkillSlot orig, RoR2.UI.LoadoutPanelController owner, BodyIndex bodyIndex, int skillSlotIndex, GenericSkill skillSlot)

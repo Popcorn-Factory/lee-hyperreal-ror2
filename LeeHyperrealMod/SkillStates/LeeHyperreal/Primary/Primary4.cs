@@ -154,6 +154,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 Vector3 a = rma.ExtractRootMotion();
                 if (base.characterMotor)
                 {
+                    a.x *= Modules.StaticValues.ScaleMoveSpeed(moveSpeedStat);
+                    a.z *= Modules.StaticValues.ScaleMoveSpeed(moveSpeedStat);
+
                     base.characterMotor.rootMotion = a * scale;
                 }
             }

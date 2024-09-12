@@ -18,7 +18,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         BulletController bulletController;
         public float baseDuration = 1.74f;
         public float duration;
-        public float earlyExitFrac = 0.225f;
+        public float earlyExitFrac = 0.15f;
 
         Vector3 velocity;
 
@@ -68,6 +68,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
             base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
             if (age >= duration * earlyExitFrac && base.isAuthority)
             {
+                if (base.inputBank.jump.down)
+                {
+                    base.outer.SetNextState(new LeeHyperrealCharacterMain { forceJump = true });
+                    return;
+                }
+
+                if (base.inputBank.sprint.justPressed && characterBody.hasAuthority)
+                {
+                    base.outer.SetNextStateToMain();
+                    return;
+                }
+
                 if (base.inputBank.moveVector != Vector3.zero) 
                 {
                     base.outer.SetNextStateToMain();

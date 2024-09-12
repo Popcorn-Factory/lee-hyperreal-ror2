@@ -547,6 +547,12 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
 
             if (this.stopwatch >= (this.duration * this.moveCancelEndTime) && base.isAuthority) 
             {
+                if (base.inputBank.jump.down && characterBody.hasAuthority)
+                {
+                    base.outer.SetNextState(new LeeHyperrealCharacterMain { forceJump = true });
+                    return;
+                }
+
                 if (base.inputBank.moveVector != new Vector3(0, 0, 0)) 
                 {
                     if (!this.hasFired) this.FireAttack();

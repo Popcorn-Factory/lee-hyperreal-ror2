@@ -4,10 +4,6 @@ using LeeHyperrealMod.Modules.Networking;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.Evade;
 using R2API.Networking.Interfaces;
 using RoR2;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using Unity.Audio;
 using UnityEngine;
 using static LeeHyperrealMod.Content.Controllers.BulletController;
 
@@ -157,6 +153,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
                     return;
                 }
+            }
+
+            if (base.inputBank.jump.down && characterBody.hasAuthority)
+            {
+                base.outer.SetNextState(new LeeHyperrealCharacterMain { forceJump = true });
+                return;
+            }
+
+            if (base.inputBank.sprint.justPressed && characterBody.hasAuthority)
+            {
+                base.outer.SetNextStateToMain();
+                return;
             }
 
             if ((base.inputBank.skill4.justPressed || base.inputBank.skill2.justPressed) && isAuthority)

@@ -15,6 +15,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 {
     internal class EvadeSide : BaseRootMotionMoverState
     {
+        public static float baseDuration = 2.6f;
         public static float duration = 2.6f;
 
         public static string dodgeSoundString = "HenryRoll";
@@ -43,10 +44,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         public override void OnEnter()
         {
             base.OnEnter();
+            duration = baseDuration / attackSpeedStat;
             uiController = gameObject.GetComponent<LeeHyperrealUIController>();
             bulletController = gameObject.GetComponent<BulletController>();
             animator = GetModelAnimator();
-            animator.SetFloat("attack.playbackRate", 1f);
+            animator.SetFloat("attack.playbackRate", attackSpeedStat);
             rmaMultiplier = movementMultiplier;
             base.characterBody.isSprinting = false;
             weaponModelHandler = base.gameObject.GetComponent<WeaponModelHandler>();
@@ -62,7 +64,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
             if (NetworkServer.active) 
             {
-                characterBody.AddTimedBuff(Modules.Buffs.invincibilityBuff.buffIndex, duration * disableInvincibility);
+                characterBody.AddTimedBuff(Modules.Buffs.invincibilityBuff.buffIndex, baseDuration * disableInvincibility);
             }
 
             if (isAuthority)
@@ -86,6 +88,21 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
             PlayDodgeAnimation();
 
+        }
+
+        public override void UpdateMeleeRootMotion(float scale)
+        {
+            if (rma)
+            {
+                Vector3 a = rma.ExtractRootMotion();
+                if (base.characterMotor)
+                {
+                    a.x *= Modules.StaticValues.ScaleMoveSpeed(moveSpeedStat);
+                    a.z *= Modules.StaticValues.ScaleMoveSpeed(moveSpeedStat);
+
+                    base.characterMotor.rootMotion = a * scale;
+                }
+            }
         }
 
         public override void OnExit()

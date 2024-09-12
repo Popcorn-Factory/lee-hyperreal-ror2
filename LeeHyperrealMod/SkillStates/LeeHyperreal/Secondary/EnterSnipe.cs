@@ -112,6 +112,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
             if (age >= duration * earlyExitFrac && base.isAuthority) 
             {
+                if (base.inputBank.jump.down) 
+                {
+                    base.outer.SetNextState(new LeeHyperrealCharacterMain { forceJump = true });
+                    return;
+                }
+
+                if (base.inputBank.sprint.justPressed && characterBody.hasAuthority)
+                {
+                    base.outer.SetNextStateToMain();
+                    return;
+                }
+
                 if (base.inputBank.skill1.down) 
                 {
                     base.outer.SetNextState(new Snipe { });

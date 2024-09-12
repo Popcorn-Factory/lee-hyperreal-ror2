@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace LeeHyperrealMod.SkillStates
 {
@@ -14,6 +15,8 @@ namespace LeeHyperrealMod.SkillStates
         LeeHyperrealDomainController domainController;
         Transform baseTransform;
         int baseTransformIndex;
+
+        public bool forceJump;
 
         public override void OnEnter()
         {
@@ -37,6 +40,7 @@ namespace LeeHyperrealMod.SkillStates
 
             useRootMotion = true;
             domainController = base.gameObject.GetComponent<LeeHyperrealDomainController>();
+            BulletController bulletController = base.gameObject.GetComponent<BulletController>();
             base.OnEnter();
             if (this.modelAnimator)
             {
@@ -93,6 +97,18 @@ namespace LeeHyperrealMod.SkillStates
             ChildLocator childLocator = modelLocator.modelTransform.gameObject.GetComponent<ChildLocator>();
             baseTransform = childLocator.FindChild("BaseTransform");
             baseTransformIndex = childLocator.FindChildIndex("BaseTransform");
+
+            if (bulletController.inSnipeStance) 
+            {
+                //Override the M1 skill with snipe.
+                bulletController.UnsetSnipeStance();
+            }
+
+            if (forceJump) 
+            {
+                forceJump = false;
+                base.jumpInputReceived = true;
+            }
         }
 
         public override void ProcessJump()
@@ -137,6 +153,18 @@ namespace LeeHyperrealMod.SkillStates
                     base.outer.SetNextState(new EnterSnipe());
                 }
             }
+        }
+
+        public override void OnSerialize(NetworkWriter writer)
+        {
+            base.OnSerialize(writer);
+            writer.Write(forceJump);
+        }
+
+        public override void OnDeserialize(NetworkReader reader)
+        {
+            base.OnDeserialize(reader);
+            forceJump = reader.ReadBoolean();
         }
     }
 }

@@ -18,6 +18,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 {
     internal class EvadeBack360 : BaseRootMotionMoverState
     {
+        public static float baseDuration = 0.566f;
         public static float duration = 0.566f;
 
         public static string dodgeSoundString = "HenryRoll";
@@ -53,8 +54,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         {
             base.OnEnter();
             animator = GetModelAnimator();
+            duration = baseDuration / base.attackSpeedStat;
+
             uiController = gameObject.GetComponent<LeeHyperrealUIController>();
-            animator.SetFloat("attack.playbackRate", 1f);
+            animator.SetFloat("attack.playbackRate", base.attackSpeedStat);
             rmaMultiplier = movementMultiplier;
             bulletController = gameObject.GetComponent<BulletController>();
             orbController = gameObject.GetComponent<OrbController>();
@@ -82,7 +85,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
             if (NetworkServer.active)
             {
-                characterBody.AddTimedBuff(Modules.Buffs.invincibilityBuff.buffIndex, duration * disableInvincibility);
+                characterBody.AddTimedBuff(Modules.Buffs.invincibilityBuff.buffIndex, baseDuration * disableInvincibility);
             }
             Ray aimRay = base.GetAimRay();
             base.characterDirection.forward = aimRay.direction;
@@ -115,6 +118,21 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             base.OnExit();
         }
 
+        public override void UpdateMeleeRootMotion(float scale)
+        {
+            if (rma)
+            {
+                Vector3 a = rma.ExtractRootMotion();
+                if (base.characterMotor)
+                {
+                    a.x *= Modules.StaticValues.ScaleMoveSpeed(moveSpeedStat);
+                    a.z *= Modules.StaticValues.ScaleMoveSpeed(moveSpeedStat);
+
+                    base.characterMotor.rootMotion = a * scale;
+                }
+            }
+        }
+        
         public override void Update()
         {
             base.Update();

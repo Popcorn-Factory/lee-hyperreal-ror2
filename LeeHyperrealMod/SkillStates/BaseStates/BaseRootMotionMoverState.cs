@@ -44,7 +44,7 @@ namespace LeeHyperrealMod.SkillStates.BaseStates
         }
 
         // Token: 0x060003CA RID: 970 RVA: 0x0000F924 File Offset: 0x0000DB24
-        public void UpdateMeleeRootMotion(float scale)
+        public virtual void UpdateMeleeRootMotion(float scale)
         {
             if (rma)
             {

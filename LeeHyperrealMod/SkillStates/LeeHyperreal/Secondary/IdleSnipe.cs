@@ -72,6 +72,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                     }
                 }
 
+                if (base.inputBank.jump.down)
+                {
+                    base.outer.SetNextState(new LeeHyperrealCharacterMain { forceJump = true });
+                    return;
+                }
+
+                if (base.inputBank.sprint.justPressed && characterBody.hasAuthority)
+                {
+                    base.outer.SetNextStateToMain();
+                    return;
+                }
+
                 //Check for dodging. Otherwise ignore.
                 if (base.inputBank.skill3.justPressed && skillLocator.utility.stock >= 1 && !stocktaken) 
                 {

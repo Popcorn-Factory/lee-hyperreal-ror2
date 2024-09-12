@@ -64,7 +64,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             animator = GetModelAnimator();
             forwardDirection = GetAimRay().direction;
             Vector3 backwardsDirection = forwardDirection * -1f;
-            animator.SetFloat("attack.playbackRate", baseDuration/duration);
+            animator.SetFloat("attack.playbackRate", attackSpeedStat);
             moveVector = inputBank.moveVector;
             rmaMultiplier = movementMultiplier;
             if (NetworkServer.active)
@@ -124,6 +124,21 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
 
         }
 
+        public override void UpdateMeleeRootMotion(float scale)
+        {
+            if (rma)
+            {
+                Vector3 a = rma.ExtractRootMotion();
+                if (base.characterMotor)
+                {
+                    a.x *= Modules.StaticValues.ScaleMoveSpeed(moveSpeedStat);
+                    a.z *= Modules.StaticValues.ScaleMoveSpeed(moveSpeedStat);
+
+                    base.characterMotor.rootMotion = a * scale;
+                }
+            }
+        }
+
         public override void Update()
         {
             base.Update();
@@ -150,7 +165,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                         //Go to Primary 3.
                         if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                         {
-                            outer.SetNextState(new Primary.Primary3 { xzMovementMultiplier = movementMultiplierPrimary3 });
+                            outer.SetNextState(new Primary.Primary3 { xzMovementMultiplier = movementMultiplierPrimary3 * Modules.StaticValues.ScaleMoveSpeed(moveSpeedStat) });
                             return;
                         }
                     }
@@ -166,7 +181,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
                         if (base.outer.state.GetMinimumInterruptPriority() != EntityStates.InterruptPriority.Death)
                         {
                             //Go to Primary 3.
-                            outer.SetNextState(new Primary.Primary3 { xzMovementMultiplier = movementMultiplierPrimary3 });
+                            outer.SetNextState(new Primary.Primary3 { xzMovementMultiplier = movementMultiplierPrimary3 * Modules.StaticValues.ScaleMoveSpeed(moveSpeedStat) });
                             return;
                         }
                     }
