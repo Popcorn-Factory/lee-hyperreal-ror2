@@ -1,6 +1,7 @@
 ﻿using LeeHyperrealMod.SkillStates;
 using R2API.Networking.Interfaces;
 using RoR2;
+using System;
 using UnityEngine;
 using UnityEngine.Networking;
 
@@ -81,6 +82,15 @@ namespace LeeHyperrealMod.Modules.Networking
             {
                 if (stateMachine.customName == "Body")
                 {
+                    foreach (Type blacklistType in Modules.StaticValues.BLACKLIST_STATES) 
+                    {
+                        if (stateMachine.state.GetType() == blacklistType) 
+                        {
+                            return;
+                        }
+
+                    }
+
                     if (healthComponent.health > 0) //Fucking idiot.
                     {
                         stateMachine.SetNextState(new Freeze { duration = this.duration });

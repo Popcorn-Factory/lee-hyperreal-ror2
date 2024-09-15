@@ -45,7 +45,7 @@ namespace LeeHyperrealMod
     {
         public const string MODUID = "com.PopcornFactory.LeeHyperrealMod";
         public const string MODNAME = "LeeHyperrealMod";
-        public const string MODVERSION = "1.1.4";
+        public const string MODVERSION = "1.1.5";
         
         public const string DEVELOPER_PREFIX = "POPCORN";
 
@@ -98,6 +98,7 @@ namespace LeeHyperrealMod
             Modules.Tokens.AddTokens(); // register name tokens
             Modules.ItemDisplays.PopulateDisplays(); // collect item display prefabs for use in our display rules
             Modules.LeeHyperrealAssets.LatePopulateAssets();
+            Modules.StaticValues.AddBlacklistStates();
             // survivor initialization
             new LeeHyperreal().Initialize();
 

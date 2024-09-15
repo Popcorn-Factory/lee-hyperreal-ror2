@@ -1,6 +1,9 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
 
+- 1.1.5
+    - Added a list of states that prevent freeze from occurring on some enemies
+        - An example of this: Mithrix Item steal was being cancelled and the items would not be applied to either you or Mithrix. This state should be played out entirely.
 - 1.1.4
     - Added the ability to cancel Snipe stance by sprinting 
         - RTAutoSprint should not affect this, however if it does, let me know!

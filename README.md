@@ -36,23 +36,9 @@ Once this issue has been fixed on Gearbox's side, I will take this WARNING down 
 
 ## Latest Update
 
-- 1.1.4
-    - Added the ability to cancel Snipe stance by sprinting 
-        - RTAutoSprint should not affect this, however if it does, let me know!
-    - Added the ability to cancel Snipe stance by jumping.
-        - If you don't have any more jumps, you will simply cancel and not jump.
-    - Snipe Entry and Exit animations now scale with attack speed.
-    - Fixed using Reality Travel from not running when Sniping.
-    - Armament Barrage now scales with attack speed up to 135%.
-        - This max attack speed is achieved when reaching 250% attack speed.
-        - The timing for Parry is not changed even when attacking faster.
-    - Reality Travel now scales with movement speed up to 250%
-        - This max movement speed is achieved when reaching 2500% movement speed.
-        - Timing for invincibility should not be affected.
-    - Reality Travel now scales with attack speed
-    - Armament Barrage 4 scales with move speed
-        - Each pulse allows Lee to travel further with more move speed.
-        - Scaling is capped similar to Reality Travel.
+- 1.1.5
+    - Added a list of states that prevent freeze from occurring on some enemies
+        - An example of this: Mithrix Item steal was being cancelled and the items would not be applied to either you or Mithrix. This state should be played out entirely.
         
 - 1.0.0
     - Initial Release!

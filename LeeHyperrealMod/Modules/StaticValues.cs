@@ -226,6 +226,17 @@ namespace LeeHyperrealMod.Modules
         }
         #endregion
 
+        #region Blacklisted states to not freeze
+        //If the ESM is playing one of these states, don't freeze the esm.
+        internal static List<Type> BLACKLIST_STATES = new List<Type>();
+        public static void AddBlacklistStates()
+        {
+            BLACKLIST_STATES.Add(typeof(EntityStates.BrotherMonster.SpellChannelState));
+            BLACKLIST_STATES.Add(typeof(EntityStates.BrotherMonster.SpellChannelEnterState));
+            BLACKLIST_STATES.Add(typeof(EntityStates.BrotherMonster.SpellChannelExitState));
+        }
+        #endregion
+
         #region Static functions
         public static float c(int val) 
         {
