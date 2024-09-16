@@ -58,6 +58,8 @@ namespace LeeHyperrealMod.Content.Controllers
         public bool redInputConsumed = false;
         public bool yellowInputConsumed = false;
 
+        public float isCheckingInputTimer = 0f;
+
         public void Awake()
         {
             orbIncrementor = 0f;
@@ -207,6 +209,20 @@ namespace LeeHyperrealMod.Content.Controllers
                     }
                 }
 
+                //Failsafe in case this flag gets set, which happens often enough actually.
+                if (isCheckingInput) 
+                {
+                    isCheckingInputTimer += Time.deltaTime;
+                    if (isCheckingInputTimer >= 3f) 
+                    {
+                        isCheckingInput = false;
+                    }
+                }
+                if (!isCheckingInput) 
+                {
+                    isCheckingInputTimer = 0f;
+                }
+
 
                 if (uiController)
                 {
@@ -264,8 +280,24 @@ namespace LeeHyperrealMod.Content.Controllers
             {
                 SelectedIndex = 4;
             }
+            else if (UnityEngine.Input.GetKeyDown(Modules.Config.orb5Trigger.Value.MainKey) && !Modules.Config.useOrbAltTrigger.Value)
+            {
+                SelectedIndex = 5;
+            }
+            else if (UnityEngine.Input.GetKeyDown(Modules.Config.orb6Trigger.Value.MainKey) && !Modules.Config.useOrbAltTrigger.Value)
+            {
+                SelectedIndex = 6;
+            }
+            else if (UnityEngine.Input.GetKeyDown(Modules.Config.orb7Trigger.Value.MainKey) && !Modules.Config.useOrbAltTrigger.Value)
+            {
+                SelectedIndex = 7;
+            }
+            else if (UnityEngine.Input.GetKeyDown(Modules.Config.orb8Trigger.Value.MainKey) && !Modules.Config.useOrbAltTrigger.Value)
+            {
+                SelectedIndex = 8;
+            }
 
-            if (isAltPressed && SelectedIndex != -1)
+            if (isAltPressed && SelectedIndex != -1 && Modules.Config.useOrbAltTrigger.Value)
             {
                 SelectedIndex += 4;
             }

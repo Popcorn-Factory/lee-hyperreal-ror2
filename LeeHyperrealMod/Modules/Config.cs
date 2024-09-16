@@ -14,6 +14,11 @@ namespace LeeHyperrealMod.Modules
         public static ConfigEntry<KeyboardShortcut> orb2Trigger;
         public static ConfigEntry<KeyboardShortcut> orb3Trigger;
         public static ConfigEntry<KeyboardShortcut> orb4Trigger;
+        public static ConfigEntry<KeyboardShortcut> orb5Trigger;
+        public static ConfigEntry<KeyboardShortcut> orb6Trigger;
+        public static ConfigEntry<KeyboardShortcut> orb7Trigger;
+        public static ConfigEntry<KeyboardShortcut> orb8Trigger;
+        public static ConfigEntry<bool> useOrbAltTrigger;
         public static ConfigEntry<KeyboardShortcut> orbAltTrigger;
 
         public static ConfigEntry<KeyboardShortcut> blueOrbTrigger;
@@ -45,6 +50,12 @@ namespace LeeHyperrealMod.Modules
 
         public static void ReadConfig()
         {
+            useOrbAltTrigger = LeeHyperrealPlugin.instance.Config.Bind<bool>
+            (
+                new ConfigDefinition("01 - Orb Activation Controls", "Use Orb Alt Trigger"),
+                true,
+                new ConfigDescription("Determines whether the Alt key should be used to shift focus onto the latter half of the orbs. If set to false, Orb 5-8 slots will need to be inputted without the Alt key.", null, System.Array.Empty<object>())
+            );
             orb1Trigger = LeeHyperrealPlugin.instance.Config.Bind<KeyboardShortcut>
             (
                 new ConfigDefinition("01 - Orb Activation Controls", "Orb 1 Slot"),
@@ -69,6 +80,32 @@ namespace LeeHyperrealMod.Modules
                 new KeyboardShortcut(UnityEngine.KeyCode.Alpha4),
                 new ConfigDescription("Determines the key to trigger the orb in slot 4 (from the left).", null, System.Array.Empty<object>())
             );
+            orb5Trigger = LeeHyperrealPlugin.instance.Config.Bind<KeyboardShortcut>
+            (
+                new ConfigDefinition("01 - Orb Activation Controls", "Orb 5 Slot"),
+                new KeyboardShortcut(UnityEngine.KeyCode.Alpha5),
+                new ConfigDescription("Determines the key to trigger the orb in slot 5 (from the left). Requires Orb Alt Trigger to be off.", null, System.Array.Empty<object>())
+            );
+            orb6Trigger = LeeHyperrealPlugin.instance.Config.Bind<KeyboardShortcut>
+            (
+                new ConfigDefinition("01 - Orb Activation Controls", "Orb 6 Slot"),
+                new KeyboardShortcut(UnityEngine.KeyCode.Alpha6),
+                new ConfigDescription("Determines the key to trigger the orb in slot 6 (from the left). Requires Orb Alt Trigger to be off.", null, System.Array.Empty<object>())
+            );
+            orb7Trigger = LeeHyperrealPlugin.instance.Config.Bind<KeyboardShortcut>
+            (
+                new ConfigDefinition("01 - Orb Activation Controls", "Orb 7 Slot"),
+                new KeyboardShortcut(UnityEngine.KeyCode.Alpha7),
+                new ConfigDescription("Determines the key to trigger the orb in slot 7 (from the left). Requires Orb Alt Trigger to be off.", null, System.Array.Empty<object>())
+            );
+            orb8Trigger = LeeHyperrealPlugin.instance.Config.Bind<KeyboardShortcut>
+            (
+                new ConfigDefinition("01 - Orb Activation Controls", "Orb 8 Slot"),
+                new KeyboardShortcut(UnityEngine.KeyCode.Alpha8),
+                new ConfigDescription("Determines the key to trigger the orb in slot 8 (from the left). Requires Orb Alt Trigger to be off.", null, System.Array.Empty<object>())
+            );
+
+
             orbAltTrigger = LeeHyperrealPlugin.instance.Config.Bind<KeyboardShortcut>
             (
                 new ConfigDefinition("01 - Orb Activation Controls", "Orb Alt Trigger"),
@@ -180,10 +217,15 @@ namespace LeeHyperrealMod.Modules
 
             ModSettingsManager.AddOption(new CheckBoxOption(isSimple));
 
+            ModSettingsManager.AddOption(new CheckBoxOption(useOrbAltTrigger));
             ModSettingsManager.AddOption( new KeyBindOption(orb1Trigger) );
             ModSettingsManager.AddOption( new KeyBindOption(orb2Trigger) );
             ModSettingsManager.AddOption( new KeyBindOption(orb3Trigger) );
             ModSettingsManager.AddOption( new KeyBindOption(orb4Trigger) );
+            ModSettingsManager.AddOption(new KeyBindOption(orb5Trigger));
+            ModSettingsManager.AddOption(new KeyBindOption(orb6Trigger));
+            ModSettingsManager.AddOption(new KeyBindOption(orb7Trigger));
+            ModSettingsManager.AddOption(new KeyBindOption(orb8Trigger));
             ModSettingsManager.AddOption( new KeyBindOption(orbAltTrigger) );
 
             ModSettingsManager.AddOption( new KeyBindOption(blueOrbTrigger) );

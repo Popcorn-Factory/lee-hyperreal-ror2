@@ -1,6 +1,11 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
 
+- 1.1.6
+    - Added the option to remove Alt orb trigger and opt for 8 separate orb buttons in non-simple mode.
+        - If you wish to use this mode, Uncheck simple mode, Uncheck Orb Alt trigger and setup the buttons for 1-8.
+    - Added a failsafe for Orbs when unable to be triggered for longer than 3 seconds. 
+    - Removed log spam on first stage from Lee's pod.
 - 1.1.5
     - Added a list of states that prevent freeze from occurring on some enemies
         - An example of this: Mithrix Item steal was being cancelled and the items would not be applied to either you or Mithrix. This state should be played out entirely.

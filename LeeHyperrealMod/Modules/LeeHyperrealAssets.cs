@@ -183,7 +183,8 @@ namespace LeeHyperrealMod.Modules
             podController.cameraBone = leeSurvivorPod.transform.GetChild(4);
 
             ////Setup the ESM/NSM
-            EntityStateMachine podESM = leeSurvivorPod.AddComponent<EntityStateMachine>();
+            // This is added when SurvivorPodController is added
+            EntityStateMachine podESM = leeSurvivorPod.GetComponent<EntityStateMachine>();
             podESM.customName = "Main";
             podESM.initialStateType = new SerializableEntityStateType(typeof(SkillStates.LeeHyperrealSurvivorPod.Idle));
             podESM.mainStateType = new SerializableEntityStateType(typeof(SkillStates.LeeHyperrealSurvivorPod.Idle));

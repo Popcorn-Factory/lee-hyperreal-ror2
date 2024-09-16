@@ -16,12 +16,6 @@ On either the RoR2 modding discord, or in the <a href="https://discord.gg/ahDsUF
 
 Use of Risk Of Options is highly recommended! If some options don't exist even after an update, please wipe your config and try check again.
 
-# WARNING:
-Due to the Seekers of the Storm update changing how often the game updates certain functions in code, timings for a lot of things have gone out of wack. 
-This means that if your FPS goes under 60, you may experience a more than unpleasant experience playing this mod. Similarly if you exceed 60FPS, you may find that a lot of your moves cancel a lot faster, and your distance travelled is shortened. This is due to the aforementioned issues brought from SotS.
-
-Once this issue has been fixed on Gearbox's side, I will take this WARNING down as a sign that this mod should be fully playable at all framerates.
-
 ## Mod Interoperability List:
 - EmoteAPI / CustomEmotesAPI
 - RiskOfOptions
@@ -36,9 +30,11 @@ Once this issue has been fixed on Gearbox's side, I will take this WARNING down 
 
 ## Latest Update
 
-- 1.1.5
-    - Added a list of states that prevent freeze from occurring on some enemies
-        - An example of this: Mithrix Item steal was being cancelled and the items would not be applied to either you or Mithrix. This state should be played out entirely.
+- 1.1.6
+    - Added the option to remove Alt orb trigger and opt for 8 separate orb buttons in non-simple mode.
+        - If you wish to use this mode, Uncheck simple mode, Uncheck Orb Alt trigger and setup the buttons for 1-8.
+    - Added a failsafe for Orbs when unable to be triggered for longer than 3 seconds. 
+    - Removed log spam on first stage from Lee's pod.
         
 - 1.0.0
     - Initial Release!

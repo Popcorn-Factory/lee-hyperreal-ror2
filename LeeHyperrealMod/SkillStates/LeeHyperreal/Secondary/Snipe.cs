@@ -80,7 +80,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
 
 
 
-            base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
+            base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 300f, Time.deltaTime);
 
 
             //characterBody.SetAimTimer(duration + 1f);
@@ -178,7 +178,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
                 AkSoundEngine.PostEvent("Play_c_liRk4_atk_ex_3_reload", base.gameObject);
             }
 
-            base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
+            base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 300f, Time.deltaTime);
             if (age >= duration * firingFrac && !hasFired)
             {
                 PlayAttackAnimation();

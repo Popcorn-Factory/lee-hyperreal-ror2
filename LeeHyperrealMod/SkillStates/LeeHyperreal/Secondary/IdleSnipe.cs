@@ -56,7 +56,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary
         {
             base.Update();
 
-            base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 100f, Time.deltaTime);
+            base.characterDirection.forward = Vector3.SmoothDamp(base.characterDirection.forward, base.inputBank.aimDirection, ref velocity, 0.1f, 300f, Time.deltaTime);
             base.characterDirection.moveVector = new Vector3(0, 0, 0);
             base.characterMotor.velocity = new Vector3(0, 0, 0);
 
