@@ -1,6 +1,13 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
 
+- 1.1.7
+    - Added Stun on hit for the following moves:
+        - Armament Barrage 3
+        - Armament Barrage 5
+        - Armament Barrage Aerial Slam
+        - Armament Barrage Hypermatrix Aerial Slam
+    - Added some logic to allow the character to be played even if the UI doesn't display.
 - 1.1.6
     - Added the option to remove Alt orb trigger and opt for 8 separate orb buttons in non-simple mode.
         - If you wish to use this mode, Uncheck simple mode, Uncheck Orb Alt trigger and setup the buttons for 1-8.

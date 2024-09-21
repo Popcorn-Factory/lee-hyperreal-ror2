@@ -30,11 +30,13 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
 
 ## Latest Update
 
-- 1.1.6
-    - Added the option to remove Alt orb trigger and opt for 8 separate orb buttons in non-simple mode.
-        - If you wish to use this mode, Uncheck simple mode, Uncheck Orb Alt trigger and setup the buttons for 1-8.
-    - Added a failsafe for Orbs when unable to be triggered for longer than 3 seconds. 
-    - Removed log spam on first stage from Lee's pod.
+- 1.1.7
+    - Added Stun on hit for the following moves:
+        - Armament Barrage 3
+        - Armament Barrage 5
+        - Armament Barrage Aerial Slam
+        - Armament Barrage Hypermatrix Aerial Slam
+    - Added some logic to allow the character to be played even if the UI doesn't display.
         
 - 1.0.0
     - Initial Release!
