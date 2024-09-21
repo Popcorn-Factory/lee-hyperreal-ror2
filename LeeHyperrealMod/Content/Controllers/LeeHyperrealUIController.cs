@@ -27,6 +27,10 @@ namespace LeeHyperrealMod.Content.Controllers
         public bool baseAIPresent;
         public bool enabledUI;
 
+        public bool failedToInitialize;
+        public const int MAX_FAIL_ATTEMPTS = 50;
+        public int failAttempts = 0;
+
 
         #region Orb Variables
         private int maxShownOrbs = 8;
@@ -265,7 +269,7 @@ namespace LeeHyperrealMod.Content.Controllers
         {
             if (characterBody.hasEffectiveAuthority)
             {
-                if (!isInitialized) 
+                if (!isInitialized && !failedToInitialize) 
                 {
                     try
                     {
@@ -274,12 +278,19 @@ namespace LeeHyperrealMod.Content.Controllers
                     catch (NullReferenceException e)
                     {
                         Debug.Log($"Lee: Hyperreal - NRE on UI Initialization, trying again: {e}");
+                        failAttempts++;
+
+                        if (failAttempts >= MAX_FAIL_ATTEMPTS) 
+                        {
+                            failedToInitialize = true;
+                            Debug.Log($"Lee: Hyperreal UI failed to initialize after more than {MAX_FAIL_ATTEMPTS} attempts. Stopping attempts to initialize.");
+                        }
                     }
 
                     return;
                 }
 
-                if (!baseAIPresent) 
+                if (!baseAIPresent && isInitialized) 
                 {
                     UpdateHealthUIObject();
                     UpdateMeterLevel();
@@ -294,6 +305,11 @@ namespace LeeHyperrealMod.Content.Controllers
 
         private void LateUpdatePositions()
         {
+            if (!orbUIObject || !RoRHUDSpringCanvasTransform) 
+            {
+                return;
+            }
+
             if (LeeHyperrealPlugin.isRiskUIInstalled)
             {
                 orbUIObject.transform.localScale = new Vector3(0.7f, 0.7f, 0.7f);
@@ -386,6 +402,11 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void UpdateHealthUIObject() 
         {
+            if (!characterBody) 
+            {
+                return;
+            }
+
             if (characterBody.HasBuff(Modules.Buffs.parryBuff.buffIndex)) 
             {
                 SetActiveHealthUIObject(true, Modules.StaticValues.parryInvincibility);
@@ -794,6 +815,10 @@ namespace LeeHyperrealMod.Content.Controllers
         //Index is 0 indexed.
         public void PingSpecificOrb(int index)
         {
+            if (!isInitialized || failedToInitialize) 
+            {
+                return;
+            }
             try
             {
                 orbAnimators[index].SetTrigger("isPinged");
@@ -808,6 +833,11 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void UpdateOrbList(List<OrbController.OrbType> orbsList)
         {
+            if (!isInitialized || failedToInitialize) 
+            {
+                return;
+            }
+
             if (orbsList.Count == 0)
             {
                 //Clear everything
@@ -1010,8 +1040,8 @@ namespace LeeHyperrealMod.Content.Controllers
         }
 
         public void SetBulletStates(List<BulletController.BulletType> bulletTypes) 
-        {
-            if (baseAIPresent)
+        {                
+            if (baseAIPresent || !isInitialized || failedToInitialize)
             {
                 return;
             }
@@ -1071,7 +1101,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void SetEnhancedBulletState(int bulletCount)
         {
-            if (baseAIPresent) 
+            if (baseAIPresent || !isInitialized || failedToInitialize) 
             {
                 return;
             }
