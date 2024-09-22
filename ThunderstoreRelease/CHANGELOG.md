@@ -1,6 +1,9 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
 
+- 1.1.8 
+    - Added input reset on yellow orb skill to prevent lockups. 
+        - Thanks to .score for finding this bug.
 - 1.1.7
     - Added Stun on hit for the following moves:
         - Armament Barrage 3

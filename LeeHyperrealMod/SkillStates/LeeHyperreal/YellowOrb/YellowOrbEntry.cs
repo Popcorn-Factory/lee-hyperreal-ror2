@@ -85,6 +85,10 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
         public override void OnExit()
         {
             base.OnExit();
+            if (orbController)
+            {
+                orbController.isExecutingSkill = false;
+            }
         }
 
         public override void Update()

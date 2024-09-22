@@ -30,13 +30,9 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
 
 ## Latest Update
 
-- 1.1.7
-    - Added Stun on hit for the following moves:
-        - Armament Barrage 3
-        - Armament Barrage 5
-        - Armament Barrage Aerial Slam
-        - Armament Barrage Hypermatrix Aerial Slam
-    - Added some logic to allow the character to be played even if the UI doesn't display.
+- 1.1.8 
+    - Added input reset on yellow orb skill to prevent lockups. 
+        - Thanks to .score for finding this bug.
         
 - 1.0.0
     - Initial Release!
@@ -143,5 +139,6 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
         - Icons
     - SockpuppetSalesman (orien85) - Lore
     - iDeathHD (xiaoxiao921) - Fixing some bugs with snipe aim
+    - .score - Finding input bug edgecase
     - Those on the RoR2 Modding discord having to put up with my cryptic programming issues, thanks for helping!
     - Whoever tested during development and found issues, Thanks!
