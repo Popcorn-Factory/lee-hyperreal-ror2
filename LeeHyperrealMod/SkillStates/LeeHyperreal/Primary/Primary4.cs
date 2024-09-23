@@ -91,7 +91,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 canRejectForce = false,
                 procChainMask = new ProcChainMask(),
                 procCoefficient = Modules.StaticValues.primary4ProcCoefficient,
-                impactEffect = EffectCatalog.FindEffectIndexFromPrefab(Modules.ParticleAssets.primary4Hit)
+                impactEffect = EffectCatalog.FindEffectIndexFromPrefab(Modules.ParticleAssets.primary4Hit),
+                attackerFiltering = AttackerFiltering.NeverHitSelf
         };
 
             stopwatch = 0f;

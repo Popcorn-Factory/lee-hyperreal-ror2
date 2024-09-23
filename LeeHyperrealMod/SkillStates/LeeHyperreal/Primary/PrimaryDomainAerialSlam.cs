@@ -132,6 +132,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 canRejectForce = false,
                 procChainMask = new ProcChainMask(),
                 procCoefficient = procCoefficient,
+                attackerFiltering = AttackerFiltering.NeverHitSelf
                 //impactEffect = EffectCatalog.FindEffectIndexFromPrefab(Modules.ParticleAssets.primary4Hit)
             };
             BlastAttack.Result result = attack.Fire();

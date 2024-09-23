@@ -115,6 +115,7 @@ namespace LeeHyperrealMod.SkillStates
                         canRejectForce = false,
                         procChainMask = new ProcChainMask(),
                         procCoefficient = 1f,
+                        attackerFiltering = AttackerFiltering.NeverHitSelf
                     }.Fire();
                 }
             }

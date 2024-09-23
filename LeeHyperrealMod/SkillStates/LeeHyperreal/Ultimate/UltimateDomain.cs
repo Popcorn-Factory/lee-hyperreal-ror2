@@ -152,6 +152,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
                 canRejectForce = false,
                 procChainMask = new ProcChainMask(),
                 procCoefficient = procCoefficient,
+                attackerFiltering = AttackerFiltering.NeverHitSelf
             };
 
             base.GetModelAnimator().SetFloat("attack.playbackRate", 1f);

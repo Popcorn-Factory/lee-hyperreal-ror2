@@ -344,7 +344,9 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
         private void SpawnBlastFromRay(Ray ray)
         {
             //Get CannonEnd transform
-            // Hijack the ray so that it fires from the cannon end 
+            // Hijack?? Who tf said this was being hijacked?
+            // ... it was probably me.
+            // the ray so that it fires from the cannon end 
             ray.origin = cannonEndTransform.position;
 
             RaycastHit hit;
@@ -355,6 +357,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             }
             else 
             {
+                //Fire 20 units in front of him.
                 new UltimateObjectSpawnNetworkRequest(characterBody.netId, ray.origin + (ray.direction * 20f)).Send(NetworkDestination.Clients);
             }
 

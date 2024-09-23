@@ -104,6 +104,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 canRejectForce = false,
                 procChainMask = new ProcChainMask(),
                 procCoefficient = Modules.StaticValues.yellowOrbProcCoefficient,
+                attackerFiltering = AttackerFiltering.NeverHitSelf
             };
 
 

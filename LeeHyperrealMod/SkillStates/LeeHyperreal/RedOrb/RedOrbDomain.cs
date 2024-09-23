@@ -113,6 +113,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 canRejectForce = false,
                 procChainMask = new ProcChainMask(),
                 procCoefficient = procCoefficient,
+                attackerFiltering = AttackerFiltering.NeverHitSelf
             };
 
             if (domainController)

@@ -123,7 +123,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 canRejectForce = false,
                 procChainMask = new ProcChainMask(),
                 procCoefficient = 1f,
-                impactEffect = EffectCatalog.FindEffectIndexFromPrefab(Modules.ParticleAssets.blueOrbHit)
+                impactEffect = EffectCatalog.FindEffectIndexFromPrefab(Modules.ParticleAssets.blueOrbHit),
+                attackerFiltering = AttackerFiltering.NeverHitSelf
             };
 
 
@@ -154,7 +155,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 spreadPitchScale = 0f,
                 spreadYawScale = 0f,
                 queryTriggerInteraction = QueryTriggerInteraction.UseGlobal,
-                hitEffectPrefab = Modules.ParticleAssets.blueOrbHit,
+                hitEffectPrefab = Modules.ParticleAssets.blueOrbHit
             };
 
             base.characterDirection.forward = inputBank.aimDirection;

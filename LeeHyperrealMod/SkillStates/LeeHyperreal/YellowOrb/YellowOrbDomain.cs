@@ -94,6 +94,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 canRejectForce = false,
                 procChainMask = new ProcChainMask(),
                 procCoefficient = procCoefficient,
+                attackerFiltering = AttackerFiltering.NeverHitSelf
             };
 
             BlastAttack.Result result1 =
@@ -114,6 +115,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.YellowOrb
                 canRejectForce = false,
                 procChainMask = new ProcChainMask(),
                 procCoefficient = procCoefficient,
+                attackerFiltering = AttackerFiltering.NeverHitSelf
 
             }.Fire();
 
