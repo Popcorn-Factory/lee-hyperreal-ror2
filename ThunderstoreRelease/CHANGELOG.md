@@ -1,6 +1,8 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
 
+- 1.1.9
+    - Fixed Lee hitting himself when doing a blast attack with Artifact of Chaos enabled.
 - 1.1.8 
     - Added input reset on yellow orb skill to prevent lockups. 
         - Thanks to .score for finding this bug.

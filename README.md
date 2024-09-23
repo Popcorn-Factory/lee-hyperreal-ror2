@@ -30,9 +30,8 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
 
 ## Latest Update
 
-- 1.1.8 
-    - Added input reset on yellow orb skill to prevent lockups. 
-        - Thanks to .score for finding this bug.
+- 1.1.9
+    - Fixed Lee hitting himself when doing a blast attack with Artifact of Chaos enabled.
         
 - 1.0.0
     - Initial Release!
