@@ -14,6 +14,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         public static float duration = 2.0f;
         public static float minimumDuration = 1.0f;
         public BulletController bulletController;
+        public OrbController orbController;
 
         public static float dodgeFOV = EntityStates.Commando.DodgeState.dodgeFOV;
 
@@ -41,6 +42,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             base.OnEnter();
 
             bulletController = gameObject.GetComponent<BulletController>();
+            orbController = gameObject.GetComponent<OrbController>();
+
+            if (orbController) 
+            {
+                orbController.isExecutingSkill = false;
+            }
 
             if (bulletController && unsetSnipe) 
             {

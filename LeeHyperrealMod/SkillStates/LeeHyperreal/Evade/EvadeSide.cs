@@ -40,6 +40,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
         WeaponModelHandler weaponModelHandler; 
         LeeHyperrealUIController uiController;
         BulletController bulletController;
+        OrbController orbController;
 
         public override void OnEnter()
         {
@@ -47,6 +48,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             duration = baseDuration / attackSpeedStat;
             uiController = gameObject.GetComponent<LeeHyperrealUIController>();
             bulletController = gameObject.GetComponent<BulletController>();
+            orbController = gameObject.GetComponent<OrbController>();
             animator = GetModelAnimator();
             animator.SetFloat("attack.playbackRate", attackSpeedStat);
             rmaMultiplier = movementMultiplier;
@@ -61,6 +63,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             base.characterMotor.gravityParameters = gravParams;
 
             //Receive the var from the previous state, run animation.
+
+            if (orbController)
+            {
+                orbController.isExecutingSkill = false;
+            }
 
             if (NetworkServer.active) 
             {

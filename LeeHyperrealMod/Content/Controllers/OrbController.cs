@@ -59,6 +59,7 @@ namespace LeeHyperrealMod.Content.Controllers
         public bool yellowInputConsumed = false;
 
         public float isCheckingInputTimer = 0f;
+        public float isExecutingInputTimer = 0f;
 
         public void Awake()
         {
@@ -216,12 +217,27 @@ namespace LeeHyperrealMod.Content.Controllers
                     if (isCheckingInputTimer >= 3f) 
                     {
                         isCheckingInput = false;
+                        isCheckingInputTimer = 0f;
                     }
                 }
                 if (!isCheckingInput) 
                 {
                     isCheckingInputTimer = 0f;
                 }
+                if (isExecutingSkill)
+                {
+                    isExecutingInputTimer += Time.deltaTime;
+                    if (isExecutingInputTimer >= 3f)
+                    {
+                        isExecutingSkill = false;
+                        isExecutingInputTimer = 0f;
+                    }
+                }
+                if (!isExecutingSkill)
+                {
+                    isExecutingInputTimer = 0f;
+                }
+
 
 
                 if (uiController)

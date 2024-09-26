@@ -63,6 +63,12 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Evade
             orbController = gameObject.GetComponent<OrbController>();
             domainController = gameObject.GetComponent<LeeHyperrealDomainController>();
             base.characterBody.isSprinting = false;
+
+            if (orbController)
+            {
+                orbController.isExecutingSkill = false;
+            }
+
             if (bulletController.ConsumeEnhancedBullet(1))
             {
                 empoweredBulletMultiplier = 2.0f;
