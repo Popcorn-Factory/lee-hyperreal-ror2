@@ -81,7 +81,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Primary
                 teamIndex = base.GetTeam(),
                 position = base.gameObject.transform.position,
                 radius = shootRadius,
-                falloffModel = BlastAttack.FalloffModel.SweetSpot,
+                falloffModel = BlastAttack.FalloffModel.None,
                 baseDamage = this.damageStat * damageCoefficient,
                 baseForce = 0f,
                 bonusForce = Vector3.zero,

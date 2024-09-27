@@ -1,6 +1,10 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
 
+- 1.1.10
+    - Added more fallbacks to prevent lockups on orb inputs.
+    - Changed Armament Barrage 4 to deal uniform damage regardless of distance.
+    - Updated dependencies to reduce incompatibilities.
 - 1.1.9
     - Fixed Lee hitting himself when doing a blast attack with Artifact of Chaos enabled.
 - 1.1.8 

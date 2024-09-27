@@ -30,8 +30,10 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
 
 ## Latest Update
 
-- 1.1.9
-    - Fixed Lee hitting himself when doing a blast attack with Artifact of Chaos enabled.
+- 1.1.10
+    - Added more fallbacks to prevent lockups on orb inputs.
+    - Changed Armament Barrage 4 to deal uniform damage regardless of distance.
+    - Updated dependencies to reduce incompatibilities.
         
 - 1.0.0
     - Initial Release!
