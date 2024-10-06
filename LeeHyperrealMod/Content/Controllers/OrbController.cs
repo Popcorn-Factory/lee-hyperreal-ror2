@@ -429,7 +429,9 @@ namespace LeeHyperrealMod.Content.Controllers
 
             isCheckingInput = true;
             List<Tuple<OrbType, Nullable<int>>> typeList = new List<Tuple<OrbType, Nullable<int>>>();
-            for (int i = 0; i < orbList.Count; i++) 
+
+            //Build a list of types and group them.
+            for (int i = 0; i < orbList.Count; i++)
             {
                 if (i == 0)
                 {
@@ -437,20 +439,25 @@ namespace LeeHyperrealMod.Content.Controllers
                 }
                 else 
                 {
-                    //Type if matches
-                    if (typeList[typeList.Count - 1].Item1 == orbList[i])
+                    //Type if matches the previous type.
+                    if (typeList[typeList.Count - 1].Item1 == orbList[i]) 
                     {
                         // BRUGH LMAOOO
+                        //Update the type and add to the strength count.
                         typeList[typeList.Count - 1] = new Tuple<OrbType, Nullable<int>>(typeList[typeList.Count - 1].Item1, typeList[typeList.Count - 1].Item2 + 1);
                     } 
                     else 
                     {
                         // Type if not matched.
+                        //Create a new entry in type list.
                         typeList.Add(new Tuple<OrbType, Nullable<int>>(orbList[i], 1));
                     }
                 }
             }
 
+
+            //Check the list for the slot to consume from.
+            //Increment by adding the strength of the previous type, and checking if the selected index is within that range.
             Nullable<int> slotPos = 0;
             bool found = false;
             for (int i = 0; i < typeList.Count; i++) 
@@ -480,6 +487,8 @@ namespace LeeHyperrealMod.Content.Controllers
 
                         startingIndex += (int)typeList[j].Item2;
                     }
+
+                    //Debug.Log($"Non-simple: executed {typeList[i].Item1} : {typeList[i].Item2} ");
 
                     ClearSuggestedOrbs(indexes);
                     TriggerOrbState((int)typeList[i].Item2, typeList[i].Item1);

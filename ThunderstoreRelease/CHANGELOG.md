@@ -1,6 +1,13 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
 
+- 1.1.11
+    - Fixed an issue regarding Non-simple control inputs where orb groupings greater than 3 would not trigger 3-ping effects
+        - 3-ping effects include:
+            - Stronger orb effects
+            - Coloured Bullet retrieval
+        - These should now run properly if using Non-simple control inputs.
+        - Simple mode was not affected in anyway.
 - 1.1.10
     - Added more fallbacks to prevent lockups on orb inputs.
     - Changed Armament Barrage 4 to deal uniform damage regardless of distance.

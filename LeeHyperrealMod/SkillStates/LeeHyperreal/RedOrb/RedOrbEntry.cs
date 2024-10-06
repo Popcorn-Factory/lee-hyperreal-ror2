@@ -44,7 +44,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                         //Set state accordingly.
 
                         //Grant stack if hitting the right amount
-                        if (moveStrength == 3)
+                        if (moveStrength >= 3)
                         {
                             domainController.GrantIntuitionStack(1);
                             domainController.AddEnergy(Modules.StaticValues.energyReturnedPer3ping);
@@ -63,12 +63,13 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.RedOrb
                 {
                     if (moveStrength > 0)
                     {
-                        this.outer.SetNextState(new RedOrb { moveStrength = moveStrength });
-
-                        if (moveStrength == 3) 
+                        if (moveStrength >= 3)
                         {
                             bulletController.GrantColouredBullet(BulletController.BulletType.RED);
                         }
+                        this.outer.SetNextState(new RedOrb { moveStrength = moveStrength });
+
+ 
                         return;
                     }
                     else

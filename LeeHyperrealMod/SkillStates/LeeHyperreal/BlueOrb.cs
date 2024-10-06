@@ -87,11 +87,11 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
             //    bulletController.UnsetSnipeStance();
             //}
 
-            if (moveStrength == 3 && isAuthority && !domainController.GetDomainState())
+            if (moveStrength >= 3 && isAuthority && !domainController.GetDomainState())
             {
                 bulletController.GrantColouredBullet(BulletController.BulletType.BLUE);
             }
-            if (moveStrength == 3 && domainController.GetDomainState())
+            if (moveStrength >= 3 && domainController.GetDomainState())
             {
                 domainController.GrantIntuitionStack(1);
                 domainController.AddEnergy(Modules.StaticValues.energyReturnedPer3ping);
@@ -114,7 +114,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal
                 position = base.gameObject.transform.position + (GetAimRay().direction * 2.5f),
                 radius = Modules.StaticValues.blueOrbBlastRadius,
                 falloffModel = BlastAttack.FalloffModel.None,
-                baseDamage = this.damageStat * Modules.StaticValues.blueOrbBlastRadius * (moveStrength == 3 ? Modules.StaticValues.blueOrbTripleMultiplier : 1),
+                baseDamage = this.damageStat * Modules.StaticValues.blueOrbBlastRadius * (moveStrength >= 3 ? Modules.StaticValues.blueOrbTripleMultiplier : 1),
                 baseForce = 0f,
                 bonusForce = Vector3.zero,
                 crit = this.RollCrit(),
