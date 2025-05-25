@@ -1,11 +1,11 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
 
-- v2.1.0 -> Bug bashing + QoL
+- v2.1.0 -> QoL + Touch-ups + Bug bashing
     - Added new animation for Sprinting when movespeed is high enough (aka Super Sprint)
     - Added Base Shield Stat
         - Should make it easier to engage with enemies
-        - 120HP to 100HP/30SHIELD 10 shield per level
+        - 120HP to 100HP/30 SHIELD, at 10 shield per level
     - Set Luminous Shot Charges to build up on Snipe Stance Shot (Primary in snipe stance)
         - Primary non-snipe stance should use these charges
     - Added option to disable the Ultimate Camera animation
@@ -18,6 +18,7 @@
     - Fixed Input priority and Move cancels preventing major issues like orbs being eaten and not performing the move
     - Recompiled with new MMHOOK to use appropriate function calls
     - Blue Orb can cancel faster into Primary, move cancelling this has not changed in timing.
+    - Fixed Icons from not changing on skill change.
 - v2.0.5
     - oops (dont worry about it this never happened)
 - v2.0.4
