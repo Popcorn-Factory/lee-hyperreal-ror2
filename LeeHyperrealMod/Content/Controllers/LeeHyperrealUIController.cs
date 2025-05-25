@@ -528,6 +528,8 @@ namespace LeeHyperrealMod.Content.Controllers
                         spawnedEffect = true;
                     }
                 }
+                // Update this less often.
+                UpdateSkillIconMat();
             }
         }
 
@@ -1656,6 +1658,16 @@ namespace LeeHyperrealMod.Content.Controllers
                 //Setup red variant
                 SetCustomUIMaterial(img.material, 0f, ResolveColor());
                 skillIconMaterials.Add(img.material);
+            }
+        }
+
+        private void UpdateSkillIconMat() 
+        {
+            //Set Material to our own custom one, steal the image and apply it to the material image.
+            foreach (Image img in imageList)
+            {
+                Sprite sprite = img.sprite;
+                img.material.SetTexture("_IconTexture", sprite.texture);
             }
         }
 
