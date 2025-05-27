@@ -135,7 +135,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
 
             if (base.isAuthority) 
             {
-                RaycastHit rayToUse = isEntityHit ? entityHit : hit;
+                RaycastHit rayToUse = isEntityHit && entityHit.distance < hit.distance ? entityHit : hit;
 
                 TriggerFreezeAtPoint(characterBody.corePosition);
                 if (rayToUse.collider)

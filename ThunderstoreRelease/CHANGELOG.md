@@ -14,6 +14,9 @@
     - Slightly better hunkhud support
     - Slightly enhanced Orb animations
     - 20% more Ultimate pull-in range
+    - Changed how Ultimate picks targets
+        - It will first try to hit an enemy close or on your crosshair
+        - Then if no enemy is detected to be hit, the world detection beam will be used.
     - Fixed some item displays from not dissapearing
     - Fixed Input priority and Move cancels preventing major issues like orbs being eaten and not performing the move
     - Recompiled with new MMHOOK to use appropriate function calls

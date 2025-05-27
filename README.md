@@ -30,9 +30,27 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
 
 ## Latest Update
 
-- v2.0.4
-    - Full Hunk Hud Support
-    - Update for Phase 3
+- v2.1.0 -> QoL + Touch-ups + Bug bashing
+    - Added new animation for Sprinting when movespeed is high enough (aka Super Sprint)
+    - Added Base Shield Stat
+        - Should make it easier to engage with enemies
+        - 120HP to 100HP/30 SHIELD, at 10 shield per level
+    - Set Luminous Shot Charges to build up on Snipe Stance Shot (Primary in snipe stance)
+        - Primary non-snipe stance should use these charges
+    - Added option to disable the Ultimate Camera animation
+    - Changed Notification Style on Hyper Effects
+    - Walking doesnt stutter step you at the end anymore
+    - Slightly better hunkhud support
+    - Slightly enhanced Orb animations
+    - 20% more Ultimate pull-in range
+    - Changed how Ultimate picks targets
+        - It will first try to hit an enemy close or on your crosshair
+        - Then if no enemy is detected to be hit, the world detection beam will be used.
+    - Fixed some item displays from not dissapearing
+    - Fixed Input priority and Move cancels preventing major issues like orbs being eaten and not performing the move
+    - Recompiled with new MMHOOK to use appropriate function calls
+    - Blue Orb can cancel faster into Primary, move cancelling this has not changed in timing.
+    - Fixed Icons from not changing on skill change.
     
 - v2.0.0
     - Lore mode has been added!
@@ -145,6 +163,7 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 - In networked situations, if you emote, everyone playing Lee will have their weapons removed, this does not affect how he functions, purely visual.
 - In very rare cases, Lee: Hyperreal can move even after dying. This is usually the case in networked situations where you perform a move and die in the same frame.
 - When enemies are frozen during an ultimate, Some enemies may have bugged animators and their legs may go up into their torso, this effect is temporary and mostly just looks goofy that's all.
+- **With Photomode, it will lock out orb usage until you enter the pause menu and exit**
 
 ## Credits
 
