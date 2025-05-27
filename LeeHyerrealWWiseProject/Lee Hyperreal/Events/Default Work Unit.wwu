@@ -724,6 +724,77 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="Play_Super_Sprint" ID="{F68C6080-692D-4505-A351-E8363D5CE621}">
+							<ChildrenList>
+								<Action Name="" ID="{561BF223-311D-4E3E-8B95-398D3378CBEA}" ShortID="120327553">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Super Sprint" ID="{2741D196-298B-473B-9ED6-F262DC910F9D}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{172C34B3-6CD1-4733-8CBB-8387ECB6BD78}" ShortID="933420131">
+									<PropertyList>
+										<Property Name="Delay" Type="Real64" Value="0.7"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Super Sprint intro Crash" ID="{E4943371-9C2B-46A0-AA7A-CEB4417FF9E6}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{4D6DB846-ED18-45C7-BDF8-8451B5DD340E}" ShortID="881535481">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="12"/>
+										<Property Name="Volume" Type="Real64" Value="-13"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Super Sprint" ID="{2741D196-298B-473B-9ED6-F262DC910F9D}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Stop_Super_Sprint" ID="{88AF109C-7B35-4C37-9BE3-61C808EA8F5D}">
+							<ChildrenList>
+								<Action Name="" ID="{701D2B05-3376-46E4-A4FB-6FD89ED59124}" ShortID="991640292">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="2"/>
+										<Property Name="Delay" Type="Real64" Value="0.7"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Super Sprint" ID="{2741D196-298B-473B-9ED6-F262DC910F9D}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{C90F8AF2-19D4-4BF9-A77F-BED4CD612DF5}" ShortID="231971416">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="12"/>
+										<Property Name="Delay" Type="Real64" Value="0.2"/>
+										<Property Name="FadeTime" Type="Real64" Value="0.5"/>
+										<Property Name="Volume" Type="Real64" Value="-100"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Super Sprint" ID="{2741D196-298B-473B-9ED6-F262DC910F9D}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Play_Super_Sprint_End_Slide" ID="{087F1A6F-5F44-4D11-BCA3-1B99E066C4F6}">
+							<ChildrenList>
+								<Action Name="" ID="{1EA7D1C5-09B9-4B3C-A902-53FED51A077D}" ShortID="820075972">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Super Sprint End Slide" ID="{9BAC8A6A-A1A6-491D-8E13-94F54389F93F}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Lee Voice" ID="{BD9BEE8B-1DF9-4CEE-A79C-B0F6FD89A428}" ShortID="44920354">
@@ -891,7 +962,6 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
-				<Event Name="Stop" ID="{1E547376-1DB6-4227-A0C9-CA606197C9F3}"/>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

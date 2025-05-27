@@ -1629,7 +1629,7 @@
 																<Property Name="RandomAvoidRepeating" Type="bool" Value="False"/>
 																<Property Name="Volume" Type="Real64">
 																	<ValueList>
-																		<Value>2</Value>
+																		<Value>1</Value>
 																	</ValueList>
 																</Property>
 															</PropertyList>
@@ -3059,7 +3059,7 @@
 										<Property Name="OverridePositioning" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-2</Value>
+												<Value>-3</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3094,36 +3094,7 @@
 												<ActiveSource Name="loot box 2" ID="{77DA834A-BA17-4F6C-88ED-F0C6001C9223}" Platform="Linked"/>
 											</ActiveSourceList>
 										</Sound>
-										<Sound Name="loot box 3" ID="{65EF7AB4-E7B5-4E4D-9414-D8212AD74DD3}" ShortID="20410552">
-											<PropertyList>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-6</Value>
-													</ValueList>
-												</Property>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
-												</Reference>
-												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
-												</Reference>
-											</ReferenceList>
-											<ChildrenList>
-												<AudioFileSource Name="loot box 3" ID="{8C6CE0AD-6AE3-4839-B9BE-E3CA57E326B2}">
-													<Language>SFX</Language>
-													<AudioFile>Loot Box\loot box 3.wav</AudioFile>
-													<MediaIDList>
-														<MediaID ID="130852533"/>
-													</MediaIDList>
-												</AudioFileSource>
-											</ChildrenList>
-											<ActiveSourceList>
-												<ActiveSource Name="loot box 3" ID="{8C6CE0AD-6AE3-4839-B9BE-E3CA57E326B2}" Platform="Linked"/>
-											</ActiveSourceList>
-										</Sound>
-										<Sound Name="loot box 4" ID="{701FA6CB-9C30-4F05-97CB-65A21B51EE67}" ShortID="985655449">
+										<Sound Name="loot box 3" ID="{701FA6CB-9C30-4F05-97CB-65A21B51EE67}" ShortID="985655449">
 											<ReferenceList>
 												<Reference Name="Conversion">
 													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
@@ -3169,6 +3140,212 @@
 										</Sound>
 									</ChildrenList>
 								</RandomSequenceContainer>
+								<Folder Name="Super Sprint" ID="{7AB9D06E-4C94-46B1-AF13-A5C56FF712CA}" ShortID="414389634">
+									<PropertyList>
+										<Property Name="Color" Type="int16" Value="8"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<Sound Name="Super Sprint intro Crash" ID="{E4943371-9C2B-46A0-AA7A-CEB4417FF9E6}" ShortID="777128643">
+											<PropertyList>
+												<Property Name="Pitch" Type="int32">
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{22015834-D777-4A06-AEB1-A50E1B24DA5C}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="300"/>
+																	<Property Name="Min" Type="Real64" Value="-300"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-10</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Super Sprint intro Crash" ID="{4F02259D-4356-4FA0-B51F-025A265C8B3F}">
+													<Language>SFX</Language>
+													<AudioFile>Super Sprint\Super Sprint intro Crash.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="167402691"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Super Sprint intro Crash" ID="{4F02259D-4356-4FA0-B51F-025A265C8B3F}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<RandomSequenceContainer Name="Super Sprint" ID="{2741D196-298B-473B-9ED6-F262DC910F9D}" ShortID="127666064">
+											<PropertyList>
+												<Property Name="InitialDelay" Type="Real64">
+													<ValueList>
+														<Value>0.2</Value>
+													</ValueList>
+												</Property>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value Platform="Windows">0</Value>
+													</ValueList>
+													<ModifierList>
+														<ModifierInfo Platform="Windows">
+															<Modifier Name="" ID="{BCB360AA-4CB4-45D2-A703-16AD65ED36B2}"/>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="PlayMechanismSpecialTransitions" Type="bool" Value="True"/>
+												<Property Name="PlayMechanismSpecialTransitionsType" Type="int16" Value="2"/>
+												<Property Name="PlayMechanismSpecialTransitionsValue" Type="Real64" Value="0.1"/>
+												<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+												<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-13</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<Sound Name="Super Sprint Intro Loop" ID="{A9BF03BB-0BEA-4FD4-BC17-36A10B1F6BC1}" ShortID="849721989">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Super Sprint Intro Loop" ID="{AC29C936-644F-4D3A-B689-4DF19F83B9CF}">
+															<Language>SFX</Language>
+															<AudioFile>Super Sprint\Super Sprint Intro Loop.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="529717692"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Super Sprint Intro Loop" ID="{AC29C936-644F-4D3A-B689-4DF19F83B9CF}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+												<Sound Name="Super Sprint Loop" ID="{EB3048D6-E17E-4538-A6D1-7BF67EDCD417}" ShortID="389247302">
+													<PropertyList>
+														<Property Name="3DSpatialization" Type="int16" Value="1"/>
+														<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Attenuation">
+															<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+														</Reference>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="Super Sprint Loop" ID="{1BED16F4-7F83-4972-AE35-5ACC35143729}">
+															<Language>SFX</Language>
+															<AudioFile>Super Sprint\Super Sprint Loop.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="414548477"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<ActiveSourceList>
+														<ActiveSource Name="Super Sprint Loop" ID="{1BED16F4-7F83-4972-AE35-5ACC35143729}" Platform="Linked"/>
+													</ActiveSourceList>
+												</Sound>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Playlist">
+													<Reference>
+														<ObjectRef Name="Super Sprint Intro Loop" ID="{A9BF03BB-0BEA-4FD4-BC17-36A10B1F6BC1}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+													</Reference>
+													<Reference>
+														<ObjectRef Name="Super Sprint Loop" ID="{EB3048D6-E17E-4538-A6D1-7BF67EDCD417}" WorkUnitID="{295F2DBF-FE43-43D5-B353-585A578C4F9D}"/>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</RandomSequenceContainer>
+										<Sound Name="Super Sprint End Slide" ID="{9BAC8A6A-A1A6-491D-8E13-94F54389F93F}" ShortID="1037498727">
+											<PropertyList>
+												<Property Name="3DSpatialization" Type="int16" Value="1"/>
+												<Property Name="Color" Type="int16" Value="17"/>
+												<Property Name="Pitch" Type="int32">
+													<ValueList>
+														<Value>600</Value>
+													</ValueList>
+													<ModifierList>
+														<ModifierInfo>
+															<Modifier Name="" ID="{E817772D-30B2-4B1B-9A08-AD8403615EF1}">
+																<PropertyList>
+																	<Property Name="Enabled" Type="bool" Value="True"/>
+																	<Property Name="Max" Type="Real64" Value="100"/>
+																	<Property Name="Min" Type="Real64" Value="-300"/>
+																</PropertyList>
+															</Modifier>
+														</ModifierInfo>
+													</ModifierList>
+												</Property>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-4</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Attenuation">
+													<ObjectRef Name="Lee Effects" ID="{0219AB0A-420A-47FD-A932-92CBB508D9CA}" WorkUnitID="{8FAAC2CA-1A2D-40D1-8A72-5B7836A4A0A3}"/>
+												</Reference>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{28AE32FD-BEC9-4785-9867-C344424BD8B3}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{BF54F147-DF16-41D1-A6ED-83FE94450779}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="c_liRk4_act_flash_2" ID="{D2A8DDA3-E088-4E29-BF5D-107E7EA746CB}">
+													<Language>SFX</Language>
+													<AudioFile>c_liRk4_act_flash_2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="506608001"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="c_liRk4_act_flash_2" ID="{D2A8DDA3-E088-4E29-BF5D-107E7EA746CB}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</Folder>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
