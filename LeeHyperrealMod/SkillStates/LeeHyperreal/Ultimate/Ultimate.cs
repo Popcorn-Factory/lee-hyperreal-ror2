@@ -129,14 +129,18 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.Ultimate
             PlayAttackAnimation();
 
             RaycastHit hit;
-            Physics.SphereCast(GetAimRay(), 0.2f, out hit, Mathf.Infinity, (1 << LayerIndex.world.intVal) | (1 << LayerIndex.entityPrecise.intVal));
+            RaycastHit entityHit;
+            Physics.Raycast(GetAimRay(), out hit, Mathf.Infinity, (1 << LayerIndex.world.intVal));
+            bool isEntityHit = Physics.SphereCast(GetAimRay(), 1f, out entityHit, Mathf.Infinity, (1 << LayerIndex.entityPrecise.intVal));
 
             if (base.isAuthority) 
             {
+                RaycastHit rayToUse = isEntityHit ? entityHit : hit;
+
                 TriggerFreezeAtPoint(characterBody.corePosition);
-                if (hit.collider)
+                if (rayToUse.collider)
                 {
-                    TriggerFreezeAtPoint(hit.point);
+                    TriggerFreezeAtPoint(rayToUse.point);
                 }
                 else
                 {

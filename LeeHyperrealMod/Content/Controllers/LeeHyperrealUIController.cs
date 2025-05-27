@@ -1663,11 +1663,14 @@ namespace LeeHyperrealMod.Content.Controllers
 
         private void UpdateSkillIconMat() 
         {
-            //Set Material to our own custom one, steal the image and apply it to the material image.
-            foreach (Image img in imageList)
+            if (isInitialized) 
             {
-                Sprite sprite = img.sprite;
-                img.material.SetTexture("_IconTexture", sprite.texture);
+                //Set Material to our own custom one, steal the image and apply it to the material image.
+                foreach (Image img in imageList)
+                {
+                    Sprite sprite = img.sprite;
+                    img.material.SetTexture("_IconTexture", sprite.texture);
+                }
             }
         }
 

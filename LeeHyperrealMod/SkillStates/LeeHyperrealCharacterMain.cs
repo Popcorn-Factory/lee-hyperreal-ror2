@@ -1,6 +1,8 @@
 ﻿using EntityStates;
 using LeeHyperrealMod.Content.Controllers;
+using LeeHyperrealMod.Modules.Networking;
 using LeeHyperrealMod.SkillStates.LeeHyperreal.Secondary;
+using R2API.Networking.Interfaces;
 using RoR2;
 using System;
 using System.Collections.Generic;
@@ -26,6 +28,8 @@ namespace LeeHyperrealMod.SkillStates
         public Transform rightFootReal;
         public ParentConstraint leftFootConstraint;
         public ParentConstraint rightFootConstraint;
+
+        public bool inSuperSprint;
 
         public override void OnEnter()
         {
@@ -165,17 +169,16 @@ namespace LeeHyperrealMod.SkillStates
             //Super Sprint vfx
             if (this.modelAnimator.GetCurrentAnimatorStateInfo(0).IsName("Super Sprint Intro") || this.modelAnimator.GetCurrentAnimatorStateInfo(0).IsName("Super Sprint Loop"))
             {
-                if (!superSprintVFX)
+                if (!superSprintVFX && !inSuperSprint)
                 {
-                    SetupSuperSprintVFX(true);
+                    OnSuperSprintEnter();
                 }
             }
             else 
             {
-                if (superSprintVFX) 
+                if (superSprintVFX && inSuperSprint) 
                 {
-                    superSprintVFX.GetComponent<DestroySprintOnDelay>().StartDestroying();
-                    superSprintVFX = null;
+                    OnSuperSprintExit();
                 }
             }
 
@@ -188,6 +191,34 @@ namespace LeeHyperrealMod.SkillStates
             }
         }
 
+        public void OnSuperSprintEnter() 
+        {
+            inSuperSprint = true;
+            if (!superSprintVFX) 
+            {
+                SetupSuperSprintVFX(true);
+            }
+
+        }
+
+        public void OnSuperSprintExit()
+        {
+            inSuperSprint = false;
+            if (superSprintVFX) 
+            {
+                superSprintVFX.GetComponent<DestroySprintOnDelay>().StartDestroying();
+                Util.PlaySound("Stop_Super_Sprint", this.superSprintVFX);
+                superSprintVFX = null;
+            }
+
+            if (this.modelAnimator.GetCurrentAnimatorStateInfo(0).IsName("Super Sprint Outro"))
+            {
+                new PlaySoundNetworkRequest(characterBody.netId, "Play_Super_Sprint_End_Slide").Send(R2API.Networking.NetworkDestination.Clients);
+            }
+
+        }
+
+
         public void SetupSuperSprintVFX(bool setActive = false) 
         {
             if (!superSprintVFX) 
@@ -199,6 +230,8 @@ namespace LeeHyperrealMod.SkillStates
                 leftFootConstraint = superSprintVFX.transform.GetChild(2).gameObject.GetComponent<ParentConstraint>();
                 rightFootConstraint.SetSource(0, new ConstraintSource { sourceTransform = rightFootReal, weight = 1 });
                 leftFootConstraint.SetSource(0, new ConstraintSource { sourceTransform = leftFootReal, weight = 1 });
+
+                Util.PlaySound("Play_Super_Sprint", this.superSprintVFX);
             }
         }
 
