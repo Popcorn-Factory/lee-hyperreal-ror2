@@ -24,6 +24,13 @@ namespace LeeHyperrealMod.Modules {
             }
             characterModel.baseRendererInfos = prefab.GetComponentInChildren<CharacterModel>().baseRendererInfos;
 
+            ModelSkinController modelSkinController = model.GetComponent<ModelSkinController>();
+            if (!modelSkinController) 
+            {
+                modelSkinController = model.AddComponent<ModelSkinController>();
+            }
+
+
             Modules.LeeHyperrealAssets.ConvertAllRenderersToHopooShader(model);
 
             return model.gameObject;
@@ -199,6 +206,8 @@ namespace LeeHyperrealMod.Modules {
 
             characterModel.body.overrideCoreTransform = childLocator.FindChild("Center");
             characterModel.body.coreTransform = childLocator.FindChild("Center");
+
+            
 
             if (!preattached) {
                 SetupCustomRendererInfos(characterModel, customInfos);

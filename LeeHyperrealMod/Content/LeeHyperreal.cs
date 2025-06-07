@@ -840,7 +840,12 @@ namespace LeeHyperrealMod.Modules.Survivors
 
         public override void InitializeSkins()
         {
-            ModelSkinController skinController = prefabCharacterModel.gameObject.AddComponent<ModelSkinController>();
+            ModelSkinController skinController = prefabCharacterModel.gameObject.GetComponent<ModelSkinController>();
+            if (!skinController) 
+            {
+                skinController = prefabCharacterModel.gameObject.AddComponent<ModelSkinController>();
+            }
+
             ChildLocator childLocator = prefabCharacterModel.GetComponent<ChildLocator>();
 
             CharacterModel.RendererInfo[] defaultRendererinfos = prefabCharacterModel.baseRendererInfos;
@@ -1412,6 +1417,17 @@ namespace LeeHyperrealMod.Modules.Survivors
             }
 
             skinController.skins = skins.ToArray();
+
+            //Add to modelskincontroller
+
+            ModelSkinController displayPrefabMSC = displayPrefab.GetComponent<ModelSkinController>();
+            if (!displayPrefabMSC) 
+            {
+                displayPrefabMSC = displayPrefab.AddComponent<ModelSkinController>();
+            }
+
+            displayPrefabMSC.skins = skins.ToArray();
+
         }
     }
 }

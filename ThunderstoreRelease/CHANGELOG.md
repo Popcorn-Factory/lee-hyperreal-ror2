@@ -1,6 +1,9 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
 
+- v2.1.1
+    - Fixed skins from not showing up in Character Select
+    - Recompiled to include newest dependencies
 - v2.1.0 -> QoL + Touch-ups + Bug bashing
     - Added new animation for Sprinting when movespeed is high enough (aka Super Sprint)
     - Added Base Shield Stat
