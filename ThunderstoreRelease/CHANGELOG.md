@@ -1,6 +1,8 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
 
+- v2.1.2
+    - Fixed input lockup when the user does not press anything after transitioning into Hypermatrix.
 - v2.1.1
     - Fixed skins from not showing up in Character Select
     - Recompiled to include newest dependencies

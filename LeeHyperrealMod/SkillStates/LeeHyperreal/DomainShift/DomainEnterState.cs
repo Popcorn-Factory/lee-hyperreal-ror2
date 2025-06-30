@@ -297,7 +297,8 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
 
             if (base.age >= duration && base.isAuthority) 
             {
-                this.outer.SetInterruptState(new LeeHyperrealCharacterMain(), InterruptPriority.Skill);
+                this.outer.SetNextStateToMain();
+                return;
             }
         }
 
