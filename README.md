@@ -30,9 +30,9 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
 
 ## Latest Update
 
-- v2.1.2
-    - Fixed input lockup when the user does not press anything after transitioning into Hypermatrix.
-
+- v2.1.3
+    - Fixing another edgecase where the input would lockup when move cancelling from transition into Hypermatrix.
+    
 - v2.1.0 -> QoL + Touch-ups + Bug bashing
     - Added new animation for Sprinting when movespeed is high enough (aka Super Sprint)
     - Added Base Shield Stat
@@ -166,7 +166,6 @@ There's no need for payment for mods, but a coffee would be nice once in awhile!
 - In networked situations, if you emote, everyone playing Lee will have their weapons removed, this does not affect how he functions, purely visual.
 - In very rare cases, Lee: Hyperreal can move even after dying. This is usually the case in networked situations where you perform a move and die in the same frame.
 - When enemies are frozen during an ultimate, Some enemies may have bugged animators and their legs may go up into their torso, this effect is temporary and mostly just looks goofy that's all.
-- **With Photomode, it will lock out orb usage until you enter the pause menu and exit**
 
 ## Credits
 

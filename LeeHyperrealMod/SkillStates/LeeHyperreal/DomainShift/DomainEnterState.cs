@@ -230,7 +230,7 @@ namespace LeeHyperrealMod.SkillStates.LeeHyperreal.DomainShift
             {
                 if (inputBank.moveVector != Vector3.zero) 
                 {
-                    this.outer.SetInterruptState(new LeeHyperrealCharacterMain(), InterruptPriority.Skill);
+                    this.outer.SetNextStateToMain();
                     return;
                 }
             }
