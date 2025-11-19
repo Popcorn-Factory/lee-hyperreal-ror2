@@ -21,7 +21,6 @@ using System.Runtime.CompilerServices;
 using Rewired;
 
 [module: UnverifiableCode]
-[assembly: SecurityPermission(SecurityAction.RequestMinimum, SkipVerification = true)]
 namespace LeeHyperrealMod
 {
     [BepInDependency("com.bepis.r2api", BepInDependency.DependencyFlags.HardDependency)]
@@ -45,7 +44,7 @@ namespace LeeHyperrealMod
     {
         public const string MODUID = "com.PopcornFactory.LeeHyperrealMod";
         public const string MODNAME = "LeeHyperrealMod";
-        public const string MODVERSION = "2.1.3";
+        public const string MODVERSION = "2.1.4";
         
         public const string DEVELOPER_PREFIX = "POPCORN";
 

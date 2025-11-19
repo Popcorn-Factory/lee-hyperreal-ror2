@@ -1,6 +1,9 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
 
+- v2.1.4
+    - Recompiled with new libraries.
+    - Fixed wrong function call shifting to new libraries, causing gacha achievements to break.
 - v2.1.3
     - Fixing another edgecase where the input would lockup when move cancelling from transition into Hypermatrix.
 - v2.1.2

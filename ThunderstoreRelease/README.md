@@ -30,8 +30,9 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
 
 ## Latest Update
 
-- v2.1.3
-    - Fixing another edgecase where the input would lockup when move cancelling from transition into Hypermatrix.
+- v2.1.4
+    - Recompiled with new libraries.
+    - Fixed wrong function call shifting to new libraries, causing gacha achievements to break.
     
 - v2.1.0 -> QoL + Touch-ups + Bug bashing
     - Added new animation for Sprinting when movespeed is high enough (aka Super Sprint)

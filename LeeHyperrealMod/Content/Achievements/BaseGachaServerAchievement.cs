@@ -44,23 +44,21 @@ namespace LeeHyperrealMod.Content.Achievements
             On.RoR2.CostTypeDef.PayCost += CostTypeDef_PayCost;
         }
 
-        //Check to prevent multiple rolls on different achievements.
-        internal virtual CostTypeDef.PayCostResults CostTypeDef_PayCost(On.RoR2.CostTypeDef.orig_PayCost orig, CostTypeDef self, int cost, Interactor activator, UnityEngine.GameObject purchasedObject, Xoroshiro128Plus rng, ItemIndex avoidedItemIndex)
+        private void CostTypeDef_PayCost(On.RoR2.CostTypeDef.orig_PayCost orig, CostTypeDef self, CostTypeDef.PayCostContext context, CostTypeDef.PayCostResults result)
         {
-            CostTypeDef.PayCostResults result = orig(self, cost, activator, purchasedObject, rng, avoidedItemIndex);
+            orig(self, context, result);
             bool allowRoll = false;
-            CharacterBody body = activator.GetComponent<CharacterBody>();
+            CharacterBody body = context.activator.GetComponent<CharacterBody>();
 
             //check if the body matches us
             // Check purchased object
             //Roll the dice and see if you earn it
             if (body.baseNameToken != LeeHyperrealPlugin.DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_NAME")
             {
-                // Exit
-                return result;
+                return;
             }
 
-            allowRoll = ChestValidator(purchasedObject);
+            allowRoll = ChestValidator(context.purchasedObject);
 
             if (allowRoll)
             {
@@ -68,7 +66,6 @@ namespace LeeHyperrealMod.Content.Achievements
                 CheckRoll(body);
             }
 
-            return result;
         }
 
         internal virtual bool ChestValidator(GameObject purchasedObject)
