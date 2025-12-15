@@ -172,6 +172,35 @@ namespace LeeHyperrealMod.Content.Controllers
             }
         }
 
+        private void SetBKSkin(GameObject obj) 
+        {
+        
+        }
+
+        private void SetYiSkin(GameObject obj) 
+        {
+            SkinnedMeshRenderer box = obj.transform.Find("E3SuperliboxMd010011").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer submachine = obj.transform.Find("E3SuperligunMd010011").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer alpha = obj.transform.Find("R4LiangMd010011Alpha").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer body = obj.transform.Find("R4LiangMd010011Body").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer cloth = obj.transform.Find("R4LiangMd010011Cloth").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer down = obj.transform.Find("R4LiangMd010011Down").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer eye = obj.transform.Find("R4LiangMd010011Eye").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer face = obj.transform.Find("R4LiangMd010011Face").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer hair = obj.transform.Find("R4LiangMd010011Hair").gameObject.GetComponent<SkinnedMeshRenderer>();
+            
+            //disable specific objs
+            box.gameObject.SetActive(true);
+            submachine.gameObject.SetActive(true);
+            alpha.gameObject.SetActive(false);
+            body.gameObject.SetActive(false);
+            cloth.gameObject.SetActive(false);
+            down.gameObject.SetActive(false);
+            eye.gameObject.SetActive(false);
+            face.gameObject.SetActive(false);
+            hair.gameObject.SetActive(false);
+        }
+
         private void SetComradeSkin(GameObject obj)
         {
             SkinnedMeshRenderer box = obj.transform.Find("E3SuperliboxMd010011").gameObject.GetComponent<SkinnedMeshRenderer>();

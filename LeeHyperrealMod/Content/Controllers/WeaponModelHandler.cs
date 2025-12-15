@@ -62,6 +62,10 @@ namespace LeeHyperrealMod.Content.Controllers
         private GameObject chestBone;
         private GameObject jetpackObj;
 
+        private GameObject bkm;
+        private GameObject yibody;
+        private GameObject yicoat;
+
         public void Awake() 
         {
             state = WeaponState.SUBMACHINE;
@@ -102,6 +106,10 @@ namespace LeeHyperrealMod.Content.Controllers
                 legModel = childLocator.FindChild("LegModel").gameObject;
 
                 chestBone = childLocator.FindChild("Chest").gameObject;
+
+                bkm = childLocator.FindChild("BKM").gameObject;
+                yibody = childLocator.FindChild("YiBody").gameObject;
+                yicoat = childLocator.FindChild("YiCoat").gameObject;
             }
 
             ChangeLaserColour();
@@ -319,13 +327,41 @@ namespace LeeHyperrealMod.Content.Controllers
                     armourPlateModel.SetActive(false);
                     eyeModel.SetActive(false);
                     legModel.SetActive(false);
-
-                    if (jetpackObj) 
+                    bkm.SetActive(false);
+                    yibody.SetActive(false);
+                    yicoat.SetActive(false);
+                    if (jetpackObj)
                     {
                         jetpackObj.SetActive(state);
                     }
                 }
-                else 
+                else if (characterBody.skinIndex == 5) // Yi Skin
+                {
+                    armModel.SetActive(false);
+                    torsoModel.SetActive(false);
+                    faceModel.SetActive(false);
+                    hairModel.SetActive(false);
+                    armourPlateModel.SetActive(false);
+                    eyeModel.SetActive(false);
+                    legModel.SetActive(false);
+                    bkm.SetActive(false);
+                    yibody.SetActive(state);
+                    yicoat.SetActive(state);
+                }
+                else if (characterBody.skinIndex == 6) 
+                {
+                    armModel.SetActive(false);
+                    torsoModel.SetActive(false);
+                    faceModel.SetActive(false);
+                    hairModel.SetActive(false);
+                    armourPlateModel.SetActive(false);
+                    eyeModel.SetActive(false);
+                    legModel.SetActive(false);
+                    bkm.SetActive(state);
+                    yibody.SetActive(false);
+                    yicoat.SetActive(false);
+                }
+                else
                 {
                     armModel.SetActive(state);
                     torsoModel.SetActive(state);
@@ -334,6 +370,9 @@ namespace LeeHyperrealMod.Content.Controllers
                     armourPlateModel.SetActive(state);
                     eyeModel.SetActive(state);
                     legModel.SetActive(state);
+                    bkm.SetActive(false);
+                    yibody.SetActive(false);
+                    yicoat.SetActive(false);
                 }
 
                 guncaseModel.SetActive(state);
@@ -343,7 +382,33 @@ namespace LeeHyperrealMod.Content.Controllers
 
         public void SetStateForModel(bool state) 
         {
-            if (armModel) 
+            if (characterBody.skinIndex == 5) 
+            {
+                armModel.SetActive(false);
+                torsoModel.SetActive(false);
+                faceModel.SetActive(false);
+                hairModel.SetActive(false);
+                armourPlateModel.SetActive(false);
+                eyeModel.SetActive(false);
+                legModel.SetActive(false);
+                bkm.SetActive(false);
+                yibody.SetActive(state);
+                yicoat.SetActive(state);
+            }
+            else if(characterBody.skinIndex == 6)
+            {
+                armModel.SetActive(false);
+                torsoModel.SetActive(false);
+                faceModel.SetActive(false);
+                hairModel.SetActive(false);
+                armourPlateModel.SetActive(false);
+                eyeModel.SetActive(false);
+                legModel.SetActive(false);
+                bkm.SetActive(state);
+                yibody.SetActive(false);
+                yicoat.SetActive(false);
+            }
+            else if (armModel)
             {
                 armModel.SetActive(state);
                 torsoModel.SetActive(state);
@@ -352,6 +417,9 @@ namespace LeeHyperrealMod.Content.Controllers
                 armourPlateModel.SetActive(state);
                 eyeModel.SetActive(state);
                 legModel.SetActive(state);
+                bkm.SetActive(false);
+                yibody.SetActive(false);
+                yicoat.SetActive(false);
             }
         }
 

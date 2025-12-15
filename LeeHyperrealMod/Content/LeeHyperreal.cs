@@ -128,6 +128,21 @@ namespace LeeHyperrealMod.Modules.Survivors
                 {
                     childName = "PistolModel",
                     material = Materials.CreateHopooMaterial("leePistolMat", emStr),
+                },
+                new CustomRendererInfo
+                {
+                    childName = "BKM",
+                    material = Materials.CreateHopooMaterial("boy", emStr)
+                },
+                new CustomRendererInfo
+                {
+                    childName = "YiBody",
+                    material = Materials.CreateHopooMaterial("yiMat", emStr)
+                },
+                new CustomRendererInfo
+                {
+                    childName = "YiCoat",
+                    material = Materials.CreateHopooMaterial("yiMat", emStr)
                 }
         };
 
@@ -874,7 +889,10 @@ namespace LeeHyperrealMod.Modules.Survivors
                 "E3SuperlicannonMd010011",
                 "leeSuperRifleMeshBlend",
                 "leeSuperRilfeAlphaMeshBlend",
-                "leeSubMachineGunMeshBlend"
+                "leeSubMachineGunMeshBlend",
+                "BoyKisserMesh",
+                "YiMesh",
+                "YiCoat"
             );
 
             defaultSkin.skinDefParams.gameObjectActivations = new SkinDefParams.GameObjectActivation[]
@@ -913,6 +931,21 @@ namespace LeeHyperrealMod.Modules.Survivors
                 {
                     gameObject = childLocator.FindChildGameObject("LegModel"),
                     shouldActivate = true,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("BKM"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("YiBody"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("YiCoat"),
+                    shouldActivate = false,
                 }
             };
             #endregion
@@ -942,7 +975,10 @@ namespace LeeHyperrealMod.Modules.Survivors
                 "E3SuperlicannonMd010011",
                 "leeSuperRifleMeshBlend",
                 "leeSuperRilfeAlphaMeshBlend",
-                "leeSubMachineGunMeshBlend"
+                "leeSubMachineGunMeshBlend",
+                "BoyKisserMesh",
+                "YiMesh",
+                "YiCoat"
             );
 
             //masterySkin has a new set of RendererInfos (based on default rendererinfos)
@@ -961,7 +997,10 @@ namespace LeeHyperrealMod.Modules.Survivors
                     "skinCloneCannon",
                     "skinCloneRifle", 
                     null, 
-                    "skinClonePistol"
+                    "skinClonePistol",
+                    null,
+                    null,
+                    null
                 };
 
             for (int i = 0; i < materialStrings.Length; i++) 
@@ -1013,6 +1052,21 @@ namespace LeeHyperrealMod.Modules.Survivors
                 {
                     gameObject = childLocator.FindChildGameObject("LegModel"),
                     shouldActivate = true,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("BKM"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("YiBody"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("YiCoat"),
+                    shouldActivate = false,
                 }
             };
 
@@ -1042,7 +1096,10 @@ namespace LeeHyperrealMod.Modules.Survivors
                 "E3SuperlicannonMd010011",
                 "E3SuperlirifleMd030011",
                 null,
-                "E3SuperligunMd030011");
+                "E3SuperligunMd030011",
+                "BoyKisserMesh",
+                "YiMesh",
+                "YiCoat");
 
             //masterySkin has a new set of RendererInfos (based on default rendererinfos)
             //you can simply access the RendererInfos defaultMaterials and set them to the new materials for your skin.
@@ -1060,7 +1117,10 @@ namespace LeeHyperrealMod.Modules.Survivors
                     null,
                     "scarletSemiGun",
                     null,
-                    "scarletSemiGun"
+                    "scarletSemiGun",
+                    null,
+                    null,
+                    null
                 };
 
             for (int i = 0; i < scarletMaterialStrings.Length; i++)
@@ -1111,6 +1171,21 @@ namespace LeeHyperrealMod.Modules.Survivors
                 {
                     gameObject = childLocator.FindChildGameObject("LegModel"),
                     shouldActivate = true,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("BKM"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("YiBody"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("YiCoat"),
+                    shouldActivate = false,
                 }
             };
             #endregion
@@ -1138,7 +1213,10 @@ namespace LeeHyperrealMod.Modules.Survivors
                 "LeeRor2ProspsectorCannonMesh",
                 "LeeRor2ProspectorRifleMesh",
                 "leeSuperRilfeAlphaMeshBlend",
-                "LeeRor2ProspectorPistolMesh"
+                "LeeRor2ProspectorPistolMesh",
+                "BoyKisserMesh",
+                "YiMesh",
+                "YiCoat"
             );
 
 
@@ -1175,7 +1253,10 @@ namespace LeeHyperrealMod.Modules.Survivors
                     "LeeRoR2ProspectorWeaponPalette",
                     "LeeRoR2ProspectorWeaponPalette",
                     "LeeRor2ProspectorPalette",
-                    "LeeRoR2ProspectorWeaponPalette"
+                    "LeeRoR2ProspectorWeaponPalette",
+                    null,
+                    null,
+                    null
                 };
 
             for (int i = 0; i < prospectorMaterialStrings.Length; i++)
@@ -1243,6 +1324,21 @@ namespace LeeHyperrealMod.Modules.Survivors
                 {
                     gameObject = childLocator.FindChildGameObject("LegModel"),
                     shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("BKM"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("YiBody"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("YiCoat"),
+                    shouldActivate = false,
                 }
             };
             //simply find an object on your child locator you want to activate/deactivate and set if you want to activate/deacitvate it with this skin
@@ -1273,7 +1369,10 @@ namespace LeeHyperrealMod.Modules.Survivors
                 "LeeRor2ProspsectorCannonMesh",
                 "LeeRor2ProspectorRifleMesh",
                 "leeSuperRilfeAlphaMeshBlend",
-                "LeeRor2ProspectorPistolMesh"
+                "LeeRor2ProspectorPistolMesh",
+                "BoyKisserMesh",
+                "YiMesh",
+                "YiCoat"
             );
 
 
@@ -1310,7 +1409,10 @@ namespace LeeHyperrealMod.Modules.Survivors
                     "LeeRoR2ComradeWeaponPalette",
                     "LeeRoR2ComradeWeaponPalette",
                     "LeeRor2ComradePalette",
-                    "LeeRoR2ComradeWeaponPalette"
+                    "LeeRoR2ComradeWeaponPalette",
+                    null,
+                    null,
+                    null
                 };
 
             for (int i = 0; i < comradeMaterialStrings.Length; i++)
@@ -1378,6 +1480,21 @@ namespace LeeHyperrealMod.Modules.Survivors
                 {
                     gameObject = childLocator.FindChildGameObject("LegModel"),
                     shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("BKM"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("YiBody"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("YiCoat"),
+                    shouldActivate = false,
                 }
             };
             //simply find an object on your child locator you want to activate/deactivate and set if you want to activate/deacitvate it with this skin
@@ -1408,7 +1525,10 @@ namespace LeeHyperrealMod.Modules.Survivors
                 "E3SuperlicannonMd010011",
                 "leeSuperRifleMeshBlend",
                 "leeSuperRilfeAlphaMeshBlend",
-                "leeSubMachineGunMeshBlend"
+                "leeSubMachineGunMeshBlend",
+                "BoyKisserMesh",
+                "YiMesh",
+                "YiCoat"
             );
 
             /*
@@ -1444,7 +1564,10 @@ namespace LeeHyperrealMod.Modules.Survivors
                     null,
                     null,
                     null,
-                    null
+                    null,
+                    "yiMat",
+                    "yiMat",
+                    "yiMat"
                 };
 
             for (int i = 0; i < yiMaterialStrings.Length; i++)
@@ -1506,12 +1629,182 @@ namespace LeeHyperrealMod.Modules.Survivors
                 new SkinDefParams.GameObjectActivation
                 {
                     gameObject = childLocator.FindChildGameObject("EyeModel"),
-                    shouldActivate = true,
+                    shouldActivate = false,
                 },
                 new SkinDefParams.GameObjectActivation
                 {
                     gameObject = childLocator.FindChildGameObject("LegModel"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("BKM"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("YiBody"),
                     shouldActivate = true,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("YiCoat"),
+                    shouldActivate = true,
+                }
+            };
+            //simply find an object on your child locator you want to activate/deactivate and set if you want to activate/deacitvate it with this skin
+
+            #endregion
+
+            #region BKSkin
+
+            //creating a new skindef as we did before
+            SkinDef bkSkin = Modules.Skins.CreateSkinDef(PLUGIN_PREFIX + "BK_SKIN_NAME",
+                LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("BKIcon"),
+                defaultRendererinfos,
+                prefabCharacterModel.gameObject,
+                null);
+
+            //adding the mesh replacements as above. 
+            //if you don't want to replace the mesh (for example, you only want to replace the material), pass in null so the order is preserved
+            bkSkin.skinDefParams.meshReplacements = Modules.Skins.getMeshReplacements(defaultRendererinfos,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                null,
+                "leeGunCaseMeshBlend",
+                "leePistolMeshBlend",
+                "E3SuperlicannonMd010011",
+                "leeSuperRifleMeshBlend",
+                "leeSuperRilfeAlphaMeshBlend",
+                "leeSubMachineGunMeshBlend",
+                "BoyKisserMesh",
+                "YiMesh",
+                "YiCoat"
+            );
+
+            /*
+                    "leeArmMat",
+                    "leeTorsoClothmat", 
+                    "leeFaceMat", no replacement
+                    "leeHairMat", material replacement only
+                    "leeChestLegPlateMat", 
+                    "leeEyeMat", no replacement
+                    "leeLegMat", 
+                    "leeBoxGunMat", no replacement
+                    "leeSubmachineMat", no replacement
+                    "Cannon", no replacement
+                    "leeSuperRifleMat",
+                    some alpha bit
+                    "leePistolMat" no replacement
+             */
+
+
+            //masterySkin has a new set of RendererInfos (based on default rendererinfos)
+            //you can simply access the RendererInfos defaultMaterials and set them to the new materials for your skin.
+            string[] bkMaterialStrings =
+                {
+                    "boy",
+                    "boy",
+                    "boy",
+                    "boy",
+                    "boy",
+                    "boy",
+                    "boy",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    "boy",
+                    "boy",
+                    "boy"
+                };
+
+            for (int i = 0; i < bkMaterialStrings.Length; i++)
+            {
+                if (bkMaterialStrings[i] == null)
+                {
+                    bkSkin.skinDefParams.rendererInfos[i].defaultMaterial = defaultRendererinfos[i].defaultMaterial;
+                }
+                else
+                {
+                    bkSkin.skinDefParams.rendererInfos[i].defaultMaterial = Materials.CreateHopooMaterial(bkMaterialStrings[i], emStr);
+                }
+            }
+
+            //here's a barebones example of using gameobjectactivations that could probably be streamlined or rewritten entirely, truthfully, but it works
+
+            /*
+                "ArmModel"
+                "TorsoModel"
+                "FaceModel"
+                "HairModel"
+                "ArmourPlateModel"
+                "EyeModel"
+                "LegModel"
+                "GunCaseModel"
+                "SubMachineGunModel"
+                "SuperCannonModel"
+                "SuperRifleModel"
+                "SuperRifleModelAlphaBit"
+                "PistolModel"
+             */
+            bkSkin.skinDefParams.gameObjectActivations = new SkinDefParams.GameObjectActivation[]
+            {
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("ArmModel"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("TorsoModel"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("FaceModel"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("HairModel"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("ArmourPlateModel"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("EyeModel"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("LegModel"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("BKM"),
+                    shouldActivate = true,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("YiBody"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("YiCoat"),
+                    shouldActivate = false,
                 }
             };
             //simply find an object on your child locator you want to activate/deactivate and set if you want to activate/deacitvate it with this skin
@@ -1551,6 +1844,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             }
 
             skins.Add(yiSkin);
+            skins.Add(bkSkin);
 
             skinController.skins = skins.ToArray();
 
