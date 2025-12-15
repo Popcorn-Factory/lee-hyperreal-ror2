@@ -1384,6 +1384,140 @@ namespace LeeHyperrealMod.Modules.Survivors
 
             #endregion
 
+            #region Yi
+
+            //creating a new skindef as we did before
+            SkinDef yiSkin = Modules.Skins.CreateSkinDef(PLUGIN_PREFIX + "YI_SKIN_NAME",
+                LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("YiIcon"),
+                defaultRendererinfos,
+                prefabCharacterModel.gameObject,
+                null);
+
+            //adding the mesh replacements as above. 
+            //if you don't want to replace the mesh (for example, you only want to replace the material), pass in null so the order is preserved
+            yiSkin.skinDefParams.meshReplacements = Modules.Skins.getMeshReplacements(defaultRendererinfos,
+                null,
+                null,
+                null,
+                null,
+                null,
+                "YiMesh",
+                "YiCoat",
+                "leeGunCaseMeshBlend",
+                "leePistolMeshBlend",
+                "E3SuperlicannonMd010011",
+                "leeSuperRifleMeshBlend",
+                "leeSuperRilfeAlphaMeshBlend",
+                "leeSubMachineGunMeshBlend"
+            );
+
+            /*
+                    "leeArmMat",
+                    "leeTorsoClothmat", 
+                    "leeFaceMat", no replacement
+                    "leeHairMat", material replacement only
+                    "leeChestLegPlateMat", 
+                    "leeEyeMat", no replacement
+                    "leeLegMat", 
+                    "leeBoxGunMat", no replacement
+                    "leeSubmachineMat", no replacement
+                    "Cannon", no replacement
+                    "leeSuperRifleMat",
+                    some alpha bit
+                    "leePistolMat" no replacement
+             */
+
+
+            //masterySkin has a new set of RendererInfos (based on default rendererinfos)
+            //you can simply access the RendererInfos defaultMaterials and set them to the new materials for your skin.
+            string[] yiMaterialStrings =
+                {
+                    "yiMat",
+                    "yiMat",
+                    "yiMat",
+                    "yiMat",
+                    "yiMat",
+                    "yiMat",
+                    "yiMat",
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null
+                };
+
+            for (int i = 0; i < yiMaterialStrings.Length; i++)
+            {
+                if (yiMaterialStrings[i] == null)
+                {
+                    yiSkin.skinDefParams.rendererInfos[i].defaultMaterial = defaultRendererinfos[i].defaultMaterial;
+                }
+                else
+                {
+                    yiSkin.skinDefParams.rendererInfos[i].defaultMaterial = Materials.CreateHopooMaterial(yiMaterialStrings[i], emStr);
+                }
+            }
+
+            //here's a barebones example of using gameobjectactivations that could probably be streamlined or rewritten entirely, truthfully, but it works
+
+            /*
+                "ArmModel"
+                "TorsoModel"
+                "FaceModel"
+                "HairModel"
+                "ArmourPlateModel"
+                "EyeModel"
+                "LegModel"
+                "GunCaseModel"
+                "SubMachineGunModel"
+                "SuperCannonModel"
+                "SuperRifleModel"
+                "SuperRifleModelAlphaBit"
+                "PistolModel"
+             */
+            yiSkin.skinDefParams.gameObjectActivations = new SkinDefParams.GameObjectActivation[]
+            {
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("ArmModel"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("TorsoModel"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("FaceModel"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("HairModel"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("ArmourPlateModel"),
+                    shouldActivate = false,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("EyeModel"),
+                    shouldActivate = true,
+                },
+                new SkinDefParams.GameObjectActivation
+                {
+                    gameObject = childLocator.FindChildGameObject("LegModel"),
+                    shouldActivate = true,
+                }
+            };
+            //simply find an object on your child locator you want to activate/deactivate and set if you want to activate/deacitvate it with this skin
+
+            #endregion
+
             if (Modules.Config.loreMode.Value)
             {
                 // Put RoRified skin first
@@ -1415,6 +1549,8 @@ namespace LeeHyperrealMod.Modules.Survivors
                 voiceDisabledSkins = new List<int> { 3, 4 };
                 rorSkins = new List<int> { 3, 4 };
             }
+
+            skins.Add(yiSkin);
 
             skinController.skins = skins.ToArray();
 
