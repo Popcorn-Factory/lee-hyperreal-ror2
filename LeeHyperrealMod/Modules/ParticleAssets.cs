@@ -770,7 +770,7 @@ namespace LeeHyperrealMod.Modules
             PopulateDisplayParticleAssets();
             #endregion
 
-            #region 
+            #region Clone Masters
             PopulateMasterClonePrefabs();
             #endregion
 
@@ -789,6 +789,10 @@ namespace LeeHyperrealMod.Modules
             prospectorMasterClone.AddComponent<LeeHyperrealCloneController>();
             GameObject comradeMasterClone = GetGameObjectFromBundle("ComradeMasterClone");
             comradeMasterClone.AddComponent<LeeHyperrealCloneController>();
+            GameObject yiMasterClone = GetGameObjectFromBundle("YiMasterClone");
+            yiMasterClone.AddComponent<LeeHyperrealCloneController>();
+            GameObject bkMasterClone = GetGameObjectFromBundle("BKMasterClone");
+            bkMasterClone.AddComponent<LeeHyperrealCloneController>();
 
             ParticleVariant leeMasterObjectVariant = new ParticleVariant(DEFAULT_PARTICLE_VARIANT, leeMasterClone);
             leeMasterObjectVariant.shouldVariantCloneUseModify = false;
@@ -798,11 +802,17 @@ namespace LeeHyperrealMod.Modules
             prospectorMasterObjectVariant.shouldVariantCloneUseModify = false;
             ParticleVariant comradeMasterObjectVariant = new ParticleVariant(DEFAULT_PARTICLE_VARIANT, comradeMasterClone);
             comradeMasterObjectVariant.shouldVariantCloneUseModify = false;
+            ParticleVariant yiMasterCloneVariant = new ParticleVariant(DEFAULT_PARTICLE_VARIANT, yiMasterClone);
+            yiMasterCloneVariant.shouldVariantCloneUseModify = false;
+            ParticleVariant bkMasterCloneVariant = new ParticleVariant(DEFAULT_PARTICLE_VARIANT, bkMasterClone);
+            bkMasterCloneVariant.shouldVariantCloneUseModify = false;
 
             particleDictionary.Add("leeMasterClone", leeMasterObjectVariant);
             particleDictionary.Add("scarletMasterClone", scarletMasterObjectVariant);
             particleDictionary.Add("prospectorMasterClone", prospectorMasterObjectVariant);
             particleDictionary.Add("comradeMasterClone", comradeMasterObjectVariant);
+            particleDictionary.Add("yiMasterClone", yiMasterCloneVariant);
+            particleDictionary.Add("bkMasterClone", bkMasterCloneVariant);
         }
 
         private static void PopulateMiscAssets()

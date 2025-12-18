@@ -147,6 +147,12 @@ namespace LeeHyperrealMod.Content.Controllers
                     case 4:
                         SetScarletSkin(obj);
                         break;
+                    case 5:
+                        SetYiSkin(obj);
+                        break;
+                    case 6:
+                        SetBKSkin(obj);
+                        break;
                     default:
                         SetDefaultLeeSkin(obj);
                         break;
@@ -174,11 +180,8 @@ namespace LeeHyperrealMod.Content.Controllers
 
         private void SetBKSkin(GameObject obj) 
         {
-        
-        }
+            // This one doesn't share mesh positions with other meshes, we can assume the material stays the same.
 
-        private void SetYiSkin(GameObject obj) 
-        {
             SkinnedMeshRenderer box = obj.transform.Find("E3SuperliboxMd010011").gameObject.GetComponent<SkinnedMeshRenderer>();
             SkinnedMeshRenderer submachine = obj.transform.Find("E3SuperligunMd010011").gameObject.GetComponent<SkinnedMeshRenderer>();
             SkinnedMeshRenderer alpha = obj.transform.Find("R4LiangMd010011Alpha").gameObject.GetComponent<SkinnedMeshRenderer>();
@@ -188,6 +191,40 @@ namespace LeeHyperrealMod.Content.Controllers
             SkinnedMeshRenderer eye = obj.transform.Find("R4LiangMd010011Eye").gameObject.GetComponent<SkinnedMeshRenderer>();
             SkinnedMeshRenderer face = obj.transform.Find("R4LiangMd010011Face").gameObject.GetComponent<SkinnedMeshRenderer>();
             SkinnedMeshRenderer hair = obj.transform.Find("R4LiangMd010011Hair").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer yiBody = obj.transform.Find("YiMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer yiCoat = obj.transform.Find("YiCoat").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer bk = obj.transform.Find("BoykisserMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
+
+            //disable specific objs
+            box.gameObject.SetActive(true);
+            submachine.gameObject.SetActive(true);
+            alpha.gameObject.SetActive(false);
+            body.gameObject.SetActive(false);
+            cloth.gameObject.SetActive(false);
+            down.gameObject.SetActive(false);
+            eye.gameObject.SetActive(false);
+            face.gameObject.SetActive(false);
+            hair.gameObject.SetActive(false);
+            yiBody.gameObject.SetActive(false);
+            yiCoat.gameObject.SetActive(false);
+            bk.gameObject.SetActive(true);
+        }
+
+        private void SetYiSkin(GameObject obj) 
+        {
+            // This one doesn't share mesh positions with other meshes, we can assume the material stays the same.
+            SkinnedMeshRenderer box = obj.transform.Find("E3SuperliboxMd010011").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer submachine = obj.transform.Find("E3SuperligunMd010011").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer alpha = obj.transform.Find("R4LiangMd010011Alpha").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer body = obj.transform.Find("R4LiangMd010011Body").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer cloth = obj.transform.Find("R4LiangMd010011Cloth").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer down = obj.transform.Find("R4LiangMd010011Down").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer eye = obj.transform.Find("R4LiangMd010011Eye").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer face = obj.transform.Find("R4LiangMd010011Face").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer hair = obj.transform.Find("R4LiangMd010011Hair").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer yiBody = obj.transform.Find("YiMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer yiCoat = obj.transform.Find("YiCoat").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer bk = obj.transform.Find("BoykisserMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
             
             //disable specific objs
             box.gameObject.SetActive(true);
@@ -199,6 +236,9 @@ namespace LeeHyperrealMod.Content.Controllers
             eye.gameObject.SetActive(false);
             face.gameObject.SetActive(false);
             hair.gameObject.SetActive(false);
+            yiBody.gameObject.SetActive(true);
+            yiCoat.gameObject.SetActive(true);
+            bk.gameObject.SetActive(false);
         }
 
         private void SetComradeSkin(GameObject obj)
@@ -212,6 +252,9 @@ namespace LeeHyperrealMod.Content.Controllers
             SkinnedMeshRenderer eye = obj.transform.Find("R4LiangMd010011Eye").gameObject.GetComponent<SkinnedMeshRenderer>();
             SkinnedMeshRenderer face = obj.transform.Find("R4LiangMd010011Face").gameObject.GetComponent<SkinnedMeshRenderer>();
             SkinnedMeshRenderer hair = obj.transform.Find("R4LiangMd010011Hair").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer yiBody = obj.transform.Find("YiMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer yiCoat = obj.transform.Find("YiCoat").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer bk = obj.transform.Find("BoykisserMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
 
             //disable specific objs
             box.gameObject.SetActive(true);
@@ -223,6 +266,9 @@ namespace LeeHyperrealMod.Content.Controllers
             eye.gameObject.SetActive(false);
             face.gameObject.SetActive(false);
             hair.gameObject.SetActive(true);
+            yiBody.gameObject.SetActive(false);
+            yiCoat.gameObject.SetActive(false);
+            bk.gameObject.SetActive(false);
 
             //Replace Meshes
             box.sharedMesh = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Mesh>("LeeRor2ProspectorBoxMesh");
@@ -254,6 +300,9 @@ namespace LeeHyperrealMod.Content.Controllers
             SkinnedMeshRenderer eye = obj.transform.Find("R4LiangMd010011Eye").gameObject.GetComponent<SkinnedMeshRenderer>();
             SkinnedMeshRenderer face = obj.transform.Find("R4LiangMd010011Face").gameObject.GetComponent<SkinnedMeshRenderer>();
             SkinnedMeshRenderer hair = obj.transform.Find("R4LiangMd010011Hair").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer yiBody = obj.transform.Find("YiMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer yiCoat = obj.transform.Find("YiCoat").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer bk = obj.transform.Find("BoykisserMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
 
             //disable specific objs
             box.gameObject.SetActive(true);
@@ -265,6 +314,9 @@ namespace LeeHyperrealMod.Content.Controllers
             eye.gameObject.SetActive(true);
             face.gameObject.SetActive(true);
             hair.gameObject.SetActive(true);
+            yiBody.gameObject.SetActive(false);
+            yiCoat.gameObject.SetActive(false);
+            bk.gameObject.SetActive(false);
 
             //Replace Meshes
             box.sharedMesh = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Mesh>("leeGunCaseMeshBlend");
@@ -300,6 +352,9 @@ namespace LeeHyperrealMod.Content.Controllers
             SkinnedMeshRenderer eye = obj.transform.Find("R4LiangMd010011Eye").gameObject.GetComponent<SkinnedMeshRenderer>();
             SkinnedMeshRenderer face = obj.transform.Find("R4LiangMd010011Face").gameObject.GetComponent<SkinnedMeshRenderer>();
             SkinnedMeshRenderer hair = obj.transform.Find("R4LiangMd010011Hair").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer yiBody = obj.transform.Find("YiMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer yiCoat = obj.transform.Find("YiCoat").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer bk = obj.transform.Find("BoykisserMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
 
             //disable specific objs
             box.gameObject.SetActive(true);
@@ -311,6 +366,9 @@ namespace LeeHyperrealMod.Content.Controllers
             eye.gameObject.SetActive(true);
             face.gameObject.SetActive(true);
             hair.gameObject.SetActive(true);
+            yiBody.gameObject.SetActive(false);
+            yiCoat.gameObject.SetActive(false);
+            bk.gameObject.SetActive(false);
 
             //Replace Meshes
             box.sharedMesh = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Mesh>("E3SuperliboxMd030011");
@@ -357,6 +415,9 @@ namespace LeeHyperrealMod.Content.Controllers
             SkinnedMeshRenderer eye = obj.transform.Find("R4LiangMd010011Eye").gameObject.GetComponent<SkinnedMeshRenderer>();
             SkinnedMeshRenderer face = obj.transform.Find("R4LiangMd010011Face").gameObject.GetComponent<SkinnedMeshRenderer>();
             SkinnedMeshRenderer hair = obj.transform.Find("R4LiangMd010011Hair").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer yiBody = obj.transform.Find("YiMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer yiCoat = obj.transform.Find("YiCoat").gameObject.GetComponent<SkinnedMeshRenderer>();
+            SkinnedMeshRenderer bk = obj.transform.Find("BoykisserMesh").gameObject.GetComponent<SkinnedMeshRenderer>();
 
             //disable specific objs
             box.gameObject.SetActive(true);
@@ -368,6 +429,9 @@ namespace LeeHyperrealMod.Content.Controllers
             eye.gameObject.SetActive(false);
             face.gameObject.SetActive(false);
             hair.gameObject.SetActive(true);
+            yiBody.gameObject.SetActive(false);
+            yiCoat.gameObject.SetActive(false);
+            bk.gameObject.SetActive(false);
 
             //Replace Meshes
             box.sharedMesh = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Mesh>("LeeRor2ProspectorBoxMesh");

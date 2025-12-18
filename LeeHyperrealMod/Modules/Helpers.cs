@@ -117,6 +117,10 @@ namespace LeeHyperrealMod.Modules
                         return "comradeMasterClone";
                     case 4:
                         return "scarletMasterClone";
+                    case 5:
+                        return "yiMasterClone";
+                    case 6:
+                        return "bkMasterClone";
                     default:
                         return "leeMasterClone";
                 }
@@ -131,6 +135,10 @@ namespace LeeHyperrealMod.Modules
                         return "prospectorMasterClone";
                     case 4:
                         return "comradeMasterClone";
+                    case 5:
+                        return "yiMasterClone";
+                    case 6:
+                        return "bkMasterClone";
                     default:
                         return "leeMasterClone";
                 }
