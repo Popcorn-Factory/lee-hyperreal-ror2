@@ -72,6 +72,12 @@ namespace LeeHyperrealMod.Content.Controllers
                         case 4:
                             self.survivorIcon.texture = Modules.LeeHyperrealAssets.scarletSprite.texture;
                             break;
+                        case 5:
+                            self.survivorIcon.texture = Modules.LeeHyperrealAssets.yiIconSprite.texture;
+                            break;
+                        case 6:
+                            self.survivorIcon.texture = Modules.LeeHyperrealAssets.bkIconSprite.texture;
+                            break;
                         default:
                             self.survivorIcon.texture = Modules.LeeHyperrealAssets.leeIconSprite.texture;
                             break;
@@ -89,6 +95,12 @@ namespace LeeHyperrealMod.Content.Controllers
                             break;
                         case 4:
                             self.survivorIcon.texture = Modules.LeeHyperrealAssets.comradeSprite.texture;
+                            break;
+                        case 5:
+                            self.survivorIcon.texture = Modules.LeeHyperrealAssets.yiIconSprite.texture;
+                            break;
+                        case 6:
+                            self.survivorIcon.texture = Modules.LeeHyperrealAssets.bkIconSprite.texture;
                             break;
                         default:
                             self.survivorIcon.texture = Modules.LeeHyperrealAssets.leeIconSprite.texture;

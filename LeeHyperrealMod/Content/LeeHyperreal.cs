@@ -1505,7 +1505,7 @@ namespace LeeHyperrealMod.Modules.Survivors
 
             //creating a new skindef as we did before
             SkinDef yiSkin = Modules.Skins.CreateSkinDef(PLUGIN_PREFIX + "YI_SKIN_NAME",
-                LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("YiIcon"),
+                LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("texYiSkin"),
                 defaultRendererinfos,
                 prefabCharacterModel.gameObject,
                 null);
@@ -1660,7 +1660,7 @@ namespace LeeHyperrealMod.Modules.Survivors
 
             //creating a new skindef as we did before
             SkinDef bkSkin = Modules.Skins.CreateSkinDef(PLUGIN_PREFIX + "BK_SKIN_NAME",
-                LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("BKIcon"),
+                LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("texBKSkin"),
                 defaultRendererinfos,
                 prefabCharacterModel.gameObject,
                 null);

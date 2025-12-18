@@ -78,6 +78,8 @@ namespace LeeHyperrealMod.Modules
             LanguageAPI.Add(prefix + "SCARLET_SKIN_NAME", "Lee: Scarlet Redeemer");
             LanguageAPI.Add(prefix + "PROSPECTOR_SKIN_NAME", $"{generatedName}: Prospector");
             LanguageAPI.Add(prefix + "PROSPECTOR_ALT_SKIN_NAME", $"{generatedName}: Comrade");
+            LanguageAPI.Add(prefix + "YI_SKIN_NAME", $"Yi");
+            LanguageAPI.Add(prefix + "BK_SKIN_NAME", $"Boykisser");
             #endregion
 
             #region Passive
