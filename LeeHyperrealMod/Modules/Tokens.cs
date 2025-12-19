@@ -114,6 +114,9 @@ namespace LeeHyperrealMod.Modules
             LanguageAPI.Add(prefix + "PASSIVE_VIOLET_VFX_DESCRIPTION", "Sets the VFX colour to Violet");
             LanguageAPI.Add(prefix + "PASSIVE_PINK_VFX_NAME", "Pink VFX");
             LanguageAPI.Add(prefix + "PASSIVE_PINK_VFX_DESCRIPTION", "Sets the VFX colour to Pink");
+            LanguageAPI.Add(prefix + "PASSIVE_RAINBOW_VFX_NAME", "Rainbow VFX");
+            LanguageAPI.Add(prefix + "PASSIVE_RAINBOW_VFX_DESCRIPTION", "Randomly selects a VFX from any color");
+
             #endregion
 
             #region Primary

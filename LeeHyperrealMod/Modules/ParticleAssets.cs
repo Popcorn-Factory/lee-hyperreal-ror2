@@ -572,8 +572,19 @@ namespace LeeHyperrealMod.Modules
                 return variants.colourVariants[DEFAULT_PARTICLE_VARIANT];
             }
 
+            LeeHyperrealPassive.VFXPassive selectedPassive = body.GetComponent<LeeHyperrealPassive>().GetVFXPassive();
+            if (selectedPassive == LeeHyperrealPassive.VFXPassive.RANDOM) 
+            {
+                //check random
+                Array values = Enum.GetValues(typeof(LeeHyperrealPassive.VFXPassive));
+                System.Random rand = new System.Random();
+                LeeHyperrealPassive.VFXPassive randomPassive = (LeeHyperrealPassive.VFXPassive)values.GetValue(rand.Next(values.Length));
+
+                selectedPassive = randomPassive;
+            }
+
             //Check if the user has selected a passive instead'
-            switch (body.GetComponent<LeeHyperrealPassive>().GetVFXPassive()) 
+            switch (selectedPassive) 
             {
                 case LeeHyperrealPassive.VFXPassive.RED:
                     return variants.colourVariants[RED_PARTICLE.name];

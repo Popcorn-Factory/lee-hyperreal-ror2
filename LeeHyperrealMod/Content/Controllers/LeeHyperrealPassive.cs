@@ -24,20 +24,22 @@ namespace LeeHyperrealMod.Content.Controllers
         public SkillDef lightBlueVFXPassive;
         public SkillDef violetVFXPassive;
         public SkillDef pinkVFXPassive;
+        public SkillDef rainbowVFXPassive;
         public GenericSkill VFXColorPassiveSkillSlot;
 
 
-        internal enum VFXPassive 
+        internal enum VFXPassive : uint
         {
-            DEFAULT,
-            RED,
-            ORANGE,
-            YELLOW,
-            GREEN,
-            BLUE,
-            LIGHTBLUE,
-            VIOLET,
-            PINK
+            DEFAULT = 0,
+            RED = 1,
+            ORANGE = 2,
+            YELLOW = 3,
+            GREEN = 4,
+            BLUE = 5,
+            LIGHTBLUE = 6,
+            VIOLET = 7,
+            PINK = 8,
+            RANDOM = 9,
         }
 
         internal VFXPassive GetVFXPassive() 
@@ -80,7 +82,11 @@ namespace LeeHyperrealMod.Content.Controllers
                 {
                     return VFXPassive.PINK;
                 }
-                else 
+                else if (VFXColorPassiveSkillSlot.skillDef == rainbowVFXPassive) 
+                {
+                    return VFXPassive.RANDOM;
+                }
+                else
                 {
                     return VFXPassive.DEFAULT;
                 }

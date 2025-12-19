@@ -645,6 +645,30 @@ namespace LeeHyperrealMod.Modules.Survivors
                 stockToConsume = 1,
                 keywordTokens = new string[] { }
             });
+            passive.rainbowVFXPassive = Modules.Skills.CreateSkillDef(new SkillDefInfo
+            {
+                skillName = prefix + "PASSIVE_RAINBOW_VFX_NAME",
+                skillNameToken = prefix + "PASSIVE_RAINBOW_VFX_NAME",
+                skillDescriptionToken = prefix + "PASSIVE_RAINBOW_VFX_DESCRIPTION",
+                skillIcon = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("VFXIconDefault"),
+                activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Primary.PrimaryEntry)),
+                activationStateMachineName = "Body",
+                baseMaxStock = 1,
+                baseRechargeInterval = 0f,
+                beginSkillCooldownOnSkillEnd = false,
+                canceledFromSprinting = false,
+                forceSprintDuringState = false,
+                fullRestockOnAssign = true,
+                interruptPriority = EntityStates.InterruptPriority.Skill,
+                resetCooldownTimerOnUse = false,
+                isCombatSkill = true,
+                mustKeyPress = true,
+                cancelSprintingOnActivation = false,
+                rechargeStock = 1,
+                requiredStock = 1,
+                stockToConsume = 1,
+                keywordTokens = new string[] { }
+            });
             Modules.Skills.AddPassiveSkills(passive.VFXColorPassiveSkillSlot.skillFamily, new SkillDef[] {
                 passive.defaultVFXPassive,
             });
@@ -657,6 +681,7 @@ namespace LeeHyperrealMod.Modules.Survivors
             Modules.Skills.AddSkillToFamily(passive.VFXColorPassiveSkillSlot.skillFamily, passive.lightBlueVFXPassive, Unlockables.blueSkinUnlockableDef);
             Modules.Skills.AddSkillToFamily(passive.VFXColorPassiveSkillSlot.skillFamily, passive.violetVFXPassive, Unlockables.violetVFXUnlockableDef);
             Modules.Skills.AddSkillToFamily(passive.VFXColorPassiveSkillSlot.skillFamily, passive.pinkVFXPassive, Unlockables.pinkVFXUnlockableDef);
+            Modules.Skills.AddSkillToFamily(passive.VFXColorPassiveSkillSlot.skillFamily, passive.rainbowVFXPassive, null);
             #endregion
 
             #region Primary
