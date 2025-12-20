@@ -51545,7 +51545,6 @@ GameObject:
   - component: {fileID: 6034507577497707389}
   - component: {fileID: 2963757018529932185}
   - component: {fileID: 7355267471897756671}
-  - component: {fileID: 1799943339316434563}
   m_Layer: 0
   m_Name: First pass
   m_TagString: Untagged
@@ -51618,19 +51617,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &1799943339316434563
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 916568361369698658}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2600919145742838463
 GameObject:
   m_ObjectHideFlags: 0
@@ -51720,7 +51706,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: -1, y: 1, z: 2, w: -2}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -51736,7 +51722,6 @@ GameObject:
   - component: {fileID: 6490052212801476470}
   - component: {fileID: 7867290840589315719}
   - component: {fileID: 7648031639502098644}
-  - component: {fileID: 6021566579404770437}
   m_Layer: 0
   m_Name: Impact Frame
   m_TagString: Untagged
@@ -51809,19 +51794,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6021566579404770437
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3619300076673260439}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4900985124429969564
 GameObject:
   m_ObjectHideFlags: 0
@@ -56715,7 +56687,6 @@ GameObject:
   - component: {fileID: 3452348025398432268}
   - component: {fileID: 142766008524960808}
   - component: {fileID: 5661022277971276651}
-  - component: {fileID: 6920032457830649030}
   m_Layer: 0
   m_Name: Second Pass
   m_TagString: Untagged
@@ -56788,19 +56759,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &6920032457830649030
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4963939038469385049}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6435557150517354935
 GameObject:
   m_ObjectHideFlags: 0

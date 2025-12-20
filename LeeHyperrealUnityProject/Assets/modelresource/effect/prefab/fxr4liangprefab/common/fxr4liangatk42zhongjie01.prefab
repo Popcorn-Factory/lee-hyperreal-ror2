@@ -118306,7 +118306,6 @@ GameObject:
   - component: {fileID: 1653857960337959605}
   - component: {fileID: 1756753709433993334}
   - component: {fileID: 7181527993453942699}
-  - component: {fileID: 3736225648542669163}
   m_Layer: 0
   m_Name: Impact Frame
   m_TagString: Untagged
@@ -118379,19 +118378,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3736225648542669163
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877191212559435255}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3320609551457126741
 GameObject:
   m_ObjectHideFlags: 0
@@ -127955,7 +127941,6 @@ GameObject:
   - component: {fileID: 5020180513673120400}
   - component: {fileID: 3575926551134019297}
   - component: {fileID: 1194398868310934649}
-  - component: {fileID: 8732234755597460716}
   m_Layer: 0
   m_Name: Second Pass
   m_TagString: Untagged
@@ -128028,19 +128013,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &8732234755597460716
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4051294997188551430}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4241984722728498078
 GameObject:
   m_ObjectHideFlags: 0
@@ -128052,7 +128024,6 @@ GameObject:
   - component: {fileID: 2454822052380282638}
   - component: {fileID: 5478965897583995176}
   - component: {fileID: 6196246405012233352}
-  - component: {fileID: 3644681620118592908}
   m_Layer: 0
   m_Name: First pass
   m_TagString: Untagged
@@ -128125,19 +128096,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &3644681620118592908
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4241984722728498078}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4888494301988272711
 GameObject:
   m_ObjectHideFlags: 0
