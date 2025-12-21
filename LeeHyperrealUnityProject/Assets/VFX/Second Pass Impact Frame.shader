@@ -11,7 +11,7 @@ Shader "Second Pass Impact Frame"
 	{
 		
 		
-		Tags { "RenderType"="Transparent" "Queue"="Overlay+1" }
+		Tags { "RenderType"="Transparent" "Queue"="Overlay+2" }
 	LOD 0
 
 		CGINCLUDE
@@ -22,16 +22,13 @@ Shader "Second Pass Impact Frame"
 		Cull Back
 		ColorMask RGBA
 		ZWrite Off
-		ZTest GEqual
+		ZTest LEqual
 		Offset 0 , 0
 		Stencil
 		{
 			Ref 127
-			ReadMask 127
 			Comp Equal
-			Pass IncrWrap
-			Fail Zero
-			ZFail Zero
+			ZFail DecrSat
 		}
 		
 		GrabPass{ }
@@ -151,8 +148,8 @@ Shader "Second Pass Impact Frame"
 Version=19201
 Node;AmplifyShaderEditor.GrabScreenPosition;6;-720,-144;Inherit;False;0;0;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
 Node;AmplifyShaderEditor.ScreenColorNode;5;-432,-144;Inherit;False;Global;_GrabScreen0;Grab Screen 0;0;0;Create;True;0;0;0;False;0;False;Object;-1;False;False;False;False;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;0;0,0;Float;False;True;-1;3;AmplifyShaderEditor.MaterialInspector;0;5;Second Pass Impact Frame;0770190933193b94aaa3065e307002fa;True;Unlit;0;0;Unlit;2;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;True;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;True;True;True;127;False;;127;False;;255;False;;5;False;;7;False;;2;False;;2;False;;0;False;;0;False;;0;False;;0;False;;True;True;2;False;;True;4;False;;True;True;0;False;;0;False;;True;2;RenderType=Transparent=RenderType;Queue=Overlay=Queue=1;True;3;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;0;;0;0;Standard;1;Vertex Position,InvertActionOnDeselection;1;0;0;1;True;False;;False;0
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;0;0.666626,0;Float;False;True;-1;3;AmplifyShaderEditor.MaterialInspector;0;5;Second Pass Impact Frame;0770190933193b94aaa3065e307002fa;True;Unlit;0;0;Unlit;2;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;True;True;0;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;True;True;True;127;False;;255;False;;255;False;;5;False;;0;False;;0;False;;5;False;;5;False;;0;False;;0;False;;5;False;;True;True;2;False;;True;3;False;;True;True;0;False;;0;False;;True;2;RenderType=Transparent=RenderType;Queue=Overlay=Queue=2;True;3;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;0;;0;0;Standard;1;Vertex Position,InvertActionOnDeselection;1;0;0;1;True;False;;False;0
 WireConnection;5;0;6;0
 WireConnection;0;0;5;0
 ASEEND*/
-//CHKSM=677D1D4E8BDC8195166DF1516365066B81ED8E00
+//CHKSM=01F0FA501EF48EB09B3D8746EFDDF7B2F3BB653D

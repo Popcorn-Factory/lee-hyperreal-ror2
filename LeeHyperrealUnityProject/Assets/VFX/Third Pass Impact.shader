@@ -1,8 +1,6 @@
-// Upgrade NOTE: upgraded instancing buffer 'FirstPassImpactFrame' to new syntax.
-
 // Made with Amplify Shader Editor v1.9.2.1
 // Available at the Unity Asset Store - http://u3d.as/y3X 
-Shader "First Pass Impact Frame"
+Shader "Third Pass Impact Frame"
 {
 	Properties
 	{
@@ -13,7 +11,7 @@ Shader "First Pass Impact Frame"
 	{
 		
 		
-		Tags { "RenderType"="Transparent" "Queue"="Overlay+1" }
+		Tags { "RenderType"="Transparent" "Queue"="Overlay+3" }
 	LOD 0
 
 		CGINCLUDE
@@ -29,9 +27,8 @@ Shader "First Pass Impact Frame"
 		Stencil
 		{
 			Ref 127
-			ReadMask 127
-			Comp Always
-			Pass Replace
+			Comp GEqual
+			Pass IncrSat
 		}
 		
 		GrabPass{ }
@@ -79,8 +76,6 @@ Shader "First Pass Impact Frame"
 			};
 
 			ASE_DECLARE_SCREENSPACE_TEXTURE( _GrabTexture )
-			UNITY_INSTANCING_BUFFER_START(FirstPassImpactFrame)
-			UNITY_INSTANCING_BUFFER_END(FirstPassImpactFrame)
 			inline float4 ASE_ComputeGrabScreenPos( float4 pos )
 			{
 				#if UNITY_UV_STARTS_AT_TOP
@@ -136,10 +131,10 @@ Shader "First Pass Impact Frame"
 				float4 screenPos = i.ase_texcoord1;
 				float4 ase_grabScreenPos = ASE_ComputeGrabScreenPos( screenPos );
 				float4 ase_grabScreenPosNorm = ase_grabScreenPos / ase_grabScreenPos.w;
-				float4 screenColor2 = UNITY_SAMPLE_SCREENSPACE_TEXTURE(_GrabTexture,ase_grabScreenPosNorm.xy);
+				float4 screenColor5 = UNITY_SAMPLE_SCREENSPACE_TEXTURE(_GrabTexture,ase_grabScreenPosNorm.xy);
 				
 				
-				finalColor = screenColor2;
+				finalColor = screenColor5;
 				return finalColor;
 			}
 			ENDCG
@@ -151,11 +146,10 @@ Shader "First Pass Impact Frame"
 }
 /*ASEBEGIN
 Version=19201
-Node;AmplifyShaderEditor.GrabScreenPosition;3;-800,-176;Inherit;False;0;0;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.ScreenColorNode;2;-512,-160;Inherit;False;Global;_GrabScreen0;Grab Screen 0;0;0;Create;True;0;0;0;False;0;False;Object;-1;False;False;False;False;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
-Node;AmplifyShaderEditor.IntNode;4;-309.1668,-325.1667;Inherit;False;InstancedProperty;_StencilReference;Stencil Reference;0;0;Create;True;0;0;0;False;0;False;127;0;False;0;1;INT;0
-Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;0;0,0;Float;False;True;-1;3;AmplifyShaderEditor.MaterialInspector;0;5;First Pass Impact Frame;0770190933193b94aaa3065e307002fa;True;Unlit;0;0;Unlit;2;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;True;True;1;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;True;True;True;127;False;_Int0;127;False;_StencilReference;255;False;_StencilReference;7;False;;3;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;True;True;2;False;;True;7;False;;True;True;0;False;;0;False;;True;2;RenderType=Transparent=RenderType;Queue=Overlay=Queue=1;True;3;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;0;;0;0;Standard;1;Vertex Position,InvertActionOnDeselection;1;0;0;1;True;False;;False;0
-WireConnection;2;0;3;0
-WireConnection;0;0;2;0
+Node;AmplifyShaderEditor.GrabScreenPosition;6;-720,-144;Inherit;False;0;0;5;FLOAT4;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.ScreenColorNode;5;-432,-144;Inherit;False;Global;_GrabScreen0;Grab Screen 0;0;0;Create;True;0;0;0;False;0;False;Object;-1;False;False;False;False;2;0;FLOAT2;0,0;False;1;FLOAT;0;False;5;COLOR;0;FLOAT;1;FLOAT;2;FLOAT;3;FLOAT;4
+Node;AmplifyShaderEditor.TemplateMultiPassMasterNode;0;0.666626,0;Float;False;True;-1;3;AmplifyShaderEditor.MaterialInspector;0;5;Third Pass Impact Frame;0770190933193b94aaa3065e307002fa;True;Unlit;0;0;Unlit;2;False;True;0;1;False;;0;False;;0;1;False;;0;False;;True;0;False;;0;False;;False;False;False;False;False;False;False;False;False;True;0;False;;True;True;1;False;;False;True;True;True;True;True;0;False;;False;False;False;False;False;False;True;True;True;127;False;;255;False;;255;False;;2;False;;4;False;;0;False;;0;False;;0;False;;0;False;;0;False;;0;False;;True;True;2;False;;True;7;False;;True;True;0;False;;0;False;;True;2;RenderType=Transparent=RenderType;Queue=Overlay=Queue=3;True;3;False;0;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;False;0;;0;0;Standard;1;Vertex Position,InvertActionOnDeselection;1;0;0;1;True;False;;False;0
+WireConnection;5;0;6;0
+WireConnection;0;0;5;0
 ASEEND*/
-//CHKSM=6883B7B0C2A5DF5C70F66C223916B1644FBE2D6F
+//CHKSM=E6A40F610680E9BEE65767657A4B240ECAAE4C62

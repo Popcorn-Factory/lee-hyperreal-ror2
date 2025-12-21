@@ -225,7 +225,7 @@ Shader "Leviant's Shaders/UberShader v2.9"
 	CustomEditor "LeviantScreenSpaceEditor"
 	SubShader 
 	{
-		Tags { "Queue"="Overlay+2" "RenderType"="Overlay" "IgnoreProjector" = "True" "ForceNoShadowCasting" = "True" "PreviewType" = "None"}
+		Tags { "Queue"="Overlay+10" "RenderType"="Overlay" "IgnoreProjector" = "True" "ForceNoShadowCasting" = "True" "PreviewType" = "None"}
 		ZWrite Off
 		ZTest Off
 		Cull Off
