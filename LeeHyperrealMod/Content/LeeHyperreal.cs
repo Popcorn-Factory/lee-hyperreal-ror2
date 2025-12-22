@@ -650,7 +650,7 @@ namespace LeeHyperrealMod.Modules.Survivors
                 skillName = prefix + "PASSIVE_RAINBOW_VFX_NAME",
                 skillNameToken = prefix + "PASSIVE_RAINBOW_VFX_NAME",
                 skillDescriptionToken = prefix + "PASSIVE_RAINBOW_VFX_DESCRIPTION",
-                skillIcon = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("VFXIconDefault"),
+                skillIcon = Modules.LeeHyperrealAssets.mainAssetBundle.LoadAsset<Sprite>("VFXIconRandom"),
                 activationState = new EntityStates.SerializableEntityStateType(typeof(SkillStates.LeeHyperreal.Primary.PrimaryEntry)),
                 activationStateMachineName = "Body",
                 baseMaxStock = 1,
