@@ -1,6 +1,16 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
 
+- v2.2.0 -> Some extra content:
+    - A word regarding a skin that's been added in this update
+        - WHY DID YOU MAKE ME DO THIS.
+    - Anyway:
+        - 2 new skins added!
+            - Yi from Nine Sols
+            - B̵̲̆̏ǒ̴̪̺͊͌͆̕ÿ̶̢̥͙̩͠k̵͔̍̋ǐ̸̡͔̟̩̺ś̶̖̘̜͉͐s̷̨̯̈́e̶̥̯̱̘̓͗̚͝r̵̮̠̪͇͛̓͂́͠
+        - Added Effect to Ultimates - Should look at least 2x cooler
+            - or maybe 10x depending on who you ask.
+        - Added Random VFX option
 - v2.1.4
     - Recompiled with new libraries.
     - Fixed wrong function call shifting to new libraries, causing gacha achievements to break.
