@@ -114,7 +114,7 @@ namespace LeeHyperrealMod.Content.Controllers
 
             ChangeLaserColour();
             ChangeFlashEffect();
-
+            HandleBoneEnablement();
             SpawnChestJetpack();
             superCannonEffect.gameObject.SetActive(false);
             SetLaserState(false);
@@ -129,6 +129,35 @@ namespace LeeHyperrealMod.Content.Controllers
                 if (!jetpackObj) 
                 {
                     jetpackObj = UnityEngine.Object.Instantiate(ParticleAssets.RetrieveParticleEffectFromSkin("skinJetpack", this.characterBody), chestBone.transform);
+                }
+            }
+        }
+
+        private void HandleBoneEnablement()
+        {
+            if (characterBody.skinIndex == 5 || characterBody.skinIndex == 6) 
+            {
+                Transform head = childLocator.FindChild("Head");
+                if (characterBody.skinIndex == 5)
+                {
+                    head.Find("yiear1.l").gameObject.SetActive(true);
+                    head.Find("yiear1.r").gameObject.SetActive(true);
+                    head.Find("yiwhisker1.l").gameObject.SetActive(true);
+                    head.Find("yiwhisker1.r").gameObject.SetActive(true);
+                    head.Find("yiwhisker2.l").gameObject.SetActive(true);
+                    head.Find("yiwhisker2.r").gameObject.SetActive(true);
+                }
+
+                if (characterBody.skinIndex == 6) 
+                {
+                    head.Find("boykisserear1.l").gameObject.SetActive(true);
+                    head.Find("boykisserear1.r").gameObject.SetActive(true);
+                    head.Find("boykisserwhisker1").gameObject.SetActive(true);
+                    head.Find("boykisserwhisker1.l").gameObject.SetActive(true);
+                    head.Find("boykisserwhisker1.r").gameObject.SetActive(true);
+                    head.Find("boykisserwhisker2").gameObject.SetActive(true);
+                    head.Find("boykisserwhisker2.l").gameObject.SetActive(true);
+                    head.Find("boykisserwhisker2.r").gameObject.SetActive(true);
                 }
             }
         }
