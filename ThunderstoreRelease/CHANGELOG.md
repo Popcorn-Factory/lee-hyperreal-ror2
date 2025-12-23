@@ -11,6 +11,7 @@
         - Added Effect to Ultimates - Should look at least 2x cooler
             - or maybe 10x depending on who you ask.
         - Added Random VFX option
+            - Selects a random color for each move executed.
 - v2.1.4
     - Recompiled with new libraries.
     - Fixed wrong function call shifting to new libraries, causing gacha achievements to break.

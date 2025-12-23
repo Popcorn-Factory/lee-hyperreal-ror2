@@ -40,6 +40,7 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
         - Added Effect to Ultimates - Should look at least 2x cooler
             - or maybe 10x depending on who you ask.
         - Added Random VFX option
+            - Selects a random color for each move executed.
     
 - v2.0.0
     - Lore mode has been added!
