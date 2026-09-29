@@ -232,17 +232,17 @@ namespace LeeHyperrealMod.Modules
         {
             string prefix = LeeHyperrealPlugin.DEVELOPER_PREFIX + "_LEE_HYPERREAL_BODY_";
             itemKeyValueNotificationPairs = new Dictionary<ItemDef, CustomItemEffect>();
-            itemKeyValueNotificationPairs.Add(RoR2Content.Items.SecondarySkillMagazine, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_BACKUPMAG_DESC"));
-            itemKeyValueNotificationPairs.Add(RoR2Content.Items.AlienHead, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ALIEN_HEAD_DESC"));
-            itemKeyValueNotificationPairs.Add(RoR2Content.Items.LunarBadLuck, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_PURITY_DESC"));
-            itemKeyValueNotificationPairs.Add(RoR2Content.Items.Syringe, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
-            itemKeyValueNotificationPairs.Add(DLC1Content.Items.AttackSpeedAndMoveSpeed, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
-            itemKeyValueNotificationPairs.Add(RoR2Content.Items.EnergizedOnEquipmentUse, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
-            itemKeyValueNotificationPairs.Add(RoR2Content.Items.AttackSpeedOnCrit, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
-            itemKeyValueNotificationPairs.Add(DLC2Content.Items.IncreasePrimaryDamage, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_LUMINOUS_SHOT_DESC"));
+            if(RoR2Content.Items.SecondarySkillMagazine) itemKeyValueNotificationPairs.Add(RoR2Content.Items.SecondarySkillMagazine, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_BACKUPMAG_DESC"));
+            if (RoR2Content.Items.AlienHead) itemKeyValueNotificationPairs.Add(RoR2Content.Items.AlienHead, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ALIEN_HEAD_DESC"));
+            if (RoR2Content.Items.LunarBadLuck) itemKeyValueNotificationPairs.Add(RoR2Content.Items.LunarBadLuck, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_PURITY_DESC"));
+            if (RoR2Content.Items.Syringe) itemKeyValueNotificationPairs.Add(RoR2Content.Items.Syringe, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
+            if (DLC1Content.Items.AttackSpeedAndMoveSpeed) itemKeyValueNotificationPairs.Add(DLC1Content.Items.AttackSpeedAndMoveSpeed, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
+            if (RoR2Content.Items.EnergizedOnEquipmentUse) itemKeyValueNotificationPairs.Add(RoR2Content.Items.EnergizedOnEquipmentUse, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
+            if (RoR2Content.Items.AttackSpeedOnCrit) itemKeyValueNotificationPairs.Add(RoR2Content.Items.AttackSpeedOnCrit, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
+            if (DLC2Content.Items.IncreasePrimaryDamage) itemKeyValueNotificationPairs.Add(DLC2Content.Items.IncreasePrimaryDamage, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_LUMINOUS_SHOT_DESC"));
 
             equipmentKeyValueNotificationPairs = new Dictionary<EquipmentDef, CustomItemEffect>();
-            equipmentKeyValueNotificationPairs.Add(RoR2Content.Equipment.TeamWarCry, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
+            if (RoR2Content.Equipment.TeamWarCry) equipmentKeyValueNotificationPairs.Add(RoR2Content.Equipment.TeamWarCry, new CustomItemEffect($"{prefix}ITEM_EFFECT_TITLE", $"{prefix}ITEM_EFFECT_ATTACK_SPEED_DESC"));
         }
         #endregion
 
