@@ -30,8 +30,10 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
 
 ## Latest Update
 
-- v2.2.1 -> Bug fix:
-    - Fixes issue regarding occasions where null content is provided during init.
+- V2.2.2
+    - Updated For Hallowed Concepts
+    - Updated Hypermatrix Ult Effect
+
 - v2.2.0 -> Some extra content:
     - A word regarding a skin that's been added in this update
         - WHY DID YOU MAKE ME DO THIS.
@@ -43,7 +45,7 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
             - or maybe 10x depending on who you ask.
         - Added Random VFX option
             - Selects a random color for each move executed.
-    
+
 - v2.0.0
     - Lore mode has been added!
         - By default, Lore mode is on! This changes the following:

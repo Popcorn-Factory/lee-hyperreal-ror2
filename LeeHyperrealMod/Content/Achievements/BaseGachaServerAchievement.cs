@@ -36,15 +36,15 @@ namespace LeeHyperrealMod.Content.Achievements
 
         private void Unhook()
         {
-            On.RoR2.CostTypeDef.PayCost -= CostTypeDef_PayCost;
+            On.RoR2.CostTypeDef.PayCost_PayCostContext_PayCostResults -= CostTypeDef_PayCost;
         }
 
         private void Hook()
         {
-            On.RoR2.CostTypeDef.PayCost += CostTypeDef_PayCost;
+            On.RoR2.CostTypeDef.PayCost_PayCostContext_PayCostResults += CostTypeDef_PayCost;
         }
 
-        private void CostTypeDef_PayCost(On.RoR2.CostTypeDef.orig_PayCost orig, CostTypeDef self, CostTypeDef.PayCostContext context, CostTypeDef.PayCostResults result)
+        private void CostTypeDef_PayCost(On.RoR2.CostTypeDef.orig_PayCost_PayCostContext_PayCostResults orig, CostTypeDef self, CostTypeDef.PayCostContext context, CostTypeDef.PayCostResults result)
         {
             orig(self, context, result);
             bool allowRoll = false;

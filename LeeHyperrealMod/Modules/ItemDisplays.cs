@@ -31,7 +31,7 @@ namespace LeeHyperrealMod.Modules
 
                 for (int j = 0; j < rules.Length; j++)
                 {
-                    GameObject followerPrefab = rules[j].followerPrefab;
+                    GameObject followerPrefab = rules[j].followerPrefabAddress.LoadAssetAsync().WaitForCompletion();
                     if (followerPrefab)
                     {
                         string key = followerPrefab.name?.ToLowerInvariant();
@@ -46,6 +46,11 @@ namespace LeeHyperrealMod.Modules
 
         private static void PopulateCustomLightningArm()
         {
+            Debug.Log("Loading custom lightning arm");
+            foreach (var (key, value) in itemDisplayPrefabs)
+            {
+                Debug.Log(key + ": " + value.name);
+            }
             #region IgnoreThisAndRunAway
             //seriously you don't need this
             //I see you're still here, well if you do need this here's what you do
