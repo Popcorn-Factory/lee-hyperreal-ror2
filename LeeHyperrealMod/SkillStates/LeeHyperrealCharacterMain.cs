@@ -238,6 +238,8 @@ namespace LeeHyperrealMod.SkillStates
         public override void OnExit()
         {
             base.OnExit();
+            OnSuperSprintExit();
+
             if (superSprintVFX) 
             {
                 superSprintVFX.GetComponent<DestroySprintOnDelay>().StartDestroying();
