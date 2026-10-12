@@ -4,6 +4,7 @@
 - V2.2.2
     - Updated For Hallowed Concepts
     - Updated Hypermatrix Ult Effect
+    - Fixed issue where Ulting while super sprinting makes the super sprint audio persist until the stage is over.
 - v2.2.1 -> Bug fix:
     - Fixes issue regarding occasions where null content is provided during init.
 - v2.2.0 -> Some extra content:

@@ -33,6 +33,7 @@ Use of Risk Of Options is highly recommended! If some options don't exist even a
 - V2.2.2
     - Updated For Hallowed Concepts
     - Updated Hypermatrix Ult Effect
+    - Fixed issue where Ulting while super sprinting makes the super sprint audio persist until the stage is over.
 
 - v2.2.0 -> Some extra content:
     - A word regarding a skin that's been added in this update
