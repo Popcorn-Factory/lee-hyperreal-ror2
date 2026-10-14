@@ -31,11 +31,31 @@ namespace LeeHyperrealMod.Modules
 
                 for (int j = 0; j < rules.Length; j++)
                 {
-                    GameObject followerPrefab = rules[j].followerPrefabAddress.LoadAssetAsync().WaitForCompletion();
+                    GameObject followerPrefab = rules[j].followerPrefab;
+
+                    // The game moved item display prefabs to addressables. Depending on load order
+                    // (e.g. when other survivor mods are installed) the direct reference can still be
+                    // null here, so resolve the addressable explicitly before giving up on it.
+                    if (!followerPrefab && rules[j].followerPrefabAddress != null && rules[j].followerPrefabAddress.RuntimeKeyIsValid())
+                    {
+                        var displayAddress = rules[j].followerPrefabAddress;
+
+                        // An AssetReference caches its own operation handle. If the load was already
+                        // started (vanilla content loading, or two rules sharing the same reference)
+                        // calling LoadAssetAsync again logs:
+                        // "Attempting to load AssetReference that has already been loaded."
+                        // Reuse the existing handle instead of starting a second load.
+                        // OperationHandle is the non-generic AsyncOperationHandle, so its
+                        // WaitForCompletion() returns 'object' - cast it to GameObject.
+                        followerPrefab = displayAddress.OperationHandle.IsValid()
+                            ? displayAddress.OperationHandle.WaitForCompletion() as GameObject
+                            : displayAddress.LoadAssetAsync().WaitForCompletion() as GameObject;
+                    }
+
                     if (followerPrefab)
                     {
                         string key = followerPrefab.name?.ToLowerInvariant();
-                        if (!itemDisplayPrefabs.ContainsKey(key))
+                        if (!string.IsNullOrEmpty(key) && !itemDisplayPrefabs.ContainsKey(key))
                         {
                             itemDisplayPrefabs[key] = followerPrefab;
                         }
@@ -58,13 +78,24 @@ namespace LeeHyperrealMod.Modules
             //capacitor is hardcoded to track your "UpperArmR", "LowerArmR", and "HandR" bones.
             //this is for having the lightning on custom bones in your childlocator
 
-            GameObject display = R2API.PrefabAPI.InstantiateClone(itemDisplayPrefabs["displaylightningarmright"], "DisplayLightningCustom", false);
+            // Do NOT hard-index the dictionary here. If "displaylightningarmright" wasn't collected
+            // (addressable not resolved yet, another mod's content pack changing load order, etc.)
+            // a KeyNotFoundException is thrown out of Awake() and aborts the rest of plugin init.
+            if (!itemDisplayPrefabs.TryGetValue("displaylightningarmright", out GameObject lightningArmPrefab) || !lightningArmPrefab)
+            {
+                Log.Error("Could not find displaylightningarmright, skipping custom lightning arm.");
+                return;
+            }
+
+            GameObject display = R2API.PrefabAPI.InstantiateClone(lightningArmPrefab, "DisplayLightningCustom", false);
 
             LimbMatcher limbMatcher = display.GetComponent<LimbMatcher>();
-
-            limbMatcher.limbPairs[0].targetChildLimb = "LightningArm1";
-            limbMatcher.limbPairs[1].targetChildLimb = "LightningArm2";
-            limbMatcher.limbPairs[2].targetChildLimb = "LightningArmEnd";
+            if (limbMatcher && limbMatcher.limbPairs != null && limbMatcher.limbPairs.Length >= 3)
+            {
+                limbMatcher.limbPairs[0].targetChildLimb = "LightningArm1";
+                limbMatcher.limbPairs[1].targetChildLimb = "LightningArm2";
+                limbMatcher.limbPairs[2].targetChildLimb = "LightningArmEnd";
+            }
 
             itemDisplayPrefabs["displaylightningarmcustom"] = display;
             #endregion

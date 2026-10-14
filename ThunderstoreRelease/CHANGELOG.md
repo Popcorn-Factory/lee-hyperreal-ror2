@@ -1,6 +1,8 @@
 # Lee: Hyperreal - A Character Mod for Risk of Rain 2
 ## Changelog
 
+- V2.2.3
+    - oops. actually fixxed for real.
 - V2.2.2
     - Updated For Hallowed Concepts
     - Updated Hypermatrix Ult Effect
