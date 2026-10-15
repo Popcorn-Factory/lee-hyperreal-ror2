@@ -2,7 +2,7 @@
 ## Changelog
 
 - V2.2.3
-    - oops. actually fixxed for real.
+    - oops. actually fixxed for real (Regarding Item Display Loading)
 - V2.2.2
     - Updated For Hallowed Concepts
     - Updated Hypermatrix Ult Effect
